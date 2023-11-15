@@ -52,16 +52,14 @@ class TasbihViewState extends State<TasbihView>
           foregroundColor: ColorManager.blackColor,
           backgroundColor: tasbihThemeData[state.tasbihThemes]!.primaryColor,
           elevation: 1,
-          leading: BlocBuilder<TasbihBloc, TasbihState>(
-            builder: (context, state) => BackButton(
-              onPressed: () {
-                if (state.isBoolGreaterThanOne && state.tasbihId.isNotEmpty) {
-                  context.read<TasbihBloc>().add(AddTasbihEvent(
-                      buildContext: context, id: state.tasbihId));
-                }
-                context.pop();
-              },
-            ),
+          leading: BackButton(
+            onPressed: () {
+              if (state.isBoolGreaterThanOne && state.tasbihId.isNotEmpty) {
+                context.read<TasbihBloc>().add(
+                    AddTasbihEvent(buildContext: context, id: state.tasbihId));
+              }
+              context.pop();
+            },
           ),
           actions: [
             Align(
@@ -88,22 +86,17 @@ class TasbihViewState extends State<TasbihView>
               icon: const Icon(Icons.autorenew),
             ),
             kWidth10,
-            BlocBuilder<TasbihBloc, TasbihState>(
-                builder: (context, state) => state.audioMute == false
-                    ? GestureDetector(
-                        onTap: () {
-                          context
-                              .read<TasbihBloc>()
-                              .add(const MuteAudioEvent());
-                        },
-                        child: const Icon(Icons.volume_up_outlined))
-                    : GestureDetector(
-                        onTap: () {
-                          context
-                              .read<TasbihBloc>()
-                              .add(const MuteAudioEvent());
-                        },
-                        child: const Icon(Icons.volume_off_outlined))),
+            state.audioMute == false
+                ? GestureDetector(
+                    onTap: () {
+                      context.read<TasbihBloc>().add(const MuteAudioEvent());
+                    },
+                    child: const Icon(Icons.volume_up_outlined))
+                : GestureDetector(
+                    onTap: () {
+                      context.read<TasbihBloc>().add(const MuteAudioEvent());
+                    },
+                    child: const Icon(Icons.volume_off_outlined)),
             kWidth20,
           ],
           centerTitle: true,
@@ -137,13 +130,10 @@ class TasbihViewState extends State<TasbihView>
                 },
               ),
               kHeight10,
-              BlocBuilder<TasbihBloc, TasbihState>(
-                builder: (context, state) => Text(
-                  state.dhikrCount.toString(),
-                  style: tasbihThemeData[state.tasbihThemes]!
-                      .textTheme
-                      .bodyMedium!,
-                ),
+              Text(
+                state.dhikrCount.toString(),
+                style:
+                    tasbihThemeData[state.tasbihThemes]!.textTheme.bodyMedium!,
               ),
               kHeight5,
               Row(
@@ -268,9 +258,12 @@ class TasbihViewState extends State<TasbihView>
               ),
               kHeight10,
               BlocBuilder<TasbihBloc, TasbihState>(
-                builder: (context, state) => state.tasbihDhikr.isEmpty
-                    ? _chooseDikrButton(context, state)
-                    : _dikhrContainer(state),
+                builder: (context, state) {
+                  print('Rebuilding UI with tasbihDhikr: ${state.tasbihDhikr}');
+                  return state.tasbihDhikr.isEmpty
+                      ? _chooseDikrButton(context, state)
+                      : _dikhrContainer(state);
+                },
               ),
               const Spacer(),
               Container(
@@ -337,7 +330,7 @@ class TasbihViewState extends State<TasbihView>
     );
   }
 
-  Container _dikhrContainer(TasbihState state) {
+  Widget _dikhrContainer(TasbihState state) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 30),
       padding: const EdgeInsets.symmetric(horizontal: 10).copyWith(top: 10),
@@ -388,7 +381,7 @@ class TasbihViewState extends State<TasbihView>
               alignment: Alignment.topLeft,
               child: GestureDetector(
                 onTap: () {
-                  context.goNamed(MyAppRouteConstants.chooseDhikrRouteName);
+                  context.pushNamed(MyAppRouteConstants.chooseDhikrRouteName);
                 },
                 child: Text(
                   'View More',
@@ -409,7 +402,7 @@ class TasbihViewState extends State<TasbihView>
   Widget _chooseDikrButton(BuildContext context, TasbihState state) {
     return GestureDetector(
       onTap: () {
-        context.goNamed(MyAppRouteConstants.chooseDhikrRouteName);
+        context.pushNamed(MyAppRouteConstants.chooseDhikrRouteName);
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 30),

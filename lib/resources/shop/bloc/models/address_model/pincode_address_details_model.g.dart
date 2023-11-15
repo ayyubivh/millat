@@ -6,9 +6,9 @@ part of 'pincode_address_details_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PincodeAddressModel _$$_PincodeAddressModelFromJson(
+_$PincodeAddressModelImpl _$$PincodeAddressModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_PincodeAddressModel(
+    _$PincodeAddressModelImpl(
       message: json['Message'] as String?,
       status: json['Status'] as String?,
       postOffice: (json['PostOffice'] as List<dynamic>?)
@@ -16,16 +16,16 @@ _$_PincodeAddressModel _$$_PincodeAddressModelFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_PincodeAddressModelToJson(
-        _$_PincodeAddressModel instance) =>
+Map<String, dynamic> _$$PincodeAddressModelImplToJson(
+        _$PincodeAddressModelImpl instance) =>
     <String, dynamic>{
       'Message': instance.message,
       'Status': instance.status,
       'PostOffice': instance.postOffice,
     };
 
-_$_PostOffice _$$_PostOfficeFromJson(Map<String, dynamic> json) =>
-    _$_PostOffice(
+_$PostOfficeImpl _$$PostOfficeImplFromJson(Map<String, dynamic> json) =>
+    _$PostOfficeImpl(
       name: json['Name'] as String?,
       branchType: json['BranchType'] as String?,
       deliveryStatus: json['DeliveryStatus'] as String?,
@@ -39,7 +39,7 @@ _$_PostOffice _$$_PostOfficeFromJson(Map<String, dynamic> json) =>
       pincode: json['Pincode'] as String?,
     );
 
-Map<String, dynamic> _$$_PostOfficeToJson(_$_PostOffice instance) =>
+Map<String, dynamic> _$$PostOfficeImplToJson(_$PostOfficeImpl instance) =>
     <String, dynamic>{
       'Name': instance.name,
       'BranchType': instance.branchType,

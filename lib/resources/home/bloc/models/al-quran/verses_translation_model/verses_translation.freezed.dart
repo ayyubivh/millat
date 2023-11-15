@@ -64,23 +64,25 @@ class _$VersesTranslationModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_VersesTranslationModelCopyWith<$Res>
+abstract class _$$VersesTranslationModelImplCopyWith<$Res>
     implements $VersesTranslationModelCopyWith<$Res> {
-  factory _$$_VersesTranslationModelCopyWith(_$_VersesTranslationModel value,
-          $Res Function(_$_VersesTranslationModel) then) =
-      __$$_VersesTranslationModelCopyWithImpl<$Res>;
+  factory _$$VersesTranslationModelImplCopyWith(
+          _$VersesTranslationModelImpl value,
+          $Res Function(_$VersesTranslationModelImpl) then) =
+      __$$VersesTranslationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Translations> translations});
 }
 
 /// @nodoc
-class __$$_VersesTranslationModelCopyWithImpl<$Res>
+class __$$VersesTranslationModelImplCopyWithImpl<$Res>
     extends _$VersesTranslationModelCopyWithImpl<$Res,
-        _$_VersesTranslationModel>
-    implements _$$_VersesTranslationModelCopyWith<$Res> {
-  __$$_VersesTranslationModelCopyWithImpl(_$_VersesTranslationModel _value,
-      $Res Function(_$_VersesTranslationModel) _then)
+        _$VersesTranslationModelImpl>
+    implements _$$VersesTranslationModelImplCopyWith<$Res> {
+  __$$VersesTranslationModelImplCopyWithImpl(
+      _$VersesTranslationModelImpl _value,
+      $Res Function(_$VersesTranslationModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +90,7 @@ class __$$_VersesTranslationModelCopyWithImpl<$Res>
   $Res call({
     Object? translations = null,
   }) {
-    return _then(_$_VersesTranslationModel(
+    return _then(_$VersesTranslationModelImpl(
       translations: null == translations
           ? _value._translations
           : translations // ignore: cast_nullable_to_non_nullable
@@ -99,13 +101,13 @@ class __$$_VersesTranslationModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_VersesTranslationModel implements _VersesTranslationModel {
-  const _$_VersesTranslationModel(
+class _$VersesTranslationModelImpl implements _VersesTranslationModel {
+  const _$VersesTranslationModelImpl(
       {required final List<Translations> translations})
       : _translations = translations;
 
-  factory _$_VersesTranslationModel.fromJson(Map<String, dynamic> json) =>
-      _$$_VersesTranslationModelFromJson(json);
+  factory _$VersesTranslationModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VersesTranslationModelImplFromJson(json);
 
   final List<Translations> _translations;
   @override
@@ -124,7 +126,7 @@ class _$_VersesTranslationModel implements _VersesTranslationModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VersesTranslationModel &&
+            other is _$VersesTranslationModelImpl &&
             const DeepCollectionEquality()
                 .equals(other._translations, _translations));
   }
@@ -137,13 +139,13 @@ class _$_VersesTranslationModel implements _VersesTranslationModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VersesTranslationModelCopyWith<_$_VersesTranslationModel> get copyWith =>
-      __$$_VersesTranslationModelCopyWithImpl<_$_VersesTranslationModel>(
-          this, _$identity);
+  _$$VersesTranslationModelImplCopyWith<_$VersesTranslationModelImpl>
+      get copyWith => __$$VersesTranslationModelImplCopyWithImpl<
+          _$VersesTranslationModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VersesTranslationModelToJson(
+    return _$$VersesTranslationModelImplToJson(
       this,
     );
   }
@@ -152,17 +154,17 @@ class _$_VersesTranslationModel implements _VersesTranslationModel {
 abstract class _VersesTranslationModel implements VersesTranslationModel {
   const factory _VersesTranslationModel(
           {required final List<Translations> translations}) =
-      _$_VersesTranslationModel;
+      _$VersesTranslationModelImpl;
 
   factory _VersesTranslationModel.fromJson(Map<String, dynamic> json) =
-      _$_VersesTranslationModel.fromJson;
+      _$VersesTranslationModelImpl.fromJson;
 
   @override
   List<Translations> get translations;
   @override
   @JsonKey(ignore: true)
-  _$$_VersesTranslationModelCopyWith<_$_VersesTranslationModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$VersesTranslationModelImplCopyWith<_$VersesTranslationModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 Translations _$TranslationsFromJson(Map<String, dynamic> json) {
@@ -220,22 +222,22 @@ class _$TranslationsCopyWithImpl<$Res, $Val extends Translations>
 }
 
 /// @nodoc
-abstract class _$$_TranslationsCopyWith<$Res>
+abstract class _$$TranslationsImplCopyWith<$Res>
     implements $TranslationsCopyWith<$Res> {
-  factory _$$_TranslationsCopyWith(
-          _$_Translations value, $Res Function(_$_Translations) then) =
-      __$$_TranslationsCopyWithImpl<$Res>;
+  factory _$$TranslationsImplCopyWith(
+          _$TranslationsImpl value, $Res Function(_$TranslationsImpl) then) =
+      __$$TranslationsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: "resource_id") int id, String text});
 }
 
 /// @nodoc
-class __$$_TranslationsCopyWithImpl<$Res>
-    extends _$TranslationsCopyWithImpl<$Res, _$_Translations>
-    implements _$$_TranslationsCopyWith<$Res> {
-  __$$_TranslationsCopyWithImpl(
-      _$_Translations _value, $Res Function(_$_Translations) _then)
+class __$$TranslationsImplCopyWithImpl<$Res>
+    extends _$TranslationsCopyWithImpl<$Res, _$TranslationsImpl>
+    implements _$$TranslationsImplCopyWith<$Res> {
+  __$$TranslationsImplCopyWithImpl(
+      _$TranslationsImpl _value, $Res Function(_$TranslationsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -244,7 +246,7 @@ class __$$_TranslationsCopyWithImpl<$Res>
     Object? id = null,
     Object? text = null,
   }) {
-    return _then(_$_Translations(
+    return _then(_$TranslationsImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -259,12 +261,12 @@ class __$$_TranslationsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Translations implements _Translations {
-  const _$_Translations(
+class _$TranslationsImpl implements _Translations {
+  const _$TranslationsImpl(
       {@JsonKey(name: "resource_id") required this.id, required this.text});
 
-  factory _$_Translations.fromJson(Map<String, dynamic> json) =>
-      _$$_TranslationsFromJson(json);
+  factory _$TranslationsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TranslationsImplFromJson(json);
 
   @override
   @JsonKey(name: "resource_id")
@@ -281,7 +283,7 @@ class _$_Translations implements _Translations {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Translations &&
+            other is _$TranslationsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.text, text) || other.text == text));
   }
@@ -293,12 +295,12 @@ class _$_Translations implements _Translations {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TranslationsCopyWith<_$_Translations> get copyWith =>
-      __$$_TranslationsCopyWithImpl<_$_Translations>(this, _$identity);
+  _$$TranslationsImplCopyWith<_$TranslationsImpl> get copyWith =>
+      __$$TranslationsImplCopyWithImpl<_$TranslationsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TranslationsToJson(
+    return _$$TranslationsImplToJson(
       this,
     );
   }
@@ -307,10 +309,10 @@ class _$_Translations implements _Translations {
 abstract class _Translations implements Translations {
   const factory _Translations(
       {@JsonKey(name: "resource_id") required final int id,
-      required final String text}) = _$_Translations;
+      required final String text}) = _$TranslationsImpl;
 
   factory _Translations.fromJson(Map<String, dynamic> json) =
-      _$_Translations.fromJson;
+      _$TranslationsImpl.fromJson;
 
   @override
   @JsonKey(name: "resource_id")
@@ -319,6 +321,6 @@ abstract class _Translations implements Translations {
   String get text;
   @override
   @JsonKey(ignore: true)
-  _$$_TranslationsCopyWith<_$_Translations> get copyWith =>
+  _$$TranslationsImplCopyWith<_$TranslationsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

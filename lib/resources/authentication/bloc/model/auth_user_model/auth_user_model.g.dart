@@ -6,8 +6,8 @@ part of 'auth_user_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AuthUserModel _$$_AuthUserModelFromJson(Map<String, dynamic> json) =>
-    _$_AuthUserModel(
+_$AuthUserModelImpl _$$AuthUserModelImplFromJson(Map<String, dynamic> json) =>
+    _$AuthUserModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +16,7 @@ _$_AuthUserModel _$$_AuthUserModelFromJson(Map<String, dynamic> json) =>
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_AuthUserModelToJson(_$_AuthUserModel instance) =>
+Map<String, dynamic> _$$AuthUserModelImplToJson(_$AuthUserModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,18 +24,19 @@ Map<String, dynamic> _$$_AuthUserModelToJson(_$_AuthUserModel instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       user: json['user'] == null
           ? null
           : UserProfile.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'user': instance.user,
     };
 
-_$_UserProfile _$$_UserProfileFromJson(Map<String, dynamic> json) =>
-    _$_UserProfile(
+_$UserProfileImpl _$$UserProfileImplFromJson(Map<String, dynamic> json) =>
+    _$UserProfileImpl(
       id: json['_id'] as String?,
       institution: json['institution'] as String?,
       username: json['username'] as String?,
@@ -50,7 +51,7 @@ _$_UserProfile _$$_UserProfileFromJson(Map<String, dynamic> json) =>
       dob: json['DOB'] as String?,
     );
 
-Map<String, dynamic> _$$_UserProfileToJson(_$_UserProfile instance) =>
+Map<String, dynamic> _$$UserProfileImplToJson(_$UserProfileImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'institution': instance.institution,

@@ -36,7 +36,7 @@ class ProductsItem with _$ProductsItem {
     String? name,
     String? location,
     List<String>? amenities,
-    String? price,
+    double? price,
     String? mainImage,
     String? overView,
     String? from,

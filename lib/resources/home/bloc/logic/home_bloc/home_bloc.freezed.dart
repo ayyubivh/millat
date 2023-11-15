@@ -189,26 +189,27 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchLargeDiscountsBannerCopyWith<$Res> {
-  factory _$$FetchLargeDiscountsBannerCopyWith(
-          _$FetchLargeDiscountsBanner value,
-          $Res Function(_$FetchLargeDiscountsBanner) then) =
-      __$$FetchLargeDiscountsBannerCopyWithImpl<$Res>;
+abstract class _$$FetchLargeDiscountsBannerImplCopyWith<$Res> {
+  factory _$$FetchLargeDiscountsBannerImplCopyWith(
+          _$FetchLargeDiscountsBannerImpl value,
+          $Res Function(_$FetchLargeDiscountsBannerImpl) then) =
+      __$$FetchLargeDiscountsBannerImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchLargeDiscountsBannerCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$FetchLargeDiscountsBanner>
-    implements _$$FetchLargeDiscountsBannerCopyWith<$Res> {
-  __$$FetchLargeDiscountsBannerCopyWithImpl(_$FetchLargeDiscountsBanner _value,
-      $Res Function(_$FetchLargeDiscountsBanner) _then)
+class __$$FetchLargeDiscountsBannerImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchLargeDiscountsBannerImpl>
+    implements _$$FetchLargeDiscountsBannerImplCopyWith<$Res> {
+  __$$FetchLargeDiscountsBannerImplCopyWithImpl(
+      _$FetchLargeDiscountsBannerImpl _value,
+      $Res Function(_$FetchLargeDiscountsBannerImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchLargeDiscountsBanner implements FetchLargeDiscountsBanner {
-  const _$FetchLargeDiscountsBanner();
+class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
+  const _$FetchLargeDiscountsBannerImpl();
 
   @override
   String toString() {
@@ -219,7 +220,7 @@ class _$FetchLargeDiscountsBanner implements FetchLargeDiscountsBanner {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchLargeDiscountsBanner);
+            other is _$FetchLargeDiscountsBannerImpl);
   }
 
   @override
@@ -404,29 +405,29 @@ class _$FetchLargeDiscountsBanner implements FetchLargeDiscountsBanner {
 }
 
 abstract class FetchLargeDiscountsBanner implements HomeEvent {
-  const factory FetchLargeDiscountsBanner() = _$FetchLargeDiscountsBanner;
+  const factory FetchLargeDiscountsBanner() = _$FetchLargeDiscountsBannerImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchTopOffersBannerCopyWith<$Res> {
-  factory _$$FetchTopOffersBannerCopyWith(_$FetchTopOffersBanner value,
-          $Res Function(_$FetchTopOffersBanner) then) =
-      __$$FetchTopOffersBannerCopyWithImpl<$Res>;
+abstract class _$$FetchTopOffersBannerImplCopyWith<$Res> {
+  factory _$$FetchTopOffersBannerImplCopyWith(_$FetchTopOffersBannerImpl value,
+          $Res Function(_$FetchTopOffersBannerImpl) then) =
+      __$$FetchTopOffersBannerImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchTopOffersBannerCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$FetchTopOffersBanner>
-    implements _$$FetchTopOffersBannerCopyWith<$Res> {
-  __$$FetchTopOffersBannerCopyWithImpl(_$FetchTopOffersBanner _value,
-      $Res Function(_$FetchTopOffersBanner) _then)
+class __$$FetchTopOffersBannerImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchTopOffersBannerImpl>
+    implements _$$FetchTopOffersBannerImplCopyWith<$Res> {
+  __$$FetchTopOffersBannerImplCopyWithImpl(_$FetchTopOffersBannerImpl _value,
+      $Res Function(_$FetchTopOffersBannerImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchTopOffersBanner implements FetchTopOffersBanner {
-  const _$FetchTopOffersBanner();
+class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
+  const _$FetchTopOffersBannerImpl();
 
   @override
   String toString() {
@@ -436,7 +437,8 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchTopOffersBanner);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchTopOffersBannerImpl);
   }
 
   @override
@@ -621,29 +623,29 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
 }
 
 abstract class FetchTopOffersBanner implements HomeEvent {
-  const factory FetchTopOffersBanner() = _$FetchTopOffersBanner;
+  const factory FetchTopOffersBanner() = _$FetchTopOffersBannerImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchBrandofTheDayCopyWith<$Res> {
-  factory _$$FetchBrandofTheDayCopyWith(_$FetchBrandofTheDay value,
-          $Res Function(_$FetchBrandofTheDay) then) =
-      __$$FetchBrandofTheDayCopyWithImpl<$Res>;
+abstract class _$$FetchBrandofTheDayImplCopyWith<$Res> {
+  factory _$$FetchBrandofTheDayImplCopyWith(_$FetchBrandofTheDayImpl value,
+          $Res Function(_$FetchBrandofTheDayImpl) then) =
+      __$$FetchBrandofTheDayImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchBrandofTheDayCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$FetchBrandofTheDay>
-    implements _$$FetchBrandofTheDayCopyWith<$Res> {
-  __$$FetchBrandofTheDayCopyWithImpl(
-      _$FetchBrandofTheDay _value, $Res Function(_$FetchBrandofTheDay) _then)
+class __$$FetchBrandofTheDayImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchBrandofTheDayImpl>
+    implements _$$FetchBrandofTheDayImplCopyWith<$Res> {
+  __$$FetchBrandofTheDayImplCopyWithImpl(_$FetchBrandofTheDayImpl _value,
+      $Res Function(_$FetchBrandofTheDayImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchBrandofTheDay implements FetchBrandofTheDay {
-  const _$FetchBrandofTheDay();
+class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
+  const _$FetchBrandofTheDayImpl();
 
   @override
   String toString() {
@@ -653,7 +655,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchBrandofTheDay);
+        (other.runtimeType == runtimeType && other is _$FetchBrandofTheDayImpl);
   }
 
   @override
@@ -838,29 +840,29 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
 }
 
 abstract class FetchBrandofTheDay implements HomeEvent {
-  const factory FetchBrandofTheDay() = _$FetchBrandofTheDay;
+  const factory FetchBrandofTheDay() = _$FetchBrandofTheDayImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchHadithOfTheDayCopyWith<$Res> {
-  factory _$$FetchHadithOfTheDayCopyWith(_$FetchHadithOfTheDay value,
-          $Res Function(_$FetchHadithOfTheDay) then) =
-      __$$FetchHadithOfTheDayCopyWithImpl<$Res>;
+abstract class _$$FetchHadithOfTheDayImplCopyWith<$Res> {
+  factory _$$FetchHadithOfTheDayImplCopyWith(_$FetchHadithOfTheDayImpl value,
+          $Res Function(_$FetchHadithOfTheDayImpl) then) =
+      __$$FetchHadithOfTheDayImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchHadithOfTheDayCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$FetchHadithOfTheDay>
-    implements _$$FetchHadithOfTheDayCopyWith<$Res> {
-  __$$FetchHadithOfTheDayCopyWithImpl(
-      _$FetchHadithOfTheDay _value, $Res Function(_$FetchHadithOfTheDay) _then)
+class __$$FetchHadithOfTheDayImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchHadithOfTheDayImpl>
+    implements _$$FetchHadithOfTheDayImplCopyWith<$Res> {
+  __$$FetchHadithOfTheDayImplCopyWithImpl(_$FetchHadithOfTheDayImpl _value,
+      $Res Function(_$FetchHadithOfTheDayImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
-  const _$FetchHadithOfTheDay();
+class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
+  const _$FetchHadithOfTheDayImpl();
 
   @override
   String toString() {
@@ -870,7 +872,8 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchHadithOfTheDay);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchHadithOfTheDayImpl);
   }
 
   @override
@@ -1055,29 +1058,29 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
 }
 
 abstract class FetchHadithOfTheDay implements HomeEvent {
-  const factory FetchHadithOfTheDay() = _$FetchHadithOfTheDay;
+  const factory FetchHadithOfTheDay() = _$FetchHadithOfTheDayImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchEventOfTheMonthCopyWith<$Res> {
-  factory _$$FetchEventOfTheMonthCopyWith(_$FetchEventOfTheMonth value,
-          $Res Function(_$FetchEventOfTheMonth) then) =
-      __$$FetchEventOfTheMonthCopyWithImpl<$Res>;
+abstract class _$$FetchEventOfTheMonthImplCopyWith<$Res> {
+  factory _$$FetchEventOfTheMonthImplCopyWith(_$FetchEventOfTheMonthImpl value,
+          $Res Function(_$FetchEventOfTheMonthImpl) then) =
+      __$$FetchEventOfTheMonthImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchEventOfTheMonthCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$FetchEventOfTheMonth>
-    implements _$$FetchEventOfTheMonthCopyWith<$Res> {
-  __$$FetchEventOfTheMonthCopyWithImpl(_$FetchEventOfTheMonth _value,
-      $Res Function(_$FetchEventOfTheMonth) _then)
+class __$$FetchEventOfTheMonthImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchEventOfTheMonthImpl>
+    implements _$$FetchEventOfTheMonthImplCopyWith<$Res> {
+  __$$FetchEventOfTheMonthImplCopyWithImpl(_$FetchEventOfTheMonthImpl _value,
+      $Res Function(_$FetchEventOfTheMonthImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
-  const _$FetchEventOfTheMonth();
+class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
+  const _$FetchEventOfTheMonthImpl();
 
   @override
   String toString() {
@@ -1087,7 +1090,8 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchEventOfTheMonth);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchEventOfTheMonthImpl);
   }
 
   @override
@@ -1272,24 +1276,26 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
 }
 
 abstract class FetchEventOfTheMonth implements HomeEvent {
-  const factory FetchEventOfTheMonth() = _$FetchEventOfTheMonth;
+  const factory FetchEventOfTheMonth() = _$FetchEventOfTheMonthImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchPrayerTrackerEventCopyWith<$Res> {
-  factory _$$FetchPrayerTrackerEventCopyWith(_$FetchPrayerTrackerEvent value,
-          $Res Function(_$FetchPrayerTrackerEvent) then) =
-      __$$FetchPrayerTrackerEventCopyWithImpl<$Res>;
+abstract class _$$FetchPrayerTrackerEventImplCopyWith<$Res> {
+  factory _$$FetchPrayerTrackerEventImplCopyWith(
+          _$FetchPrayerTrackerEventImpl value,
+          $Res Function(_$FetchPrayerTrackerEventImpl) then) =
+      __$$FetchPrayerTrackerEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DateTime date, BuildContext context});
 }
 
 /// @nodoc
-class __$$FetchPrayerTrackerEventCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$FetchPrayerTrackerEvent>
-    implements _$$FetchPrayerTrackerEventCopyWith<$Res> {
-  __$$FetchPrayerTrackerEventCopyWithImpl(_$FetchPrayerTrackerEvent _value,
-      $Res Function(_$FetchPrayerTrackerEvent) _then)
+class __$$FetchPrayerTrackerEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchPrayerTrackerEventImpl>
+    implements _$$FetchPrayerTrackerEventImplCopyWith<$Res> {
+  __$$FetchPrayerTrackerEventImplCopyWithImpl(
+      _$FetchPrayerTrackerEventImpl _value,
+      $Res Function(_$FetchPrayerTrackerEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1298,7 +1304,7 @@ class __$$FetchPrayerTrackerEventCopyWithImpl<$Res>
     Object? date = null,
     Object? context = null,
   }) {
-    return _then(_$FetchPrayerTrackerEvent(
+    return _then(_$FetchPrayerTrackerEventImpl(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -1313,8 +1319,9 @@ class __$$FetchPrayerTrackerEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
-  const _$FetchPrayerTrackerEvent({required this.date, required this.context});
+class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
+  const _$FetchPrayerTrackerEventImpl(
+      {required this.date, required this.context});
 
   @override
   final DateTime date;
@@ -1330,7 +1337,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchPrayerTrackerEvent &&
+            other is _$FetchPrayerTrackerEventImpl &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.context, context) || other.context == context));
   }
@@ -1341,9 +1348,9 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchPrayerTrackerEventCopyWith<_$FetchPrayerTrackerEvent> get copyWith =>
-      __$$FetchPrayerTrackerEventCopyWithImpl<_$FetchPrayerTrackerEvent>(
-          this, _$identity);
+  _$$FetchPrayerTrackerEventImplCopyWith<_$FetchPrayerTrackerEventImpl>
+      get copyWith => __$$FetchPrayerTrackerEventImplCopyWithImpl<
+          _$FetchPrayerTrackerEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1526,30 +1533,32 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
 abstract class FetchPrayerTrackerEvent implements HomeEvent {
   const factory FetchPrayerTrackerEvent(
       {required final DateTime date,
-      required final BuildContext context}) = _$FetchPrayerTrackerEvent;
+      required final BuildContext context}) = _$FetchPrayerTrackerEventImpl;
 
   DateTime get date;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$FetchPrayerTrackerEventCopyWith<_$FetchPrayerTrackerEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchPrayerTrackerEventImplCopyWith<_$FetchPrayerTrackerEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddPrayerToPrayerTrackerCopyWith<$Res> {
-  factory _$$AddPrayerToPrayerTrackerCopyWith(_$AddPrayerToPrayerTracker value,
-          $Res Function(_$AddPrayerToPrayerTracker) then) =
-      __$$AddPrayerToPrayerTrackerCopyWithImpl<$Res>;
+abstract class _$$AddPrayerToPrayerTrackerImplCopyWith<$Res> {
+  factory _$$AddPrayerToPrayerTrackerImplCopyWith(
+          _$AddPrayerToPrayerTrackerImpl value,
+          $Res Function(_$AddPrayerToPrayerTrackerImpl) then) =
+      __$$AddPrayerToPrayerTrackerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String namazName, BuildContext context});
 }
 
 /// @nodoc
-class __$$AddPrayerToPrayerTrackerCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$AddPrayerToPrayerTracker>
-    implements _$$AddPrayerToPrayerTrackerCopyWith<$Res> {
-  __$$AddPrayerToPrayerTrackerCopyWithImpl(_$AddPrayerToPrayerTracker _value,
-      $Res Function(_$AddPrayerToPrayerTracker) _then)
+class __$$AddPrayerToPrayerTrackerImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$AddPrayerToPrayerTrackerImpl>
+    implements _$$AddPrayerToPrayerTrackerImplCopyWith<$Res> {
+  __$$AddPrayerToPrayerTrackerImplCopyWithImpl(
+      _$AddPrayerToPrayerTrackerImpl _value,
+      $Res Function(_$AddPrayerToPrayerTrackerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1558,7 +1567,7 @@ class __$$AddPrayerToPrayerTrackerCopyWithImpl<$Res>
     Object? namazName = null,
     Object? context = null,
   }) {
-    return _then(_$AddPrayerToPrayerTracker(
+    return _then(_$AddPrayerToPrayerTrackerImpl(
       namazName: null == namazName
           ? _value.namazName
           : namazName // ignore: cast_nullable_to_non_nullable
@@ -1573,8 +1582,8 @@ class __$$AddPrayerToPrayerTrackerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
-  const _$AddPrayerToPrayerTracker(
+class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
+  const _$AddPrayerToPrayerTrackerImpl(
       {required this.namazName, required this.context});
 
   @override
@@ -1591,7 +1600,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddPrayerToPrayerTracker &&
+            other is _$AddPrayerToPrayerTrackerImpl &&
             (identical(other.namazName, namazName) ||
                 other.namazName == namazName) &&
             (identical(other.context, context) || other.context == context));
@@ -1603,10 +1612,9 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddPrayerToPrayerTrackerCopyWith<_$AddPrayerToPrayerTracker>
-      get copyWith =>
-          __$$AddPrayerToPrayerTrackerCopyWithImpl<_$AddPrayerToPrayerTracker>(
-              this, _$identity);
+  _$$AddPrayerToPrayerTrackerImplCopyWith<_$AddPrayerToPrayerTrackerImpl>
+      get copyWith => __$$AddPrayerToPrayerTrackerImplCopyWithImpl<
+          _$AddPrayerToPrayerTrackerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1789,35 +1797,37 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
 abstract class AddPrayerToPrayerTracker implements HomeEvent {
   const factory AddPrayerToPrayerTracker(
       {required final String namazName,
-      required final BuildContext context}) = _$AddPrayerToPrayerTracker;
+      required final BuildContext context}) = _$AddPrayerToPrayerTrackerImpl;
 
   String get namazName;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$AddPrayerToPrayerTrackerCopyWith<_$AddPrayerToPrayerTracker>
+  _$$AddPrayerToPrayerTrackerImplCopyWith<_$AddPrayerToPrayerTrackerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeIndexofAllaysaysBgCopyWith<$Res> {
-  factory _$$ChangeIndexofAllaysaysBgCopyWith(_$ChangeIndexofAllaysaysBg value,
-          $Res Function(_$ChangeIndexofAllaysaysBg) then) =
-      __$$ChangeIndexofAllaysaysBgCopyWithImpl<$Res>;
+abstract class _$$ChangeIndexofAllaysaysBgImplCopyWith<$Res> {
+  factory _$$ChangeIndexofAllaysaysBgImplCopyWith(
+          _$ChangeIndexofAllaysaysBgImpl value,
+          $Res Function(_$ChangeIndexofAllaysaysBgImpl) then) =
+      __$$ChangeIndexofAllaysaysBgImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ChangeIndexofAllaysaysBgCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$ChangeIndexofAllaysaysBg>
-    implements _$$ChangeIndexofAllaysaysBgCopyWith<$Res> {
-  __$$ChangeIndexofAllaysaysBgCopyWithImpl(_$ChangeIndexofAllaysaysBg _value,
-      $Res Function(_$ChangeIndexofAllaysaysBg) _then)
+class __$$ChangeIndexofAllaysaysBgImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeIndexofAllaysaysBgImpl>
+    implements _$$ChangeIndexofAllaysaysBgImplCopyWith<$Res> {
+  __$$ChangeIndexofAllaysaysBgImplCopyWithImpl(
+      _$ChangeIndexofAllaysaysBgImpl _value,
+      $Res Function(_$ChangeIndexofAllaysaysBgImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
-  const _$ChangeIndexofAllaysaysBg();
+class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
+  const _$ChangeIndexofAllaysaysBgImpl();
 
   @override
   String toString() {
@@ -1828,7 +1838,7 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeIndexofAllaysaysBg);
+            other is _$ChangeIndexofAllaysaysBgImpl);
   }
 
   @override
@@ -2013,24 +2023,26 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
 }
 
 abstract class ChangeIndexofAllaysaysBg implements HomeEvent {
-  const factory ChangeIndexofAllaysaysBg() = _$ChangeIndexofAllaysaysBg;
+  const factory ChangeIndexofAllaysaysBg() = _$ChangeIndexofAllaysaysBgImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeHomeTabIndexEventCopyWith<$Res> {
-  factory _$$ChangeHomeTabIndexEventCopyWith(_$ChangeHomeTabIndexEvent value,
-          $Res Function(_$ChangeHomeTabIndexEvent) then) =
-      __$$ChangeHomeTabIndexEventCopyWithImpl<$Res>;
+abstract class _$$ChangeHomeTabIndexEventImplCopyWith<$Res> {
+  factory _$$ChangeHomeTabIndexEventImplCopyWith(
+          _$ChangeHomeTabIndexEventImpl value,
+          $Res Function(_$ChangeHomeTabIndexEventImpl) then) =
+      __$$ChangeHomeTabIndexEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int newIndex});
 }
 
 /// @nodoc
-class __$$ChangeHomeTabIndexEventCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$ChangeHomeTabIndexEvent>
-    implements _$$ChangeHomeTabIndexEventCopyWith<$Res> {
-  __$$ChangeHomeTabIndexEventCopyWithImpl(_$ChangeHomeTabIndexEvent _value,
-      $Res Function(_$ChangeHomeTabIndexEvent) _then)
+class __$$ChangeHomeTabIndexEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeHomeTabIndexEventImpl>
+    implements _$$ChangeHomeTabIndexEventImplCopyWith<$Res> {
+  __$$ChangeHomeTabIndexEventImplCopyWithImpl(
+      _$ChangeHomeTabIndexEventImpl _value,
+      $Res Function(_$ChangeHomeTabIndexEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2038,7 +2050,7 @@ class __$$ChangeHomeTabIndexEventCopyWithImpl<$Res>
   $Res call({
     Object? newIndex = null,
   }) {
-    return _then(_$ChangeHomeTabIndexEvent(
+    return _then(_$ChangeHomeTabIndexEventImpl(
       newIndex: null == newIndex
           ? _value.newIndex
           : newIndex // ignore: cast_nullable_to_non_nullable
@@ -2049,8 +2061,8 @@ class __$$ChangeHomeTabIndexEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
-  const _$ChangeHomeTabIndexEvent({required this.newIndex});
+class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
+  const _$ChangeHomeTabIndexEventImpl({required this.newIndex});
 
   @override
   final int newIndex;
@@ -2064,7 +2076,7 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeHomeTabIndexEvent &&
+            other is _$ChangeHomeTabIndexEventImpl &&
             (identical(other.newIndex, newIndex) ||
                 other.newIndex == newIndex));
   }
@@ -2075,9 +2087,9 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeHomeTabIndexEventCopyWith<_$ChangeHomeTabIndexEvent> get copyWith =>
-      __$$ChangeHomeTabIndexEventCopyWithImpl<_$ChangeHomeTabIndexEvent>(
-          this, _$identity);
+  _$$ChangeHomeTabIndexEventImplCopyWith<_$ChangeHomeTabIndexEventImpl>
+      get copyWith => __$$ChangeHomeTabIndexEventImplCopyWithImpl<
+          _$ChangeHomeTabIndexEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2259,31 +2271,31 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
 
 abstract class ChangeHomeTabIndexEvent implements HomeEvent {
   const factory ChangeHomeTabIndexEvent({required final int newIndex}) =
-      _$ChangeHomeTabIndexEvent;
+      _$ChangeHomeTabIndexEventImpl;
 
   int get newIndex;
   @JsonKey(ignore: true)
-  _$$ChangeHomeTabIndexEventCopyWith<_$ChangeHomeTabIndexEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangeHomeTabIndexEventImplCopyWith<_$ChangeHomeTabIndexEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RemoveDailyPrayerTrackerNamazCopyWith<$Res> {
-  factory _$$RemoveDailyPrayerTrackerNamazCopyWith(
-          _$RemoveDailyPrayerTrackerNamaz value,
-          $Res Function(_$RemoveDailyPrayerTrackerNamaz) then) =
-      __$$RemoveDailyPrayerTrackerNamazCopyWithImpl<$Res>;
+abstract class _$$RemoveDailyPrayerTrackerNamazImplCopyWith<$Res> {
+  factory _$$RemoveDailyPrayerTrackerNamazImplCopyWith(
+          _$RemoveDailyPrayerTrackerNamazImpl value,
+          $Res Function(_$RemoveDailyPrayerTrackerNamazImpl) then) =
+      __$$RemoveDailyPrayerTrackerNamazImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String namazName, BuildContext context});
 }
 
 /// @nodoc
-class __$$RemoveDailyPrayerTrackerNamazCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$RemoveDailyPrayerTrackerNamaz>
-    implements _$$RemoveDailyPrayerTrackerNamazCopyWith<$Res> {
-  __$$RemoveDailyPrayerTrackerNamazCopyWithImpl(
-      _$RemoveDailyPrayerTrackerNamaz _value,
-      $Res Function(_$RemoveDailyPrayerTrackerNamaz) _then)
+class __$$RemoveDailyPrayerTrackerNamazImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$RemoveDailyPrayerTrackerNamazImpl>
+    implements _$$RemoveDailyPrayerTrackerNamazImplCopyWith<$Res> {
+  __$$RemoveDailyPrayerTrackerNamazImplCopyWithImpl(
+      _$RemoveDailyPrayerTrackerNamazImpl _value,
+      $Res Function(_$RemoveDailyPrayerTrackerNamazImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2292,7 +2304,7 @@ class __$$RemoveDailyPrayerTrackerNamazCopyWithImpl<$Res>
     Object? namazName = null,
     Object? context = null,
   }) {
-    return _then(_$RemoveDailyPrayerTrackerNamaz(
+    return _then(_$RemoveDailyPrayerTrackerNamazImpl(
       namazName: null == namazName
           ? _value.namazName
           : namazName // ignore: cast_nullable_to_non_nullable
@@ -2307,8 +2319,9 @@ class __$$RemoveDailyPrayerTrackerNamazCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
-  const _$RemoveDailyPrayerTrackerNamaz(
+class _$RemoveDailyPrayerTrackerNamazImpl
+    implements RemoveDailyPrayerTrackerNamaz {
+  const _$RemoveDailyPrayerTrackerNamazImpl(
       {required this.namazName, required this.context});
 
   @override
@@ -2325,7 +2338,7 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RemoveDailyPrayerTrackerNamaz &&
+            other is _$RemoveDailyPrayerTrackerNamazImpl &&
             (identical(other.namazName, namazName) ||
                 other.namazName == namazName) &&
             (identical(other.context, context) || other.context == context));
@@ -2337,9 +2350,10 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RemoveDailyPrayerTrackerNamazCopyWith<_$RemoveDailyPrayerTrackerNamaz>
-      get copyWith => __$$RemoveDailyPrayerTrackerNamazCopyWithImpl<
-          _$RemoveDailyPrayerTrackerNamaz>(this, _$identity);
+  _$$RemoveDailyPrayerTrackerNamazImplCopyWith<
+          _$RemoveDailyPrayerTrackerNamazImpl>
+      get copyWith => __$$RemoveDailyPrayerTrackerNamazImplCopyWithImpl<
+          _$RemoveDailyPrayerTrackerNamazImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2521,33 +2535,35 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
 
 abstract class RemoveDailyPrayerTrackerNamaz implements HomeEvent {
   const factory RemoveDailyPrayerTrackerNamaz(
-      {required final String namazName,
-      required final BuildContext context}) = _$RemoveDailyPrayerTrackerNamaz;
+          {required final String namazName,
+          required final BuildContext context}) =
+      _$RemoveDailyPrayerTrackerNamazImpl;
 
   String get namazName;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$RemoveDailyPrayerTrackerNamazCopyWith<_$RemoveDailyPrayerTrackerNamaz>
+  _$$RemoveDailyPrayerTrackerNamazImplCopyWith<
+          _$RemoveDailyPrayerTrackerNamazImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeTinterCardSwipeOptionCopyWith<$Res> {
-  factory _$$ChangeTinterCardSwipeOptionCopyWith(
-          _$ChangeTinterCardSwipeOption value,
-          $Res Function(_$ChangeTinterCardSwipeOption) then) =
-      __$$ChangeTinterCardSwipeOptionCopyWithImpl<$Res>;
+abstract class _$$ChangeTinterCardSwipeOptionImplCopyWith<$Res> {
+  factory _$$ChangeTinterCardSwipeOptionImplCopyWith(
+          _$ChangeTinterCardSwipeOptionImpl value,
+          $Res Function(_$ChangeTinterCardSwipeOptionImpl) then) =
+      __$$ChangeTinterCardSwipeOptionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$ChangeTinterCardSwipeOptionCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$ChangeTinterCardSwipeOption>
-    implements _$$ChangeTinterCardSwipeOptionCopyWith<$Res> {
-  __$$ChangeTinterCardSwipeOptionCopyWithImpl(
-      _$ChangeTinterCardSwipeOption _value,
-      $Res Function(_$ChangeTinterCardSwipeOption) _then)
+class __$$ChangeTinterCardSwipeOptionImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeTinterCardSwipeOptionImpl>
+    implements _$$ChangeTinterCardSwipeOptionImplCopyWith<$Res> {
+  __$$ChangeTinterCardSwipeOptionImplCopyWithImpl(
+      _$ChangeTinterCardSwipeOptionImpl _value,
+      $Res Function(_$ChangeTinterCardSwipeOptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2555,7 +2571,7 @@ class __$$ChangeTinterCardSwipeOptionCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$ChangeTinterCardSwipeOption(
+    return _then(_$ChangeTinterCardSwipeOptionImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -2566,8 +2582,8 @@ class __$$ChangeTinterCardSwipeOptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
-  const _$ChangeTinterCardSwipeOption({required this.value});
+class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
+  const _$ChangeTinterCardSwipeOptionImpl({required this.value});
 
   @override
   final bool value;
@@ -2581,7 +2597,7 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeTinterCardSwipeOption &&
+            other is _$ChangeTinterCardSwipeOptionImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -2591,9 +2607,9 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeTinterCardSwipeOptionCopyWith<_$ChangeTinterCardSwipeOption>
-      get copyWith => __$$ChangeTinterCardSwipeOptionCopyWithImpl<
-          _$ChangeTinterCardSwipeOption>(this, _$identity);
+  _$$ChangeTinterCardSwipeOptionImplCopyWith<_$ChangeTinterCardSwipeOptionImpl>
+      get copyWith => __$$ChangeTinterCardSwipeOptionImplCopyWithImpl<
+          _$ChangeTinterCardSwipeOptionImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2775,29 +2791,31 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
 
 abstract class ChangeTinterCardSwipeOption implements HomeEvent {
   const factory ChangeTinterCardSwipeOption({required final bool value}) =
-      _$ChangeTinterCardSwipeOption;
+      _$ChangeTinterCardSwipeOptionImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$ChangeTinterCardSwipeOptionCopyWith<_$ChangeTinterCardSwipeOption>
+  _$$ChangeTinterCardSwipeOptionImplCopyWith<_$ChangeTinterCardSwipeOptionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeCompassThemeEventCopyWith<$Res> {
-  factory _$$ChangeCompassThemeEventCopyWith(_$ChangeCompassThemeEvent value,
-          $Res Function(_$ChangeCompassThemeEvent) then) =
-      __$$ChangeCompassThemeEventCopyWithImpl<$Res>;
+abstract class _$$ChangeCompassThemeEventImplCopyWith<$Res> {
+  factory _$$ChangeCompassThemeEventImplCopyWith(
+          _$ChangeCompassThemeEventImpl value,
+          $Res Function(_$ChangeCompassThemeEventImpl) then) =
+      __$$ChangeCompassThemeEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CompassTheme compassTheme});
 }
 
 /// @nodoc
-class __$$ChangeCompassThemeEventCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$ChangeCompassThemeEvent>
-    implements _$$ChangeCompassThemeEventCopyWith<$Res> {
-  __$$ChangeCompassThemeEventCopyWithImpl(_$ChangeCompassThemeEvent _value,
-      $Res Function(_$ChangeCompassThemeEvent) _then)
+class __$$ChangeCompassThemeEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeCompassThemeEventImpl>
+    implements _$$ChangeCompassThemeEventImplCopyWith<$Res> {
+  __$$ChangeCompassThemeEventImplCopyWithImpl(
+      _$ChangeCompassThemeEventImpl _value,
+      $Res Function(_$ChangeCompassThemeEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2805,7 +2823,7 @@ class __$$ChangeCompassThemeEventCopyWithImpl<$Res>
   $Res call({
     Object? compassTheme = null,
   }) {
-    return _then(_$ChangeCompassThemeEvent(
+    return _then(_$ChangeCompassThemeEventImpl(
       compassTheme: null == compassTheme
           ? _value.compassTheme
           : compassTheme // ignore: cast_nullable_to_non_nullable
@@ -2816,8 +2834,8 @@ class __$$ChangeCompassThemeEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
-  const _$ChangeCompassThemeEvent({required this.compassTheme});
+class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
+  const _$ChangeCompassThemeEventImpl({required this.compassTheme});
 
   @override
   final CompassTheme compassTheme;
@@ -2831,7 +2849,7 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeCompassThemeEvent &&
+            other is _$ChangeCompassThemeEventImpl &&
             (identical(other.compassTheme, compassTheme) ||
                 other.compassTheme == compassTheme));
   }
@@ -2842,9 +2860,9 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeCompassThemeEventCopyWith<_$ChangeCompassThemeEvent> get copyWith =>
-      __$$ChangeCompassThemeEventCopyWithImpl<_$ChangeCompassThemeEvent>(
-          this, _$identity);
+  _$$ChangeCompassThemeEventImplCopyWith<_$ChangeCompassThemeEventImpl>
+      get copyWith => __$$ChangeCompassThemeEventImplCopyWithImpl<
+          _$ChangeCompassThemeEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3026,29 +3044,32 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
 
 abstract class ChangeCompassThemeEvent implements HomeEvent {
   const factory ChangeCompassThemeEvent(
-      {required final CompassTheme compassTheme}) = _$ChangeCompassThemeEvent;
+          {required final CompassTheme compassTheme}) =
+      _$ChangeCompassThemeEventImpl;
 
   CompassTheme get compassTheme;
   @JsonKey(ignore: true)
-  _$$ChangeCompassThemeEventCopyWith<_$ChangeCompassThemeEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangeCompassThemeEventImplCopyWith<_$ChangeCompassThemeEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeCompassThemeIndexCopyWith<$Res> {
-  factory _$$ChangeCompassThemeIndexCopyWith(_$ChangeCompassThemeIndex value,
-          $Res Function(_$ChangeCompassThemeIndex) then) =
-      __$$ChangeCompassThemeIndexCopyWithImpl<$Res>;
+abstract class _$$ChangeCompassThemeIndexImplCopyWith<$Res> {
+  factory _$$ChangeCompassThemeIndexImplCopyWith(
+          _$ChangeCompassThemeIndexImpl value,
+          $Res Function(_$ChangeCompassThemeIndexImpl) then) =
+      __$$ChangeCompassThemeIndexImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeCompassThemeIndexCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$ChangeCompassThemeIndex>
-    implements _$$ChangeCompassThemeIndexCopyWith<$Res> {
-  __$$ChangeCompassThemeIndexCopyWithImpl(_$ChangeCompassThemeIndex _value,
-      $Res Function(_$ChangeCompassThemeIndex) _then)
+class __$$ChangeCompassThemeIndexImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeCompassThemeIndexImpl>
+    implements _$$ChangeCompassThemeIndexImplCopyWith<$Res> {
+  __$$ChangeCompassThemeIndexImplCopyWithImpl(
+      _$ChangeCompassThemeIndexImpl _value,
+      $Res Function(_$ChangeCompassThemeIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3056,7 +3077,7 @@ class __$$ChangeCompassThemeIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeCompassThemeIndex(
+    return _then(_$ChangeCompassThemeIndexImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -3067,8 +3088,8 @@ class __$$ChangeCompassThemeIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
-  const _$ChangeCompassThemeIndex({required this.index});
+class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
+  const _$ChangeCompassThemeIndexImpl({required this.index});
 
   @override
   final int index;
@@ -3082,7 +3103,7 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeCompassThemeIndex &&
+            other is _$ChangeCompassThemeIndexImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -3092,9 +3113,9 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeCompassThemeIndexCopyWith<_$ChangeCompassThemeIndex> get copyWith =>
-      __$$ChangeCompassThemeIndexCopyWithImpl<_$ChangeCompassThemeIndex>(
-          this, _$identity);
+  _$$ChangeCompassThemeIndexImplCopyWith<_$ChangeCompassThemeIndexImpl>
+      get copyWith => __$$ChangeCompassThemeIndexImplCopyWithImpl<
+          _$ChangeCompassThemeIndexImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3276,29 +3297,29 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
 
 abstract class ChangeCompassThemeIndex implements HomeEvent {
   const factory ChangeCompassThemeIndex({required final int index}) =
-      _$ChangeCompassThemeIndex;
+      _$ChangeCompassThemeIndexImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeCompassThemeIndexCopyWith<_$ChangeCompassThemeIndex> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangeCompassThemeIndexImplCopyWith<_$ChangeCompassThemeIndexImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchNotificationApiCopyWith<$Res> {
-  factory _$$FetchNotificationApiCopyWith(_$FetchNotificationApi value,
-          $Res Function(_$FetchNotificationApi) then) =
-      __$$FetchNotificationApiCopyWithImpl<$Res>;
+abstract class _$$FetchNotificationApiImplCopyWith<$Res> {
+  factory _$$FetchNotificationApiImplCopyWith(_$FetchNotificationApiImpl value,
+          $Res Function(_$FetchNotificationApiImpl) then) =
+      __$$FetchNotificationApiImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$FetchNotificationApiCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$FetchNotificationApi>
-    implements _$$FetchNotificationApiCopyWith<$Res> {
-  __$$FetchNotificationApiCopyWithImpl(_$FetchNotificationApi _value,
-      $Res Function(_$FetchNotificationApi) _then)
+class __$$FetchNotificationApiImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchNotificationApiImpl>
+    implements _$$FetchNotificationApiImplCopyWith<$Res> {
+  __$$FetchNotificationApiImplCopyWithImpl(_$FetchNotificationApiImpl _value,
+      $Res Function(_$FetchNotificationApiImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3306,7 +3327,7 @@ class __$$FetchNotificationApiCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
   }) {
-    return _then(_$FetchNotificationApi(
+    return _then(_$FetchNotificationApiImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -3317,8 +3338,8 @@ class __$$FetchNotificationApiCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchNotificationApi implements FetchNotificationApi {
-  const _$FetchNotificationApi({required this.context});
+class _$FetchNotificationApiImpl implements FetchNotificationApi {
+  const _$FetchNotificationApiImpl({required this.context});
 
   @override
   final BuildContext context;
@@ -3332,7 +3353,7 @@ class _$FetchNotificationApi implements FetchNotificationApi {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchNotificationApi &&
+            other is _$FetchNotificationApiImpl &&
             (identical(other.context, context) || other.context == context));
   }
 
@@ -3342,9 +3363,10 @@ class _$FetchNotificationApi implements FetchNotificationApi {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchNotificationApiCopyWith<_$FetchNotificationApi> get copyWith =>
-      __$$FetchNotificationApiCopyWithImpl<_$FetchNotificationApi>(
-          this, _$identity);
+  _$$FetchNotificationApiImplCopyWith<_$FetchNotificationApiImpl>
+      get copyWith =>
+          __$$FetchNotificationApiImplCopyWithImpl<_$FetchNotificationApiImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3526,31 +3548,31 @@ class _$FetchNotificationApi implements FetchNotificationApi {
 
 abstract class FetchNotificationApi implements HomeEvent {
   const factory FetchNotificationApi({required final BuildContext context}) =
-      _$FetchNotificationApi;
+      _$FetchNotificationApiImpl;
 
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$FetchNotificationApiCopyWith<_$FetchNotificationApi> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchNotificationApiImplCopyWith<_$FetchNotificationApiImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddMarkReadNotificationEventCopyWith<$Res> {
-  factory _$$AddMarkReadNotificationEventCopyWith(
-          _$AddMarkReadNotificationEvent value,
-          $Res Function(_$AddMarkReadNotificationEvent) then) =
-      __$$AddMarkReadNotificationEventCopyWithImpl<$Res>;
+abstract class _$$AddMarkReadNotificationEventImplCopyWith<$Res> {
+  factory _$$AddMarkReadNotificationEventImplCopyWith(
+          _$AddMarkReadNotificationEventImpl value,
+          $Res Function(_$AddMarkReadNotificationEventImpl) then) =
+      __$$AddMarkReadNotificationEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id, BuildContext context});
 }
 
 /// @nodoc
-class __$$AddMarkReadNotificationEventCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$AddMarkReadNotificationEvent>
-    implements _$$AddMarkReadNotificationEventCopyWith<$Res> {
-  __$$AddMarkReadNotificationEventCopyWithImpl(
-      _$AddMarkReadNotificationEvent _value,
-      $Res Function(_$AddMarkReadNotificationEvent) _then)
+class __$$AddMarkReadNotificationEventImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$AddMarkReadNotificationEventImpl>
+    implements _$$AddMarkReadNotificationEventImplCopyWith<$Res> {
+  __$$AddMarkReadNotificationEventImplCopyWithImpl(
+      _$AddMarkReadNotificationEventImpl _value,
+      $Res Function(_$AddMarkReadNotificationEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3559,7 +3581,7 @@ class __$$AddMarkReadNotificationEventCopyWithImpl<$Res>
     Object? id = null,
     Object? context = null,
   }) {
-    return _then(_$AddMarkReadNotificationEvent(
+    return _then(_$AddMarkReadNotificationEventImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -3574,8 +3596,9 @@ class __$$AddMarkReadNotificationEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
-  const _$AddMarkReadNotificationEvent(
+class _$AddMarkReadNotificationEventImpl
+    implements AddMarkReadNotificationEvent {
+  const _$AddMarkReadNotificationEventImpl(
       {required this.id, required this.context});
 
   @override
@@ -3592,7 +3615,7 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddMarkReadNotificationEvent &&
+            other is _$AddMarkReadNotificationEventImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.context, context) || other.context == context));
   }
@@ -3603,9 +3626,10 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddMarkReadNotificationEventCopyWith<_$AddMarkReadNotificationEvent>
-      get copyWith => __$$AddMarkReadNotificationEventCopyWithImpl<
-          _$AddMarkReadNotificationEvent>(this, _$identity);
+  _$$AddMarkReadNotificationEventImplCopyWith<
+          _$AddMarkReadNotificationEventImpl>
+      get copyWith => __$$AddMarkReadNotificationEventImplCopyWithImpl<
+          _$AddMarkReadNotificationEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3787,31 +3811,33 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
 
 abstract class AddMarkReadNotificationEvent implements HomeEvent {
   const factory AddMarkReadNotificationEvent(
-      {required final String id,
-      required final BuildContext context}) = _$AddMarkReadNotificationEvent;
+          {required final String id, required final BuildContext context}) =
+      _$AddMarkReadNotificationEventImpl;
 
   String get id;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$AddMarkReadNotificationEventCopyWith<_$AddMarkReadNotificationEvent>
+  _$$AddMarkReadNotificationEventImplCopyWith<
+          _$AddMarkReadNotificationEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeHomeBannerIndexCopyWith<$Res> {
-  factory _$$ChangeHomeBannerIndexCopyWith(_$ChangeHomeBannerIndex value,
-          $Res Function(_$ChangeHomeBannerIndex) then) =
-      __$$ChangeHomeBannerIndexCopyWithImpl<$Res>;
+abstract class _$$ChangeHomeBannerIndexImplCopyWith<$Res> {
+  factory _$$ChangeHomeBannerIndexImplCopyWith(
+          _$ChangeHomeBannerIndexImpl value,
+          $Res Function(_$ChangeHomeBannerIndexImpl) then) =
+      __$$ChangeHomeBannerIndexImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeHomeBannerIndexCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$ChangeHomeBannerIndex>
-    implements _$$ChangeHomeBannerIndexCopyWith<$Res> {
-  __$$ChangeHomeBannerIndexCopyWithImpl(_$ChangeHomeBannerIndex _value,
-      $Res Function(_$ChangeHomeBannerIndex) _then)
+class __$$ChangeHomeBannerIndexImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeHomeBannerIndexImpl>
+    implements _$$ChangeHomeBannerIndexImplCopyWith<$Res> {
+  __$$ChangeHomeBannerIndexImplCopyWithImpl(_$ChangeHomeBannerIndexImpl _value,
+      $Res Function(_$ChangeHomeBannerIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3819,7 +3845,7 @@ class __$$ChangeHomeBannerIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeHomeBannerIndex(
+    return _then(_$ChangeHomeBannerIndexImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -3830,8 +3856,8 @@ class __$$ChangeHomeBannerIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeHomeBannerIndex implements ChangeHomeBannerIndex {
-  const _$ChangeHomeBannerIndex({required this.index});
+class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
+  const _$ChangeHomeBannerIndexImpl({required this.index});
 
   @override
   final int index;
@@ -3845,7 +3871,7 @@ class _$ChangeHomeBannerIndex implements ChangeHomeBannerIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeHomeBannerIndex &&
+            other is _$ChangeHomeBannerIndexImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -3855,9 +3881,9 @@ class _$ChangeHomeBannerIndex implements ChangeHomeBannerIndex {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeHomeBannerIndexCopyWith<_$ChangeHomeBannerIndex> get copyWith =>
-      __$$ChangeHomeBannerIndexCopyWithImpl<_$ChangeHomeBannerIndex>(
-          this, _$identity);
+  _$$ChangeHomeBannerIndexImplCopyWith<_$ChangeHomeBannerIndexImpl>
+      get copyWith => __$$ChangeHomeBannerIndexImplCopyWithImpl<
+          _$ChangeHomeBannerIndexImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4039,12 +4065,12 @@ class _$ChangeHomeBannerIndex implements ChangeHomeBannerIndex {
 
 abstract class ChangeHomeBannerIndex implements HomeEvent {
   const factory ChangeHomeBannerIndex({required final int index}) =
-      _$ChangeHomeBannerIndex;
+      _$ChangeHomeBannerIndexImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeHomeBannerIndexCopyWith<_$ChangeHomeBannerIndex> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangeHomeBannerIndexImplCopyWith<_$ChangeHomeBannerIndexImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -4331,10 +4357,11 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
 }
 
 /// @nodoc
-abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
-  factory _$$_HomeStateCopyWith(
-          _$_HomeState value, $Res Function(_$_HomeState) then) =
-      __$$_HomeStateCopyWithImpl<$Res>;
+abstract class _$$HomeStateImplCopyWith<$Res>
+    implements $HomeStateCopyWith<$Res> {
+  factory _$$HomeStateImplCopyWith(
+          _$HomeStateImpl value, $Res Function(_$HomeStateImpl) then) =
+      __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -4377,11 +4404,11 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_HomeStateCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$_HomeState>
-    implements _$$_HomeStateCopyWith<$Res> {
-  __$$_HomeStateCopyWithImpl(
-      _$_HomeState _value, $Res Function(_$_HomeState) _then)
+class __$$HomeStateImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$HomeStateImpl>
+    implements _$$HomeStateImplCopyWith<$Res> {
+  __$$HomeStateImplCopyWithImpl(
+      _$HomeStateImpl _value, $Res Function(_$HomeStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4409,7 +4436,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? notificationModel = freezed,
     Object? homeBannerIndex = null,
   }) {
-    return _then(_$_HomeState(
+    return _then(_$HomeStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -4500,8 +4527,8 @@ class __$$_HomeStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HomeState implements _HomeState {
-  const _$_HomeState(
+class _$HomeStateImpl implements _HomeState {
+  const _$HomeStateImpl(
       {required this.isLoading,
       required this.largeDiscountModel,
       required this.topOffersModel,
@@ -4576,7 +4603,7 @@ class _$_HomeState implements _HomeState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HomeState &&
+            other is _$HomeStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.largeDiscountModel, largeDiscountModel) ||
@@ -4650,8 +4677,8 @@ class _$_HomeState implements _HomeState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
-      __$$_HomeStateCopyWithImpl<_$_HomeState>(this, _$identity);
+  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
+      __$$HomeStateImplCopyWithImpl<_$HomeStateImpl>(this, _$identity);
 }
 
 abstract class _HomeState implements HomeState {
@@ -4676,7 +4703,7 @@ abstract class _HomeState implements HomeState {
       required final CompassTheme compassTheme,
       required final int compassThemeIndex,
       required final NotificationModel? notificationModel,
-      required final int homeBannerIndex}) = _$_HomeState;
+      required final int homeBannerIndex}) = _$HomeStateImpl;
 
   @override
   bool get isLoading;
@@ -4722,6 +4749,6 @@ abstract class _HomeState implements HomeState {
   int get homeBannerIndex;
   @override
   @JsonKey(ignore: true)
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
+  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

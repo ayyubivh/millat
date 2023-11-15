@@ -6,9 +6,9 @@ part of 'hadit_book_chapter_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_HadithBooksChapterModel _$$_HadithBooksChapterModelFromJson(
+_$HadithBooksChapterModelImpl _$$HadithBooksChapterModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_HadithBooksChapterModel(
+    _$HadithBooksChapterModelImpl(
       status: json['status'] as int,
       message: json['message'] as String,
       chapters: (json['chapters'] as List<dynamic>)
@@ -16,15 +16,16 @@ _$_HadithBooksChapterModel _$$_HadithBooksChapterModelFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_HadithBooksChapterModelToJson(
-        _$_HadithBooksChapterModel instance) =>
+Map<String, dynamic> _$$HadithBooksChapterModelImplToJson(
+        _$HadithBooksChapterModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
       'chapters': instance.chapters,
     };
 
-_$_Chapters _$$_ChaptersFromJson(Map<String, dynamic> json) => _$_Chapters(
+_$ChaptersImpl _$$ChaptersImplFromJson(Map<String, dynamic> json) =>
+    _$ChaptersImpl(
       id: json['id'] as int,
       chapterNumber: json['chapterNumber'] as String,
       chapterEnglish: json['chapterEnglish'] as String,
@@ -33,7 +34,7 @@ _$_Chapters _$$_ChaptersFromJson(Map<String, dynamic> json) => _$_Chapters(
       bookSlug: json['bookSlug'] as String,
     );
 
-Map<String, dynamic> _$$_ChaptersToJson(_$_Chapters instance) =>
+Map<String, dynamic> _$$ChaptersImplToJson(_$ChaptersImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'chapterNumber': instance.chapterNumber,

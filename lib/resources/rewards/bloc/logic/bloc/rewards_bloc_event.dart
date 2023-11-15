@@ -10,4 +10,6 @@ class RewardsEvent with _$RewardsEvent {
   }) = _FetchRewardProductsById;
   const factory RewardsEvent.changeCarousselImageIndex(int index) =
       ChangeCarousselImageIndex;
+  const factory RewardsEvent.changeRewardsTabIndex({required int index}) =
+      ChangeRewardsTabIndex;
 }

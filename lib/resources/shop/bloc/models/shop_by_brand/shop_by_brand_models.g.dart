@@ -6,19 +6,20 @@ part of 'shop_by_brand_models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ShopBrandModel _$$_ShopBrandModelFromJson(Map<String, dynamic> json) =>
-    _$_ShopBrandModel(
+_$ShopBrandModelImpl _$$ShopBrandModelImplFromJson(Map<String, dynamic> json) =>
+    _$ShopBrandModelImpl(
       users: (json['users'] as List<dynamic>?)
           ?.map((e) => User.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ShopBrandModelToJson(_$_ShopBrandModel instance) =>
+Map<String, dynamic> _$$ShopBrandModelImplToJson(
+        _$ShopBrandModelImpl instance) =>
     <String, dynamic>{
       'users': instance.users,
     };
 
-_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       id: json['_id'] as String,
       name: json['name'] as String?,
       email: json['email'] as String?,
@@ -33,7 +34,8 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       image: json['image'] as String?,
     );
 
-Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'name': instance.name,
       'email': instance.email,

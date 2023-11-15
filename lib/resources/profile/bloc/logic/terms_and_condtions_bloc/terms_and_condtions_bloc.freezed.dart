@@ -85,23 +85,23 @@ class _$TermsAndCondtionsEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$FetchTermsAndConditionsEventCopyWith<$Res> {
-  factory _$$FetchTermsAndConditionsEventCopyWith(
-          _$FetchTermsAndConditionsEvent value,
-          $Res Function(_$FetchTermsAndConditionsEvent) then) =
-      __$$FetchTermsAndConditionsEventCopyWithImpl<$Res>;
+abstract class _$$FetchTermsAndConditionsEventImplCopyWith<$Res> {
+  factory _$$FetchTermsAndConditionsEventImplCopyWith(
+          _$FetchTermsAndConditionsEventImpl value,
+          $Res Function(_$FetchTermsAndConditionsEventImpl) then) =
+      __$$FetchTermsAndConditionsEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String slug});
 }
 
 /// @nodoc
-class __$$FetchTermsAndConditionsEventCopyWithImpl<$Res>
+class __$$FetchTermsAndConditionsEventImplCopyWithImpl<$Res>
     extends _$TermsAndCondtionsEventCopyWithImpl<$Res,
-        _$FetchTermsAndConditionsEvent>
-    implements _$$FetchTermsAndConditionsEventCopyWith<$Res> {
-  __$$FetchTermsAndConditionsEventCopyWithImpl(
-      _$FetchTermsAndConditionsEvent _value,
-      $Res Function(_$FetchTermsAndConditionsEvent) _then)
+        _$FetchTermsAndConditionsEventImpl>
+    implements _$$FetchTermsAndConditionsEventImplCopyWith<$Res> {
+  __$$FetchTermsAndConditionsEventImplCopyWithImpl(
+      _$FetchTermsAndConditionsEventImpl _value,
+      $Res Function(_$FetchTermsAndConditionsEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +109,7 @@ class __$$FetchTermsAndConditionsEventCopyWithImpl<$Res>
   $Res call({
     Object? slug = null,
   }) {
-    return _then(_$FetchTermsAndConditionsEvent(
+    return _then(_$FetchTermsAndConditionsEventImpl(
       slug: null == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
@@ -120,8 +120,9 @@ class __$$FetchTermsAndConditionsEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
-  const _$FetchTermsAndConditionsEvent({required this.slug});
+class _$FetchTermsAndConditionsEventImpl
+    implements FetchTermsAndConditionsEvent {
+  const _$FetchTermsAndConditionsEventImpl({required this.slug});
 
   @override
   final String slug;
@@ -135,7 +136,7 @@ class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchTermsAndConditionsEvent &&
+            other is _$FetchTermsAndConditionsEventImpl &&
             (identical(other.slug, slug) || other.slug == slug));
   }
 
@@ -145,9 +146,10 @@ class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchTermsAndConditionsEventCopyWith<_$FetchTermsAndConditionsEvent>
-      get copyWith => __$$FetchTermsAndConditionsEventCopyWithImpl<
-          _$FetchTermsAndConditionsEvent>(this, _$identity);
+  _$$FetchTermsAndConditionsEventImplCopyWith<
+          _$FetchTermsAndConditionsEventImpl>
+      get copyWith => __$$FetchTermsAndConditionsEventImplCopyWithImpl<
+          _$FetchTermsAndConditionsEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -223,29 +225,30 @@ class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
 
 abstract class FetchTermsAndConditionsEvent implements TermsAndCondtionsEvent {
   const factory FetchTermsAndConditionsEvent({required final String slug}) =
-      _$FetchTermsAndConditionsEvent;
+      _$FetchTermsAndConditionsEventImpl;
 
   String get slug;
   @JsonKey(ignore: true)
-  _$$FetchTermsAndConditionsEventCopyWith<_$FetchTermsAndConditionsEvent>
+  _$$FetchTermsAndConditionsEventImplCopyWith<
+          _$FetchTermsAndConditionsEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PostHelpAndSupportCopyWith<$Res> {
-  factory _$$PostHelpAndSupportCopyWith(_$PostHelpAndSupport value,
-          $Res Function(_$PostHelpAndSupport) then) =
-      __$$PostHelpAndSupportCopyWithImpl<$Res>;
+abstract class _$$PostHelpAndSupportImplCopyWith<$Res> {
+  factory _$$PostHelpAndSupportImplCopyWith(_$PostHelpAndSupportImpl value,
+          $Res Function(_$PostHelpAndSupportImpl) then) =
+      __$$PostHelpAndSupportImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email, String name, String? phoneNumber, String message});
 }
 
 /// @nodoc
-class __$$PostHelpAndSupportCopyWithImpl<$Res>
-    extends _$TermsAndCondtionsEventCopyWithImpl<$Res, _$PostHelpAndSupport>
-    implements _$$PostHelpAndSupportCopyWith<$Res> {
-  __$$PostHelpAndSupportCopyWithImpl(
-      _$PostHelpAndSupport _value, $Res Function(_$PostHelpAndSupport) _then)
+class __$$PostHelpAndSupportImplCopyWithImpl<$Res>
+    extends _$TermsAndCondtionsEventCopyWithImpl<$Res, _$PostHelpAndSupportImpl>
+    implements _$$PostHelpAndSupportImplCopyWith<$Res> {
+  __$$PostHelpAndSupportImplCopyWithImpl(_$PostHelpAndSupportImpl _value,
+      $Res Function(_$PostHelpAndSupportImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -256,7 +259,7 @@ class __$$PostHelpAndSupportCopyWithImpl<$Res>
     Object? phoneNumber = freezed,
     Object? message = null,
   }) {
-    return _then(_$PostHelpAndSupport(
+    return _then(_$PostHelpAndSupportImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -279,8 +282,8 @@ class __$$PostHelpAndSupportCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PostHelpAndSupport implements PostHelpAndSupport {
-  const _$PostHelpAndSupport(
+class _$PostHelpAndSupportImpl implements PostHelpAndSupport {
+  const _$PostHelpAndSupportImpl(
       {required this.email,
       required this.name,
       required this.phoneNumber,
@@ -304,7 +307,7 @@ class _$PostHelpAndSupport implements PostHelpAndSupport {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostHelpAndSupport &&
+            other is _$PostHelpAndSupportImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.phoneNumber, phoneNumber) ||
@@ -319,8 +322,8 @@ class _$PostHelpAndSupport implements PostHelpAndSupport {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostHelpAndSupportCopyWith<_$PostHelpAndSupport> get copyWith =>
-      __$$PostHelpAndSupportCopyWithImpl<_$PostHelpAndSupport>(
+  _$$PostHelpAndSupportImplCopyWith<_$PostHelpAndSupportImpl> get copyWith =>
+      __$$PostHelpAndSupportImplCopyWithImpl<_$PostHelpAndSupportImpl>(
           this, _$identity);
 
   @override
@@ -400,14 +403,14 @@ abstract class PostHelpAndSupport implements TermsAndCondtionsEvent {
       {required final String email,
       required final String name,
       required final String? phoneNumber,
-      required final String message}) = _$PostHelpAndSupport;
+      required final String message}) = _$PostHelpAndSupportImpl;
 
   String get email;
   String get name;
   String? get phoneNumber;
   String get message;
   @JsonKey(ignore: true)
-  _$$PostHelpAndSupportCopyWith<_$PostHelpAndSupport> get copyWith =>
+  _$$PostHelpAndSupportImplCopyWith<_$PostHelpAndSupportImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -477,11 +480,12 @@ class _$TermsAndCondtionsStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TermsAndCondtionsStateCopyWith<$Res>
+abstract class _$$TermsAndCondtionsStateImplCopyWith<$Res>
     implements $TermsAndCondtionsStateCopyWith<$Res> {
-  factory _$$_TermsAndCondtionsStateCopyWith(_$_TermsAndCondtionsState value,
-          $Res Function(_$_TermsAndCondtionsState) then) =
-      __$$_TermsAndCondtionsStateCopyWithImpl<$Res>;
+  factory _$$TermsAndCondtionsStateImplCopyWith(
+          _$TermsAndCondtionsStateImpl value,
+          $Res Function(_$TermsAndCondtionsStateImpl) then) =
+      __$$TermsAndCondtionsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({TermsConditionsModel? termsConditionsModel, bool isLoading});
@@ -491,12 +495,13 @@ abstract class _$$_TermsAndCondtionsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TermsAndCondtionsStateCopyWithImpl<$Res>
+class __$$TermsAndCondtionsStateImplCopyWithImpl<$Res>
     extends _$TermsAndCondtionsStateCopyWithImpl<$Res,
-        _$_TermsAndCondtionsState>
-    implements _$$_TermsAndCondtionsStateCopyWith<$Res> {
-  __$$_TermsAndCondtionsStateCopyWithImpl(_$_TermsAndCondtionsState _value,
-      $Res Function(_$_TermsAndCondtionsState) _then)
+        _$TermsAndCondtionsStateImpl>
+    implements _$$TermsAndCondtionsStateImplCopyWith<$Res> {
+  __$$TermsAndCondtionsStateImplCopyWithImpl(
+      _$TermsAndCondtionsStateImpl _value,
+      $Res Function(_$TermsAndCondtionsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -505,7 +510,7 @@ class __$$_TermsAndCondtionsStateCopyWithImpl<$Res>
     Object? termsConditionsModel = freezed,
     Object? isLoading = null,
   }) {
-    return _then(_$_TermsAndCondtionsState(
+    return _then(_$TermsAndCondtionsStateImpl(
       termsConditionsModel: freezed == termsConditionsModel
           ? _value.termsConditionsModel
           : termsConditionsModel // ignore: cast_nullable_to_non_nullable
@@ -520,8 +525,8 @@ class __$$_TermsAndCondtionsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TermsAndCondtionsState implements _TermsAndCondtionsState {
-  const _$_TermsAndCondtionsState(
+class _$TermsAndCondtionsStateImpl implements _TermsAndCondtionsState {
+  const _$TermsAndCondtionsStateImpl(
       {required this.termsConditionsModel, required this.isLoading});
 
   @override
@@ -538,7 +543,7 @@ class _$_TermsAndCondtionsState implements _TermsAndCondtionsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TermsAndCondtionsState &&
+            other is _$TermsAndCondtionsStateImpl &&
             (identical(other.termsConditionsModel, termsConditionsModel) ||
                 other.termsConditionsModel == termsConditionsModel) &&
             (identical(other.isLoading, isLoading) ||
@@ -551,15 +556,15 @@ class _$_TermsAndCondtionsState implements _TermsAndCondtionsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TermsAndCondtionsStateCopyWith<_$_TermsAndCondtionsState> get copyWith =>
-      __$$_TermsAndCondtionsStateCopyWithImpl<_$_TermsAndCondtionsState>(
-          this, _$identity);
+  _$$TermsAndCondtionsStateImplCopyWith<_$TermsAndCondtionsStateImpl>
+      get copyWith => __$$TermsAndCondtionsStateImplCopyWithImpl<
+          _$TermsAndCondtionsStateImpl>(this, _$identity);
 }
 
 abstract class _TermsAndCondtionsState implements TermsAndCondtionsState {
   const factory _TermsAndCondtionsState(
       {required final TermsConditionsModel? termsConditionsModel,
-      required final bool isLoading}) = _$_TermsAndCondtionsState;
+      required final bool isLoading}) = _$TermsAndCondtionsStateImpl;
 
   @override
   TermsConditionsModel? get termsConditionsModel;
@@ -567,6 +572,6 @@ abstract class _TermsAndCondtionsState implements TermsAndCondtionsState {
   bool get isLoading;
   @override
   @JsonKey(ignore: true)
-  _$$_TermsAndCondtionsStateCopyWith<_$_TermsAndCondtionsState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TermsAndCondtionsStateImplCopyWith<_$TermsAndCondtionsStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

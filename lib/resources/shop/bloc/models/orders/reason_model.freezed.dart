@@ -94,11 +94,11 @@ class _$ReasonModelCopyWithImpl<$Res, $Val extends ReasonModel>
 }
 
 /// @nodoc
-abstract class _$$_ReasonModelCopyWith<$Res>
+abstract class _$$ReasonModelImplCopyWith<$Res>
     implements $ReasonModelCopyWith<$Res> {
-  factory _$$_ReasonModelCopyWith(
-          _$_ReasonModel value, $Res Function(_$_ReasonModel) then) =
-      __$$_ReasonModelCopyWithImpl<$Res>;
+  factory _$$ReasonModelImplCopyWith(
+          _$ReasonModelImpl value, $Res Function(_$ReasonModelImpl) then) =
+      __$$ReasonModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? status, String? message, String? error, Result? result});
@@ -108,11 +108,11 @@ abstract class _$$_ReasonModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ReasonModelCopyWithImpl<$Res>
-    extends _$ReasonModelCopyWithImpl<$Res, _$_ReasonModel>
-    implements _$$_ReasonModelCopyWith<$Res> {
-  __$$_ReasonModelCopyWithImpl(
-      _$_ReasonModel _value, $Res Function(_$_ReasonModel) _then)
+class __$$ReasonModelImplCopyWithImpl<$Res>
+    extends _$ReasonModelCopyWithImpl<$Res, _$ReasonModelImpl>
+    implements _$$ReasonModelImplCopyWith<$Res> {
+  __$$ReasonModelImplCopyWithImpl(
+      _$ReasonModelImpl _value, $Res Function(_$ReasonModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_ReasonModelCopyWithImpl<$Res>
     Object? error = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_ReasonModel(
+    return _then(_$ReasonModelImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -146,15 +146,15 @@ class __$$_ReasonModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ReasonModel implements _ReasonModel {
-  const _$_ReasonModel(
+class _$ReasonModelImpl implements _ReasonModel {
+  const _$ReasonModelImpl(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$_ReasonModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ReasonModelFromJson(json);
+  factory _$ReasonModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReasonModelImplFromJson(json);
 
   @override
   final int? status;
@@ -174,7 +174,7 @@ class _$_ReasonModel implements _ReasonModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ReasonModel &&
+            other is _$ReasonModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -188,12 +188,12 @@ class _$_ReasonModel implements _ReasonModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReasonModelCopyWith<_$_ReasonModel> get copyWith =>
-      __$$_ReasonModelCopyWithImpl<_$_ReasonModel>(this, _$identity);
+  _$$ReasonModelImplCopyWith<_$ReasonModelImpl> get copyWith =>
+      __$$ReasonModelImplCopyWithImpl<_$ReasonModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReasonModelToJson(
+    return _$$ReasonModelImplToJson(
       this,
     );
   }
@@ -204,10 +204,10 @@ abstract class _ReasonModel implements ReasonModel {
       {required final int? status,
       required final String? message,
       required final String? error,
-      required final Result? result}) = _$_ReasonModel;
+      required final Result? result}) = _$ReasonModelImpl;
 
   factory _ReasonModel.fromJson(Map<String, dynamic> json) =
-      _$_ReasonModel.fromJson;
+      _$ReasonModelImpl.fromJson;
 
   @override
   int? get status;
@@ -219,7 +219,7 @@ abstract class _ReasonModel implements ReasonModel {
   Result? get result;
   @override
   @JsonKey(ignore: true)
-  _$$_ReasonModelCopyWith<_$_ReasonModel> get copyWith =>
+  _$$ReasonModelImplCopyWith<_$ReasonModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -283,9 +283,10 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
 }
 
 /// @nodoc
-abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$$_ResultCopyWith(_$_Result value, $Res Function(_$_Result) then) =
-      __$$_ResultCopyWithImpl<$Res>;
+abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
+  factory _$$ResultImplCopyWith(
+          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
+      __$$ResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Data? data});
@@ -295,10 +296,11 @@ abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ResultCopyWithImpl<$Res>
-    extends _$ResultCopyWithImpl<$Res, _$_Result>
-    implements _$$_ResultCopyWith<$Res> {
-  __$$_ResultCopyWithImpl(_$_Result _value, $Res Function(_$_Result) _then)
+class __$$ResultImplCopyWithImpl<$Res>
+    extends _$ResultCopyWithImpl<$Res, _$ResultImpl>
+    implements _$$ResultImplCopyWith<$Res> {
+  __$$ResultImplCopyWithImpl(
+      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -306,7 +308,7 @@ class __$$_ResultCopyWithImpl<$Res>
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_$_Result(
+    return _then(_$ResultImpl(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -317,11 +319,11 @@ class __$$_ResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Result implements _Result {
-  const _$_Result({required this.data});
+class _$ResultImpl implements _Result {
+  const _$ResultImpl({required this.data});
 
-  factory _$_Result.fromJson(Map<String, dynamic> json) =>
-      _$$_ResultFromJson(json);
+  factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResultImplFromJson(json);
 
   @override
   final Data? data;
@@ -335,7 +337,7 @@ class _$_Result implements _Result {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Result &&
+            other is _$ResultImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -346,27 +348,27 @@ class _$_Result implements _Result {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
-      __$$_ResultCopyWithImpl<_$_Result>(this, _$identity);
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
+      __$$ResultImplCopyWithImpl<_$ResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultToJson(
+    return _$$ResultImplToJson(
       this,
     );
   }
 }
 
 abstract class _Result implements Result {
-  const factory _Result({required final Data? data}) = _$_Result;
+  const factory _Result({required final Data? data}) = _$ResultImpl;
 
-  factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
+  factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
   @override
   Data? get data;
   @override
   @JsonKey(ignore: true)
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -439,9 +441,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
 }
 
 /// @nodoc
-abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
-  factory _$$_DataCopyWith(_$_Data value, $Res Function(_$_Data) then) =
-      __$$_DataCopyWithImpl<$Res>;
+abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
+  factory _$$DataImplCopyWith(
+          _$DataImpl value, $Res Function(_$DataImpl) then) =
+      __$$DataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -452,9 +455,10 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
-    implements _$$_DataCopyWith<$Res> {
-  __$$_DataCopyWithImpl(_$_Data _value, $Res Function(_$_Data) _then)
+class __$$DataImplCopyWithImpl<$Res>
+    extends _$DataCopyWithImpl<$Res, _$DataImpl>
+    implements _$$DataImplCopyWith<$Res> {
+  __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -465,7 +469,7 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_Data(
+    return _then(_$DataImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -488,15 +492,16 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Data implements _Data {
-  const _$_Data(
+class _$DataImpl implements _Data {
+  const _$DataImpl(
       {@JsonKey(name: "_id") required this.id,
       required final List<Reason>? reasons,
       required this.createdAt,
       required this.updatedAt})
       : _reasons = reasons;
 
-  factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
+  factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DataImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -525,7 +530,7 @@ class _$_Data implements _Data {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Data &&
+            other is _$DataImpl &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other._reasons, _reasons) &&
             (identical(other.createdAt, createdAt) ||
@@ -542,12 +547,12 @@ class _$_Data implements _Data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DataCopyWith<_$_Data> get copyWith =>
-      __$$_DataCopyWithImpl<_$_Data>(this, _$identity);
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      __$$DataImplCopyWithImpl<_$DataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DataToJson(
+    return _$$DataImplToJson(
       this,
     );
   }
@@ -558,9 +563,9 @@ abstract class _Data implements Data {
       {@JsonKey(name: "_id") required final String? id,
       required final List<Reason>? reasons,
       required final String? createdAt,
-      required final String? updatedAt}) = _$_Data;
+      required final String? updatedAt}) = _$DataImpl;
 
-  factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
+  factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -573,7 +578,8 @@ abstract class _Data implements Data {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Reason _$ReasonFromJson(Map<String, dynamic> json) {
@@ -629,19 +635,21 @@ class _$ReasonCopyWithImpl<$Res, $Val extends Reason>
 }
 
 /// @nodoc
-abstract class _$$_ReasonCopyWith<$Res> implements $ReasonCopyWith<$Res> {
-  factory _$$_ReasonCopyWith(_$_Reason value, $Res Function(_$_Reason) then) =
-      __$$_ReasonCopyWithImpl<$Res>;
+abstract class _$$ReasonImplCopyWith<$Res> implements $ReasonCopyWith<$Res> {
+  factory _$$ReasonImplCopyWith(
+          _$ReasonImpl value, $Res Function(_$ReasonImpl) then) =
+      __$$ReasonImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? text, @JsonKey(name: "_id") String? id});
 }
 
 /// @nodoc
-class __$$_ReasonCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$_Reason>
-    implements _$$_ReasonCopyWith<$Res> {
-  __$$_ReasonCopyWithImpl(_$_Reason _value, $Res Function(_$_Reason) _then)
+class __$$ReasonImplCopyWithImpl<$Res>
+    extends _$ReasonCopyWithImpl<$Res, _$ReasonImpl>
+    implements _$$ReasonImplCopyWith<$Res> {
+  __$$ReasonImplCopyWithImpl(
+      _$ReasonImpl _value, $Res Function(_$ReasonImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -650,7 +658,7 @@ class __$$_ReasonCopyWithImpl<$Res>
     Object? text = freezed,
     Object? id = freezed,
   }) {
-    return _then(_$_Reason(
+    return _then(_$ReasonImpl(
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -665,11 +673,12 @@ class __$$_ReasonCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Reason implements _Reason {
-  const _$_Reason({required this.text, @JsonKey(name: "_id") required this.id});
+class _$ReasonImpl implements _Reason {
+  const _$ReasonImpl(
+      {required this.text, @JsonKey(name: "_id") required this.id});
 
-  factory _$_Reason.fromJson(Map<String, dynamic> json) =>
-      _$$_ReasonFromJson(json);
+  factory _$ReasonImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReasonImplFromJson(json);
 
   @override
   final String? text;
@@ -686,7 +695,7 @@ class _$_Reason implements _Reason {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Reason &&
+            other is _$ReasonImpl &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.id, id) || other.id == id));
   }
@@ -698,12 +707,12 @@ class _$_Reason implements _Reason {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReasonCopyWith<_$_Reason> get copyWith =>
-      __$$_ReasonCopyWithImpl<_$_Reason>(this, _$identity);
+  _$$ReasonImplCopyWith<_$ReasonImpl> get copyWith =>
+      __$$ReasonImplCopyWithImpl<_$ReasonImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ReasonToJson(
+    return _$$ReasonImplToJson(
       this,
     );
   }
@@ -712,9 +721,9 @@ class _$_Reason implements _Reason {
 abstract class _Reason implements Reason {
   const factory _Reason(
       {required final String? text,
-      @JsonKey(name: "_id") required final String? id}) = _$_Reason;
+      @JsonKey(name: "_id") required final String? id}) = _$ReasonImpl;
 
-  factory _Reason.fromJson(Map<String, dynamic> json) = _$_Reason.fromJson;
+  factory _Reason.fromJson(Map<String, dynamic> json) = _$ReasonImpl.fromJson;
 
   @override
   String? get text;
@@ -723,6 +732,6 @@ abstract class _Reason implements Reason {
   String? get id;
   @override
   @JsonKey(ignore: true)
-  _$$_ReasonCopyWith<_$_Reason> get copyWith =>
+  _$$ReasonImplCopyWith<_$ReasonImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

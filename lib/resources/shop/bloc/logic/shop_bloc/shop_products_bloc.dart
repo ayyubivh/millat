@@ -417,15 +417,19 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   _fetchOrdersById(
       FetchOrdersById event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    emit(state.copyWith(
+      isLoading: true,
+      errorMessage: "",
+      orderSucces: false,
+    ));
     try {
       final data = await ordersService.fetchOrdersById(event.context, event.id);
       print('here ares the results of ordersy by id in the bloc $data');
       emit(state.copyWith(
-          ordersByIdModel: data,
-          isLoading: false,
-          orderId: null,
-          orderSucces: false));
+        ordersByIdModel: data,
+        isLoading: false,
+        orderId: event.id,
+      ));
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
     }

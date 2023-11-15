@@ -21,12 +21,12 @@ class TravelHomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const widgets = [
+    final widgets = [
       kHeight20,
-      CategoryList(),
-      RecommendationWidget(),
-      PopularDestinationWidget(),
-      BestPlaceWidget(),
+      const CategoryList(),
+      const RecommendationWidget(),
+      const PopularDestinationWidget(),
+      const BestPlaceWidget(),
       kHeight100,
     ];
 
@@ -110,22 +110,10 @@ class BestPlaceWidget extends StatelessWidget {
                                 margin: const EdgeInsets.only(right: 10),
                                 height: 180,
                                 width: SizeUtility(context).width / 1.3,
-                                child: ShaderMask(
-                                  blendMode: BlendMode.darken,
-                                  shaderCallback: (bounds) => LinearGradient(
-                                    colors: [
-                                      Colors.black.withOpacity(0.4),
-                                      Colors.black.withOpacity(0.4)
-                                    ],
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                  ).createShader(bounds),
-                                  child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Utilities()
-                                          .buildCachedNetworkImage(
-                                              imageUrl:
-                                                  data?[index].images?[0])),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Utilities().buildCachedNetworkImage(
+                                      imageUrl: data?[index].images?[0]),
                                 ),
                               ),
                               Positioned(
@@ -290,7 +278,7 @@ class TravelProductWidget extends StatelessWidget {
             });
       },
       child: Container(
-        height: 280,
+        // height: 280,
         width: SizeUtility(context).width / 2,
         margin: const EdgeInsets.only(right: 12),
         decoration: BoxDecoration(
@@ -304,7 +292,7 @@ class TravelProductWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 180,
+              height: 160,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Utilities().buildCachedNetworkImage(
@@ -375,16 +363,17 @@ class TravelProductWidget extends StatelessWidget {
                 ),
                 kWidth3,
                 Text(
-                  "₹100,000 /",
+                  "₹100,000/",
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
                     color: ColorManager.blackColor,
                     decoration: TextDecoration.lineThrough,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 Text(
-                  data.price ?? "",
+                  data.price.toString(),
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
@@ -419,152 +408,204 @@ class RecommendationWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          kHeight25,
+          kHeight16,
           TitleWidget(
             titleName: Appstrings.tourRecommendations,
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(MyAppRouteConstants.travelPackagesView,
+                  pathParameters: {
+                    "title": Appstrings.products,
+                  },
+                  extra: {
+                    "type": TravelsPackagesType.popularProducts
+                  });
+            },
           ),
-          kHeight16,
-          Container(
-            height: 104,
-            width: SizeUtility(context).width,
-            decoration: BoxDecoration(
-              color: ColorManager.darkWhite,
-              border: Border.all(
-                color: ColorManager.whiteE0,
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        AppAssetsStrings.karbala,
-                        height: 50,
-                      ),
-                    ),
-                    kWidth10,
-                    Column(
-                      children: [
-                        const Text(
-                          "Karbala",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        kHeight10,
-                        Row(
-                          children: [
-                            ImageIcon(
-                              const AssetImage(
-                                AppAssetsStrings.locations,
+          kHeight15,
+          BlocBuilder<TravelBloc, TravelState>(
+            builder: (context, state) => SizedBox(
+              height: 120,
+              child: ListView.builder(
+                itemCount: 2,
+                scrollDirection: Axis.horizontal,
+                reverse: true,
+                itemBuilder: (context, index) {
+                  final products = state.travelPopularProductsModel?.products;
+                  if (state.travelPopularProductsModel?.products == null) {
+                    return const SizedBox();
+                  }
+                  int reversedIndex = products!.length - 1 - index;
+                  final data =
+                      state.travelPopularProductsModel?.products[reversedIndex];
+
+                  return GestureDetector(
+                    onTap: () {
+                      context.pushNamed(
+                          MyAppRouteConstants.travelSingleRoutename,
+                          pathParameters: {
+                            'id': data.id,
+                          });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 110,
+                            width: SizeUtility(context).width / 1.5,
+                            decoration: BoxDecoration(
+                              color: ColorManager.darkWhite,
+                              border: Border.all(
+                                color: ColorManager.whiteE0,
                               ),
-                              size: 16,
-                              color: ColorManager.lightGrey85,
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            kWidth10,
-                            const Text(
-                              "Iraq",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Container(
-                      height: 32,
-                      width: 71,
-                      decoration: BoxDecoration(
-                        color: ColorManager.green0F.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(30),
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.circular(12),
+                                        child: Utilities()
+                                            .buildCachedNetworkImage(
+                                                imageUrl: data?.mainImage,
+                                                height: 55,
+                                                width: 55)),
+                                    kWidth10,
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          data!.name,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        kHeight10,
+                                        Row(
+                                          children: [
+                                            ImageIcon(
+                                              const AssetImage(
+                                                AppAssetsStrings.locations,
+                                              ),
+                                              size: 16,
+                                              color: ColorManager.lightGrey85,
+                                            ),
+                                            kWidth10,
+                                            Text(
+                                              data.location,
+                                              style: const TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    Container(
+                                      height: 32,
+                                      width: 71,
+                                      decoration: BoxDecoration(
+                                        color: ColorManager.green0F
+                                            .withOpacity(0.2),
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          "Available",
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold,
+                                            color: ColorManager.green0F,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Spacer(),
+                                Row(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        ImageIcon(
+                                          const AssetImage(
+                                              AppAssetsStrings.discount_2),
+                                          size: 16,
+                                          color: ColorManager.greyB4,
+                                        ),
+                                        kWidth3,
+                                        Text(
+                                          data.price.toString(),
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w700,
+                                            color: ColorManager.primary,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ImageIcon(
+                                          const AssetImage(
+                                              AppAssetsStrings.starIcon),
+                                          size: 16,
+                                          color: ColorManager.greyB4,
+                                        ),
+                                        kWidth3,
+                                        Text(
+                                          "4.5",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w700,
+                                            color: ColorManager.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    Row(
+                                      children: [
+                                        ImageIcon(
+                                          const AssetImage(
+                                              AppAssetsStrings.dateIcon),
+                                          size: 16,
+                                          color: ColorManager.greyB4,
+                                        ),
+                                        kWidth3,
+                                        Text(
+                                          Utilities.formatDate(
+                                              DateTime.now().toString()),
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w700,
+                                            color: ColorManager.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
                       ),
-                      child: Center(
-                        child: Text(
-                          "Available",
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: ColorManager.green0F,
-                          ),
-                        ),
-                      ),
                     ),
-                  ],
-                ),
-                const Spacer(),
-                Row(
-                  children: [
-                    Row(
-                      children: [
-                        ImageIcon(
-                          const AssetImage(AppAssetsStrings.discount_2),
-                          size: 16,
-                          color: ColorManager.greyB4,
-                        ),
-                        kWidth3,
-                        Text(
-                          "88,000",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.primary,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ImageIcon(
-                          const AssetImage(AppAssetsStrings.starIcon),
-                          size: 16,
-                          color: ColorManager.greyB4,
-                        ),
-                        kWidth3,
-                        Text(
-                          "4.5",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.blackColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        ImageIcon(
-                          const AssetImage(AppAssetsStrings.dateIcon),
-                          size: 16,
-                          color: ColorManager.greyB4,
-                        ),
-                        kWidth3,
-                        Text(
-                          "12-16 Feb",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.blackColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
+                  );
+                },
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -680,138 +721,19 @@ class BannerCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: ColorManager.whiteColor,
-      height: 300,
-      child: BlocBuilder<TravelBloc, TravelState>(
-        builder: (context, state) {
-          final banners = state.travelHomeBannerPackages;
-          return banners == null
-              ? const Loader()
-              : Stack(
-                  children: [
-                    CarouselSlider(
-                      items: banners.map((banner) {
-                        return Carousel(
-                          banner: banner.images?[0] ?? "",
-                          title: banner.name ?? "",
-                          rating: 4.5,
-                        );
-                      }).toList(),
-                      options: CarouselOptions(
-                        height: 262,
-                        viewportFraction: 1,
-                        enlargeCenterPage: true,
-                        autoPlay: true,
-                        autoPlayCurve: Curves.fastOutSlowIn,
-                        enableInfiniteScroll: true,
-                        // enlargeFactor: 0.3,
-                        scrollDirection: Axis.horizontal,
-                        autoPlayAnimationDuration:
-                            const Duration(milliseconds: 800),
-                        onPageChanged: (index, reason) {
-                          context
-                              .read<TravelBloc>()
-                              .add(ChangeBannerIndex(index: index));
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      bottom: 80,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: banners.map((banner) {
-                          int index = banners.indexOf(banner);
-                          return Container(
-                            width: state.index == index ? 22 : 6,
-                            height: 6,
-                            margin: const EdgeInsets.symmetric(horizontal: 4),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: state.index == index
-                                  ? ColorManager.whiteColor
-                                  : ColorManager.textGrey2,
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                    const BookNowContainer()
-                  ],
-                );
-        },
-      ),
-    );
-  }
-}
-
-class BookNowContainer extends StatelessWidget {
-  const BookNowContainer({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      left: 20,
-      right: 20,
-      bottom: 10,
-      child: Container(
-        decoration: BoxDecoration(
-          color: ColorManager.whiteColor,
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              color: ColorManager.lightBlackColor.withOpacity(0.3),
-              offset: const Offset(0, 1),
-              blurRadius: 5,
-              spreadRadius: 1,
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Container(
-              height: 56,
-              width: SizeUtility(context).width / 2,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: BlocBuilder<TravelBloc, TravelState>(
-                builder: (context, state) {
-                  final data = state.travelHomeBannerPackages;
-                  if (data == null) {
-                    return const SizedBox();
-                  }
-                  return CarouselSlider(
-                    items: data.map((e) {
-                      return GestureDetector(
-                        onTap: () {
-                          context.pushNamed(
-                              MyAppRouteConstants.travelBookingFormRoutename,
-                              pathParameters: {"id": e.id!});
-                        },
-                        child: Row(
-                          children: [
-                            Text(
-                              "₹100,000 /",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                                color: ColorManager.textGrey,
-                                decoration: TextDecoration.lineThrough,
-                              ),
-                            ),
-                            Text(
-                              " ${e.price}",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                                color: ColorManager.primary,
-                              ),
-                            ),
-                          ],
-                        ),
+    return BlocBuilder<TravelBloc, TravelState>(
+      builder: (context, state) {
+        final banners = state.travelHomeBannerPackages;
+        return banners == null
+            ? const Loader()
+            : Stack(
+                children: [
+                  CarouselSlider(
+                    items: banners.map((banner) {
+                      return Carousel(
+                        banner: banner.images?[0] ?? "",
+                        title: banner.name ?? "",
+                        rating: 4.5,
                       );
                     }).toList(),
                     options: CarouselOptions(
@@ -831,31 +753,126 @@ class BookNowContainer extends StatelessWidget {
                             .add(ChangeBannerIndex(index: index));
                       },
                     ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: banners.map((banner) {
+                        int index = banners.indexOf(banner);
+                        return Container(
+                          width: state.index == index ? 22 : 6,
+                          height: 6,
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: state.index == index
+                                ? ColorManager.primary
+                                : ColorManager.textGrey2,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  const BookNowContainer()
+                ],
+              );
+      },
+    );
+  }
+}
+
+class BookNowContainer extends StatelessWidget {
+  const BookNowContainer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: 20,
+      right: 20,
+      bottom: 10,
+      child: Container(
+          decoration: BoxDecoration(
+            color: ColorManager.whiteColor,
+            borderRadius: BorderRadius.circular(30),
+            boxShadow: [
+              BoxShadow(
+                color: ColorManager.lightBlackColor.withOpacity(0.3),
+                offset: const Offset(0, 1),
+                blurRadius: 5,
+                spreadRadius: 1,
+              ),
+            ],
+          ),
+          child: BlocBuilder<TravelBloc, TravelState>(
+            builder: (context, state) {
+              final data = state.travelHomeBannerPackages?[state.index];
+              if (data == null) {
+                return const SizedBox();
+              }
+
+              return GestureDetector(
+                onTap: () {
+                  context.pushNamed(
+                    MyAppRouteConstants.travelBookingFormRoutename,
+                    pathParameters: {"id": data.id!},
                   );
                 },
-              ),
-            ),
-            const Spacer(),
-            gradientContainer(
-              child: Center(
-                child: Text(
-                  Appstrings.bookNow,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700,
-                    color: ColorManager.whiteColor,
-                  ),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 56,
+                      width: SizeUtility(context).width / 2,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        children: [
+                          Text(
+                            "₹100,000 /",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: ColorManager.textGrey,
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                          ),
+                          Text(
+                            " ${data.price}",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: ColorManager.primary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Spacer(),
+                    gradientContainer(
+                      child: Center(
+                        child: Text(
+                          Appstrings.bookNow,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: ColorManager.whiteColor,
+                          ),
+                        ),
+                      ),
+                      width: 84,
+                      radius: 30,
+                      height: 42,
+                      padding: const EdgeInsets.all(0),
+                    ),
+                    kWidth10,
+                  ],
                 ),
-              ),
-              width: 84,
-              radius: 30,
-              height: 42,
-              padding: const EdgeInsets.all(0),
-            ),
-            kWidth10,
-          ],
-        ),
-      ),
+              );
+            },
+          )),
     );
   }
 }
@@ -881,8 +898,8 @@ class Carousel extends StatelessWidget {
             blendMode: BlendMode.darken,
             shaderCallback: (bounds) => LinearGradient(
               colors: [
-                Colors.black.withOpacity(0.4),
-                Colors.black.withOpacity(0.4)
+                Colors.black.withOpacity(0.2),
+                Colors.black.withOpacity(0.2)
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -891,12 +908,12 @@ class Carousel extends StatelessWidget {
               imageUrl: banner,
               boxFit: BoxFit.fill,
               width: SizeUtility(context).width,
-              height: 262,
+              // height: 262,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(
-              top: 50,
+              top: 55,
               left: 30,
               right: 30,
             ),
@@ -910,8 +927,9 @@ class Carousel extends StatelessWidget {
                     Text(
                       title,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 16,
                         color: ColorManager.whiteColor,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     kHeight5,

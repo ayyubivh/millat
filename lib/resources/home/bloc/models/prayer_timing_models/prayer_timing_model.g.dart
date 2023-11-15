@@ -6,36 +6,36 @@ part of 'prayer_timing_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PrayerModel _$$_PrayerModelFromJson(Map<String, dynamic> json) =>
-    _$_PrayerModel(
+_$PrayerModelImpl _$$PrayerModelImplFromJson(Map<String, dynamic> json) =>
+    _$PrayerModelImpl(
       code: json['code'] as int,
       status: json['status'] as String,
       data: PrayerData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_PrayerModelToJson(_$_PrayerModel instance) =>
+Map<String, dynamic> _$$PrayerModelImplToJson(_$PrayerModelImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'status': instance.status,
       'data': instance.data,
     };
 
-_$_PrayerData _$$_PrayerDataFromJson(Map<String, dynamic> json) =>
-    _$_PrayerData(
+_$PrayerDataImpl _$$PrayerDataImplFromJson(Map<String, dynamic> json) =>
+    _$PrayerDataImpl(
       timings: PrayerTimings.fromJson(json['timings'] as Map<String, dynamic>),
       date: PrayerDate.fromJson(json['date'] as Map<String, dynamic>),
       meta: PrayerMeta.fromJson(json['meta'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_PrayerDataToJson(_$_PrayerData instance) =>
+Map<String, dynamic> _$$PrayerDataImplToJson(_$PrayerDataImpl instance) =>
     <String, dynamic>{
       'timings': instance.timings,
       'date': instance.date,
       'meta': instance.meta,
     };
 
-_$_PrayerTimings _$$_PrayerTimingsFromJson(Map<String, dynamic> json) =>
-    _$_PrayerTimings(
+_$PrayerTimingsImpl _$$PrayerTimingsImplFromJson(Map<String, dynamic> json) =>
+    _$PrayerTimingsImpl(
       fajr: json['Fajr'] as String?,
       sunrise: json['Sunrise'] as String?,
       dhuhr: json['Dhuhr'] as String?,
@@ -49,7 +49,7 @@ _$_PrayerTimings _$$_PrayerTimingsFromJson(Map<String, dynamic> json) =>
       lastthird: json['Lastthird'] as String?,
     );
 
-Map<String, dynamic> _$$_PrayerTimingsToJson(_$_PrayerTimings instance) =>
+Map<String, dynamic> _$$PrayerTimingsImplToJson(_$PrayerTimingsImpl instance) =>
     <String, dynamic>{
       'Fajr': instance.fajr,
       'Sunrise': instance.sunrise,
@@ -64,8 +64,8 @@ Map<String, dynamic> _$$_PrayerTimingsToJson(_$_PrayerTimings instance) =>
       'Lastthird': instance.lastthird,
     };
 
-_$_PrayerDate _$$_PrayerDateFromJson(Map<String, dynamic> json) =>
-    _$_PrayerDate(
+_$PrayerDateImpl _$$PrayerDateImplFromJson(Map<String, dynamic> json) =>
+    _$PrayerDateImpl(
       readable: json['readable'] as String,
       timestamp: json['timestamp'] as String,
       hijri: HijriDate.fromJson(json['hijri'] as Map<String, dynamic>),
@@ -73,7 +73,7 @@ _$_PrayerDate _$$_PrayerDateFromJson(Map<String, dynamic> json) =>
           GregorianDate.fromJson(json['gregorian'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_PrayerDateToJson(_$_PrayerDate instance) =>
+Map<String, dynamic> _$$PrayerDateImplToJson(_$PrayerDateImpl instance) =>
     <String, dynamic>{
       'readable': instance.readable,
       'timestamp': instance.timestamp,
@@ -81,7 +81,8 @@ Map<String, dynamic> _$$_PrayerDateToJson(_$_PrayerDate instance) =>
       'gregorian': instance.gregorian,
     };
 
-_$_HijriDate _$$_HijriDateFromJson(Map<String, dynamic> json) => _$_HijriDate(
+_$HijriDateImpl _$$HijriDateImplFromJson(Map<String, dynamic> json) =>
+    _$HijriDateImpl(
       date: json['date'] as String,
       format: json['format'] as String,
       day: json['day'] as String,
@@ -94,7 +95,7 @@ _$_HijriDate _$$_HijriDateFromJson(Map<String, dynamic> json) => _$_HijriDate(
           (json['holidays'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$_HijriDateToJson(_$_HijriDate instance) =>
+Map<String, dynamic> _$$HijriDateImplToJson(_$HijriDateImpl instance) =>
     <String, dynamic>{
       'date': instance.date,
       'format': instance.format,
@@ -106,8 +107,8 @@ Map<String, dynamic> _$$_HijriDateToJson(_$_HijriDate instance) =>
       'holidays': instance.holidays,
     };
 
-_$_GregorianDate _$$_GregorianDateFromJson(Map<String, dynamic> json) =>
-    _$_GregorianDate(
+_$GregorianDateImpl _$$GregorianDateImplFromJson(Map<String, dynamic> json) =>
+    _$GregorianDateImpl(
       date: json['date'] as String,
       format: json['format'] as String,
       day: json['day'] as String,
@@ -119,7 +120,7 @@ _$_GregorianDate _$$_GregorianDateFromJson(Map<String, dynamic> json) =>
           Designation.fromJson(json['designation'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_GregorianDateToJson(_$_GregorianDate instance) =>
+Map<String, dynamic> _$$GregorianDateImplToJson(_$GregorianDateImpl instance) =>
     <String, dynamic>{
       'date': instance.date,
       'format': instance.format,
@@ -130,70 +131,73 @@ Map<String, dynamic> _$$_GregorianDateToJson(_$_GregorianDate instance) =>
       'designation': instance.designation,
     };
 
-_$_HijriWeekday _$$_HijriWeekdayFromJson(Map<String, dynamic> json) =>
-    _$_HijriWeekday(
+_$HijriWeekdayImpl _$$HijriWeekdayImplFromJson(Map<String, dynamic> json) =>
+    _$HijriWeekdayImpl(
       en: json['en'] as String?,
       ar: json['ar'] as String?,
     );
 
-Map<String, dynamic> _$$_HijriWeekdayToJson(_$_HijriWeekday instance) =>
+Map<String, dynamic> _$$HijriWeekdayImplToJson(_$HijriWeekdayImpl instance) =>
     <String, dynamic>{
       'en': instance.en,
       'ar': instance.ar,
     };
 
-_$_GregorianWeekday _$$_GregorianWeekdayFromJson(Map<String, dynamic> json) =>
-    _$_GregorianWeekday(
+_$GregorianWeekdayImpl _$$GregorianWeekdayImplFromJson(
+        Map<String, dynamic> json) =>
+    _$GregorianWeekdayImpl(
       en: json['en'] as String?,
     );
 
-Map<String, dynamic> _$$_GregorianWeekdayToJson(_$_GregorianWeekday instance) =>
+Map<String, dynamic> _$$GregorianWeekdayImplToJson(
+        _$GregorianWeekdayImpl instance) =>
     <String, dynamic>{
       'en': instance.en,
     };
 
-_$_HijriMonth _$$_HijriMonthFromJson(Map<String, dynamic> json) =>
-    _$_HijriMonth(
+_$HijriMonthImpl _$$HijriMonthImplFromJson(Map<String, dynamic> json) =>
+    _$HijriMonthImpl(
       number: json['number'] as int?,
       en: json['en'] as String?,
       ar: json['ar'] as String?,
     );
 
-Map<String, dynamic> _$$_HijriMonthToJson(_$_HijriMonth instance) =>
+Map<String, dynamic> _$$HijriMonthImplToJson(_$HijriMonthImpl instance) =>
     <String, dynamic>{
       'number': instance.number,
       'en': instance.en,
       'ar': instance.ar,
     };
 
-_$_GregorianMonth _$$_GregorianMonthFromJson(Map<String, dynamic> json) =>
-    _$_GregorianMonth(
+_$GregorianMonthImpl _$$GregorianMonthImplFromJson(Map<String, dynamic> json) =>
+    _$GregorianMonthImpl(
       number: json['number'] as int?,
       en: json['en'] as String?,
       ar: json['ar'] as String?,
     );
 
-Map<String, dynamic> _$$_GregorianMonthToJson(_$_GregorianMonth instance) =>
+Map<String, dynamic> _$$GregorianMonthImplToJson(
+        _$GregorianMonthImpl instance) =>
     <String, dynamic>{
       'number': instance.number,
       'en': instance.en,
       'ar': instance.ar,
     };
 
-_$_Designation _$$_DesignationFromJson(Map<String, dynamic> json) =>
-    _$_Designation(
+_$DesignationImpl _$$DesignationImplFromJson(Map<String, dynamic> json) =>
+    _$DesignationImpl(
       abbreviated: json['abbreviated'] as String,
       expanded: json['expanded'] as String,
     );
 
-Map<String, dynamic> _$$_DesignationToJson(_$_Designation instance) =>
+Map<String, dynamic> _$$DesignationImplToJson(_$DesignationImpl instance) =>
     <String, dynamic>{
       'abbreviated': instance.abbreviated,
       'expanded': instance.expanded,
     };
 
-_$_PrayerMeta _$$_PrayerMetaFromJson(Map<String, dynamic> json) =>
-    _$_PrayerMeta(
+_$PrayerMetaImpl _$$PrayerMetaImplFromJson(Map<String, dynamic> json) =>
+    _$PrayerMetaImpl(
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
       timezone: json['timezone'] as String,
@@ -204,7 +208,7 @@ _$_PrayerMeta _$$_PrayerMetaFromJson(Map<String, dynamic> json) =>
       offset: Offset.fromJson(json['offset'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_PrayerMetaToJson(_$_PrayerMeta instance) =>
+Map<String, dynamic> _$$PrayerMetaImplToJson(_$PrayerMetaImpl instance) =>
     <String, dynamic>{
       'latitude': instance.latitude,
       'longitude': instance.longitude,
@@ -216,7 +220,7 @@ Map<String, dynamic> _$$_PrayerMetaToJson(_$_PrayerMeta instance) =>
       'offset': instance.offset,
     };
 
-_$_Method _$$_MethodFromJson(Map<String, dynamic> json) => _$_Method(
+_$MethodImpl _$$MethodImplFromJson(Map<String, dynamic> json) => _$MethodImpl(
       id: json['id'] as int,
       name: json['name'] as String,
       params: MethodParams.fromJson(json['params'] as Map<String, dynamic>),
@@ -224,40 +228,42 @@ _$_Method _$$_MethodFromJson(Map<String, dynamic> json) => _$_Method(
           MethodLocation.fromJson(json['location'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_MethodToJson(_$_Method instance) => <String, dynamic>{
+Map<String, dynamic> _$$MethodImplToJson(_$MethodImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'params': instance.params,
       'location': instance.location,
     };
 
-_$_MethodParams _$$_MethodParamsFromJson(Map<String, dynamic> json) =>
-    _$_MethodParams(
+_$MethodParamsImpl _$$MethodParamsImplFromJson(Map<String, dynamic> json) =>
+    _$MethodParamsImpl(
       fajr: json['Fajr'],
       isha: json['Isha'],
       shafaq: json['shafaq'],
     );
 
-Map<String, dynamic> _$$_MethodParamsToJson(_$_MethodParams instance) =>
+Map<String, dynamic> _$$MethodParamsImplToJson(_$MethodParamsImpl instance) =>
     <String, dynamic>{
       'Fajr': instance.fajr,
       'Isha': instance.isha,
       'shafaq': instance.shafaq,
     };
 
-_$_MethodLocation _$$_MethodLocationFromJson(Map<String, dynamic> json) =>
-    _$_MethodLocation(
+_$MethodLocationImpl _$$MethodLocationImplFromJson(Map<String, dynamic> json) =>
+    _$MethodLocationImpl(
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$_MethodLocationToJson(_$_MethodLocation instance) =>
+Map<String, dynamic> _$$MethodLocationImplToJson(
+        _$MethodLocationImpl instance) =>
     <String, dynamic>{
       'latitude': instance.latitude,
       'longitude': instance.longitude,
     };
 
-_$_Offset _$$_OffsetFromJson(Map<String, dynamic> json) => _$_Offset(
+_$OffsetImpl _$$OffsetImplFromJson(Map<String, dynamic> json) => _$OffsetImpl(
       imsak: json['Imsak'] as int,
       fajr: json['Fajr'] as int,
       sunrise: json['Sunrise'] as int,
@@ -269,7 +275,8 @@ _$_Offset _$$_OffsetFromJson(Map<String, dynamic> json) => _$_Offset(
       midnight: json['Midnight'] as int,
     );
 
-Map<String, dynamic> _$$_OffsetToJson(_$_Offset instance) => <String, dynamic>{
+Map<String, dynamic> _$$OffsetImplToJson(_$OffsetImpl instance) =>
+    <String, dynamic>{
       'Imsak': instance.imsak,
       'Fajr': instance.fajr,
       'Sunrise': instance.sunrise,

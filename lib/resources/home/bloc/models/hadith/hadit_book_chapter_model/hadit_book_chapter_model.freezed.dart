@@ -76,23 +76,25 @@ class _$HadithBooksChapterModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_HadithBooksChapterModelCopyWith<$Res>
+abstract class _$$HadithBooksChapterModelImplCopyWith<$Res>
     implements $HadithBooksChapterModelCopyWith<$Res> {
-  factory _$$_HadithBooksChapterModelCopyWith(_$_HadithBooksChapterModel value,
-          $Res Function(_$_HadithBooksChapterModel) then) =
-      __$$_HadithBooksChapterModelCopyWithImpl<$Res>;
+  factory _$$HadithBooksChapterModelImplCopyWith(
+          _$HadithBooksChapterModelImpl value,
+          $Res Function(_$HadithBooksChapterModelImpl) then) =
+      __$$HadithBooksChapterModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int status, String message, List<Chapters> chapters});
 }
 
 /// @nodoc
-class __$$_HadithBooksChapterModelCopyWithImpl<$Res>
+class __$$HadithBooksChapterModelImplCopyWithImpl<$Res>
     extends _$HadithBooksChapterModelCopyWithImpl<$Res,
-        _$_HadithBooksChapterModel>
-    implements _$$_HadithBooksChapterModelCopyWith<$Res> {
-  __$$_HadithBooksChapterModelCopyWithImpl(_$_HadithBooksChapterModel _value,
-      $Res Function(_$_HadithBooksChapterModel) _then)
+        _$HadithBooksChapterModelImpl>
+    implements _$$HadithBooksChapterModelImplCopyWith<$Res> {
+  __$$HadithBooksChapterModelImplCopyWithImpl(
+      _$HadithBooksChapterModelImpl _value,
+      $Res Function(_$HadithBooksChapterModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +104,7 @@ class __$$_HadithBooksChapterModelCopyWithImpl<$Res>
     Object? message = null,
     Object? chapters = null,
   }) {
-    return _then(_$_HadithBooksChapterModel(
+    return _then(_$HadithBooksChapterModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -121,15 +123,15 @@ class __$$_HadithBooksChapterModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HadithBooksChapterModel implements _HadithBooksChapterModel {
-  _$_HadithBooksChapterModel(
+class _$HadithBooksChapterModelImpl implements _HadithBooksChapterModel {
+  _$HadithBooksChapterModelImpl(
       {required this.status,
       required this.message,
       required final List<Chapters> chapters})
       : _chapters = chapters;
 
-  factory _$_HadithBooksChapterModel.fromJson(Map<String, dynamic> json) =>
-      _$$_HadithBooksChapterModelFromJson(json);
+  factory _$HadithBooksChapterModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HadithBooksChapterModelImplFromJson(json);
 
   @override
   final int status;
@@ -152,7 +154,7 @@ class _$_HadithBooksChapterModel implements _HadithBooksChapterModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HadithBooksChapterModel &&
+            other is _$HadithBooksChapterModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other._chapters, _chapters));
@@ -166,14 +168,13 @@ class _$_HadithBooksChapterModel implements _HadithBooksChapterModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HadithBooksChapterModelCopyWith<_$_HadithBooksChapterModel>
-      get copyWith =>
-          __$$_HadithBooksChapterModelCopyWithImpl<_$_HadithBooksChapterModel>(
-              this, _$identity);
+  _$$HadithBooksChapterModelImplCopyWith<_$HadithBooksChapterModelImpl>
+      get copyWith => __$$HadithBooksChapterModelImplCopyWithImpl<
+          _$HadithBooksChapterModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HadithBooksChapterModelToJson(
+    return _$$HadithBooksChapterModelImplToJson(
       this,
     );
   }
@@ -183,10 +184,10 @@ abstract class _HadithBooksChapterModel implements HadithBooksChapterModel {
   factory _HadithBooksChapterModel(
       {required final int status,
       required final String message,
-      required final List<Chapters> chapters}) = _$_HadithBooksChapterModel;
+      required final List<Chapters> chapters}) = _$HadithBooksChapterModelImpl;
 
   factory _HadithBooksChapterModel.fromJson(Map<String, dynamic> json) =
-      _$_HadithBooksChapterModel.fromJson;
+      _$HadithBooksChapterModelImpl.fromJson;
 
   @override
   int get status;
@@ -196,7 +197,7 @@ abstract class _HadithBooksChapterModel implements HadithBooksChapterModel {
   List<Chapters> get chapters;
   @override
   @JsonKey(ignore: true)
-  _$$_HadithBooksChapterModelCopyWith<_$_HadithBooksChapterModel>
+  _$$HadithBooksChapterModelImplCopyWith<_$HadithBooksChapterModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -288,10 +289,11 @@ class _$ChaptersCopyWithImpl<$Res, $Val extends Chapters>
 }
 
 /// @nodoc
-abstract class _$$_ChaptersCopyWith<$Res> implements $ChaptersCopyWith<$Res> {
-  factory _$$_ChaptersCopyWith(
-          _$_Chapters value, $Res Function(_$_Chapters) then) =
-      __$$_ChaptersCopyWithImpl<$Res>;
+abstract class _$$ChaptersImplCopyWith<$Res>
+    implements $ChaptersCopyWith<$Res> {
+  factory _$$ChaptersImplCopyWith(
+          _$ChaptersImpl value, $Res Function(_$ChaptersImpl) then) =
+      __$$ChaptersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -304,11 +306,11 @@ abstract class _$$_ChaptersCopyWith<$Res> implements $ChaptersCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ChaptersCopyWithImpl<$Res>
-    extends _$ChaptersCopyWithImpl<$Res, _$_Chapters>
-    implements _$$_ChaptersCopyWith<$Res> {
-  __$$_ChaptersCopyWithImpl(
-      _$_Chapters _value, $Res Function(_$_Chapters) _then)
+class __$$ChaptersImplCopyWithImpl<$Res>
+    extends _$ChaptersCopyWithImpl<$Res, _$ChaptersImpl>
+    implements _$$ChaptersImplCopyWith<$Res> {
+  __$$ChaptersImplCopyWithImpl(
+      _$ChaptersImpl _value, $Res Function(_$ChaptersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -321,7 +323,7 @@ class __$$_ChaptersCopyWithImpl<$Res>
     Object? chapterArabic = null,
     Object? bookSlug = null,
   }) {
-    return _then(_$_Chapters(
+    return _then(_$ChaptersImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -352,8 +354,8 @@ class __$$_ChaptersCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Chapters implements _Chapters {
-  const _$_Chapters(
+class _$ChaptersImpl implements _Chapters {
+  const _$ChaptersImpl(
       {required this.id,
       @JsonKey(name: 'chapterNumber') required this.chapterNumber,
       @JsonKey(name: 'chapterEnglish') required this.chapterEnglish,
@@ -361,8 +363,8 @@ class _$_Chapters implements _Chapters {
       @JsonKey(name: 'chapterArabic') required this.chapterArabic,
       @JsonKey(name: 'bookSlug') required this.bookSlug});
 
-  factory _$_Chapters.fromJson(Map<String, dynamic> json) =>
-      _$$_ChaptersFromJson(json);
+  factory _$ChaptersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChaptersImplFromJson(json);
 
   @override
   final int id;
@@ -391,7 +393,7 @@ class _$_Chapters implements _Chapters {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Chapters &&
+            other is _$ChaptersImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.chapterNumber, chapterNumber) ||
                 other.chapterNumber == chapterNumber) &&
@@ -413,12 +415,12 @@ class _$_Chapters implements _Chapters {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChaptersCopyWith<_$_Chapters> get copyWith =>
-      __$$_ChaptersCopyWithImpl<_$_Chapters>(this, _$identity);
+  _$$ChaptersImplCopyWith<_$ChaptersImpl> get copyWith =>
+      __$$ChaptersImplCopyWithImpl<_$ChaptersImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChaptersToJson(
+    return _$$ChaptersImplToJson(
       this,
     );
   }
@@ -426,14 +428,16 @@ class _$_Chapters implements _Chapters {
 
 abstract class _Chapters implements Chapters {
   const factory _Chapters(
-      {required final int id,
-      @JsonKey(name: 'chapterNumber') required final String chapterNumber,
-      @JsonKey(name: 'chapterEnglish') required final String chapterEnglish,
-      @JsonKey(name: 'chapterUrdu') required final String chapterUrdu,
-      @JsonKey(name: 'chapterArabic') required final String chapterArabic,
-      @JsonKey(name: 'bookSlug') required final String bookSlug}) = _$_Chapters;
+          {required final int id,
+          @JsonKey(name: 'chapterNumber') required final String chapterNumber,
+          @JsonKey(name: 'chapterEnglish') required final String chapterEnglish,
+          @JsonKey(name: 'chapterUrdu') required final String chapterUrdu,
+          @JsonKey(name: 'chapterArabic') required final String chapterArabic,
+          @JsonKey(name: 'bookSlug') required final String bookSlug}) =
+      _$ChaptersImpl;
 
-  factory _Chapters.fromJson(Map<String, dynamic> json) = _$_Chapters.fromJson;
+  factory _Chapters.fromJson(Map<String, dynamic> json) =
+      _$ChaptersImpl.fromJson;
 
   @override
   int get id;
@@ -454,6 +458,6 @@ abstract class _Chapters implements Chapters {
   String get bookSlug;
   @override
   @JsonKey(ignore: true)
-  _$$_ChaptersCopyWith<_$_Chapters> get copyWith =>
+  _$$ChaptersImplCopyWith<_$ChaptersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

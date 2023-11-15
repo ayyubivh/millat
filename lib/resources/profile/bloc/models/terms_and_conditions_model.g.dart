@@ -6,9 +6,9 @@ part of 'terms_and_conditions_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TermsConditionsModel _$$_TermsConditionsModelFromJson(
+_$TermsConditionsModelImpl _$$TermsConditionsModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TermsConditionsModel(
+    _$TermsConditionsModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,8 +16,8 @@ _$_TermsConditionsModel _$$_TermsConditionsModelFromJson(
           json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_TermsConditionsModelToJson(
-        _$_TermsConditionsModel instance) =>
+Map<String, dynamic> _$$TermsConditionsModelImplToJson(
+        _$TermsConditionsModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -25,19 +25,19 @@ Map<String, dynamic> _$$_TermsConditionsModelToJson(
       'result': instance.result,
     };
 
-_$_TermsConditionsResult _$$_TermsConditionsResultFromJson(
+_$TermsConditionsResultImpl _$$TermsConditionsResultImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TermsConditionsResult(
+    _$TermsConditionsResultImpl(
       data: Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_TermsConditionsResultToJson(
-        _$_TermsConditionsResult instance) =>
+Map<String, dynamic> _$$TermsConditionsResultImplToJson(
+        _$TermsConditionsResultImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
     };
 
-_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+_$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       id: json['id'] as String?,
       slug: json['slug'] as String,
       content: (json['content'] as List<dynamic>?)
@@ -49,7 +49,8 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'slug': instance.slug,
       'content': instance.content,
@@ -59,15 +60,16 @@ Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
       'updatedAt': instance.updatedAt,
     };
 
-_$_TermsCondition _$$_TermsConditionFromJson(Map<String, dynamic> json) =>
-    _$_TermsCondition(
+_$TermsConditionImpl _$$TermsConditionImplFromJson(Map<String, dynamic> json) =>
+    _$TermsConditionImpl(
       title: json['title'] as String?,
       html: json['html'] as String?,
       id: json['id'] as String?,
       re: json['re'],
     );
 
-Map<String, dynamic> _$$_TermsConditionToJson(_$_TermsCondition instance) =>
+Map<String, dynamic> _$$TermsConditionImplToJson(
+        _$TermsConditionImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
       'html': instance.html,

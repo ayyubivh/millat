@@ -5,6 +5,7 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../../routes/app_router_constants.dart';
@@ -17,6 +18,7 @@ class CancelView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final orderId = context.read<ShopProductsBloc>().state.orderId;
+
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
@@ -52,111 +54,120 @@ class CancelView extends StatelessWidget {
                 child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
                   builder: (context, state) {
                     final data = state.ordersByIdModel?.result?.order;
-                    return SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          kHeight10,
-                          Row(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
+                    return data == null
+                        ? const Loader()
+                        : SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                kHeight10,
+                                Row(
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          width: 60,
+                                          height: 60,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            image: DecorationImage(
+                                              image: NetworkImage(
+                                                  data?.productId?.images![0] ??
+                                                      ""),
+                                            ),
+                                          ),
+                                        ),
+                                        kHeight5,
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            ImageIcon(
+                                              const AssetImage(
+                                                AppAssetsStrings.orderIdIcon,
+                                              ),
+                                              size: 16,
+                                              color: ColorManager.blackColor
+                                                  .withOpacity(0.5),
+                                            ),
+                                            kWidth5,
+                                            Text(
+                                              data?.orderId ?? '',
+                                              style: TextStyle(
+                                                fontSize: 13,
+                                                color: ColorManager.textGrey7A,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    kWidth10,
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.4,
+                                          child: Text(
+                                            data?.productId?.title ?? "",
+                                            style: const TextStyle(
+                                              color: textBlack,
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                        kHeight8,
+                                        Text(
+                                          "${data?.productId?.color ?? ""},${data?.productId?.size?[0].size ?? ""}",
+                                          style: TextStyle(
+                                            color: ColorManager.textGrey7A,
+                                            fontSize: 13,
+                                          ),
+                                        ),
+                                        kHeight8,
+                                        Text(
+                                          "Status : Delivered",
+                                          style: TextStyle(
+                                            color: ColorManager.textGrey7A,
+                                            fontSize: 13,
+                                          ),
+                                        ),
+                                        kHeight8,
+                                        Text(
+                                          data?.sellingPrice.toString() ?? "",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                            color: ColorManager.primary,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: SizedBox(
+                                    height: 30,
                                     width: 60,
-                                    height: 60,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12),
-                                      image: DecorationImage(
-                                        image: NetworkImage(
-                                            data?.productId?.images![0] ?? ""),
-                                      ),
+                                    child: MainButton(
+                                      title: "Track",
+                                      onPressed: () {},
+                                      textSize: 11,
                                     ),
                                   ),
-                                  kHeight5,
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      ImageIcon(
-                                        const AssetImage(
-                                          AppAssetsStrings.orderIdIcon,
-                                        ),
-                                        size: 16,
-                                        color: ColorManager.blackColor
-                                            .withOpacity(0.5),
-                                      ),
-                                      kWidth5,
-                                      Text(
-                                        data?.orderId ?? '',
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          color: ColorManager.textGrey7A,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              kWidth10,
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.4,
-                                    child: Text(
-                                      data?.productId?.title ?? "",
-                                      style: const TextStyle(
-                                        color: textBlack,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                  kHeight8,
-                                  Text(
-                                    "${data?.productId?.color ?? ""},${data?.productId?.size?[0].size ?? ""}",
-                                    style: TextStyle(
-                                      color: ColorManager.textGrey7A,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                  kHeight8,
-                                  Text(
-                                    "Status : Delivered",
-                                    style: TextStyle(
-                                      color: ColorManager.textGrey7A,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                  kHeight8,
-                                  Text(
-                                    data?.sellingPrice.toString() ?? "",
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                      color: ColorManager.primary,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: SizedBox(
-                              height: 30,
-                              width: 60,
-                              child: MainButton(
-                                title: "Track",
-                                onPressed: () {},
-                                textSize: 11,
-                              ),
+                                )
+                              ],
                             ),
-                          )
-                        ],
-                      ),
-                    );
+                          );
                   },
                 ),
               ),

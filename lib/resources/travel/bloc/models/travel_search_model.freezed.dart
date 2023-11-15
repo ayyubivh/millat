@@ -83,12 +83,12 @@ class _$TravelSearchLocationModelsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TravelSearchLocationModelsCopyWith<$Res>
+abstract class _$$TravelSearchLocationModelsImplCopyWith<$Res>
     implements $TravelSearchLocationModelsCopyWith<$Res> {
-  factory _$$_TravelSearchLocationModelsCopyWith(
-          _$_TravelSearchLocationModels value,
-          $Res Function(_$_TravelSearchLocationModels) then) =
-      __$$_TravelSearchLocationModelsCopyWithImpl<$Res>;
+  factory _$$TravelSearchLocationModelsImplCopyWith(
+          _$TravelSearchLocationModelsImpl value,
+          $Res Function(_$TravelSearchLocationModelsImpl) then) =
+      __$$TravelSearchLocationModelsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -98,13 +98,13 @@ abstract class _$$_TravelSearchLocationModelsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TravelSearchLocationModelsCopyWithImpl<$Res>
+class __$$TravelSearchLocationModelsImplCopyWithImpl<$Res>
     extends _$TravelSearchLocationModelsCopyWithImpl<$Res,
-        _$_TravelSearchLocationModels>
-    implements _$$_TravelSearchLocationModelsCopyWith<$Res> {
-  __$$_TravelSearchLocationModelsCopyWithImpl(
-      _$_TravelSearchLocationModels _value,
-      $Res Function(_$_TravelSearchLocationModels) _then)
+        _$TravelSearchLocationModelsImpl>
+    implements _$$TravelSearchLocationModelsImplCopyWith<$Res> {
+  __$$TravelSearchLocationModelsImplCopyWithImpl(
+      _$TravelSearchLocationModelsImpl _value,
+      $Res Function(_$TravelSearchLocationModelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +114,7 @@ class __$$_TravelSearchLocationModelsCopyWithImpl<$Res>
     Object? city = null,
     Object? country = null,
   }) {
-    return _then(_$_TravelSearchLocationModels(
+    return _then(_$TravelSearchLocationModelsImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -133,14 +133,15 @@ class __$$_TravelSearchLocationModelsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TravelSearchLocationModels implements _TravelSearchLocationModels {
-  const _$_TravelSearchLocationModels(
+class _$TravelSearchLocationModelsImpl implements _TravelSearchLocationModels {
+  const _$TravelSearchLocationModelsImpl(
       {@JsonKey(name: "_id") required this.id,
       @JsonKey(name: "city") required this.city,
       @JsonKey(name: "country") required this.country});
 
-  factory _$_TravelSearchLocationModels.fromJson(Map<String, dynamic> json) =>
-      _$$_TravelSearchLocationModelsFromJson(json);
+  factory _$TravelSearchLocationModelsImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$TravelSearchLocationModelsImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -161,7 +162,7 @@ class _$_TravelSearchLocationModels implements _TravelSearchLocationModels {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TravelSearchLocationModels &&
+            other is _$TravelSearchLocationModelsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.city, city) || other.city == city) &&
             (identical(other.country, country) || other.country == country));
@@ -174,13 +175,13 @@ class _$_TravelSearchLocationModels implements _TravelSearchLocationModels {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TravelSearchLocationModelsCopyWith<_$_TravelSearchLocationModels>
-      get copyWith => __$$_TravelSearchLocationModelsCopyWithImpl<
-          _$_TravelSearchLocationModels>(this, _$identity);
+  _$$TravelSearchLocationModelsImplCopyWith<_$TravelSearchLocationModelsImpl>
+      get copyWith => __$$TravelSearchLocationModelsImplCopyWithImpl<
+          _$TravelSearchLocationModelsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TravelSearchLocationModelsToJson(
+    return _$$TravelSearchLocationModelsImplToJson(
       this,
     );
   }
@@ -192,10 +193,10 @@ abstract class _TravelSearchLocationModels
           {@JsonKey(name: "_id") required final String id,
           @JsonKey(name: "city") required final String city,
           @JsonKey(name: "country") required final String country}) =
-      _$_TravelSearchLocationModels;
+      _$TravelSearchLocationModelsImpl;
 
   factory _TravelSearchLocationModels.fromJson(Map<String, dynamic> json) =
-      _$_TravelSearchLocationModels.fromJson;
+      _$TravelSearchLocationModelsImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -208,6 +209,6 @@ abstract class _TravelSearchLocationModels
   String get country;
   @override
   @JsonKey(ignore: true)
-  _$$_TravelSearchLocationModelsCopyWith<_$_TravelSearchLocationModels>
+  _$$TravelSearchLocationModelsImplCopyWith<_$TravelSearchLocationModelsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

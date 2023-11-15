@@ -94,11 +94,11 @@ class _$ShopAdBrandsCopyWithImpl<$Res, $Val extends ShopAdBrands>
 }
 
 /// @nodoc
-abstract class _$$_ShopAdBrandsCopyWith<$Res>
+abstract class _$$ShopAdBrandsImplCopyWith<$Res>
     implements $ShopAdBrandsCopyWith<$Res> {
-  factory _$$_ShopAdBrandsCopyWith(
-          _$_ShopAdBrands value, $Res Function(_$_ShopAdBrands) then) =
-      __$$_ShopAdBrandsCopyWithImpl<$Res>;
+  factory _$$ShopAdBrandsImplCopyWith(
+          _$ShopAdBrandsImpl value, $Res Function(_$ShopAdBrandsImpl) then) =
+      __$$ShopAdBrandsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? status, String? message, String? error, Result? result});
@@ -108,11 +108,11 @@ abstract class _$$_ShopAdBrandsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ShopAdBrandsCopyWithImpl<$Res>
-    extends _$ShopAdBrandsCopyWithImpl<$Res, _$_ShopAdBrands>
-    implements _$$_ShopAdBrandsCopyWith<$Res> {
-  __$$_ShopAdBrandsCopyWithImpl(
-      _$_ShopAdBrands _value, $Res Function(_$_ShopAdBrands) _then)
+class __$$ShopAdBrandsImplCopyWithImpl<$Res>
+    extends _$ShopAdBrandsCopyWithImpl<$Res, _$ShopAdBrandsImpl>
+    implements _$$ShopAdBrandsImplCopyWith<$Res> {
+  __$$ShopAdBrandsImplCopyWithImpl(
+      _$ShopAdBrandsImpl _value, $Res Function(_$ShopAdBrandsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_ShopAdBrandsCopyWithImpl<$Res>
     Object? error = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_ShopAdBrands(
+    return _then(_$ShopAdBrandsImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -146,15 +146,15 @@ class __$$_ShopAdBrandsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ShopAdBrands implements _ShopAdBrands {
-  const _$_ShopAdBrands(
+class _$ShopAdBrandsImpl implements _ShopAdBrands {
+  const _$ShopAdBrandsImpl(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$_ShopAdBrands.fromJson(Map<String, dynamic> json) =>
-      _$$_ShopAdBrandsFromJson(json);
+  factory _$ShopAdBrandsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ShopAdBrandsImplFromJson(json);
 
   @override
   final int? status;
@@ -174,7 +174,7 @@ class _$_ShopAdBrands implements _ShopAdBrands {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShopAdBrands &&
+            other is _$ShopAdBrandsImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -188,12 +188,12 @@ class _$_ShopAdBrands implements _ShopAdBrands {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShopAdBrandsCopyWith<_$_ShopAdBrands> get copyWith =>
-      __$$_ShopAdBrandsCopyWithImpl<_$_ShopAdBrands>(this, _$identity);
+  _$$ShopAdBrandsImplCopyWith<_$ShopAdBrandsImpl> get copyWith =>
+      __$$ShopAdBrandsImplCopyWithImpl<_$ShopAdBrandsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ShopAdBrandsToJson(
+    return _$$ShopAdBrandsImplToJson(
       this,
     );
   }
@@ -204,10 +204,10 @@ abstract class _ShopAdBrands implements ShopAdBrands {
       {required final int? status,
       required final String? message,
       required final String? error,
-      required final Result? result}) = _$_ShopAdBrands;
+      required final Result? result}) = _$ShopAdBrandsImpl;
 
   factory _ShopAdBrands.fromJson(Map<String, dynamic> json) =
-      _$_ShopAdBrands.fromJson;
+      _$ShopAdBrandsImpl.fromJson;
 
   @override
   int? get status;
@@ -219,7 +219,7 @@ abstract class _ShopAdBrands implements ShopAdBrands {
   Result? get result;
   @override
   @JsonKey(ignore: true)
-  _$$_ShopAdBrandsCopyWith<_$_ShopAdBrands> get copyWith =>
+  _$$ShopAdBrandsImplCopyWith<_$ShopAdBrandsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -269,19 +269,21 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
 }
 
 /// @nodoc
-abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$$_ResultCopyWith(_$_Result value, $Res Function(_$_Result) then) =
-      __$$_ResultCopyWithImpl<$Res>;
+abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
+  factory _$$ResultImplCopyWith(
+          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
+      __$$ResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Data>? data});
 }
 
 /// @nodoc
-class __$$_ResultCopyWithImpl<$Res>
-    extends _$ResultCopyWithImpl<$Res, _$_Result>
-    implements _$$_ResultCopyWith<$Res> {
-  __$$_ResultCopyWithImpl(_$_Result _value, $Res Function(_$_Result) _then)
+class __$$ResultImplCopyWithImpl<$Res>
+    extends _$ResultCopyWithImpl<$Res, _$ResultImpl>
+    implements _$$ResultImplCopyWith<$Res> {
+  __$$ResultImplCopyWithImpl(
+      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -289,7 +291,7 @@ class __$$_ResultCopyWithImpl<$Res>
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_$_Result(
+    return _then(_$ResultImpl(
       data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -300,11 +302,11 @@ class __$$_ResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Result implements _Result {
-  const _$_Result({required final List<Data>? data}) : _data = data;
+class _$ResultImpl implements _Result {
+  const _$ResultImpl({required final List<Data>? data}) : _data = data;
 
-  factory _$_Result.fromJson(Map<String, dynamic> json) =>
-      _$$_ResultFromJson(json);
+  factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResultImplFromJson(json);
 
   final List<Data>? _data;
   @override
@@ -325,7 +327,7 @@ class _$_Result implements _Result {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Result &&
+            other is _$ResultImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -337,27 +339,27 @@ class _$_Result implements _Result {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
-      __$$_ResultCopyWithImpl<_$_Result>(this, _$identity);
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
+      __$$ResultImplCopyWithImpl<_$ResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultToJson(
+    return _$$ResultImplToJson(
       this,
     );
   }
 }
 
 abstract class _Result implements Result {
-  const factory _Result({required final List<Data>? data}) = _$_Result;
+  const factory _Result({required final List<Data>? data}) = _$ResultImpl;
 
-  factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
+  factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
   @override
   List<Data>? get data;
   @override
   @JsonKey(ignore: true)
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -465,9 +467,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
 }
 
 /// @nodoc
-abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
-  factory _$$_DataCopyWith(_$_Data value, $Res Function(_$_Data) then) =
-      __$$_DataCopyWithImpl<$Res>;
+abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
+  factory _$$DataImplCopyWith(
+          _$DataImpl value, $Res Function(_$DataImpl) then) =
+      __$$DataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -484,9 +487,10 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
-    implements _$$_DataCopyWith<$Res> {
-  __$$_DataCopyWithImpl(_$_Data _value, $Res Function(_$_Data) _then)
+class __$$DataImplCopyWithImpl<$Res>
+    extends _$DataCopyWithImpl<$Res, _$DataImpl>
+    implements _$$DataImplCopyWith<$Res> {
+  __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -500,7 +504,7 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_Data(
+    return _then(_$DataImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -535,8 +539,8 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Data implements _Data {
-  const _$_Data(
+class _$DataImpl implements _Data {
+  const _$DataImpl(
       {@JsonKey(name: "_id") required this.id,
       required this.brandId,
       required this.text,
@@ -545,7 +549,8 @@ class _$_Data implements _Data {
       required this.createdAt,
       required this.updatedAt});
 
-  factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
+  factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DataImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -572,7 +577,7 @@ class _$_Data implements _Data {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Data &&
+            other is _$DataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.brandId, brandId) || other.brandId == brandId) &&
             (identical(other.text, text) || other.text == text) &&
@@ -593,12 +598,12 @@ class _$_Data implements _Data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DataCopyWith<_$_Data> get copyWith =>
-      __$$_DataCopyWithImpl<_$_Data>(this, _$identity);
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      __$$DataImplCopyWithImpl<_$DataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DataToJson(
+    return _$$DataImplToJson(
       this,
     );
   }
@@ -612,9 +617,9 @@ abstract class _Data implements Data {
       required final String? image,
       required final int? discount,
       required final String? createdAt,
-      required final String? updatedAt}) = _$_Data;
+      required final String? updatedAt}) = _$DataImpl;
 
-  factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
+  factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -633,7 +638,8 @@ abstract class _Data implements Data {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 BrandId _$BrandIdFromJson(Map<String, dynamic> json) {
@@ -830,10 +836,10 @@ class _$BrandIdCopyWithImpl<$Res, $Val extends BrandId>
 }
 
 /// @nodoc
-abstract class _$$_BrandIdCopyWith<$Res> implements $BrandIdCopyWith<$Res> {
-  factory _$$_BrandIdCopyWith(
-          _$_BrandId value, $Res Function(_$_BrandId) then) =
-      __$$_BrandIdCopyWithImpl<$Res>;
+abstract class _$$BrandIdImplCopyWith<$Res> implements $BrandIdCopyWith<$Res> {
+  factory _$$BrandIdImplCopyWith(
+          _$BrandIdImpl value, $Res Function(_$BrandIdImpl) then) =
+      __$$BrandIdImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -861,10 +867,11 @@ abstract class _$$_BrandIdCopyWith<$Res> implements $BrandIdCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_BrandIdCopyWithImpl<$Res>
-    extends _$BrandIdCopyWithImpl<$Res, _$_BrandId>
-    implements _$$_BrandIdCopyWith<$Res> {
-  __$$_BrandIdCopyWithImpl(_$_BrandId _value, $Res Function(_$_BrandId) _then)
+class __$$BrandIdImplCopyWithImpl<$Res>
+    extends _$BrandIdCopyWithImpl<$Res, _$BrandIdImpl>
+    implements _$$BrandIdImplCopyWith<$Res> {
+  __$$BrandIdImplCopyWithImpl(
+      _$BrandIdImpl _value, $Res Function(_$BrandIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -892,7 +899,7 @@ class __$$_BrandIdCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_BrandId(
+    return _then(_$BrandIdImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -983,8 +990,8 @@ class __$$_BrandIdCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BrandId implements _BrandId {
-  const _$_BrandId(
+class _$BrandIdImpl implements _BrandId {
+  const _$BrandIdImpl(
       {@JsonKey(name: "_id") required this.id,
       required this.name,
       required this.email,
@@ -1009,8 +1016,8 @@ class _$_BrandId implements _BrandId {
       required this.updatedAt})
       : _subCategory = subCategory;
 
-  factory _$_BrandId.fromJson(Map<String, dynamic> json) =>
-      _$$_BrandIdFromJson(json);
+  factory _$BrandIdImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BrandIdImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -1079,7 +1086,7 @@ class _$_BrandId implements _BrandId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BrandId &&
+            other is _$BrandIdImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
@@ -1147,12 +1154,12 @@ class _$_BrandId implements _BrandId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BrandIdCopyWith<_$_BrandId> get copyWith =>
-      __$$_BrandIdCopyWithImpl<_$_BrandId>(this, _$identity);
+  _$$BrandIdImplCopyWith<_$BrandIdImpl> get copyWith =>
+      __$$BrandIdImplCopyWithImpl<_$BrandIdImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BrandIdToJson(
+    return _$$BrandIdImplToJson(
       this,
     );
   }
@@ -1181,9 +1188,9 @@ abstract class _BrandId implements BrandId {
       required final String? GST,
       required final String? otp,
       required final String? createdAt,
-      required final String? updatedAt}) = _$_BrandId;
+      required final String? updatedAt}) = _$BrandIdImpl;
 
-  factory _BrandId.fromJson(Map<String, dynamic> json) = _$_BrandId.fromJson;
+  factory _BrandId.fromJson(Map<String, dynamic> json) = _$BrandIdImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -1236,6 +1243,6 @@ abstract class _BrandId implements BrandId {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_BrandIdCopyWith<_$_BrandId> get copyWith =>
+  _$$BrandIdImplCopyWith<_$BrandIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

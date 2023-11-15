@@ -18,7 +18,7 @@ class Products with _$Products {
     @JsonKey(name: "_id") required String id,
     required String name,
     required String location,
-    required String? price,
+    required double? price,
     double? rating,
     @JsonKey(name: "main_image") required String mainImage,
   }) = _Products;

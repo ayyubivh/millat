@@ -6,25 +6,28 @@ part of 'para_verses_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ParaVersesModel _$$_ParaVersesModelFromJson(Map<String, dynamic> json) =>
-    _$_ParaVersesModel(
+_$ParaVersesModelImpl _$$ParaVersesModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ParaVersesModelImpl(
       verses: (json['verses'] as List<dynamic>)
           .map((e) => Verses.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ParaVersesModelToJson(_$_ParaVersesModel instance) =>
+Map<String, dynamic> _$$ParaVersesModelImplToJson(
+        _$ParaVersesModelImpl instance) =>
     <String, dynamic>{
       'verses': instance.verses,
     };
 
-_$_Verses _$$_VersesFromJson(Map<String, dynamic> json) => _$_Verses(
+_$VersesImpl _$$VersesImplFromJson(Map<String, dynamic> json) => _$VersesImpl(
       id: json['id'] as int?,
       verseKey: json['verse_key'] as String?,
       textIndopak: json['text_indopak'] as String?,
     );
 
-Map<String, dynamic> _$$_VersesToJson(_$_Verses instance) => <String, dynamic>{
+Map<String, dynamic> _$$VersesImplToJson(_$VersesImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'verse_key': instance.verseKey,
       'text_indopak': instance.textIndopak,

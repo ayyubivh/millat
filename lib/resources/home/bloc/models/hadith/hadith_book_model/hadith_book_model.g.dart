@@ -6,8 +6,9 @@ part of 'hadith_book_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_HadithBookModel _$$_HadithBookModelFromJson(Map<String, dynamic> json) =>
-    _$_HadithBookModel(
+_$HadithBookModelImpl _$$HadithBookModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$HadithBookModelImpl(
       id: json['id'] as int?,
       bookName: json['bookName'] as String?,
       writerName: json['writerName'] as String?,
@@ -18,7 +19,8 @@ _$_HadithBookModel _$$_HadithBookModelFromJson(Map<String, dynamic> json) =>
       chaptersCount: json['chaptersCount'] as String?,
     );
 
-Map<String, dynamic> _$$_HadithBookModelToJson(_$_HadithBookModel instance) =>
+Map<String, dynamic> _$$HadithBookModelImplToJson(
+        _$HadithBookModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'bookName': instance.bookName,

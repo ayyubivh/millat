@@ -6,8 +6,9 @@ part of 'social_user_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SocialUserModel _$$_SocialUserModelFromJson(Map<String, dynamic> json) =>
-    _$_SocialUserModel(
+_$SocialUserModelImpl _$$SocialUserModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SocialUserModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +17,8 @@ _$_SocialUserModel _$$_SocialUserModelFromJson(Map<String, dynamic> json) =>
           : UserResult.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SocialUserModelToJson(_$_SocialUserModel instance) =>
+Map<String, dynamic> _$$SocialUserModelImplToJson(
+        _$SocialUserModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,8 +26,8 @@ Map<String, dynamic> _$$_SocialUserModelToJson(_$_SocialUserModel instance) =>
       'result': instance.result,
     };
 
-_$_UserResult _$$_UserResultFromJson(Map<String, dynamic> json) =>
-    _$_UserResult(
+_$UserResultImpl _$$UserResultImplFromJson(Map<String, dynamic> json) =>
+    _$UserResultImpl(
       user: json['user'] == null
           ? null
           : User.fromJson(json['user'] as Map<String, dynamic>),
@@ -33,14 +35,14 @@ _$_UserResult _$$_UserResultFromJson(Map<String, dynamic> json) =>
       isLogin: json['isLogin'] as bool?,
     );
 
-Map<String, dynamic> _$$_UserResultToJson(_$_UserResult instance) =>
+Map<String, dynamic> _$$UserResultImplToJson(_$UserResultImpl instance) =>
     <String, dynamic>{
       'user': instance.user,
       'token': instance.token,
       'isLogin': instance.isLogin,
     };
 
-_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       id: json['_id'] as String?,
       name: json['name'] as String?,
       username: json['username'] as String?,
@@ -50,7 +52,8 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'name': instance.name,
       'username': instance.username,

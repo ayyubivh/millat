@@ -94,11 +94,11 @@ class _$ArticleCategoriesCopyWithImpl<$Res, $Val extends ArticleCategories>
 }
 
 /// @nodoc
-abstract class _$$_ArticleCategoriesCopyWith<$Res>
+abstract class _$$ArticleCategoriesImplCopyWith<$Res>
     implements $ArticleCategoriesCopyWith<$Res> {
-  factory _$$_ArticleCategoriesCopyWith(_$_ArticleCategories value,
-          $Res Function(_$_ArticleCategories) then) =
-      __$$_ArticleCategoriesCopyWithImpl<$Res>;
+  factory _$$ArticleCategoriesImplCopyWith(_$ArticleCategoriesImpl value,
+          $Res Function(_$ArticleCategoriesImpl) then) =
+      __$$ArticleCategoriesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? status, String? message, String? error, Result? result});
@@ -108,11 +108,11 @@ abstract class _$$_ArticleCategoriesCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ArticleCategoriesCopyWithImpl<$Res>
-    extends _$ArticleCategoriesCopyWithImpl<$Res, _$_ArticleCategories>
-    implements _$$_ArticleCategoriesCopyWith<$Res> {
-  __$$_ArticleCategoriesCopyWithImpl(
-      _$_ArticleCategories _value, $Res Function(_$_ArticleCategories) _then)
+class __$$ArticleCategoriesImplCopyWithImpl<$Res>
+    extends _$ArticleCategoriesCopyWithImpl<$Res, _$ArticleCategoriesImpl>
+    implements _$$ArticleCategoriesImplCopyWith<$Res> {
+  __$$ArticleCategoriesImplCopyWithImpl(_$ArticleCategoriesImpl _value,
+      $Res Function(_$ArticleCategoriesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_ArticleCategoriesCopyWithImpl<$Res>
     Object? error = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_ArticleCategories(
+    return _then(_$ArticleCategoriesImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -146,15 +146,15 @@ class __$$_ArticleCategoriesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ArticleCategories implements _ArticleCategories {
-  const _$_ArticleCategories(
+class _$ArticleCategoriesImpl implements _ArticleCategories {
+  const _$ArticleCategoriesImpl(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$_ArticleCategories.fromJson(Map<String, dynamic> json) =>
-      _$$_ArticleCategoriesFromJson(json);
+  factory _$ArticleCategoriesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ArticleCategoriesImplFromJson(json);
 
   @override
   final int? status;
@@ -174,7 +174,7 @@ class _$_ArticleCategories implements _ArticleCategories {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ArticleCategories &&
+            other is _$ArticleCategoriesImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -188,13 +188,13 @@ class _$_ArticleCategories implements _ArticleCategories {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ArticleCategoriesCopyWith<_$_ArticleCategories> get copyWith =>
-      __$$_ArticleCategoriesCopyWithImpl<_$_ArticleCategories>(
+  _$$ArticleCategoriesImplCopyWith<_$ArticleCategoriesImpl> get copyWith =>
+      __$$ArticleCategoriesImplCopyWithImpl<_$ArticleCategoriesImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ArticleCategoriesToJson(
+    return _$$ArticleCategoriesImplToJson(
       this,
     );
   }
@@ -205,10 +205,10 @@ abstract class _ArticleCategories implements ArticleCategories {
       {required final int? status,
       required final String? message,
       required final String? error,
-      required final Result? result}) = _$_ArticleCategories;
+      required final Result? result}) = _$ArticleCategoriesImpl;
 
   factory _ArticleCategories.fromJson(Map<String, dynamic> json) =
-      _$_ArticleCategories.fromJson;
+      _$ArticleCategoriesImpl.fromJson;
 
   @override
   int? get status;
@@ -220,7 +220,7 @@ abstract class _ArticleCategories implements ArticleCategories {
   Result? get result;
   @override
   @JsonKey(ignore: true)
-  _$$_ArticleCategoriesCopyWith<_$_ArticleCategories> get copyWith =>
+  _$$ArticleCategoriesImplCopyWith<_$ArticleCategoriesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -270,19 +270,21 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
 }
 
 /// @nodoc
-abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$$_ResultCopyWith(_$_Result value, $Res Function(_$_Result) then) =
-      __$$_ResultCopyWithImpl<$Res>;
+abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
+  factory _$$ResultImplCopyWith(
+          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
+      __$$ResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Category>? category});
 }
 
 /// @nodoc
-class __$$_ResultCopyWithImpl<$Res>
-    extends _$ResultCopyWithImpl<$Res, _$_Result>
-    implements _$$_ResultCopyWith<$Res> {
-  __$$_ResultCopyWithImpl(_$_Result _value, $Res Function(_$_Result) _then)
+class __$$ResultImplCopyWithImpl<$Res>
+    extends _$ResultCopyWithImpl<$Res, _$ResultImpl>
+    implements _$$ResultImplCopyWith<$Res> {
+  __$$ResultImplCopyWithImpl(
+      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -290,7 +292,7 @@ class __$$_ResultCopyWithImpl<$Res>
   $Res call({
     Object? category = freezed,
   }) {
-    return _then(_$_Result(
+    return _then(_$ResultImpl(
       category: freezed == category
           ? _value._category
           : category // ignore: cast_nullable_to_non_nullable
@@ -301,12 +303,12 @@ class __$$_ResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Result implements _Result {
-  const _$_Result({required final List<Category>? category})
+class _$ResultImpl implements _Result {
+  const _$ResultImpl({required final List<Category>? category})
       : _category = category;
 
-  factory _$_Result.fromJson(Map<String, dynamic> json) =>
-      _$$_ResultFromJson(json);
+  factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResultImplFromJson(json);
 
   final List<Category>? _category;
   @override
@@ -327,7 +329,7 @@ class _$_Result implements _Result {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Result &&
+            other is _$ResultImpl &&
             const DeepCollectionEquality().equals(other._category, _category));
   }
 
@@ -339,27 +341,28 @@ class _$_Result implements _Result {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
-      __$$_ResultCopyWithImpl<_$_Result>(this, _$identity);
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
+      __$$ResultImplCopyWithImpl<_$ResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultToJson(
+    return _$$ResultImplToJson(
       this,
     );
   }
 }
 
 abstract class _Result implements Result {
-  const factory _Result({required final List<Category>? category}) = _$_Result;
+  const factory _Result({required final List<Category>? category}) =
+      _$ResultImpl;
 
-  factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
+  factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
   @override
   List<Category>? get category;
   @override
   @JsonKey(ignore: true)
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -433,10 +436,11 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
 }
 
 /// @nodoc
-abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
-  factory _$$_CategoryCopyWith(
-          _$_Category value, $Res Function(_$_Category) then) =
-      __$$_CategoryCopyWithImpl<$Res>;
+abstract class _$$CategoryImplCopyWith<$Res>
+    implements $CategoryCopyWith<$Res> {
+  factory _$$CategoryImplCopyWith(
+          _$CategoryImpl value, $Res Function(_$CategoryImpl) then) =
+      __$$CategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -447,11 +451,11 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CategoryCopyWithImpl<$Res>
-    extends _$CategoryCopyWithImpl<$Res, _$_Category>
-    implements _$$_CategoryCopyWith<$Res> {
-  __$$_CategoryCopyWithImpl(
-      _$_Category _value, $Res Function(_$_Category) _then)
+class __$$CategoryImplCopyWithImpl<$Res>
+    extends _$CategoryCopyWithImpl<$Res, _$CategoryImpl>
+    implements _$$CategoryImplCopyWith<$Res> {
+  __$$CategoryImplCopyWithImpl(
+      _$CategoryImpl _value, $Res Function(_$CategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -462,7 +466,7 @@ class __$$_CategoryCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_Category(
+    return _then(_$CategoryImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -485,15 +489,15 @@ class __$$_CategoryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Category implements _Category {
-  const _$_Category(
+class _$CategoryImpl implements _Category {
+  const _$CategoryImpl(
       {@JsonKey(name: "_id") required this.id,
       required this.title,
       required this.createdAt,
       required this.updatedAt});
 
-  factory _$_Category.fromJson(Map<String, dynamic> json) =>
-      _$$_CategoryFromJson(json);
+  factory _$CategoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CategoryImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -514,7 +518,7 @@ class _$_Category implements _Category {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Category &&
+            other is _$CategoryImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.createdAt, createdAt) ||
@@ -530,12 +534,12 @@ class _$_Category implements _Category {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CategoryCopyWith<_$_Category> get copyWith =>
-      __$$_CategoryCopyWithImpl<_$_Category>(this, _$identity);
+  _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
+      __$$CategoryImplCopyWithImpl<_$CategoryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CategoryToJson(
+    return _$$CategoryImplToJson(
       this,
     );
   }
@@ -546,9 +550,10 @@ abstract class _Category implements Category {
       {@JsonKey(name: "_id") required final String id,
       required final String title,
       required final String createdAt,
-      required final String updatedAt}) = _$_Category;
+      required final String updatedAt}) = _$CategoryImpl;
 
-  factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
+  factory _Category.fromJson(Map<String, dynamic> json) =
+      _$CategoryImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -561,6 +566,6 @@ abstract class _Category implements Category {
   String get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_CategoryCopyWith<_$_Category> get copyWith =>
+  _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

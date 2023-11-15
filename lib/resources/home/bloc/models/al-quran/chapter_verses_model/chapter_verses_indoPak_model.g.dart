@@ -6,27 +6,28 @@ part of 'chapter_verses_indoPak_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ChapterVersesIndoPakModel _$$_ChapterVersesIndoPakModelFromJson(
+_$ChapterVersesIndoPakModelImpl _$$ChapterVersesIndoPakModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ChapterVersesIndoPakModel(
+    _$ChapterVersesIndoPakModelImpl(
       verses: (json['verses'] as List<dynamic>)
           .map((e) => Verses.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ChapterVersesIndoPakModelToJson(
-        _$_ChapterVersesIndoPakModel instance) =>
+Map<String, dynamic> _$$ChapterVersesIndoPakModelImplToJson(
+        _$ChapterVersesIndoPakModelImpl instance) =>
     <String, dynamic>{
       'verses': instance.verses,
     };
 
-_$_Verses _$$_VersesFromJson(Map<String, dynamic> json) => _$_Verses(
+_$VersesImpl _$$VersesImplFromJson(Map<String, dynamic> json) => _$VersesImpl(
       id: json['id'] as int?,
       verseKey: json['verse_key'] as String?,
       textIndopak: json['text_indopak'] as String?,
     );
 
-Map<String, dynamic> _$$_VersesToJson(_$_Verses instance) => <String, dynamic>{
+Map<String, dynamic> _$$VersesImplToJson(_$VersesImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'verse_key': instance.verseKey,
       'text_indopak': instance.textIndopak,

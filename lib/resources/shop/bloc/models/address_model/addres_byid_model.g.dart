@@ -6,15 +6,16 @@ part of 'addres_byid_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AddressIdModel _$$_AddressIdModelFromJson(Map<String, dynamic> json) =>
-    _$_AddressIdModel(
+_$AddressIdModelImpl _$$AddressIdModelImplFromJson(Map<String, dynamic> json) =>
+    _$AddressIdModelImpl(
       status: json['status'] as int,
       message: json['message'] as String,
       error: json['error'] as String,
       result: AddressResult.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_AddressIdModelToJson(_$_AddressIdModel instance) =>
+Map<String, dynamic> _$$AddressIdModelImplToJson(
+        _$AddressIdModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -22,17 +23,18 @@ Map<String, dynamic> _$$_AddressIdModelToJson(_$_AddressIdModel instance) =>
       'result': instance.result,
     };
 
-_$_AddressResult _$$_AddressResultFromJson(Map<String, dynamic> json) =>
-    _$_AddressResult(
+_$AddressResultImpl _$$AddressResultImplFromJson(Map<String, dynamic> json) =>
+    _$AddressResultImpl(
       address: Address.fromJson(json['address'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_AddressResultToJson(_$_AddressResult instance) =>
+Map<String, dynamic> _$$AddressResultImplToJson(_$AddressResultImpl instance) =>
     <String, dynamic>{
       'address': instance.address,
     };
 
-_$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
+_$AddressImpl _$$AddressImplFromJson(Map<String, dynamic> json) =>
+    _$AddressImpl(
       id: json['_id'] as String,
       userId: json['userId'] as String,
       addressType: json['addressType'] as String,
@@ -48,7 +50,7 @@ _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
       updatedAt: json['updatedAt'] as String,
     );
 
-Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
+Map<String, dynamic> _$$AddressImplToJson(_$AddressImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'userId': instance.userId,

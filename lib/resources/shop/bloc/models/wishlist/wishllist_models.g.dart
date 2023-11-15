@@ -6,8 +6,9 @@ part of 'wishllist_models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WishlistResponse _$$_WishlistResponseFromJson(Map<String, dynamic> json) =>
-    _$_WishlistResponse(
+_$WishlistResponseImpl _$$WishlistResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$WishlistResponseImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +17,8 @@ _$_WishlistResponse _$$_WishlistResponseFromJson(Map<String, dynamic> json) =>
           : WishlistResult.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_WishlistResponseToJson(_$_WishlistResponse instance) =>
+Map<String, dynamic> _$$WishlistResponseImplToJson(
+        _$WishlistResponseImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,19 +26,21 @@ Map<String, dynamic> _$$_WishlistResponseToJson(_$_WishlistResponse instance) =>
       'result': instance.result,
     };
 
-_$_WishlistResult _$$_WishlistResultFromJson(Map<String, dynamic> json) =>
-    _$_WishlistResult(
+_$WishlistResultImpl _$$WishlistResultImplFromJson(Map<String, dynamic> json) =>
+    _$WishlistResultImpl(
       wishlist: json['wishlist'] == null
           ? null
           : Wishlist.fromJson(json['wishlist'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_WishlistResultToJson(_$_WishlistResult instance) =>
+Map<String, dynamic> _$$WishlistResultImplToJson(
+        _$WishlistResultImpl instance) =>
     <String, dynamic>{
       'wishlist': instance.wishlist,
     };
 
-_$_Wishlist _$$_WishlistFromJson(Map<String, dynamic> json) => _$_Wishlist(
+_$WishlistImpl _$$WishlistImplFromJson(Map<String, dynamic> json) =>
+    _$WishlistImpl(
       id: json['_id'] as String?,
       userId: json['userId'] as String?,
       createdAt: json['createdAt'] as String?,
@@ -46,7 +50,7 @@ _$_Wishlist _$$_WishlistFromJson(Map<String, dynamic> json) => _$_Wishlist(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_WishlistToJson(_$_Wishlist instance) =>
+Map<String, dynamic> _$$WishlistImplToJson(_$WishlistImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'userId': instance.userId,
@@ -55,7 +59,8 @@ Map<String, dynamic> _$$_WishlistToJson(_$_Wishlist instance) =>
       'updatedAt': instance.updatedAt,
     };
 
-_$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
+_$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
+    _$ProductImpl(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       brand: json['brand'] as String?,
@@ -91,7 +96,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
           : DateTime.parse(json['updatedAt'] as String),
     );
 
-Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
+Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,
@@ -115,26 +120,27 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'updatedAt': instance.updatedAt?.toIso8601String(),
     };
 
-_$_Category _$$_CategoryFromJson(Map<String, dynamic> json) => _$_Category(
+_$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
+    _$CategoryImpl(
       title: json['title'] as String?,
     );
 
-Map<String, dynamic> _$$_CategoryToJson(_$_Category instance) =>
+Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
     };
 
-_$_Subcategory _$$_SubcategoryFromJson(Map<String, dynamic> json) =>
-    _$_Subcategory(
+_$SubcategoryImpl _$$SubcategoryImplFromJson(Map<String, dynamic> json) =>
+    _$SubcategoryImpl(
       title: json['title'] as String?,
     );
 
-Map<String, dynamic> _$$_SubcategoryToJson(_$_Subcategory instance) =>
+Map<String, dynamic> _$$SubcategoryImplToJson(_$SubcategoryImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
     };
 
-_$_Size _$$_SizeFromJson(Map<String, dynamic> json) => _$_Size(
+_$SizeImpl _$$SizeImplFromJson(Map<String, dynamic> json) => _$SizeImpl(
       size: json['size'] as String?,
       stock: json['stock'] as int?,
       price: json['price'] as int?,
@@ -144,7 +150,8 @@ _$_Size _$$_SizeFromJson(Map<String, dynamic> json) => _$_Size(
       weight: json['weight'] as String?,
     );
 
-Map<String, dynamic> _$$_SizeToJson(_$_Size instance) => <String, dynamic>{
+Map<String, dynamic> _$$SizeImplToJson(_$SizeImpl instance) =>
+    <String, dynamic>{
       'size': instance.size,
       'stock': instance.stock,
       'price': instance.price,

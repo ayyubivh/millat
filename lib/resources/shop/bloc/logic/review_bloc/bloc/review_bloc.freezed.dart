@@ -106,20 +106,20 @@ class _$ReviewEventCopyWithImpl<$Res, $Val extends ReviewEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchRatingEventCopyWith<$Res> {
-  factory _$$FetchRatingEventCopyWith(
-          _$FetchRatingEvent value, $Res Function(_$FetchRatingEvent) then) =
-      __$$FetchRatingEventCopyWithImpl<$Res>;
+abstract class _$$FetchRatingEventImplCopyWith<$Res> {
+  factory _$$FetchRatingEventImplCopyWith(_$FetchRatingEventImpl value,
+          $Res Function(_$FetchRatingEventImpl) then) =
+      __$$FetchRatingEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id, BuildContext context});
 }
 
 /// @nodoc
-class __$$FetchRatingEventCopyWithImpl<$Res>
-    extends _$ReviewEventCopyWithImpl<$Res, _$FetchRatingEvent>
-    implements _$$FetchRatingEventCopyWith<$Res> {
-  __$$FetchRatingEventCopyWithImpl(
-      _$FetchRatingEvent _value, $Res Function(_$FetchRatingEvent) _then)
+class __$$FetchRatingEventImplCopyWithImpl<$Res>
+    extends _$ReviewEventCopyWithImpl<$Res, _$FetchRatingEventImpl>
+    implements _$$FetchRatingEventImplCopyWith<$Res> {
+  __$$FetchRatingEventImplCopyWithImpl(_$FetchRatingEventImpl _value,
+      $Res Function(_$FetchRatingEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +128,7 @@ class __$$FetchRatingEventCopyWithImpl<$Res>
     Object? id = null,
     Object? context = null,
   }) {
-    return _then(_$FetchRatingEvent(
+    return _then(_$FetchRatingEventImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -143,10 +143,10 @@ class __$$FetchRatingEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchRatingEvent
+class _$FetchRatingEventImpl
     with DiagnosticableTreeMixin
     implements FetchRatingEvent {
-  const _$FetchRatingEvent({required this.id, required this.context});
+  const _$FetchRatingEventImpl({required this.id, required this.context});
 
   @override
   final String id;
@@ -171,7 +171,7 @@ class _$FetchRatingEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchRatingEvent &&
+            other is _$FetchRatingEventImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.context, context) || other.context == context));
   }
@@ -182,8 +182,9 @@ class _$FetchRatingEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchRatingEventCopyWith<_$FetchRatingEvent> get copyWith =>
-      __$$FetchRatingEventCopyWithImpl<_$FetchRatingEvent>(this, _$identity);
+  _$$FetchRatingEventImplCopyWith<_$FetchRatingEventImpl> get copyWith =>
+      __$$FetchRatingEventImplCopyWithImpl<_$FetchRatingEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -282,30 +283,30 @@ class _$FetchRatingEvent
 abstract class FetchRatingEvent implements ReviewEvent {
   const factory FetchRatingEvent(
       {required final String id,
-      required final BuildContext context}) = _$FetchRatingEvent;
+      required final BuildContext context}) = _$FetchRatingEventImpl;
 
   String get id;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$FetchRatingEventCopyWith<_$FetchRatingEvent> get copyWith =>
+  _$$FetchRatingEventImplCopyWith<_$FetchRatingEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchReviewCommentsCopyWith<$Res> {
-  factory _$$FetchReviewCommentsCopyWith(_$FetchReviewComments value,
-          $Res Function(_$FetchReviewComments) then) =
-      __$$FetchReviewCommentsCopyWithImpl<$Res>;
+abstract class _$$FetchReviewCommentsImplCopyWith<$Res> {
+  factory _$$FetchReviewCommentsImplCopyWith(_$FetchReviewCommentsImpl value,
+          $Res Function(_$FetchReviewCommentsImpl) then) =
+      __$$FetchReviewCommentsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id, BuildContext context});
 }
 
 /// @nodoc
-class __$$FetchReviewCommentsCopyWithImpl<$Res>
-    extends _$ReviewEventCopyWithImpl<$Res, _$FetchReviewComments>
-    implements _$$FetchReviewCommentsCopyWith<$Res> {
-  __$$FetchReviewCommentsCopyWithImpl(
-      _$FetchReviewComments _value, $Res Function(_$FetchReviewComments) _then)
+class __$$FetchReviewCommentsImplCopyWithImpl<$Res>
+    extends _$ReviewEventCopyWithImpl<$Res, _$FetchReviewCommentsImpl>
+    implements _$$FetchReviewCommentsImplCopyWith<$Res> {
+  __$$FetchReviewCommentsImplCopyWithImpl(_$FetchReviewCommentsImpl _value,
+      $Res Function(_$FetchReviewCommentsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -314,7 +315,7 @@ class __$$FetchReviewCommentsCopyWithImpl<$Res>
     Object? id = null,
     Object? context = null,
   }) {
-    return _then(_$FetchReviewComments(
+    return _then(_$FetchReviewCommentsImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -329,10 +330,10 @@ class __$$FetchReviewCommentsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchReviewComments
+class _$FetchReviewCommentsImpl
     with DiagnosticableTreeMixin
     implements FetchReviewComments {
-  const _$FetchReviewComments({required this.id, required this.context});
+  const _$FetchReviewCommentsImpl({required this.id, required this.context});
 
   @override
   final String id;
@@ -357,7 +358,7 @@ class _$FetchReviewComments
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchReviewComments &&
+            other is _$FetchReviewCommentsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.context, context) || other.context == context));
   }
@@ -368,8 +369,8 @@ class _$FetchReviewComments
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchReviewCommentsCopyWith<_$FetchReviewComments> get copyWith =>
-      __$$FetchReviewCommentsCopyWithImpl<_$FetchReviewComments>(
+  _$$FetchReviewCommentsImplCopyWith<_$FetchReviewCommentsImpl> get copyWith =>
+      __$$FetchReviewCommentsImplCopyWithImpl<_$FetchReviewCommentsImpl>(
           this, _$identity);
 
   @override
@@ -469,20 +470,20 @@ class _$FetchReviewComments
 abstract class FetchReviewComments implements ReviewEvent {
   const factory FetchReviewComments(
       {required final String id,
-      required final BuildContext context}) = _$FetchReviewComments;
+      required final BuildContext context}) = _$FetchReviewCommentsImpl;
 
   String get id;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$FetchReviewCommentsCopyWith<_$FetchReviewComments> get copyWith =>
+  _$$FetchReviewCommentsImplCopyWith<_$FetchReviewCommentsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddReviewCopyWith<$Res> {
-  factory _$$AddReviewCopyWith(
-          _$AddReview value, $Res Function(_$AddReview) then) =
-      __$$AddReviewCopyWithImpl<$Res>;
+abstract class _$$AddReviewImplCopyWith<$Res> {
+  factory _$$AddReviewImplCopyWith(
+          _$AddReviewImpl value, $Res Function(_$AddReviewImpl) then) =
+      __$$AddReviewImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {BuildContext context,
@@ -493,11 +494,11 @@ abstract class _$$AddReviewCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AddReviewCopyWithImpl<$Res>
-    extends _$ReviewEventCopyWithImpl<$Res, _$AddReview>
-    implements _$$AddReviewCopyWith<$Res> {
-  __$$AddReviewCopyWithImpl(
-      _$AddReview _value, $Res Function(_$AddReview) _then)
+class __$$AddReviewImplCopyWithImpl<$Res>
+    extends _$ReviewEventCopyWithImpl<$Res, _$AddReviewImpl>
+    implements _$$AddReviewImplCopyWith<$Res> {
+  __$$AddReviewImplCopyWithImpl(
+      _$AddReviewImpl _value, $Res Function(_$AddReviewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -509,7 +510,7 @@ class __$$AddReviewCopyWithImpl<$Res>
     Object? rating = null,
     Object? comment = null,
   }) {
-    return _then(_$AddReview(
+    return _then(_$AddReviewImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -536,8 +537,8 @@ class __$$AddReviewCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddReview with DiagnosticableTreeMixin implements AddReview {
-  const _$AddReview(
+class _$AddReviewImpl with DiagnosticableTreeMixin implements AddReview {
+  const _$AddReviewImpl(
       {required this.context,
       required this.productId,
       required this.name,
@@ -576,7 +577,7 @@ class _$AddReview with DiagnosticableTreeMixin implements AddReview {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddReview &&
+            other is _$AddReviewImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
@@ -592,8 +593,8 @@ class _$AddReview with DiagnosticableTreeMixin implements AddReview {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddReviewCopyWith<_$AddReview> get copyWith =>
-      __$$AddReviewCopyWithImpl<_$AddReview>(this, _$identity);
+  _$$AddReviewImplCopyWith<_$AddReviewImpl> get copyWith =>
+      __$$AddReviewImplCopyWithImpl<_$AddReviewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -695,7 +696,7 @@ abstract class AddReview implements ReviewEvent {
       required final String productId,
       required final String name,
       required final double rating,
-      required final String comment}) = _$AddReview;
+      required final String comment}) = _$AddReviewImpl;
 
   BuildContext get context;
   String get productId;
@@ -703,26 +704,26 @@ abstract class AddReview implements ReviewEvent {
   double get rating;
   String get comment;
   @JsonKey(ignore: true)
-  _$$AddReviewCopyWith<_$AddReview> get copyWith =>
+  _$$AddReviewImplCopyWith<_$AddReviewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UpdateReviewCopyWith<$Res> {
-  factory _$$UpdateReviewCopyWith(
-          _$UpdateReview value, $Res Function(_$UpdateReview) then) =
-      __$$UpdateReviewCopyWithImpl<$Res>;
+abstract class _$$UpdateReviewImplCopyWith<$Res> {
+  factory _$$UpdateReviewImplCopyWith(
+          _$UpdateReviewImpl value, $Res Function(_$UpdateReviewImpl) then) =
+      __$$UpdateReviewImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {BuildContext context, String productId, double rating, String comment});
 }
 
 /// @nodoc
-class __$$UpdateReviewCopyWithImpl<$Res>
-    extends _$ReviewEventCopyWithImpl<$Res, _$UpdateReview>
-    implements _$$UpdateReviewCopyWith<$Res> {
-  __$$UpdateReviewCopyWithImpl(
-      _$UpdateReview _value, $Res Function(_$UpdateReview) _then)
+class __$$UpdateReviewImplCopyWithImpl<$Res>
+    extends _$ReviewEventCopyWithImpl<$Res, _$UpdateReviewImpl>
+    implements _$$UpdateReviewImplCopyWith<$Res> {
+  __$$UpdateReviewImplCopyWithImpl(
+      _$UpdateReviewImpl _value, $Res Function(_$UpdateReviewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -733,7 +734,7 @@ class __$$UpdateReviewCopyWithImpl<$Res>
     Object? rating = null,
     Object? comment = null,
   }) {
-    return _then(_$UpdateReview(
+    return _then(_$UpdateReviewImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -756,8 +757,8 @@ class __$$UpdateReviewCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateReview with DiagnosticableTreeMixin implements UpdateReview {
-  const _$UpdateReview(
+class _$UpdateReviewImpl with DiagnosticableTreeMixin implements UpdateReview {
+  const _$UpdateReviewImpl(
       {required this.context,
       required this.productId,
       required this.rating,
@@ -792,7 +793,7 @@ class _$UpdateReview with DiagnosticableTreeMixin implements UpdateReview {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdateReview &&
+            other is _$UpdateReviewImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
@@ -807,8 +808,8 @@ class _$UpdateReview with DiagnosticableTreeMixin implements UpdateReview {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UpdateReviewCopyWith<_$UpdateReview> get copyWith =>
-      __$$UpdateReviewCopyWithImpl<_$UpdateReview>(this, _$identity);
+  _$$UpdateReviewImplCopyWith<_$UpdateReviewImpl> get copyWith =>
+      __$$UpdateReviewImplCopyWithImpl<_$UpdateReviewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -909,39 +910,39 @@ abstract class UpdateReview implements ReviewEvent {
       {required final BuildContext context,
       required final String productId,
       required final double rating,
-      required final String comment}) = _$UpdateReview;
+      required final String comment}) = _$UpdateReviewImpl;
 
   BuildContext get context;
   String get productId;
   double get rating;
   String get comment;
   @JsonKey(ignore: true)
-  _$$UpdateReviewCopyWith<_$UpdateReview> get copyWith =>
+  _$$UpdateReviewImplCopyWith<_$UpdateReviewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ExpandReviewListCopyWith<$Res> {
-  factory _$$ExpandReviewListCopyWith(
-          _$ExpandReviewList value, $Res Function(_$ExpandReviewList) then) =
-      __$$ExpandReviewListCopyWithImpl<$Res>;
+abstract class _$$ExpandReviewListImplCopyWith<$Res> {
+  factory _$$ExpandReviewListImplCopyWith(_$ExpandReviewListImpl value,
+          $Res Function(_$ExpandReviewListImpl) then) =
+      __$$ExpandReviewListImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ExpandReviewListCopyWithImpl<$Res>
-    extends _$ReviewEventCopyWithImpl<$Res, _$ExpandReviewList>
-    implements _$$ExpandReviewListCopyWith<$Res> {
-  __$$ExpandReviewListCopyWithImpl(
-      _$ExpandReviewList _value, $Res Function(_$ExpandReviewList) _then)
+class __$$ExpandReviewListImplCopyWithImpl<$Res>
+    extends _$ReviewEventCopyWithImpl<$Res, _$ExpandReviewListImpl>
+    implements _$$ExpandReviewListImplCopyWith<$Res> {
+  __$$ExpandReviewListImplCopyWithImpl(_$ExpandReviewListImpl _value,
+      $Res Function(_$ExpandReviewListImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ExpandReviewList
+class _$ExpandReviewListImpl
     with DiagnosticableTreeMixin
     implements ExpandReviewList {
-  const _$ExpandReviewList();
+  const _$ExpandReviewListImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -957,7 +958,7 @@ class _$ExpandReviewList
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ExpandReviewList);
+        (other.runtimeType == runtimeType && other is _$ExpandReviewListImpl);
   }
 
   @override
@@ -1058,7 +1059,7 @@ class _$ExpandReviewList
 }
 
 abstract class ExpandReviewList implements ReviewEvent {
-  const factory ExpandReviewList() = _$ExpandReviewList;
+  const factory ExpandReviewList() = _$ExpandReviewListImpl;
 }
 
 /// @nodoc
@@ -1155,11 +1156,11 @@ class _$ReviewStateCopyWithImpl<$Res, $Val extends ReviewState>
 }
 
 /// @nodoc
-abstract class _$$_ReviewStateCopyWith<$Res>
+abstract class _$$ReviewStateImplCopyWith<$Res>
     implements $ReviewStateCopyWith<$Res> {
-  factory _$$_ReviewStateCopyWith(
-          _$_ReviewState value, $Res Function(_$_ReviewState) then) =
-      __$$_ReviewStateCopyWithImpl<$Res>;
+  factory _$$ReviewStateImplCopyWith(
+          _$ReviewStateImpl value, $Res Function(_$ReviewStateImpl) then) =
+      __$$ReviewStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1175,11 +1176,11 @@ abstract class _$$_ReviewStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ReviewStateCopyWithImpl<$Res>
-    extends _$ReviewStateCopyWithImpl<$Res, _$_ReviewState>
-    implements _$$_ReviewStateCopyWith<$Res> {
-  __$$_ReviewStateCopyWithImpl(
-      _$_ReviewState _value, $Res Function(_$_ReviewState) _then)
+class __$$ReviewStateImplCopyWithImpl<$Res>
+    extends _$ReviewStateCopyWithImpl<$Res, _$ReviewStateImpl>
+    implements _$$ReviewStateImplCopyWith<$Res> {
+  __$$ReviewStateImplCopyWithImpl(
+      _$ReviewStateImpl _value, $Res Function(_$ReviewStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1190,7 +1191,7 @@ class __$$_ReviewStateCopyWithImpl<$Res>
     Object? isExpandedReview = null,
     Object? reviewCommentsModel = freezed,
   }) {
-    return _then(_$_ReviewState(
+    return _then(_$ReviewStateImpl(
       reviewModel: freezed == reviewModel
           ? _value.reviewModel
           : reviewModel // ignore: cast_nullable_to_non_nullable
@@ -1213,8 +1214,8 @@ class __$$_ReviewStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReviewState with DiagnosticableTreeMixin implements _ReviewState {
-  const _$_ReviewState(
+class _$ReviewStateImpl with DiagnosticableTreeMixin implements _ReviewState {
+  const _$ReviewStateImpl(
       {required this.reviewModel,
       required this.isLoading,
       required this.isExpandedReview,
@@ -1249,7 +1250,7 @@ class _$_ReviewState with DiagnosticableTreeMixin implements _ReviewState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ReviewState &&
+            other is _$ReviewStateImpl &&
             (identical(other.reviewModel, reviewModel) ||
                 other.reviewModel == reviewModel) &&
             (identical(other.isLoading, isLoading) ||
@@ -1267,8 +1268,8 @@ class _$_ReviewState with DiagnosticableTreeMixin implements _ReviewState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ReviewStateCopyWith<_$_ReviewState> get copyWith =>
-      __$$_ReviewStateCopyWithImpl<_$_ReviewState>(this, _$identity);
+  _$$ReviewStateImplCopyWith<_$ReviewStateImpl> get copyWith =>
+      __$$ReviewStateImplCopyWithImpl<_$ReviewStateImpl>(this, _$identity);
 }
 
 abstract class _ReviewState implements ReviewState {
@@ -1277,7 +1278,7 @@ abstract class _ReviewState implements ReviewState {
           required final bool isLoading,
           required final bool isExpandedReview,
           required final ReviewCommentsModel? reviewCommentsModel}) =
-      _$_ReviewState;
+      _$ReviewStateImpl;
 
   @override
   ReviewModel? get reviewModel;
@@ -1289,6 +1290,6 @@ abstract class _ReviewState implements ReviewState {
   ReviewCommentsModel? get reviewCommentsModel;
   @override
   @JsonKey(ignore: true)
-  _$$_ReviewStateCopyWith<_$_ReviewState> get copyWith =>
+  _$$ReviewStateImplCopyWith<_$ReviewStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

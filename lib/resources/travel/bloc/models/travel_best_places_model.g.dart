@@ -6,19 +6,20 @@ part of 'travel_best_places_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TravelBestPlacesModel _$$_TravelBestPlacesModelFromJson(
+_$TravelBestPlacesModelImpl _$$TravelBestPlacesModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TravelBestPlacesModel(
+    _$TravelBestPlacesModelImpl(
       products: Products.fromJson(json['products'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_TravelBestPlacesModelToJson(
-        _$_TravelBestPlacesModel instance) =>
+Map<String, dynamic> _$$TravelBestPlacesModelImplToJson(
+        _$TravelBestPlacesModelImpl instance) =>
     <String, dynamic>{
       'products': instance.products,
     };
 
-_$_Products _$$_ProductsFromJson(Map<String, dynamic> json) => _$_Products(
+_$ProductsImpl _$$ProductsImplFromJson(Map<String, dynamic> json) =>
+    _$ProductsImpl(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       slug: json['slug'] as String?,
@@ -27,7 +28,7 @@ _$_Products _$$_ProductsFromJson(Map<String, dynamic> json) => _$_Products(
           .toList(),
     );
 
-Map<String, dynamic> _$$_ProductsToJson(_$_Products instance) =>
+Map<String, dynamic> _$$ProductsImplToJson(_$ProductsImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,
@@ -35,8 +36,8 @@ Map<String, dynamic> _$$_ProductsToJson(_$_Products instance) =>
       'products': instance.products,
     };
 
-_$_ProductsItem _$$_ProductsItemFromJson(Map<String, dynamic> json) =>
-    _$_ProductsItem(
+_$ProductsItemImpl _$$ProductsItemImplFromJson(Map<String, dynamic> json) =>
+    _$ProductsItemImpl(
       id: json['_id'] as String?,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -46,7 +47,7 @@ _$_ProductsItem _$$_ProductsItemFromJson(Map<String, dynamic> json) =>
       amenities: (json['amenities'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      price: json['price'] as String?,
+      price: (json['price'] as num?)?.toDouble(),
       mainImage: json['mainImage'] as String?,
       overView: json['overView'] as String?,
       from: json['from'] as String?,
@@ -54,7 +55,7 @@ _$_ProductsItem _$$_ProductsItemFromJson(Map<String, dynamic> json) =>
       country: json['country'] as String?,
     );
 
-Map<String, dynamic> _$$_ProductsItemToJson(_$_ProductsItem instance) =>
+Map<String, dynamic> _$$ProductsItemImplToJson(_$ProductsItemImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'images': instance.images,

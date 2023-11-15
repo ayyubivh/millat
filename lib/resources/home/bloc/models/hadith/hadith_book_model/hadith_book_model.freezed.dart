@@ -112,11 +112,11 @@ class _$HadithBookModelCopyWithImpl<$Res, $Val extends HadithBookModel>
 }
 
 /// @nodoc
-abstract class _$$_HadithBookModelCopyWith<$Res>
+abstract class _$$HadithBookModelImplCopyWith<$Res>
     implements $HadithBookModelCopyWith<$Res> {
-  factory _$$_HadithBookModelCopyWith(
-          _$_HadithBookModel value, $Res Function(_$_HadithBookModel) then) =
-      __$$_HadithBookModelCopyWithImpl<$Res>;
+  factory _$$HadithBookModelImplCopyWith(_$HadithBookModelImpl value,
+          $Res Function(_$HadithBookModelImpl) then) =
+      __$$HadithBookModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -131,11 +131,11 @@ abstract class _$$_HadithBookModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HadithBookModelCopyWithImpl<$Res>
-    extends _$HadithBookModelCopyWithImpl<$Res, _$_HadithBookModel>
-    implements _$$_HadithBookModelCopyWith<$Res> {
-  __$$_HadithBookModelCopyWithImpl(
-      _$_HadithBookModel _value, $Res Function(_$_HadithBookModel) _then)
+class __$$HadithBookModelImplCopyWithImpl<$Res>
+    extends _$HadithBookModelCopyWithImpl<$Res, _$HadithBookModelImpl>
+    implements _$$HadithBookModelImplCopyWith<$Res> {
+  __$$HadithBookModelImplCopyWithImpl(
+      _$HadithBookModelImpl _value, $Res Function(_$HadithBookModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -150,7 +150,7 @@ class __$$_HadithBookModelCopyWithImpl<$Res>
     Object? hadithsCount = freezed,
     Object? chaptersCount = freezed,
   }) {
-    return _then(_$_HadithBookModel(
+    return _then(_$HadithBookModelImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -189,8 +189,8 @@ class __$$_HadithBookModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HadithBookModel implements _HadithBookModel {
-  _$_HadithBookModel(
+class _$HadithBookModelImpl implements _HadithBookModel {
+  _$HadithBookModelImpl(
       {required this.id,
       required this.bookName,
       required this.writerName,
@@ -200,8 +200,8 @@ class _$_HadithBookModel implements _HadithBookModel {
       required this.hadithsCount,
       required this.chaptersCount});
 
-  factory _$_HadithBookModel.fromJson(Map<String, dynamic> json) =>
-      _$$_HadithBookModelFromJson(json);
+  factory _$HadithBookModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HadithBookModelImplFromJson(json);
 
   @override
   final int? id;
@@ -229,7 +229,7 @@ class _$_HadithBookModel implements _HadithBookModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HadithBookModel &&
+            other is _$HadithBookModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.bookName, bookName) ||
                 other.bookName == bookName) &&
@@ -255,12 +255,13 @@ class _$_HadithBookModel implements _HadithBookModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HadithBookModelCopyWith<_$_HadithBookModel> get copyWith =>
-      __$$_HadithBookModelCopyWithImpl<_$_HadithBookModel>(this, _$identity);
+  _$$HadithBookModelImplCopyWith<_$HadithBookModelImpl> get copyWith =>
+      __$$HadithBookModelImplCopyWithImpl<_$HadithBookModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HadithBookModelToJson(
+    return _$$HadithBookModelImplToJson(
       this,
     );
   }
@@ -275,10 +276,10 @@ abstract class _HadithBookModel implements HadithBookModel {
       required final String? writerDeath,
       required final String? bookSlug,
       required final String? hadithsCount,
-      required final String? chaptersCount}) = _$_HadithBookModel;
+      required final String? chaptersCount}) = _$HadithBookModelImpl;
 
   factory _HadithBookModel.fromJson(Map<String, dynamic> json) =
-      _$_HadithBookModel.fromJson;
+      _$HadithBookModelImpl.fromJson;
 
   @override
   int? get id;
@@ -298,6 +299,6 @@ abstract class _HadithBookModel implements HadithBookModel {
   String? get chaptersCount;
   @override
   @JsonKey(ignore: true)
-  _$$_HadithBookModelCopyWith<_$_HadithBookModel> get copyWith =>
+  _$$HadithBookModelImplCopyWith<_$HadithBookModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

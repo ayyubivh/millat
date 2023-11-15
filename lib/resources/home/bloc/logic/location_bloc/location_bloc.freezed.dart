@@ -106,27 +106,27 @@ class _$LocationEventCopyWithImpl<$Res, $Val extends LocationEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchCurrentLocationCopyWith<$Res> {
-  factory _$$FetchCurrentLocationCopyWith(_$FetchCurrentLocation value,
-          $Res Function(_$FetchCurrentLocation) then) =
-      __$$FetchCurrentLocationCopyWithImpl<$Res>;
+abstract class _$$FetchCurrentLocationImplCopyWith<$Res> {
+  factory _$$FetchCurrentLocationImplCopyWith(_$FetchCurrentLocationImpl value,
+          $Res Function(_$FetchCurrentLocationImpl) then) =
+      __$$FetchCurrentLocationImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchCurrentLocationCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$FetchCurrentLocation>
-    implements _$$FetchCurrentLocationCopyWith<$Res> {
-  __$$FetchCurrentLocationCopyWithImpl(_$FetchCurrentLocation _value,
-      $Res Function(_$FetchCurrentLocation) _then)
+class __$$FetchCurrentLocationImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$FetchCurrentLocationImpl>
+    implements _$$FetchCurrentLocationImplCopyWith<$Res> {
+  __$$FetchCurrentLocationImplCopyWithImpl(_$FetchCurrentLocationImpl _value,
+      $Res Function(_$FetchCurrentLocationImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchCurrentLocation
+class _$FetchCurrentLocationImpl
     with DiagnosticableTreeMixin
     implements FetchCurrentLocation {
-  const _$FetchCurrentLocation();
+  const _$FetchCurrentLocationImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -143,7 +143,8 @@ class _$FetchCurrentLocation
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchCurrentLocation);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchCurrentLocationImpl);
   }
 
   @override
@@ -244,24 +245,24 @@ class _$FetchCurrentLocation
 }
 
 abstract class FetchCurrentLocation implements LocationEvent {
-  const factory FetchCurrentLocation() = _$FetchCurrentLocation;
+  const factory FetchCurrentLocation() = _$FetchCurrentLocationImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeLocationCopyWith<$Res> {
-  factory _$$ChangeLocationCopyWith(
-          _$ChangeLocation value, $Res Function(_$ChangeLocation) then) =
-      __$$ChangeLocationCopyWithImpl<$Res>;
+abstract class _$$ChangeLocationImplCopyWith<$Res> {
+  factory _$$ChangeLocationImplCopyWith(_$ChangeLocationImpl value,
+          $Res Function(_$ChangeLocationImpl) then) =
+      __$$ChangeLocationImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String location});
 }
 
 /// @nodoc
-class __$$ChangeLocationCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$ChangeLocation>
-    implements _$$ChangeLocationCopyWith<$Res> {
-  __$$ChangeLocationCopyWithImpl(
-      _$ChangeLocation _value, $Res Function(_$ChangeLocation) _then)
+class __$$ChangeLocationImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$ChangeLocationImpl>
+    implements _$$ChangeLocationImplCopyWith<$Res> {
+  __$$ChangeLocationImplCopyWithImpl(
+      _$ChangeLocationImpl _value, $Res Function(_$ChangeLocationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -269,7 +270,7 @@ class __$$ChangeLocationCopyWithImpl<$Res>
   $Res call({
     Object? location = null,
   }) {
-    return _then(_$ChangeLocation(
+    return _then(_$ChangeLocationImpl(
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -280,8 +281,10 @@ class __$$ChangeLocationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
-  const _$ChangeLocation({required this.location});
+class _$ChangeLocationImpl
+    with DiagnosticableTreeMixin
+    implements ChangeLocation {
+  const _$ChangeLocationImpl({required this.location});
 
   @override
   final String location;
@@ -303,7 +306,7 @@ class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeLocation &&
+            other is _$ChangeLocationImpl &&
             (identical(other.location, location) ||
                 other.location == location));
   }
@@ -314,8 +317,9 @@ class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeLocationCopyWith<_$ChangeLocation> get copyWith =>
-      __$$ChangeLocationCopyWithImpl<_$ChangeLocation>(this, _$identity);
+  _$$ChangeLocationImplCopyWith<_$ChangeLocationImpl> get copyWith =>
+      __$$ChangeLocationImplCopyWithImpl<_$ChangeLocationImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -413,34 +417,34 @@ class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
 
 abstract class ChangeLocation implements LocationEvent {
   const factory ChangeLocation({required final String location}) =
-      _$ChangeLocation;
+      _$ChangeLocationImpl;
 
   String get location;
   @JsonKey(ignore: true)
-  _$$ChangeLocationCopyWith<_$ChangeLocation> get copyWith =>
+  _$$ChangeLocationImplCopyWith<_$ChangeLocationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchCitiesCopyWith<$Res> {
-  factory _$$FetchCitiesCopyWith(
-          _$FetchCities value, $Res Function(_$FetchCities) then) =
-      __$$FetchCitiesCopyWithImpl<$Res>;
+abstract class _$$FetchCitiesImplCopyWith<$Res> {
+  factory _$$FetchCitiesImplCopyWith(
+          _$FetchCitiesImpl value, $Res Function(_$FetchCitiesImpl) then) =
+      __$$FetchCitiesImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchCitiesCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$FetchCities>
-    implements _$$FetchCitiesCopyWith<$Res> {
-  __$$FetchCitiesCopyWithImpl(
-      _$FetchCities _value, $Res Function(_$FetchCities) _then)
+class __$$FetchCitiesImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$FetchCitiesImpl>
+    implements _$$FetchCitiesImplCopyWith<$Res> {
+  __$$FetchCitiesImplCopyWithImpl(
+      _$FetchCitiesImpl _value, $Res Function(_$FetchCitiesImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
-  const _$FetchCities();
+class _$FetchCitiesImpl with DiagnosticableTreeMixin implements FetchCities {
+  const _$FetchCitiesImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -456,7 +460,7 @@ class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchCities);
+        (other.runtimeType == runtimeType && other is _$FetchCitiesImpl);
   }
 
   @override
@@ -557,29 +561,31 @@ class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
 }
 
 abstract class FetchCities implements LocationEvent {
-  const factory FetchCities() = _$FetchCities;
+  const factory FetchCities() = _$FetchCitiesImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadMoreCitiesCopyWith<$Res> {
-  factory _$$LoadMoreCitiesCopyWith(
-          _$LoadMoreCities value, $Res Function(_$LoadMoreCities) then) =
-      __$$LoadMoreCitiesCopyWithImpl<$Res>;
+abstract class _$$LoadMoreCitiesImplCopyWith<$Res> {
+  factory _$$LoadMoreCitiesImplCopyWith(_$LoadMoreCitiesImpl value,
+          $Res Function(_$LoadMoreCitiesImpl) then) =
+      __$$LoadMoreCitiesImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadMoreCitiesCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$LoadMoreCities>
-    implements _$$LoadMoreCitiesCopyWith<$Res> {
-  __$$LoadMoreCitiesCopyWithImpl(
-      _$LoadMoreCities _value, $Res Function(_$LoadMoreCities) _then)
+class __$$LoadMoreCitiesImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$LoadMoreCitiesImpl>
+    implements _$$LoadMoreCitiesImplCopyWith<$Res> {
+  __$$LoadMoreCitiesImplCopyWithImpl(
+      _$LoadMoreCitiesImpl _value, $Res Function(_$LoadMoreCitiesImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
-  const _$LoadMoreCities();
+class _$LoadMoreCitiesImpl
+    with DiagnosticableTreeMixin
+    implements LoadMoreCities {
+  const _$LoadMoreCitiesImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -595,7 +601,7 @@ class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadMoreCities);
+        (other.runtimeType == runtimeType && other is _$LoadMoreCitiesImpl);
   }
 
   @override
@@ -696,24 +702,24 @@ class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
 }
 
 abstract class LoadMoreCities implements LocationEvent {
-  const factory LoadMoreCities() = _$LoadMoreCities;
+  const factory LoadMoreCities() = _$LoadMoreCitiesImpl;
 }
 
 /// @nodoc
-abstract class _$$SearchCitiesCopyWith<$Res> {
-  factory _$$SearchCitiesCopyWith(
-          _$SearchCities value, $Res Function(_$SearchCities) then) =
-      __$$SearchCitiesCopyWithImpl<$Res>;
+abstract class _$$SearchCitiesImplCopyWith<$Res> {
+  factory _$$SearchCitiesImplCopyWith(
+          _$SearchCitiesImpl value, $Res Function(_$SearchCitiesImpl) then) =
+      __$$SearchCitiesImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String query});
 }
 
 /// @nodoc
-class __$$SearchCitiesCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$SearchCities>
-    implements _$$SearchCitiesCopyWith<$Res> {
-  __$$SearchCitiesCopyWithImpl(
-      _$SearchCities _value, $Res Function(_$SearchCities) _then)
+class __$$SearchCitiesImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$SearchCitiesImpl>
+    implements _$$SearchCitiesImplCopyWith<$Res> {
+  __$$SearchCitiesImplCopyWithImpl(
+      _$SearchCitiesImpl _value, $Res Function(_$SearchCitiesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -721,7 +727,7 @@ class __$$SearchCitiesCopyWithImpl<$Res>
   $Res call({
     Object? query = null,
   }) {
-    return _then(_$SearchCities(
+    return _then(_$SearchCitiesImpl(
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -732,8 +738,8 @@ class __$$SearchCitiesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
-  const _$SearchCities({required this.query});
+class _$SearchCitiesImpl with DiagnosticableTreeMixin implements SearchCities {
+  const _$SearchCitiesImpl({required this.query});
 
   @override
   final String query;
@@ -755,7 +761,7 @@ class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchCities &&
+            other is _$SearchCitiesImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -765,8 +771,8 @@ class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchCitiesCopyWith<_$SearchCities> get copyWith =>
-      __$$SearchCitiesCopyWithImpl<_$SearchCities>(this, _$identity);
+  _$$SearchCitiesImplCopyWith<_$SearchCitiesImpl> get copyWith =>
+      __$$SearchCitiesImplCopyWithImpl<_$SearchCitiesImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -863,36 +869,39 @@ class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
 }
 
 abstract class SearchCities implements LocationEvent {
-  const factory SearchCities({required final String query}) = _$SearchCities;
+  const factory SearchCities({required final String query}) =
+      _$SearchCitiesImpl;
 
   String get query;
   @JsonKey(ignore: true)
-  _$$SearchCitiesCopyWith<_$SearchCities> get copyWith =>
+  _$$SearchCitiesImplCopyWith<_$SearchCitiesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeLocationOnToggleCopyWith<$Res> {
-  factory _$$ChangeLocationOnToggleCopyWith(_$ChangeLocationOnToggle value,
-          $Res Function(_$ChangeLocationOnToggle) then) =
-      __$$ChangeLocationOnToggleCopyWithImpl<$Res>;
+abstract class _$$ChangeLocationOnToggleImplCopyWith<$Res> {
+  factory _$$ChangeLocationOnToggleImplCopyWith(
+          _$ChangeLocationOnToggleImpl value,
+          $Res Function(_$ChangeLocationOnToggleImpl) then) =
+      __$$ChangeLocationOnToggleImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ChangeLocationOnToggleCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$ChangeLocationOnToggle>
-    implements _$$ChangeLocationOnToggleCopyWith<$Res> {
-  __$$ChangeLocationOnToggleCopyWithImpl(_$ChangeLocationOnToggle _value,
-      $Res Function(_$ChangeLocationOnToggle) _then)
+class __$$ChangeLocationOnToggleImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$ChangeLocationOnToggleImpl>
+    implements _$$ChangeLocationOnToggleImplCopyWith<$Res> {
+  __$$ChangeLocationOnToggleImplCopyWithImpl(
+      _$ChangeLocationOnToggleImpl _value,
+      $Res Function(_$ChangeLocationOnToggleImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ChangeLocationOnToggle
+class _$ChangeLocationOnToggleImpl
     with DiagnosticableTreeMixin
     implements ChangeLocationOnToggle {
-  const _$ChangeLocationOnToggle();
+  const _$ChangeLocationOnToggleImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -909,7 +918,8 @@ class _$ChangeLocationOnToggle
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChangeLocationOnToggle);
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeLocationOnToggleImpl);
   }
 
   @override
@@ -1010,31 +1020,31 @@ class _$ChangeLocationOnToggle
 }
 
 abstract class ChangeLocationOnToggle implements LocationEvent {
-  const factory ChangeLocationOnToggle() = _$ChangeLocationOnToggle;
+  const factory ChangeLocationOnToggle() = _$ChangeLocationOnToggleImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchWeatherEventCopyWith<$Res> {
-  factory _$$FetchWeatherEventCopyWith(
-          _$FetchWeatherEvent value, $Res Function(_$FetchWeatherEvent) then) =
-      __$$FetchWeatherEventCopyWithImpl<$Res>;
+abstract class _$$FetchWeatherEventImplCopyWith<$Res> {
+  factory _$$FetchWeatherEventImplCopyWith(_$FetchWeatherEventImpl value,
+          $Res Function(_$FetchWeatherEventImpl) then) =
+      __$$FetchWeatherEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchWeatherEventCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$FetchWeatherEvent>
-    implements _$$FetchWeatherEventCopyWith<$Res> {
-  __$$FetchWeatherEventCopyWithImpl(
-      _$FetchWeatherEvent _value, $Res Function(_$FetchWeatherEvent) _then)
+class __$$FetchWeatherEventImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$FetchWeatherEventImpl>
+    implements _$$FetchWeatherEventImplCopyWith<$Res> {
+  __$$FetchWeatherEventImplCopyWithImpl(_$FetchWeatherEventImpl _value,
+      $Res Function(_$FetchWeatherEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchWeatherEvent
+class _$FetchWeatherEventImpl
     with DiagnosticableTreeMixin
     implements FetchWeatherEvent {
-  const _$FetchWeatherEvent();
+  const _$FetchWeatherEventImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1051,7 +1061,7 @@ class _$FetchWeatherEvent
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchWeatherEvent);
+        (other.runtimeType == runtimeType && other is _$FetchWeatherEventImpl);
   }
 
   @override
@@ -1152,7 +1162,7 @@ class _$FetchWeatherEvent
 }
 
 abstract class FetchWeatherEvent implements LocationEvent {
-  const factory FetchWeatherEvent() = _$FetchWeatherEvent;
+  const factory FetchWeatherEvent() = _$FetchWeatherEventImpl;
 }
 
 /// @nodoc
@@ -1318,11 +1328,11 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
 }
 
 /// @nodoc
-abstract class _$$_LocationStateCopyWith<$Res>
+abstract class _$$LocationStateImplCopyWith<$Res>
     implements $LocationStateCopyWith<$Res> {
-  factory _$$_LocationStateCopyWith(
-          _$_LocationState value, $Res Function(_$_LocationState) then) =
-      __$$_LocationStateCopyWithImpl<$Res>;
+  factory _$$LocationStateImplCopyWith(
+          _$LocationStateImpl value, $Res Function(_$LocationStateImpl) then) =
+      __$$LocationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1348,11 +1358,11 @@ abstract class _$$_LocationStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LocationStateCopyWithImpl<$Res>
-    extends _$LocationStateCopyWithImpl<$Res, _$_LocationState>
-    implements _$$_LocationStateCopyWith<$Res> {
-  __$$_LocationStateCopyWithImpl(
-      _$_LocationState _value, $Res Function(_$_LocationState) _then)
+class __$$LocationStateImplCopyWithImpl<$Res>
+    extends _$LocationStateCopyWithImpl<$Res, _$LocationStateImpl>
+    implements _$$LocationStateImplCopyWith<$Res> {
+  __$$LocationStateImplCopyWithImpl(
+      _$LocationStateImpl _value, $Res Function(_$LocationStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1375,7 +1385,7 @@ class __$$_LocationStateCopyWithImpl<$Res>
     Object? weatherTemperature = freezed,
     Object? weatherConditionName = null,
   }) {
-    return _then(_$_LocationState(
+    return _then(_$LocationStateImpl(
       currentLocaion: null == currentLocaion
           ? _value.currentLocaion
           : currentLocaion // ignore: cast_nullable_to_non_nullable
@@ -1446,8 +1456,10 @@ class __$$_LocationStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LocationState with DiagnosticableTreeMixin implements _LocationState {
-  const _$_LocationState(
+class _$LocationStateImpl
+    with DiagnosticableTreeMixin
+    implements _LocationState {
+  const _$LocationStateImpl(
       {required this.currentLocaion,
       required this.errorMessage,
       required this.shortAddress,
@@ -1551,7 +1563,7 @@ class _$_LocationState with DiagnosticableTreeMixin implements _LocationState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LocationState &&
+            other is _$LocationStateImpl &&
             (identical(other.currentLocaion, currentLocaion) ||
                 other.currentLocaion == currentLocaion) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -1608,8 +1620,8 @@ class _$_LocationState with DiagnosticableTreeMixin implements _LocationState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LocationStateCopyWith<_$_LocationState> get copyWith =>
-      __$$_LocationStateCopyWithImpl<_$_LocationState>(this, _$identity);
+  _$$LocationStateImplCopyWith<_$LocationStateImpl> get copyWith =>
+      __$$LocationStateImplCopyWithImpl<_$LocationStateImpl>(this, _$identity);
 }
 
 abstract class _LocationState implements LocationState {
@@ -1629,7 +1641,7 @@ abstract class _LocationState implements LocationState {
       required final bool isPermissionDenied,
       required final Position? lanAndLong,
       required final dynamic weatherTemperature,
-      required final String weatherConditionName}) = _$_LocationState;
+      required final String weatherConditionName}) = _$LocationStateImpl;
 
   @override
   String get currentLocaion;
@@ -1665,6 +1677,6 @@ abstract class _LocationState implements LocationState {
   String get weatherConditionName;
   @override
   @JsonKey(ignore: true)
-  _$$_LocationStateCopyWith<_$_LocationState> get copyWith =>
+  _$$LocationStateImplCopyWith<_$LocationStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

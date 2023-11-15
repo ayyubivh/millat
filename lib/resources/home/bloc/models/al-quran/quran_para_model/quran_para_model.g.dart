@@ -6,19 +6,20 @@ part of 'quran_para_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_QuranParaModel _$$_QuranParaModelFromJson(Map<String, dynamic> json) =>
-    _$_QuranParaModel(
+_$QuranParaModelImpl _$$QuranParaModelImplFromJson(Map<String, dynamic> json) =>
+    _$QuranParaModelImpl(
       juzs: (json['juzs'] as List<dynamic>)
           .map((e) => Juzs.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_QuranParaModelToJson(_$_QuranParaModel instance) =>
+Map<String, dynamic> _$$QuranParaModelImplToJson(
+        _$QuranParaModelImpl instance) =>
     <String, dynamic>{
       'juzs': instance.juzs,
     };
 
-_$_Juzs _$$_JuzsFromJson(Map<String, dynamic> json) => _$_Juzs(
+_$JuzsImpl _$$JuzsImplFromJson(Map<String, dynamic> json) => _$JuzsImpl(
       id: json['id'] as int?,
       juzNumber: json['juz_number'] as int?,
       verseMapping: (json['verse_mapping'] as Map<String, dynamic>?)?.map(
@@ -29,7 +30,8 @@ _$_Juzs _$$_JuzsFromJson(Map<String, dynamic> json) => _$_Juzs(
       versesCount: json['verses_count'] as int?,
     );
 
-Map<String, dynamic> _$$_JuzsToJson(_$_Juzs instance) => <String, dynamic>{
+Map<String, dynamic> _$$JuzsImplToJson(_$JuzsImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'juz_number': instance.juzNumber,
       'verse_mapping': instance.verseMapping,

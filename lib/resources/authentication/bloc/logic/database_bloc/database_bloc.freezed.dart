@@ -150,20 +150,20 @@ class _$DatabaseEventCopyWithImpl<$Res, $Val extends DatabaseEvent>
 }
 
 /// @nodoc
-abstract class _$$StoreTokenEventCopyWith<$Res> {
-  factory _$$StoreTokenEventCopyWith(
-          _$StoreTokenEvent value, $Res Function(_$StoreTokenEvent) then) =
-      __$$StoreTokenEventCopyWithImpl<$Res>;
+abstract class _$$StoreTokenEventImplCopyWith<$Res> {
+  factory _$$StoreTokenEventImplCopyWith(_$StoreTokenEventImpl value,
+          $Res Function(_$StoreTokenEventImpl) then) =
+      __$$StoreTokenEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String token});
 }
 
 /// @nodoc
-class __$$StoreTokenEventCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$StoreTokenEvent>
-    implements _$$StoreTokenEventCopyWith<$Res> {
-  __$$StoreTokenEventCopyWithImpl(
-      _$StoreTokenEvent _value, $Res Function(_$StoreTokenEvent) _then)
+class __$$StoreTokenEventImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$StoreTokenEventImpl>
+    implements _$$StoreTokenEventImplCopyWith<$Res> {
+  __$$StoreTokenEventImplCopyWithImpl(
+      _$StoreTokenEventImpl _value, $Res Function(_$StoreTokenEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -171,7 +171,7 @@ class __$$StoreTokenEventCopyWithImpl<$Res>
   $Res call({
     Object? token = null,
   }) {
-    return _then(_$StoreTokenEvent(
+    return _then(_$StoreTokenEventImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -182,8 +182,8 @@ class __$$StoreTokenEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StoreTokenEvent implements StoreTokenEvent {
-  const _$StoreTokenEvent({required this.token});
+class _$StoreTokenEventImpl implements StoreTokenEvent {
+  const _$StoreTokenEventImpl({required this.token});
 
   @override
   final String token;
@@ -197,7 +197,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StoreTokenEvent &&
+            other is _$StoreTokenEventImpl &&
             (identical(other.token, token) || other.token == token));
   }
 
@@ -207,8 +207,9 @@ class _$StoreTokenEvent implements StoreTokenEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$StoreTokenEventCopyWith<_$StoreTokenEvent> get copyWith =>
-      __$$StoreTokenEventCopyWithImpl<_$StoreTokenEvent>(this, _$identity);
+  _$$StoreTokenEventImplCopyWith<_$StoreTokenEventImpl> get copyWith =>
+      __$$StoreTokenEventImplCopyWithImpl<_$StoreTokenEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -350,34 +351,34 @@ class _$StoreTokenEvent implements StoreTokenEvent {
 
 abstract class StoreTokenEvent implements DatabaseEvent {
   const factory StoreTokenEvent({required final String token}) =
-      _$StoreTokenEvent;
+      _$StoreTokenEventImpl;
 
   String get token;
   @JsonKey(ignore: true)
-  _$$StoreTokenEventCopyWith<_$StoreTokenEvent> get copyWith =>
+  _$$StoreTokenEventImplCopyWith<_$StoreTokenEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchTokenCopyWith<$Res> {
-  factory _$$FetchTokenCopyWith(
-          _$FetchToken value, $Res Function(_$FetchToken) then) =
-      __$$FetchTokenCopyWithImpl<$Res>;
+abstract class _$$FetchTokenImplCopyWith<$Res> {
+  factory _$$FetchTokenImplCopyWith(
+          _$FetchTokenImpl value, $Res Function(_$FetchTokenImpl) then) =
+      __$$FetchTokenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchTokenCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchToken>
-    implements _$$FetchTokenCopyWith<$Res> {
-  __$$FetchTokenCopyWithImpl(
-      _$FetchToken _value, $Res Function(_$FetchToken) _then)
+class __$$FetchTokenImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchTokenImpl>
+    implements _$$FetchTokenImplCopyWith<$Res> {
+  __$$FetchTokenImplCopyWithImpl(
+      _$FetchTokenImpl _value, $Res Function(_$FetchTokenImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchToken implements FetchToken {
-  const _$FetchToken();
+class _$FetchTokenImpl implements FetchToken {
+  const _$FetchTokenImpl();
 
   @override
   String toString() {
@@ -387,7 +388,7 @@ class _$FetchToken implements FetchToken {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchToken);
+        (other.runtimeType == runtimeType && other is _$FetchTokenImpl);
   }
 
   @override
@@ -532,24 +533,24 @@ class _$FetchToken implements FetchToken {
 }
 
 abstract class FetchToken implements DatabaseEvent {
-  const factory FetchToken() = _$FetchToken;
+  const factory FetchToken() = _$FetchTokenImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchAuthUserCopyWith<$Res> {
-  factory _$$FetchAuthUserCopyWith(
-          _$FetchAuthUser value, $Res Function(_$FetchAuthUser) then) =
-      __$$FetchAuthUserCopyWithImpl<$Res>;
+abstract class _$$FetchAuthUserImplCopyWith<$Res> {
+  factory _$$FetchAuthUserImplCopyWith(
+          _$FetchAuthUserImpl value, $Res Function(_$FetchAuthUserImpl) then) =
+      __$$FetchAuthUserImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$FetchAuthUserCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchAuthUser>
-    implements _$$FetchAuthUserCopyWith<$Res> {
-  __$$FetchAuthUserCopyWithImpl(
-      _$FetchAuthUser _value, $Res Function(_$FetchAuthUser) _then)
+class __$$FetchAuthUserImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchAuthUserImpl>
+    implements _$$FetchAuthUserImplCopyWith<$Res> {
+  __$$FetchAuthUserImplCopyWithImpl(
+      _$FetchAuthUserImpl _value, $Res Function(_$FetchAuthUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -557,7 +558,7 @@ class __$$FetchAuthUserCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
   }) {
-    return _then(_$FetchAuthUser(
+    return _then(_$FetchAuthUserImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -568,8 +569,8 @@ class __$$FetchAuthUserCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchAuthUser implements FetchAuthUser {
-  const _$FetchAuthUser({required this.context});
+class _$FetchAuthUserImpl implements FetchAuthUser {
+  const _$FetchAuthUserImpl({required this.context});
 
   @override
   final BuildContext context;
@@ -583,7 +584,7 @@ class _$FetchAuthUser implements FetchAuthUser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchAuthUser &&
+            other is _$FetchAuthUserImpl &&
             (identical(other.context, context) || other.context == context));
   }
 
@@ -593,8 +594,8 @@ class _$FetchAuthUser implements FetchAuthUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchAuthUserCopyWith<_$FetchAuthUser> get copyWith =>
-      __$$FetchAuthUserCopyWithImpl<_$FetchAuthUser>(this, _$identity);
+  _$$FetchAuthUserImplCopyWith<_$FetchAuthUserImpl> get copyWith =>
+      __$$FetchAuthUserImplCopyWithImpl<_$FetchAuthUserImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -736,19 +737,19 @@ class _$FetchAuthUser implements FetchAuthUser {
 
 abstract class FetchAuthUser implements DatabaseEvent {
   const factory FetchAuthUser({required final BuildContext context}) =
-      _$FetchAuthUser;
+      _$FetchAuthUserImpl;
 
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$FetchAuthUserCopyWith<_$FetchAuthUser> get copyWith =>
+  _$$FetchAuthUserImplCopyWith<_$FetchAuthUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EditAuthUserCopyWith<$Res> {
-  factory _$$EditAuthUserCopyWith(
-          _$EditAuthUser value, $Res Function(_$EditAuthUser) then) =
-      __$$EditAuthUserCopyWithImpl<$Res>;
+abstract class _$$EditAuthUserImplCopyWith<$Res> {
+  factory _$$EditAuthUserImplCopyWith(
+          _$EditAuthUserImpl value, $Res Function(_$EditAuthUserImpl) then) =
+      __$$EditAuthUserImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String name,
@@ -762,11 +763,11 @@ abstract class _$$EditAuthUserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$EditAuthUserCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$EditAuthUser>
-    implements _$$EditAuthUserCopyWith<$Res> {
-  __$$EditAuthUserCopyWithImpl(
-      _$EditAuthUser _value, $Res Function(_$EditAuthUser) _then)
+class __$$EditAuthUserImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$EditAuthUserImpl>
+    implements _$$EditAuthUserImplCopyWith<$Res> {
+  __$$EditAuthUserImplCopyWithImpl(
+      _$EditAuthUserImpl _value, $Res Function(_$EditAuthUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -781,7 +782,7 @@ class __$$EditAuthUserCopyWithImpl<$Res>
     Object? image = null,
     Object? context = null,
   }) {
-    return _then(_$EditAuthUser(
+    return _then(_$EditAuthUserImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -820,8 +821,8 @@ class __$$EditAuthUserCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditAuthUser implements EditAuthUser {
-  const _$EditAuthUser(
+class _$EditAuthUserImpl implements EditAuthUser {
+  const _$EditAuthUserImpl(
       {required this.name,
       this.email,
       required this.userName,
@@ -857,7 +858,7 @@ class _$EditAuthUser implements EditAuthUser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditAuthUser &&
+            other is _$EditAuthUserImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.userName, userName) ||
@@ -878,8 +879,8 @@ class _$EditAuthUser implements EditAuthUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EditAuthUserCopyWith<_$EditAuthUser> get copyWith =>
-      __$$EditAuthUserCopyWithImpl<_$EditAuthUser>(this, _$identity);
+  _$$EditAuthUserImplCopyWith<_$EditAuthUserImpl> get copyWith =>
+      __$$EditAuthUserImplCopyWithImpl<_$EditAuthUserImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1031,7 +1032,7 @@ abstract class EditAuthUser implements DatabaseEvent {
       required final String dob,
       required final String profession,
       required final String image,
-      required final BuildContext context}) = _$EditAuthUser;
+      required final BuildContext context}) = _$EditAuthUserImpl;
 
   String get name;
   String? get email;
@@ -1042,30 +1043,30 @@ abstract class EditAuthUser implements DatabaseEvent {
   String get image;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$EditAuthUserCopyWith<_$EditAuthUser> get copyWith =>
+  _$$EditAuthUserImplCopyWith<_$EditAuthUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RemoveTokenEventCopyWith<$Res> {
-  factory _$$RemoveTokenEventCopyWith(
-          _$RemoveTokenEvent value, $Res Function(_$RemoveTokenEvent) then) =
-      __$$RemoveTokenEventCopyWithImpl<$Res>;
+abstract class _$$RemoveTokenEventImplCopyWith<$Res> {
+  factory _$$RemoveTokenEventImplCopyWith(_$RemoveTokenEventImpl value,
+          $Res Function(_$RemoveTokenEventImpl) then) =
+      __$$RemoveTokenEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$RemoveTokenEventCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$RemoveTokenEvent>
-    implements _$$RemoveTokenEventCopyWith<$Res> {
-  __$$RemoveTokenEventCopyWithImpl(
-      _$RemoveTokenEvent _value, $Res Function(_$RemoveTokenEvent) _then)
+class __$$RemoveTokenEventImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$RemoveTokenEventImpl>
+    implements _$$RemoveTokenEventImplCopyWith<$Res> {
+  __$$RemoveTokenEventImplCopyWithImpl(_$RemoveTokenEventImpl _value,
+      $Res Function(_$RemoveTokenEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$RemoveTokenEvent implements RemoveTokenEvent {
-  const _$RemoveTokenEvent();
+class _$RemoveTokenEventImpl implements RemoveTokenEvent {
+  const _$RemoveTokenEventImpl();
 
   @override
   String toString() {
@@ -1075,7 +1076,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RemoveTokenEvent);
+        (other.runtimeType == runtimeType && other is _$RemoveTokenEventImpl);
   }
 
   @override
@@ -1220,24 +1221,24 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
 }
 
 abstract class RemoveTokenEvent implements DatabaseEvent {
-  const factory RemoveTokenEvent() = _$RemoveTokenEvent;
+  const factory RemoveTokenEvent() = _$RemoveTokenEventImpl;
 }
 
 /// @nodoc
-abstract class _$$UploadImageEventCopyWith<$Res> {
-  factory _$$UploadImageEventCopyWith(
-          _$UploadImageEvent value, $Res Function(_$UploadImageEvent) then) =
-      __$$UploadImageEventCopyWithImpl<$Res>;
+abstract class _$$UploadImageEventImplCopyWith<$Res> {
+  factory _$$UploadImageEventImplCopyWith(_$UploadImageEventImpl value,
+          $Res Function(_$UploadImageEventImpl) then) =
+      __$$UploadImageEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ImageSource source});
 }
 
 /// @nodoc
-class __$$UploadImageEventCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$UploadImageEvent>
-    implements _$$UploadImageEventCopyWith<$Res> {
-  __$$UploadImageEventCopyWithImpl(
-      _$UploadImageEvent _value, $Res Function(_$UploadImageEvent) _then)
+class __$$UploadImageEventImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$UploadImageEventImpl>
+    implements _$$UploadImageEventImplCopyWith<$Res> {
+  __$$UploadImageEventImplCopyWithImpl(_$UploadImageEventImpl _value,
+      $Res Function(_$UploadImageEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1245,7 +1246,7 @@ class __$$UploadImageEventCopyWithImpl<$Res>
   $Res call({
     Object? source = null,
   }) {
-    return _then(_$UploadImageEvent(
+    return _then(_$UploadImageEventImpl(
       source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -1256,8 +1257,8 @@ class __$$UploadImageEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UploadImageEvent implements UploadImageEvent {
-  const _$UploadImageEvent({required this.source});
+class _$UploadImageEventImpl implements UploadImageEvent {
+  const _$UploadImageEventImpl({required this.source});
 
   @override
   final ImageSource source;
@@ -1271,7 +1272,7 @@ class _$UploadImageEvent implements UploadImageEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UploadImageEvent &&
+            other is _$UploadImageEventImpl &&
             (identical(other.source, source) || other.source == source));
   }
 
@@ -1281,8 +1282,9 @@ class _$UploadImageEvent implements UploadImageEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UploadImageEventCopyWith<_$UploadImageEvent> get copyWith =>
-      __$$UploadImageEventCopyWithImpl<_$UploadImageEvent>(this, _$identity);
+  _$$UploadImageEventImplCopyWith<_$UploadImageEventImpl> get copyWith =>
+      __$$UploadImageEventImplCopyWithImpl<_$UploadImageEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1424,34 +1426,34 @@ class _$UploadImageEvent implements UploadImageEvent {
 
 abstract class UploadImageEvent implements DatabaseEvent {
   const factory UploadImageEvent({required final ImageSource source}) =
-      _$UploadImageEvent;
+      _$UploadImageEventImpl;
 
   ImageSource get source;
   @JsonKey(ignore: true)
-  _$$UploadImageEventCopyWith<_$UploadImageEvent> get copyWith =>
+  _$$UploadImageEventImplCopyWith<_$UploadImageEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchContactEventCopyWith<$Res> {
-  factory _$$FetchContactEventCopyWith(
-          _$FetchContactEvent value, $Res Function(_$FetchContactEvent) then) =
-      __$$FetchContactEventCopyWithImpl<$Res>;
+abstract class _$$FetchContactEventImplCopyWith<$Res> {
+  factory _$$FetchContactEventImplCopyWith(_$FetchContactEventImpl value,
+          $Res Function(_$FetchContactEventImpl) then) =
+      __$$FetchContactEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchContactEventCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchContactEvent>
-    implements _$$FetchContactEventCopyWith<$Res> {
-  __$$FetchContactEventCopyWithImpl(
-      _$FetchContactEvent _value, $Res Function(_$FetchContactEvent) _then)
+class __$$FetchContactEventImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchContactEventImpl>
+    implements _$$FetchContactEventImplCopyWith<$Res> {
+  __$$FetchContactEventImplCopyWithImpl(_$FetchContactEventImpl _value,
+      $Res Function(_$FetchContactEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchContactEvent implements FetchContactEvent {
-  const _$FetchContactEvent();
+class _$FetchContactEventImpl implements FetchContactEvent {
+  const _$FetchContactEventImpl();
 
   @override
   String toString() {
@@ -1461,7 +1463,7 @@ class _$FetchContactEvent implements FetchContactEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchContactEvent);
+        (other.runtimeType == runtimeType && other is _$FetchContactEventImpl);
   }
 
   @override
@@ -1606,24 +1608,24 @@ class _$FetchContactEvent implements FetchContactEvent {
 }
 
 abstract class FetchContactEvent implements DatabaseEvent {
-  const factory FetchContactEvent() = _$FetchContactEvent;
+  const factory FetchContactEvent() = _$FetchContactEventImpl;
 }
 
 /// @nodoc
-abstract class _$$SaveCoverImageCopyWith<$Res> {
-  factory _$$SaveCoverImageCopyWith(
-          _$SaveCoverImage value, $Res Function(_$SaveCoverImage) then) =
-      __$$SaveCoverImageCopyWithImpl<$Res>;
+abstract class _$$SaveCoverImageImplCopyWith<$Res> {
+  factory _$$SaveCoverImageImplCopyWith(_$SaveCoverImageImpl value,
+          $Res Function(_$SaveCoverImageImpl) then) =
+      __$$SaveCoverImageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String image});
 }
 
 /// @nodoc
-class __$$SaveCoverImageCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$SaveCoverImage>
-    implements _$$SaveCoverImageCopyWith<$Res> {
-  __$$SaveCoverImageCopyWithImpl(
-      _$SaveCoverImage _value, $Res Function(_$SaveCoverImage) _then)
+class __$$SaveCoverImageImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$SaveCoverImageImpl>
+    implements _$$SaveCoverImageImplCopyWith<$Res> {
+  __$$SaveCoverImageImplCopyWithImpl(
+      _$SaveCoverImageImpl _value, $Res Function(_$SaveCoverImageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1631,7 +1633,7 @@ class __$$SaveCoverImageCopyWithImpl<$Res>
   $Res call({
     Object? image = null,
   }) {
-    return _then(_$SaveCoverImage(
+    return _then(_$SaveCoverImageImpl(
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -1642,8 +1644,8 @@ class __$$SaveCoverImageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveCoverImage implements SaveCoverImage {
-  const _$SaveCoverImage({required this.image});
+class _$SaveCoverImageImpl implements SaveCoverImage {
+  const _$SaveCoverImageImpl({required this.image});
 
   @override
   final String image;
@@ -1657,7 +1659,7 @@ class _$SaveCoverImage implements SaveCoverImage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveCoverImage &&
+            other is _$SaveCoverImageImpl &&
             (identical(other.image, image) || other.image == image));
   }
 
@@ -1667,8 +1669,9 @@ class _$SaveCoverImage implements SaveCoverImage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveCoverImageCopyWith<_$SaveCoverImage> get copyWith =>
-      __$$SaveCoverImageCopyWithImpl<_$SaveCoverImage>(this, _$identity);
+  _$$SaveCoverImageImplCopyWith<_$SaveCoverImageImpl> get copyWith =>
+      __$$SaveCoverImageImplCopyWithImpl<_$SaveCoverImageImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1810,34 +1813,34 @@ class _$SaveCoverImage implements SaveCoverImage {
 
 abstract class SaveCoverImage implements DatabaseEvent {
   const factory SaveCoverImage({required final String image}) =
-      _$SaveCoverImage;
+      _$SaveCoverImageImpl;
 
   String get image;
   @JsonKey(ignore: true)
-  _$$SaveCoverImageCopyWith<_$SaveCoverImage> get copyWith =>
+  _$$SaveCoverImageImplCopyWith<_$SaveCoverImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchCoverImageCopyWith<$Res> {
-  factory _$$FetchCoverImageCopyWith(
-          _$FetchCoverImage value, $Res Function(_$FetchCoverImage) then) =
-      __$$FetchCoverImageCopyWithImpl<$Res>;
+abstract class _$$FetchCoverImageImplCopyWith<$Res> {
+  factory _$$FetchCoverImageImplCopyWith(_$FetchCoverImageImpl value,
+          $Res Function(_$FetchCoverImageImpl) then) =
+      __$$FetchCoverImageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchCoverImageCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchCoverImage>
-    implements _$$FetchCoverImageCopyWith<$Res> {
-  __$$FetchCoverImageCopyWithImpl(
-      _$FetchCoverImage _value, $Res Function(_$FetchCoverImage) _then)
+class __$$FetchCoverImageImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchCoverImageImpl>
+    implements _$$FetchCoverImageImplCopyWith<$Res> {
+  __$$FetchCoverImageImplCopyWithImpl(
+      _$FetchCoverImageImpl _value, $Res Function(_$FetchCoverImageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchCoverImage implements FetchCoverImage {
-  const _$FetchCoverImage();
+class _$FetchCoverImageImpl implements FetchCoverImage {
+  const _$FetchCoverImageImpl();
 
   @override
   String toString() {
@@ -1847,7 +1850,7 @@ class _$FetchCoverImage implements FetchCoverImage {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchCoverImage);
+        (other.runtimeType == runtimeType && other is _$FetchCoverImageImpl);
   }
 
   @override
@@ -1992,24 +1995,24 @@ class _$FetchCoverImage implements FetchCoverImage {
 }
 
 abstract class FetchCoverImage implements DatabaseEvent {
-  const factory FetchCoverImage() = _$FetchCoverImage;
+  const factory FetchCoverImage() = _$FetchCoverImageImpl;
 }
 
 /// @nodoc
-abstract class _$$DeleteAccountCopyWith<$Res> {
-  factory _$$DeleteAccountCopyWith(
-          _$DeleteAccount value, $Res Function(_$DeleteAccount) then) =
-      __$$DeleteAccountCopyWithImpl<$Res>;
+abstract class _$$DeleteAccountImplCopyWith<$Res> {
+  factory _$$DeleteAccountImplCopyWith(
+          _$DeleteAccountImpl value, $Res Function(_$DeleteAccountImpl) then) =
+      __$$DeleteAccountImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$DeleteAccountCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$DeleteAccount>
-    implements _$$DeleteAccountCopyWith<$Res> {
-  __$$DeleteAccountCopyWithImpl(
-      _$DeleteAccount _value, $Res Function(_$DeleteAccount) _then)
+class __$$DeleteAccountImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$DeleteAccountImpl>
+    implements _$$DeleteAccountImplCopyWith<$Res> {
+  __$$DeleteAccountImplCopyWithImpl(
+      _$DeleteAccountImpl _value, $Res Function(_$DeleteAccountImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2017,7 +2020,7 @@ class __$$DeleteAccountCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
   }) {
-    return _then(_$DeleteAccount(
+    return _then(_$DeleteAccountImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -2028,8 +2031,8 @@ class __$$DeleteAccountCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteAccount implements DeleteAccount {
-  const _$DeleteAccount({required this.context});
+class _$DeleteAccountImpl implements DeleteAccount {
+  const _$DeleteAccountImpl({required this.context});
 
   @override
   final BuildContext context;
@@ -2043,7 +2046,7 @@ class _$DeleteAccount implements DeleteAccount {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DeleteAccount &&
+            other is _$DeleteAccountImpl &&
             (identical(other.context, context) || other.context == context));
   }
 
@@ -2053,8 +2056,8 @@ class _$DeleteAccount implements DeleteAccount {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DeleteAccountCopyWith<_$DeleteAccount> get copyWith =>
-      __$$DeleteAccountCopyWithImpl<_$DeleteAccount>(this, _$identity);
+  _$$DeleteAccountImplCopyWith<_$DeleteAccountImpl> get copyWith =>
+      __$$DeleteAccountImplCopyWithImpl<_$DeleteAccountImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2196,11 +2199,11 @@ class _$DeleteAccount implements DeleteAccount {
 
 abstract class DeleteAccount implements DatabaseEvent {
   const factory DeleteAccount({required final BuildContext context}) =
-      _$DeleteAccount;
+      _$DeleteAccountImpl;
 
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$DeleteAccountCopyWith<_$DeleteAccount> get copyWith =>
+  _$$DeleteAccountImplCopyWith<_$DeleteAccountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2334,11 +2337,11 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$InitialImplCopyWith<$Res>
     implements $DatabaseStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2359,10 +2362,11 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$DatabaseStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$DatabaseStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2380,7 +2384,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? coverImage = null,
     Object? editSuccesMessage = null,
   }) {
-    return _then(_$_Initial(
+    return _then(_$InitialImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -2431,8 +2435,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial(
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl(
       {required this.token,
       required this.authUserModel,
       required this.isLoading,
@@ -2488,7 +2492,7 @@ class _$_Initial implements _Initial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$InitialImpl &&
             (identical(other.token, token) || other.token == token) &&
             (identical(other.authUserModel, authUserModel) ||
                 other.authUserModel == authUserModel) &&
@@ -2529,8 +2533,8 @@ class _$_Initial implements _Initial {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 }
 
 abstract class _Initial implements DatabaseState {
@@ -2545,7 +2549,7 @@ abstract class _Initial implements DatabaseState {
       required final String editFailedMessage,
       required final List<Contact>? contacts,
       required final String coverImage,
-      required final String editSuccesMessage}) = _$_Initial;
+      required final String editSuccesMessage}) = _$InitialImpl;
 
   @override
   String get token;
@@ -2572,6 +2576,6 @@ abstract class _Initial implements DatabaseState {
   String get editSuccesMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

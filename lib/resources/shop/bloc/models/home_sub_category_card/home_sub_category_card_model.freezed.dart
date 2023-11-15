@@ -94,12 +94,12 @@ class _$ShopHomeBackgroundCardModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ShopHomeBackgroundCardModelCopyWith<$Res>
+abstract class _$$ShopHomeBackgroundCardModelImplCopyWith<$Res>
     implements $ShopHomeBackgroundCardModelCopyWith<$Res> {
-  factory _$$_ShopHomeBackgroundCardModelCopyWith(
-          _$_ShopHomeBackgroundCardModel value,
-          $Res Function(_$_ShopHomeBackgroundCardModel) then) =
-      __$$_ShopHomeBackgroundCardModelCopyWithImpl<$Res>;
+  factory _$$ShopHomeBackgroundCardModelImplCopyWith(
+          _$ShopHomeBackgroundCardModelImpl value,
+          $Res Function(_$ShopHomeBackgroundCardModelImpl) then) =
+      __$$ShopHomeBackgroundCardModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int status, String message, String error, Result result});
@@ -109,13 +109,13 @@ abstract class _$$_ShopHomeBackgroundCardModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ShopHomeBackgroundCardModelCopyWithImpl<$Res>
+class __$$ShopHomeBackgroundCardModelImplCopyWithImpl<$Res>
     extends _$ShopHomeBackgroundCardModelCopyWithImpl<$Res,
-        _$_ShopHomeBackgroundCardModel>
-    implements _$$_ShopHomeBackgroundCardModelCopyWith<$Res> {
-  __$$_ShopHomeBackgroundCardModelCopyWithImpl(
-      _$_ShopHomeBackgroundCardModel _value,
-      $Res Function(_$_ShopHomeBackgroundCardModel) _then)
+        _$ShopHomeBackgroundCardModelImpl>
+    implements _$$ShopHomeBackgroundCardModelImplCopyWith<$Res> {
+  __$$ShopHomeBackgroundCardModelImplCopyWithImpl(
+      _$ShopHomeBackgroundCardModelImpl _value,
+      $Res Function(_$ShopHomeBackgroundCardModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +126,7 @@ class __$$_ShopHomeBackgroundCardModelCopyWithImpl<$Res>
     Object? error = null,
     Object? result = null,
   }) {
-    return _then(_$_ShopHomeBackgroundCardModel(
+    return _then(_$ShopHomeBackgroundCardModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -149,15 +149,17 @@ class __$$_ShopHomeBackgroundCardModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ShopHomeBackgroundCardModel implements _ShopHomeBackgroundCardModel {
-  const _$_ShopHomeBackgroundCardModel(
+class _$ShopHomeBackgroundCardModelImpl
+    implements _ShopHomeBackgroundCardModel {
+  const _$ShopHomeBackgroundCardModelImpl(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$_ShopHomeBackgroundCardModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ShopHomeBackgroundCardModelFromJson(json);
+  factory _$ShopHomeBackgroundCardModelImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ShopHomeBackgroundCardModelImplFromJson(json);
 
   @override
   final int status;
@@ -177,7 +179,7 @@ class _$_ShopHomeBackgroundCardModel implements _ShopHomeBackgroundCardModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShopHomeBackgroundCardModel &&
+            other is _$ShopHomeBackgroundCardModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -191,13 +193,13 @@ class _$_ShopHomeBackgroundCardModel implements _ShopHomeBackgroundCardModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShopHomeBackgroundCardModelCopyWith<_$_ShopHomeBackgroundCardModel>
-      get copyWith => __$$_ShopHomeBackgroundCardModelCopyWithImpl<
-          _$_ShopHomeBackgroundCardModel>(this, _$identity);
+  _$$ShopHomeBackgroundCardModelImplCopyWith<_$ShopHomeBackgroundCardModelImpl>
+      get copyWith => __$$ShopHomeBackgroundCardModelImplCopyWithImpl<
+          _$ShopHomeBackgroundCardModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ShopHomeBackgroundCardModelToJson(
+    return _$$ShopHomeBackgroundCardModelImplToJson(
       this,
     );
   }
@@ -209,10 +211,10 @@ abstract class _ShopHomeBackgroundCardModel
       {required final int status,
       required final String message,
       required final String error,
-      required final Result result}) = _$_ShopHomeBackgroundCardModel;
+      required final Result result}) = _$ShopHomeBackgroundCardModelImpl;
 
   factory _ShopHomeBackgroundCardModel.fromJson(Map<String, dynamic> json) =
-      _$_ShopHomeBackgroundCardModel.fromJson;
+      _$ShopHomeBackgroundCardModelImpl.fromJson;
 
   @override
   int get status;
@@ -224,7 +226,7 @@ abstract class _ShopHomeBackgroundCardModel
   Result get result;
   @override
   @JsonKey(ignore: true)
-  _$$_ShopHomeBackgroundCardModelCopyWith<_$_ShopHomeBackgroundCardModel>
+  _$$ShopHomeBackgroundCardModelImplCopyWith<_$ShopHomeBackgroundCardModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -284,9 +286,10 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
 }
 
 /// @nodoc
-abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$$_ResultCopyWith(_$_Result value, $Res Function(_$_Result) then) =
-      __$$_ResultCopyWithImpl<$Res>;
+abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
+  factory _$$ResultImplCopyWith(
+          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
+      __$$ResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Data data});
@@ -296,10 +299,11 @@ abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ResultCopyWithImpl<$Res>
-    extends _$ResultCopyWithImpl<$Res, _$_Result>
-    implements _$$_ResultCopyWith<$Res> {
-  __$$_ResultCopyWithImpl(_$_Result _value, $Res Function(_$_Result) _then)
+class __$$ResultImplCopyWithImpl<$Res>
+    extends _$ResultCopyWithImpl<$Res, _$ResultImpl>
+    implements _$$ResultImplCopyWith<$Res> {
+  __$$ResultImplCopyWithImpl(
+      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -307,7 +311,7 @@ class __$$_ResultCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_Result(
+    return _then(_$ResultImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -318,11 +322,11 @@ class __$$_ResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Result implements _Result {
-  const _$_Result({required this.data});
+class _$ResultImpl implements _Result {
+  const _$ResultImpl({required this.data});
 
-  factory _$_Result.fromJson(Map<String, dynamic> json) =>
-      _$$_ResultFromJson(json);
+  factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResultImplFromJson(json);
 
   @override
   final Data data;
@@ -336,7 +340,7 @@ class _$_Result implements _Result {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Result &&
+            other is _$ResultImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -347,27 +351,27 @@ class _$_Result implements _Result {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
-      __$$_ResultCopyWithImpl<_$_Result>(this, _$identity);
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
+      __$$ResultImplCopyWithImpl<_$ResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultToJson(
+    return _$$ResultImplToJson(
       this,
     );
   }
 }
 
 abstract class _Result implements Result {
-  const factory _Result({required final Data data}) = _$_Result;
+  const factory _Result({required final Data data}) = _$ResultImpl;
 
-  factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
+  factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
   @override
   Data get data;
   @override
   @JsonKey(ignore: true)
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -508,9 +512,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
 }
 
 /// @nodoc
-abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
-  factory _$$_DataCopyWith(_$_Data value, $Res Function(_$_Data) then) =
-      __$$_DataCopyWithImpl<$Res>;
+abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
+  factory _$$DataImplCopyWith(
+          _$DataImpl value, $Res Function(_$DataImpl) then) =
+      __$$DataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -533,9 +538,10 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
-    implements _$$_DataCopyWith<$Res> {
-  __$$_DataCopyWithImpl(_$_Data _value, $Res Function(_$_Data) _then)
+class __$$DataImplCopyWithImpl<$Res>
+    extends _$DataCopyWithImpl<$Res, _$DataImpl>
+    implements _$$DataImplCopyWith<$Res> {
+  __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -551,7 +557,7 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
     Object? slug = null,
     Object? subCategoryId = freezed,
   }) {
-    return _then(_$_Data(
+    return _then(_$DataImpl(
       design: null == design
           ? _value.design
           : design // ignore: cast_nullable_to_non_nullable
@@ -594,8 +600,8 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Data implements _Data {
-  const _$_Data(
+class _$DataImpl implements _Data {
+  const _$DataImpl(
       {required this.design,
       required this.bigBannerImage,
       @JsonKey(name: "_id") required this.id,
@@ -608,7 +614,8 @@ class _$_Data implements _Data {
       : _sliderImage = sliderImage,
         _smallBannerImage = smallBannerImage;
 
-  factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
+  factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DataImplFromJson(json);
 
   @override
   final Design design;
@@ -652,7 +659,7 @@ class _$_Data implements _Data {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Data &&
+            other is _$DataImpl &&
             (identical(other.design, design) || other.design == design) &&
             (identical(other.bigBannerImage, bigBannerImage) ||
                 other.bigBannerImage == bigBannerImage) &&
@@ -687,12 +694,12 @@ class _$_Data implements _Data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DataCopyWith<_$_Data> get copyWith =>
-      __$$_DataCopyWithImpl<_$_Data>(this, _$identity);
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      __$$DataImplCopyWithImpl<_$DataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DataToJson(
+    return _$$DataImplToJson(
       this,
     );
   }
@@ -708,9 +715,9 @@ abstract class _Data implements Data {
       required final String createdAt,
       required final String updatedAt,
       required final String slug,
-      final SubCategory? subCategoryId}) = _$_Data;
+      final SubCategory? subCategoryId}) = _$DataImpl;
 
-  factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
+  factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
   @override
   Design get design;
@@ -733,7 +740,8 @@ abstract class _Data implements Data {
   SubCategory? get subCategoryId;
   @override
   @JsonKey(ignore: true)
-  _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Design _$DesignFromJson(Map<String, dynamic> json) {
@@ -812,9 +820,10 @@ class _$DesignCopyWithImpl<$Res, $Val extends Design>
 }
 
 /// @nodoc
-abstract class _$$_DesignCopyWith<$Res> implements $DesignCopyWith<$Res> {
-  factory _$$_DesignCopyWith(_$_Design value, $Res Function(_$_Design) then) =
-      __$$_DesignCopyWithImpl<$Res>;
+abstract class _$$DesignImplCopyWith<$Res> implements $DesignCopyWith<$Res> {
+  factory _$$DesignImplCopyWith(
+          _$DesignImpl value, $Res Function(_$DesignImpl) then) =
+      __$$DesignImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -826,10 +835,11 @@ abstract class _$$_DesignCopyWith<$Res> implements $DesignCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DesignCopyWithImpl<$Res>
-    extends _$DesignCopyWithImpl<$Res, _$_Design>
-    implements _$$_DesignCopyWith<$Res> {
-  __$$_DesignCopyWithImpl(_$_Design _value, $Res Function(_$_Design) _then)
+class __$$DesignImplCopyWithImpl<$Res>
+    extends _$DesignCopyWithImpl<$Res, _$DesignImpl>
+    implements _$$DesignImplCopyWith<$Res> {
+  __$$DesignImplCopyWithImpl(
+      _$DesignImpl _value, $Res Function(_$DesignImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -841,7 +851,7 @@ class __$$_DesignCopyWithImpl<$Res>
     Object? text = null,
     Object? color = null,
   }) {
-    return _then(_$_Design(
+    return _then(_$DesignImpl(
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -868,16 +878,16 @@ class __$$_DesignCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Design implements _Design {
-  const _$_Design(
+class _$DesignImpl implements _Design {
+  const _$DesignImpl(
       {required this.image,
       required this.bgcolor,
       this.subText,
       required this.text,
       required this.color});
 
-  factory _$_Design.fromJson(Map<String, dynamic> json) =>
-      _$$_DesignFromJson(json);
+  factory _$DesignImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DesignImplFromJson(json);
 
   @override
   final String image;
@@ -900,7 +910,7 @@ class _$_Design implements _Design {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Design &&
+            other is _$DesignImpl &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.bgcolor, bgcolor) || other.bgcolor == bgcolor) &&
             (identical(other.subText, subText) || other.subText == subText) &&
@@ -916,12 +926,12 @@ class _$_Design implements _Design {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DesignCopyWith<_$_Design> get copyWith =>
-      __$$_DesignCopyWithImpl<_$_Design>(this, _$identity);
+  _$$DesignImplCopyWith<_$DesignImpl> get copyWith =>
+      __$$DesignImplCopyWithImpl<_$DesignImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DesignToJson(
+    return _$$DesignImplToJson(
       this,
     );
   }
@@ -933,9 +943,9 @@ abstract class _Design implements Design {
       required final String bgcolor,
       final String? subText,
       required final String text,
-      required final String color}) = _$_Design;
+      required final String color}) = _$DesignImpl;
 
-  factory _Design.fromJson(Map<String, dynamic> json) = _$_Design.fromJson;
+  factory _Design.fromJson(Map<String, dynamic> json) = _$DesignImpl.fromJson;
 
   @override
   String get image;
@@ -949,7 +959,7 @@ abstract class _Design implements Design {
   String get color;
   @override
   @JsonKey(ignore: true)
-  _$$_DesignCopyWith<_$_Design> get copyWith =>
+  _$$DesignImplCopyWith<_$DesignImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1013,22 +1023,22 @@ class _$BigBannerImageCopyWithImpl<$Res, $Val extends BigBannerImage>
 }
 
 /// @nodoc
-abstract class _$$_BigBannerImageCopyWith<$Res>
+abstract class _$$BigBannerImageImplCopyWith<$Res>
     implements $BigBannerImageCopyWith<$Res> {
-  factory _$$_BigBannerImageCopyWith(
-          _$_BigBannerImage value, $Res Function(_$_BigBannerImage) then) =
-      __$$_BigBannerImageCopyWithImpl<$Res>;
+  factory _$$BigBannerImageImplCopyWith(_$BigBannerImageImpl value,
+          $Res Function(_$BigBannerImageImpl) then) =
+      __$$BigBannerImageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String imageUrl, String? url, String discount});
 }
 
 /// @nodoc
-class __$$_BigBannerImageCopyWithImpl<$Res>
-    extends _$BigBannerImageCopyWithImpl<$Res, _$_BigBannerImage>
-    implements _$$_BigBannerImageCopyWith<$Res> {
-  __$$_BigBannerImageCopyWithImpl(
-      _$_BigBannerImage _value, $Res Function(_$_BigBannerImage) _then)
+class __$$BigBannerImageImplCopyWithImpl<$Res>
+    extends _$BigBannerImageCopyWithImpl<$Res, _$BigBannerImageImpl>
+    implements _$$BigBannerImageImplCopyWith<$Res> {
+  __$$BigBannerImageImplCopyWithImpl(
+      _$BigBannerImageImpl _value, $Res Function(_$BigBannerImageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1038,7 +1048,7 @@ class __$$_BigBannerImageCopyWithImpl<$Res>
     Object? url = freezed,
     Object? discount = null,
   }) {
-    return _then(_$_BigBannerImage(
+    return _then(_$BigBannerImageImpl(
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -1057,12 +1067,12 @@ class __$$_BigBannerImageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BigBannerImage implements _BigBannerImage {
-  const _$_BigBannerImage(
+class _$BigBannerImageImpl implements _BigBannerImage {
+  const _$BigBannerImageImpl(
       {required this.imageUrl, this.url, required this.discount});
 
-  factory _$_BigBannerImage.fromJson(Map<String, dynamic> json) =>
-      _$$_BigBannerImageFromJson(json);
+  factory _$BigBannerImageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BigBannerImageImplFromJson(json);
 
   @override
   final String imageUrl;
@@ -1081,7 +1091,7 @@ class _$_BigBannerImage implements _BigBannerImage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BigBannerImage &&
+            other is _$BigBannerImageImpl &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.url, url) || other.url == url) &&
@@ -1096,12 +1106,13 @@ class _$_BigBannerImage implements _BigBannerImage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BigBannerImageCopyWith<_$_BigBannerImage> get copyWith =>
-      __$$_BigBannerImageCopyWithImpl<_$_BigBannerImage>(this, _$identity);
+  _$$BigBannerImageImplCopyWith<_$BigBannerImageImpl> get copyWith =>
+      __$$BigBannerImageImplCopyWithImpl<_$BigBannerImageImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BigBannerImageToJson(
+    return _$$BigBannerImageImplToJson(
       this,
     );
   }
@@ -1111,10 +1122,10 @@ abstract class _BigBannerImage implements BigBannerImage {
   const factory _BigBannerImage(
       {required final String imageUrl,
       final String? url,
-      required final String discount}) = _$_BigBannerImage;
+      required final String discount}) = _$BigBannerImageImpl;
 
   factory _BigBannerImage.fromJson(Map<String, dynamic> json) =
-      _$_BigBannerImage.fromJson;
+      _$BigBannerImageImpl.fromJson;
 
   @override
   String get imageUrl;
@@ -1124,7 +1135,7 @@ abstract class _BigBannerImage implements BigBannerImage {
   String get discount;
   @override
   @JsonKey(ignore: true)
-  _$$_BigBannerImageCopyWith<_$_BigBannerImage> get copyWith =>
+  _$$BigBannerImageImplCopyWith<_$BigBannerImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1199,11 +1210,11 @@ class _$SmallBannerImageCopyWithImpl<$Res, $Val extends SmallBannerImage>
 }
 
 /// @nodoc
-abstract class _$$_SmallBannerImageCopyWith<$Res>
+abstract class _$$SmallBannerImageImplCopyWith<$Res>
     implements $SmallBannerImageCopyWith<$Res> {
-  factory _$$_SmallBannerImageCopyWith(
-          _$_SmallBannerImage value, $Res Function(_$_SmallBannerImage) then) =
-      __$$_SmallBannerImageCopyWithImpl<$Res>;
+  factory _$$SmallBannerImageImplCopyWith(_$SmallBannerImageImpl value,
+          $Res Function(_$SmallBannerImageImpl) then) =
+      __$$SmallBannerImageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1214,11 +1225,11 @@ abstract class _$$_SmallBannerImageCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SmallBannerImageCopyWithImpl<$Res>
-    extends _$SmallBannerImageCopyWithImpl<$Res, _$_SmallBannerImage>
-    implements _$$_SmallBannerImageCopyWith<$Res> {
-  __$$_SmallBannerImageCopyWithImpl(
-      _$_SmallBannerImage _value, $Res Function(_$_SmallBannerImage) _then)
+class __$$SmallBannerImageImplCopyWithImpl<$Res>
+    extends _$SmallBannerImageCopyWithImpl<$Res, _$SmallBannerImageImpl>
+    implements _$$SmallBannerImageImplCopyWith<$Res> {
+  __$$SmallBannerImageImplCopyWithImpl(_$SmallBannerImageImpl _value,
+      $Res Function(_$SmallBannerImageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1229,7 +1240,7 @@ class __$$_SmallBannerImageCopyWithImpl<$Res>
     Object? discount = null,
     Object? id = null,
   }) {
-    return _then(_$_SmallBannerImage(
+    return _then(_$SmallBannerImageImpl(
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -1252,15 +1263,15 @@ class __$$_SmallBannerImageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SmallBannerImage implements _SmallBannerImage {
-  const _$_SmallBannerImage(
+class _$SmallBannerImageImpl implements _SmallBannerImage {
+  const _$SmallBannerImageImpl(
       {required this.imageUrl,
       this.url,
       required this.discount,
       @JsonKey(name: "_id") required this.id});
 
-  factory _$_SmallBannerImage.fromJson(Map<String, dynamic> json) =>
-      _$$_SmallBannerImageFromJson(json);
+  factory _$SmallBannerImageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SmallBannerImageImplFromJson(json);
 
   @override
   final String imageUrl;
@@ -1282,7 +1293,7 @@ class _$_SmallBannerImage implements _SmallBannerImage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SmallBannerImage &&
+            other is _$SmallBannerImageImpl &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.url, url) || other.url == url) &&
@@ -1298,12 +1309,13 @@ class _$_SmallBannerImage implements _SmallBannerImage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SmallBannerImageCopyWith<_$_SmallBannerImage> get copyWith =>
-      __$$_SmallBannerImageCopyWithImpl<_$_SmallBannerImage>(this, _$identity);
+  _$$SmallBannerImageImplCopyWith<_$SmallBannerImageImpl> get copyWith =>
+      __$$SmallBannerImageImplCopyWithImpl<_$SmallBannerImageImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SmallBannerImageToJson(
+    return _$$SmallBannerImageImplToJson(
       this,
     );
   }
@@ -1314,10 +1326,10 @@ abstract class _SmallBannerImage implements SmallBannerImage {
       {required final String imageUrl,
       final String? url,
       required final String discount,
-      @JsonKey(name: "_id") required final String id}) = _$_SmallBannerImage;
+      @JsonKey(name: "_id") required final String id}) = _$SmallBannerImageImpl;
 
   factory _SmallBannerImage.fromJson(Map<String, dynamic> json) =
-      _$_SmallBannerImage.fromJson;
+      _$SmallBannerImageImpl.fromJson;
 
   @override
   String get imageUrl;
@@ -1330,7 +1342,7 @@ abstract class _SmallBannerImage implements SmallBannerImage {
   String get id;
   @override
   @JsonKey(ignore: true)
-  _$$_SmallBannerImageCopyWith<_$_SmallBannerImage> get copyWith =>
+  _$$SmallBannerImageImplCopyWith<_$SmallBannerImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1419,11 +1431,11 @@ class _$SubCategoryCopyWithImpl<$Res, $Val extends SubCategory>
 }
 
 /// @nodoc
-abstract class _$$_SubCategoryCopyWith<$Res>
+abstract class _$$SubCategoryImplCopyWith<$Res>
     implements $SubCategoryCopyWith<$Res> {
-  factory _$$_SubCategoryCopyWith(
-          _$_SubCategory value, $Res Function(_$_SubCategory) then) =
-      __$$_SubCategoryCopyWithImpl<$Res>;
+  factory _$$SubCategoryImplCopyWith(
+          _$SubCategoryImpl value, $Res Function(_$SubCategoryImpl) then) =
+      __$$SubCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1436,11 +1448,11 @@ abstract class _$$_SubCategoryCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SubCategoryCopyWithImpl<$Res>
-    extends _$SubCategoryCopyWithImpl<$Res, _$_SubCategory>
-    implements _$$_SubCategoryCopyWith<$Res> {
-  __$$_SubCategoryCopyWithImpl(
-      _$_SubCategory _value, $Res Function(_$_SubCategory) _then)
+class __$$SubCategoryImplCopyWithImpl<$Res>
+    extends _$SubCategoryCopyWithImpl<$Res, _$SubCategoryImpl>
+    implements _$$SubCategoryImplCopyWith<$Res> {
+  __$$SubCategoryImplCopyWithImpl(
+      _$SubCategoryImpl _value, $Res Function(_$SubCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1453,7 +1465,7 @@ class __$$_SubCategoryCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_SubCategory(
+    return _then(_$SubCategoryImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1484,8 +1496,8 @@ class __$$_SubCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SubCategory implements _SubCategory {
-  const _$_SubCategory(
+class _$SubCategoryImpl implements _SubCategory {
+  const _$SubCategoryImpl(
       {@JsonKey(name: "_id") required this.id,
       required this.categoryId,
       required this.title,
@@ -1493,8 +1505,8 @@ class _$_SubCategory implements _SubCategory {
       required this.createdAt,
       required this.updatedAt});
 
-  factory _$_SubCategory.fromJson(Map<String, dynamic> json) =>
-      _$$_SubCategoryFromJson(json);
+  factory _$SubCategoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SubCategoryImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -1519,7 +1531,7 @@ class _$_SubCategory implements _SubCategory {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SubCategory &&
+            other is _$SubCategoryImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId) &&
@@ -1539,12 +1551,12 @@ class _$_SubCategory implements _SubCategory {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SubCategoryCopyWith<_$_SubCategory> get copyWith =>
-      __$$_SubCategoryCopyWithImpl<_$_SubCategory>(this, _$identity);
+  _$$SubCategoryImplCopyWith<_$SubCategoryImpl> get copyWith =>
+      __$$SubCategoryImplCopyWithImpl<_$SubCategoryImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SubCategoryToJson(
+    return _$$SubCategoryImplToJson(
       this,
     );
   }
@@ -1557,10 +1569,10 @@ abstract class _SubCategory implements SubCategory {
       required final String title,
       required final String image,
       required final String createdAt,
-      required final String updatedAt}) = _$_SubCategory;
+      required final String updatedAt}) = _$SubCategoryImpl;
 
   factory _SubCategory.fromJson(Map<String, dynamic> json) =
-      _$_SubCategory.fromJson;
+      _$SubCategoryImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -1577,6 +1589,6 @@ abstract class _SubCategory implements SubCategory {
   String get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_SubCategoryCopyWith<_$_SubCategory> get copyWith =>
+  _$$SubCategoryImplCopyWith<_$SubCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

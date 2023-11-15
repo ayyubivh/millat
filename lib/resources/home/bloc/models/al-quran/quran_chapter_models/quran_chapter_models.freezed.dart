@@ -62,22 +62,22 @@ class _$QuranChaptersCopyWithImpl<$Res, $Val extends QuranChapters>
 }
 
 /// @nodoc
-abstract class _$$_QuranChaptersCopyWith<$Res>
+abstract class _$$QuranChaptersImplCopyWith<$Res>
     implements $QuranChaptersCopyWith<$Res> {
-  factory _$$_QuranChaptersCopyWith(
-          _$_QuranChapters value, $Res Function(_$_QuranChapters) then) =
-      __$$_QuranChaptersCopyWithImpl<$Res>;
+  factory _$$QuranChaptersImplCopyWith(
+          _$QuranChaptersImpl value, $Res Function(_$QuranChaptersImpl) then) =
+      __$$QuranChaptersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Chapters> chapters});
 }
 
 /// @nodoc
-class __$$_QuranChaptersCopyWithImpl<$Res>
-    extends _$QuranChaptersCopyWithImpl<$Res, _$_QuranChapters>
-    implements _$$_QuranChaptersCopyWith<$Res> {
-  __$$_QuranChaptersCopyWithImpl(
-      _$_QuranChapters _value, $Res Function(_$_QuranChapters) _then)
+class __$$QuranChaptersImplCopyWithImpl<$Res>
+    extends _$QuranChaptersCopyWithImpl<$Res, _$QuranChaptersImpl>
+    implements _$$QuranChaptersImplCopyWith<$Res> {
+  __$$QuranChaptersImplCopyWithImpl(
+      _$QuranChaptersImpl _value, $Res Function(_$QuranChaptersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_QuranChaptersCopyWithImpl<$Res>
   $Res call({
     Object? chapters = null,
   }) {
-    return _then(_$_QuranChapters(
+    return _then(_$QuranChaptersImpl(
       chapters: null == chapters
           ? _value._chapters
           : chapters // ignore: cast_nullable_to_non_nullable
@@ -96,12 +96,12 @@ class __$$_QuranChaptersCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_QuranChapters implements _QuranChapters {
-  const _$_QuranChapters({required final List<Chapters> chapters})
+class _$QuranChaptersImpl implements _QuranChapters {
+  const _$QuranChaptersImpl({required final List<Chapters> chapters})
       : _chapters = chapters;
 
-  factory _$_QuranChapters.fromJson(Map<String, dynamic> json) =>
-      _$$_QuranChaptersFromJson(json);
+  factory _$QuranChaptersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$QuranChaptersImplFromJson(json);
 
   final List<Chapters> _chapters;
   @override
@@ -120,7 +120,7 @@ class _$_QuranChapters implements _QuranChapters {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QuranChapters &&
+            other is _$QuranChaptersImpl &&
             const DeepCollectionEquality().equals(other._chapters, _chapters));
   }
 
@@ -132,12 +132,12 @@ class _$_QuranChapters implements _QuranChapters {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QuranChaptersCopyWith<_$_QuranChapters> get copyWith =>
-      __$$_QuranChaptersCopyWithImpl<_$_QuranChapters>(this, _$identity);
+  _$$QuranChaptersImplCopyWith<_$QuranChaptersImpl> get copyWith =>
+      __$$QuranChaptersImplCopyWithImpl<_$QuranChaptersImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_QuranChaptersToJson(
+    return _$$QuranChaptersImplToJson(
       this,
     );
   }
@@ -145,16 +145,16 @@ class _$_QuranChapters implements _QuranChapters {
 
 abstract class _QuranChapters implements QuranChapters {
   const factory _QuranChapters({required final List<Chapters> chapters}) =
-      _$_QuranChapters;
+      _$QuranChaptersImpl;
 
   factory _QuranChapters.fromJson(Map<String, dynamic> json) =
-      _$_QuranChapters.fromJson;
+      _$QuranChaptersImpl.fromJson;
 
   @override
   List<Chapters> get chapters;
   @override
   @JsonKey(ignore: true)
-  _$$_QuranChaptersCopyWith<_$_QuranChapters> get copyWith =>
+  _$$QuranChaptersImplCopyWith<_$QuranChaptersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -287,10 +287,11 @@ class _$ChaptersCopyWithImpl<$Res, $Val extends Chapters>
 }
 
 /// @nodoc
-abstract class _$$_ChaptersCopyWith<$Res> implements $ChaptersCopyWith<$Res> {
-  factory _$$_ChaptersCopyWith(
-          _$_Chapters value, $Res Function(_$_Chapters) then) =
-      __$$_ChaptersCopyWithImpl<$Res>;
+abstract class _$$ChaptersImplCopyWith<$Res>
+    implements $ChaptersCopyWith<$Res> {
+  factory _$$ChaptersImplCopyWith(
+          _$ChaptersImpl value, $Res Function(_$ChaptersImpl) then) =
+      __$$ChaptersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -310,11 +311,11 @@ abstract class _$$_ChaptersCopyWith<$Res> implements $ChaptersCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ChaptersCopyWithImpl<$Res>
-    extends _$ChaptersCopyWithImpl<$Res, _$_Chapters>
-    implements _$$_ChaptersCopyWith<$Res> {
-  __$$_ChaptersCopyWithImpl(
-      _$_Chapters _value, $Res Function(_$_Chapters) _then)
+class __$$ChaptersImplCopyWithImpl<$Res>
+    extends _$ChaptersCopyWithImpl<$Res, _$ChaptersImpl>
+    implements _$$ChaptersImplCopyWith<$Res> {
+  __$$ChaptersImplCopyWithImpl(
+      _$ChaptersImpl _value, $Res Function(_$ChaptersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -331,7 +332,7 @@ class __$$_ChaptersCopyWithImpl<$Res>
     Object? translatedName = null,
     Object? pages = null,
   }) {
-    return _then(_$_Chapters(
+    return _then(_$ChaptersImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -378,8 +379,8 @@ class __$$_ChaptersCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Chapters implements _Chapters {
-  const _$_Chapters(
+class _$ChaptersImpl implements _Chapters {
+  const _$ChaptersImpl(
       {required this.id,
       @JsonKey(name: "revelation_place") required this.revelatioPlace,
       @JsonKey(name: "revelation_order") required this.revelationOrder,
@@ -392,8 +393,8 @@ class _$_Chapters implements _Chapters {
       required final List<int> pages})
       : _pages = pages;
 
-  factory _$_Chapters.fromJson(Map<String, dynamic> json) =>
-      _$$_ChaptersFromJson(json);
+  factory _$ChaptersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChaptersImplFromJson(json);
 
   @override
   final int id;
@@ -438,7 +439,7 @@ class _$_Chapters implements _Chapters {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Chapters &&
+            other is _$ChaptersImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.revelatioPlace, revelatioPlace) ||
                 other.revelatioPlace == revelatioPlace) &&
@@ -477,12 +478,12 @@ class _$_Chapters implements _Chapters {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChaptersCopyWith<_$_Chapters> get copyWith =>
-      __$$_ChaptersCopyWithImpl<_$_Chapters>(this, _$identity);
+  _$$ChaptersImplCopyWith<_$ChaptersImpl> get copyWith =>
+      __$$ChaptersImplCopyWithImpl<_$ChaptersImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChaptersToJson(
+    return _$$ChaptersImplToJson(
       this,
     );
   }
@@ -500,9 +501,10 @@ abstract class _Chapters implements Chapters {
       @JsonKey(name: "verses_count") required final int versesCount,
       @JsonKey(name: "translated_name")
       required final TranslatedName translatedName,
-      required final List<int> pages}) = _$_Chapters;
+      required final List<int> pages}) = _$ChaptersImpl;
 
-  factory _Chapters.fromJson(Map<String, dynamic> json) = _$_Chapters.fromJson;
+  factory _Chapters.fromJson(Map<String, dynamic> json) =
+      _$ChaptersImpl.fromJson;
 
   @override
   int get id;
@@ -534,7 +536,7 @@ abstract class _Chapters implements Chapters {
   List<int> get pages;
   @override
   @JsonKey(ignore: true)
-  _$$_ChaptersCopyWith<_$_Chapters> get copyWith =>
+  _$$ChaptersImplCopyWith<_$ChaptersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -566,28 +568,28 @@ class _$TranslatedNameCopyWithImpl<$Res, $Val extends TranslatedName>
 }
 
 /// @nodoc
-abstract class _$$_TranslatedNameCopyWith<$Res> {
-  factory _$$_TranslatedNameCopyWith(
-          _$_TranslatedName value, $Res Function(_$_TranslatedName) then) =
-      __$$_TranslatedNameCopyWithImpl<$Res>;
+abstract class _$$TranslatedNameImplCopyWith<$Res> {
+  factory _$$TranslatedNameImplCopyWith(_$TranslatedNameImpl value,
+          $Res Function(_$TranslatedNameImpl) then) =
+      __$$TranslatedNameImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_TranslatedNameCopyWithImpl<$Res>
-    extends _$TranslatedNameCopyWithImpl<$Res, _$_TranslatedName>
-    implements _$$_TranslatedNameCopyWith<$Res> {
-  __$$_TranslatedNameCopyWithImpl(
-      _$_TranslatedName _value, $Res Function(_$_TranslatedName) _then)
+class __$$TranslatedNameImplCopyWithImpl<$Res>
+    extends _$TranslatedNameCopyWithImpl<$Res, _$TranslatedNameImpl>
+    implements _$$TranslatedNameImplCopyWith<$Res> {
+  __$$TranslatedNameImplCopyWithImpl(
+      _$TranslatedNameImpl _value, $Res Function(_$TranslatedNameImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_TranslatedName implements _TranslatedName {
-  const _$_TranslatedName();
+class _$TranslatedNameImpl implements _TranslatedName {
+  const _$TranslatedNameImpl();
 
-  factory _$_TranslatedName.fromJson(Map<String, dynamic> json) =>
-      _$$_TranslatedNameFromJson(json);
+  factory _$TranslatedNameImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TranslatedNameImplFromJson(json);
 
   @override
   String toString() {
@@ -597,7 +599,7 @@ class _$_TranslatedName implements _TranslatedName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_TranslatedName);
+        (other.runtimeType == runtimeType && other is _$TranslatedNameImpl);
   }
 
   @JsonKey(ignore: true)
@@ -606,15 +608,15 @@ class _$_TranslatedName implements _TranslatedName {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TranslatedNameToJson(
+    return _$$TranslatedNameImplToJson(
       this,
     );
   }
 }
 
 abstract class _TranslatedName implements TranslatedName {
-  const factory _TranslatedName() = _$_TranslatedName;
+  const factory _TranslatedName() = _$TranslatedNameImpl;
 
   factory _TranslatedName.fromJson(Map<String, dynamic> json) =
-      _$_TranslatedName.fromJson;
+      _$TranslatedNameImpl.fromJson;
 }

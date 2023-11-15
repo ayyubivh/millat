@@ -284,25 +284,27 @@ class _$QuranEventCopyWithImpl<$Res, $Val extends QuranEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchQuaranChaptersEventCopyWith<$Res> {
-  factory _$$FetchQuaranChaptersEventCopyWith(_$FetchQuaranChaptersEvent value,
-          $Res Function(_$FetchQuaranChaptersEvent) then) =
-      __$$FetchQuaranChaptersEventCopyWithImpl<$Res>;
+abstract class _$$FetchQuaranChaptersEventImplCopyWith<$Res> {
+  factory _$$FetchQuaranChaptersEventImplCopyWith(
+          _$FetchQuaranChaptersEventImpl value,
+          $Res Function(_$FetchQuaranChaptersEventImpl) then) =
+      __$$FetchQuaranChaptersEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchQuaranChaptersEventCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchQuaranChaptersEvent>
-    implements _$$FetchQuaranChaptersEventCopyWith<$Res> {
-  __$$FetchQuaranChaptersEventCopyWithImpl(_$FetchQuaranChaptersEvent _value,
-      $Res Function(_$FetchQuaranChaptersEvent) _then)
+class __$$FetchQuaranChaptersEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchQuaranChaptersEventImpl>
+    implements _$$FetchQuaranChaptersEventImplCopyWith<$Res> {
+  __$$FetchQuaranChaptersEventImplCopyWithImpl(
+      _$FetchQuaranChaptersEventImpl _value,
+      $Res Function(_$FetchQuaranChaptersEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
-  const _$FetchQuaranChaptersEvent();
+class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
+  const _$FetchQuaranChaptersEventImpl();
 
   @override
   String toString() {
@@ -313,7 +315,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchQuaranChaptersEvent);
+            other is _$FetchQuaranChaptersEventImpl);
   }
 
   @override
@@ -592,24 +594,26 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
 }
 
 abstract class FetchQuaranChaptersEvent implements QuranEvent {
-  const factory FetchQuaranChaptersEvent() = _$FetchQuaranChaptersEvent;
+  const factory FetchQuaranChaptersEvent() = _$FetchQuaranChaptersEventImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchChaperVersesEventCopyWith<$Res> {
-  factory _$$FetchChaperVersesEventCopyWith(_$FetchChaperVersesEvent value,
-          $Res Function(_$FetchChaperVersesEvent) then) =
-      __$$FetchChaperVersesEventCopyWithImpl<$Res>;
+abstract class _$$FetchChaperVersesEventImplCopyWith<$Res> {
+  factory _$$FetchChaperVersesEventImplCopyWith(
+          _$FetchChaperVersesEventImpl value,
+          $Res Function(_$FetchChaperVersesEventImpl) then) =
+      __$$FetchChaperVersesEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id});
 }
 
 /// @nodoc
-class __$$FetchChaperVersesEventCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchChaperVersesEvent>
-    implements _$$FetchChaperVersesEventCopyWith<$Res> {
-  __$$FetchChaperVersesEventCopyWithImpl(_$FetchChaperVersesEvent _value,
-      $Res Function(_$FetchChaperVersesEvent) _then)
+class __$$FetchChaperVersesEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchChaperVersesEventImpl>
+    implements _$$FetchChaperVersesEventImplCopyWith<$Res> {
+  __$$FetchChaperVersesEventImplCopyWithImpl(
+      _$FetchChaperVersesEventImpl _value,
+      $Res Function(_$FetchChaperVersesEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -617,7 +621,7 @@ class __$$FetchChaperVersesEventCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FetchChaperVersesEvent(
+    return _then(_$FetchChaperVersesEventImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -628,8 +632,8 @@ class __$$FetchChaperVersesEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
-  const _$FetchChaperVersesEvent({required this.id});
+class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
+  const _$FetchChaperVersesEventImpl({required this.id});
 
   @override
   final int id;
@@ -643,7 +647,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchChaperVersesEvent &&
+            other is _$FetchChaperVersesEventImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -653,9 +657,9 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchChaperVersesEventCopyWith<_$FetchChaperVersesEvent> get copyWith =>
-      __$$FetchChaperVersesEventCopyWithImpl<_$FetchChaperVersesEvent>(
-          this, _$identity);
+  _$$FetchChaperVersesEventImplCopyWith<_$FetchChaperVersesEventImpl>
+      get copyWith => __$$FetchChaperVersesEventImplCopyWithImpl<
+          _$FetchChaperVersesEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -931,31 +935,31 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
 
 abstract class FetchChaperVersesEvent implements QuranEvent {
   const factory FetchChaperVersesEvent({required final int id}) =
-      _$FetchChaperVersesEvent;
+      _$FetchChaperVersesEventImpl;
 
   int get id;
   @JsonKey(ignore: true)
-  _$$FetchChaperVersesEventCopyWith<_$FetchChaperVersesEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchChaperVersesEventImplCopyWith<_$FetchChaperVersesEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchChapterVersesbyTextNameCopyWith<$Res> {
-  factory _$$FetchChapterVersesbyTextNameCopyWith(
-          _$FetchChapterVersesbyTextName value,
-          $Res Function(_$FetchChapterVersesbyTextName) then) =
-      __$$FetchChapterVersesbyTextNameCopyWithImpl<$Res>;
+abstract class _$$FetchChapterVersesbyTextNameImplCopyWith<$Res> {
+  factory _$$FetchChapterVersesbyTextNameImplCopyWith(
+          _$FetchChapterVersesbyTextNameImpl value,
+          $Res Function(_$FetchChapterVersesbyTextNameImpl) then) =
+      __$$FetchChapterVersesbyTextNameImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id});
 }
 
 /// @nodoc
-class __$$FetchChapterVersesbyTextNameCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchChapterVersesbyTextName>
-    implements _$$FetchChapterVersesbyTextNameCopyWith<$Res> {
-  __$$FetchChapterVersesbyTextNameCopyWithImpl(
-      _$FetchChapterVersesbyTextName _value,
-      $Res Function(_$FetchChapterVersesbyTextName) _then)
+class __$$FetchChapterVersesbyTextNameImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchChapterVersesbyTextNameImpl>
+    implements _$$FetchChapterVersesbyTextNameImplCopyWith<$Res> {
+  __$$FetchChapterVersesbyTextNameImplCopyWithImpl(
+      _$FetchChapterVersesbyTextNameImpl _value,
+      $Res Function(_$FetchChapterVersesbyTextNameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -963,7 +967,7 @@ class __$$FetchChapterVersesbyTextNameCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FetchChapterVersesbyTextName(
+    return _then(_$FetchChapterVersesbyTextNameImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -974,8 +978,9 @@ class __$$FetchChapterVersesbyTextNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
-  const _$FetchChapterVersesbyTextName({required this.id});
+class _$FetchChapterVersesbyTextNameImpl
+    implements FetchChapterVersesbyTextName {
+  const _$FetchChapterVersesbyTextNameImpl({required this.id});
 
   @override
   final int id;
@@ -989,7 +994,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchChapterVersesbyTextName &&
+            other is _$FetchChapterVersesbyTextNameImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -999,9 +1004,10 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchChapterVersesbyTextNameCopyWith<_$FetchChapterVersesbyTextName>
-      get copyWith => __$$FetchChapterVersesbyTextNameCopyWithImpl<
-          _$FetchChapterVersesbyTextName>(this, _$identity);
+  _$$FetchChapterVersesbyTextNameImplCopyWith<
+          _$FetchChapterVersesbyTextNameImpl>
+      get copyWith => __$$FetchChapterVersesbyTextNameImplCopyWithImpl<
+          _$FetchChapterVersesbyTextNameImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1277,29 +1283,30 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
 
 abstract class FetchChapterVersesbyTextName implements QuranEvent {
   const factory FetchChapterVersesbyTextName({required final int id}) =
-      _$FetchChapterVersesbyTextName;
+      _$FetchChapterVersesbyTextNameImpl;
 
   int get id;
   @JsonKey(ignore: true)
-  _$$FetchChapterVersesbyTextNameCopyWith<_$FetchChapterVersesbyTextName>
+  _$$FetchChapterVersesbyTextNameImplCopyWith<
+          _$FetchChapterVersesbyTextNameImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchParaVersesCopyWith<$Res> {
-  factory _$$FetchParaVersesCopyWith(
-          _$FetchParaVerses value, $Res Function(_$FetchParaVerses) then) =
-      __$$FetchParaVersesCopyWithImpl<$Res>;
+abstract class _$$FetchParaVersesImplCopyWith<$Res> {
+  factory _$$FetchParaVersesImplCopyWith(_$FetchParaVersesImpl value,
+          $Res Function(_$FetchParaVersesImpl) then) =
+      __$$FetchParaVersesImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id});
 }
 
 /// @nodoc
-class __$$FetchParaVersesCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchParaVerses>
-    implements _$$FetchParaVersesCopyWith<$Res> {
-  __$$FetchParaVersesCopyWithImpl(
-      _$FetchParaVerses _value, $Res Function(_$FetchParaVerses) _then)
+class __$$FetchParaVersesImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchParaVersesImpl>
+    implements _$$FetchParaVersesImplCopyWith<$Res> {
+  __$$FetchParaVersesImplCopyWithImpl(
+      _$FetchParaVersesImpl _value, $Res Function(_$FetchParaVersesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1307,7 +1314,7 @@ class __$$FetchParaVersesCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FetchParaVerses(
+    return _then(_$FetchParaVersesImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1318,8 +1325,8 @@ class __$$FetchParaVersesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchParaVerses implements FetchParaVerses {
-  const _$FetchParaVerses({required this.id});
+class _$FetchParaVersesImpl implements FetchParaVerses {
+  const _$FetchParaVersesImpl({required this.id});
 
   @override
   final int id;
@@ -1333,7 +1340,7 @@ class _$FetchParaVerses implements FetchParaVerses {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchParaVerses &&
+            other is _$FetchParaVersesImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -1343,8 +1350,9 @@ class _$FetchParaVerses implements FetchParaVerses {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchParaVersesCopyWith<_$FetchParaVerses> get copyWith =>
-      __$$FetchParaVersesCopyWithImpl<_$FetchParaVerses>(this, _$identity);
+  _$$FetchParaVersesImplCopyWith<_$FetchParaVersesImpl> get copyWith =>
+      __$$FetchParaVersesImplCopyWithImpl<_$FetchParaVersesImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1619,34 +1627,35 @@ class _$FetchParaVerses implements FetchParaVerses {
 }
 
 abstract class FetchParaVerses implements QuranEvent {
-  const factory FetchParaVerses({required final int id}) = _$FetchParaVerses;
+  const factory FetchParaVerses({required final int id}) =
+      _$FetchParaVersesImpl;
 
   int get id;
   @JsonKey(ignore: true)
-  _$$FetchParaVersesCopyWith<_$FetchParaVerses> get copyWith =>
+  _$$FetchParaVersesImplCopyWith<_$FetchParaVersesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchQuranParaCopyWith<$Res> {
-  factory _$$FetchQuranParaCopyWith(
-          _$FetchQuranPara value, $Res Function(_$FetchQuranPara) then) =
-      __$$FetchQuranParaCopyWithImpl<$Res>;
+abstract class _$$FetchQuranParaImplCopyWith<$Res> {
+  factory _$$FetchQuranParaImplCopyWith(_$FetchQuranParaImpl value,
+          $Res Function(_$FetchQuranParaImpl) then) =
+      __$$FetchQuranParaImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchQuranParaCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchQuranPara>
-    implements _$$FetchQuranParaCopyWith<$Res> {
-  __$$FetchQuranParaCopyWithImpl(
-      _$FetchQuranPara _value, $Res Function(_$FetchQuranPara) _then)
+class __$$FetchQuranParaImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchQuranParaImpl>
+    implements _$$FetchQuranParaImplCopyWith<$Res> {
+  __$$FetchQuranParaImplCopyWithImpl(
+      _$FetchQuranParaImpl _value, $Res Function(_$FetchQuranParaImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchQuranPara implements FetchQuranPara {
-  const _$FetchQuranPara();
+class _$FetchQuranParaImpl implements FetchQuranPara {
+  const _$FetchQuranParaImpl();
 
   @override
   String toString() {
@@ -1656,7 +1665,7 @@ class _$FetchQuranPara implements FetchQuranPara {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchQuranPara);
+        (other.runtimeType == runtimeType && other is _$FetchQuranParaImpl);
   }
 
   @override
@@ -1935,30 +1944,31 @@ class _$FetchQuranPara implements FetchQuranPara {
 }
 
 abstract class FetchQuranPara implements QuranEvent {
-  const factory FetchQuranPara() = _$FetchQuranPara;
+  const factory FetchQuranPara() = _$FetchQuranParaImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeExpandOnSearchEventCopyWith<$Res> {
-  factory _$$ChangeExpandOnSearchEventCopyWith(
-          _$ChangeExpandOnSearchEvent value,
-          $Res Function(_$ChangeExpandOnSearchEvent) then) =
-      __$$ChangeExpandOnSearchEventCopyWithImpl<$Res>;
+abstract class _$$ChangeExpandOnSearchEventImplCopyWith<$Res> {
+  factory _$$ChangeExpandOnSearchEventImplCopyWith(
+          _$ChangeExpandOnSearchEventImpl value,
+          $Res Function(_$ChangeExpandOnSearchEventImpl) then) =
+      __$$ChangeExpandOnSearchEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ChangeExpandOnSearchEventCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$ChangeExpandOnSearchEvent>
-    implements _$$ChangeExpandOnSearchEventCopyWith<$Res> {
-  __$$ChangeExpandOnSearchEventCopyWithImpl(_$ChangeExpandOnSearchEvent _value,
-      $Res Function(_$ChangeExpandOnSearchEvent) _then)
+class __$$ChangeExpandOnSearchEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$ChangeExpandOnSearchEventImpl>
+    implements _$$ChangeExpandOnSearchEventImplCopyWith<$Res> {
+  __$$ChangeExpandOnSearchEventImplCopyWithImpl(
+      _$ChangeExpandOnSearchEventImpl _value,
+      $Res Function(_$ChangeExpandOnSearchEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
-  const _$ChangeExpandOnSearchEvent();
+class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
+  const _$ChangeExpandOnSearchEventImpl();
 
   @override
   String toString() {
@@ -1969,7 +1979,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeExpandOnSearchEvent);
+            other is _$ChangeExpandOnSearchEventImpl);
   }
 
   @override
@@ -2248,24 +2258,24 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
 }
 
 abstract class ChangeExpandOnSearchEvent implements QuranEvent {
-  const factory ChangeExpandOnSearchEvent() = _$ChangeExpandOnSearchEvent;
+  const factory ChangeExpandOnSearchEvent() = _$ChangeExpandOnSearchEventImpl;
 }
 
 /// @nodoc
-abstract class _$$FechtChapterbyIdCopyWith<$Res> {
-  factory _$$FechtChapterbyIdCopyWith(
-          _$FechtChapterbyId value, $Res Function(_$FechtChapterbyId) then) =
-      __$$FechtChapterbyIdCopyWithImpl<$Res>;
+abstract class _$$FechtChapterbyIdImplCopyWith<$Res> {
+  factory _$$FechtChapterbyIdImplCopyWith(_$FechtChapterbyIdImpl value,
+          $Res Function(_$FechtChapterbyIdImpl) then) =
+      __$$FechtChapterbyIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<int> id});
 }
 
 /// @nodoc
-class __$$FechtChapterbyIdCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FechtChapterbyId>
-    implements _$$FechtChapterbyIdCopyWith<$Res> {
-  __$$FechtChapterbyIdCopyWithImpl(
-      _$FechtChapterbyId _value, $Res Function(_$FechtChapterbyId) _then)
+class __$$FechtChapterbyIdImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FechtChapterbyIdImpl>
+    implements _$$FechtChapterbyIdImplCopyWith<$Res> {
+  __$$FechtChapterbyIdImplCopyWithImpl(_$FechtChapterbyIdImpl _value,
+      $Res Function(_$FechtChapterbyIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2273,7 +2283,7 @@ class __$$FechtChapterbyIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FechtChapterbyId(
+    return _then(_$FechtChapterbyIdImpl(
       id: null == id
           ? _value._id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2284,8 +2294,8 @@ class __$$FechtChapterbyIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FechtChapterbyId implements FechtChapterbyId {
-  const _$FechtChapterbyId({required final List<int> id}) : _id = id;
+class _$FechtChapterbyIdImpl implements FechtChapterbyId {
+  const _$FechtChapterbyIdImpl({required final List<int> id}) : _id = id;
 
   final List<int> _id;
   @override
@@ -2304,7 +2314,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FechtChapterbyId &&
+            other is _$FechtChapterbyIdImpl &&
             const DeepCollectionEquality().equals(other._id, _id));
   }
 
@@ -2315,8 +2325,9 @@ class _$FechtChapterbyId implements FechtChapterbyId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FechtChapterbyIdCopyWith<_$FechtChapterbyId> get copyWith =>
-      __$$FechtChapterbyIdCopyWithImpl<_$FechtChapterbyId>(this, _$identity);
+  _$$FechtChapterbyIdImplCopyWith<_$FechtChapterbyIdImpl> get copyWith =>
+      __$$FechtChapterbyIdImplCopyWithImpl<_$FechtChapterbyIdImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2592,29 +2603,29 @@ class _$FechtChapterbyId implements FechtChapterbyId {
 
 abstract class FechtChapterbyId implements QuranEvent {
   const factory FechtChapterbyId({required final List<int> id}) =
-      _$FechtChapterbyId;
+      _$FechtChapterbyIdImpl;
 
   List<int> get id;
   @JsonKey(ignore: true)
-  _$$FechtChapterbyIdCopyWith<_$FechtChapterbyId> get copyWith =>
+  _$$FechtChapterbyIdImplCopyWith<_$FechtChapterbyIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SearchChapterEventCopyWith<$Res> {
-  factory _$$SearchChapterEventCopyWith(_$SearchChapterEvent value,
-          $Res Function(_$SearchChapterEvent) then) =
-      __$$SearchChapterEventCopyWithImpl<$Res>;
+abstract class _$$SearchChapterEventImplCopyWith<$Res> {
+  factory _$$SearchChapterEventImplCopyWith(_$SearchChapterEventImpl value,
+          $Res Function(_$SearchChapterEventImpl) then) =
+      __$$SearchChapterEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String query});
 }
 
 /// @nodoc
-class __$$SearchChapterEventCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$SearchChapterEvent>
-    implements _$$SearchChapterEventCopyWith<$Res> {
-  __$$SearchChapterEventCopyWithImpl(
-      _$SearchChapterEvent _value, $Res Function(_$SearchChapterEvent) _then)
+class __$$SearchChapterEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$SearchChapterEventImpl>
+    implements _$$SearchChapterEventImplCopyWith<$Res> {
+  __$$SearchChapterEventImplCopyWithImpl(_$SearchChapterEventImpl _value,
+      $Res Function(_$SearchChapterEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2622,7 +2633,7 @@ class __$$SearchChapterEventCopyWithImpl<$Res>
   $Res call({
     Object? query = null,
   }) {
-    return _then(_$SearchChapterEvent(
+    return _then(_$SearchChapterEventImpl(
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -2633,8 +2644,8 @@ class __$$SearchChapterEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchChapterEvent implements SearchChapterEvent {
-  const _$SearchChapterEvent({required this.query});
+class _$SearchChapterEventImpl implements SearchChapterEvent {
+  const _$SearchChapterEventImpl({required this.query});
 
   @override
   final String query;
@@ -2648,7 +2659,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchChapterEvent &&
+            other is _$SearchChapterEventImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -2658,8 +2669,8 @@ class _$SearchChapterEvent implements SearchChapterEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchChapterEventCopyWith<_$SearchChapterEvent> get copyWith =>
-      __$$SearchChapterEventCopyWithImpl<_$SearchChapterEvent>(
+  _$$SearchChapterEventImplCopyWith<_$SearchChapterEventImpl> get copyWith =>
+      __$$SearchChapterEventImplCopyWithImpl<_$SearchChapterEventImpl>(
           this, _$identity);
 
   @override
@@ -2936,29 +2947,29 @@ class _$SearchChapterEvent implements SearchChapterEvent {
 
 abstract class SearchChapterEvent implements QuranEvent {
   const factory SearchChapterEvent({required final String query}) =
-      _$SearchChapterEvent;
+      _$SearchChapterEventImpl;
 
   String get query;
   @JsonKey(ignore: true)
-  _$$SearchChapterEventCopyWith<_$SearchChapterEvent> get copyWith =>
+  _$$SearchChapterEventImplCopyWith<_$SearchChapterEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchVersesByKeyCopyWith<$Res> {
-  factory _$$FetchVersesByKeyCopyWith(
-          _$FetchVersesByKey value, $Res Function(_$FetchVersesByKey) then) =
-      __$$FetchVersesByKeyCopyWithImpl<$Res>;
+abstract class _$$FetchVersesByKeyImplCopyWith<$Res> {
+  factory _$$FetchVersesByKeyImplCopyWith(_$FetchVersesByKeyImpl value,
+          $Res Function(_$FetchVersesByKeyImpl) then) =
+      __$$FetchVersesByKeyImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<String> verseKey});
 }
 
 /// @nodoc
-class __$$FetchVersesByKeyCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchVersesByKey>
-    implements _$$FetchVersesByKeyCopyWith<$Res> {
-  __$$FetchVersesByKeyCopyWithImpl(
-      _$FetchVersesByKey _value, $Res Function(_$FetchVersesByKey) _then)
+class __$$FetchVersesByKeyImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchVersesByKeyImpl>
+    implements _$$FetchVersesByKeyImplCopyWith<$Res> {
+  __$$FetchVersesByKeyImplCopyWithImpl(_$FetchVersesByKeyImpl _value,
+      $Res Function(_$FetchVersesByKeyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2966,7 +2977,7 @@ class __$$FetchVersesByKeyCopyWithImpl<$Res>
   $Res call({
     Object? verseKey = null,
   }) {
-    return _then(_$FetchVersesByKey(
+    return _then(_$FetchVersesByKeyImpl(
       verseKey: null == verseKey
           ? _value._verseKey
           : verseKey // ignore: cast_nullable_to_non_nullable
@@ -2977,8 +2988,8 @@ class __$$FetchVersesByKeyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchVersesByKey implements FetchVersesByKey {
-  const _$FetchVersesByKey({required final List<String> verseKey})
+class _$FetchVersesByKeyImpl implements FetchVersesByKey {
+  const _$FetchVersesByKeyImpl({required final List<String> verseKey})
       : _verseKey = verseKey;
 
   final List<String> _verseKey;
@@ -2998,7 +3009,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchVersesByKey &&
+            other is _$FetchVersesByKeyImpl &&
             const DeepCollectionEquality().equals(other._verseKey, _verseKey));
   }
 
@@ -3009,8 +3020,9 @@ class _$FetchVersesByKey implements FetchVersesByKey {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchVersesByKeyCopyWith<_$FetchVersesByKey> get copyWith =>
-      __$$FetchVersesByKeyCopyWithImpl<_$FetchVersesByKey>(this, _$identity);
+  _$$FetchVersesByKeyImplCopyWith<_$FetchVersesByKeyImpl> get copyWith =>
+      __$$FetchVersesByKeyImplCopyWithImpl<_$FetchVersesByKeyImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3286,29 +3298,29 @@ class _$FetchVersesByKey implements FetchVersesByKey {
 
 abstract class FetchVersesByKey implements QuranEvent {
   const factory FetchVersesByKey({required final List<String> verseKey}) =
-      _$FetchVersesByKey;
+      _$FetchVersesByKeyImpl;
 
   List<String> get verseKey;
   @JsonKey(ignore: true)
-  _$$FetchVersesByKeyCopyWith<_$FetchVersesByKey> get copyWith =>
+  _$$FetchVersesByKeyImplCopyWith<_$FetchVersesByKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchParaAudiosCopyWith<$Res> {
-  factory _$$FetchParaAudiosCopyWith(
-          _$FetchParaAudios value, $Res Function(_$FetchParaAudios) then) =
-      __$$FetchParaAudiosCopyWithImpl<$Res>;
+abstract class _$$FetchParaAudiosImplCopyWith<$Res> {
+  factory _$$FetchParaAudiosImplCopyWith(_$FetchParaAudiosImpl value,
+          $Res Function(_$FetchParaAudiosImpl) then) =
+      __$$FetchParaAudiosImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id, int recitorId});
 }
 
 /// @nodoc
-class __$$FetchParaAudiosCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchParaAudios>
-    implements _$$FetchParaAudiosCopyWith<$Res> {
-  __$$FetchParaAudiosCopyWithImpl(
-      _$FetchParaAudios _value, $Res Function(_$FetchParaAudios) _then)
+class __$$FetchParaAudiosImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchParaAudiosImpl>
+    implements _$$FetchParaAudiosImplCopyWith<$Res> {
+  __$$FetchParaAudiosImplCopyWithImpl(
+      _$FetchParaAudiosImpl _value, $Res Function(_$FetchParaAudiosImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3317,7 +3329,7 @@ class __$$FetchParaAudiosCopyWithImpl<$Res>
     Object? id = null,
     Object? recitorId = null,
   }) {
-    return _then(_$FetchParaAudios(
+    return _then(_$FetchParaAudiosImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -3332,8 +3344,8 @@ class __$$FetchParaAudiosCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchParaAudios implements FetchParaAudios {
-  const _$FetchParaAudios({required this.id, required this.recitorId});
+class _$FetchParaAudiosImpl implements FetchParaAudios {
+  const _$FetchParaAudiosImpl({required this.id, required this.recitorId});
 
   @override
   final int id;
@@ -3349,7 +3361,7 @@ class _$FetchParaAudios implements FetchParaAudios {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchParaAudios &&
+            other is _$FetchParaAudiosImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.recitorId, recitorId) ||
                 other.recitorId == recitorId));
@@ -3361,8 +3373,9 @@ class _$FetchParaAudios implements FetchParaAudios {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchParaAudiosCopyWith<_$FetchParaAudios> get copyWith =>
-      __$$FetchParaAudiosCopyWithImpl<_$FetchParaAudios>(this, _$identity);
+  _$$FetchParaAudiosImplCopyWith<_$FetchParaAudiosImpl> get copyWith =>
+      __$$FetchParaAudiosImplCopyWithImpl<_$FetchParaAudiosImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3639,30 +3652,32 @@ class _$FetchParaAudios implements FetchParaAudios {
 abstract class FetchParaAudios implements QuranEvent {
   const factory FetchParaAudios(
       {required final int id,
-      required final int recitorId}) = _$FetchParaAudios;
+      required final int recitorId}) = _$FetchParaAudiosImpl;
 
   int get id;
   int get recitorId;
   @JsonKey(ignore: true)
-  _$$FetchParaAudiosCopyWith<_$FetchParaAudios> get copyWith =>
+  _$$FetchParaAudiosImplCopyWith<_$FetchParaAudiosImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchChapterAudioFilesCopyWith<$Res> {
-  factory _$$FetchChapterAudioFilesCopyWith(_$FetchChapterAudioFiles value,
-          $Res Function(_$FetchChapterAudioFiles) then) =
-      __$$FetchChapterAudioFilesCopyWithImpl<$Res>;
+abstract class _$$FetchChapterAudioFilesImplCopyWith<$Res> {
+  factory _$$FetchChapterAudioFilesImplCopyWith(
+          _$FetchChapterAudioFilesImpl value,
+          $Res Function(_$FetchChapterAudioFilesImpl) then) =
+      __$$FetchChapterAudioFilesImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id, int recitorId});
 }
 
 /// @nodoc
-class __$$FetchChapterAudioFilesCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchChapterAudioFiles>
-    implements _$$FetchChapterAudioFilesCopyWith<$Res> {
-  __$$FetchChapterAudioFilesCopyWithImpl(_$FetchChapterAudioFiles _value,
-      $Res Function(_$FetchChapterAudioFiles) _then)
+class __$$FetchChapterAudioFilesImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchChapterAudioFilesImpl>
+    implements _$$FetchChapterAudioFilesImplCopyWith<$Res> {
+  __$$FetchChapterAudioFilesImplCopyWithImpl(
+      _$FetchChapterAudioFilesImpl _value,
+      $Res Function(_$FetchChapterAudioFilesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3671,7 +3686,7 @@ class __$$FetchChapterAudioFilesCopyWithImpl<$Res>
     Object? id = null,
     Object? recitorId = null,
   }) {
-    return _then(_$FetchChapterAudioFiles(
+    return _then(_$FetchChapterAudioFilesImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -3686,8 +3701,9 @@ class __$$FetchChapterAudioFilesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
-  const _$FetchChapterAudioFiles({required this.id, required this.recitorId});
+class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
+  const _$FetchChapterAudioFilesImpl(
+      {required this.id, required this.recitorId});
 
   @override
   final int id;
@@ -3703,7 +3719,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchChapterAudioFiles &&
+            other is _$FetchChapterAudioFilesImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.recitorId, recitorId) ||
                 other.recitorId == recitorId));
@@ -3715,9 +3731,9 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchChapterAudioFilesCopyWith<_$FetchChapterAudioFiles> get copyWith =>
-      __$$FetchChapterAudioFilesCopyWithImpl<_$FetchChapterAudioFiles>(
-          this, _$identity);
+  _$$FetchChapterAudioFilesImplCopyWith<_$FetchChapterAudioFilesImpl>
+      get copyWith => __$$FetchChapterAudioFilesImplCopyWithImpl<
+          _$FetchChapterAudioFilesImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3994,32 +4010,32 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
 abstract class FetchChapterAudioFiles implements QuranEvent {
   const factory FetchChapterAudioFiles(
       {required final int id,
-      required final int recitorId}) = _$FetchChapterAudioFiles;
+      required final int recitorId}) = _$FetchChapterAudioFilesImpl;
 
   int get id;
   int get recitorId;
   @JsonKey(ignore: true)
-  _$$FetchChapterAudioFilesCopyWith<_$FetchChapterAudioFiles> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchChapterAudioFilesImplCopyWith<_$FetchChapterAudioFilesImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeIndexBackGroundSettingCopyWith<$Res> {
-  factory _$$ChangeIndexBackGroundSettingCopyWith(
-          _$ChangeIndexBackGroundSetting value,
-          $Res Function(_$ChangeIndexBackGroundSetting) then) =
-      __$$ChangeIndexBackGroundSettingCopyWithImpl<$Res>;
+abstract class _$$ChangeIndexBackGroundSettingImplCopyWith<$Res> {
+  factory _$$ChangeIndexBackGroundSettingImplCopyWith(
+          _$ChangeIndexBackGroundSettingImpl value,
+          $Res Function(_$ChangeIndexBackGroundSettingImpl) then) =
+      __$$ChangeIndexBackGroundSettingImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeIndexBackGroundSettingCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$ChangeIndexBackGroundSetting>
-    implements _$$ChangeIndexBackGroundSettingCopyWith<$Res> {
-  __$$ChangeIndexBackGroundSettingCopyWithImpl(
-      _$ChangeIndexBackGroundSetting _value,
-      $Res Function(_$ChangeIndexBackGroundSetting) _then)
+class __$$ChangeIndexBackGroundSettingImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$ChangeIndexBackGroundSettingImpl>
+    implements _$$ChangeIndexBackGroundSettingImplCopyWith<$Res> {
+  __$$ChangeIndexBackGroundSettingImplCopyWithImpl(
+      _$ChangeIndexBackGroundSettingImpl _value,
+      $Res Function(_$ChangeIndexBackGroundSettingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4027,7 +4043,7 @@ class __$$ChangeIndexBackGroundSettingCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeIndexBackGroundSetting(
+    return _then(_$ChangeIndexBackGroundSettingImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -4038,8 +4054,9 @@ class __$$ChangeIndexBackGroundSettingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
-  const _$ChangeIndexBackGroundSetting({required this.index});
+class _$ChangeIndexBackGroundSettingImpl
+    implements ChangeIndexBackGroundSetting {
+  const _$ChangeIndexBackGroundSettingImpl({required this.index});
 
   @override
   final int index;
@@ -4053,7 +4070,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeIndexBackGroundSetting &&
+            other is _$ChangeIndexBackGroundSettingImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -4063,9 +4080,10 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeIndexBackGroundSettingCopyWith<_$ChangeIndexBackGroundSetting>
-      get copyWith => __$$ChangeIndexBackGroundSettingCopyWithImpl<
-          _$ChangeIndexBackGroundSetting>(this, _$identity);
+  _$$ChangeIndexBackGroundSettingImplCopyWith<
+          _$ChangeIndexBackGroundSettingImpl>
+      get copyWith => __$$ChangeIndexBackGroundSettingImplCopyWithImpl<
+          _$ChangeIndexBackGroundSettingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4341,34 +4359,35 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
 
 abstract class ChangeIndexBackGroundSetting implements QuranEvent {
   const factory ChangeIndexBackGroundSetting({required final int index}) =
-      _$ChangeIndexBackGroundSetting;
+      _$ChangeIndexBackGroundSettingImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeIndexBackGroundSettingCopyWith<_$ChangeIndexBackGroundSetting>
+  _$$ChangeIndexBackGroundSettingImplCopyWith<
+          _$ChangeIndexBackGroundSettingImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$IncreaseFontsizeCopyWith<$Res> {
-  factory _$$IncreaseFontsizeCopyWith(
-          _$IncreaseFontsize value, $Res Function(_$IncreaseFontsize) then) =
-      __$$IncreaseFontsizeCopyWithImpl<$Res>;
+abstract class _$$IncreaseFontsizeImplCopyWith<$Res> {
+  factory _$$IncreaseFontsizeImplCopyWith(_$IncreaseFontsizeImpl value,
+          $Res Function(_$IncreaseFontsizeImpl) then) =
+      __$$IncreaseFontsizeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$IncreaseFontsizeCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$IncreaseFontsize>
-    implements _$$IncreaseFontsizeCopyWith<$Res> {
-  __$$IncreaseFontsizeCopyWithImpl(
-      _$IncreaseFontsize _value, $Res Function(_$IncreaseFontsize) _then)
+class __$$IncreaseFontsizeImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$IncreaseFontsizeImpl>
+    implements _$$IncreaseFontsizeImplCopyWith<$Res> {
+  __$$IncreaseFontsizeImplCopyWithImpl(_$IncreaseFontsizeImpl _value,
+      $Res Function(_$IncreaseFontsizeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$IncreaseFontsize implements IncreaseFontsize {
-  const _$IncreaseFontsize();
+class _$IncreaseFontsizeImpl implements IncreaseFontsize {
+  const _$IncreaseFontsizeImpl();
 
   @override
   String toString() {
@@ -4378,7 +4397,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$IncreaseFontsize);
+        (other.runtimeType == runtimeType && other is _$IncreaseFontsizeImpl);
   }
 
   @override
@@ -4657,29 +4676,29 @@ class _$IncreaseFontsize implements IncreaseFontsize {
 }
 
 abstract class IncreaseFontsize implements QuranEvent {
-  const factory IncreaseFontsize() = _$IncreaseFontsize;
+  const factory IncreaseFontsize() = _$IncreaseFontsizeImpl;
 }
 
 /// @nodoc
-abstract class _$$DecreaseFontsizeCopyWith<$Res> {
-  factory _$$DecreaseFontsizeCopyWith(
-          _$DecreaseFontsize value, $Res Function(_$DecreaseFontsize) then) =
-      __$$DecreaseFontsizeCopyWithImpl<$Res>;
+abstract class _$$DecreaseFontsizeImplCopyWith<$Res> {
+  factory _$$DecreaseFontsizeImplCopyWith(_$DecreaseFontsizeImpl value,
+          $Res Function(_$DecreaseFontsizeImpl) then) =
+      __$$DecreaseFontsizeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DecreaseFontsizeCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$DecreaseFontsize>
-    implements _$$DecreaseFontsizeCopyWith<$Res> {
-  __$$DecreaseFontsizeCopyWithImpl(
-      _$DecreaseFontsize _value, $Res Function(_$DecreaseFontsize) _then)
+class __$$DecreaseFontsizeImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$DecreaseFontsizeImpl>
+    implements _$$DecreaseFontsizeImplCopyWith<$Res> {
+  __$$DecreaseFontsizeImplCopyWithImpl(_$DecreaseFontsizeImpl _value,
+      $Res Function(_$DecreaseFontsizeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DecreaseFontsize implements DecreaseFontsize {
-  const _$DecreaseFontsize();
+class _$DecreaseFontsizeImpl implements DecreaseFontsize {
+  const _$DecreaseFontsizeImpl();
 
   @override
   String toString() {
@@ -4689,7 +4708,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DecreaseFontsize);
+        (other.runtimeType == runtimeType && other is _$DecreaseFontsizeImpl);
   }
 
   @override
@@ -4968,30 +4987,31 @@ class _$DecreaseFontsize implements DecreaseFontsize {
 }
 
 abstract class DecreaseFontsize implements QuranEvent {
-  const factory DecreaseFontsize() = _$DecreaseFontsize;
+  const factory DecreaseFontsize() = _$DecreaseFontsizeImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchAllTranslationsEventCopyWith<$Res> {
-  factory _$$FetchAllTranslationsEventCopyWith(
-          _$FetchAllTranslationsEvent value,
-          $Res Function(_$FetchAllTranslationsEvent) then) =
-      __$$FetchAllTranslationsEventCopyWithImpl<$Res>;
+abstract class _$$FetchAllTranslationsEventImplCopyWith<$Res> {
+  factory _$$FetchAllTranslationsEventImplCopyWith(
+          _$FetchAllTranslationsEventImpl value,
+          $Res Function(_$FetchAllTranslationsEventImpl) then) =
+      __$$FetchAllTranslationsEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchAllTranslationsEventCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchAllTranslationsEvent>
-    implements _$$FetchAllTranslationsEventCopyWith<$Res> {
-  __$$FetchAllTranslationsEventCopyWithImpl(_$FetchAllTranslationsEvent _value,
-      $Res Function(_$FetchAllTranslationsEvent) _then)
+class __$$FetchAllTranslationsEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchAllTranslationsEventImpl>
+    implements _$$FetchAllTranslationsEventImplCopyWith<$Res> {
+  __$$FetchAllTranslationsEventImplCopyWithImpl(
+      _$FetchAllTranslationsEventImpl _value,
+      $Res Function(_$FetchAllTranslationsEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
-  const _$FetchAllTranslationsEvent();
+class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
+  const _$FetchAllTranslationsEventImpl();
 
   @override
   String toString() {
@@ -5002,7 +5022,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchAllTranslationsEvent);
+            other is _$FetchAllTranslationsEventImpl);
   }
 
   @override
@@ -5281,26 +5301,26 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
 }
 
 abstract class FetchAllTranslationsEvent implements QuranEvent {
-  const factory FetchAllTranslationsEvent() = _$FetchAllTranslationsEvent;
+  const factory FetchAllTranslationsEvent() = _$FetchAllTranslationsEventImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchTranslationChapterTextsCopyWith<$Res> {
-  factory _$$FetchTranslationChapterTextsCopyWith(
-          _$FetchTranslationChapterTexts value,
-          $Res Function(_$FetchTranslationChapterTexts) then) =
-      __$$FetchTranslationChapterTextsCopyWithImpl<$Res>;
+abstract class _$$FetchTranslationChapterTextsImplCopyWith<$Res> {
+  factory _$$FetchTranslationChapterTextsImplCopyWith(
+          _$FetchTranslationChapterTextsImpl value,
+          $Res Function(_$FetchTranslationChapterTextsImpl) then) =
+      __$$FetchTranslationChapterTextsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int chapterId, int translationId});
 }
 
 /// @nodoc
-class __$$FetchTranslationChapterTextsCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchTranslationChapterTexts>
-    implements _$$FetchTranslationChapterTextsCopyWith<$Res> {
-  __$$FetchTranslationChapterTextsCopyWithImpl(
-      _$FetchTranslationChapterTexts _value,
-      $Res Function(_$FetchTranslationChapterTexts) _then)
+class __$$FetchTranslationChapterTextsImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchTranslationChapterTextsImpl>
+    implements _$$FetchTranslationChapterTextsImplCopyWith<$Res> {
+  __$$FetchTranslationChapterTextsImplCopyWithImpl(
+      _$FetchTranslationChapterTextsImpl _value,
+      $Res Function(_$FetchTranslationChapterTextsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5309,7 +5329,7 @@ class __$$FetchTranslationChapterTextsCopyWithImpl<$Res>
     Object? chapterId = null,
     Object? translationId = null,
   }) {
-    return _then(_$FetchTranslationChapterTexts(
+    return _then(_$FetchTranslationChapterTextsImpl(
       chapterId: null == chapterId
           ? _value.chapterId
           : chapterId // ignore: cast_nullable_to_non_nullable
@@ -5324,8 +5344,9 @@ class __$$FetchTranslationChapterTextsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
-  const _$FetchTranslationChapterTexts(
+class _$FetchTranslationChapterTextsImpl
+    implements FetchTranslationChapterTexts {
+  const _$FetchTranslationChapterTextsImpl(
       {required this.chapterId, required this.translationId});
 
   @override
@@ -5342,7 +5363,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchTranslationChapterTexts &&
+            other is _$FetchTranslationChapterTextsImpl &&
             (identical(other.chapterId, chapterId) ||
                 other.chapterId == chapterId) &&
             (identical(other.translationId, translationId) ||
@@ -5355,9 +5376,10 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchTranslationChapterTextsCopyWith<_$FetchTranslationChapterTexts>
-      get copyWith => __$$FetchTranslationChapterTextsCopyWithImpl<
-          _$FetchTranslationChapterTexts>(this, _$identity);
+  _$$FetchTranslationChapterTextsImplCopyWith<
+          _$FetchTranslationChapterTextsImpl>
+      get copyWith => __$$FetchTranslationChapterTextsImplCopyWithImpl<
+          _$FetchTranslationChapterTextsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5634,31 +5656,33 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
 abstract class FetchTranslationChapterTexts implements QuranEvent {
   const factory FetchTranslationChapterTexts(
       {required final int chapterId,
-      required final int translationId}) = _$FetchTranslationChapterTexts;
+      required final int translationId}) = _$FetchTranslationChapterTextsImpl;
 
   int get chapterId;
   int get translationId;
   @JsonKey(ignore: true)
-  _$$FetchTranslationChapterTextsCopyWith<_$FetchTranslationChapterTexts>
+  _$$FetchTranslationChapterTextsImplCopyWith<
+          _$FetchTranslationChapterTextsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchTranslationParaTextsCopyWith<$Res> {
-  factory _$$FetchTranslationParaTextsCopyWith(
-          _$FetchTranslationParaTexts value,
-          $Res Function(_$FetchTranslationParaTexts) then) =
-      __$$FetchTranslationParaTextsCopyWithImpl<$Res>;
+abstract class _$$FetchTranslationParaTextsImplCopyWith<$Res> {
+  factory _$$FetchTranslationParaTextsImplCopyWith(
+          _$FetchTranslationParaTextsImpl value,
+          $Res Function(_$FetchTranslationParaTextsImpl) then) =
+      __$$FetchTranslationParaTextsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int paraId, int translationId});
 }
 
 /// @nodoc
-class __$$FetchTranslationParaTextsCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchTranslationParaTexts>
-    implements _$$FetchTranslationParaTextsCopyWith<$Res> {
-  __$$FetchTranslationParaTextsCopyWithImpl(_$FetchTranslationParaTexts _value,
-      $Res Function(_$FetchTranslationParaTexts) _then)
+class __$$FetchTranslationParaTextsImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchTranslationParaTextsImpl>
+    implements _$$FetchTranslationParaTextsImplCopyWith<$Res> {
+  __$$FetchTranslationParaTextsImplCopyWithImpl(
+      _$FetchTranslationParaTextsImpl _value,
+      $Res Function(_$FetchTranslationParaTextsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5667,7 +5691,7 @@ class __$$FetchTranslationParaTextsCopyWithImpl<$Res>
     Object? paraId = null,
     Object? translationId = null,
   }) {
-    return _then(_$FetchTranslationParaTexts(
+    return _then(_$FetchTranslationParaTextsImpl(
       paraId: null == paraId
           ? _value.paraId
           : paraId // ignore: cast_nullable_to_non_nullable
@@ -5682,8 +5706,8 @@ class __$$FetchTranslationParaTextsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
-  const _$FetchTranslationParaTexts(
+class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
+  const _$FetchTranslationParaTextsImpl(
       {required this.paraId, required this.translationId});
 
   @override
@@ -5700,7 +5724,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchTranslationParaTexts &&
+            other is _$FetchTranslationParaTextsImpl &&
             (identical(other.paraId, paraId) || other.paraId == paraId) &&
             (identical(other.translationId, translationId) ||
                 other.translationId == translationId));
@@ -5712,9 +5736,9 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchTranslationParaTextsCopyWith<_$FetchTranslationParaTexts>
-      get copyWith => __$$FetchTranslationParaTextsCopyWithImpl<
-          _$FetchTranslationParaTexts>(this, _$identity);
+  _$$FetchTranslationParaTextsImplCopyWith<_$FetchTranslationParaTextsImpl>
+      get copyWith => __$$FetchTranslationParaTextsImplCopyWithImpl<
+          _$FetchTranslationParaTextsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5991,30 +6015,31 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
 abstract class FetchTranslationParaTexts implements QuranEvent {
   const factory FetchTranslationParaTexts(
       {required final int paraId,
-      required final int translationId}) = _$FetchTranslationParaTexts;
+      required final int translationId}) = _$FetchTranslationParaTextsImpl;
 
   int get paraId;
   int get translationId;
   @JsonKey(ignore: true)
-  _$$FetchTranslationParaTextsCopyWith<_$FetchTranslationParaTexts>
+  _$$FetchTranslationParaTextsImplCopyWith<_$FetchTranslationParaTextsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PlayAllParaAudiosAutoCopyWith<$Res> {
-  factory _$$PlayAllParaAudiosAutoCopyWith(_$PlayAllParaAudiosAuto value,
-          $Res Function(_$PlayAllParaAudiosAuto) then) =
-      __$$PlayAllParaAudiosAutoCopyWithImpl<$Res>;
+abstract class _$$PlayAllParaAudiosAutoImplCopyWith<$Res> {
+  factory _$$PlayAllParaAudiosAutoImplCopyWith(
+          _$PlayAllParaAudiosAutoImpl value,
+          $Res Function(_$PlayAllParaAudiosAutoImpl) then) =
+      __$$PlayAllParaAudiosAutoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$PlayAllParaAudiosAutoCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$PlayAllParaAudiosAuto>
-    implements _$$PlayAllParaAudiosAutoCopyWith<$Res> {
-  __$$PlayAllParaAudiosAutoCopyWithImpl(_$PlayAllParaAudiosAuto _value,
-      $Res Function(_$PlayAllParaAudiosAuto) _then)
+class __$$PlayAllParaAudiosAutoImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$PlayAllParaAudiosAutoImpl>
+    implements _$$PlayAllParaAudiosAutoImplCopyWith<$Res> {
+  __$$PlayAllParaAudiosAutoImplCopyWithImpl(_$PlayAllParaAudiosAutoImpl _value,
+      $Res Function(_$PlayAllParaAudiosAutoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6022,7 +6047,7 @@ class __$$PlayAllParaAudiosAutoCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$PlayAllParaAudiosAuto(
+    return _then(_$PlayAllParaAudiosAutoImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -6033,8 +6058,8 @@ class __$$PlayAllParaAudiosAutoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
-  const _$PlayAllParaAudiosAuto({required this.index});
+class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
+  const _$PlayAllParaAudiosAutoImpl({required this.index});
 
   @override
   final int index;
@@ -6048,7 +6073,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlayAllParaAudiosAuto &&
+            other is _$PlayAllParaAudiosAutoImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -6058,9 +6083,9 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlayAllParaAudiosAutoCopyWith<_$PlayAllParaAudiosAuto> get copyWith =>
-      __$$PlayAllParaAudiosAutoCopyWithImpl<_$PlayAllParaAudiosAuto>(
-          this, _$identity);
+  _$$PlayAllParaAudiosAutoImplCopyWith<_$PlayAllParaAudiosAutoImpl>
+      get copyWith => __$$PlayAllParaAudiosAutoImplCopyWithImpl<
+          _$PlayAllParaAudiosAutoImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6336,29 +6361,31 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
 
 abstract class PlayAllParaAudiosAuto implements QuranEvent {
   const factory PlayAllParaAudiosAuto({required final int index}) =
-      _$PlayAllParaAudiosAuto;
+      _$PlayAllParaAudiosAutoImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$PlayAllParaAudiosAutoCopyWith<_$PlayAllParaAudiosAuto> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$PlayAllParaAudiosAutoImplCopyWith<_$PlayAllParaAudiosAutoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PlayAllChapterAudiosAutoCopyWith<$Res> {
-  factory _$$PlayAllChapterAudiosAutoCopyWith(_$PlayAllChapterAudiosAuto value,
-          $Res Function(_$PlayAllChapterAudiosAuto) then) =
-      __$$PlayAllChapterAudiosAutoCopyWithImpl<$Res>;
+abstract class _$$PlayAllChapterAudiosAutoImplCopyWith<$Res> {
+  factory _$$PlayAllChapterAudiosAutoImplCopyWith(
+          _$PlayAllChapterAudiosAutoImpl value,
+          $Res Function(_$PlayAllChapterAudiosAutoImpl) then) =
+      __$$PlayAllChapterAudiosAutoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int? index});
 }
 
 /// @nodoc
-class __$$PlayAllChapterAudiosAutoCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$PlayAllChapterAudiosAuto>
-    implements _$$PlayAllChapterAudiosAutoCopyWith<$Res> {
-  __$$PlayAllChapterAudiosAutoCopyWithImpl(_$PlayAllChapterAudiosAuto _value,
-      $Res Function(_$PlayAllChapterAudiosAuto) _then)
+class __$$PlayAllChapterAudiosAutoImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$PlayAllChapterAudiosAutoImpl>
+    implements _$$PlayAllChapterAudiosAutoImplCopyWith<$Res> {
+  __$$PlayAllChapterAudiosAutoImplCopyWithImpl(
+      _$PlayAllChapterAudiosAutoImpl _value,
+      $Res Function(_$PlayAllChapterAudiosAutoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6366,7 +6393,7 @@ class __$$PlayAllChapterAudiosAutoCopyWithImpl<$Res>
   $Res call({
     Object? index = freezed,
   }) {
-    return _then(_$PlayAllChapterAudiosAuto(
+    return _then(_$PlayAllChapterAudiosAutoImpl(
       index: freezed == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -6377,8 +6404,8 @@ class __$$PlayAllChapterAudiosAutoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
-  const _$PlayAllChapterAudiosAuto({this.index});
+class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
+  const _$PlayAllChapterAudiosAutoImpl({this.index});
 
   @override
   final int? index;
@@ -6392,7 +6419,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlayAllChapterAudiosAuto &&
+            other is _$PlayAllChapterAudiosAutoImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -6402,10 +6429,9 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlayAllChapterAudiosAutoCopyWith<_$PlayAllChapterAudiosAuto>
-      get copyWith =>
-          __$$PlayAllChapterAudiosAutoCopyWithImpl<_$PlayAllChapterAudiosAuto>(
-              this, _$identity);
+  _$$PlayAllChapterAudiosAutoImplCopyWith<_$PlayAllChapterAudiosAutoImpl>
+      get copyWith => __$$PlayAllChapterAudiosAutoImplCopyWithImpl<
+          _$PlayAllChapterAudiosAutoImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6681,34 +6707,34 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
 
 abstract class PlayAllChapterAudiosAuto implements QuranEvent {
   const factory PlayAllChapterAudiosAuto({final int? index}) =
-      _$PlayAllChapterAudiosAuto;
+      _$PlayAllChapterAudiosAutoImpl;
 
   int? get index;
   @JsonKey(ignore: true)
-  _$$PlayAllChapterAudiosAutoCopyWith<_$PlayAllChapterAudiosAuto>
+  _$$PlayAllChapterAudiosAutoImplCopyWith<_$PlayAllChapterAudiosAutoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ShowMusicbarCopyWith<$Res> {
-  factory _$$ShowMusicbarCopyWith(
-          _$ShowMusicbar value, $Res Function(_$ShowMusicbar) then) =
-      __$$ShowMusicbarCopyWithImpl<$Res>;
+abstract class _$$ShowMusicbarImplCopyWith<$Res> {
+  factory _$$ShowMusicbarImplCopyWith(
+          _$ShowMusicbarImpl value, $Res Function(_$ShowMusicbarImpl) then) =
+      __$$ShowMusicbarImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ShowMusicbarCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$ShowMusicbar>
-    implements _$$ShowMusicbarCopyWith<$Res> {
-  __$$ShowMusicbarCopyWithImpl(
-      _$ShowMusicbar _value, $Res Function(_$ShowMusicbar) _then)
+class __$$ShowMusicbarImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$ShowMusicbarImpl>
+    implements _$$ShowMusicbarImplCopyWith<$Res> {
+  __$$ShowMusicbarImplCopyWithImpl(
+      _$ShowMusicbarImpl _value, $Res Function(_$ShowMusicbarImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ShowMusicbar implements ShowMusicbar {
-  const _$ShowMusicbar();
+class _$ShowMusicbarImpl implements ShowMusicbar {
+  const _$ShowMusicbarImpl();
 
   @override
   String toString() {
@@ -6718,7 +6744,7 @@ class _$ShowMusicbar implements ShowMusicbar {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ShowMusicbar);
+        (other.runtimeType == runtimeType && other is _$ShowMusicbarImpl);
   }
 
   @override
@@ -6997,24 +7023,25 @@ class _$ShowMusicbar implements ShowMusicbar {
 }
 
 abstract class ShowMusicbar implements QuranEvent {
-  const factory ShowMusicbar() = _$ShowMusicbar;
+  const factory ShowMusicbar() = _$ShowMusicbarImpl;
 }
 
 /// @nodoc
-abstract class _$$IsExpandonSearchEventCopyWith<$Res> {
-  factory _$$IsExpandonSearchEventCopyWith(_$IsExpandonSearchEvent value,
-          $Res Function(_$IsExpandonSearchEvent) then) =
-      __$$IsExpandonSearchEventCopyWithImpl<$Res>;
+abstract class _$$IsExpandonSearchEventImplCopyWith<$Res> {
+  factory _$$IsExpandonSearchEventImplCopyWith(
+          _$IsExpandonSearchEventImpl value,
+          $Res Function(_$IsExpandonSearchEventImpl) then) =
+      __$$IsExpandonSearchEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isExpand});
 }
 
 /// @nodoc
-class __$$IsExpandonSearchEventCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$IsExpandonSearchEvent>
-    implements _$$IsExpandonSearchEventCopyWith<$Res> {
-  __$$IsExpandonSearchEventCopyWithImpl(_$IsExpandonSearchEvent _value,
-      $Res Function(_$IsExpandonSearchEvent) _then)
+class __$$IsExpandonSearchEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$IsExpandonSearchEventImpl>
+    implements _$$IsExpandonSearchEventImplCopyWith<$Res> {
+  __$$IsExpandonSearchEventImplCopyWithImpl(_$IsExpandonSearchEventImpl _value,
+      $Res Function(_$IsExpandonSearchEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -7022,7 +7049,7 @@ class __$$IsExpandonSearchEventCopyWithImpl<$Res>
   $Res call({
     Object? isExpand = null,
   }) {
-    return _then(_$IsExpandonSearchEvent(
+    return _then(_$IsExpandonSearchEventImpl(
       isExpand: null == isExpand
           ? _value.isExpand
           : isExpand // ignore: cast_nullable_to_non_nullable
@@ -7033,8 +7060,8 @@ class __$$IsExpandonSearchEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
-  const _$IsExpandonSearchEvent({required this.isExpand});
+class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
+  const _$IsExpandonSearchEventImpl({required this.isExpand});
 
   @override
   final bool isExpand;
@@ -7048,7 +7075,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IsExpandonSearchEvent &&
+            other is _$IsExpandonSearchEventImpl &&
             (identical(other.isExpand, isExpand) ||
                 other.isExpand == isExpand));
   }
@@ -7059,9 +7086,9 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$IsExpandonSearchEventCopyWith<_$IsExpandonSearchEvent> get copyWith =>
-      __$$IsExpandonSearchEventCopyWithImpl<_$IsExpandonSearchEvent>(
-          this, _$identity);
+  _$$IsExpandonSearchEventImplCopyWith<_$IsExpandonSearchEventImpl>
+      get copyWith => __$$IsExpandonSearchEventImplCopyWithImpl<
+          _$IsExpandonSearchEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7337,31 +7364,32 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
 
 abstract class IsExpandonSearchEvent implements QuranEvent {
   const factory IsExpandonSearchEvent({required final bool isExpand}) =
-      _$IsExpandonSearchEvent;
+      _$IsExpandonSearchEventImpl;
 
   bool get isExpand;
   @JsonKey(ignore: true)
-  _$$IsExpandonSearchEventCopyWith<_$IsExpandonSearchEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$IsExpandonSearchEventImplCopyWith<_$IsExpandonSearchEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SaveGlobalTransilationIdAndNameCopyWith<$Res> {
-  factory _$$SaveGlobalTransilationIdAndNameCopyWith(
-          _$SaveGlobalTransilationIdAndName value,
-          $Res Function(_$SaveGlobalTransilationIdAndName) then) =
-      __$$SaveGlobalTransilationIdAndNameCopyWithImpl<$Res>;
+abstract class _$$SaveGlobalTransilationIdAndNameImplCopyWith<$Res> {
+  factory _$$SaveGlobalTransilationIdAndNameImplCopyWith(
+          _$SaveGlobalTransilationIdAndNameImpl value,
+          $Res Function(_$SaveGlobalTransilationIdAndNameImpl) then) =
+      __$$SaveGlobalTransilationIdAndNameImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int transilationId, String translationName});
 }
 
 /// @nodoc
-class __$$SaveGlobalTransilationIdAndNameCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$SaveGlobalTransilationIdAndName>
-    implements _$$SaveGlobalTransilationIdAndNameCopyWith<$Res> {
-  __$$SaveGlobalTransilationIdAndNameCopyWithImpl(
-      _$SaveGlobalTransilationIdAndName _value,
-      $Res Function(_$SaveGlobalTransilationIdAndName) _then)
+class __$$SaveGlobalTransilationIdAndNameImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res,
+        _$SaveGlobalTransilationIdAndNameImpl>
+    implements _$$SaveGlobalTransilationIdAndNameImplCopyWith<$Res> {
+  __$$SaveGlobalTransilationIdAndNameImplCopyWithImpl(
+      _$SaveGlobalTransilationIdAndNameImpl _value,
+      $Res Function(_$SaveGlobalTransilationIdAndNameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -7370,7 +7398,7 @@ class __$$SaveGlobalTransilationIdAndNameCopyWithImpl<$Res>
     Object? transilationId = null,
     Object? translationName = null,
   }) {
-    return _then(_$SaveGlobalTransilationIdAndName(
+    return _then(_$SaveGlobalTransilationIdAndNameImpl(
       transilationId: null == transilationId
           ? _value.transilationId
           : transilationId // ignore: cast_nullable_to_non_nullable
@@ -7385,9 +7413,9 @@ class __$$SaveGlobalTransilationIdAndNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveGlobalTransilationIdAndName
+class _$SaveGlobalTransilationIdAndNameImpl
     implements SaveGlobalTransilationIdAndName {
-  const _$SaveGlobalTransilationIdAndName(
+  const _$SaveGlobalTransilationIdAndNameImpl(
       {required this.transilationId, required this.translationName});
 
   @override
@@ -7404,7 +7432,7 @@ class _$SaveGlobalTransilationIdAndName
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveGlobalTransilationIdAndName &&
+            other is _$SaveGlobalTransilationIdAndNameImpl &&
             (identical(other.transilationId, transilationId) ||
                 other.transilationId == transilationId) &&
             (identical(other.translationName, translationName) ||
@@ -7417,9 +7445,10 @@ class _$SaveGlobalTransilationIdAndName
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveGlobalTransilationIdAndNameCopyWith<_$SaveGlobalTransilationIdAndName>
-      get copyWith => __$$SaveGlobalTransilationIdAndNameCopyWithImpl<
-          _$SaveGlobalTransilationIdAndName>(this, _$identity);
+  _$$SaveGlobalTransilationIdAndNameImplCopyWith<
+          _$SaveGlobalTransilationIdAndNameImpl>
+      get copyWith => __$$SaveGlobalTransilationIdAndNameImplCopyWithImpl<
+          _$SaveGlobalTransilationIdAndNameImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7698,35 +7727,36 @@ abstract class SaveGlobalTransilationIdAndName implements QuranEvent {
   const factory SaveGlobalTransilationIdAndName(
           {required final int transilationId,
           required final String translationName}) =
-      _$SaveGlobalTransilationIdAndName;
+      _$SaveGlobalTransilationIdAndNameImpl;
 
   int get transilationId;
   String get translationName;
   @JsonKey(ignore: true)
-  _$$SaveGlobalTransilationIdAndNameCopyWith<_$SaveGlobalTransilationIdAndName>
+  _$$SaveGlobalTransilationIdAndNameImplCopyWith<
+          _$SaveGlobalTransilationIdAndNameImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchAllRecitorsCopyWith<$Res> {
-  factory _$$FetchAllRecitorsCopyWith(
-          _$FetchAllRecitors value, $Res Function(_$FetchAllRecitors) then) =
-      __$$FetchAllRecitorsCopyWithImpl<$Res>;
+abstract class _$$FetchAllRecitorsImplCopyWith<$Res> {
+  factory _$$FetchAllRecitorsImplCopyWith(_$FetchAllRecitorsImpl value,
+          $Res Function(_$FetchAllRecitorsImpl) then) =
+      __$$FetchAllRecitorsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchAllRecitorsCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchAllRecitors>
-    implements _$$FetchAllRecitorsCopyWith<$Res> {
-  __$$FetchAllRecitorsCopyWithImpl(
-      _$FetchAllRecitors _value, $Res Function(_$FetchAllRecitors) _then)
+class __$$FetchAllRecitorsImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchAllRecitorsImpl>
+    implements _$$FetchAllRecitorsImplCopyWith<$Res> {
+  __$$FetchAllRecitorsImplCopyWithImpl(_$FetchAllRecitorsImpl _value,
+      $Res Function(_$FetchAllRecitorsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchAllRecitors implements FetchAllRecitors {
-  const _$FetchAllRecitors();
+class _$FetchAllRecitorsImpl implements FetchAllRecitors {
+  const _$FetchAllRecitorsImpl();
 
   @override
   String toString() {
@@ -7736,7 +7766,7 @@ class _$FetchAllRecitors implements FetchAllRecitors {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchAllRecitors);
+        (other.runtimeType == runtimeType && other is _$FetchAllRecitorsImpl);
   }
 
   @override
@@ -8015,24 +8045,24 @@ class _$FetchAllRecitors implements FetchAllRecitors {
 }
 
 abstract class FetchAllRecitors implements QuranEvent {
-  const factory FetchAllRecitors() = _$FetchAllRecitors;
+  const factory FetchAllRecitors() = _$FetchAllRecitorsImpl;
 }
 
 /// @nodoc
-abstract class _$$SaveRecitorNameAndIdCopyWith<$Res> {
-  factory _$$SaveRecitorNameAndIdCopyWith(_$SaveRecitorNameAndId value,
-          $Res Function(_$SaveRecitorNameAndId) then) =
-      __$$SaveRecitorNameAndIdCopyWithImpl<$Res>;
+abstract class _$$SaveRecitorNameAndIdImplCopyWith<$Res> {
+  factory _$$SaveRecitorNameAndIdImplCopyWith(_$SaveRecitorNameAndIdImpl value,
+          $Res Function(_$SaveRecitorNameAndIdImpl) then) =
+      __$$SaveRecitorNameAndIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int recitorId, String recitorName});
 }
 
 /// @nodoc
-class __$$SaveRecitorNameAndIdCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$SaveRecitorNameAndId>
-    implements _$$SaveRecitorNameAndIdCopyWith<$Res> {
-  __$$SaveRecitorNameAndIdCopyWithImpl(_$SaveRecitorNameAndId _value,
-      $Res Function(_$SaveRecitorNameAndId) _then)
+class __$$SaveRecitorNameAndIdImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$SaveRecitorNameAndIdImpl>
+    implements _$$SaveRecitorNameAndIdImplCopyWith<$Res> {
+  __$$SaveRecitorNameAndIdImplCopyWithImpl(_$SaveRecitorNameAndIdImpl _value,
+      $Res Function(_$SaveRecitorNameAndIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -8041,7 +8071,7 @@ class __$$SaveRecitorNameAndIdCopyWithImpl<$Res>
     Object? recitorId = null,
     Object? recitorName = null,
   }) {
-    return _then(_$SaveRecitorNameAndId(
+    return _then(_$SaveRecitorNameAndIdImpl(
       recitorId: null == recitorId
           ? _value.recitorId
           : recitorId // ignore: cast_nullable_to_non_nullable
@@ -8056,8 +8086,8 @@ class __$$SaveRecitorNameAndIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
-  const _$SaveRecitorNameAndId(
+class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
+  const _$SaveRecitorNameAndIdImpl(
       {required this.recitorId, required this.recitorName});
 
   @override
@@ -8074,7 +8104,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveRecitorNameAndId &&
+            other is _$SaveRecitorNameAndIdImpl &&
             (identical(other.recitorId, recitorId) ||
                 other.recitorId == recitorId) &&
             (identical(other.recitorName, recitorName) ||
@@ -8087,9 +8117,10 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveRecitorNameAndIdCopyWith<_$SaveRecitorNameAndId> get copyWith =>
-      __$$SaveRecitorNameAndIdCopyWithImpl<_$SaveRecitorNameAndId>(
-          this, _$identity);
+  _$$SaveRecitorNameAndIdImplCopyWith<_$SaveRecitorNameAndIdImpl>
+      get copyWith =>
+          __$$SaveRecitorNameAndIdImplCopyWithImpl<_$SaveRecitorNameAndIdImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -8366,30 +8397,31 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
 abstract class SaveRecitorNameAndId implements QuranEvent {
   const factory SaveRecitorNameAndId(
       {required final int recitorId,
-      required final String recitorName}) = _$SaveRecitorNameAndId;
+      required final String recitorName}) = _$SaveRecitorNameAndIdImpl;
 
   int get recitorId;
   String get recitorName;
   @JsonKey(ignore: true)
-  _$$SaveRecitorNameAndIdCopyWith<_$SaveRecitorNameAndId> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SaveRecitorNameAndIdImplCopyWith<_$SaveRecitorNameAndIdImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SaveQuranTexttypeNameCopyWith<$Res> {
-  factory _$$SaveQuranTexttypeNameCopyWith(_$SaveQuranTexttypeName value,
-          $Res Function(_$SaveQuranTexttypeName) then) =
-      __$$SaveQuranTexttypeNameCopyWithImpl<$Res>;
+abstract class _$$SaveQuranTexttypeNameImplCopyWith<$Res> {
+  factory _$$SaveQuranTexttypeNameImplCopyWith(
+          _$SaveQuranTexttypeNameImpl value,
+          $Res Function(_$SaveQuranTexttypeNameImpl) then) =
+      __$$SaveQuranTexttypeNameImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String textName});
 }
 
 /// @nodoc
-class __$$SaveQuranTexttypeNameCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$SaveQuranTexttypeName>
-    implements _$$SaveQuranTexttypeNameCopyWith<$Res> {
-  __$$SaveQuranTexttypeNameCopyWithImpl(_$SaveQuranTexttypeName _value,
-      $Res Function(_$SaveQuranTexttypeName) _then)
+class __$$SaveQuranTexttypeNameImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$SaveQuranTexttypeNameImpl>
+    implements _$$SaveQuranTexttypeNameImplCopyWith<$Res> {
+  __$$SaveQuranTexttypeNameImplCopyWithImpl(_$SaveQuranTexttypeNameImpl _value,
+      $Res Function(_$SaveQuranTexttypeNameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -8397,7 +8429,7 @@ class __$$SaveQuranTexttypeNameCopyWithImpl<$Res>
   $Res call({
     Object? textName = null,
   }) {
-    return _then(_$SaveQuranTexttypeName(
+    return _then(_$SaveQuranTexttypeNameImpl(
       textName: null == textName
           ? _value.textName
           : textName // ignore: cast_nullable_to_non_nullable
@@ -8408,8 +8440,8 @@ class __$$SaveQuranTexttypeNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
-  const _$SaveQuranTexttypeName({required this.textName});
+class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
+  const _$SaveQuranTexttypeNameImpl({required this.textName});
 
   @override
   final String textName;
@@ -8423,7 +8455,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveQuranTexttypeName &&
+            other is _$SaveQuranTexttypeNameImpl &&
             (identical(other.textName, textName) ||
                 other.textName == textName));
   }
@@ -8434,9 +8466,9 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveQuranTexttypeNameCopyWith<_$SaveQuranTexttypeName> get copyWith =>
-      __$$SaveQuranTexttypeNameCopyWithImpl<_$SaveQuranTexttypeName>(
-          this, _$identity);
+  _$$SaveQuranTexttypeNameImplCopyWith<_$SaveQuranTexttypeNameImpl>
+      get copyWith => __$$SaveQuranTexttypeNameImplCopyWithImpl<
+          _$SaveQuranTexttypeNameImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -8712,34 +8744,34 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
 
 abstract class SaveQuranTexttypeName implements QuranEvent {
   const factory SaveQuranTexttypeName({required final String textName}) =
-      _$SaveQuranTexttypeName;
+      _$SaveQuranTexttypeNameImpl;
 
   String get textName;
   @JsonKey(ignore: true)
-  _$$SaveQuranTexttypeNameCopyWith<_$SaveQuranTexttypeName> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SaveQuranTexttypeNameImplCopyWith<_$SaveQuranTexttypeNameImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$OnTapofNextEventCopyWith<$Res> {
-  factory _$$OnTapofNextEventCopyWith(
-          _$OnTapofNextEvent value, $Res Function(_$OnTapofNextEvent) then) =
-      __$$OnTapofNextEventCopyWithImpl<$Res>;
+abstract class _$$OnTapofNextEventImplCopyWith<$Res> {
+  factory _$$OnTapofNextEventImplCopyWith(_$OnTapofNextEventImpl value,
+          $Res Function(_$OnTapofNextEventImpl) then) =
+      __$$OnTapofNextEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$OnTapofNextEventCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$OnTapofNextEvent>
-    implements _$$OnTapofNextEventCopyWith<$Res> {
-  __$$OnTapofNextEventCopyWithImpl(
-      _$OnTapofNextEvent _value, $Res Function(_$OnTapofNextEvent) _then)
+class __$$OnTapofNextEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$OnTapofNextEventImpl>
+    implements _$$OnTapofNextEventImplCopyWith<$Res> {
+  __$$OnTapofNextEventImplCopyWithImpl(_$OnTapofNextEventImpl _value,
+      $Res Function(_$OnTapofNextEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$OnTapofNextEvent implements OnTapofNextEvent {
-  const _$OnTapofNextEvent();
+class _$OnTapofNextEventImpl implements OnTapofNextEvent {
+  const _$OnTapofNextEventImpl();
 
   @override
   String toString() {
@@ -8749,7 +8781,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$OnTapofNextEvent);
+        (other.runtimeType == runtimeType && other is _$OnTapofNextEventImpl);
   }
 
   @override
@@ -9028,29 +9060,29 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
 }
 
 abstract class OnTapofNextEvent implements QuranEvent {
-  const factory OnTapofNextEvent() = _$OnTapofNextEvent;
+  const factory OnTapofNextEvent() = _$OnTapofNextEventImpl;
 }
 
 /// @nodoc
-abstract class _$$OnTapofPrevEventCopyWith<$Res> {
-  factory _$$OnTapofPrevEventCopyWith(
-          _$OnTapofPrevEvent value, $Res Function(_$OnTapofPrevEvent) then) =
-      __$$OnTapofPrevEventCopyWithImpl<$Res>;
+abstract class _$$OnTapofPrevEventImplCopyWith<$Res> {
+  factory _$$OnTapofPrevEventImplCopyWith(_$OnTapofPrevEventImpl value,
+          $Res Function(_$OnTapofPrevEventImpl) then) =
+      __$$OnTapofPrevEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$OnTapofPrevEventCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$OnTapofPrevEvent>
-    implements _$$OnTapofPrevEventCopyWith<$Res> {
-  __$$OnTapofPrevEventCopyWithImpl(
-      _$OnTapofPrevEvent _value, $Res Function(_$OnTapofPrevEvent) _then)
+class __$$OnTapofPrevEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$OnTapofPrevEventImpl>
+    implements _$$OnTapofPrevEventImplCopyWith<$Res> {
+  __$$OnTapofPrevEventImplCopyWithImpl(_$OnTapofPrevEventImpl _value,
+      $Res Function(_$OnTapofPrevEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$OnTapofPrevEvent implements OnTapofPrevEvent {
-  const _$OnTapofPrevEvent();
+class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
+  const _$OnTapofPrevEventImpl();
 
   @override
   String toString() {
@@ -9060,7 +9092,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$OnTapofPrevEvent);
+        (other.runtimeType == runtimeType && other is _$OnTapofPrevEventImpl);
   }
 
   @override
@@ -9339,24 +9371,24 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
 }
 
 abstract class OnTapofPrevEvent implements QuranEvent {
-  const factory OnTapofPrevEvent() = _$OnTapofPrevEvent;
+  const factory OnTapofPrevEvent() = _$OnTapofPrevEventImpl;
 }
 
 /// @nodoc
-abstract class _$$SaveLastReadEventCopyWith<$Res> {
-  factory _$$SaveLastReadEventCopyWith(
-          _$SaveLastReadEvent value, $Res Function(_$SaveLastReadEvent) then) =
-      __$$SaveLastReadEventCopyWithImpl<$Res>;
+abstract class _$$SaveLastReadEventImplCopyWith<$Res> {
+  factory _$$SaveLastReadEventImplCopyWith(_$SaveLastReadEventImpl value,
+          $Res Function(_$SaveLastReadEventImpl) then) =
+      __$$SaveLastReadEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$SaveLastReadEventCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$SaveLastReadEvent>
-    implements _$$SaveLastReadEventCopyWith<$Res> {
-  __$$SaveLastReadEventCopyWithImpl(
-      _$SaveLastReadEvent _value, $Res Function(_$SaveLastReadEvent) _then)
+class __$$SaveLastReadEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$SaveLastReadEventImpl>
+    implements _$$SaveLastReadEventImplCopyWith<$Res> {
+  __$$SaveLastReadEventImplCopyWithImpl(_$SaveLastReadEventImpl _value,
+      $Res Function(_$SaveLastReadEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -9364,7 +9396,7 @@ class __$$SaveLastReadEventCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$SaveLastReadEvent(
+    return _then(_$SaveLastReadEventImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -9375,8 +9407,8 @@ class __$$SaveLastReadEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveLastReadEvent implements SaveLastReadEvent {
-  const _$SaveLastReadEvent({required this.value});
+class _$SaveLastReadEventImpl implements SaveLastReadEvent {
+  const _$SaveLastReadEventImpl({required this.value});
 
   @override
   final String value;
@@ -9390,7 +9422,7 @@ class _$SaveLastReadEvent implements SaveLastReadEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveLastReadEvent &&
+            other is _$SaveLastReadEventImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -9400,8 +9432,9 @@ class _$SaveLastReadEvent implements SaveLastReadEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveLastReadEventCopyWith<_$SaveLastReadEvent> get copyWith =>
-      __$$SaveLastReadEventCopyWithImpl<_$SaveLastReadEvent>(this, _$identity);
+  _$$SaveLastReadEventImplCopyWith<_$SaveLastReadEventImpl> get copyWith =>
+      __$$SaveLastReadEventImplCopyWithImpl<_$SaveLastReadEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -9677,31 +9710,31 @@ class _$SaveLastReadEvent implements SaveLastReadEvent {
 
 abstract class SaveLastReadEvent implements QuranEvent {
   const factory SaveLastReadEvent({required final String value}) =
-      _$SaveLastReadEvent;
+      _$SaveLastReadEventImpl;
 
   String get value;
   @JsonKey(ignore: true)
-  _$$SaveLastReadEventCopyWith<_$SaveLastReadEvent> get copyWith =>
+  _$$SaveLastReadEventImplCopyWith<_$SaveLastReadEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchSingleVerseTranslationCopyWith<$Res> {
-  factory _$$FetchSingleVerseTranslationCopyWith(
-          _$FetchSingleVerseTranslation value,
-          $Res Function(_$FetchSingleVerseTranslation) then) =
-      __$$FetchSingleVerseTranslationCopyWithImpl<$Res>;
+abstract class _$$FetchSingleVerseTranslationImplCopyWith<$Res> {
+  factory _$$FetchSingleVerseTranslationImplCopyWith(
+          _$FetchSingleVerseTranslationImpl value,
+          $Res Function(_$FetchSingleVerseTranslationImpl) then) =
+      __$$FetchSingleVerseTranslationImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String verseKey});
 }
 
 /// @nodoc
-class __$$FetchSingleVerseTranslationCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$FetchSingleVerseTranslation>
-    implements _$$FetchSingleVerseTranslationCopyWith<$Res> {
-  __$$FetchSingleVerseTranslationCopyWithImpl(
-      _$FetchSingleVerseTranslation _value,
-      $Res Function(_$FetchSingleVerseTranslation) _then)
+class __$$FetchSingleVerseTranslationImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchSingleVerseTranslationImpl>
+    implements _$$FetchSingleVerseTranslationImplCopyWith<$Res> {
+  __$$FetchSingleVerseTranslationImplCopyWithImpl(
+      _$FetchSingleVerseTranslationImpl _value,
+      $Res Function(_$FetchSingleVerseTranslationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -9709,7 +9742,7 @@ class __$$FetchSingleVerseTranslationCopyWithImpl<$Res>
   $Res call({
     Object? verseKey = null,
   }) {
-    return _then(_$FetchSingleVerseTranslation(
+    return _then(_$FetchSingleVerseTranslationImpl(
       verseKey: null == verseKey
           ? _value.verseKey
           : verseKey // ignore: cast_nullable_to_non_nullable
@@ -9720,8 +9753,8 @@ class __$$FetchSingleVerseTranslationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchSingleVerseTranslation implements FetchSingleVerseTranslation {
-  const _$FetchSingleVerseTranslation({required this.verseKey});
+class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
+  const _$FetchSingleVerseTranslationImpl({required this.verseKey});
 
   @override
   final String verseKey;
@@ -9735,7 +9768,7 @@ class _$FetchSingleVerseTranslation implements FetchSingleVerseTranslation {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchSingleVerseTranslation &&
+            other is _$FetchSingleVerseTranslationImpl &&
             (identical(other.verseKey, verseKey) ||
                 other.verseKey == verseKey));
   }
@@ -9746,9 +9779,9 @@ class _$FetchSingleVerseTranslation implements FetchSingleVerseTranslation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchSingleVerseTranslationCopyWith<_$FetchSingleVerseTranslation>
-      get copyWith => __$$FetchSingleVerseTranslationCopyWithImpl<
-          _$FetchSingleVerseTranslation>(this, _$identity);
+  _$$FetchSingleVerseTranslationImplCopyWith<_$FetchSingleVerseTranslationImpl>
+      get copyWith => __$$FetchSingleVerseTranslationImplCopyWithImpl<
+          _$FetchSingleVerseTranslationImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -10024,29 +10057,29 @@ class _$FetchSingleVerseTranslation implements FetchSingleVerseTranslation {
 
 abstract class FetchSingleVerseTranslation implements QuranEvent {
   const factory FetchSingleVerseTranslation({required final String verseKey}) =
-      _$FetchSingleVerseTranslation;
+      _$FetchSingleVerseTranslationImpl;
 
   String get verseKey;
   @JsonKey(ignore: true)
-  _$$FetchSingleVerseTranslationCopyWith<_$FetchSingleVerseTranslation>
+  _$$FetchSingleVerseTranslationImplCopyWith<_$FetchSingleVerseTranslationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PlaySingleAudioCopyWith<$Res> {
-  factory _$$PlaySingleAudioCopyWith(
-          _$PlaySingleAudio value, $Res Function(_$PlaySingleAudio) then) =
-      __$$PlaySingleAudioCopyWithImpl<$Res>;
+abstract class _$$PlaySingleAudioImplCopyWith<$Res> {
+  factory _$$PlaySingleAudioImplCopyWith(_$PlaySingleAudioImpl value,
+          $Res Function(_$PlaySingleAudioImpl) then) =
+      __$$PlaySingleAudioImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String aya, String chapterId});
 }
 
 /// @nodoc
-class __$$PlaySingleAudioCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$PlaySingleAudio>
-    implements _$$PlaySingleAudioCopyWith<$Res> {
-  __$$PlaySingleAudioCopyWithImpl(
-      _$PlaySingleAudio _value, $Res Function(_$PlaySingleAudio) _then)
+class __$$PlaySingleAudioImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$PlaySingleAudioImpl>
+    implements _$$PlaySingleAudioImplCopyWith<$Res> {
+  __$$PlaySingleAudioImplCopyWithImpl(
+      _$PlaySingleAudioImpl _value, $Res Function(_$PlaySingleAudioImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -10055,7 +10088,7 @@ class __$$PlaySingleAudioCopyWithImpl<$Res>
     Object? aya = null,
     Object? chapterId = null,
   }) {
-    return _then(_$PlaySingleAudio(
+    return _then(_$PlaySingleAudioImpl(
       aya: null == aya
           ? _value.aya
           : aya // ignore: cast_nullable_to_non_nullable
@@ -10070,8 +10103,8 @@ class __$$PlaySingleAudioCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PlaySingleAudio implements PlaySingleAudio {
-  const _$PlaySingleAudio({required this.aya, required this.chapterId});
+class _$PlaySingleAudioImpl implements PlaySingleAudio {
+  const _$PlaySingleAudioImpl({required this.aya, required this.chapterId});
 
   @override
   final String aya;
@@ -10087,7 +10120,7 @@ class _$PlaySingleAudio implements PlaySingleAudio {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlaySingleAudio &&
+            other is _$PlaySingleAudioImpl &&
             (identical(other.aya, aya) || other.aya == aya) &&
             (identical(other.chapterId, chapterId) ||
                 other.chapterId == chapterId));
@@ -10099,8 +10132,9 @@ class _$PlaySingleAudio implements PlaySingleAudio {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlaySingleAudioCopyWith<_$PlaySingleAudio> get copyWith =>
-      __$$PlaySingleAudioCopyWithImpl<_$PlaySingleAudio>(this, _$identity);
+  _$$PlaySingleAudioImplCopyWith<_$PlaySingleAudioImpl> get copyWith =>
+      __$$PlaySingleAudioImplCopyWithImpl<_$PlaySingleAudioImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -10377,12 +10411,12 @@ class _$PlaySingleAudio implements PlaySingleAudio {
 abstract class PlaySingleAudio implements QuranEvent {
   const factory PlaySingleAudio(
       {required final String aya,
-      required final String chapterId}) = _$PlaySingleAudio;
+      required final String chapterId}) = _$PlaySingleAudioImpl;
 
   String get aya;
   String get chapterId;
   @JsonKey(ignore: true)
-  _$$PlaySingleAudioCopyWith<_$PlaySingleAudio> get copyWith =>
+  _$$PlaySingleAudioImplCopyWith<_$PlaySingleAudioImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -10849,11 +10883,11 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
 }
 
 /// @nodoc
-abstract class _$$_QuranStateCopyWith<$Res>
+abstract class _$$QuranStateImplCopyWith<$Res>
     implements $QuranStateCopyWith<$Res> {
-  factory _$$_QuranStateCopyWith(
-          _$_QuranState value, $Res Function(_$_QuranState) then) =
-      __$$_QuranStateCopyWithImpl<$Res>;
+  factory _$$QuranStateImplCopyWith(
+          _$QuranStateImpl value, $Res Function(_$QuranStateImpl) then) =
+      __$$QuranStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -10921,11 +10955,11 @@ abstract class _$$_QuranStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_QuranStateCopyWithImpl<$Res>
-    extends _$QuranStateCopyWithImpl<$Res, _$_QuranState>
-    implements _$$_QuranStateCopyWith<$Res> {
-  __$$_QuranStateCopyWithImpl(
-      _$_QuranState _value, $Res Function(_$_QuranState) _then)
+class __$$QuranStateImplCopyWithImpl<$Res>
+    extends _$QuranStateCopyWithImpl<$Res, _$QuranStateImpl>
+    implements _$$QuranStateImplCopyWith<$Res> {
+  __$$QuranStateImplCopyWithImpl(
+      _$QuranStateImpl _value, $Res Function(_$QuranStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -10970,7 +11004,7 @@ class __$$_QuranStateCopyWithImpl<$Res>
     Object? lastRead = null,
     Object? singleTranslation = null,
   }) {
-    return _then(_$_QuranState(
+    return _then(_$QuranStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -11129,8 +11163,8 @@ class __$$_QuranStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_QuranState implements _QuranState {
-  const _$_QuranState(
+class _$QuranStateImpl implements _QuranState {
+  const _$QuranStateImpl(
       {required this.isLoading,
       required this.quranChaptersModel,
       required this.chapterVersesModel,
@@ -11326,7 +11360,7 @@ class _$_QuranState implements _QuranState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QuranState &&
+            other is _$QuranStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.quranChaptersModel, quranChaptersModel) ||
@@ -11452,8 +11486,8 @@ class _$_QuranState implements _QuranState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QuranStateCopyWith<_$_QuranState> get copyWith =>
-      __$$_QuranStateCopyWithImpl<_$_QuranState>(this, _$identity);
+  _$$QuranStateImplCopyWith<_$QuranStateImpl> get copyWith =>
+      __$$QuranStateImplCopyWithImpl<_$QuranStateImpl>(this, _$identity);
 }
 
 abstract class _QuranState implements QuranState {
@@ -11495,7 +11529,7 @@ abstract class _QuranState implements QuranState {
       required final int nxtAndprevValue,
       required final List<String> tempListAya,
       required final String lastRead,
-      required final String singleTranslation}) = _$_QuranState;
+      required final String singleTranslation}) = _$QuranStateImpl;
 
   @override
   bool get isLoading;
@@ -11575,6 +11609,6 @@ abstract class _QuranState implements QuranState {
   String get singleTranslation;
   @override
   @JsonKey(ignore: true)
-  _$$_QuranStateCopyWith<_$_QuranState> get copyWith =>
+  _$$QuranStateImplCopyWith<_$QuranStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

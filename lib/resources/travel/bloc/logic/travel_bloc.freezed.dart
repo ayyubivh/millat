@@ -223,20 +223,20 @@ class _$TravelEventCopyWithImpl<$Res, $Val extends TravelEvent>
 }
 
 /// @nodoc
-abstract class _$$ChangeBannerIndexCopyWith<$Res> {
-  factory _$$ChangeBannerIndexCopyWith(
-          _$ChangeBannerIndex value, $Res Function(_$ChangeBannerIndex) then) =
-      __$$ChangeBannerIndexCopyWithImpl<$Res>;
+abstract class _$$ChangeBannerIndexImplCopyWith<$Res> {
+  factory _$$ChangeBannerIndexImplCopyWith(_$ChangeBannerIndexImpl value,
+          $Res Function(_$ChangeBannerIndexImpl) then) =
+      __$$ChangeBannerIndexImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeBannerIndexCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$ChangeBannerIndex>
-    implements _$$ChangeBannerIndexCopyWith<$Res> {
-  __$$ChangeBannerIndexCopyWithImpl(
-      _$ChangeBannerIndex _value, $Res Function(_$ChangeBannerIndex) _then)
+class __$$ChangeBannerIndexImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$ChangeBannerIndexImpl>
+    implements _$$ChangeBannerIndexImplCopyWith<$Res> {
+  __$$ChangeBannerIndexImplCopyWithImpl(_$ChangeBannerIndexImpl _value,
+      $Res Function(_$ChangeBannerIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -244,7 +244,7 @@ class __$$ChangeBannerIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeBannerIndex(
+    return _then(_$ChangeBannerIndexImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -255,10 +255,10 @@ class __$$ChangeBannerIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeBannerIndex
+class _$ChangeBannerIndexImpl
     with DiagnosticableTreeMixin
     implements ChangeBannerIndex {
-  const _$ChangeBannerIndex({required this.index});
+  const _$ChangeBannerIndexImpl({required this.index});
 
   @override
   final int index;
@@ -280,7 +280,7 @@ class _$ChangeBannerIndex
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeBannerIndex &&
+            other is _$ChangeBannerIndexImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -290,8 +290,9 @@ class _$ChangeBannerIndex
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeBannerIndexCopyWith<_$ChangeBannerIndex> get copyWith =>
-      __$$ChangeBannerIndexCopyWithImpl<_$ChangeBannerIndex>(this, _$identity);
+  _$$ChangeBannerIndexImplCopyWith<_$ChangeBannerIndexImpl> get copyWith =>
+      __$$ChangeBannerIndexImplCopyWithImpl<_$ChangeBannerIndexImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -506,29 +507,29 @@ class _$ChangeBannerIndex
 
 abstract class ChangeBannerIndex implements TravelEvent {
   const factory ChangeBannerIndex({required final int index}) =
-      _$ChangeBannerIndex;
+      _$ChangeBannerIndexImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeBannerIndexCopyWith<_$ChangeBannerIndex> get copyWith =>
+  _$$ChangeBannerIndexImplCopyWith<_$ChangeBannerIndexImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeTravelTabIndexCopyWith<$Res> {
-  factory _$$ChangeTravelTabIndexCopyWith(_$ChangeTravelTabIndex value,
-          $Res Function(_$ChangeTravelTabIndex) then) =
-      __$$ChangeTravelTabIndexCopyWithImpl<$Res>;
+abstract class _$$ChangeTravelTabIndexImplCopyWith<$Res> {
+  factory _$$ChangeTravelTabIndexImplCopyWith(_$ChangeTravelTabIndexImpl value,
+          $Res Function(_$ChangeTravelTabIndexImpl) then) =
+      __$$ChangeTravelTabIndexImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeTravelTabIndexCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$ChangeTravelTabIndex>
-    implements _$$ChangeTravelTabIndexCopyWith<$Res> {
-  __$$ChangeTravelTabIndexCopyWithImpl(_$ChangeTravelTabIndex _value,
-      $Res Function(_$ChangeTravelTabIndex) _then)
+class __$$ChangeTravelTabIndexImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$ChangeTravelTabIndexImpl>
+    implements _$$ChangeTravelTabIndexImplCopyWith<$Res> {
+  __$$ChangeTravelTabIndexImplCopyWithImpl(_$ChangeTravelTabIndexImpl _value,
+      $Res Function(_$ChangeTravelTabIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -536,7 +537,7 @@ class __$$ChangeTravelTabIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeTravelTabIndex(
+    return _then(_$ChangeTravelTabIndexImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -547,10 +548,10 @@ class __$$ChangeTravelTabIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeTravelTabIndex
+class _$ChangeTravelTabIndexImpl
     with DiagnosticableTreeMixin
     implements ChangeTravelTabIndex {
-  const _$ChangeTravelTabIndex({required this.index});
+  const _$ChangeTravelTabIndexImpl({required this.index});
 
   @override
   final int index;
@@ -572,7 +573,7 @@ class _$ChangeTravelTabIndex
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeTravelTabIndex &&
+            other is _$ChangeTravelTabIndexImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -582,9 +583,10 @@ class _$ChangeTravelTabIndex
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeTravelTabIndexCopyWith<_$ChangeTravelTabIndex> get copyWith =>
-      __$$ChangeTravelTabIndexCopyWithImpl<_$ChangeTravelTabIndex>(
-          this, _$identity);
+  _$$ChangeTravelTabIndexImplCopyWith<_$ChangeTravelTabIndexImpl>
+      get copyWith =>
+          __$$ChangeTravelTabIndexImplCopyWithImpl<_$ChangeTravelTabIndexImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -799,38 +801,38 @@ class _$ChangeTravelTabIndex
 
 abstract class ChangeTravelTabIndex implements TravelEvent {
   const factory ChangeTravelTabIndex({required final int index}) =
-      _$ChangeTravelTabIndex;
+      _$ChangeTravelTabIndexImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeTravelTabIndexCopyWith<_$ChangeTravelTabIndex> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangeTravelTabIndexImplCopyWith<_$ChangeTravelTabIndexImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchTravelPopularProductsCopyWith<$Res> {
-  factory _$$FetchTravelPopularProductsCopyWith(
-          _$FetchTravelPopularProducts value,
-          $Res Function(_$FetchTravelPopularProducts) then) =
-      __$$FetchTravelPopularProductsCopyWithImpl<$Res>;
+abstract class _$$FetchTravelPopularProductsImplCopyWith<$Res> {
+  factory _$$FetchTravelPopularProductsImplCopyWith(
+          _$FetchTravelPopularProductsImpl value,
+          $Res Function(_$FetchTravelPopularProductsImpl) then) =
+      __$$FetchTravelPopularProductsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchTravelPopularProductsCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelPopularProducts>
-    implements _$$FetchTravelPopularProductsCopyWith<$Res> {
-  __$$FetchTravelPopularProductsCopyWithImpl(
-      _$FetchTravelPopularProducts _value,
-      $Res Function(_$FetchTravelPopularProducts) _then)
+class __$$FetchTravelPopularProductsImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelPopularProductsImpl>
+    implements _$$FetchTravelPopularProductsImplCopyWith<$Res> {
+  __$$FetchTravelPopularProductsImplCopyWithImpl(
+      _$FetchTravelPopularProductsImpl _value,
+      $Res Function(_$FetchTravelPopularProductsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchTravelPopularProducts
+class _$FetchTravelPopularProductsImpl
     with DiagnosticableTreeMixin
     implements FetchTravelPopularProducts {
-  const _$FetchTravelPopularProducts();
+  const _$FetchTravelPopularProductsImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -848,7 +850,7 @@ class _$FetchTravelPopularProducts
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchTravelPopularProducts);
+            other is _$FetchTravelPopularProductsImpl);
   }
 
   @override
@@ -1066,31 +1068,33 @@ class _$FetchTravelPopularProducts
 }
 
 abstract class FetchTravelPopularProducts implements TravelEvent {
-  const factory FetchTravelPopularProducts() = _$FetchTravelPopularProducts;
+  const factory FetchTravelPopularProducts() = _$FetchTravelPopularProductsImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchBestPlacesProductsCopyWith<$Res> {
-  factory _$$FetchBestPlacesProductsCopyWith(_$FetchBestPlacesProducts value,
-          $Res Function(_$FetchBestPlacesProducts) then) =
-      __$$FetchBestPlacesProductsCopyWithImpl<$Res>;
+abstract class _$$FetchBestPlacesProductsImplCopyWith<$Res> {
+  factory _$$FetchBestPlacesProductsImplCopyWith(
+          _$FetchBestPlacesProductsImpl value,
+          $Res Function(_$FetchBestPlacesProductsImpl) then) =
+      __$$FetchBestPlacesProductsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchBestPlacesProductsCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchBestPlacesProducts>
-    implements _$$FetchBestPlacesProductsCopyWith<$Res> {
-  __$$FetchBestPlacesProductsCopyWithImpl(_$FetchBestPlacesProducts _value,
-      $Res Function(_$FetchBestPlacesProducts) _then)
+class __$$FetchBestPlacesProductsImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$FetchBestPlacesProductsImpl>
+    implements _$$FetchBestPlacesProductsImplCopyWith<$Res> {
+  __$$FetchBestPlacesProductsImplCopyWithImpl(
+      _$FetchBestPlacesProductsImpl _value,
+      $Res Function(_$FetchBestPlacesProductsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchBestPlacesProducts
+class _$FetchBestPlacesProductsImpl
     with DiagnosticableTreeMixin
     implements FetchBestPlacesProducts {
-  const _$FetchBestPlacesProducts();
+  const _$FetchBestPlacesProductsImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1108,7 +1112,7 @@ class _$FetchBestPlacesProducts
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchBestPlacesProducts);
+            other is _$FetchBestPlacesProductsImpl);
   }
 
   @override
@@ -1326,31 +1330,31 @@ class _$FetchBestPlacesProducts
 }
 
 abstract class FetchBestPlacesProducts implements TravelEvent {
-  const factory FetchBestPlacesProducts() = _$FetchBestPlacesProducts;
+  const factory FetchBestPlacesProducts() = _$FetchBestPlacesProductsImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchTravelCitiesCopyWith<$Res> {
-  factory _$$FetchTravelCitiesCopyWith(
-          _$FetchTravelCities value, $Res Function(_$FetchTravelCities) then) =
-      __$$FetchTravelCitiesCopyWithImpl<$Res>;
+abstract class _$$FetchTravelCitiesImplCopyWith<$Res> {
+  factory _$$FetchTravelCitiesImplCopyWith(_$FetchTravelCitiesImpl value,
+          $Res Function(_$FetchTravelCitiesImpl) then) =
+      __$$FetchTravelCitiesImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchTravelCitiesCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelCities>
-    implements _$$FetchTravelCitiesCopyWith<$Res> {
-  __$$FetchTravelCitiesCopyWithImpl(
-      _$FetchTravelCities _value, $Res Function(_$FetchTravelCities) _then)
+class __$$FetchTravelCitiesImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelCitiesImpl>
+    implements _$$FetchTravelCitiesImplCopyWith<$Res> {
+  __$$FetchTravelCitiesImplCopyWithImpl(_$FetchTravelCitiesImpl _value,
+      $Res Function(_$FetchTravelCitiesImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchTravelCities
+class _$FetchTravelCitiesImpl
     with DiagnosticableTreeMixin
     implements FetchTravelCities {
-  const _$FetchTravelCities();
+  const _$FetchTravelCitiesImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1367,7 +1371,7 @@ class _$FetchTravelCities
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchTravelCities);
+        (other.runtimeType == runtimeType && other is _$FetchTravelCitiesImpl);
   }
 
   @override
@@ -1585,24 +1589,26 @@ class _$FetchTravelCities
 }
 
 abstract class FetchTravelCities implements TravelEvent {
-  const factory FetchTravelCities() = _$FetchTravelCities;
+  const factory FetchTravelCities() = _$FetchTravelCitiesImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchTravelProductsByIdCopyWith<$Res> {
-  factory _$$FetchTravelProductsByIdCopyWith(_$FetchTravelProductsById value,
-          $Res Function(_$FetchTravelProductsById) then) =
-      __$$FetchTravelProductsByIdCopyWithImpl<$Res>;
+abstract class _$$FetchTravelProductsByIdImplCopyWith<$Res> {
+  factory _$$FetchTravelProductsByIdImplCopyWith(
+          _$FetchTravelProductsByIdImpl value,
+          $Res Function(_$FetchTravelProductsByIdImpl) then) =
+      __$$FetchTravelProductsByIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$FetchTravelProductsByIdCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelProductsById>
-    implements _$$FetchTravelProductsByIdCopyWith<$Res> {
-  __$$FetchTravelProductsByIdCopyWithImpl(_$FetchTravelProductsById _value,
-      $Res Function(_$FetchTravelProductsById) _then)
+class __$$FetchTravelProductsByIdImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelProductsByIdImpl>
+    implements _$$FetchTravelProductsByIdImplCopyWith<$Res> {
+  __$$FetchTravelProductsByIdImplCopyWithImpl(
+      _$FetchTravelProductsByIdImpl _value,
+      $Res Function(_$FetchTravelProductsByIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1610,7 +1616,7 @@ class __$$FetchTravelProductsByIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FetchTravelProductsById(
+    return _then(_$FetchTravelProductsByIdImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1621,10 +1627,10 @@ class __$$FetchTravelProductsByIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchTravelProductsById
+class _$FetchTravelProductsByIdImpl
     with DiagnosticableTreeMixin
     implements FetchTravelProductsById {
-  const _$FetchTravelProductsById({required this.id});
+  const _$FetchTravelProductsByIdImpl({required this.id});
 
   @override
   final String id;
@@ -1646,7 +1652,7 @@ class _$FetchTravelProductsById
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchTravelProductsById &&
+            other is _$FetchTravelProductsByIdImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -1656,9 +1662,9 @@ class _$FetchTravelProductsById
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchTravelProductsByIdCopyWith<_$FetchTravelProductsById> get copyWith =>
-      __$$FetchTravelProductsByIdCopyWithImpl<_$FetchTravelProductsById>(
-          this, _$identity);
+  _$$FetchTravelProductsByIdImplCopyWith<_$FetchTravelProductsByIdImpl>
+      get copyWith => __$$FetchTravelProductsByIdImplCopyWithImpl<
+          _$FetchTravelProductsByIdImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1873,31 +1879,31 @@ class _$FetchTravelProductsById
 
 abstract class FetchTravelProductsById implements TravelEvent {
   const factory FetchTravelProductsById({required final String id}) =
-      _$FetchTravelProductsById;
+      _$FetchTravelProductsByIdImpl;
 
   String get id;
   @JsonKey(ignore: true)
-  _$$FetchTravelProductsByIdCopyWith<_$FetchTravelProductsById> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchTravelProductsByIdImplCopyWith<_$FetchTravelProductsByIdImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchTravelSearchLocationsCopyWith<$Res> {
-  factory _$$FetchTravelSearchLocationsCopyWith(
-          _$FetchTravelSearchLocations value,
-          $Res Function(_$FetchTravelSearchLocations) then) =
-      __$$FetchTravelSearchLocationsCopyWithImpl<$Res>;
+abstract class _$$FetchTravelSearchLocationsImplCopyWith<$Res> {
+  factory _$$FetchTravelSearchLocationsImplCopyWith(
+          _$FetchTravelSearchLocationsImpl value,
+          $Res Function(_$FetchTravelSearchLocationsImpl) then) =
+      __$$FetchTravelSearchLocationsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String searchquery});
 }
 
 /// @nodoc
-class __$$FetchTravelSearchLocationsCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelSearchLocations>
-    implements _$$FetchTravelSearchLocationsCopyWith<$Res> {
-  __$$FetchTravelSearchLocationsCopyWithImpl(
-      _$FetchTravelSearchLocations _value,
-      $Res Function(_$FetchTravelSearchLocations) _then)
+class __$$FetchTravelSearchLocationsImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelSearchLocationsImpl>
+    implements _$$FetchTravelSearchLocationsImplCopyWith<$Res> {
+  __$$FetchTravelSearchLocationsImplCopyWithImpl(
+      _$FetchTravelSearchLocationsImpl _value,
+      $Res Function(_$FetchTravelSearchLocationsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1905,7 +1911,7 @@ class __$$FetchTravelSearchLocationsCopyWithImpl<$Res>
   $Res call({
     Object? searchquery = null,
   }) {
-    return _then(_$FetchTravelSearchLocations(
+    return _then(_$FetchTravelSearchLocationsImpl(
       searchquery: null == searchquery
           ? _value.searchquery
           : searchquery // ignore: cast_nullable_to_non_nullable
@@ -1916,10 +1922,10 @@ class __$$FetchTravelSearchLocationsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchTravelSearchLocations
+class _$FetchTravelSearchLocationsImpl
     with DiagnosticableTreeMixin
     implements FetchTravelSearchLocations {
-  const _$FetchTravelSearchLocations({required this.searchquery});
+  const _$FetchTravelSearchLocationsImpl({required this.searchquery});
 
   @override
   final String searchquery;
@@ -1942,7 +1948,7 @@ class _$FetchTravelSearchLocations
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchTravelSearchLocations &&
+            other is _$FetchTravelSearchLocationsImpl &&
             (identical(other.searchquery, searchquery) ||
                 other.searchquery == searchquery));
   }
@@ -1953,9 +1959,9 @@ class _$FetchTravelSearchLocations
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchTravelSearchLocationsCopyWith<_$FetchTravelSearchLocations>
-      get copyWith => __$$FetchTravelSearchLocationsCopyWithImpl<
-          _$FetchTravelSearchLocations>(this, _$identity);
+  _$$FetchTravelSearchLocationsImplCopyWith<_$FetchTravelSearchLocationsImpl>
+      get copyWith => __$$FetchTravelSearchLocationsImplCopyWithImpl<
+          _$FetchTravelSearchLocationsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2170,29 +2176,31 @@ class _$FetchTravelSearchLocations
 
 abstract class FetchTravelSearchLocations implements TravelEvent {
   const factory FetchTravelSearchLocations(
-      {required final String searchquery}) = _$FetchTravelSearchLocations;
+      {required final String searchquery}) = _$FetchTravelSearchLocationsImpl;
 
   String get searchquery;
   @JsonKey(ignore: true)
-  _$$FetchTravelSearchLocationsCopyWith<_$FetchTravelSearchLocations>
+  _$$FetchTravelSearchLocationsImplCopyWith<_$FetchTravelSearchLocationsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchProductByLocationCopyWith<$Res> {
-  factory _$$FetchProductByLocationCopyWith(_$FetchProductByLocation value,
-          $Res Function(_$FetchProductByLocation) then) =
-      __$$FetchProductByLocationCopyWithImpl<$Res>;
+abstract class _$$FetchProductByLocationImplCopyWith<$Res> {
+  factory _$$FetchProductByLocationImplCopyWith(
+          _$FetchProductByLocationImpl value,
+          $Res Function(_$FetchProductByLocationImpl) then) =
+      __$$FetchProductByLocationImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String location});
 }
 
 /// @nodoc
-class __$$FetchProductByLocationCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchProductByLocation>
-    implements _$$FetchProductByLocationCopyWith<$Res> {
-  __$$FetchProductByLocationCopyWithImpl(_$FetchProductByLocation _value,
-      $Res Function(_$FetchProductByLocation) _then)
+class __$$FetchProductByLocationImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$FetchProductByLocationImpl>
+    implements _$$FetchProductByLocationImplCopyWith<$Res> {
+  __$$FetchProductByLocationImplCopyWithImpl(
+      _$FetchProductByLocationImpl _value,
+      $Res Function(_$FetchProductByLocationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2200,7 +2208,7 @@ class __$$FetchProductByLocationCopyWithImpl<$Res>
   $Res call({
     Object? location = null,
   }) {
-    return _then(_$FetchProductByLocation(
+    return _then(_$FetchProductByLocationImpl(
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -2211,10 +2219,10 @@ class __$$FetchProductByLocationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchProductByLocation
+class _$FetchProductByLocationImpl
     with DiagnosticableTreeMixin
     implements FetchProductByLocation {
-  const _$FetchProductByLocation({required this.location});
+  const _$FetchProductByLocationImpl({required this.location});
 
   @override
   final String location;
@@ -2236,7 +2244,7 @@ class _$FetchProductByLocation
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchProductByLocation &&
+            other is _$FetchProductByLocationImpl &&
             (identical(other.location, location) ||
                 other.location == location));
   }
@@ -2247,9 +2255,9 @@ class _$FetchProductByLocation
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchProductByLocationCopyWith<_$FetchProductByLocation> get copyWith =>
-      __$$FetchProductByLocationCopyWithImpl<_$FetchProductByLocation>(
-          this, _$identity);
+  _$$FetchProductByLocationImplCopyWith<_$FetchProductByLocationImpl>
+      get copyWith => __$$FetchProductByLocationImplCopyWithImpl<
+          _$FetchProductByLocationImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2464,19 +2472,19 @@ class _$FetchProductByLocation
 
 abstract class FetchProductByLocation implements TravelEvent {
   const factory FetchProductByLocation({required final String location}) =
-      _$FetchProductByLocation;
+      _$FetchProductByLocationImpl;
 
   String get location;
   @JsonKey(ignore: true)
-  _$$FetchProductByLocationCopyWith<_$FetchProductByLocation> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchProductByLocationImplCopyWith<_$FetchProductByLocationImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BookTravelEventCopyWith<$Res> {
-  factory _$$BookTravelEventCopyWith(
-          _$BookTravelEvent value, $Res Function(_$BookTravelEvent) then) =
-      __$$BookTravelEventCopyWithImpl<$Res>;
+abstract class _$$BookTravelEventImplCopyWith<$Res> {
+  factory _$$BookTravelEventImplCopyWith(_$BookTravelEventImpl value,
+          $Res Function(_$BookTravelEventImpl) then) =
+      __$$BookTravelEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String name,
@@ -2488,11 +2496,11 @@ abstract class _$$BookTravelEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$BookTravelEventCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$BookTravelEvent>
-    implements _$$BookTravelEventCopyWith<$Res> {
-  __$$BookTravelEventCopyWithImpl(
-      _$BookTravelEvent _value, $Res Function(_$BookTravelEvent) _then)
+class __$$BookTravelEventImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$BookTravelEventImpl>
+    implements _$$BookTravelEventImplCopyWith<$Res> {
+  __$$BookTravelEventImplCopyWithImpl(
+      _$BookTravelEventImpl _value, $Res Function(_$BookTravelEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2505,7 +2513,7 @@ class __$$BookTravelEventCopyWithImpl<$Res>
     Object? country = null,
     Object? productId = null,
   }) {
-    return _then(_$BookTravelEvent(
+    return _then(_$BookTravelEventImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -2536,10 +2544,10 @@ class __$$BookTravelEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$BookTravelEvent
+class _$BookTravelEventImpl
     with DiagnosticableTreeMixin
     implements BookTravelEvent {
-  const _$BookTravelEvent(
+  const _$BookTravelEventImpl(
       {required this.name,
       required this.email,
       required this.phoneNumber,
@@ -2582,7 +2590,7 @@ class _$BookTravelEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BookTravelEvent &&
+            other is _$BookTravelEventImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.phoneNumber, phoneNumber) ||
@@ -2601,8 +2609,9 @@ class _$BookTravelEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BookTravelEventCopyWith<_$BookTravelEvent> get copyWith =>
-      __$$BookTravelEventCopyWithImpl<_$BookTravelEvent>(this, _$identity);
+  _$$BookTravelEventImplCopyWith<_$BookTravelEventImpl> get copyWith =>
+      __$$BookTravelEventImplCopyWithImpl<_$BookTravelEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2825,7 +2834,7 @@ abstract class BookTravelEvent implements TravelEvent {
       required final String phoneNumber,
       required final dynamic passPortPhoto,
       required final String country,
-      required final String productId}) = _$BookTravelEvent;
+      required final String productId}) = _$BookTravelEventImpl;
 
   String get name;
   String get email;
@@ -2834,32 +2843,32 @@ abstract class BookTravelEvent implements TravelEvent {
   String get country;
   String get productId;
   @JsonKey(ignore: true)
-  _$$BookTravelEventCopyWith<_$BookTravelEvent> get copyWith =>
+  _$$BookTravelEventImplCopyWith<_$BookTravelEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$IncreaseGuestEventCopyWith<$Res> {
-  factory _$$IncreaseGuestEventCopyWith(_$IncreaseGuestEvent value,
-          $Res Function(_$IncreaseGuestEvent) then) =
-      __$$IncreaseGuestEventCopyWithImpl<$Res>;
+abstract class _$$IncreaseGuestEventImplCopyWith<$Res> {
+  factory _$$IncreaseGuestEventImplCopyWith(_$IncreaseGuestEventImpl value,
+          $Res Function(_$IncreaseGuestEventImpl) then) =
+      __$$IncreaseGuestEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$IncreaseGuestEventCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$IncreaseGuestEvent>
-    implements _$$IncreaseGuestEventCopyWith<$Res> {
-  __$$IncreaseGuestEventCopyWithImpl(
-      _$IncreaseGuestEvent _value, $Res Function(_$IncreaseGuestEvent) _then)
+class __$$IncreaseGuestEventImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$IncreaseGuestEventImpl>
+    implements _$$IncreaseGuestEventImplCopyWith<$Res> {
+  __$$IncreaseGuestEventImplCopyWithImpl(_$IncreaseGuestEventImpl _value,
+      $Res Function(_$IncreaseGuestEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$IncreaseGuestEvent
+class _$IncreaseGuestEventImpl
     with DiagnosticableTreeMixin
     implements IncreaseGuestEvent {
-  const _$IncreaseGuestEvent();
+  const _$IncreaseGuestEventImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -2876,7 +2885,7 @@ class _$IncreaseGuestEvent
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$IncreaseGuestEvent);
+        (other.runtimeType == runtimeType && other is _$IncreaseGuestEventImpl);
   }
 
   @override
@@ -3094,31 +3103,31 @@ class _$IncreaseGuestEvent
 }
 
 abstract class IncreaseGuestEvent implements TravelEvent {
-  const factory IncreaseGuestEvent() = _$IncreaseGuestEvent;
+  const factory IncreaseGuestEvent() = _$IncreaseGuestEventImpl;
 }
 
 /// @nodoc
-abstract class _$$DecreaseGuestEventCopyWith<$Res> {
-  factory _$$DecreaseGuestEventCopyWith(_$DecreaseGuestEvent value,
-          $Res Function(_$DecreaseGuestEvent) then) =
-      __$$DecreaseGuestEventCopyWithImpl<$Res>;
+abstract class _$$DecreaseGuestEventImplCopyWith<$Res> {
+  factory _$$DecreaseGuestEventImplCopyWith(_$DecreaseGuestEventImpl value,
+          $Res Function(_$DecreaseGuestEventImpl) then) =
+      __$$DecreaseGuestEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DecreaseGuestEventCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$DecreaseGuestEvent>
-    implements _$$DecreaseGuestEventCopyWith<$Res> {
-  __$$DecreaseGuestEventCopyWithImpl(
-      _$DecreaseGuestEvent _value, $Res Function(_$DecreaseGuestEvent) _then)
+class __$$DecreaseGuestEventImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$DecreaseGuestEventImpl>
+    implements _$$DecreaseGuestEventImplCopyWith<$Res> {
+  __$$DecreaseGuestEventImplCopyWithImpl(_$DecreaseGuestEventImpl _value,
+      $Res Function(_$DecreaseGuestEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DecreaseGuestEvent
+class _$DecreaseGuestEventImpl
     with DiagnosticableTreeMixin
     implements DecreaseGuestEvent {
-  const _$DecreaseGuestEvent();
+  const _$DecreaseGuestEventImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -3135,7 +3144,7 @@ class _$DecreaseGuestEvent
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DecreaseGuestEvent);
+        (other.runtimeType == runtimeType && other is _$DecreaseGuestEventImpl);
   }
 
   @override
@@ -3353,24 +3362,24 @@ class _$DecreaseGuestEvent
 }
 
 abstract class DecreaseGuestEvent implements TravelEvent {
-  const factory DecreaseGuestEvent() = _$DecreaseGuestEvent;
+  const factory DecreaseGuestEvent() = _$DecreaseGuestEventImpl;
 }
 
 /// @nodoc
-abstract class _$$SelectCountryEventCopyWith<$Res> {
-  factory _$$SelectCountryEventCopyWith(_$SelectCountryEvent value,
-          $Res Function(_$SelectCountryEvent) then) =
-      __$$SelectCountryEventCopyWithImpl<$Res>;
+abstract class _$$SelectCountryEventImplCopyWith<$Res> {
+  factory _$$SelectCountryEventImplCopyWith(_$SelectCountryEventImpl value,
+          $Res Function(_$SelectCountryEventImpl) then) =
+      __$$SelectCountryEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String country});
 }
 
 /// @nodoc
-class __$$SelectCountryEventCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$SelectCountryEvent>
-    implements _$$SelectCountryEventCopyWith<$Res> {
-  __$$SelectCountryEventCopyWithImpl(
-      _$SelectCountryEvent _value, $Res Function(_$SelectCountryEvent) _then)
+class __$$SelectCountryEventImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$SelectCountryEventImpl>
+    implements _$$SelectCountryEventImplCopyWith<$Res> {
+  __$$SelectCountryEventImplCopyWithImpl(_$SelectCountryEventImpl _value,
+      $Res Function(_$SelectCountryEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3378,7 +3387,7 @@ class __$$SelectCountryEventCopyWithImpl<$Res>
   $Res call({
     Object? country = null,
   }) {
-    return _then(_$SelectCountryEvent(
+    return _then(_$SelectCountryEventImpl(
       country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -3389,10 +3398,10 @@ class __$$SelectCountryEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SelectCountryEvent
+class _$SelectCountryEventImpl
     with DiagnosticableTreeMixin
     implements SelectCountryEvent {
-  const _$SelectCountryEvent({required this.country});
+  const _$SelectCountryEventImpl({required this.country});
 
   @override
   final String country;
@@ -3414,7 +3423,7 @@ class _$SelectCountryEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SelectCountryEvent &&
+            other is _$SelectCountryEventImpl &&
             (identical(other.country, country) || other.country == country));
   }
 
@@ -3424,8 +3433,8 @@ class _$SelectCountryEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SelectCountryEventCopyWith<_$SelectCountryEvent> get copyWith =>
-      __$$SelectCountryEventCopyWithImpl<_$SelectCountryEvent>(
+  _$$SelectCountryEventImplCopyWith<_$SelectCountryEventImpl> get copyWith =>
+      __$$SelectCountryEventImplCopyWithImpl<_$SelectCountryEventImpl>(
           this, _$identity);
 
   @override
@@ -3641,29 +3650,29 @@ class _$SelectCountryEvent
 
 abstract class SelectCountryEvent implements TravelEvent {
   const factory SelectCountryEvent({required final String country}) =
-      _$SelectCountryEvent;
+      _$SelectCountryEventImpl;
 
   String get country;
   @JsonKey(ignore: true)
-  _$$SelectCountryEventCopyWith<_$SelectCountryEvent> get copyWith =>
+  _$$SelectCountryEventImplCopyWith<_$SelectCountryEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SaveSearchLocationCopyWith<$Res> {
-  factory _$$SaveSearchLocationCopyWith(_$SaveSearchLocation value,
-          $Res Function(_$SaveSearchLocation) then) =
-      __$$SaveSearchLocationCopyWithImpl<$Res>;
+abstract class _$$SaveSearchLocationImplCopyWith<$Res> {
+  factory _$$SaveSearchLocationImplCopyWith(_$SaveSearchLocationImpl value,
+          $Res Function(_$SaveSearchLocationImpl) then) =
+      __$$SaveSearchLocationImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String location});
 }
 
 /// @nodoc
-class __$$SaveSearchLocationCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$SaveSearchLocation>
-    implements _$$SaveSearchLocationCopyWith<$Res> {
-  __$$SaveSearchLocationCopyWithImpl(
-      _$SaveSearchLocation _value, $Res Function(_$SaveSearchLocation) _then)
+class __$$SaveSearchLocationImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$SaveSearchLocationImpl>
+    implements _$$SaveSearchLocationImplCopyWith<$Res> {
+  __$$SaveSearchLocationImplCopyWithImpl(_$SaveSearchLocationImpl _value,
+      $Res Function(_$SaveSearchLocationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3671,7 +3680,7 @@ class __$$SaveSearchLocationCopyWithImpl<$Res>
   $Res call({
     Object? location = null,
   }) {
-    return _then(_$SaveSearchLocation(
+    return _then(_$SaveSearchLocationImpl(
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -3682,10 +3691,10 @@ class __$$SaveSearchLocationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveSearchLocation
+class _$SaveSearchLocationImpl
     with DiagnosticableTreeMixin
     implements SaveSearchLocation {
-  const _$SaveSearchLocation({required this.location});
+  const _$SaveSearchLocationImpl({required this.location});
 
   @override
   final String location;
@@ -3707,7 +3716,7 @@ class _$SaveSearchLocation
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveSearchLocation &&
+            other is _$SaveSearchLocationImpl &&
             (identical(other.location, location) ||
                 other.location == location));
   }
@@ -3718,8 +3727,8 @@ class _$SaveSearchLocation
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveSearchLocationCopyWith<_$SaveSearchLocation> get copyWith =>
-      __$$SaveSearchLocationCopyWithImpl<_$SaveSearchLocation>(
+  _$$SaveSearchLocationImplCopyWith<_$SaveSearchLocationImpl> get copyWith =>
+      __$$SaveSearchLocationImplCopyWithImpl<_$SaveSearchLocationImpl>(
           this, _$identity);
 
   @override
@@ -3935,36 +3944,36 @@ class _$SaveSearchLocation
 
 abstract class SaveSearchLocation implements TravelEvent {
   const factory SaveSearchLocation({required final String location}) =
-      _$SaveSearchLocation;
+      _$SaveSearchLocationImpl;
 
   String get location;
   @JsonKey(ignore: true)
-  _$$SaveSearchLocationCopyWith<_$SaveSearchLocation> get copyWith =>
+  _$$SaveSearchLocationImplCopyWith<_$SaveSearchLocationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ResetSearchDataCopyWith<$Res> {
-  factory _$$ResetSearchDataCopyWith(
-          _$ResetSearchData value, $Res Function(_$ResetSearchData) then) =
-      __$$ResetSearchDataCopyWithImpl<$Res>;
+abstract class _$$ResetSearchDataImplCopyWith<$Res> {
+  factory _$$ResetSearchDataImplCopyWith(_$ResetSearchDataImpl value,
+          $Res Function(_$ResetSearchDataImpl) then) =
+      __$$ResetSearchDataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ResetSearchDataCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$ResetSearchData>
-    implements _$$ResetSearchDataCopyWith<$Res> {
-  __$$ResetSearchDataCopyWithImpl(
-      _$ResetSearchData _value, $Res Function(_$ResetSearchData) _then)
+class __$$ResetSearchDataImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$ResetSearchDataImpl>
+    implements _$$ResetSearchDataImplCopyWith<$Res> {
+  __$$ResetSearchDataImplCopyWithImpl(
+      _$ResetSearchDataImpl _value, $Res Function(_$ResetSearchDataImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ResetSearchData
+class _$ResetSearchDataImpl
     with DiagnosticableTreeMixin
     implements ResetSearchData {
-  const _$ResetSearchData();
+  const _$ResetSearchDataImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -3980,7 +3989,7 @@ class _$ResetSearchData
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResetSearchData);
+        (other.runtimeType == runtimeType && other is _$ResetSearchDataImpl);
   }
 
   @override
@@ -4198,31 +4207,31 @@ class _$ResetSearchData
 }
 
 abstract class ResetSearchData implements TravelEvent {
-  const factory ResetSearchData() = _$ResetSearchData;
+  const factory ResetSearchData() = _$ResetSearchDataImpl;
 }
 
 /// @nodoc
-abstract class _$$ShowCalendarEventCopyWith<$Res> {
-  factory _$$ShowCalendarEventCopyWith(
-          _$ShowCalendarEvent value, $Res Function(_$ShowCalendarEvent) then) =
-      __$$ShowCalendarEventCopyWithImpl<$Res>;
+abstract class _$$ShowCalendarEventImplCopyWith<$Res> {
+  factory _$$ShowCalendarEventImplCopyWith(_$ShowCalendarEventImpl value,
+          $Res Function(_$ShowCalendarEventImpl) then) =
+      __$$ShowCalendarEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ShowCalendarEventCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$ShowCalendarEvent>
-    implements _$$ShowCalendarEventCopyWith<$Res> {
-  __$$ShowCalendarEventCopyWithImpl(
-      _$ShowCalendarEvent _value, $Res Function(_$ShowCalendarEvent) _then)
+class __$$ShowCalendarEventImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$ShowCalendarEventImpl>
+    implements _$$ShowCalendarEventImplCopyWith<$Res> {
+  __$$ShowCalendarEventImplCopyWithImpl(_$ShowCalendarEventImpl _value,
+      $Res Function(_$ShowCalendarEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ShowCalendarEvent
+class _$ShowCalendarEventImpl
     with DiagnosticableTreeMixin
     implements ShowCalendarEvent {
-  const _$ShowCalendarEvent();
+  const _$ShowCalendarEventImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -4239,7 +4248,7 @@ class _$ShowCalendarEvent
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ShowCalendarEvent);
+        (other.runtimeType == runtimeType && other is _$ShowCalendarEventImpl);
   }
 
   @override
@@ -4457,24 +4466,24 @@ class _$ShowCalendarEvent
 }
 
 abstract class ShowCalendarEvent implements TravelEvent {
-  const factory ShowCalendarEvent() = _$ShowCalendarEvent;
+  const factory ShowCalendarEvent() = _$ShowCalendarEventImpl;
 }
 
 /// @nodoc
-abstract class _$$SelectDateRangeEventCopyWith<$Res> {
-  factory _$$SelectDateRangeEventCopyWith(_$SelectDateRangeEvent value,
-          $Res Function(_$SelectDateRangeEvent) then) =
-      __$$SelectDateRangeEventCopyWithImpl<$Res>;
+abstract class _$$SelectDateRangeEventImplCopyWith<$Res> {
+  factory _$$SelectDateRangeEventImplCopyWith(_$SelectDateRangeEventImpl value,
+          $Res Function(_$SelectDateRangeEventImpl) then) =
+      __$$SelectDateRangeEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DateTime start, DateTime end, DateTime focusedDay});
 }
 
 /// @nodoc
-class __$$SelectDateRangeEventCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$SelectDateRangeEvent>
-    implements _$$SelectDateRangeEventCopyWith<$Res> {
-  __$$SelectDateRangeEventCopyWithImpl(_$SelectDateRangeEvent _value,
-      $Res Function(_$SelectDateRangeEvent) _then)
+class __$$SelectDateRangeEventImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$SelectDateRangeEventImpl>
+    implements _$$SelectDateRangeEventImplCopyWith<$Res> {
+  __$$SelectDateRangeEventImplCopyWithImpl(_$SelectDateRangeEventImpl _value,
+      $Res Function(_$SelectDateRangeEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4484,7 +4493,7 @@ class __$$SelectDateRangeEventCopyWithImpl<$Res>
     Object? end = null,
     Object? focusedDay = null,
   }) {
-    return _then(_$SelectDateRangeEvent(
+    return _then(_$SelectDateRangeEventImpl(
       start: null == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
@@ -4503,10 +4512,10 @@ class __$$SelectDateRangeEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SelectDateRangeEvent
+class _$SelectDateRangeEventImpl
     with DiagnosticableTreeMixin
     implements SelectDateRangeEvent {
-  const _$SelectDateRangeEvent(
+  const _$SelectDateRangeEventImpl(
       {required this.start, required this.end, required this.focusedDay});
 
   @override
@@ -4535,7 +4544,7 @@ class _$SelectDateRangeEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SelectDateRangeEvent &&
+            other is _$SelectDateRangeEventImpl &&
             (identical(other.start, start) || other.start == start) &&
             (identical(other.end, end) || other.end == end) &&
             (identical(other.focusedDay, focusedDay) ||
@@ -4548,9 +4557,10 @@ class _$SelectDateRangeEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SelectDateRangeEventCopyWith<_$SelectDateRangeEvent> get copyWith =>
-      __$$SelectDateRangeEventCopyWithImpl<_$SelectDateRangeEvent>(
-          this, _$identity);
+  _$$SelectDateRangeEventImplCopyWith<_$SelectDateRangeEventImpl>
+      get copyWith =>
+          __$$SelectDateRangeEventImplCopyWithImpl<_$SelectDateRangeEventImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4767,33 +4777,33 @@ abstract class SelectDateRangeEvent implements TravelEvent {
   const factory SelectDateRangeEvent(
       {required final DateTime start,
       required final DateTime end,
-      required final DateTime focusedDay}) = _$SelectDateRangeEvent;
+      required final DateTime focusedDay}) = _$SelectDateRangeEventImpl;
 
   DateTime get start;
   DateTime get end;
   DateTime get focusedDay;
   @JsonKey(ignore: true)
-  _$$SelectDateRangeEventCopyWith<_$SelectDateRangeEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SelectDateRangeEventImplCopyWith<_$SelectDateRangeEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchTravelSearchedProductsCopyWith<$Res> {
-  factory _$$FetchTravelSearchedProductsCopyWith(
-          _$FetchTravelSearchedProducts value,
-          $Res Function(_$FetchTravelSearchedProducts) then) =
-      __$$FetchTravelSearchedProductsCopyWithImpl<$Res>;
+abstract class _$$FetchTravelSearchedProductsImplCopyWith<$Res> {
+  factory _$$FetchTravelSearchedProductsImplCopyWith(
+          _$FetchTravelSearchedProductsImpl value,
+          $Res Function(_$FetchTravelSearchedProductsImpl) then) =
+      __$$FetchTravelSearchedProductsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String country, String location, String date});
 }
 
 /// @nodoc
-class __$$FetchTravelSearchedProductsCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelSearchedProducts>
-    implements _$$FetchTravelSearchedProductsCopyWith<$Res> {
-  __$$FetchTravelSearchedProductsCopyWithImpl(
-      _$FetchTravelSearchedProducts _value,
-      $Res Function(_$FetchTravelSearchedProducts) _then)
+class __$$FetchTravelSearchedProductsImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelSearchedProductsImpl>
+    implements _$$FetchTravelSearchedProductsImplCopyWith<$Res> {
+  __$$FetchTravelSearchedProductsImplCopyWithImpl(
+      _$FetchTravelSearchedProductsImpl _value,
+      $Res Function(_$FetchTravelSearchedProductsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4803,7 +4813,7 @@ class __$$FetchTravelSearchedProductsCopyWithImpl<$Res>
     Object? location = null,
     Object? date = null,
   }) {
-    return _then(_$FetchTravelSearchedProducts(
+    return _then(_$FetchTravelSearchedProductsImpl(
       country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -4822,10 +4832,10 @@ class __$$FetchTravelSearchedProductsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchTravelSearchedProducts
+class _$FetchTravelSearchedProductsImpl
     with DiagnosticableTreeMixin
     implements FetchTravelSearchedProducts {
-  const _$FetchTravelSearchedProducts(
+  const _$FetchTravelSearchedProductsImpl(
       {required this.country, required this.location, required this.date});
 
   @override
@@ -4855,7 +4865,7 @@ class _$FetchTravelSearchedProducts
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchTravelSearchedProducts &&
+            other is _$FetchTravelSearchedProductsImpl &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.location, location) ||
                 other.location == location) &&
@@ -4868,9 +4878,9 @@ class _$FetchTravelSearchedProducts
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchTravelSearchedProductsCopyWith<_$FetchTravelSearchedProducts>
-      get copyWith => __$$FetchTravelSearchedProductsCopyWithImpl<
-          _$FetchTravelSearchedProducts>(this, _$identity);
+  _$$FetchTravelSearchedProductsImplCopyWith<_$FetchTravelSearchedProductsImpl>
+      get copyWith => __$$FetchTravelSearchedProductsImplCopyWithImpl<
+          _$FetchTravelSearchedProductsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5087,40 +5097,40 @@ abstract class FetchTravelSearchedProducts implements TravelEvent {
   const factory FetchTravelSearchedProducts(
       {required final String country,
       required final String location,
-      required final String date}) = _$FetchTravelSearchedProducts;
+      required final String date}) = _$FetchTravelSearchedProductsImpl;
 
   String get country;
   String get location;
   String get date;
   @JsonKey(ignore: true)
-  _$$FetchTravelSearchedProductsCopyWith<_$FetchTravelSearchedProducts>
+  _$$FetchTravelSearchedProductsImplCopyWith<_$FetchTravelSearchedProductsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchTravelWishlistProductsCopyWith<$Res> {
-  factory _$$FetchTravelWishlistProductsCopyWith(
-          _$FetchTravelWishlistProducts value,
-          $Res Function(_$FetchTravelWishlistProducts) then) =
-      __$$FetchTravelWishlistProductsCopyWithImpl<$Res>;
+abstract class _$$FetchTravelWishlistProductsImplCopyWith<$Res> {
+  factory _$$FetchTravelWishlistProductsImplCopyWith(
+          _$FetchTravelWishlistProductsImpl value,
+          $Res Function(_$FetchTravelWishlistProductsImpl) then) =
+      __$$FetchTravelWishlistProductsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchTravelWishlistProductsCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelWishlistProducts>
-    implements _$$FetchTravelWishlistProductsCopyWith<$Res> {
-  __$$FetchTravelWishlistProductsCopyWithImpl(
-      _$FetchTravelWishlistProducts _value,
-      $Res Function(_$FetchTravelWishlistProducts) _then)
+class __$$FetchTravelWishlistProductsImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelWishlistProductsImpl>
+    implements _$$FetchTravelWishlistProductsImplCopyWith<$Res> {
+  __$$FetchTravelWishlistProductsImplCopyWithImpl(
+      _$FetchTravelWishlistProductsImpl _value,
+      $Res Function(_$FetchTravelWishlistProductsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchTravelWishlistProducts
+class _$FetchTravelWishlistProductsImpl
     with DiagnosticableTreeMixin
     implements FetchTravelWishlistProducts {
-  const _$FetchTravelWishlistProducts();
+  const _$FetchTravelWishlistProductsImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -5138,7 +5148,7 @@ class _$FetchTravelWishlistProducts
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchTravelWishlistProducts);
+            other is _$FetchTravelWishlistProductsImpl);
   }
 
   @override
@@ -5356,24 +5366,25 @@ class _$FetchTravelWishlistProducts
 }
 
 abstract class FetchTravelWishlistProducts implements TravelEvent {
-  const factory FetchTravelWishlistProducts() = _$FetchTravelWishlistProducts;
+  const factory FetchTravelWishlistProducts() =
+      _$FetchTravelWishlistProductsImpl;
 }
 
 /// @nodoc
-abstract class _$$AddTravelWishlistCopyWith<$Res> {
-  factory _$$AddTravelWishlistCopyWith(
-          _$AddTravelWishlist value, $Res Function(_$AddTravelWishlist) then) =
-      __$$AddTravelWishlistCopyWithImpl<$Res>;
+abstract class _$$AddTravelWishlistImplCopyWith<$Res> {
+  factory _$$AddTravelWishlistImplCopyWith(_$AddTravelWishlistImpl value,
+          $Res Function(_$AddTravelWishlistImpl) then) =
+      __$$AddTravelWishlistImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String productId, TravelWishlist wishlistType});
 }
 
 /// @nodoc
-class __$$AddTravelWishlistCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$AddTravelWishlist>
-    implements _$$AddTravelWishlistCopyWith<$Res> {
-  __$$AddTravelWishlistCopyWithImpl(
-      _$AddTravelWishlist _value, $Res Function(_$AddTravelWishlist) _then)
+class __$$AddTravelWishlistImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$AddTravelWishlistImpl>
+    implements _$$AddTravelWishlistImplCopyWith<$Res> {
+  __$$AddTravelWishlistImplCopyWithImpl(_$AddTravelWishlistImpl _value,
+      $Res Function(_$AddTravelWishlistImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5382,7 +5393,7 @@ class __$$AddTravelWishlistCopyWithImpl<$Res>
     Object? productId = null,
     Object? wishlistType = null,
   }) {
-    return _then(_$AddTravelWishlist(
+    return _then(_$AddTravelWishlistImpl(
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
@@ -5397,10 +5408,10 @@ class __$$AddTravelWishlistCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddTravelWishlist
+class _$AddTravelWishlistImpl
     with DiagnosticableTreeMixin
     implements AddTravelWishlist {
-  const _$AddTravelWishlist(
+  const _$AddTravelWishlistImpl(
       {required this.productId, required this.wishlistType});
 
   @override
@@ -5426,7 +5437,7 @@ class _$AddTravelWishlist
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddTravelWishlist &&
+            other is _$AddTravelWishlistImpl &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
             (identical(other.wishlistType, wishlistType) ||
@@ -5439,8 +5450,9 @@ class _$AddTravelWishlist
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddTravelWishlistCopyWith<_$AddTravelWishlist> get copyWith =>
-      __$$AddTravelWishlistCopyWithImpl<_$AddTravelWishlist>(this, _$identity);
+  _$$AddTravelWishlistImplCopyWith<_$AddTravelWishlistImpl> get copyWith =>
+      __$$AddTravelWishlistImplCopyWithImpl<_$AddTravelWishlistImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5656,37 +5668,39 @@ class _$AddTravelWishlist
 abstract class AddTravelWishlist implements TravelEvent {
   const factory AddTravelWishlist(
       {required final String productId,
-      required final TravelWishlist wishlistType}) = _$AddTravelWishlist;
+      required final TravelWishlist wishlistType}) = _$AddTravelWishlistImpl;
 
   String get productId;
   TravelWishlist get wishlistType;
   @JsonKey(ignore: true)
-  _$$AddTravelWishlistCopyWith<_$AddTravelWishlist> get copyWith =>
+  _$$AddTravelWishlistImplCopyWith<_$AddTravelWishlistImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TravelBookingCompletedCopyWith<$Res> {
-  factory _$$TravelBookingCompletedCopyWith(_$TravelBookingCompleted value,
-          $Res Function(_$TravelBookingCompleted) then) =
-      __$$TravelBookingCompletedCopyWithImpl<$Res>;
+abstract class _$$TravelBookingCompletedImplCopyWith<$Res> {
+  factory _$$TravelBookingCompletedImplCopyWith(
+          _$TravelBookingCompletedImpl value,
+          $Res Function(_$TravelBookingCompletedImpl) then) =
+      __$$TravelBookingCompletedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$TravelBookingCompletedCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$TravelBookingCompleted>
-    implements _$$TravelBookingCompletedCopyWith<$Res> {
-  __$$TravelBookingCompletedCopyWithImpl(_$TravelBookingCompleted _value,
-      $Res Function(_$TravelBookingCompleted) _then)
+class __$$TravelBookingCompletedImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$TravelBookingCompletedImpl>
+    implements _$$TravelBookingCompletedImplCopyWith<$Res> {
+  __$$TravelBookingCompletedImplCopyWithImpl(
+      _$TravelBookingCompletedImpl _value,
+      $Res Function(_$TravelBookingCompletedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$TravelBookingCompleted
+class _$TravelBookingCompletedImpl
     with DiagnosticableTreeMixin
     implements TravelBookingCompleted {
-  const _$TravelBookingCompleted();
+  const _$TravelBookingCompletedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -5703,7 +5717,8 @@ class _$TravelBookingCompleted
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TravelBookingCompleted);
+        (other.runtimeType == runtimeType &&
+            other is _$TravelBookingCompletedImpl);
   }
 
   @override
@@ -5921,33 +5936,33 @@ class _$TravelBookingCompleted
 }
 
 abstract class TravelBookingCompleted implements TravelEvent {
-  const factory TravelBookingCompleted() = _$TravelBookingCompleted;
+  const factory TravelBookingCompleted() = _$TravelBookingCompletedImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchTravelHomeBannerPackagesCopyWith<$Res> {
-  factory _$$FetchTravelHomeBannerPackagesCopyWith(
-          _$FetchTravelHomeBannerPackages value,
-          $Res Function(_$FetchTravelHomeBannerPackages) then) =
-      __$$FetchTravelHomeBannerPackagesCopyWithImpl<$Res>;
+abstract class _$$FetchTravelHomeBannerPackagesImplCopyWith<$Res> {
+  factory _$$FetchTravelHomeBannerPackagesImplCopyWith(
+          _$FetchTravelHomeBannerPackagesImpl value,
+          $Res Function(_$FetchTravelHomeBannerPackagesImpl) then) =
+      __$$FetchTravelHomeBannerPackagesImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchTravelHomeBannerPackagesCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelHomeBannerPackages>
-    implements _$$FetchTravelHomeBannerPackagesCopyWith<$Res> {
-  __$$FetchTravelHomeBannerPackagesCopyWithImpl(
-      _$FetchTravelHomeBannerPackages _value,
-      $Res Function(_$FetchTravelHomeBannerPackages) _then)
+class __$$FetchTravelHomeBannerPackagesImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelHomeBannerPackagesImpl>
+    implements _$$FetchTravelHomeBannerPackagesImplCopyWith<$Res> {
+  __$$FetchTravelHomeBannerPackagesImplCopyWithImpl(
+      _$FetchTravelHomeBannerPackagesImpl _value,
+      $Res Function(_$FetchTravelHomeBannerPackagesImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchTravelHomeBannerPackages
+class _$FetchTravelHomeBannerPackagesImpl
     with DiagnosticableTreeMixin
     implements FetchTravelHomeBannerPackages {
-  const _$FetchTravelHomeBannerPackages();
+  const _$FetchTravelHomeBannerPackagesImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -5965,7 +5980,7 @@ class _$FetchTravelHomeBannerPackages
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchTravelHomeBannerPackages);
+            other is _$FetchTravelHomeBannerPackagesImpl);
   }
 
   @override
@@ -6184,7 +6199,7 @@ class _$FetchTravelHomeBannerPackages
 
 abstract class FetchTravelHomeBannerPackages implements TravelEvent {
   const factory FetchTravelHomeBannerPackages() =
-      _$FetchTravelHomeBannerPackages;
+      _$FetchTravelHomeBannerPackagesImpl;
 }
 
 /// @nodoc
@@ -6456,11 +6471,11 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
 }
 
 /// @nodoc
-abstract class _$$_TravelStateCopyWith<$Res>
+abstract class _$$TravelStateImplCopyWith<$Res>
     implements $TravelStateCopyWith<$Res> {
-  factory _$$_TravelStateCopyWith(
-          _$_TravelState value, $Res Function(_$_TravelState) then) =
-      __$$_TravelStateCopyWithImpl<$Res>;
+  factory _$$TravelStateImplCopyWith(
+          _$TravelStateImpl value, $Res Function(_$TravelStateImpl) then) =
+      __$$TravelStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -6500,11 +6515,11 @@ abstract class _$$_TravelStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TravelStateCopyWithImpl<$Res>
-    extends _$TravelStateCopyWithImpl<$Res, _$_TravelState>
-    implements _$$_TravelStateCopyWith<$Res> {
-  __$$_TravelStateCopyWithImpl(
-      _$_TravelState _value, $Res Function(_$_TravelState) _then)
+class __$$TravelStateImplCopyWithImpl<$Res>
+    extends _$TravelStateCopyWithImpl<$Res, _$TravelStateImpl>
+    implements _$$TravelStateImplCopyWith<$Res> {
+  __$$TravelStateImplCopyWithImpl(
+      _$TravelStateImpl _value, $Res Function(_$TravelStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6533,7 +6548,7 @@ class __$$_TravelStateCopyWithImpl<$Res>
     Object? bookingSuccess = null,
     Object? travelHomeBannerPackages = freezed,
   }) {
-    return _then(_$_TravelState(
+    return _then(_$TravelStateImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -6628,8 +6643,8 @@ class __$$_TravelStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
-  const _$_TravelState(
+class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
+  const _$TravelStateImpl(
       {required this.index,
       required this.isLoading,
       required this.travelPopularProductsModel,
@@ -6789,7 +6804,7 @@ class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TravelState &&
+            other is _$TravelStateImpl &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
@@ -6867,8 +6882,8 @@ class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TravelStateCopyWith<_$_TravelState> get copyWith =>
-      __$$_TravelStateCopyWithImpl<_$_TravelState>(this, _$identity);
+  _$$TravelStateImplCopyWith<_$TravelStateImpl> get copyWith =>
+      __$$TravelStateImplCopyWithImpl<_$TravelStateImpl>(this, _$identity);
 }
 
 abstract class _TravelState implements TravelState {
@@ -6896,7 +6911,7 @@ abstract class _TravelState implements TravelState {
           required final Set<String>? travelWishlistItems,
           required final bool bookingSuccess,
           required final List<TravelPackageItems>? travelHomeBannerPackages}) =
-      _$_TravelState;
+      _$TravelStateImpl;
 
   @override
   int get index;
@@ -6944,6 +6959,6 @@ abstract class _TravelState implements TravelState {
   List<TravelPackageItems>? get travelHomeBannerPackages;
   @override
   @JsonKey(ignore: true)
-  _$$_TravelStateCopyWith<_$_TravelState> get copyWith =>
+  _$$TravelStateImplCopyWith<_$TravelStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

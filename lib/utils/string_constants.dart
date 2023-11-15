@@ -83,6 +83,9 @@ class Appstrings {
   static const String get100Coins = "Get 100 Coins";
   static const String profileFooterText = "For regular updates follow us on";
   static const String share = "Share";
+  static const String twitterUrl = "https://twitter.com/millatco?s=11";
+  static const String instagramUrl =
+      "https://www.instagram.com/millat_one.united.ummah/?igshid=MzRlODBiNWFlZA%3D%3D";
   //qibla
   static const String compassThemes = "Compass Themes";
   static const String qiblaDirection = "Qibla Direction";
@@ -132,6 +135,7 @@ class Appstrings {
   static const String orderHistory = "Order History";
   static const String wishList = "Wishlist";
   static const String noAddressText = "You have no address yet";
+  static const String address = "Address";
   static const String noAddresSubText =
       "Please add an address for shipping and billing";
   static const String addNewAddress = "Add New Address";

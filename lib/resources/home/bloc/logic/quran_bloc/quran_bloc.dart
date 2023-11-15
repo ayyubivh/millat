@@ -392,8 +392,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
   }
 
   _showMusicBar(ShowMusicbar event, Emitter<QuranState> emit) {
-    emit(state.copyWith(
-        isShowMusicbar: state.isShowMusicbar == false ? true : false));
+    emit(state.copyWith(isShowMusicbar: !state.isShowMusicbar));
   }
 
   _isExpandonSearchEvent(

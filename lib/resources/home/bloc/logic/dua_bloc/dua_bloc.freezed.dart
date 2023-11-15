@@ -154,27 +154,28 @@ class _$DuaEventCopyWithImpl<$Res, $Val extends DuaEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchDuaCategoryEventCopyWith<$Res> {
-  factory _$$FetchDuaCategoryEventCopyWith(_$FetchDuaCategoryEvent value,
-          $Res Function(_$FetchDuaCategoryEvent) then) =
-      __$$FetchDuaCategoryEventCopyWithImpl<$Res>;
+abstract class _$$FetchDuaCategoryEventImplCopyWith<$Res> {
+  factory _$$FetchDuaCategoryEventImplCopyWith(
+          _$FetchDuaCategoryEventImpl value,
+          $Res Function(_$FetchDuaCategoryEventImpl) then) =
+      __$$FetchDuaCategoryEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchDuaCategoryEventCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaCategoryEvent>
-    implements _$$FetchDuaCategoryEventCopyWith<$Res> {
-  __$$FetchDuaCategoryEventCopyWithImpl(_$FetchDuaCategoryEvent _value,
-      $Res Function(_$FetchDuaCategoryEvent) _then)
+class __$$FetchDuaCategoryEventImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaCategoryEventImpl>
+    implements _$$FetchDuaCategoryEventImplCopyWith<$Res> {
+  __$$FetchDuaCategoryEventImplCopyWithImpl(_$FetchDuaCategoryEventImpl _value,
+      $Res Function(_$FetchDuaCategoryEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchDuaCategoryEvent
+class _$FetchDuaCategoryEventImpl
     with DiagnosticableTreeMixin
     implements FetchDuaCategoryEvent {
-  const _$FetchDuaCategoryEvent();
+  const _$FetchDuaCategoryEventImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -191,7 +192,8 @@ class _$FetchDuaCategoryEvent
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchDuaCategoryEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchDuaCategoryEventImpl);
   }
 
   @override
@@ -341,26 +343,26 @@ class _$FetchDuaCategoryEvent
 }
 
 abstract class FetchDuaCategoryEvent implements DuaEvent {
-  const factory FetchDuaCategoryEvent() = _$FetchDuaCategoryEvent;
+  const factory FetchDuaCategoryEvent() = _$FetchDuaCategoryEventImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchDuaSubCategorybyCategoryCopyWith<$Res> {
-  factory _$$FetchDuaSubCategorybyCategoryCopyWith(
-          _$FetchDuaSubCategorybyCategory value,
-          $Res Function(_$FetchDuaSubCategorybyCategory) then) =
-      __$$FetchDuaSubCategorybyCategoryCopyWithImpl<$Res>;
+abstract class _$$FetchDuaSubCategorybyCategoryImplCopyWith<$Res> {
+  factory _$$FetchDuaSubCategorybyCategoryImplCopyWith(
+          _$FetchDuaSubCategorybyCategoryImpl value,
+          $Res Function(_$FetchDuaSubCategorybyCategoryImpl) then) =
+      __$$FetchDuaSubCategorybyCategoryImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String categoryId});
 }
 
 /// @nodoc
-class __$$FetchDuaSubCategorybyCategoryCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaSubCategorybyCategory>
-    implements _$$FetchDuaSubCategorybyCategoryCopyWith<$Res> {
-  __$$FetchDuaSubCategorybyCategoryCopyWithImpl(
-      _$FetchDuaSubCategorybyCategory _value,
-      $Res Function(_$FetchDuaSubCategorybyCategory) _then)
+class __$$FetchDuaSubCategorybyCategoryImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaSubCategorybyCategoryImpl>
+    implements _$$FetchDuaSubCategorybyCategoryImplCopyWith<$Res> {
+  __$$FetchDuaSubCategorybyCategoryImplCopyWithImpl(
+      _$FetchDuaSubCategorybyCategoryImpl _value,
+      $Res Function(_$FetchDuaSubCategorybyCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -368,7 +370,7 @@ class __$$FetchDuaSubCategorybyCategoryCopyWithImpl<$Res>
   $Res call({
     Object? categoryId = null,
   }) {
-    return _then(_$FetchDuaSubCategorybyCategory(
+    return _then(_$FetchDuaSubCategorybyCategoryImpl(
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -379,10 +381,10 @@ class __$$FetchDuaSubCategorybyCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchDuaSubCategorybyCategory
+class _$FetchDuaSubCategorybyCategoryImpl
     with DiagnosticableTreeMixin
     implements FetchDuaSubCategorybyCategory {
-  const _$FetchDuaSubCategorybyCategory({required this.categoryId});
+  const _$FetchDuaSubCategorybyCategoryImpl({required this.categoryId});
 
   @override
   final String categoryId;
@@ -405,7 +407,7 @@ class _$FetchDuaSubCategorybyCategory
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchDuaSubCategorybyCategory &&
+            other is _$FetchDuaSubCategorybyCategoryImpl &&
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId));
   }
@@ -416,9 +418,10 @@ class _$FetchDuaSubCategorybyCategory
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchDuaSubCategorybyCategoryCopyWith<_$FetchDuaSubCategorybyCategory>
-      get copyWith => __$$FetchDuaSubCategorybyCategoryCopyWithImpl<
-          _$FetchDuaSubCategorybyCategory>(this, _$identity);
+  _$$FetchDuaSubCategorybyCategoryImplCopyWith<
+          _$FetchDuaSubCategorybyCategoryImpl>
+      get copyWith => __$$FetchDuaSubCategorybyCategoryImplCopyWithImpl<
+          _$FetchDuaSubCategorybyCategoryImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -565,31 +568,32 @@ class _$FetchDuaSubCategorybyCategory
 
 abstract class FetchDuaSubCategorybyCategory implements DuaEvent {
   const factory FetchDuaSubCategorybyCategory(
-      {required final String categoryId}) = _$FetchDuaSubCategorybyCategory;
+      {required final String categoryId}) = _$FetchDuaSubCategorybyCategoryImpl;
 
   String get categoryId;
   @JsonKey(ignore: true)
-  _$$FetchDuaSubCategorybyCategoryCopyWith<_$FetchDuaSubCategorybyCategory>
+  _$$FetchDuaSubCategorybyCategoryImplCopyWith<
+          _$FetchDuaSubCategorybyCategoryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchDuaBySubcategoryEventCopyWith<$Res> {
-  factory _$$FetchDuaBySubcategoryEventCopyWith(
-          _$FetchDuaBySubcategoryEvent value,
-          $Res Function(_$FetchDuaBySubcategoryEvent) then) =
-      __$$FetchDuaBySubcategoryEventCopyWithImpl<$Res>;
+abstract class _$$FetchDuaBySubcategoryEventImplCopyWith<$Res> {
+  factory _$$FetchDuaBySubcategoryEventImplCopyWith(
+          _$FetchDuaBySubcategoryEventImpl value,
+          $Res Function(_$FetchDuaBySubcategoryEventImpl) then) =
+      __$$FetchDuaBySubcategoryEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String subCategoryId});
 }
 
 /// @nodoc
-class __$$FetchDuaBySubcategoryEventCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaBySubcategoryEvent>
-    implements _$$FetchDuaBySubcategoryEventCopyWith<$Res> {
-  __$$FetchDuaBySubcategoryEventCopyWithImpl(
-      _$FetchDuaBySubcategoryEvent _value,
-      $Res Function(_$FetchDuaBySubcategoryEvent) _then)
+class __$$FetchDuaBySubcategoryEventImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaBySubcategoryEventImpl>
+    implements _$$FetchDuaBySubcategoryEventImplCopyWith<$Res> {
+  __$$FetchDuaBySubcategoryEventImplCopyWithImpl(
+      _$FetchDuaBySubcategoryEventImpl _value,
+      $Res Function(_$FetchDuaBySubcategoryEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -597,7 +601,7 @@ class __$$FetchDuaBySubcategoryEventCopyWithImpl<$Res>
   $Res call({
     Object? subCategoryId = null,
   }) {
-    return _then(_$FetchDuaBySubcategoryEvent(
+    return _then(_$FetchDuaBySubcategoryEventImpl(
       subCategoryId: null == subCategoryId
           ? _value.subCategoryId
           : subCategoryId // ignore: cast_nullable_to_non_nullable
@@ -608,10 +612,10 @@ class __$$FetchDuaBySubcategoryEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchDuaBySubcategoryEvent
+class _$FetchDuaBySubcategoryEventImpl
     with DiagnosticableTreeMixin
     implements FetchDuaBySubcategoryEvent {
-  const _$FetchDuaBySubcategoryEvent({required this.subCategoryId});
+  const _$FetchDuaBySubcategoryEventImpl({required this.subCategoryId});
 
   @override
   final String subCategoryId;
@@ -633,7 +637,7 @@ class _$FetchDuaBySubcategoryEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchDuaBySubcategoryEvent &&
+            other is _$FetchDuaBySubcategoryEventImpl &&
             (identical(other.subCategoryId, subCategoryId) ||
                 other.subCategoryId == subCategoryId));
   }
@@ -644,9 +648,9 @@ class _$FetchDuaBySubcategoryEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchDuaBySubcategoryEventCopyWith<_$FetchDuaBySubcategoryEvent>
-      get copyWith => __$$FetchDuaBySubcategoryEventCopyWithImpl<
-          _$FetchDuaBySubcategoryEvent>(this, _$identity);
+  _$$FetchDuaBySubcategoryEventImplCopyWith<_$FetchDuaBySubcategoryEventImpl>
+      get copyWith => __$$FetchDuaBySubcategoryEventImplCopyWithImpl<
+          _$FetchDuaBySubcategoryEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -793,29 +797,29 @@ class _$FetchDuaBySubcategoryEvent
 
 abstract class FetchDuaBySubcategoryEvent implements DuaEvent {
   const factory FetchDuaBySubcategoryEvent(
-      {required final String subCategoryId}) = _$FetchDuaBySubcategoryEvent;
+      {required final String subCategoryId}) = _$FetchDuaBySubcategoryEventImpl;
 
   String get subCategoryId;
   @JsonKey(ignore: true)
-  _$$FetchDuaBySubcategoryEventCopyWith<_$FetchDuaBySubcategoryEvent>
+  _$$FetchDuaBySubcategoryEventImplCopyWith<_$FetchDuaBySubcategoryEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddBookmarkEventCopyWith<$Res> {
-  factory _$$AddBookmarkEventCopyWith(
-          _$AddBookmarkEvent value, $Res Function(_$AddBookmarkEvent) then) =
-      __$$AddBookmarkEventCopyWithImpl<$Res>;
+abstract class _$$AddBookmarkEventImplCopyWith<$Res> {
+  factory _$$AddBookmarkEventImplCopyWith(_$AddBookmarkEventImpl value,
+          $Res Function(_$AddBookmarkEventImpl) then) =
+      __$$AddBookmarkEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context, String duaId});
 }
 
 /// @nodoc
-class __$$AddBookmarkEventCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$AddBookmarkEvent>
-    implements _$$AddBookmarkEventCopyWith<$Res> {
-  __$$AddBookmarkEventCopyWithImpl(
-      _$AddBookmarkEvent _value, $Res Function(_$AddBookmarkEvent) _then)
+class __$$AddBookmarkEventImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$AddBookmarkEventImpl>
+    implements _$$AddBookmarkEventImplCopyWith<$Res> {
+  __$$AddBookmarkEventImplCopyWithImpl(_$AddBookmarkEventImpl _value,
+      $Res Function(_$AddBookmarkEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -824,7 +828,7 @@ class __$$AddBookmarkEventCopyWithImpl<$Res>
     Object? context = null,
     Object? duaId = null,
   }) {
-    return _then(_$AddBookmarkEvent(
+    return _then(_$AddBookmarkEventImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -839,10 +843,10 @@ class __$$AddBookmarkEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddBookmarkEvent
+class _$AddBookmarkEventImpl
     with DiagnosticableTreeMixin
     implements AddBookmarkEvent {
-  const _$AddBookmarkEvent({required this.context, required this.duaId});
+  const _$AddBookmarkEventImpl({required this.context, required this.duaId});
 
   @override
   final BuildContext context;
@@ -867,7 +871,7 @@ class _$AddBookmarkEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddBookmarkEvent &&
+            other is _$AddBookmarkEventImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.duaId, duaId) || other.duaId == duaId));
   }
@@ -878,8 +882,9 @@ class _$AddBookmarkEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddBookmarkEventCopyWith<_$AddBookmarkEvent> get copyWith =>
-      __$$AddBookmarkEventCopyWithImpl<_$AddBookmarkEvent>(this, _$identity);
+  _$$AddBookmarkEventImplCopyWith<_$AddBookmarkEventImpl> get copyWith =>
+      __$$AddBookmarkEventImplCopyWithImpl<_$AddBookmarkEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1027,30 +1032,32 @@ class _$AddBookmarkEvent
 abstract class AddBookmarkEvent implements DuaEvent {
   const factory AddBookmarkEvent(
       {required final BuildContext context,
-      required final String duaId}) = _$AddBookmarkEvent;
+      required final String duaId}) = _$AddBookmarkEventImpl;
 
   BuildContext get context;
   String get duaId;
   @JsonKey(ignore: true)
-  _$$AddBookmarkEventCopyWith<_$AddBookmarkEvent> get copyWith =>
+  _$$AddBookmarkEventImplCopyWith<_$AddBookmarkEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchDuaBookMarksEventCopyWith<$Res> {
-  factory _$$FetchDuaBookMarksEventCopyWith(_$FetchDuaBookMarksEvent value,
-          $Res Function(_$FetchDuaBookMarksEvent) then) =
-      __$$FetchDuaBookMarksEventCopyWithImpl<$Res>;
+abstract class _$$FetchDuaBookMarksEventImplCopyWith<$Res> {
+  factory _$$FetchDuaBookMarksEventImplCopyWith(
+          _$FetchDuaBookMarksEventImpl value,
+          $Res Function(_$FetchDuaBookMarksEventImpl) then) =
+      __$$FetchDuaBookMarksEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext buildcontext});
 }
 
 /// @nodoc
-class __$$FetchDuaBookMarksEventCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaBookMarksEvent>
-    implements _$$FetchDuaBookMarksEventCopyWith<$Res> {
-  __$$FetchDuaBookMarksEventCopyWithImpl(_$FetchDuaBookMarksEvent _value,
-      $Res Function(_$FetchDuaBookMarksEvent) _then)
+class __$$FetchDuaBookMarksEventImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaBookMarksEventImpl>
+    implements _$$FetchDuaBookMarksEventImplCopyWith<$Res> {
+  __$$FetchDuaBookMarksEventImplCopyWithImpl(
+      _$FetchDuaBookMarksEventImpl _value,
+      $Res Function(_$FetchDuaBookMarksEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1058,7 +1065,7 @@ class __$$FetchDuaBookMarksEventCopyWithImpl<$Res>
   $Res call({
     Object? buildcontext = null,
   }) {
-    return _then(_$FetchDuaBookMarksEvent(
+    return _then(_$FetchDuaBookMarksEventImpl(
       null == buildcontext
           ? _value.buildcontext
           : buildcontext // ignore: cast_nullable_to_non_nullable
@@ -1069,10 +1076,10 @@ class __$$FetchDuaBookMarksEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchDuaBookMarksEvent
+class _$FetchDuaBookMarksEventImpl
     with DiagnosticableTreeMixin
     implements FetchDuaBookMarksEvent {
-  const _$FetchDuaBookMarksEvent(this.buildcontext);
+  const _$FetchDuaBookMarksEventImpl(this.buildcontext);
 
   @override
   final BuildContext buildcontext;
@@ -1094,7 +1101,7 @@ class _$FetchDuaBookMarksEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchDuaBookMarksEvent &&
+            other is _$FetchDuaBookMarksEventImpl &&
             (identical(other.buildcontext, buildcontext) ||
                 other.buildcontext == buildcontext));
   }
@@ -1105,9 +1112,9 @@ class _$FetchDuaBookMarksEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchDuaBookMarksEventCopyWith<_$FetchDuaBookMarksEvent> get copyWith =>
-      __$$FetchDuaBookMarksEventCopyWithImpl<_$FetchDuaBookMarksEvent>(
-          this, _$identity);
+  _$$FetchDuaBookMarksEventImplCopyWith<_$FetchDuaBookMarksEventImpl>
+      get copyWith => __$$FetchDuaBookMarksEventImplCopyWithImpl<
+          _$FetchDuaBookMarksEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1254,29 +1261,29 @@ class _$FetchDuaBookMarksEvent
 
 abstract class FetchDuaBookMarksEvent implements DuaEvent {
   const factory FetchDuaBookMarksEvent(final BuildContext buildcontext) =
-      _$FetchDuaBookMarksEvent;
+      _$FetchDuaBookMarksEventImpl;
 
   BuildContext get buildcontext;
   @JsonKey(ignore: true)
-  _$$FetchDuaBookMarksEventCopyWith<_$FetchDuaBookMarksEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchDuaBookMarksEventImplCopyWith<_$FetchDuaBookMarksEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RemoveBookmarkCopyWith<$Res> {
-  factory _$$RemoveBookmarkCopyWith(
-          _$RemoveBookmark value, $Res Function(_$RemoveBookmark) then) =
-      __$$RemoveBookmarkCopyWithImpl<$Res>;
+abstract class _$$RemoveBookmarkImplCopyWith<$Res> {
+  factory _$$RemoveBookmarkImplCopyWith(_$RemoveBookmarkImpl value,
+          $Res Function(_$RemoveBookmarkImpl) then) =
+      __$$RemoveBookmarkImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context, String duaId});
 }
 
 /// @nodoc
-class __$$RemoveBookmarkCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$RemoveBookmark>
-    implements _$$RemoveBookmarkCopyWith<$Res> {
-  __$$RemoveBookmarkCopyWithImpl(
-      _$RemoveBookmark _value, $Res Function(_$RemoveBookmark) _then)
+class __$$RemoveBookmarkImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$RemoveBookmarkImpl>
+    implements _$$RemoveBookmarkImplCopyWith<$Res> {
+  __$$RemoveBookmarkImplCopyWithImpl(
+      _$RemoveBookmarkImpl _value, $Res Function(_$RemoveBookmarkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1285,7 +1292,7 @@ class __$$RemoveBookmarkCopyWithImpl<$Res>
     Object? context = null,
     Object? duaId = null,
   }) {
-    return _then(_$RemoveBookmark(
+    return _then(_$RemoveBookmarkImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -1300,8 +1307,10 @@ class __$$RemoveBookmarkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveBookmark with DiagnosticableTreeMixin implements RemoveBookmark {
-  const _$RemoveBookmark({required this.context, required this.duaId});
+class _$RemoveBookmarkImpl
+    with DiagnosticableTreeMixin
+    implements RemoveBookmark {
+  const _$RemoveBookmarkImpl({required this.context, required this.duaId});
 
   @override
   final BuildContext context;
@@ -1326,7 +1335,7 @@ class _$RemoveBookmark with DiagnosticableTreeMixin implements RemoveBookmark {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RemoveBookmark &&
+            other is _$RemoveBookmarkImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.duaId, duaId) || other.duaId == duaId));
   }
@@ -1337,8 +1346,9 @@ class _$RemoveBookmark with DiagnosticableTreeMixin implements RemoveBookmark {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RemoveBookmarkCopyWith<_$RemoveBookmark> get copyWith =>
-      __$$RemoveBookmarkCopyWithImpl<_$RemoveBookmark>(this, _$identity);
+  _$$RemoveBookmarkImplCopyWith<_$RemoveBookmarkImpl> get copyWith =>
+      __$$RemoveBookmarkImplCopyWithImpl<_$RemoveBookmarkImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1486,30 +1496,30 @@ class _$RemoveBookmark with DiagnosticableTreeMixin implements RemoveBookmark {
 abstract class RemoveBookmark implements DuaEvent {
   const factory RemoveBookmark(
       {required final BuildContext context,
-      required final String duaId}) = _$RemoveBookmark;
+      required final String duaId}) = _$RemoveBookmarkImpl;
 
   BuildContext get context;
   String get duaId;
   @JsonKey(ignore: true)
-  _$$RemoveBookmarkCopyWith<_$RemoveBookmark> get copyWith =>
+  _$$RemoveBookmarkImplCopyWith<_$RemoveBookmarkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeSliderEventCopyWith<$Res> {
-  factory _$$ChangeSliderEventCopyWith(
-          _$ChangeSliderEvent value, $Res Function(_$ChangeSliderEvent) then) =
-      __$$ChangeSliderEventCopyWithImpl<$Res>;
+abstract class _$$ChangeSliderEventImplCopyWith<$Res> {
+  factory _$$ChangeSliderEventImplCopyWith(_$ChangeSliderEventImpl value,
+          $Res Function(_$ChangeSliderEventImpl) then) =
+      __$$ChangeSliderEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({double sliderVal});
 }
 
 /// @nodoc
-class __$$ChangeSliderEventCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$ChangeSliderEvent>
-    implements _$$ChangeSliderEventCopyWith<$Res> {
-  __$$ChangeSliderEventCopyWithImpl(
-      _$ChangeSliderEvent _value, $Res Function(_$ChangeSliderEvent) _then)
+class __$$ChangeSliderEventImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$ChangeSliderEventImpl>
+    implements _$$ChangeSliderEventImplCopyWith<$Res> {
+  __$$ChangeSliderEventImplCopyWithImpl(_$ChangeSliderEventImpl _value,
+      $Res Function(_$ChangeSliderEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1517,7 +1527,7 @@ class __$$ChangeSliderEventCopyWithImpl<$Res>
   $Res call({
     Object? sliderVal = null,
   }) {
-    return _then(_$ChangeSliderEvent(
+    return _then(_$ChangeSliderEventImpl(
       sliderVal: null == sliderVal
           ? _value.sliderVal
           : sliderVal // ignore: cast_nullable_to_non_nullable
@@ -1528,10 +1538,10 @@ class __$$ChangeSliderEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeSliderEvent
+class _$ChangeSliderEventImpl
     with DiagnosticableTreeMixin
     implements ChangeSliderEvent {
-  const _$ChangeSliderEvent({required this.sliderVal});
+  const _$ChangeSliderEventImpl({required this.sliderVal});
 
   @override
   final double sliderVal;
@@ -1553,7 +1563,7 @@ class _$ChangeSliderEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeSliderEvent &&
+            other is _$ChangeSliderEventImpl &&
             (identical(other.sliderVal, sliderVal) ||
                 other.sliderVal == sliderVal));
   }
@@ -1564,8 +1574,9 @@ class _$ChangeSliderEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeSliderEventCopyWith<_$ChangeSliderEvent> get copyWith =>
-      __$$ChangeSliderEventCopyWithImpl<_$ChangeSliderEvent>(this, _$identity);
+  _$$ChangeSliderEventImplCopyWith<_$ChangeSliderEventImpl> get copyWith =>
+      __$$ChangeSliderEventImplCopyWithImpl<_$ChangeSliderEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1712,34 +1723,34 @@ class _$ChangeSliderEvent
 
 abstract class ChangeSliderEvent implements DuaEvent {
   const factory ChangeSliderEvent({required final double sliderVal}) =
-      _$ChangeSliderEvent;
+      _$ChangeSliderEventImpl;
 
   double get sliderVal;
   @JsonKey(ignore: true)
-  _$$ChangeSliderEventCopyWith<_$ChangeSliderEvent> get copyWith =>
+  _$$ChangeSliderEventImplCopyWith<_$ChangeSliderEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchDuaByIdCopyWith<$Res> {
-  factory _$$FetchDuaByIdCopyWith(
-          _$FetchDuaById value, $Res Function(_$FetchDuaById) then) =
-      __$$FetchDuaByIdCopyWithImpl<$Res>;
+abstract class _$$FetchDuaByIdImplCopyWith<$Res> {
+  factory _$$FetchDuaByIdImplCopyWith(
+          _$FetchDuaByIdImpl value, $Res Function(_$FetchDuaByIdImpl) then) =
+      __$$FetchDuaByIdImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchDuaByIdCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaById>
-    implements _$$FetchDuaByIdCopyWith<$Res> {
-  __$$FetchDuaByIdCopyWithImpl(
-      _$FetchDuaById _value, $Res Function(_$FetchDuaById) _then)
+class __$$FetchDuaByIdImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaByIdImpl>
+    implements _$$FetchDuaByIdImplCopyWith<$Res> {
+  __$$FetchDuaByIdImplCopyWithImpl(
+      _$FetchDuaByIdImpl _value, $Res Function(_$FetchDuaByIdImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchDuaById with DiagnosticableTreeMixin implements FetchDuaById {
-  const _$FetchDuaById();
+class _$FetchDuaByIdImpl with DiagnosticableTreeMixin implements FetchDuaById {
+  const _$FetchDuaByIdImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1755,7 +1766,7 @@ class _$FetchDuaById with DiagnosticableTreeMixin implements FetchDuaById {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchDuaById);
+        (other.runtimeType == runtimeType && other is _$FetchDuaByIdImpl);
   }
 
   @override
@@ -1905,26 +1916,26 @@ class _$FetchDuaById with DiagnosticableTreeMixin implements FetchDuaById {
 }
 
 abstract class FetchDuaById implements DuaEvent {
-  const factory FetchDuaById() = _$FetchDuaById;
+  const factory FetchDuaById() = _$FetchDuaByIdImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeSubcategoryNameEventCopyWith<$Res> {
-  factory _$$ChangeSubcategoryNameEventCopyWith(
-          _$ChangeSubcategoryNameEvent value,
-          $Res Function(_$ChangeSubcategoryNameEvent) then) =
-      __$$ChangeSubcategoryNameEventCopyWithImpl<$Res>;
+abstract class _$$ChangeSubcategoryNameEventImplCopyWith<$Res> {
+  factory _$$ChangeSubcategoryNameEventImplCopyWith(
+          _$ChangeSubcategoryNameEventImpl value,
+          $Res Function(_$ChangeSubcategoryNameEventImpl) then) =
+      __$$ChangeSubcategoryNameEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String newName});
 }
 
 /// @nodoc
-class __$$ChangeSubcategoryNameEventCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$ChangeSubcategoryNameEvent>
-    implements _$$ChangeSubcategoryNameEventCopyWith<$Res> {
-  __$$ChangeSubcategoryNameEventCopyWithImpl(
-      _$ChangeSubcategoryNameEvent _value,
-      $Res Function(_$ChangeSubcategoryNameEvent) _then)
+class __$$ChangeSubcategoryNameEventImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$ChangeSubcategoryNameEventImpl>
+    implements _$$ChangeSubcategoryNameEventImplCopyWith<$Res> {
+  __$$ChangeSubcategoryNameEventImplCopyWithImpl(
+      _$ChangeSubcategoryNameEventImpl _value,
+      $Res Function(_$ChangeSubcategoryNameEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1932,7 +1943,7 @@ class __$$ChangeSubcategoryNameEventCopyWithImpl<$Res>
   $Res call({
     Object? newName = null,
   }) {
-    return _then(_$ChangeSubcategoryNameEvent(
+    return _then(_$ChangeSubcategoryNameEventImpl(
       newName: null == newName
           ? _value.newName
           : newName // ignore: cast_nullable_to_non_nullable
@@ -1943,10 +1954,10 @@ class __$$ChangeSubcategoryNameEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeSubcategoryNameEvent
+class _$ChangeSubcategoryNameEventImpl
     with DiagnosticableTreeMixin
     implements ChangeSubcategoryNameEvent {
-  const _$ChangeSubcategoryNameEvent({required this.newName});
+  const _$ChangeSubcategoryNameEventImpl({required this.newName});
 
   @override
   final String newName;
@@ -1968,7 +1979,7 @@ class _$ChangeSubcategoryNameEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeSubcategoryNameEvent &&
+            other is _$ChangeSubcategoryNameEventImpl &&
             (identical(other.newName, newName) || other.newName == newName));
   }
 
@@ -1978,9 +1989,9 @@ class _$ChangeSubcategoryNameEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeSubcategoryNameEventCopyWith<_$ChangeSubcategoryNameEvent>
-      get copyWith => __$$ChangeSubcategoryNameEventCopyWithImpl<
-          _$ChangeSubcategoryNameEvent>(this, _$identity);
+  _$$ChangeSubcategoryNameEventImplCopyWith<_$ChangeSubcategoryNameEventImpl>
+      get copyWith => __$$ChangeSubcategoryNameEventImplCopyWithImpl<
+          _$ChangeSubcategoryNameEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2127,29 +2138,30 @@ class _$ChangeSubcategoryNameEvent
 
 abstract class ChangeSubcategoryNameEvent implements DuaEvent {
   const factory ChangeSubcategoryNameEvent({required final String newName}) =
-      _$ChangeSubcategoryNameEvent;
+      _$ChangeSubcategoryNameEventImpl;
 
   String get newName;
   @JsonKey(ignore: true)
-  _$$ChangeSubcategoryNameEventCopyWith<_$ChangeSubcategoryNameEvent>
+  _$$ChangeSubcategoryNameEventImplCopyWith<_$ChangeSubcategoryNameEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SelectTranslationTextCopyWith<$Res> {
-  factory _$$SelectTranslationTextCopyWith(_$SelectTranslationText value,
-          $Res Function(_$SelectTranslationText) then) =
-      __$$SelectTranslationTextCopyWithImpl<$Res>;
+abstract class _$$SelectTranslationTextImplCopyWith<$Res> {
+  factory _$$SelectTranslationTextImplCopyWith(
+          _$SelectTranslationTextImpl value,
+          $Res Function(_$SelectTranslationTextImpl) then) =
+      __$$SelectTranslationTextImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$SelectTranslationTextCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$SelectTranslationText>
-    implements _$$SelectTranslationTextCopyWith<$Res> {
-  __$$SelectTranslationTextCopyWithImpl(_$SelectTranslationText _value,
-      $Res Function(_$SelectTranslationText) _then)
+class __$$SelectTranslationTextImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$SelectTranslationTextImpl>
+    implements _$$SelectTranslationTextImplCopyWith<$Res> {
+  __$$SelectTranslationTextImplCopyWithImpl(_$SelectTranslationTextImpl _value,
+      $Res Function(_$SelectTranslationTextImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2157,7 +2169,7 @@ class __$$SelectTranslationTextCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$SelectTranslationText(
+    return _then(_$SelectTranslationTextImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -2168,10 +2180,10 @@ class __$$SelectTranslationTextCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SelectTranslationText
+class _$SelectTranslationTextImpl
     with DiagnosticableTreeMixin
     implements SelectTranslationText {
-  const _$SelectTranslationText({required this.value});
+  const _$SelectTranslationTextImpl({required this.value});
 
   @override
   final int value;
@@ -2193,7 +2205,7 @@ class _$SelectTranslationText
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SelectTranslationText &&
+            other is _$SelectTranslationTextImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -2203,9 +2215,9 @@ class _$SelectTranslationText
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SelectTranslationTextCopyWith<_$SelectTranslationText> get copyWith =>
-      __$$SelectTranslationTextCopyWithImpl<_$SelectTranslationText>(
-          this, _$identity);
+  _$$SelectTranslationTextImplCopyWith<_$SelectTranslationTextImpl>
+      get copyWith => __$$SelectTranslationTextImplCopyWithImpl<
+          _$SelectTranslationTextImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2352,31 +2364,31 @@ class _$SelectTranslationText
 
 abstract class SelectTranslationText implements DuaEvent {
   const factory SelectTranslationText({required final int value}) =
-      _$SelectTranslationText;
+      _$SelectTranslationTextImpl;
 
   int get value;
   @JsonKey(ignore: true)
-  _$$SelectTranslationTextCopyWith<_$SelectTranslationText> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SelectTranslationTextImplCopyWith<_$SelectTranslationTextImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SwitchDisplayArabicTextEventCopyWith<$Res> {
-  factory _$$SwitchDisplayArabicTextEventCopyWith(
-          _$SwitchDisplayArabicTextEvent value,
-          $Res Function(_$SwitchDisplayArabicTextEvent) then) =
-      __$$SwitchDisplayArabicTextEventCopyWithImpl<$Res>;
+abstract class _$$SwitchDisplayArabicTextEventImplCopyWith<$Res> {
+  factory _$$SwitchDisplayArabicTextEventImplCopyWith(
+          _$SwitchDisplayArabicTextEventImpl value,
+          $Res Function(_$SwitchDisplayArabicTextEventImpl) then) =
+      __$$SwitchDisplayArabicTextEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool newValue});
 }
 
 /// @nodoc
-class __$$SwitchDisplayArabicTextEventCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$SwitchDisplayArabicTextEvent>
-    implements _$$SwitchDisplayArabicTextEventCopyWith<$Res> {
-  __$$SwitchDisplayArabicTextEventCopyWithImpl(
-      _$SwitchDisplayArabicTextEvent _value,
-      $Res Function(_$SwitchDisplayArabicTextEvent) _then)
+class __$$SwitchDisplayArabicTextEventImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$SwitchDisplayArabicTextEventImpl>
+    implements _$$SwitchDisplayArabicTextEventImplCopyWith<$Res> {
+  __$$SwitchDisplayArabicTextEventImplCopyWithImpl(
+      _$SwitchDisplayArabicTextEventImpl _value,
+      $Res Function(_$SwitchDisplayArabicTextEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2384,7 +2396,7 @@ class __$$SwitchDisplayArabicTextEventCopyWithImpl<$Res>
   $Res call({
     Object? newValue = null,
   }) {
-    return _then(_$SwitchDisplayArabicTextEvent(
+    return _then(_$SwitchDisplayArabicTextEventImpl(
       newValue: null == newValue
           ? _value.newValue
           : newValue // ignore: cast_nullable_to_non_nullable
@@ -2395,10 +2407,10 @@ class __$$SwitchDisplayArabicTextEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SwitchDisplayArabicTextEvent
+class _$SwitchDisplayArabicTextEventImpl
     with DiagnosticableTreeMixin
     implements SwitchDisplayArabicTextEvent {
-  const _$SwitchDisplayArabicTextEvent({required this.newValue});
+  const _$SwitchDisplayArabicTextEventImpl({required this.newValue});
 
   @override
   final bool newValue;
@@ -2421,7 +2433,7 @@ class _$SwitchDisplayArabicTextEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SwitchDisplayArabicTextEvent &&
+            other is _$SwitchDisplayArabicTextEventImpl &&
             (identical(other.newValue, newValue) ||
                 other.newValue == newValue));
   }
@@ -2432,9 +2444,10 @@ class _$SwitchDisplayArabicTextEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SwitchDisplayArabicTextEventCopyWith<_$SwitchDisplayArabicTextEvent>
-      get copyWith => __$$SwitchDisplayArabicTextEventCopyWithImpl<
-          _$SwitchDisplayArabicTextEvent>(this, _$identity);
+  _$$SwitchDisplayArabicTextEventImplCopyWith<
+          _$SwitchDisplayArabicTextEventImpl>
+      get copyWith => __$$SwitchDisplayArabicTextEventImplCopyWithImpl<
+          _$SwitchDisplayArabicTextEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2581,31 +2594,33 @@ class _$SwitchDisplayArabicTextEvent
 
 abstract class SwitchDisplayArabicTextEvent implements DuaEvent {
   const factory SwitchDisplayArabicTextEvent({required final bool newValue}) =
-      _$SwitchDisplayArabicTextEvent;
+      _$SwitchDisplayArabicTextEventImpl;
 
   bool get newValue;
   @JsonKey(ignore: true)
-  _$$SwitchDisplayArabicTextEventCopyWith<_$SwitchDisplayArabicTextEvent>
+  _$$SwitchDisplayArabicTextEventImplCopyWith<
+          _$SwitchDisplayArabicTextEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SwitchDisplayTranslationTextEventCopyWith<$Res> {
-  factory _$$SwitchDisplayTranslationTextEventCopyWith(
-          _$SwitchDisplayTranslationTextEvent value,
-          $Res Function(_$SwitchDisplayTranslationTextEvent) then) =
-      __$$SwitchDisplayTranslationTextEventCopyWithImpl<$Res>;
+abstract class _$$SwitchDisplayTranslationTextEventImplCopyWith<$Res> {
+  factory _$$SwitchDisplayTranslationTextEventImplCopyWith(
+          _$SwitchDisplayTranslationTextEventImpl value,
+          $Res Function(_$SwitchDisplayTranslationTextEventImpl) then) =
+      __$$SwitchDisplayTranslationTextEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool newValue});
 }
 
 /// @nodoc
-class __$$SwitchDisplayTranslationTextEventCopyWithImpl<$Res>
-    extends _$DuaEventCopyWithImpl<$Res, _$SwitchDisplayTranslationTextEvent>
-    implements _$$SwitchDisplayTranslationTextEventCopyWith<$Res> {
-  __$$SwitchDisplayTranslationTextEventCopyWithImpl(
-      _$SwitchDisplayTranslationTextEvent _value,
-      $Res Function(_$SwitchDisplayTranslationTextEvent) _then)
+class __$$SwitchDisplayTranslationTextEventImplCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res,
+        _$SwitchDisplayTranslationTextEventImpl>
+    implements _$$SwitchDisplayTranslationTextEventImplCopyWith<$Res> {
+  __$$SwitchDisplayTranslationTextEventImplCopyWithImpl(
+      _$SwitchDisplayTranslationTextEventImpl _value,
+      $Res Function(_$SwitchDisplayTranslationTextEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2613,7 +2628,7 @@ class __$$SwitchDisplayTranslationTextEventCopyWithImpl<$Res>
   $Res call({
     Object? newValue = null,
   }) {
-    return _then(_$SwitchDisplayTranslationTextEvent(
+    return _then(_$SwitchDisplayTranslationTextEventImpl(
       newValue: null == newValue
           ? _value.newValue
           : newValue // ignore: cast_nullable_to_non_nullable
@@ -2624,10 +2639,10 @@ class __$$SwitchDisplayTranslationTextEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SwitchDisplayTranslationTextEvent
+class _$SwitchDisplayTranslationTextEventImpl
     with DiagnosticableTreeMixin
     implements SwitchDisplayTranslationTextEvent {
-  const _$SwitchDisplayTranslationTextEvent({required this.newValue});
+  const _$SwitchDisplayTranslationTextEventImpl({required this.newValue});
 
   @override
   final bool newValue;
@@ -2650,7 +2665,7 @@ class _$SwitchDisplayTranslationTextEvent
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SwitchDisplayTranslationTextEvent &&
+            other is _$SwitchDisplayTranslationTextEventImpl &&
             (identical(other.newValue, newValue) ||
                 other.newValue == newValue));
   }
@@ -2661,10 +2676,10 @@ class _$SwitchDisplayTranslationTextEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SwitchDisplayTranslationTextEventCopyWith<
-          _$SwitchDisplayTranslationTextEvent>
-      get copyWith => __$$SwitchDisplayTranslationTextEventCopyWithImpl<
-          _$SwitchDisplayTranslationTextEvent>(this, _$identity);
+  _$$SwitchDisplayTranslationTextEventImplCopyWith<
+          _$SwitchDisplayTranslationTextEventImpl>
+      get copyWith => __$$SwitchDisplayTranslationTextEventImplCopyWithImpl<
+          _$SwitchDisplayTranslationTextEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2811,12 +2826,12 @@ class _$SwitchDisplayTranslationTextEvent
 
 abstract class SwitchDisplayTranslationTextEvent implements DuaEvent {
   const factory SwitchDisplayTranslationTextEvent(
-      {required final bool newValue}) = _$SwitchDisplayTranslationTextEvent;
+      {required final bool newValue}) = _$SwitchDisplayTranslationTextEventImpl;
 
   bool get newValue;
   @JsonKey(ignore: true)
-  _$$SwitchDisplayTranslationTextEventCopyWith<
-          _$SwitchDisplayTranslationTextEvent>
+  _$$SwitchDisplayTranslationTextEventImplCopyWith<
+          _$SwitchDisplayTranslationTextEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -3016,10 +3031,11 @@ class _$DuaStateCopyWithImpl<$Res, $Val extends DuaState>
 }
 
 /// @nodoc
-abstract class _$$_DuaStateCopyWith<$Res> implements $DuaStateCopyWith<$Res> {
-  factory _$$_DuaStateCopyWith(
-          _$_DuaState value, $Res Function(_$_DuaState) then) =
-      __$$_DuaStateCopyWithImpl<$Res>;
+abstract class _$$DuaStateImplCopyWith<$Res>
+    implements $DuaStateCopyWith<$Res> {
+  factory _$$DuaStateImplCopyWith(
+          _$DuaStateImpl value, $Res Function(_$DuaStateImpl) then) =
+      __$$DuaStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -3050,11 +3066,11 @@ abstract class _$$_DuaStateCopyWith<$Res> implements $DuaStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DuaStateCopyWithImpl<$Res>
-    extends _$DuaStateCopyWithImpl<$Res, _$_DuaState>
-    implements _$$_DuaStateCopyWith<$Res> {
-  __$$_DuaStateCopyWithImpl(
-      _$_DuaState _value, $Res Function(_$_DuaState) _then)
+class __$$DuaStateImplCopyWithImpl<$Res>
+    extends _$DuaStateCopyWithImpl<$Res, _$DuaStateImpl>
+    implements _$$DuaStateImplCopyWith<$Res> {
+  __$$DuaStateImplCopyWithImpl(
+      _$DuaStateImpl _value, $Res Function(_$DuaStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3076,7 +3092,7 @@ class __$$_DuaStateCopyWithImpl<$Res>
     Object? displayArabicText = null,
     Object? displayTranslationText = null,
   }) {
-    return _then(_$_DuaState(
+    return _then(_$DuaStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -3143,8 +3159,8 @@ class __$$_DuaStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DuaState with DiagnosticableTreeMixin implements _DuaState {
-  const _$_DuaState(
+class _$DuaStateImpl with DiagnosticableTreeMixin implements _DuaState {
+  const _$DuaStateImpl(
       {required this.isLoading,
       required this.duaCategoryModel,
       required this.duaBookMarkModel,
@@ -3242,7 +3258,7 @@ class _$_DuaState with DiagnosticableTreeMixin implements _DuaState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DuaState &&
+            other is _$DuaStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.duaCategoryModel, duaCategoryModel) ||
@@ -3297,8 +3313,8 @@ class _$_DuaState with DiagnosticableTreeMixin implements _DuaState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DuaStateCopyWith<_$_DuaState> get copyWith =>
-      __$$_DuaStateCopyWithImpl<_$_DuaState>(this, _$identity);
+  _$$DuaStateImplCopyWith<_$DuaStateImpl> get copyWith =>
+      __$$DuaStateImplCopyWithImpl<_$DuaStateImpl>(this, _$identity);
 }
 
 abstract class _DuaState implements DuaState {
@@ -3317,7 +3333,7 @@ abstract class _DuaState implements DuaState {
       required final int bookMarkLength,
       required final int translationText,
       required final bool displayArabicText,
-      required final bool displayTranslationText}) = _$_DuaState;
+      required final bool displayTranslationText}) = _$DuaStateImpl;
 
   @override
   bool get isLoading;
@@ -3351,6 +3367,6 @@ abstract class _DuaState implements DuaState {
   bool get displayTranslationText;
   @override
   @JsonKey(ignore: true)
-  _$$_DuaStateCopyWith<_$_DuaState> get copyWith =>
+  _$$DuaStateImplCopyWith<_$DuaStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

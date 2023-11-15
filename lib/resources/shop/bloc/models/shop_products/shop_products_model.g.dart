@@ -6,8 +6,8 @@ part of 'shop_products_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ShopProducts _$$_ShopProductsFromJson(Map<String, dynamic> json) =>
-    _$_ShopProducts(
+_$ShopProductsImpl _$$ShopProductsImplFromJson(Map<String, dynamic> json) =>
+    _$ShopProductsImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +16,7 @@ _$_ShopProducts _$$_ShopProductsFromJson(Map<String, dynamic> json) =>
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ShopProductsToJson(_$_ShopProducts instance) =>
+Map<String, dynamic> _$$ShopProductsImplToJson(_$ShopProductsImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,20 +24,21 @@ Map<String, dynamic> _$$_ShopProductsToJson(_$_ShopProducts instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       shopProductCategory: json['shopProductCategory'] == null
           ? null
           : ShopProductCategory.fromJson(
               json['shopProductCategory'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'shopProductCategory': instance.shopProductCategory,
     };
 
-_$_ShopProductCategory _$$_ShopProductCategoryFromJson(
+_$ShopProductCategoryImpl _$$ShopProductCategoryImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ShopProductCategory(
+    _$ShopProductCategoryImpl(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       slug: json['slug'] as String?,
@@ -48,8 +49,8 @@ _$_ShopProductCategory _$$_ShopProductCategoryFromJson(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_ShopProductCategoryToJson(
-        _$_ShopProductCategory instance) =>
+Map<String, dynamic> _$$ShopProductCategoryImplToJson(
+        _$ShopProductCategoryImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,
@@ -59,7 +60,8 @@ Map<String, dynamic> _$$_ShopProductCategoryToJson(
       'updatedAt': instance.updatedAt,
     };
 
-_$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
+_$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
+    _$ProductImpl(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       brand: json['brand'] == null
@@ -89,7 +91,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
+Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,
@@ -111,26 +113,28 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'updatedAt': instance.updatedAt,
     };
 
-_$_Brand _$$_BrandFromJson(Map<String, dynamic> json) => _$_Brand(
+_$BrandImpl _$$BrandImplFromJson(Map<String, dynamic> json) => _$BrandImpl(
       id: json['_id'] as String,
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$$_BrandToJson(_$_Brand instance) => <String, dynamic>{
+Map<String, dynamic> _$$BrandImplToJson(_$BrandImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'name': instance.name,
     };
 
-_$_Category _$$_CategoryFromJson(Map<String, dynamic> json) => _$_Category(
+_$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
+    _$CategoryImpl(
       title: json['title'] as String?,
     );
 
-Map<String, dynamic> _$$_CategoryToJson(_$_Category instance) =>
+Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
     };
 
-_$_Size _$$_SizeFromJson(Map<String, dynamic> json) => _$_Size(
+_$SizeImpl _$$SizeImplFromJson(Map<String, dynamic> json) => _$SizeImpl(
       size: json['size'] as String?,
       stock: json['stock'] as int?,
       price: json['price'] as int?,
@@ -140,7 +144,8 @@ _$_Size _$$_SizeFromJson(Map<String, dynamic> json) => _$_Size(
       weight: json['weight'] as String?,
     );
 
-Map<String, dynamic> _$$_SizeToJson(_$_Size instance) => <String, dynamic>{
+Map<String, dynamic> _$$SizeImplToJson(_$SizeImpl instance) =>
+    <String, dynamic>{
       'size': instance.size,
       'stock': instance.stock,
       'price': instance.price,

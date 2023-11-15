@@ -47,7 +47,7 @@ class TravelPackageItems with _$TravelPackageItems {
     String? name,
     String? location,
     List<String>? amenities,
-    String? price,
+    double? price,
     @JsonKey(name: 'main_image') String? mainImage,
     @JsonKey(name: 'over_view') String? overview,
     String? country,

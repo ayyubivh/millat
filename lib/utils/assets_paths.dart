@@ -143,7 +143,7 @@ class AppAssetsStrings {
   static const String superSaleAd = "$imagesPath/super_sale_ad.png";
   static const String arrrowRight = "$iconsPath/arrow-right.png";
   static const String score = "$imagesPath/score.png";
-
+  static const String rewardsRedeem = "$iconsPath/rewards_redeem_tab.png";
   static const String rewardMoney = "$imagesPath/reward_money.png";
   static const String rewardCoinBackground =
       "$backgroundsPath/rewards_coins.png";
@@ -160,6 +160,7 @@ class AppAssetsStrings {
   static const String rewardsQuranImg = "$imagesPath/rewards_quran_img.png";
   static const String discountAlert = "$imagesPath/discount_alert.png";
   static const String travelBookingSuccess = "$imagesPath/travel_success.png";
+  static const String travelTab = "$iconsPath/travel_tab_icon.png";
 }
 
 const String splashBackgroundPath = '$backgroundsPath/splash_background.png';

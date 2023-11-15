@@ -72,11 +72,11 @@ class _$TravelProductsModelCopyWithImpl<$Res, $Val extends TravelProductsModel>
 }
 
 /// @nodoc
-abstract class _$$_TravelProductsModelCopyWith<$Res>
+abstract class _$$TravelProductsModelImplCopyWith<$Res>
     implements $TravelProductsModelCopyWith<$Res> {
-  factory _$$_TravelProductsModelCopyWith(_$_TravelProductsModel value,
-          $Res Function(_$_TravelProductsModel) then) =
-      __$$_TravelProductsModelCopyWithImpl<$Res>;
+  factory _$$TravelProductsModelImplCopyWith(_$TravelProductsModelImpl value,
+          $Res Function(_$TravelProductsModelImpl) then) =
+      __$$TravelProductsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({TravelProduct product});
@@ -86,11 +86,11 @@ abstract class _$$_TravelProductsModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TravelProductsModelCopyWithImpl<$Res>
-    extends _$TravelProductsModelCopyWithImpl<$Res, _$_TravelProductsModel>
-    implements _$$_TravelProductsModelCopyWith<$Res> {
-  __$$_TravelProductsModelCopyWithImpl(_$_TravelProductsModel _value,
-      $Res Function(_$_TravelProductsModel) _then)
+class __$$TravelProductsModelImplCopyWithImpl<$Res>
+    extends _$TravelProductsModelCopyWithImpl<$Res, _$TravelProductsModelImpl>
+    implements _$$TravelProductsModelImplCopyWith<$Res> {
+  __$$TravelProductsModelImplCopyWithImpl(_$TravelProductsModelImpl _value,
+      $Res Function(_$TravelProductsModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$_TravelProductsModelCopyWithImpl<$Res>
   $Res call({
     Object? product = null,
   }) {
-    return _then(_$_TravelProductsModel(
+    return _then(_$TravelProductsModelImpl(
       product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
@@ -109,11 +109,11 @@ class __$$_TravelProductsModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TravelProductsModel implements _TravelProductsModel {
-  const _$_TravelProductsModel({required this.product});
+class _$TravelProductsModelImpl implements _TravelProductsModel {
+  const _$TravelProductsModelImpl({required this.product});
 
-  factory _$_TravelProductsModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TravelProductsModelFromJson(json);
+  factory _$TravelProductsModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TravelProductsModelImplFromJson(json);
 
   @override
   final TravelProduct product;
@@ -127,7 +127,7 @@ class _$_TravelProductsModel implements _TravelProductsModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TravelProductsModel &&
+            other is _$TravelProductsModelImpl &&
             (identical(other.product, product) || other.product == product));
   }
 
@@ -138,13 +138,13 @@ class _$_TravelProductsModel implements _TravelProductsModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TravelProductsModelCopyWith<_$_TravelProductsModel> get copyWith =>
-      __$$_TravelProductsModelCopyWithImpl<_$_TravelProductsModel>(
+  _$$TravelProductsModelImplCopyWith<_$TravelProductsModelImpl> get copyWith =>
+      __$$TravelProductsModelImplCopyWithImpl<_$TravelProductsModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TravelProductsModelToJson(
+    return _$$TravelProductsModelImplToJson(
       this,
     );
   }
@@ -152,16 +152,16 @@ class _$_TravelProductsModel implements _TravelProductsModel {
 
 abstract class _TravelProductsModel implements TravelProductsModel {
   const factory _TravelProductsModel({required final TravelProduct product}) =
-      _$_TravelProductsModel;
+      _$TravelProductsModelImpl;
 
   factory _TravelProductsModel.fromJson(Map<String, dynamic> json) =
-      _$_TravelProductsModel.fromJson;
+      _$TravelProductsModelImpl.fromJson;
 
   @override
   TravelProduct get product;
   @override
   @JsonKey(ignore: true)
-  _$$_TravelProductsModelCopyWith<_$_TravelProductsModel> get copyWith =>
+  _$$TravelProductsModelImplCopyWith<_$TravelProductsModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -323,11 +323,11 @@ class _$TravelProductCopyWithImpl<$Res, $Val extends TravelProduct>
 }
 
 /// @nodoc
-abstract class _$$_TravelProductCopyWith<$Res>
+abstract class _$$TravelProductImplCopyWith<$Res>
     implements $TravelProductCopyWith<$Res> {
-  factory _$$_TravelProductCopyWith(
-          _$_TravelProduct value, $Res Function(_$_TravelProduct) then) =
-      __$$_TravelProductCopyWithImpl<$Res>;
+  factory _$$TravelProductImplCopyWith(
+          _$TravelProductImpl value, $Res Function(_$TravelProductImpl) then) =
+      __$$TravelProductImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -350,11 +350,11 @@ abstract class _$$_TravelProductCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TravelProductCopyWithImpl<$Res>
-    extends _$TravelProductCopyWithImpl<$Res, _$_TravelProduct>
-    implements _$$_TravelProductCopyWith<$Res> {
-  __$$_TravelProductCopyWithImpl(
-      _$_TravelProduct _value, $Res Function(_$_TravelProduct) _then)
+class __$$TravelProductImplCopyWithImpl<$Res>
+    extends _$TravelProductCopyWithImpl<$Res, _$TravelProductImpl>
+    implements _$$TravelProductImplCopyWith<$Res> {
+  __$$TravelProductImplCopyWithImpl(
+      _$TravelProductImpl _value, $Res Function(_$TravelProductImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -377,7 +377,7 @@ class __$$_TravelProductCopyWithImpl<$Res>
     Object? to = freezed,
     Object? reviews = freezed,
   }) {
-    return _then(_$_TravelProduct(
+    return _then(_$TravelProductImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -448,8 +448,8 @@ class __$$_TravelProductCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TravelProduct implements _TravelProduct {
-  const _$_TravelProduct(
+class _$TravelProductImpl implements _TravelProduct {
+  const _$TravelProductImpl(
       {@JsonKey(name: "_id") this.id,
       final List<String>? images,
       this.rating,
@@ -470,8 +470,8 @@ class _$_TravelProduct implements _TravelProduct {
         _amenities = amenities,
         _reviews = reviews;
 
-  factory _$_TravelProduct.fromJson(Map<String, dynamic> json) =>
-      _$$_TravelProductFromJson(json);
+  factory _$TravelProductImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TravelProductImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -542,7 +542,7 @@ class _$_TravelProduct implements _TravelProduct {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TravelProduct &&
+            other is _$TravelProductImpl &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             const DeepCollectionEquality().equals(other.rating, rating) &&
@@ -591,12 +591,12 @@ class _$_TravelProduct implements _TravelProduct {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TravelProductCopyWith<_$_TravelProduct> get copyWith =>
-      __$$_TravelProductCopyWithImpl<_$_TravelProduct>(this, _$identity);
+  _$$TravelProductImplCopyWith<_$TravelProductImpl> get copyWith =>
+      __$$TravelProductImplCopyWithImpl<_$TravelProductImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TravelProductToJson(
+    return _$$TravelProductImplToJson(
       this,
     );
   }
@@ -620,10 +620,10 @@ abstract class _TravelProduct implements TravelProduct {
           final String? from,
           final String? to,
           @JsonKey(name: "reviews") final List<String>? reviews}) =
-      _$_TravelProduct;
+      _$TravelProductImpl;
 
   factory _TravelProduct.fromJson(Map<String, dynamic> json) =
-      _$_TravelProduct.fromJson;
+      _$TravelProductImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -663,7 +663,7 @@ abstract class _TravelProduct implements TravelProduct {
   List<String>? get reviews;
   @override
   @JsonKey(ignore: true)
-  _$$_TravelProductCopyWith<_$_TravelProduct> get copyWith =>
+  _$$TravelProductImplCopyWith<_$TravelProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -680,7 +680,7 @@ mixin _$TravelPackageItems {
   String? get name => throw _privateConstructorUsedError;
   String? get location => throw _privateConstructorUsedError;
   List<String>? get amenities => throw _privateConstructorUsedError;
-  String? get price => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
   @JsonKey(name: 'main_image')
   String? get mainImage => throw _privateConstructorUsedError;
   @JsonKey(name: 'over_view')
@@ -715,7 +715,7 @@ abstract class $TravelPackageItemsCopyWith<$Res> {
       String? name,
       String? location,
       List<String>? amenities,
-      String? price,
+      double? price,
       @JsonKey(name: 'main_image') String? mainImage,
       @JsonKey(name: 'over_view') String? overview,
       String? country,
@@ -783,7 +783,7 @@ class _$TravelPackageItemsCopyWithImpl<$Res, $Val extends TravelPackageItems>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       mainImage: freezed == mainImage
           ? _value.mainImage
           : mainImage // ignore: cast_nullable_to_non_nullable
@@ -821,11 +821,11 @@ class _$TravelPackageItemsCopyWithImpl<$Res, $Val extends TravelPackageItems>
 }
 
 /// @nodoc
-abstract class _$$_TravelPackageItemsCopyWith<$Res>
+abstract class _$$TravelPackageItemsImplCopyWith<$Res>
     implements $TravelPackageItemsCopyWith<$Res> {
-  factory _$$_TravelPackageItemsCopyWith(_$_TravelPackageItems value,
-          $Res Function(_$_TravelPackageItems) then) =
-      __$$_TravelPackageItemsCopyWithImpl<$Res>;
+  factory _$$TravelPackageItemsImplCopyWith(_$TravelPackageItemsImpl value,
+          $Res Function(_$TravelPackageItemsImpl) then) =
+      __$$TravelPackageItemsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -835,7 +835,7 @@ abstract class _$$_TravelPackageItemsCopyWith<$Res>
       String? name,
       String? location,
       List<String>? amenities,
-      String? price,
+      double? price,
       @JsonKey(name: 'main_image') String? mainImage,
       @JsonKey(name: 'over_view') String? overview,
       String? country,
@@ -847,11 +847,11 @@ abstract class _$$_TravelPackageItemsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TravelPackageItemsCopyWithImpl<$Res>
-    extends _$TravelPackageItemsCopyWithImpl<$Res, _$_TravelPackageItems>
-    implements _$$_TravelPackageItemsCopyWith<$Res> {
-  __$$_TravelPackageItemsCopyWithImpl(
-      _$_TravelPackageItems _value, $Res Function(_$_TravelPackageItems) _then)
+class __$$TravelPackageItemsImplCopyWithImpl<$Res>
+    extends _$TravelPackageItemsCopyWithImpl<$Res, _$TravelPackageItemsImpl>
+    implements _$$TravelPackageItemsImplCopyWith<$Res> {
+  __$$TravelPackageItemsImplCopyWithImpl(_$TravelPackageItemsImpl _value,
+      $Res Function(_$TravelPackageItemsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -873,7 +873,7 @@ class __$$_TravelPackageItemsCopyWithImpl<$Res>
     Object? updatedAt = freezed,
     Object? v = freezed,
   }) {
-    return _then(_$_TravelPackageItems(
+    return _then(_$TravelPackageItemsImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -901,7 +901,7 @@ class __$$_TravelPackageItemsCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       mainImage: freezed == mainImage
           ? _value.mainImage
           : mainImage // ignore: cast_nullable_to_non_nullable
@@ -940,8 +940,8 @@ class __$$_TravelPackageItemsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TravelPackageItems implements _TravelPackageItems {
-  _$_TravelPackageItems(
+class _$TravelPackageItemsImpl implements _TravelPackageItems {
+  _$TravelPackageItemsImpl(
       {@JsonKey(name: '_id') this.id,
       final List<String>? images,
       this.rating,
@@ -960,8 +960,8 @@ class _$_TravelPackageItems implements _TravelPackageItems {
       : _images = images,
         _amenities = amenities;
 
-  factory _$_TravelPackageItems.fromJson(Map<String, dynamic> json) =>
-      _$$_TravelPackageItemsFromJson(json);
+  factory _$TravelPackageItemsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TravelPackageItemsImplFromJson(json);
 
   @override
   @JsonKey(name: '_id')
@@ -993,7 +993,7 @@ class _$_TravelPackageItems implements _TravelPackageItems {
   }
 
   @override
-  final String? price;
+  final double? price;
   @override
   @JsonKey(name: 'main_image')
   final String? mainImage;
@@ -1026,7 +1026,7 @@ class _$_TravelPackageItems implements _TravelPackageItems {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TravelPackageItems &&
+            other is _$TravelPackageItemsImpl &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             (identical(other.rating, rating) || other.rating == rating) &&
@@ -1073,13 +1073,13 @@ class _$_TravelPackageItems implements _TravelPackageItems {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TravelPackageItemsCopyWith<_$_TravelPackageItems> get copyWith =>
-      __$$_TravelPackageItemsCopyWithImpl<_$_TravelPackageItems>(
+  _$$TravelPackageItemsImplCopyWith<_$TravelPackageItemsImpl> get copyWith =>
+      __$$TravelPackageItemsImplCopyWithImpl<_$TravelPackageItemsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TravelPackageItemsToJson(
+    return _$$TravelPackageItemsImplToJson(
       this,
     );
   }
@@ -1093,7 +1093,7 @@ abstract class _TravelPackageItems implements TravelPackageItems {
       final String? name,
       final String? location,
       final List<String>? amenities,
-      final String? price,
+      final double? price,
       @JsonKey(name: 'main_image') final String? mainImage,
       @JsonKey(name: 'over_view') final String? overview,
       final String? country,
@@ -1101,10 +1101,10 @@ abstract class _TravelPackageItems implements TravelPackageItems {
       @JsonKey(name: 'to') final String? to,
       @JsonKey(name: 'createdAt') final String? createdAt,
       @JsonKey(name: 'updatedAt') final String? updatedAt,
-      final int? v}) = _$_TravelPackageItems;
+      final int? v}) = _$TravelPackageItemsImpl;
 
   factory _TravelPackageItems.fromJson(Map<String, dynamic> json) =
-      _$_TravelPackageItems.fromJson;
+      _$TravelPackageItemsImpl.fromJson;
 
   @override
   @JsonKey(name: '_id')
@@ -1120,7 +1120,7 @@ abstract class _TravelPackageItems implements TravelPackageItems {
   @override
   List<String>? get amenities;
   @override
-  String? get price;
+  double? get price;
   @override
   @JsonKey(name: 'main_image')
   String? get mainImage;
@@ -1145,6 +1145,6 @@ abstract class _TravelPackageItems implements TravelPackageItems {
   int? get v;
   @override
   @JsonKey(ignore: true)
-  _$$_TravelPackageItemsCopyWith<_$_TravelPackageItems> get copyWith =>
+  _$$TravelPackageItemsImplCopyWith<_$TravelPackageItemsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

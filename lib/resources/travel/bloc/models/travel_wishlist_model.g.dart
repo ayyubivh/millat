@@ -6,9 +6,9 @@ part of 'travel_wishlist_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TravelWishlistModel _$$_TravelWishlistModelFromJson(
+_$TravelWishlistModelImpl _$$TravelWishlistModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TravelWishlistModel(
+    _$TravelWishlistModelImpl(
       id: json['_id'] as String?,
       userId: json['userId'] as String?,
       products: (json['products'] as List<dynamic>?)
@@ -18,8 +18,8 @@ _$_TravelWishlistModel _$$_TravelWishlistModelFromJson(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_TravelWishlistModelToJson(
-        _$_TravelWishlistModel instance) =>
+Map<String, dynamic> _$$TravelWishlistModelImplToJson(
+        _$TravelWishlistModelImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'userId': instance.userId,

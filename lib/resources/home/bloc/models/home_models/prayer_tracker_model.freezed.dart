@@ -90,11 +90,11 @@ class _$PrayerTrackerModelCopyWithImpl<$Res, $Val extends PrayerTrackerModel>
 }
 
 /// @nodoc
-abstract class _$$_PrayerTrackerModelCopyWith<$Res>
+abstract class _$$PrayerTrackerModelImplCopyWith<$Res>
     implements $PrayerTrackerModelCopyWith<$Res> {
-  factory _$$_PrayerTrackerModelCopyWith(_$_PrayerTrackerModel value,
-          $Res Function(_$_PrayerTrackerModel) then) =
-      __$$_PrayerTrackerModelCopyWithImpl<$Res>;
+  factory _$$PrayerTrackerModelImplCopyWith(_$PrayerTrackerModelImpl value,
+          $Res Function(_$PrayerTrackerModelImpl) then) =
+      __$$PrayerTrackerModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int status, String message, String error, Result result});
@@ -104,11 +104,11 @@ abstract class _$$_PrayerTrackerModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PrayerTrackerModelCopyWithImpl<$Res>
-    extends _$PrayerTrackerModelCopyWithImpl<$Res, _$_PrayerTrackerModel>
-    implements _$$_PrayerTrackerModelCopyWith<$Res> {
-  __$$_PrayerTrackerModelCopyWithImpl(
-      _$_PrayerTrackerModel _value, $Res Function(_$_PrayerTrackerModel) _then)
+class __$$PrayerTrackerModelImplCopyWithImpl<$Res>
+    extends _$PrayerTrackerModelCopyWithImpl<$Res, _$PrayerTrackerModelImpl>
+    implements _$$PrayerTrackerModelImplCopyWith<$Res> {
+  __$$PrayerTrackerModelImplCopyWithImpl(_$PrayerTrackerModelImpl _value,
+      $Res Function(_$PrayerTrackerModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_PrayerTrackerModelCopyWithImpl<$Res>
     Object? error = null,
     Object? result = null,
   }) {
-    return _then(_$_PrayerTrackerModel(
+    return _then(_$PrayerTrackerModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -142,15 +142,15 @@ class __$$_PrayerTrackerModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PrayerTrackerModel implements _PrayerTrackerModel {
-  const _$_PrayerTrackerModel(
+class _$PrayerTrackerModelImpl implements _PrayerTrackerModel {
+  const _$PrayerTrackerModelImpl(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$_PrayerTrackerModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PrayerTrackerModelFromJson(json);
+  factory _$PrayerTrackerModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PrayerTrackerModelImplFromJson(json);
 
   @override
   final int status;
@@ -170,7 +170,7 @@ class _$_PrayerTrackerModel implements _PrayerTrackerModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PrayerTrackerModel &&
+            other is _$PrayerTrackerModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -184,13 +184,13 @@ class _$_PrayerTrackerModel implements _PrayerTrackerModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PrayerTrackerModelCopyWith<_$_PrayerTrackerModel> get copyWith =>
-      __$$_PrayerTrackerModelCopyWithImpl<_$_PrayerTrackerModel>(
+  _$$PrayerTrackerModelImplCopyWith<_$PrayerTrackerModelImpl> get copyWith =>
+      __$$PrayerTrackerModelImplCopyWithImpl<_$PrayerTrackerModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PrayerTrackerModelToJson(
+    return _$$PrayerTrackerModelImplToJson(
       this,
     );
   }
@@ -201,10 +201,10 @@ abstract class _PrayerTrackerModel implements PrayerTrackerModel {
       {required final int status,
       required final String message,
       required final String error,
-      required final Result result}) = _$_PrayerTrackerModel;
+      required final Result result}) = _$PrayerTrackerModelImpl;
 
   factory _PrayerTrackerModel.fromJson(Map<String, dynamic> json) =
-      _$_PrayerTrackerModel.fromJson;
+      _$PrayerTrackerModelImpl.fromJson;
 
   @override
   int get status;
@@ -216,7 +216,7 @@ abstract class _PrayerTrackerModel implements PrayerTrackerModel {
   Result get result;
   @override
   @JsonKey(ignore: true)
-  _$$_PrayerTrackerModelCopyWith<_$_PrayerTrackerModel> get copyWith =>
+  _$$PrayerTrackerModelImplCopyWith<_$PrayerTrackerModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -280,9 +280,10 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
 }
 
 /// @nodoc
-abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$$_ResultCopyWith(_$_Result value, $Res Function(_$_Result) then) =
-      __$$_ResultCopyWithImpl<$Res>;
+abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
+  factory _$$ResultImplCopyWith(
+          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
+      __$$ResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Data? data});
@@ -292,10 +293,11 @@ abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ResultCopyWithImpl<$Res>
-    extends _$ResultCopyWithImpl<$Res, _$_Result>
-    implements _$$_ResultCopyWith<$Res> {
-  __$$_ResultCopyWithImpl(_$_Result _value, $Res Function(_$_Result) _then)
+class __$$ResultImplCopyWithImpl<$Res>
+    extends _$ResultCopyWithImpl<$Res, _$ResultImpl>
+    implements _$$ResultImplCopyWith<$Res> {
+  __$$ResultImplCopyWithImpl(
+      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -303,7 +305,7 @@ class __$$_ResultCopyWithImpl<$Res>
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_$_Result(
+    return _then(_$ResultImpl(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -314,11 +316,11 @@ class __$$_ResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Result implements _Result {
-  const _$_Result({required this.data});
+class _$ResultImpl implements _Result {
+  const _$ResultImpl({required this.data});
 
-  factory _$_Result.fromJson(Map<String, dynamic> json) =>
-      _$$_ResultFromJson(json);
+  factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResultImplFromJson(json);
 
   @override
   final Data? data;
@@ -332,7 +334,7 @@ class _$_Result implements _Result {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Result &&
+            other is _$ResultImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -343,27 +345,27 @@ class _$_Result implements _Result {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
-      __$$_ResultCopyWithImpl<_$_Result>(this, _$identity);
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
+      __$$ResultImplCopyWithImpl<_$ResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultToJson(
+    return _$$ResultImplToJson(
       this,
     );
   }
 }
 
 abstract class _Result implements Result {
-  const factory _Result({required final Data? data}) = _$_Result;
+  const factory _Result({required final Data? data}) = _$ResultImpl;
 
-  factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
+  factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
   @override
   Data? get data;
   @override
   @JsonKey(ignore: true)
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -453,9 +455,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
 }
 
 /// @nodoc
-abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
-  factory _$$_DataCopyWith(_$_Data value, $Res Function(_$_Data) then) =
-      __$$_DataCopyWithImpl<$Res>;
+abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
+  factory _$$DataImplCopyWith(
+          _$DataImpl value, $Res Function(_$DataImpl) then) =
+      __$$DataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -468,9 +471,10 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
-    implements _$$_DataCopyWith<$Res> {
-  __$$_DataCopyWithImpl(_$_Data _value, $Res Function(_$_Data) _then)
+class __$$DataImplCopyWithImpl<$Res>
+    extends _$DataCopyWithImpl<$Res, _$DataImpl>
+    implements _$$DataImplCopyWith<$Res> {
+  __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -483,7 +487,7 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
     Object? namaz = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_Data(
+    return _then(_$DataImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -514,8 +518,8 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Data implements _Data {
-  const _$_Data(
+class _$DataImpl implements _Data {
+  const _$DataImpl(
       {@JsonKey(name: '_id') required this.id,
       required this.date,
       @JsonKey(name: 'userId') required this.userId,
@@ -524,7 +528,8 @@ class _$_Data implements _Data {
       @JsonKey(name: 'updatedAt') required this.updatedAt})
       : _namaz = namaz;
 
-  factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
+  factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DataImplFromJson(json);
 
   @override
   @JsonKey(name: '_id')
@@ -558,7 +563,7 @@ class _$_Data implements _Data {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Data &&
+            other is _$DataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.userId, userId) || other.userId == userId) &&
@@ -577,12 +582,12 @@ class _$_Data implements _Data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DataCopyWith<_$_Data> get copyWith =>
-      __$$_DataCopyWithImpl<_$_Data>(this, _$identity);
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      __$$DataImplCopyWithImpl<_$DataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DataToJson(
+    return _$$DataImplToJson(
       this,
     );
   }
@@ -590,14 +595,15 @@ class _$_Data implements _Data {
 
 abstract class _Data implements Data {
   const factory _Data(
-      {@JsonKey(name: '_id') required final String id,
-      required final String date,
-      @JsonKey(name: 'userId') required final String userId,
-      @JsonKey(name: 'createdAt') required final String createdAt,
-      required final List<String> namaz,
-      @JsonKey(name: 'updatedAt') required final String updatedAt}) = _$_Data;
+          {@JsonKey(name: '_id') required final String id,
+          required final String date,
+          @JsonKey(name: 'userId') required final String userId,
+          @JsonKey(name: 'createdAt') required final String createdAt,
+          required final List<String> namaz,
+          @JsonKey(name: 'updatedAt') required final String updatedAt}) =
+      _$DataImpl;
 
-  factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
+  factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
   @override
   @JsonKey(name: '_id')
@@ -617,5 +623,6 @@ abstract class _Data implements Data {
   String get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
+  _$$DataImplCopyWith<_$DataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

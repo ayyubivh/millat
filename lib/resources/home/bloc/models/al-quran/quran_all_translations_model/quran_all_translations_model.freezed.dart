@@ -62,22 +62,22 @@ class _$TranslationsModelCopyWithImpl<$Res, $Val extends TranslationsModel>
 }
 
 /// @nodoc
-abstract class _$$_TranslationsModelCopyWith<$Res>
+abstract class _$$TranslationsModelImplCopyWith<$Res>
     implements $TranslationsModelCopyWith<$Res> {
-  factory _$$_TranslationsModelCopyWith(_$_TranslationsModel value,
-          $Res Function(_$_TranslationsModel) then) =
-      __$$_TranslationsModelCopyWithImpl<$Res>;
+  factory _$$TranslationsModelImplCopyWith(_$TranslationsModelImpl value,
+          $Res Function(_$TranslationsModelImpl) then) =
+      __$$TranslationsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Translations?> translations});
 }
 
 /// @nodoc
-class __$$_TranslationsModelCopyWithImpl<$Res>
-    extends _$TranslationsModelCopyWithImpl<$Res, _$_TranslationsModel>
-    implements _$$_TranslationsModelCopyWith<$Res> {
-  __$$_TranslationsModelCopyWithImpl(
-      _$_TranslationsModel _value, $Res Function(_$_TranslationsModel) _then)
+class __$$TranslationsModelImplCopyWithImpl<$Res>
+    extends _$TranslationsModelCopyWithImpl<$Res, _$TranslationsModelImpl>
+    implements _$$TranslationsModelImplCopyWith<$Res> {
+  __$$TranslationsModelImplCopyWithImpl(_$TranslationsModelImpl _value,
+      $Res Function(_$TranslationsModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_TranslationsModelCopyWithImpl<$Res>
   $Res call({
     Object? translations = null,
   }) {
-    return _then(_$_TranslationsModel(
+    return _then(_$TranslationsModelImpl(
       translations: null == translations
           ? _value._translations
           : translations // ignore: cast_nullable_to_non_nullable
@@ -96,12 +96,13 @@ class __$$_TranslationsModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TranslationsModel implements _TranslationsModel {
-  const _$_TranslationsModel({required final List<Translations?> translations})
+class _$TranslationsModelImpl implements _TranslationsModel {
+  const _$TranslationsModelImpl(
+      {required final List<Translations?> translations})
       : _translations = translations;
 
-  factory _$_TranslationsModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TranslationsModelFromJson(json);
+  factory _$TranslationsModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TranslationsModelImplFromJson(json);
 
   final List<Translations?> _translations;
   @override
@@ -120,7 +121,7 @@ class _$_TranslationsModel implements _TranslationsModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TranslationsModel &&
+            other is _$TranslationsModelImpl &&
             const DeepCollectionEquality()
                 .equals(other._translations, _translations));
   }
@@ -133,13 +134,13 @@ class _$_TranslationsModel implements _TranslationsModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TranslationsModelCopyWith<_$_TranslationsModel> get copyWith =>
-      __$$_TranslationsModelCopyWithImpl<_$_TranslationsModel>(
+  _$$TranslationsModelImplCopyWith<_$TranslationsModelImpl> get copyWith =>
+      __$$TranslationsModelImplCopyWithImpl<_$TranslationsModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TranslationsModelToJson(
+    return _$$TranslationsModelImplToJson(
       this,
     );
   }
@@ -147,16 +148,17 @@ class _$_TranslationsModel implements _TranslationsModel {
 
 abstract class _TranslationsModel implements TranslationsModel {
   const factory _TranslationsModel(
-      {required final List<Translations?> translations}) = _$_TranslationsModel;
+          {required final List<Translations?> translations}) =
+      _$TranslationsModelImpl;
 
   factory _TranslationsModel.fromJson(Map<String, dynamic> json) =
-      _$_TranslationsModel.fromJson;
+      _$TranslationsModelImpl.fromJson;
 
   @override
   List<Translations?> get translations;
   @override
   @JsonKey(ignore: true)
-  _$$_TranslationsModelCopyWith<_$_TranslationsModel> get copyWith =>
+  _$$TranslationsModelImplCopyWith<_$TranslationsModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -261,11 +263,11 @@ class _$TranslationsCopyWithImpl<$Res, $Val extends Translations>
 }
 
 /// @nodoc
-abstract class _$$_TranslationsCopyWith<$Res>
+abstract class _$$TranslationsImplCopyWith<$Res>
     implements $TranslationsCopyWith<$Res> {
-  factory _$$_TranslationsCopyWith(
-          _$_Translations value, $Res Function(_$_Translations) then) =
-      __$$_TranslationsCopyWithImpl<$Res>;
+  factory _$$TranslationsImplCopyWith(
+          _$TranslationsImpl value, $Res Function(_$TranslationsImpl) then) =
+      __$$TranslationsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -281,11 +283,11 @@ abstract class _$$_TranslationsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TranslationsCopyWithImpl<$Res>
-    extends _$TranslationsCopyWithImpl<$Res, _$_Translations>
-    implements _$$_TranslationsCopyWith<$Res> {
-  __$$_TranslationsCopyWithImpl(
-      _$_Translations _value, $Res Function(_$_Translations) _then)
+class __$$TranslationsImplCopyWithImpl<$Res>
+    extends _$TranslationsCopyWithImpl<$Res, _$TranslationsImpl>
+    implements _$$TranslationsImplCopyWith<$Res> {
+  __$$TranslationsImplCopyWithImpl(
+      _$TranslationsImpl _value, $Res Function(_$TranslationsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -298,7 +300,7 @@ class __$$_TranslationsCopyWithImpl<$Res>
     Object? languageName = freezed,
     Object? translatedName = freezed,
   }) {
-    return _then(_$_Translations(
+    return _then(_$TranslationsImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -329,8 +331,8 @@ class __$$_TranslationsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Translations implements _Translations {
-  const _$_Translations(
+class _$TranslationsImpl implements _Translations {
+  const _$TranslationsImpl(
       {required this.id,
       required this.name,
       @JsonKey(name: "author_name") required this.authorName,
@@ -338,8 +340,8 @@ class _$_Translations implements _Translations {
       @JsonKey(name: "language_name") required this.languageName,
       @JsonKey(name: "translated_name") required this.translatedName});
 
-  factory _$_Translations.fromJson(Map<String, dynamic> json) =>
-      _$$_TranslationsFromJson(json);
+  factory _$TranslationsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TranslationsImplFromJson(json);
 
   @override
   final int? id;
@@ -366,7 +368,7 @@ class _$_Translations implements _Translations {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Translations &&
+            other is _$TranslationsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.authorName, authorName) ||
@@ -386,12 +388,12 @@ class _$_Translations implements _Translations {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TranslationsCopyWith<_$_Translations> get copyWith =>
-      __$$_TranslationsCopyWithImpl<_$_Translations>(this, _$identity);
+  _$$TranslationsImplCopyWith<_$TranslationsImpl> get copyWith =>
+      __$$TranslationsImplCopyWithImpl<_$TranslationsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TranslationsToJson(
+    return _$$TranslationsImplToJson(
       this,
     );
   }
@@ -405,10 +407,10 @@ abstract class _Translations implements Translations {
       required final String? slug,
       @JsonKey(name: "language_name") required final String? languageName,
       @JsonKey(name: "translated_name")
-      required final TranslatedName? translatedName}) = _$_Translations;
+      required final TranslatedName? translatedName}) = _$TranslationsImpl;
 
   factory _Translations.fromJson(Map<String, dynamic> json) =
-      _$_Translations.fromJson;
+      _$TranslationsImpl.fromJson;
 
   @override
   int? get id;
@@ -427,7 +429,7 @@ abstract class _Translations implements Translations {
   TranslatedName? get translatedName;
   @override
   @JsonKey(ignore: true)
-  _$$_TranslationsCopyWith<_$_Translations> get copyWith =>
+  _$$TranslationsImplCopyWith<_$TranslationsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -487,11 +489,11 @@ class _$TranslatedNameCopyWithImpl<$Res, $Val extends TranslatedName>
 }
 
 /// @nodoc
-abstract class _$$_TranslatedNameCopyWith<$Res>
+abstract class _$$TranslatedNameImplCopyWith<$Res>
     implements $TranslatedNameCopyWith<$Res> {
-  factory _$$_TranslatedNameCopyWith(
-          _$_TranslatedName value, $Res Function(_$_TranslatedName) then) =
-      __$$_TranslatedNameCopyWithImpl<$Res>;
+  factory _$$TranslatedNameImplCopyWith(_$TranslatedNameImpl value,
+          $Res Function(_$TranslatedNameImpl) then) =
+      __$$TranslatedNameImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -499,11 +501,11 @@ abstract class _$$_TranslatedNameCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TranslatedNameCopyWithImpl<$Res>
-    extends _$TranslatedNameCopyWithImpl<$Res, _$_TranslatedName>
-    implements _$$_TranslatedNameCopyWith<$Res> {
-  __$$_TranslatedNameCopyWithImpl(
-      _$_TranslatedName _value, $Res Function(_$_TranslatedName) _then)
+class __$$TranslatedNameImplCopyWithImpl<$Res>
+    extends _$TranslatedNameCopyWithImpl<$Res, _$TranslatedNameImpl>
+    implements _$$TranslatedNameImplCopyWith<$Res> {
+  __$$TranslatedNameImplCopyWithImpl(
+      _$TranslatedNameImpl _value, $Res Function(_$TranslatedNameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -512,7 +514,7 @@ class __$$_TranslatedNameCopyWithImpl<$Res>
     Object? name = freezed,
     Object? languageName = freezed,
   }) {
-    return _then(_$_TranslatedName(
+    return _then(_$TranslatedNameImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -527,13 +529,13 @@ class __$$_TranslatedNameCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TranslatedName implements _TranslatedName {
-  const _$_TranslatedName(
+class _$TranslatedNameImpl implements _TranslatedName {
+  const _$TranslatedNameImpl(
       {required this.name,
       @JsonKey(name: "language_name") required this.languageName});
 
-  factory _$_TranslatedName.fromJson(Map<String, dynamic> json) =>
-      _$$_TranslatedNameFromJson(json);
+  factory _$TranslatedNameImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TranslatedNameImplFromJson(json);
 
   @override
   final String? name;
@@ -550,7 +552,7 @@ class _$_TranslatedName implements _TranslatedName {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TranslatedName &&
+            other is _$TranslatedNameImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.languageName, languageName) ||
                 other.languageName == languageName));
@@ -563,12 +565,13 @@ class _$_TranslatedName implements _TranslatedName {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TranslatedNameCopyWith<_$_TranslatedName> get copyWith =>
-      __$$_TranslatedNameCopyWithImpl<_$_TranslatedName>(this, _$identity);
+  _$$TranslatedNameImplCopyWith<_$TranslatedNameImpl> get copyWith =>
+      __$$TranslatedNameImplCopyWithImpl<_$TranslatedNameImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TranslatedNameToJson(
+    return _$$TranslatedNameImplToJson(
       this,
     );
   }
@@ -578,10 +581,10 @@ abstract class _TranslatedName implements TranslatedName {
   const factory _TranslatedName(
       {required final String? name,
       @JsonKey(name: "language_name")
-      required final String? languageName}) = _$_TranslatedName;
+      required final String? languageName}) = _$TranslatedNameImpl;
 
   factory _TranslatedName.fromJson(Map<String, dynamic> json) =
-      _$_TranslatedName.fromJson;
+      _$TranslatedNameImpl.fromJson;
 
   @override
   String? get name;
@@ -590,6 +593,6 @@ abstract class _TranslatedName implements TranslatedName {
   String? get languageName;
   @override
   @JsonKey(ignore: true)
-  _$$_TranslatedNameCopyWith<_$_TranslatedName> get copyWith =>
+  _$$TranslatedNameImplCopyWith<_$TranslatedNameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,15 +6,17 @@ part of 'dua_categories_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DuaCategoryModel _$$_DuaCategoryModelFromJson(Map<String, dynamic> json) =>
-    _$_DuaCategoryModel(
+_$DuaCategoryModelImpl _$$DuaCategoryModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DuaCategoryModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
       result: Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_DuaCategoryModelToJson(_$_DuaCategoryModel instance) =>
+Map<String, dynamic> _$$DuaCategoryModelImplToJson(
+        _$DuaCategoryModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -22,18 +24,19 @@ Map<String, dynamic> _$$_DuaCategoryModelToJson(_$_DuaCategoryModel instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       duaCategory: (json['duaCategory'] as List<dynamic>)
           .map((e) => DuaCategory.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'duaCategory': instance.duaCategory,
     };
 
-_$_DuaCategory _$$_DuaCategoryFromJson(Map<String, dynamic> json) =>
-    _$_DuaCategory(
+_$DuaCategoryImpl _$$DuaCategoryImplFromJson(Map<String, dynamic> json) =>
+    _$DuaCategoryImpl(
       id: json['_id'] as String?,
       category: json['category'] as String?,
       image: json['image'] as String?,
@@ -41,7 +44,7 @@ _$_DuaCategory _$$_DuaCategoryFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_DuaCategoryToJson(_$_DuaCategory instance) =>
+Map<String, dynamic> _$$DuaCategoryImplToJson(_$DuaCategoryImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'category': instance.category,

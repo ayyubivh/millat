@@ -94,11 +94,11 @@ class _$RewardsModelCopyWithImpl<$Res, $Val extends RewardsModel>
 }
 
 /// @nodoc
-abstract class _$$_RewardsModelCopyWith<$Res>
+abstract class _$$RewardsModelImplCopyWith<$Res>
     implements $RewardsModelCopyWith<$Res> {
-  factory _$$_RewardsModelCopyWith(
-          _$_RewardsModel value, $Res Function(_$_RewardsModel) then) =
-      __$$_RewardsModelCopyWithImpl<$Res>;
+  factory _$$RewardsModelImplCopyWith(
+          _$RewardsModelImpl value, $Res Function(_$RewardsModelImpl) then) =
+      __$$RewardsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? status, String? message, String? error, Result? result});
@@ -108,11 +108,11 @@ abstract class _$$_RewardsModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RewardsModelCopyWithImpl<$Res>
-    extends _$RewardsModelCopyWithImpl<$Res, _$_RewardsModel>
-    implements _$$_RewardsModelCopyWith<$Res> {
-  __$$_RewardsModelCopyWithImpl(
-      _$_RewardsModel _value, $Res Function(_$_RewardsModel) _then)
+class __$$RewardsModelImplCopyWithImpl<$Res>
+    extends _$RewardsModelCopyWithImpl<$Res, _$RewardsModelImpl>
+    implements _$$RewardsModelImplCopyWith<$Res> {
+  __$$RewardsModelImplCopyWithImpl(
+      _$RewardsModelImpl _value, $Res Function(_$RewardsModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_RewardsModelCopyWithImpl<$Res>
     Object? error = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_RewardsModel(
+    return _then(_$RewardsModelImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -146,11 +146,12 @@ class __$$_RewardsModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RewardsModel implements _RewardsModel {
-  const _$_RewardsModel({this.status, this.message, this.error, this.result});
+class _$RewardsModelImpl implements _RewardsModel {
+  const _$RewardsModelImpl(
+      {this.status, this.message, this.error, this.result});
 
-  factory _$_RewardsModel.fromJson(Map<String, dynamic> json) =>
-      _$$_RewardsModelFromJson(json);
+  factory _$RewardsModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RewardsModelImplFromJson(json);
 
   @override
   final int? status;
@@ -170,7 +171,7 @@ class _$_RewardsModel implements _RewardsModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RewardsModel &&
+            other is _$RewardsModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -184,12 +185,12 @@ class _$_RewardsModel implements _RewardsModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RewardsModelCopyWith<_$_RewardsModel> get copyWith =>
-      __$$_RewardsModelCopyWithImpl<_$_RewardsModel>(this, _$identity);
+  _$$RewardsModelImplCopyWith<_$RewardsModelImpl> get copyWith =>
+      __$$RewardsModelImplCopyWithImpl<_$RewardsModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RewardsModelToJson(
+    return _$$RewardsModelImplToJson(
       this,
     );
   }
@@ -200,10 +201,10 @@ abstract class _RewardsModel implements RewardsModel {
       {final int? status,
       final String? message,
       final String? error,
-      final Result? result}) = _$_RewardsModel;
+      final Result? result}) = _$RewardsModelImpl;
 
   factory _RewardsModel.fromJson(Map<String, dynamic> json) =
-      _$_RewardsModel.fromJson;
+      _$RewardsModelImpl.fromJson;
 
   @override
   int? get status;
@@ -215,7 +216,7 @@ abstract class _RewardsModel implements RewardsModel {
   Result? get result;
   @override
   @JsonKey(ignore: true)
-  _$$_RewardsModelCopyWith<_$_RewardsModel> get copyWith =>
+  _$$RewardsModelImplCopyWith<_$RewardsModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -279,9 +280,10 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
 }
 
 /// @nodoc
-abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$$_ResultCopyWith(_$_Result value, $Res Function(_$_Result) then) =
-      __$$_ResultCopyWithImpl<$Res>;
+abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
+  factory _$$ResultImplCopyWith(
+          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
+      __$$ResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Reward? reward});
@@ -291,10 +293,11 @@ abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ResultCopyWithImpl<$Res>
-    extends _$ResultCopyWithImpl<$Res, _$_Result>
-    implements _$$_ResultCopyWith<$Res> {
-  __$$_ResultCopyWithImpl(_$_Result _value, $Res Function(_$_Result) _then)
+class __$$ResultImplCopyWithImpl<$Res>
+    extends _$ResultCopyWithImpl<$Res, _$ResultImpl>
+    implements _$$ResultImplCopyWith<$Res> {
+  __$$ResultImplCopyWithImpl(
+      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -302,7 +305,7 @@ class __$$_ResultCopyWithImpl<$Res>
   $Res call({
     Object? reward = freezed,
   }) {
-    return _then(_$_Result(
+    return _then(_$ResultImpl(
       reward: freezed == reward
           ? _value.reward
           : reward // ignore: cast_nullable_to_non_nullable
@@ -313,11 +316,11 @@ class __$$_ResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Result implements _Result {
-  const _$_Result({this.reward});
+class _$ResultImpl implements _Result {
+  const _$ResultImpl({this.reward});
 
-  factory _$_Result.fromJson(Map<String, dynamic> json) =>
-      _$$_ResultFromJson(json);
+  factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResultImplFromJson(json);
 
   @override
   final Reward? reward;
@@ -331,7 +334,7 @@ class _$_Result implements _Result {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Result &&
+            other is _$ResultImpl &&
             (identical(other.reward, reward) || other.reward == reward));
   }
 
@@ -342,27 +345,27 @@ class _$_Result implements _Result {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
-      __$$_ResultCopyWithImpl<_$_Result>(this, _$identity);
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
+      __$$ResultImplCopyWithImpl<_$ResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultToJson(
+    return _$$ResultImplToJson(
       this,
     );
   }
 }
 
 abstract class _Result implements Result {
-  const factory _Result({final Reward? reward}) = _$_Result;
+  const factory _Result({final Reward? reward}) = _$ResultImpl;
 
-  factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
+  factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
   @override
   Reward? get reward;
   @override
   @JsonKey(ignore: true)
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -445,9 +448,10 @@ class _$RewardCopyWithImpl<$Res, $Val extends Reward>
 }
 
 /// @nodoc
-abstract class _$$_RewardCopyWith<$Res> implements $RewardCopyWith<$Res> {
-  factory _$$_RewardCopyWith(_$_Reward value, $Res Function(_$_Reward) then) =
-      __$$_RewardCopyWithImpl<$Res>;
+abstract class _$$RewardImplCopyWith<$Res> implements $RewardCopyWith<$Res> {
+  factory _$$RewardImplCopyWith(
+          _$RewardImpl value, $Res Function(_$RewardImpl) then) =
+      __$$RewardImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -459,10 +463,11 @@ abstract class _$$_RewardCopyWith<$Res> implements $RewardCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RewardCopyWithImpl<$Res>
-    extends _$RewardCopyWithImpl<$Res, _$_Reward>
-    implements _$$_RewardCopyWith<$Res> {
-  __$$_RewardCopyWithImpl(_$_Reward _value, $Res Function(_$_Reward) _then)
+class __$$RewardImplCopyWithImpl<$Res>
+    extends _$RewardCopyWithImpl<$Res, _$RewardImpl>
+    implements _$$RewardImplCopyWith<$Res> {
+  __$$RewardImplCopyWithImpl(
+      _$RewardImpl _value, $Res Function(_$RewardImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -474,7 +479,7 @@ class __$$_RewardCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_Reward(
+    return _then(_$RewardImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -501,16 +506,16 @@ class __$$_RewardCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Reward implements _Reward {
-  const _$_Reward(
+class _$RewardImpl implements _Reward {
+  const _$RewardImpl(
       {@JsonKey(name: '_id') this.id,
       @JsonKey(name: 'userId') this.userId,
       this.coins,
       @JsonKey(name: 'createdAt') this.createdAt,
       @JsonKey(name: 'updatedAt') this.updatedAt});
 
-  factory _$_Reward.fromJson(Map<String, dynamic> json) =>
-      _$$_RewardFromJson(json);
+  factory _$RewardImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RewardImplFromJson(json);
 
   @override
   @JsonKey(name: '_id')
@@ -536,7 +541,7 @@ class _$_Reward implements _Reward {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Reward &&
+            other is _$RewardImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.coins, coins) || other.coins == coins) &&
@@ -554,12 +559,12 @@ class _$_Reward implements _Reward {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RewardCopyWith<_$_Reward> get copyWith =>
-      __$$_RewardCopyWithImpl<_$_Reward>(this, _$identity);
+  _$$RewardImplCopyWith<_$RewardImpl> get copyWith =>
+      __$$RewardImplCopyWithImpl<_$RewardImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RewardToJson(
+    return _$$RewardImplToJson(
       this,
     );
   }
@@ -571,9 +576,9 @@ abstract class _Reward implements Reward {
       @JsonKey(name: 'userId') final String? userId,
       final int? coins,
       @JsonKey(name: 'createdAt') final String? createdAt,
-      @JsonKey(name: 'updatedAt') final String? updatedAt}) = _$_Reward;
+      @JsonKey(name: 'updatedAt') final String? updatedAt}) = _$RewardImpl;
 
-  factory _Reward.fromJson(Map<String, dynamic> json) = _$_Reward.fromJson;
+  factory _Reward.fromJson(Map<String, dynamic> json) = _$RewardImpl.fromJson;
 
   @override
   @JsonKey(name: '_id')
@@ -591,6 +596,6 @@ abstract class _Reward implements Reward {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_RewardCopyWith<_$_Reward> get copyWith =>
+  _$$RewardImplCopyWith<_$RewardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -181,10 +181,10 @@ class _$BookmarkEventCopyWithImpl<$Res, $Val extends BookmarkEvent>
 }
 
 /// @nodoc
-abstract class _$$AddCollectionCopyWith<$Res> {
-  factory _$$AddCollectionCopyWith(
-          _$AddCollection value, $Res Function(_$AddCollection) then) =
-      __$$AddCollectionCopyWithImpl<$Res>;
+abstract class _$$AddCollectionImplCopyWith<$Res> {
+  factory _$$AddCollectionImplCopyWith(
+          _$AddCollectionImpl value, $Res Function(_$AddCollectionImpl) then) =
+      __$$AddCollectionImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String name,
@@ -196,11 +196,11 @@ abstract class _$$AddCollectionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AddCollectionCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$AddCollection>
-    implements _$$AddCollectionCopyWith<$Res> {
-  __$$AddCollectionCopyWithImpl(
-      _$AddCollection _value, $Res Function(_$AddCollection) _then)
+class __$$AddCollectionImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$AddCollectionImpl>
+    implements _$$AddCollectionImplCopyWith<$Res> {
+  __$$AddCollectionImplCopyWithImpl(
+      _$AddCollectionImpl _value, $Res Function(_$AddCollectionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -213,7 +213,7 @@ class __$$AddCollectionCopyWithImpl<$Res>
     Object? context = null,
     Object? dbId = freezed,
   }) {
-    return _then(_$AddCollection(
+    return _then(_$AddCollectionImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -244,8 +244,8 @@ class __$$AddCollectionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddCollection implements AddCollection {
-  const _$AddCollection(
+class _$AddCollectionImpl implements AddCollection {
+  const _$AddCollectionImpl(
       {required this.name,
       required this.description,
       required final List<String> verskey,
@@ -282,7 +282,7 @@ class _$AddCollection implements AddCollection {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddCollection &&
+            other is _$AddCollectionImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -299,8 +299,8 @@ class _$AddCollection implements AddCollection {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddCollectionCopyWith<_$AddCollection> get copyWith =>
-      __$$AddCollectionCopyWithImpl<_$AddCollection>(this, _$identity);
+  _$$AddCollectionImplCopyWith<_$AddCollectionImpl> get copyWith =>
+      __$$AddCollectionImplCopyWithImpl<_$AddCollectionImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -479,7 +479,7 @@ abstract class AddCollection implements BookmarkEvent {
       required final List<String> verskey,
       required final String image,
       required final BuildContext context,
-      final String? dbId}) = _$AddCollection;
+      final String? dbId}) = _$AddCollectionImpl;
 
   String get name;
   String get description;
@@ -488,25 +488,25 @@ abstract class AddCollection implements BookmarkEvent {
   BuildContext get context;
   String? get dbId;
   @JsonKey(ignore: true)
-  _$$AddCollectionCopyWith<_$AddCollection> get copyWith =>
+  _$$AddCollectionImplCopyWith<_$AddCollectionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SaveImageEventCopyWith<$Res> {
-  factory _$$SaveImageEventCopyWith(
-          _$SaveImageEvent value, $Res Function(_$SaveImageEvent) then) =
-      __$$SaveImageEventCopyWithImpl<$Res>;
+abstract class _$$SaveImageEventImplCopyWith<$Res> {
+  factory _$$SaveImageEventImplCopyWith(_$SaveImageEventImpl value,
+          $Res Function(_$SaveImageEventImpl) then) =
+      __$$SaveImageEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String img});
 }
 
 /// @nodoc
-class __$$SaveImageEventCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveImageEvent>
-    implements _$$SaveImageEventCopyWith<$Res> {
-  __$$SaveImageEventCopyWithImpl(
-      _$SaveImageEvent _value, $Res Function(_$SaveImageEvent) _then)
+class __$$SaveImageEventImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveImageEventImpl>
+    implements _$$SaveImageEventImplCopyWith<$Res> {
+  __$$SaveImageEventImplCopyWithImpl(
+      _$SaveImageEventImpl _value, $Res Function(_$SaveImageEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -514,7 +514,7 @@ class __$$SaveImageEventCopyWithImpl<$Res>
   $Res call({
     Object? img = null,
   }) {
-    return _then(_$SaveImageEvent(
+    return _then(_$SaveImageEventImpl(
       img: null == img
           ? _value.img
           : img // ignore: cast_nullable_to_non_nullable
@@ -525,8 +525,8 @@ class __$$SaveImageEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveImageEvent implements SaveImageEvent {
-  const _$SaveImageEvent({required this.img});
+class _$SaveImageEventImpl implements SaveImageEvent {
+  const _$SaveImageEventImpl({required this.img});
 
   @override
   final String img;
@@ -540,7 +540,7 @@ class _$SaveImageEvent implements SaveImageEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveImageEvent &&
+            other is _$SaveImageEventImpl &&
             (identical(other.img, img) || other.img == img));
   }
 
@@ -550,8 +550,9 @@ class _$SaveImageEvent implements SaveImageEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveImageEventCopyWith<_$SaveImageEvent> get copyWith =>
-      __$$SaveImageEventCopyWithImpl<_$SaveImageEvent>(this, _$identity);
+  _$$SaveImageEventImplCopyWith<_$SaveImageEventImpl> get copyWith =>
+      __$$SaveImageEventImplCopyWithImpl<_$SaveImageEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -723,29 +724,30 @@ class _$SaveImageEvent implements SaveImageEvent {
 }
 
 abstract class SaveImageEvent implements BookmarkEvent {
-  const factory SaveImageEvent({required final String img}) = _$SaveImageEvent;
+  const factory SaveImageEvent({required final String img}) =
+      _$SaveImageEventImpl;
 
   String get img;
   @JsonKey(ignore: true)
-  _$$SaveImageEventCopyWith<_$SaveImageEvent> get copyWith =>
+  _$$SaveImageEventImplCopyWith<_$SaveImageEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SaveQuranChapterIdCopyWith<$Res> {
-  factory _$$SaveQuranChapterIdCopyWith(_$SaveQuranChapterId value,
-          $Res Function(_$SaveQuranChapterId) then) =
-      __$$SaveQuranChapterIdCopyWithImpl<$Res>;
+abstract class _$$SaveQuranChapterIdImplCopyWith<$Res> {
+  factory _$$SaveQuranChapterIdImplCopyWith(_$SaveQuranChapterIdImpl value,
+          $Res Function(_$SaveQuranChapterIdImpl) then) =
+      __$$SaveQuranChapterIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<int> id});
 }
 
 /// @nodoc
-class __$$SaveQuranChapterIdCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveQuranChapterId>
-    implements _$$SaveQuranChapterIdCopyWith<$Res> {
-  __$$SaveQuranChapterIdCopyWithImpl(
-      _$SaveQuranChapterId _value, $Res Function(_$SaveQuranChapterId) _then)
+class __$$SaveQuranChapterIdImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveQuranChapterIdImpl>
+    implements _$$SaveQuranChapterIdImplCopyWith<$Res> {
+  __$$SaveQuranChapterIdImplCopyWithImpl(_$SaveQuranChapterIdImpl _value,
+      $Res Function(_$SaveQuranChapterIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -753,7 +755,7 @@ class __$$SaveQuranChapterIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$SaveQuranChapterId(
+    return _then(_$SaveQuranChapterIdImpl(
       id: null == id
           ? _value._id
           : id // ignore: cast_nullable_to_non_nullable
@@ -764,8 +766,8 @@ class __$$SaveQuranChapterIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveQuranChapterId implements SaveQuranChapterId {
-  const _$SaveQuranChapterId({required final List<int> id}) : _id = id;
+class _$SaveQuranChapterIdImpl implements SaveQuranChapterId {
+  const _$SaveQuranChapterIdImpl({required final List<int> id}) : _id = id;
 
   final List<int> _id;
   @override
@@ -784,7 +786,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveQuranChapterId &&
+            other is _$SaveQuranChapterIdImpl &&
             const DeepCollectionEquality().equals(other._id, _id));
   }
 
@@ -795,8 +797,8 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveQuranChapterIdCopyWith<_$SaveQuranChapterId> get copyWith =>
-      __$$SaveQuranChapterIdCopyWithImpl<_$SaveQuranChapterId>(
+  _$$SaveQuranChapterIdImplCopyWith<_$SaveQuranChapterIdImpl> get copyWith =>
+      __$$SaveQuranChapterIdImplCopyWithImpl<_$SaveQuranChapterIdImpl>(
           this, _$identity);
 
   @override
@@ -970,29 +972,29 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
 
 abstract class SaveQuranChapterId implements BookmarkEvent {
   const factory SaveQuranChapterId({required final List<int> id}) =
-      _$SaveQuranChapterId;
+      _$SaveQuranChapterIdImpl;
 
   List<int> get id;
   @JsonKey(ignore: true)
-  _$$SaveQuranChapterIdCopyWith<_$SaveQuranChapterId> get copyWith =>
+  _$$SaveQuranChapterIdImplCopyWith<_$SaveQuranChapterIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NameChangedCopyWith<$Res> {
-  factory _$$NameChangedCopyWith(
-          _$NameChanged value, $Res Function(_$NameChanged) then) =
-      __$$NameChangedCopyWithImpl<$Res>;
+abstract class _$$NameChangedImplCopyWith<$Res> {
+  factory _$$NameChangedImplCopyWith(
+          _$NameChangedImpl value, $Res Function(_$NameChangedImpl) then) =
+      __$$NameChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String nameValue});
 }
 
 /// @nodoc
-class __$$NameChangedCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$NameChanged>
-    implements _$$NameChangedCopyWith<$Res> {
-  __$$NameChangedCopyWithImpl(
-      _$NameChanged _value, $Res Function(_$NameChanged) _then)
+class __$$NameChangedImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$NameChangedImpl>
+    implements _$$NameChangedImplCopyWith<$Res> {
+  __$$NameChangedImplCopyWithImpl(
+      _$NameChangedImpl _value, $Res Function(_$NameChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1000,7 +1002,7 @@ class __$$NameChangedCopyWithImpl<$Res>
   $Res call({
     Object? nameValue = null,
   }) {
-    return _then(_$NameChanged(
+    return _then(_$NameChangedImpl(
       nameValue: null == nameValue
           ? _value.nameValue
           : nameValue // ignore: cast_nullable_to_non_nullable
@@ -1011,8 +1013,8 @@ class __$$NameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NameChanged implements NameChanged {
-  const _$NameChanged({required this.nameValue});
+class _$NameChangedImpl implements NameChanged {
+  const _$NameChangedImpl({required this.nameValue});
 
   @override
   final String nameValue;
@@ -1026,7 +1028,7 @@ class _$NameChanged implements NameChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NameChanged &&
+            other is _$NameChangedImpl &&
             (identical(other.nameValue, nameValue) ||
                 other.nameValue == nameValue));
   }
@@ -1037,8 +1039,8 @@ class _$NameChanged implements NameChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NameChangedCopyWith<_$NameChanged> get copyWith =>
-      __$$NameChangedCopyWithImpl<_$NameChanged>(this, _$identity);
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
+      __$$NameChangedImplCopyWithImpl<_$NameChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1210,29 +1212,30 @@ class _$NameChanged implements NameChanged {
 }
 
 abstract class NameChanged implements BookmarkEvent {
-  const factory NameChanged({required final String nameValue}) = _$NameChanged;
+  const factory NameChanged({required final String nameValue}) =
+      _$NameChangedImpl;
 
   String get nameValue;
   @JsonKey(ignore: true)
-  _$$NameChangedCopyWith<_$NameChanged> get copyWith =>
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DescriptionChangedCopyWith<$Res> {
-  factory _$$DescriptionChangedCopyWith(_$DescriptionChanged value,
-          $Res Function(_$DescriptionChanged) then) =
-      __$$DescriptionChangedCopyWithImpl<$Res>;
+abstract class _$$DescriptionChangedImplCopyWith<$Res> {
+  factory _$$DescriptionChangedImplCopyWith(_$DescriptionChangedImpl value,
+          $Res Function(_$DescriptionChangedImpl) then) =
+      __$$DescriptionChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String descriptionValue});
 }
 
 /// @nodoc
-class __$$DescriptionChangedCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$DescriptionChanged>
-    implements _$$DescriptionChangedCopyWith<$Res> {
-  __$$DescriptionChangedCopyWithImpl(
-      _$DescriptionChanged _value, $Res Function(_$DescriptionChanged) _then)
+class __$$DescriptionChangedImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$DescriptionChangedImpl>
+    implements _$$DescriptionChangedImplCopyWith<$Res> {
+  __$$DescriptionChangedImplCopyWithImpl(_$DescriptionChangedImpl _value,
+      $Res Function(_$DescriptionChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1240,7 +1243,7 @@ class __$$DescriptionChangedCopyWithImpl<$Res>
   $Res call({
     Object? descriptionValue = null,
   }) {
-    return _then(_$DescriptionChanged(
+    return _then(_$DescriptionChangedImpl(
       descriptionValue: null == descriptionValue
           ? _value.descriptionValue
           : descriptionValue // ignore: cast_nullable_to_non_nullable
@@ -1251,8 +1254,8 @@ class __$$DescriptionChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DescriptionChanged implements DescriptionChanged {
-  const _$DescriptionChanged({required this.descriptionValue});
+class _$DescriptionChangedImpl implements DescriptionChanged {
+  const _$DescriptionChangedImpl({required this.descriptionValue});
 
   @override
   final String descriptionValue;
@@ -1266,7 +1269,7 @@ class _$DescriptionChanged implements DescriptionChanged {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DescriptionChanged &&
+            other is _$DescriptionChangedImpl &&
             (identical(other.descriptionValue, descriptionValue) ||
                 other.descriptionValue == descriptionValue));
   }
@@ -1277,8 +1280,8 @@ class _$DescriptionChanged implements DescriptionChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DescriptionChangedCopyWith<_$DescriptionChanged> get copyWith =>
-      __$$DescriptionChangedCopyWithImpl<_$DescriptionChanged>(
+  _$$DescriptionChangedImplCopyWith<_$DescriptionChangedImpl> get copyWith =>
+      __$$DescriptionChangedImplCopyWithImpl<_$DescriptionChangedImpl>(
           this, _$identity);
 
   @override
@@ -1452,19 +1455,19 @@ class _$DescriptionChanged implements DescriptionChanged {
 
 abstract class DescriptionChanged implements BookmarkEvent {
   const factory DescriptionChanged({required final String descriptionValue}) =
-      _$DescriptionChanged;
+      _$DescriptionChangedImpl;
 
   String get descriptionValue;
   @JsonKey(ignore: true)
-  _$$DescriptionChangedCopyWith<_$DescriptionChanged> get copyWith =>
+  _$$DescriptionChangedImplCopyWith<_$DescriptionChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EditCollectionCopyWith<$Res> {
-  factory _$$EditCollectionCopyWith(
-          _$EditCollection value, $Res Function(_$EditCollection) then) =
-      __$$EditCollectionCopyWithImpl<$Res>;
+abstract class _$$EditCollectionImplCopyWith<$Res> {
+  factory _$$EditCollectionImplCopyWith(_$EditCollectionImpl value,
+          $Res Function(_$EditCollectionImpl) then) =
+      __$$EditCollectionImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String name,
@@ -1476,11 +1479,11 @@ abstract class _$$EditCollectionCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$EditCollectionCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$EditCollection>
-    implements _$$EditCollectionCopyWith<$Res> {
-  __$$EditCollectionCopyWithImpl(
-      _$EditCollection _value, $Res Function(_$EditCollection) _then)
+class __$$EditCollectionImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$EditCollectionImpl>
+    implements _$$EditCollectionImplCopyWith<$Res> {
+  __$$EditCollectionImplCopyWithImpl(
+      _$EditCollectionImpl _value, $Res Function(_$EditCollectionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1493,7 +1496,7 @@ class __$$EditCollectionCopyWithImpl<$Res>
     Object? dbId = null,
     Object? context = null,
   }) {
-    return _then(_$EditCollection(
+    return _then(_$EditCollectionImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1524,8 +1527,8 @@ class __$$EditCollectionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditCollection implements EditCollection {
-  const _$EditCollection(
+class _$EditCollectionImpl implements EditCollection {
+  const _$EditCollectionImpl(
       {required this.name,
       required this.description,
       required final List<String> verskey,
@@ -1562,7 +1565,7 @@ class _$EditCollection implements EditCollection {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditCollection &&
+            other is _$EditCollectionImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -1579,8 +1582,9 @@ class _$EditCollection implements EditCollection {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EditCollectionCopyWith<_$EditCollection> get copyWith =>
-      __$$EditCollectionCopyWithImpl<_$EditCollection>(this, _$identity);
+  _$$EditCollectionImplCopyWith<_$EditCollectionImpl> get copyWith =>
+      __$$EditCollectionImplCopyWithImpl<_$EditCollectionImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1759,7 +1763,7 @@ abstract class EditCollection implements BookmarkEvent {
       required final List<String> verskey,
       required final String image,
       required final String dbId,
-      required final BuildContext context}) = _$EditCollection;
+      required final BuildContext context}) = _$EditCollectionImpl;
 
   String get name;
   String get description;
@@ -1768,25 +1772,25 @@ abstract class EditCollection implements BookmarkEvent {
   String get dbId;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$EditCollectionCopyWith<_$EditCollection> get copyWith =>
+  _$$EditCollectionImplCopyWith<_$EditCollectionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddFavCollectionCopyWith<$Res> {
-  factory _$$AddFavCollectionCopyWith(
-          _$AddFavCollection value, $Res Function(_$AddFavCollection) then) =
-      __$$AddFavCollectionCopyWithImpl<$Res>;
+abstract class _$$AddFavCollectionImplCopyWith<$Res> {
+  factory _$$AddFavCollectionImplCopyWith(_$AddFavCollectionImpl value,
+          $Res Function(_$AddFavCollectionImpl) then) =
+      __$$AddFavCollectionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<String> verskey});
 }
 
 /// @nodoc
-class __$$AddFavCollectionCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$AddFavCollection>
-    implements _$$AddFavCollectionCopyWith<$Res> {
-  __$$AddFavCollectionCopyWithImpl(
-      _$AddFavCollection _value, $Res Function(_$AddFavCollection) _then)
+class __$$AddFavCollectionImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$AddFavCollectionImpl>
+    implements _$$AddFavCollectionImplCopyWith<$Res> {
+  __$$AddFavCollectionImplCopyWithImpl(_$AddFavCollectionImpl _value,
+      $Res Function(_$AddFavCollectionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1794,7 +1798,7 @@ class __$$AddFavCollectionCopyWithImpl<$Res>
   $Res call({
     Object? verskey = null,
   }) {
-    return _then(_$AddFavCollection(
+    return _then(_$AddFavCollectionImpl(
       verskey: null == verskey
           ? _value._verskey
           : verskey // ignore: cast_nullable_to_non_nullable
@@ -1805,8 +1809,8 @@ class __$$AddFavCollectionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddFavCollection implements AddFavCollection {
-  const _$AddFavCollection({required final List<String> verskey})
+class _$AddFavCollectionImpl implements AddFavCollection {
+  const _$AddFavCollectionImpl({required final List<String> verskey})
       : _verskey = verskey;
 
   final List<String> _verskey;
@@ -1826,7 +1830,7 @@ class _$AddFavCollection implements AddFavCollection {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddFavCollection &&
+            other is _$AddFavCollectionImpl &&
             const DeepCollectionEquality().equals(other._verskey, _verskey));
   }
 
@@ -1837,8 +1841,9 @@ class _$AddFavCollection implements AddFavCollection {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddFavCollectionCopyWith<_$AddFavCollection> get copyWith =>
-      __$$AddFavCollectionCopyWithImpl<_$AddFavCollection>(this, _$identity);
+  _$$AddFavCollectionImplCopyWith<_$AddFavCollectionImpl> get copyWith =>
+      __$$AddFavCollectionImplCopyWithImpl<_$AddFavCollectionImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2011,29 +2016,29 @@ class _$AddFavCollection implements AddFavCollection {
 
 abstract class AddFavCollection implements BookmarkEvent {
   const factory AddFavCollection({required final List<String> verskey}) =
-      _$AddFavCollection;
+      _$AddFavCollectionImpl;
 
   List<String> get verskey;
   @JsonKey(ignore: true)
-  _$$AddFavCollectionCopyWith<_$AddFavCollection> get copyWith =>
+  _$$AddFavCollectionImplCopyWith<_$AddFavCollectionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SaveIndexEventCopyWith<$Res> {
-  factory _$$SaveIndexEventCopyWith(
-          _$SaveIndexEvent value, $Res Function(_$SaveIndexEvent) then) =
-      __$$SaveIndexEventCopyWithImpl<$Res>;
+abstract class _$$SaveIndexEventImplCopyWith<$Res> {
+  factory _$$SaveIndexEventImplCopyWith(_$SaveIndexEventImpl value,
+          $Res Function(_$SaveIndexEventImpl) then) =
+      __$$SaveIndexEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int indexList});
 }
 
 /// @nodoc
-class __$$SaveIndexEventCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveIndexEvent>
-    implements _$$SaveIndexEventCopyWith<$Res> {
-  __$$SaveIndexEventCopyWithImpl(
-      _$SaveIndexEvent _value, $Res Function(_$SaveIndexEvent) _then)
+class __$$SaveIndexEventImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveIndexEventImpl>
+    implements _$$SaveIndexEventImplCopyWith<$Res> {
+  __$$SaveIndexEventImplCopyWithImpl(
+      _$SaveIndexEventImpl _value, $Res Function(_$SaveIndexEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2041,7 +2046,7 @@ class __$$SaveIndexEventCopyWithImpl<$Res>
   $Res call({
     Object? indexList = null,
   }) {
-    return _then(_$SaveIndexEvent(
+    return _then(_$SaveIndexEventImpl(
       indexList: null == indexList
           ? _value.indexList
           : indexList // ignore: cast_nullable_to_non_nullable
@@ -2052,8 +2057,8 @@ class __$$SaveIndexEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveIndexEvent implements SaveIndexEvent {
-  const _$SaveIndexEvent({required this.indexList});
+class _$SaveIndexEventImpl implements SaveIndexEvent {
+  const _$SaveIndexEventImpl({required this.indexList});
 
   @override
   final int indexList;
@@ -2067,7 +2072,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveIndexEvent &&
+            other is _$SaveIndexEventImpl &&
             (identical(other.indexList, indexList) ||
                 other.indexList == indexList));
   }
@@ -2078,8 +2083,9 @@ class _$SaveIndexEvent implements SaveIndexEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveIndexEventCopyWith<_$SaveIndexEvent> get copyWith =>
-      __$$SaveIndexEventCopyWithImpl<_$SaveIndexEvent>(this, _$identity);
+  _$$SaveIndexEventImplCopyWith<_$SaveIndexEventImpl> get copyWith =>
+      __$$SaveIndexEventImplCopyWithImpl<_$SaveIndexEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2252,29 +2258,29 @@ class _$SaveIndexEvent implements SaveIndexEvent {
 
 abstract class SaveIndexEvent implements BookmarkEvent {
   const factory SaveIndexEvent({required final int indexList}) =
-      _$SaveIndexEvent;
+      _$SaveIndexEventImpl;
 
   int get indexList;
   @JsonKey(ignore: true)
-  _$$SaveIndexEventCopyWith<_$SaveIndexEvent> get copyWith =>
+  _$$SaveIndexEventImplCopyWith<_$SaveIndexEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SaveVersesIndexEventCopyWith<$Res> {
-  factory _$$SaveVersesIndexEventCopyWith(_$SaveVersesIndexEvent value,
-          $Res Function(_$SaveVersesIndexEvent) then) =
-      __$$SaveVersesIndexEventCopyWithImpl<$Res>;
+abstract class _$$SaveVersesIndexEventImplCopyWith<$Res> {
+  factory _$$SaveVersesIndexEventImplCopyWith(_$SaveVersesIndexEventImpl value,
+          $Res Function(_$SaveVersesIndexEventImpl) then) =
+      __$$SaveVersesIndexEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int versesIndexList});
 }
 
 /// @nodoc
-class __$$SaveVersesIndexEventCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveVersesIndexEvent>
-    implements _$$SaveVersesIndexEventCopyWith<$Res> {
-  __$$SaveVersesIndexEventCopyWithImpl(_$SaveVersesIndexEvent _value,
-      $Res Function(_$SaveVersesIndexEvent) _then)
+class __$$SaveVersesIndexEventImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveVersesIndexEventImpl>
+    implements _$$SaveVersesIndexEventImplCopyWith<$Res> {
+  __$$SaveVersesIndexEventImplCopyWithImpl(_$SaveVersesIndexEventImpl _value,
+      $Res Function(_$SaveVersesIndexEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2282,7 +2288,7 @@ class __$$SaveVersesIndexEventCopyWithImpl<$Res>
   $Res call({
     Object? versesIndexList = null,
   }) {
-    return _then(_$SaveVersesIndexEvent(
+    return _then(_$SaveVersesIndexEventImpl(
       versesIndexList: null == versesIndexList
           ? _value.versesIndexList
           : versesIndexList // ignore: cast_nullable_to_non_nullable
@@ -2293,8 +2299,8 @@ class __$$SaveVersesIndexEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
-  const _$SaveVersesIndexEvent({required this.versesIndexList});
+class _$SaveVersesIndexEventImpl implements SaveVersesIndexEvent {
+  const _$SaveVersesIndexEventImpl({required this.versesIndexList});
 
   @override
   final int versesIndexList;
@@ -2308,7 +2314,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveVersesIndexEvent &&
+            other is _$SaveVersesIndexEventImpl &&
             (identical(other.versesIndexList, versesIndexList) ||
                 other.versesIndexList == versesIndexList));
   }
@@ -2319,9 +2325,10 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveVersesIndexEventCopyWith<_$SaveVersesIndexEvent> get copyWith =>
-      __$$SaveVersesIndexEventCopyWithImpl<_$SaveVersesIndexEvent>(
-          this, _$identity);
+  _$$SaveVersesIndexEventImplCopyWith<_$SaveVersesIndexEventImpl>
+      get copyWith =>
+          __$$SaveVersesIndexEventImplCopyWithImpl<_$SaveVersesIndexEventImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2494,34 +2501,34 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
 
 abstract class SaveVersesIndexEvent implements BookmarkEvent {
   const factory SaveVersesIndexEvent({required final int versesIndexList}) =
-      _$SaveVersesIndexEvent;
+      _$SaveVersesIndexEventImpl;
 
   int get versesIndexList;
   @JsonKey(ignore: true)
-  _$$SaveVersesIndexEventCopyWith<_$SaveVersesIndexEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SaveVersesIndexEventImplCopyWith<_$SaveVersesIndexEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ClearIndexEventCopyWith<$Res> {
-  factory _$$ClearIndexEventCopyWith(
-          _$ClearIndexEvent value, $Res Function(_$ClearIndexEvent) then) =
-      __$$ClearIndexEventCopyWithImpl<$Res>;
+abstract class _$$ClearIndexEventImplCopyWith<$Res> {
+  factory _$$ClearIndexEventImplCopyWith(_$ClearIndexEventImpl value,
+          $Res Function(_$ClearIndexEventImpl) then) =
+      __$$ClearIndexEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ClearIndexEventCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$ClearIndexEvent>
-    implements _$$ClearIndexEventCopyWith<$Res> {
-  __$$ClearIndexEventCopyWithImpl(
-      _$ClearIndexEvent _value, $Res Function(_$ClearIndexEvent) _then)
+class __$$ClearIndexEventImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$ClearIndexEventImpl>
+    implements _$$ClearIndexEventImplCopyWith<$Res> {
+  __$$ClearIndexEventImplCopyWithImpl(
+      _$ClearIndexEventImpl _value, $Res Function(_$ClearIndexEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ClearIndexEvent implements ClearIndexEvent {
-  const _$ClearIndexEvent();
+class _$ClearIndexEventImpl implements ClearIndexEvent {
+  const _$ClearIndexEventImpl();
 
   @override
   String toString() {
@@ -2531,7 +2538,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ClearIndexEvent);
+        (other.runtimeType == runtimeType && other is _$ClearIndexEventImpl);
   }
 
   @override
@@ -2707,24 +2714,24 @@ class _$ClearIndexEvent implements ClearIndexEvent {
 }
 
 abstract class ClearIndexEvent implements BookmarkEvent {
-  const factory ClearIndexEvent() = _$ClearIndexEvent;
+  const factory ClearIndexEvent() = _$ClearIndexEventImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeIndexEventCopyWith<$Res> {
-  factory _$$ChangeIndexEventCopyWith(
-          _$ChangeIndexEvent value, $Res Function(_$ChangeIndexEvent) then) =
-      __$$ChangeIndexEventCopyWithImpl<$Res>;
+abstract class _$$ChangeIndexEventImplCopyWith<$Res> {
+  factory _$$ChangeIndexEventImplCopyWith(_$ChangeIndexEventImpl value,
+          $Res Function(_$ChangeIndexEventImpl) then) =
+      __$$ChangeIndexEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeIndexEventCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$ChangeIndexEvent>
-    implements _$$ChangeIndexEventCopyWith<$Res> {
-  __$$ChangeIndexEventCopyWithImpl(
-      _$ChangeIndexEvent _value, $Res Function(_$ChangeIndexEvent) _then)
+class __$$ChangeIndexEventImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$ChangeIndexEventImpl>
+    implements _$$ChangeIndexEventImplCopyWith<$Res> {
+  __$$ChangeIndexEventImplCopyWithImpl(_$ChangeIndexEventImpl _value,
+      $Res Function(_$ChangeIndexEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2732,7 +2739,7 @@ class __$$ChangeIndexEventCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeIndexEvent(
+    return _then(_$ChangeIndexEventImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -2743,8 +2750,8 @@ class __$$ChangeIndexEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeIndexEvent implements ChangeIndexEvent {
-  const _$ChangeIndexEvent(this.index);
+class _$ChangeIndexEventImpl implements ChangeIndexEvent {
+  const _$ChangeIndexEventImpl(this.index);
 
   @override
   final int index;
@@ -2758,7 +2765,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeIndexEvent &&
+            other is _$ChangeIndexEventImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -2768,8 +2775,9 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeIndexEventCopyWith<_$ChangeIndexEvent> get copyWith =>
-      __$$ChangeIndexEventCopyWithImpl<_$ChangeIndexEvent>(this, _$identity);
+  _$$ChangeIndexEventImplCopyWith<_$ChangeIndexEventImpl> get copyWith =>
+      __$$ChangeIndexEventImplCopyWithImpl<_$ChangeIndexEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2941,34 +2949,34 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
 }
 
 abstract class ChangeIndexEvent implements BookmarkEvent {
-  const factory ChangeIndexEvent(final int index) = _$ChangeIndexEvent;
+  const factory ChangeIndexEvent(final int index) = _$ChangeIndexEventImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeIndexEventCopyWith<_$ChangeIndexEvent> get copyWith =>
+  _$$ChangeIndexEventImplCopyWith<_$ChangeIndexEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EmptyIndexEventCopyWith<$Res> {
-  factory _$$EmptyIndexEventCopyWith(
-          _$EmptyIndexEvent value, $Res Function(_$EmptyIndexEvent) then) =
-      __$$EmptyIndexEventCopyWithImpl<$Res>;
+abstract class _$$EmptyIndexEventImplCopyWith<$Res> {
+  factory _$$EmptyIndexEventImplCopyWith(_$EmptyIndexEventImpl value,
+          $Res Function(_$EmptyIndexEventImpl) then) =
+      __$$EmptyIndexEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmptyIndexEventCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$EmptyIndexEvent>
-    implements _$$EmptyIndexEventCopyWith<$Res> {
-  __$$EmptyIndexEventCopyWithImpl(
-      _$EmptyIndexEvent _value, $Res Function(_$EmptyIndexEvent) _then)
+class __$$EmptyIndexEventImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$EmptyIndexEventImpl>
+    implements _$$EmptyIndexEventImplCopyWith<$Res> {
+  __$$EmptyIndexEventImplCopyWithImpl(
+      _$EmptyIndexEventImpl _value, $Res Function(_$EmptyIndexEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EmptyIndexEvent implements EmptyIndexEvent {
-  const _$EmptyIndexEvent();
+class _$EmptyIndexEventImpl implements EmptyIndexEvent {
+  const _$EmptyIndexEventImpl();
 
   @override
   String toString() {
@@ -2978,7 +2986,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmptyIndexEvent);
+        (other.runtimeType == runtimeType && other is _$EmptyIndexEventImpl);
   }
 
   @override
@@ -3154,24 +3162,24 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
 }
 
 abstract class EmptyIndexEvent implements BookmarkEvent {
-  const factory EmptyIndexEvent() = _$EmptyIndexEvent;
+  const factory EmptyIndexEvent() = _$EmptyIndexEventImpl;
 }
 
 /// @nodoc
-abstract class _$$SaveVerseKeyEventCopyWith<$Res> {
-  factory _$$SaveVerseKeyEventCopyWith(
-          _$SaveVerseKeyEvent value, $Res Function(_$SaveVerseKeyEvent) then) =
-      __$$SaveVerseKeyEventCopyWithImpl<$Res>;
+abstract class _$$SaveVerseKeyEventImplCopyWith<$Res> {
+  factory _$$SaveVerseKeyEventImplCopyWith(_$SaveVerseKeyEventImpl value,
+          $Res Function(_$SaveVerseKeyEventImpl) then) =
+      __$$SaveVerseKeyEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String versekey});
 }
 
 /// @nodoc
-class __$$SaveVerseKeyEventCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveVerseKeyEvent>
-    implements _$$SaveVerseKeyEventCopyWith<$Res> {
-  __$$SaveVerseKeyEventCopyWithImpl(
-      _$SaveVerseKeyEvent _value, $Res Function(_$SaveVerseKeyEvent) _then)
+class __$$SaveVerseKeyEventImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveVerseKeyEventImpl>
+    implements _$$SaveVerseKeyEventImplCopyWith<$Res> {
+  __$$SaveVerseKeyEventImplCopyWithImpl(_$SaveVerseKeyEventImpl _value,
+      $Res Function(_$SaveVerseKeyEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3179,7 +3187,7 @@ class __$$SaveVerseKeyEventCopyWithImpl<$Res>
   $Res call({
     Object? versekey = null,
   }) {
-    return _then(_$SaveVerseKeyEvent(
+    return _then(_$SaveVerseKeyEventImpl(
       null == versekey
           ? _value.versekey
           : versekey // ignore: cast_nullable_to_non_nullable
@@ -3190,8 +3198,8 @@ class __$$SaveVerseKeyEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
-  const _$SaveVerseKeyEvent(this.versekey);
+class _$SaveVerseKeyEventImpl implements SaveVerseKeyEvent {
+  const _$SaveVerseKeyEventImpl(this.versekey);
 
   @override
   final String versekey;
@@ -3205,7 +3213,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveVerseKeyEvent &&
+            other is _$SaveVerseKeyEventImpl &&
             (identical(other.versekey, versekey) ||
                 other.versekey == versekey));
   }
@@ -3216,8 +3224,9 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveVerseKeyEventCopyWith<_$SaveVerseKeyEvent> get copyWith =>
-      __$$SaveVerseKeyEventCopyWithImpl<_$SaveVerseKeyEvent>(this, _$identity);
+  _$$SaveVerseKeyEventImplCopyWith<_$SaveVerseKeyEventImpl> get copyWith =>
+      __$$SaveVerseKeyEventImplCopyWithImpl<_$SaveVerseKeyEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3389,34 +3398,35 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
 }
 
 abstract class SaveVerseKeyEvent implements BookmarkEvent {
-  const factory SaveVerseKeyEvent(final String versekey) = _$SaveVerseKeyEvent;
+  const factory SaveVerseKeyEvent(final String versekey) =
+      _$SaveVerseKeyEventImpl;
 
   String get versekey;
   @JsonKey(ignore: true)
-  _$$SaveVerseKeyEventCopyWith<_$SaveVerseKeyEvent> get copyWith =>
+  _$$SaveVerseKeyEventImplCopyWith<_$SaveVerseKeyEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EmptyVerseKeyEventCopyWith<$Res> {
-  factory _$$EmptyVerseKeyEventCopyWith(_$EmptyVerseKeyEvent value,
-          $Res Function(_$EmptyVerseKeyEvent) then) =
-      __$$EmptyVerseKeyEventCopyWithImpl<$Res>;
+abstract class _$$EmptyVerseKeyEventImplCopyWith<$Res> {
+  factory _$$EmptyVerseKeyEventImplCopyWith(_$EmptyVerseKeyEventImpl value,
+          $Res Function(_$EmptyVerseKeyEventImpl) then) =
+      __$$EmptyVerseKeyEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmptyVerseKeyEventCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$EmptyVerseKeyEvent>
-    implements _$$EmptyVerseKeyEventCopyWith<$Res> {
-  __$$EmptyVerseKeyEventCopyWithImpl(
-      _$EmptyVerseKeyEvent _value, $Res Function(_$EmptyVerseKeyEvent) _then)
+class __$$EmptyVerseKeyEventImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$EmptyVerseKeyEventImpl>
+    implements _$$EmptyVerseKeyEventImplCopyWith<$Res> {
+  __$$EmptyVerseKeyEventImplCopyWithImpl(_$EmptyVerseKeyEventImpl _value,
+      $Res Function(_$EmptyVerseKeyEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
-  const _$EmptyVerseKeyEvent();
+class _$EmptyVerseKeyEventImpl implements EmptyVerseKeyEvent {
+  const _$EmptyVerseKeyEventImpl();
 
   @override
   String toString() {
@@ -3426,7 +3436,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmptyVerseKeyEvent);
+        (other.runtimeType == runtimeType && other is _$EmptyVerseKeyEventImpl);
   }
 
   @override
@@ -3602,29 +3612,29 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
 }
 
 abstract class EmptyVerseKeyEvent implements BookmarkEvent {
-  const factory EmptyVerseKeyEvent() = _$EmptyVerseKeyEvent;
+  const factory EmptyVerseKeyEvent() = _$EmptyVerseKeyEventImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchCollectionItemCopyWith<$Res> {
-  factory _$$FetchCollectionItemCopyWith(_$FetchCollectionItem value,
-          $Res Function(_$FetchCollectionItem) then) =
-      __$$FetchCollectionItemCopyWithImpl<$Res>;
+abstract class _$$FetchCollectionItemImplCopyWith<$Res> {
+  factory _$$FetchCollectionItemImplCopyWith(_$FetchCollectionItemImpl value,
+          $Res Function(_$FetchCollectionItemImpl) then) =
+      __$$FetchCollectionItemImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchCollectionItemCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$FetchCollectionItem>
-    implements _$$FetchCollectionItemCopyWith<$Res> {
-  __$$FetchCollectionItemCopyWithImpl(
-      _$FetchCollectionItem _value, $Res Function(_$FetchCollectionItem) _then)
+class __$$FetchCollectionItemImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$FetchCollectionItemImpl>
+    implements _$$FetchCollectionItemImplCopyWith<$Res> {
+  __$$FetchCollectionItemImplCopyWithImpl(_$FetchCollectionItemImpl _value,
+      $Res Function(_$FetchCollectionItemImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchCollectionItem implements FetchCollectionItem {
-  const _$FetchCollectionItem();
+class _$FetchCollectionItemImpl implements FetchCollectionItem {
+  const _$FetchCollectionItemImpl();
 
   @override
   String toString() {
@@ -3634,7 +3644,8 @@ class _$FetchCollectionItem implements FetchCollectionItem {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchCollectionItem);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchCollectionItemImpl);
   }
 
   @override
@@ -3810,24 +3821,24 @@ class _$FetchCollectionItem implements FetchCollectionItem {
 }
 
 abstract class FetchCollectionItem implements BookmarkEvent {
-  const factory FetchCollectionItem() = _$FetchCollectionItem;
+  const factory FetchCollectionItem() = _$FetchCollectionItemImpl;
 }
 
 /// @nodoc
-abstract class _$$RemoveBookmarkCopyWith<$Res> {
-  factory _$$RemoveBookmarkCopyWith(
-          _$RemoveBookmark value, $Res Function(_$RemoveBookmark) then) =
-      __$$RemoveBookmarkCopyWithImpl<$Res>;
+abstract class _$$RemoveBookmarkImplCopyWith<$Res> {
+  factory _$$RemoveBookmarkImplCopyWith(_$RemoveBookmarkImpl value,
+          $Res Function(_$RemoveBookmarkImpl) then) =
+      __$$RemoveBookmarkImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String verseKey});
 }
 
 /// @nodoc
-class __$$RemoveBookmarkCopyWithImpl<$Res>
-    extends _$BookmarkEventCopyWithImpl<$Res, _$RemoveBookmark>
-    implements _$$RemoveBookmarkCopyWith<$Res> {
-  __$$RemoveBookmarkCopyWithImpl(
-      _$RemoveBookmark _value, $Res Function(_$RemoveBookmark) _then)
+class __$$RemoveBookmarkImplCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$RemoveBookmarkImpl>
+    implements _$$RemoveBookmarkImplCopyWith<$Res> {
+  __$$RemoveBookmarkImplCopyWithImpl(
+      _$RemoveBookmarkImpl _value, $Res Function(_$RemoveBookmarkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3835,7 +3846,7 @@ class __$$RemoveBookmarkCopyWithImpl<$Res>
   $Res call({
     Object? verseKey = null,
   }) {
-    return _then(_$RemoveBookmark(
+    return _then(_$RemoveBookmarkImpl(
       verseKey: null == verseKey
           ? _value.verseKey
           : verseKey // ignore: cast_nullable_to_non_nullable
@@ -3846,8 +3857,8 @@ class __$$RemoveBookmarkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveBookmark implements RemoveBookmark {
-  const _$RemoveBookmark({required this.verseKey});
+class _$RemoveBookmarkImpl implements RemoveBookmark {
+  const _$RemoveBookmarkImpl({required this.verseKey});
 
   @override
   final String verseKey;
@@ -3861,7 +3872,7 @@ class _$RemoveBookmark implements RemoveBookmark {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RemoveBookmark &&
+            other is _$RemoveBookmarkImpl &&
             (identical(other.verseKey, verseKey) ||
                 other.verseKey == verseKey));
   }
@@ -3872,8 +3883,9 @@ class _$RemoveBookmark implements RemoveBookmark {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RemoveBookmarkCopyWith<_$RemoveBookmark> get copyWith =>
-      __$$RemoveBookmarkCopyWithImpl<_$RemoveBookmark>(this, _$identity);
+  _$$RemoveBookmarkImplCopyWith<_$RemoveBookmarkImpl> get copyWith =>
+      __$$RemoveBookmarkImplCopyWithImpl<_$RemoveBookmarkImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4046,11 +4058,11 @@ class _$RemoveBookmark implements RemoveBookmark {
 
 abstract class RemoveBookmark implements BookmarkEvent {
   const factory RemoveBookmark({required final String verseKey}) =
-      _$RemoveBookmark;
+      _$RemoveBookmarkImpl;
 
   String get verseKey;
   @JsonKey(ignore: true)
-  _$$RemoveBookmarkCopyWith<_$RemoveBookmark> get copyWith =>
+  _$$RemoveBookmarkImplCopyWith<_$RemoveBookmarkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -4176,11 +4188,11 @@ class _$BookmarkStateCopyWithImpl<$Res, $Val extends BookmarkState>
 }
 
 /// @nodoc
-abstract class _$$_BookmarkStateCopyWith<$Res>
+abstract class _$$BookmarkStateImplCopyWith<$Res>
     implements $BookmarkStateCopyWith<$Res> {
-  factory _$$_BookmarkStateCopyWith(
-          _$_BookmarkState value, $Res Function(_$_BookmarkState) then) =
-      __$$_BookmarkStateCopyWithImpl<$Res>;
+  factory _$$BookmarkStateImplCopyWith(
+          _$BookmarkStateImpl value, $Res Function(_$BookmarkStateImpl) then) =
+      __$$BookmarkStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -4199,11 +4211,11 @@ abstract class _$$_BookmarkStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BookmarkStateCopyWithImpl<$Res>
-    extends _$BookmarkStateCopyWithImpl<$Res, _$_BookmarkState>
-    implements _$$_BookmarkStateCopyWith<$Res> {
-  __$$_BookmarkStateCopyWithImpl(
-      _$_BookmarkState _value, $Res Function(_$_BookmarkState) _then)
+class __$$BookmarkStateImplCopyWithImpl<$Res>
+    extends _$BookmarkStateCopyWithImpl<$Res, _$BookmarkStateImpl>
+    implements _$$BookmarkStateImplCopyWith<$Res> {
+  __$$BookmarkStateImplCopyWithImpl(
+      _$BookmarkStateImpl _value, $Res Function(_$BookmarkStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4222,7 +4234,7 @@ class __$$_BookmarkStateCopyWithImpl<$Res>
     Object? verskey = null,
     Object? dbCollectionItems = null,
   }) {
-    return _then(_$_BookmarkState(
+    return _then(_$BookmarkStateImpl(
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -4277,8 +4289,8 @@ class __$$_BookmarkStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_BookmarkState implements _BookmarkState {
-  const _$_BookmarkState(
+class _$BookmarkStateImpl implements _BookmarkState {
+  const _$BookmarkStateImpl(
       {required this.image,
       required this.name,
       required this.description,
@@ -4361,7 +4373,7 @@ class _$_BookmarkState implements _BookmarkState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BookmarkState &&
+            other is _$BookmarkStateImpl &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -4401,8 +4413,8 @@ class _$_BookmarkState implements _BookmarkState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BookmarkStateCopyWith<_$_BookmarkState> get copyWith =>
-      __$$_BookmarkStateCopyWithImpl<_$_BookmarkState>(this, _$identity);
+  _$$BookmarkStateImplCopyWith<_$BookmarkStateImpl> get copyWith =>
+      __$$BookmarkStateImplCopyWithImpl<_$BookmarkStateImpl>(this, _$identity);
 }
 
 abstract class _BookmarkState implements BookmarkState {
@@ -4419,7 +4431,7 @@ abstract class _BookmarkState implements BookmarkState {
           required final List<int> versesIndexList,
           required final List<String> verskey,
           required final List<BookMarktCollectionModel> dbCollectionItems}) =
-      _$_BookmarkState;
+      _$BookmarkStateImpl;
 
   @override
   String get image;
@@ -4447,6 +4459,6 @@ abstract class _BookmarkState implements BookmarkState {
   List<BookMarktCollectionModel> get dbCollectionItems;
   @override
   @JsonKey(ignore: true)
-  _$$_BookmarkStateCopyWith<_$_BookmarkState> get copyWith =>
+  _$$BookmarkStateImplCopyWith<_$BookmarkStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

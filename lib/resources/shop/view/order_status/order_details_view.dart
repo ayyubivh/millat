@@ -7,6 +7,7 @@ import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -22,11 +23,12 @@ class OrdetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final shopBloc = BlocProvider.of<ShopProductsBloc>(context);
-      shopBloc.add(FetchOrdersById(
-          context, context.read<ShopProductsBloc>().state.orderId!));
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   print(context.read<ShopProductsBloc>().state.orderId);
+    //   final shopBloc = BlocProvider.of<ShopProductsBloc>(context);
+    //   shopBloc.add(FetchOrdersById(
+    //       context, context.read<ShopProductsBloc>().state.orderId ?? 0));
+    // });
     var containerHeight10 = Container(
       height: 8,
       width: double.infinity,
@@ -48,107 +50,112 @@ class OrdetailsView extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            containerHeight10,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  kHeight20,
-                  const Text(
-                    Appstrings.orderDetails,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+      body: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+        builder: (context, state) =>
+            state.isLoading || state.ordersByIdModel?.result?.order == null
+                ? const Loader()
+                : SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        containerHeight10,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              kHeight20,
+                              const Text(
+                                Appstrings.orderDetails,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              kHeight16,
+                              _orderDetailsWidget(),
+                              kHeight20,
+                            ],
+                          ),
+                        ),
+                        containerHeight10,
+                        // Column(
+                        //   children: [
+                        //     Text(
+                        //       Appstrings.trackShipment,
+                        //       style: TextStyle(
+                        //         fontSize: 17,
+                        //         fontWeight: FontWeight.w600,
+                        //         color: ColorManager.blackColor,
+                        //       ),
+                        //     ),
+                        //     Row(
+                        //       children: [
+                        //         Container(
+                        //           color: ColorManager.scaffolBgColor,
+                        //           child: Container(
+                        //             height: 60,
+                        //             width: SizeUtility(context).width,
+                        //             decoration: BoxDecoration(
+                        //                 color: ColorManager.whiteColor,
+                        //                 borderRadius: BorderRadius.circular(4)),
+                        //             child: Row(
+                        //               children: [
+                        //                 progressWidget(
+                        //                   text: "Ordered",
+                        //                   onTap: () {},
+                        //                   isProcessing: false,
+                        //                   isOrdered: true,
+                        //                 ),
+                        //                 progressWidget(
+                        //                   text: "Processing",
+                        //                   onTap: () {},
+                        //                   isProcessing: true,
+                        //                   isOrdered: false,
+                        //                 ),
+                        //                 progressWidget(
+                        //                   text: "Packed",
+                        //                   onTap: () {},
+                        //                   isProcessing: false,
+                        //                   isOrdered: false,
+                        //                 ),
+                        //                 progressWidget(
+                        //                   text: "Shipped",
+                        //                   onTap: () {},
+                        //                   isProcessing: false,
+                        //                   isOrdered: false,
+                        //                 ),
+                        //                 progressWidget(
+                        //                   text: "Delivered",
+                        //                   onTap: () {},
+                        //                   isProcessing: false,
+                        //                   isOrdered: false,
+                        //                 ),
+                        //               ],
+                        //             ),
+                        //           ),
+                        //         )
+                        //       ],
+                        //     )
+                        //   ],
+                        // ),
+                        kHeight20,
+                        _shipmentDetailsWidget(),
+                        kHeight20,
+                        containerHeight10,
+                        kHeight20,
+                        _paymentInformation(context),
+                        kHeight16,
+                        containerHeight10,
+                        kHeight20,
+                        _orderSummaryWidget(),
+                        kHeight16,
+                        containerHeight10,
+                        kHeight20,
+                        _lastProductWidget(),
+                      ],
                     ),
                   ),
-                  kHeight16,
-                  _orderDetailsWidget(),
-                  kHeight20,
-                ],
-              ),
-            ),
-            containerHeight10,
-            // Column(
-            //   children: [
-            //     Text(
-            //       Appstrings.trackShipment,
-            //       style: TextStyle(
-            //         fontSize: 17,
-            //         fontWeight: FontWeight.w600,
-            //         color: ColorManager.blackColor,
-            //       ),
-            //     ),
-            //     Row(
-            //       children: [
-            //         Container(
-            //           color: ColorManager.scaffolBgColor,
-            //           child: Container(
-            //             height: 60,
-            //             width: SizeUtility(context).width,
-            //             decoration: BoxDecoration(
-            //                 color: ColorManager.whiteColor,
-            //                 borderRadius: BorderRadius.circular(4)),
-            //             child: Row(
-            //               children: [
-            //                 progressWidget(
-            //                   text: "Ordered",
-            //                   onTap: () {},
-            //                   isProcessing: false,
-            //                   isOrdered: true,
-            //                 ),
-            //                 progressWidget(
-            //                   text: "Processing",
-            //                   onTap: () {},
-            //                   isProcessing: true,
-            //                   isOrdered: false,
-            //                 ),
-            //                 progressWidget(
-            //                   text: "Packed",
-            //                   onTap: () {},
-            //                   isProcessing: false,
-            //                   isOrdered: false,
-            //                 ),
-            //                 progressWidget(
-            //                   text: "Shipped",
-            //                   onTap: () {},
-            //                   isProcessing: false,
-            //                   isOrdered: false,
-            //                 ),
-            //                 progressWidget(
-            //                   text: "Delivered",
-            //                   onTap: () {},
-            //                   isProcessing: false,
-            //                   isOrdered: false,
-            //                 ),
-            //               ],
-            //             ),
-            //           ),
-            //         )
-            //       ],
-            //     )
-            //   ],
-            // ),
-            kHeight20,
-            _shipmentDetailsWidget(),
-            kHeight20,
-            containerHeight10,
-            kHeight20,
-            _paymentInformation(context),
-            kHeight16,
-            containerHeight10,
-            kHeight20,
-            _orderSummaryWidget(),
-            kHeight16,
-            containerHeight10,
-            kHeight20,
-            _lastProductWidget(),
-          ],
-        ),
       ),
     );
   }

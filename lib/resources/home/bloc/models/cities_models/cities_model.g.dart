@@ -6,8 +6,8 @@ part of 'cities_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CitiesModel _$$_CitiesModelFromJson(Map<String, dynamic> json) =>
-    _$_CitiesModel(
+_$CitiesModelImpl _$$CitiesModelImplFromJson(Map<String, dynamic> json) =>
+    _$CitiesModelImpl(
       error: json['error'] as bool,
       msg: json['msg'] as String,
       data: (json['data'] as List<dynamic>)
@@ -15,15 +15,15 @@ _$_CitiesModel _$$_CitiesModelFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_CitiesModelToJson(_$_CitiesModel instance) =>
+Map<String, dynamic> _$$CitiesModelImplToJson(_$CitiesModelImpl instance) =>
     <String, dynamic>{
       'error': instance.error,
       'msg': instance.msg,
       'data': instance.data,
     };
 
-_$_CountryData _$$_CountryDataFromJson(Map<String, dynamic> json) =>
-    _$_CountryData(
+_$CountryDataImpl _$$CountryDataImplFromJson(Map<String, dynamic> json) =>
+    _$CountryDataImpl(
       iso3: json['iso3'] as String,
       iso2: json['iso2'] as String,
       country: json['country'] as String,
@@ -31,7 +31,7 @@ _$_CountryData _$$_CountryDataFromJson(Map<String, dynamic> json) =>
           (json['cities'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$_CountryDataToJson(_$_CountryData instance) =>
+Map<String, dynamic> _$$CountryDataImplToJson(_$CountryDataImpl instance) =>
     <String, dynamic>{
       'iso3': instance.iso3,
       'iso2': instance.iso2,

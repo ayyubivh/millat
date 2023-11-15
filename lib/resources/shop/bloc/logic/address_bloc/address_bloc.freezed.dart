@@ -190,10 +190,10 @@ class _$AddressEventCopyWithImpl<$Res, $Val extends AddressEvent>
 }
 
 /// @nodoc
-abstract class _$$AddAddressCopyWith<$Res> {
-  factory _$$AddAddressCopyWith(
-          _$AddAddress value, $Res Function(_$AddAddress) then) =
-      __$$AddAddressCopyWithImpl<$Res>;
+abstract class _$$AddAddressImplCopyWith<$Res> {
+  factory _$$AddAddressImplCopyWith(
+          _$AddAddressImpl value, $Res Function(_$AddAddressImpl) then) =
+      __$$AddAddressImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {BuildContext context,
@@ -209,11 +209,11 @@ abstract class _$$AddAddressCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AddAddressCopyWithImpl<$Res>
-    extends _$AddressEventCopyWithImpl<$Res, _$AddAddress>
-    implements _$$AddAddressCopyWith<$Res> {
-  __$$AddAddressCopyWithImpl(
-      _$AddAddress _value, $Res Function(_$AddAddress) _then)
+class __$$AddAddressImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$AddAddressImpl>
+    implements _$$AddAddressImplCopyWith<$Res> {
+  __$$AddAddressImplCopyWithImpl(
+      _$AddAddressImpl _value, $Res Function(_$AddAddressImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -230,7 +230,7 @@ class __$$AddAddressCopyWithImpl<$Res>
     Object? state = null,
     Object? country = null,
   }) {
-    return _then(_$AddAddress(
+    return _then(_$AddAddressImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -277,8 +277,8 @@ class __$$AddAddressCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddAddress implements AddAddress {
-  const _$AddAddress(
+class _$AddAddressImpl implements AddAddress {
+  const _$AddAddressImpl(
       {required this.context,
       required this.addressType,
       required this.name,
@@ -320,7 +320,7 @@ class _$AddAddress implements AddAddress {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddAddress &&
+            other is _$AddAddressImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.addressType, addressType) ||
                 other.addressType == addressType) &&
@@ -343,8 +343,8 @@ class _$AddAddress implements AddAddress {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddAddressCopyWith<_$AddAddress> get copyWith =>
-      __$$AddAddressCopyWithImpl<_$AddAddress>(this, _$identity);
+  _$$AddAddressImplCopyWith<_$AddAddressImpl> get copyWith =>
+      __$$AddAddressImplCopyWithImpl<_$AddAddressImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -538,7 +538,7 @@ abstract class AddAddress implements AddressEvent {
       required final String addressLine,
       required final String city,
       required final String state,
-      required final String country}) = _$AddAddress;
+      required final String country}) = _$AddAddressImpl;
 
   BuildContext get context;
   String get addressType;
@@ -551,25 +551,25 @@ abstract class AddAddress implements AddressEvent {
   String get state;
   String get country;
   @JsonKey(ignore: true)
-  _$$AddAddressCopyWith<_$AddAddress> get copyWith =>
+  _$$AddAddressImplCopyWith<_$AddAddressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchAddressEventCopyWith<$Res> {
-  factory _$$FetchAddressEventCopyWith(
-          _$FetchAddressEvent value, $Res Function(_$FetchAddressEvent) then) =
-      __$$FetchAddressEventCopyWithImpl<$Res>;
+abstract class _$$FetchAddressEventImplCopyWith<$Res> {
+  factory _$$FetchAddressEventImplCopyWith(_$FetchAddressEventImpl value,
+          $Res Function(_$FetchAddressEventImpl) then) =
+      __$$FetchAddressEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$FetchAddressEventCopyWithImpl<$Res>
-    extends _$AddressEventCopyWithImpl<$Res, _$FetchAddressEvent>
-    implements _$$FetchAddressEventCopyWith<$Res> {
-  __$$FetchAddressEventCopyWithImpl(
-      _$FetchAddressEvent _value, $Res Function(_$FetchAddressEvent) _then)
+class __$$FetchAddressEventImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$FetchAddressEventImpl>
+    implements _$$FetchAddressEventImplCopyWith<$Res> {
+  __$$FetchAddressEventImplCopyWithImpl(_$FetchAddressEventImpl _value,
+      $Res Function(_$FetchAddressEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -577,7 +577,7 @@ class __$$FetchAddressEventCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
   }) {
-    return _then(_$FetchAddressEvent(
+    return _then(_$FetchAddressEventImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -588,8 +588,8 @@ class __$$FetchAddressEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchAddressEvent implements FetchAddressEvent {
-  const _$FetchAddressEvent({required this.context});
+class _$FetchAddressEventImpl implements FetchAddressEvent {
+  const _$FetchAddressEventImpl({required this.context});
 
   @override
   final BuildContext context;
@@ -603,7 +603,7 @@ class _$FetchAddressEvent implements FetchAddressEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchAddressEvent &&
+            other is _$FetchAddressEventImpl &&
             (identical(other.context, context) || other.context == context));
   }
 
@@ -613,8 +613,9 @@ class _$FetchAddressEvent implements FetchAddressEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchAddressEventCopyWith<_$FetchAddressEvent> get copyWith =>
-      __$$FetchAddressEventCopyWithImpl<_$FetchAddressEvent>(this, _$identity);
+  _$$FetchAddressEventImplCopyWith<_$FetchAddressEventImpl> get copyWith =>
+      __$$FetchAddressEventImplCopyWithImpl<_$FetchAddressEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -796,29 +797,29 @@ class _$FetchAddressEvent implements FetchAddressEvent {
 
 abstract class FetchAddressEvent implements AddressEvent {
   const factory FetchAddressEvent({required final BuildContext context}) =
-      _$FetchAddressEvent;
+      _$FetchAddressEventImpl;
 
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$FetchAddressEventCopyWith<_$FetchAddressEvent> get copyWith =>
+  _$$FetchAddressEventImplCopyWith<_$FetchAddressEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SelectAddressEventCopyWith<$Res> {
-  factory _$$SelectAddressEventCopyWith(_$SelectAddressEvent value,
-          $Res Function(_$SelectAddressEvent) then) =
-      __$$SelectAddressEventCopyWithImpl<$Res>;
+abstract class _$$SelectAddressEventImplCopyWith<$Res> {
+  factory _$$SelectAddressEventImplCopyWith(_$SelectAddressEventImpl value,
+          $Res Function(_$SelectAddressEventImpl) then) =
+      __$$SelectAddressEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int selectedIndex});
 }
 
 /// @nodoc
-class __$$SelectAddressEventCopyWithImpl<$Res>
-    extends _$AddressEventCopyWithImpl<$Res, _$SelectAddressEvent>
-    implements _$$SelectAddressEventCopyWith<$Res> {
-  __$$SelectAddressEventCopyWithImpl(
-      _$SelectAddressEvent _value, $Res Function(_$SelectAddressEvent) _then)
+class __$$SelectAddressEventImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$SelectAddressEventImpl>
+    implements _$$SelectAddressEventImplCopyWith<$Res> {
+  __$$SelectAddressEventImplCopyWithImpl(_$SelectAddressEventImpl _value,
+      $Res Function(_$SelectAddressEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -826,7 +827,7 @@ class __$$SelectAddressEventCopyWithImpl<$Res>
   $Res call({
     Object? selectedIndex = null,
   }) {
-    return _then(_$SelectAddressEvent(
+    return _then(_$SelectAddressEventImpl(
       selectedIndex: null == selectedIndex
           ? _value.selectedIndex
           : selectedIndex // ignore: cast_nullable_to_non_nullable
@@ -837,8 +838,8 @@ class __$$SelectAddressEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SelectAddressEvent implements SelectAddressEvent {
-  _$SelectAddressEvent({required this.selectedIndex});
+class _$SelectAddressEventImpl implements SelectAddressEvent {
+  _$SelectAddressEventImpl({required this.selectedIndex});
 
   @override
   final int selectedIndex;
@@ -852,7 +853,7 @@ class _$SelectAddressEvent implements SelectAddressEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SelectAddressEvent &&
+            other is _$SelectAddressEventImpl &&
             (identical(other.selectedIndex, selectedIndex) ||
                 other.selectedIndex == selectedIndex));
   }
@@ -863,8 +864,8 @@ class _$SelectAddressEvent implements SelectAddressEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SelectAddressEventCopyWith<_$SelectAddressEvent> get copyWith =>
-      __$$SelectAddressEventCopyWithImpl<_$SelectAddressEvent>(
+  _$$SelectAddressEventImplCopyWith<_$SelectAddressEventImpl> get copyWith =>
+      __$$SelectAddressEventImplCopyWithImpl<_$SelectAddressEventImpl>(
           this, _$identity);
 
   @override
@@ -1047,29 +1048,29 @@ class _$SelectAddressEvent implements SelectAddressEvent {
 
 abstract class SelectAddressEvent implements AddressEvent {
   factory SelectAddressEvent({required final int selectedIndex}) =
-      _$SelectAddressEvent;
+      _$SelectAddressEventImpl;
 
   int get selectedIndex;
   @JsonKey(ignore: true)
-  _$$SelectAddressEventCopyWith<_$SelectAddressEvent> get copyWith =>
+  _$$SelectAddressEventImplCopyWith<_$SelectAddressEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SaveAddressIdCopyWith<$Res> {
-  factory _$$SaveAddressIdCopyWith(
-          _$SaveAddressId value, $Res Function(_$SaveAddressId) then) =
-      __$$SaveAddressIdCopyWithImpl<$Res>;
+abstract class _$$SaveAddressIdImplCopyWith<$Res> {
+  factory _$$SaveAddressIdImplCopyWith(
+          _$SaveAddressIdImpl value, $Res Function(_$SaveAddressIdImpl) then) =
+      __$$SaveAddressIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String addressId});
 }
 
 /// @nodoc
-class __$$SaveAddressIdCopyWithImpl<$Res>
-    extends _$AddressEventCopyWithImpl<$Res, _$SaveAddressId>
-    implements _$$SaveAddressIdCopyWith<$Res> {
-  __$$SaveAddressIdCopyWithImpl(
-      _$SaveAddressId _value, $Res Function(_$SaveAddressId) _then)
+class __$$SaveAddressIdImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$SaveAddressIdImpl>
+    implements _$$SaveAddressIdImplCopyWith<$Res> {
+  __$$SaveAddressIdImplCopyWithImpl(
+      _$SaveAddressIdImpl _value, $Res Function(_$SaveAddressIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1077,7 +1078,7 @@ class __$$SaveAddressIdCopyWithImpl<$Res>
   $Res call({
     Object? addressId = null,
   }) {
-    return _then(_$SaveAddressId(
+    return _then(_$SaveAddressIdImpl(
       addressId: null == addressId
           ? _value.addressId
           : addressId // ignore: cast_nullable_to_non_nullable
@@ -1088,8 +1089,8 @@ class __$$SaveAddressIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveAddressId implements SaveAddressId {
-  _$SaveAddressId({required this.addressId});
+class _$SaveAddressIdImpl implements SaveAddressId {
+  _$SaveAddressIdImpl({required this.addressId});
 
   @override
   final String addressId;
@@ -1103,7 +1104,7 @@ class _$SaveAddressId implements SaveAddressId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveAddressId &&
+            other is _$SaveAddressIdImpl &&
             (identical(other.addressId, addressId) ||
                 other.addressId == addressId));
   }
@@ -1114,8 +1115,8 @@ class _$SaveAddressId implements SaveAddressId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveAddressIdCopyWith<_$SaveAddressId> get copyWith =>
-      __$$SaveAddressIdCopyWithImpl<_$SaveAddressId>(this, _$identity);
+  _$$SaveAddressIdImplCopyWith<_$SaveAddressIdImpl> get copyWith =>
+      __$$SaveAddressIdImplCopyWithImpl<_$SaveAddressIdImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1296,29 +1297,31 @@ class _$SaveAddressId implements SaveAddressId {
 }
 
 abstract class SaveAddressId implements AddressEvent {
-  factory SaveAddressId({required final String addressId}) = _$SaveAddressId;
+  factory SaveAddressId({required final String addressId}) =
+      _$SaveAddressIdImpl;
 
   String get addressId;
   @JsonKey(ignore: true)
-  _$$SaveAddressIdCopyWith<_$SaveAddressId> get copyWith =>
+  _$$SaveAddressIdImplCopyWith<_$SaveAddressIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchAddressByIdEventCopyWith<$Res> {
-  factory _$$FetchAddressByIdEventCopyWith(_$FetchAddressByIdEvent value,
-          $Res Function(_$FetchAddressByIdEvent) then) =
-      __$$FetchAddressByIdEventCopyWithImpl<$Res>;
+abstract class _$$FetchAddressByIdEventImplCopyWith<$Res> {
+  factory _$$FetchAddressByIdEventImplCopyWith(
+          _$FetchAddressByIdEventImpl value,
+          $Res Function(_$FetchAddressByIdEventImpl) then) =
+      __$$FetchAddressByIdEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context, String id});
 }
 
 /// @nodoc
-class __$$FetchAddressByIdEventCopyWithImpl<$Res>
-    extends _$AddressEventCopyWithImpl<$Res, _$FetchAddressByIdEvent>
-    implements _$$FetchAddressByIdEventCopyWith<$Res> {
-  __$$FetchAddressByIdEventCopyWithImpl(_$FetchAddressByIdEvent _value,
-      $Res Function(_$FetchAddressByIdEvent) _then)
+class __$$FetchAddressByIdEventImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$FetchAddressByIdEventImpl>
+    implements _$$FetchAddressByIdEventImplCopyWith<$Res> {
+  __$$FetchAddressByIdEventImplCopyWithImpl(_$FetchAddressByIdEventImpl _value,
+      $Res Function(_$FetchAddressByIdEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1327,7 +1330,7 @@ class __$$FetchAddressByIdEventCopyWithImpl<$Res>
     Object? context = null,
     Object? id = null,
   }) {
-    return _then(_$FetchAddressByIdEvent(
+    return _then(_$FetchAddressByIdEventImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -1342,8 +1345,8 @@ class __$$FetchAddressByIdEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
-  const _$FetchAddressByIdEvent({required this.context, required this.id});
+class _$FetchAddressByIdEventImpl implements FetchAddressByIdEvent {
+  const _$FetchAddressByIdEventImpl({required this.context, required this.id});
 
   @override
   final BuildContext context;
@@ -1359,7 +1362,7 @@ class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchAddressByIdEvent &&
+            other is _$FetchAddressByIdEventImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.id, id) || other.id == id));
   }
@@ -1370,9 +1373,9 @@ class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchAddressByIdEventCopyWith<_$FetchAddressByIdEvent> get copyWith =>
-      __$$FetchAddressByIdEventCopyWithImpl<_$FetchAddressByIdEvent>(
-          this, _$identity);
+  _$$FetchAddressByIdEventImplCopyWith<_$FetchAddressByIdEventImpl>
+      get copyWith => __$$FetchAddressByIdEventImplCopyWithImpl<
+          _$FetchAddressByIdEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1555,30 +1558,30 @@ class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
 abstract class FetchAddressByIdEvent implements AddressEvent {
   const factory FetchAddressByIdEvent(
       {required final BuildContext context,
-      required final String id}) = _$FetchAddressByIdEvent;
+      required final String id}) = _$FetchAddressByIdEventImpl;
 
   BuildContext get context;
   String get id;
   @JsonKey(ignore: true)
-  _$$FetchAddressByIdEventCopyWith<_$FetchAddressByIdEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchAddressByIdEventImplCopyWith<_$FetchAddressByIdEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchPincodeAddresCopyWith<$Res> {
-  factory _$$FetchPincodeAddresCopyWith(_$FetchPincodeAddres value,
-          $Res Function(_$FetchPincodeAddres) then) =
-      __$$FetchPincodeAddresCopyWithImpl<$Res>;
+abstract class _$$FetchPincodeAddresImplCopyWith<$Res> {
+  factory _$$FetchPincodeAddresImplCopyWith(_$FetchPincodeAddresImpl value,
+          $Res Function(_$FetchPincodeAddresImpl) then) =
+      __$$FetchPincodeAddresImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String pincode});
 }
 
 /// @nodoc
-class __$$FetchPincodeAddresCopyWithImpl<$Res>
-    extends _$AddressEventCopyWithImpl<$Res, _$FetchPincodeAddres>
-    implements _$$FetchPincodeAddresCopyWith<$Res> {
-  __$$FetchPincodeAddresCopyWithImpl(
-      _$FetchPincodeAddres _value, $Res Function(_$FetchPincodeAddres) _then)
+class __$$FetchPincodeAddresImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$FetchPincodeAddresImpl>
+    implements _$$FetchPincodeAddresImplCopyWith<$Res> {
+  __$$FetchPincodeAddresImplCopyWithImpl(_$FetchPincodeAddresImpl _value,
+      $Res Function(_$FetchPincodeAddresImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1586,7 +1589,7 @@ class __$$FetchPincodeAddresCopyWithImpl<$Res>
   $Res call({
     Object? pincode = null,
   }) {
-    return _then(_$FetchPincodeAddres(
+    return _then(_$FetchPincodeAddresImpl(
       pincode: null == pincode
           ? _value.pincode
           : pincode // ignore: cast_nullable_to_non_nullable
@@ -1597,8 +1600,8 @@ class __$$FetchPincodeAddresCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchPincodeAddres implements FetchPincodeAddres {
-  const _$FetchPincodeAddres({required this.pincode});
+class _$FetchPincodeAddresImpl implements FetchPincodeAddres {
+  const _$FetchPincodeAddresImpl({required this.pincode});
 
   @override
   final String pincode;
@@ -1612,7 +1615,7 @@ class _$FetchPincodeAddres implements FetchPincodeAddres {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchPincodeAddres &&
+            other is _$FetchPincodeAddresImpl &&
             (identical(other.pincode, pincode) || other.pincode == pincode));
   }
 
@@ -1622,8 +1625,8 @@ class _$FetchPincodeAddres implements FetchPincodeAddres {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchPincodeAddresCopyWith<_$FetchPincodeAddres> get copyWith =>
-      __$$FetchPincodeAddresCopyWithImpl<_$FetchPincodeAddres>(
+  _$$FetchPincodeAddresImplCopyWith<_$FetchPincodeAddresImpl> get copyWith =>
+      __$$FetchPincodeAddresImplCopyWithImpl<_$FetchPincodeAddresImpl>(
           this, _$identity);
 
   @override
@@ -1806,29 +1809,29 @@ class _$FetchPincodeAddres implements FetchPincodeAddres {
 
 abstract class FetchPincodeAddres implements AddressEvent {
   const factory FetchPincodeAddres({required final String pincode}) =
-      _$FetchPincodeAddres;
+      _$FetchPincodeAddresImpl;
 
   String get pincode;
   @JsonKey(ignore: true)
-  _$$FetchPincodeAddresCopyWith<_$FetchPincodeAddres> get copyWith =>
+  _$$FetchPincodeAddresImplCopyWith<_$FetchPincodeAddresImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DeleteAddressEventCopyWith<$Res> {
-  factory _$$DeleteAddressEventCopyWith(_$DeleteAddressEvent value,
-          $Res Function(_$DeleteAddressEvent) then) =
-      __$$DeleteAddressEventCopyWithImpl<$Res>;
+abstract class _$$DeleteAddressEventImplCopyWith<$Res> {
+  factory _$$DeleteAddressEventImplCopyWith(_$DeleteAddressEventImpl value,
+          $Res Function(_$DeleteAddressEventImpl) then) =
+      __$$DeleteAddressEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context, String id});
 }
 
 /// @nodoc
-class __$$DeleteAddressEventCopyWithImpl<$Res>
-    extends _$AddressEventCopyWithImpl<$Res, _$DeleteAddressEvent>
-    implements _$$DeleteAddressEventCopyWith<$Res> {
-  __$$DeleteAddressEventCopyWithImpl(
-      _$DeleteAddressEvent _value, $Res Function(_$DeleteAddressEvent) _then)
+class __$$DeleteAddressEventImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$DeleteAddressEventImpl>
+    implements _$$DeleteAddressEventImplCopyWith<$Res> {
+  __$$DeleteAddressEventImplCopyWithImpl(_$DeleteAddressEventImpl _value,
+      $Res Function(_$DeleteAddressEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1837,7 +1840,7 @@ class __$$DeleteAddressEventCopyWithImpl<$Res>
     Object? context = null,
     Object? id = null,
   }) {
-    return _then(_$DeleteAddressEvent(
+    return _then(_$DeleteAddressEventImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -1852,8 +1855,8 @@ class __$$DeleteAddressEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteAddressEvent implements DeleteAddressEvent {
-  const _$DeleteAddressEvent({required this.context, required this.id});
+class _$DeleteAddressEventImpl implements DeleteAddressEvent {
+  const _$DeleteAddressEventImpl({required this.context, required this.id});
 
   @override
   final BuildContext context;
@@ -1869,7 +1872,7 @@ class _$DeleteAddressEvent implements DeleteAddressEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DeleteAddressEvent &&
+            other is _$DeleteAddressEventImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.id, id) || other.id == id));
   }
@@ -1880,8 +1883,8 @@ class _$DeleteAddressEvent implements DeleteAddressEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DeleteAddressEventCopyWith<_$DeleteAddressEvent> get copyWith =>
-      __$$DeleteAddressEventCopyWithImpl<_$DeleteAddressEvent>(
+  _$$DeleteAddressEventImplCopyWith<_$DeleteAddressEventImpl> get copyWith =>
+      __$$DeleteAddressEventImplCopyWithImpl<_$DeleteAddressEventImpl>(
           this, _$identity);
 
   @override
@@ -2065,35 +2068,37 @@ class _$DeleteAddressEvent implements DeleteAddressEvent {
 abstract class DeleteAddressEvent implements AddressEvent {
   const factory DeleteAddressEvent(
       {required final BuildContext context,
-      required final String id}) = _$DeleteAddressEvent;
+      required final String id}) = _$DeleteAddressEventImpl;
 
   BuildContext get context;
   String get id;
   @JsonKey(ignore: true)
-  _$$DeleteAddressEventCopyWith<_$DeleteAddressEvent> get copyWith =>
+  _$$DeleteAddressEventImplCopyWith<_$DeleteAddressEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchAddressDefaultIndexCopyWith<$Res> {
-  factory _$$FetchAddressDefaultIndexCopyWith(_$FetchAddressDefaultIndex value,
-          $Res Function(_$FetchAddressDefaultIndex) then) =
-      __$$FetchAddressDefaultIndexCopyWithImpl<$Res>;
+abstract class _$$FetchAddressDefaultIndexImplCopyWith<$Res> {
+  factory _$$FetchAddressDefaultIndexImplCopyWith(
+          _$FetchAddressDefaultIndexImpl value,
+          $Res Function(_$FetchAddressDefaultIndexImpl) then) =
+      __$$FetchAddressDefaultIndexImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchAddressDefaultIndexCopyWithImpl<$Res>
-    extends _$AddressEventCopyWithImpl<$Res, _$FetchAddressDefaultIndex>
-    implements _$$FetchAddressDefaultIndexCopyWith<$Res> {
-  __$$FetchAddressDefaultIndexCopyWithImpl(_$FetchAddressDefaultIndex _value,
-      $Res Function(_$FetchAddressDefaultIndex) _then)
+class __$$FetchAddressDefaultIndexImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$FetchAddressDefaultIndexImpl>
+    implements _$$FetchAddressDefaultIndexImplCopyWith<$Res> {
+  __$$FetchAddressDefaultIndexImplCopyWithImpl(
+      _$FetchAddressDefaultIndexImpl _value,
+      $Res Function(_$FetchAddressDefaultIndexImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchAddressDefaultIndex implements FetchAddressDefaultIndex {
-  const _$FetchAddressDefaultIndex();
+class _$FetchAddressDefaultIndexImpl implements FetchAddressDefaultIndex {
+  const _$FetchAddressDefaultIndexImpl();
 
   @override
   String toString() {
@@ -2104,7 +2109,7 @@ class _$FetchAddressDefaultIndex implements FetchAddressDefaultIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchAddressDefaultIndex);
+            other is _$FetchAddressDefaultIndexImpl);
   }
 
   @override
@@ -2289,14 +2294,14 @@ class _$FetchAddressDefaultIndex implements FetchAddressDefaultIndex {
 }
 
 abstract class FetchAddressDefaultIndex implements AddressEvent {
-  const factory FetchAddressDefaultIndex() = _$FetchAddressDefaultIndex;
+  const factory FetchAddressDefaultIndex() = _$FetchAddressDefaultIndexImpl;
 }
 
 /// @nodoc
-abstract class _$$UpdateAddressCopyWith<$Res> {
-  factory _$$UpdateAddressCopyWith(
-          _$UpdateAddress value, $Res Function(_$UpdateAddress) then) =
-      __$$UpdateAddressCopyWithImpl<$Res>;
+abstract class _$$UpdateAddressImplCopyWith<$Res> {
+  factory _$$UpdateAddressImplCopyWith(
+          _$UpdateAddressImpl value, $Res Function(_$UpdateAddressImpl) then) =
+      __$$UpdateAddressImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {BuildContext context,
@@ -2313,11 +2318,11 @@ abstract class _$$UpdateAddressCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UpdateAddressCopyWithImpl<$Res>
-    extends _$AddressEventCopyWithImpl<$Res, _$UpdateAddress>
-    implements _$$UpdateAddressCopyWith<$Res> {
-  __$$UpdateAddressCopyWithImpl(
-      _$UpdateAddress _value, $Res Function(_$UpdateAddress) _then)
+class __$$UpdateAddressImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$UpdateAddressImpl>
+    implements _$$UpdateAddressImplCopyWith<$Res> {
+  __$$UpdateAddressImplCopyWithImpl(
+      _$UpdateAddressImpl _value, $Res Function(_$UpdateAddressImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2335,7 +2340,7 @@ class __$$UpdateAddressCopyWithImpl<$Res>
     Object? country = null,
     Object? id = null,
   }) {
-    return _then(_$UpdateAddress(
+    return _then(_$UpdateAddressImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -2386,8 +2391,8 @@ class __$$UpdateAddressCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateAddress implements UpdateAddress {
-  const _$UpdateAddress(
+class _$UpdateAddressImpl implements UpdateAddress {
+  const _$UpdateAddressImpl(
       {required this.context,
       required this.addressType,
       required this.name,
@@ -2432,7 +2437,7 @@ class _$UpdateAddress implements UpdateAddress {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdateAddress &&
+            other is _$UpdateAddressImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.addressType, addressType) ||
                 other.addressType == addressType) &&
@@ -2456,8 +2461,8 @@ class _$UpdateAddress implements UpdateAddress {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UpdateAddressCopyWith<_$UpdateAddress> get copyWith =>
-      __$$UpdateAddressCopyWithImpl<_$UpdateAddress>(this, _$identity);
+  _$$UpdateAddressImplCopyWith<_$UpdateAddressImpl> get copyWith =>
+      __$$UpdateAddressImplCopyWithImpl<_$UpdateAddressImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2652,7 +2657,7 @@ abstract class UpdateAddress implements AddressEvent {
       required final String city,
       required final String state,
       required final String country,
-      required final String id}) = _$UpdateAddress;
+      required final String id}) = _$UpdateAddressImpl;
 
   BuildContext get context;
   String get addressType;
@@ -2666,7 +2671,7 @@ abstract class UpdateAddress implements AddressEvent {
   String get country;
   String get id;
   @JsonKey(ignore: true)
-  _$$UpdateAddressCopyWith<_$UpdateAddress> get copyWith =>
+  _$$UpdateAddressImplCopyWith<_$UpdateAddressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2805,11 +2810,11 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$InitialImplCopyWith<$Res>
     implements $AddressStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2831,10 +2836,11 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$AddressStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$AddressStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2849,7 +2855,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? pincodeAddressModel = freezed,
   }) {
-    return _then(_$_Initial(
+    return _then(_$InitialImpl(
       successMessage: freezed == successMessage
           ? _value.successMessage
           : successMessage // ignore: cast_nullable_to_non_nullable
@@ -2888,8 +2894,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial(
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl(
       {required this.successMessage,
       required this.failMessage,
       required this.addressModel,
@@ -2925,7 +2931,7 @@ class _$_Initial implements _Initial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$InitialImpl &&
             (identical(other.successMessage, successMessage) ||
                 other.successMessage == successMessage) &&
             (identical(other.failMessage, failMessage) ||
@@ -2959,8 +2965,8 @@ class _$_Initial implements _Initial {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 }
 
 abstract class _Initial implements AddressState {
@@ -2972,7 +2978,7 @@ abstract class _Initial implements AddressState {
       required final String? addressId,
       required final AddressIdModel? addressIdModel,
       required final bool isLoading,
-      required final PincodeAddressModel? pincodeAddressModel}) = _$_Initial;
+      required final PincodeAddressModel? pincodeAddressModel}) = _$InitialImpl;
 
   @override
   String? get successMessage;
@@ -2992,6 +2998,6 @@ abstract class _Initial implements AddressState {
   PincodeAddressModel? get pincodeAddressModel;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

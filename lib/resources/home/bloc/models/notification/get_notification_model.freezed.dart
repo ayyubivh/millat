@@ -102,11 +102,11 @@ class _$NotificationModelCopyWithImpl<$Res, $Val extends NotificationModel>
 }
 
 /// @nodoc
-abstract class _$$_NotificationModelCopyWith<$Res>
+abstract class _$$NotificationModelImplCopyWith<$Res>
     implements $NotificationModelCopyWith<$Res> {
-  factory _$$_NotificationModelCopyWith(_$_NotificationModel value,
-          $Res Function(_$_NotificationModel) then) =
-      __$$_NotificationModelCopyWithImpl<$Res>;
+  factory _$$NotificationModelImplCopyWith(_$NotificationModelImpl value,
+          $Res Function(_$NotificationModelImpl) then) =
+      __$$NotificationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -120,11 +120,11 @@ abstract class _$$_NotificationModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_NotificationModelCopyWithImpl<$Res>
-    extends _$NotificationModelCopyWithImpl<$Res, _$_NotificationModel>
-    implements _$$_NotificationModelCopyWith<$Res> {
-  __$$_NotificationModelCopyWithImpl(
-      _$_NotificationModel _value, $Res Function(_$_NotificationModel) _then)
+class __$$NotificationModelImplCopyWithImpl<$Res>
+    extends _$NotificationModelCopyWithImpl<$Res, _$NotificationModelImpl>
+    implements _$$NotificationModelImplCopyWith<$Res> {
+  __$$NotificationModelImplCopyWithImpl(_$NotificationModelImpl _value,
+      $Res Function(_$NotificationModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -135,7 +135,7 @@ class __$$_NotificationModelCopyWithImpl<$Res>
     Object? error = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_NotificationModel(
+    return _then(_$NotificationModelImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -158,15 +158,15 @@ class __$$_NotificationModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NotificationModel implements _NotificationModel {
-  _$_NotificationModel(
+class _$NotificationModelImpl implements _NotificationModel {
+  _$NotificationModelImpl(
       {@JsonKey(name: 'status') this.status,
       @JsonKey(name: 'message') this.message,
       @JsonKey(name: 'error') this.error,
       @JsonKey(name: 'result') this.result});
 
-  factory _$_NotificationModel.fromJson(Map<String, dynamic> json) =>
-      _$$_NotificationModelFromJson(json);
+  factory _$NotificationModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NotificationModelImplFromJson(json);
 
   @override
   @JsonKey(name: 'status')
@@ -190,7 +190,7 @@ class _$_NotificationModel implements _NotificationModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NotificationModel &&
+            other is _$NotificationModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -204,13 +204,13 @@ class _$_NotificationModel implements _NotificationModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NotificationModelCopyWith<_$_NotificationModel> get copyWith =>
-      __$$_NotificationModelCopyWithImpl<_$_NotificationModel>(
+  _$$NotificationModelImplCopyWith<_$NotificationModelImpl> get copyWith =>
+      __$$NotificationModelImplCopyWithImpl<_$NotificationModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NotificationModelToJson(
+    return _$$NotificationModelImplToJson(
       this,
     );
   }
@@ -222,10 +222,10 @@ abstract class _NotificationModel implements NotificationModel {
           @JsonKey(name: 'message') final String? message,
           @JsonKey(name: 'error') final String? error,
           @JsonKey(name: 'result') final MessageResult? result}) =
-      _$_NotificationModel;
+      _$NotificationModelImpl;
 
   factory _NotificationModel.fromJson(Map<String, dynamic> json) =
-      _$_NotificationModel.fromJson;
+      _$NotificationModelImpl.fromJson;
 
   @override
   @JsonKey(name: 'status')
@@ -241,7 +241,7 @@ abstract class _NotificationModel implements NotificationModel {
   MessageResult? get result;
   @override
   @JsonKey(ignore: true)
-  _$$_NotificationModelCopyWith<_$_NotificationModel> get copyWith =>
+  _$$NotificationModelImplCopyWith<_$NotificationModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -294,22 +294,22 @@ class _$MessageResultCopyWithImpl<$Res, $Val extends MessageResult>
 }
 
 /// @nodoc
-abstract class _$$_MessageResultCopyWith<$Res>
+abstract class _$$MessageResultImplCopyWith<$Res>
     implements $MessageResultCopyWith<$Res> {
-  factory _$$_MessageResultCopyWith(
-          _$_MessageResult value, $Res Function(_$_MessageResult) then) =
-      __$$_MessageResultCopyWithImpl<$Res>;
+  factory _$$MessageResultImplCopyWith(
+          _$MessageResultImpl value, $Res Function(_$MessageResultImpl) then) =
+      __$$MessageResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'data') List<MessageData>? data});
 }
 
 /// @nodoc
-class __$$_MessageResultCopyWithImpl<$Res>
-    extends _$MessageResultCopyWithImpl<$Res, _$_MessageResult>
-    implements _$$_MessageResultCopyWith<$Res> {
-  __$$_MessageResultCopyWithImpl(
-      _$_MessageResult _value, $Res Function(_$_MessageResult) _then)
+class __$$MessageResultImplCopyWithImpl<$Res>
+    extends _$MessageResultCopyWithImpl<$Res, _$MessageResultImpl>
+    implements _$$MessageResultImplCopyWith<$Res> {
+  __$$MessageResultImplCopyWithImpl(
+      _$MessageResultImpl _value, $Res Function(_$MessageResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -317,7 +317,7 @@ class __$$_MessageResultCopyWithImpl<$Res>
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_$_MessageResult(
+    return _then(_$MessageResultImpl(
       data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -328,12 +328,12 @@ class __$$_MessageResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MessageResult implements _MessageResult {
-  _$_MessageResult({@JsonKey(name: 'data') final List<MessageData>? data})
+class _$MessageResultImpl implements _MessageResult {
+  _$MessageResultImpl({@JsonKey(name: 'data') final List<MessageData>? data})
       : _data = data;
 
-  factory _$_MessageResult.fromJson(Map<String, dynamic> json) =>
-      _$$_MessageResultFromJson(json);
+  factory _$MessageResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageResultImplFromJson(json);
 
   final List<MessageData>? _data;
   @override
@@ -355,7 +355,7 @@ class _$_MessageResult implements _MessageResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MessageResult &&
+            other is _$MessageResultImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -367,12 +367,12 @@ class _$_MessageResult implements _MessageResult {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MessageResultCopyWith<_$_MessageResult> get copyWith =>
-      __$$_MessageResultCopyWithImpl<_$_MessageResult>(this, _$identity);
+  _$$MessageResultImplCopyWith<_$MessageResultImpl> get copyWith =>
+      __$$MessageResultImplCopyWithImpl<_$MessageResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MessageResultToJson(
+    return _$$MessageResultImplToJson(
       this,
     );
   }
@@ -381,17 +381,17 @@ class _$_MessageResult implements _MessageResult {
 abstract class _MessageResult implements MessageResult {
   factory _MessageResult(
           {@JsonKey(name: 'data') final List<MessageData>? data}) =
-      _$_MessageResult;
+      _$MessageResultImpl;
 
   factory _MessageResult.fromJson(Map<String, dynamic> json) =
-      _$_MessageResult.fromJson;
+      _$MessageResultImpl.fromJson;
 
   @override
   @JsonKey(name: 'data')
   List<MessageData>? get data;
   @override
   @JsonKey(ignore: true)
-  _$$_MessageResultCopyWith<_$_MessageResult> get copyWith =>
+  _$$MessageResultImplCopyWith<_$MessageResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -493,11 +493,11 @@ class _$MessageDataCopyWithImpl<$Res, $Val extends MessageData>
 }
 
 /// @nodoc
-abstract class _$$_MessageDataCopyWith<$Res>
+abstract class _$$MessageDataImplCopyWith<$Res>
     implements $MessageDataCopyWith<$Res> {
-  factory _$$_MessageDataCopyWith(
-          _$_MessageData value, $Res Function(_$_MessageData) then) =
-      __$$_MessageDataCopyWithImpl<$Res>;
+  factory _$$MessageDataImplCopyWith(
+          _$MessageDataImpl value, $Res Function(_$MessageDataImpl) then) =
+      __$$MessageDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -511,11 +511,11 @@ abstract class _$$_MessageDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MessageDataCopyWithImpl<$Res>
-    extends _$MessageDataCopyWithImpl<$Res, _$_MessageData>
-    implements _$$_MessageDataCopyWith<$Res> {
-  __$$_MessageDataCopyWithImpl(
-      _$_MessageData _value, $Res Function(_$_MessageData) _then)
+class __$$MessageDataImplCopyWithImpl<$Res>
+    extends _$MessageDataCopyWithImpl<$Res, _$MessageDataImpl>
+    implements _$$MessageDataImplCopyWith<$Res> {
+  __$$MessageDataImplCopyWithImpl(
+      _$MessageDataImpl _value, $Res Function(_$MessageDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -529,7 +529,7 @@ class __$$_MessageDataCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_MessageData(
+    return _then(_$MessageDataImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -564,8 +564,8 @@ class __$$_MessageDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MessageData implements _MessageData {
-  _$_MessageData(
+class _$MessageDataImpl implements _MessageData {
+  _$MessageDataImpl(
       {@JsonKey(name: '_id') this.id,
       @JsonKey(name: 'title') this.title,
       @JsonKey(name: 'sendAt') this.sendAt,
@@ -576,8 +576,8 @@ class _$_MessageData implements _MessageData {
       : _userIds = userIds,
         _isReadByUser = isReadByUser;
 
-  factory _$_MessageData.fromJson(Map<String, dynamic> json) =>
-      _$$_MessageDataFromJson(json);
+  factory _$MessageDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageDataImplFromJson(json);
 
   @override
   @JsonKey(name: '_id')
@@ -626,7 +626,7 @@ class _$_MessageData implements _MessageData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MessageData &&
+            other is _$MessageDataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.sendAt, sendAt) || other.sendAt == sendAt) &&
@@ -654,12 +654,12 @@ class _$_MessageData implements _MessageData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MessageDataCopyWith<_$_MessageData> get copyWith =>
-      __$$_MessageDataCopyWithImpl<_$_MessageData>(this, _$identity);
+  _$$MessageDataImplCopyWith<_$MessageDataImpl> get copyWith =>
+      __$$MessageDataImplCopyWithImpl<_$MessageDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MessageDataToJson(
+    return _$$MessageDataImplToJson(
       this,
     );
   }
@@ -673,10 +673,10 @@ abstract class _MessageData implements MessageData {
       @JsonKey(name: 'userIds') final List<String>? userIds,
       @JsonKey(name: 'isReadByUser') final List<String>? isReadByUser,
       @JsonKey(name: 'createdAt') final String? createdAt,
-      @JsonKey(name: 'updatedAt') final String? updatedAt}) = _$_MessageData;
+      @JsonKey(name: 'updatedAt') final String? updatedAt}) = _$MessageDataImpl;
 
   factory _MessageData.fromJson(Map<String, dynamic> json) =
-      _$_MessageData.fromJson;
+      _$MessageDataImpl.fromJson;
 
   @override
   @JsonKey(name: '_id')
@@ -701,6 +701,6 @@ abstract class _MessageData implements MessageData {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_MessageDataCopyWith<_$_MessageData> get copyWith =>
+  _$$MessageDataImplCopyWith<_$MessageDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

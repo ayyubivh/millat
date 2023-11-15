@@ -6,20 +6,21 @@ part of 'travel_cities_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TravelCitiesModel _$$_TravelCitiesModelFromJson(Map<String, dynamic> json) =>
-    _$_TravelCitiesModel(
+_$TravelCitiesModelImpl _$$TravelCitiesModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$TravelCitiesModelImpl(
       cities: (json['cities'] as List<dynamic>)
           .map((e) => City.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_TravelCitiesModelToJson(
-        _$_TravelCitiesModel instance) =>
+Map<String, dynamic> _$$TravelCitiesModelImplToJson(
+        _$TravelCitiesModelImpl instance) =>
     <String, dynamic>{
       'cities': instance.cities,
     };
 
-_$_City _$$_CityFromJson(Map<String, dynamic> json) => _$_City(
+_$CityImpl _$$CityImplFromJson(Map<String, dynamic> json) => _$CityImpl(
       id: json['_id'] as String,
       image: json['image'] as String,
       city: json['city'] as String,
@@ -29,7 +30,8 @@ _$_City _$$_CityFromJson(Map<String, dynamic> json) => _$_City(
       v: json['__v'] as int,
     );
 
-Map<String, dynamic> _$$_CityToJson(_$_City instance) => <String, dynamic>{
+Map<String, dynamic> _$$CityImplToJson(_$CityImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'image': instance.image,
       'city': instance.city,

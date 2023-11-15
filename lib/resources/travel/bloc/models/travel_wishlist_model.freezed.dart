@@ -92,11 +92,11 @@ class _$TravelWishlistModelCopyWithImpl<$Res, $Val extends TravelWishlistModel>
 }
 
 /// @nodoc
-abstract class _$$_TravelWishlistModelCopyWith<$Res>
+abstract class _$$TravelWishlistModelImplCopyWith<$Res>
     implements $TravelWishlistModelCopyWith<$Res> {
-  factory _$$_TravelWishlistModelCopyWith(_$_TravelWishlistModel value,
-          $Res Function(_$_TravelWishlistModel) then) =
-      __$$_TravelWishlistModelCopyWithImpl<$Res>;
+  factory _$$TravelWishlistModelImplCopyWith(_$TravelWishlistModelImpl value,
+          $Res Function(_$TravelWishlistModelImpl) then) =
+      __$$TravelWishlistModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,11 +108,11 @@ abstract class _$$_TravelWishlistModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TravelWishlistModelCopyWithImpl<$Res>
-    extends _$TravelWishlistModelCopyWithImpl<$Res, _$_TravelWishlistModel>
-    implements _$$_TravelWishlistModelCopyWith<$Res> {
-  __$$_TravelWishlistModelCopyWithImpl(_$_TravelWishlistModel _value,
-      $Res Function(_$_TravelWishlistModel) _then)
+class __$$TravelWishlistModelImplCopyWithImpl<$Res>
+    extends _$TravelWishlistModelCopyWithImpl<$Res, _$TravelWishlistModelImpl>
+    implements _$$TravelWishlistModelImplCopyWith<$Res> {
+  __$$TravelWishlistModelImplCopyWithImpl(_$TravelWishlistModelImpl _value,
+      $Res Function(_$TravelWishlistModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +124,7 @@ class __$$_TravelWishlistModelCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_TravelWishlistModel(
+    return _then(_$TravelWishlistModelImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -151,8 +151,8 @@ class __$$_TravelWishlistModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TravelWishlistModel implements _TravelWishlistModel {
-  const _$_TravelWishlistModel(
+class _$TravelWishlistModelImpl implements _TravelWishlistModel {
+  const _$TravelWishlistModelImpl(
       {@JsonKey(name: "_id") this.id,
       this.userId,
       final List<String>? products,
@@ -160,8 +160,8 @@ class _$_TravelWishlistModel implements _TravelWishlistModel {
       this.updatedAt})
       : _products = products;
 
-  factory _$_TravelWishlistModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TravelWishlistModelFromJson(json);
+  factory _$TravelWishlistModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TravelWishlistModelImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -192,7 +192,7 @@ class _$_TravelWishlistModel implements _TravelWishlistModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TravelWishlistModel &&
+            other is _$TravelWishlistModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             const DeepCollectionEquality().equals(other._products, _products) &&
@@ -210,13 +210,13 @@ class _$_TravelWishlistModel implements _TravelWishlistModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TravelWishlistModelCopyWith<_$_TravelWishlistModel> get copyWith =>
-      __$$_TravelWishlistModelCopyWithImpl<_$_TravelWishlistModel>(
+  _$$TravelWishlistModelImplCopyWith<_$TravelWishlistModelImpl> get copyWith =>
+      __$$TravelWishlistModelImplCopyWithImpl<_$TravelWishlistModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TravelWishlistModelToJson(
+    return _$$TravelWishlistModelImplToJson(
       this,
     );
   }
@@ -228,10 +228,10 @@ abstract class _TravelWishlistModel implements TravelWishlistModel {
       final String? userId,
       final List<String>? products,
       final String? createdAt,
-      final String? updatedAt}) = _$_TravelWishlistModel;
+      final String? updatedAt}) = _$TravelWishlistModelImpl;
 
   factory _TravelWishlistModel.fromJson(Map<String, dynamic> json) =
-      _$_TravelWishlistModel.fromJson;
+      _$TravelWishlistModelImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -246,6 +246,6 @@ abstract class _TravelWishlistModel implements TravelWishlistModel {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_TravelWishlistModelCopyWith<_$_TravelWishlistModel> get copyWith =>
+  _$$TravelWishlistModelImplCopyWith<_$TravelWishlistModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

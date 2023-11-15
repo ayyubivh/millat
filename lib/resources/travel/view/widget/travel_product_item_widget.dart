@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
-import 'package:millat/resources/travel/view/widget/travel_rating_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -31,7 +30,7 @@ class TravelProductItemWidget extends StatelessWidget {
             });
       },
       child: Container(
-        height: 212,
+        height: 215,
         width: SizeUtility(context).width / 2,
         decoration: BoxDecoration(
             border: Border.all(

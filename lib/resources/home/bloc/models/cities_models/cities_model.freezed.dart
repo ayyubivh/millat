@@ -74,22 +74,22 @@ class _$CitiesModelCopyWithImpl<$Res, $Val extends CitiesModel>
 }
 
 /// @nodoc
-abstract class _$$_CitiesModelCopyWith<$Res>
+abstract class _$$CitiesModelImplCopyWith<$Res>
     implements $CitiesModelCopyWith<$Res> {
-  factory _$$_CitiesModelCopyWith(
-          _$_CitiesModel value, $Res Function(_$_CitiesModel) then) =
-      __$$_CitiesModelCopyWithImpl<$Res>;
+  factory _$$CitiesModelImplCopyWith(
+          _$CitiesModelImpl value, $Res Function(_$CitiesModelImpl) then) =
+      __$$CitiesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool error, String msg, List<CountryData> data});
 }
 
 /// @nodoc
-class __$$_CitiesModelCopyWithImpl<$Res>
-    extends _$CitiesModelCopyWithImpl<$Res, _$_CitiesModel>
-    implements _$$_CitiesModelCopyWith<$Res> {
-  __$$_CitiesModelCopyWithImpl(
-      _$_CitiesModel _value, $Res Function(_$_CitiesModel) _then)
+class __$$CitiesModelImplCopyWithImpl<$Res>
+    extends _$CitiesModelCopyWithImpl<$Res, _$CitiesModelImpl>
+    implements _$$CitiesModelImplCopyWith<$Res> {
+  __$$CitiesModelImplCopyWithImpl(
+      _$CitiesModelImpl _value, $Res Function(_$CitiesModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_CitiesModelCopyWithImpl<$Res>
     Object? msg = null,
     Object? data = null,
   }) {
-    return _then(_$_CitiesModel(
+    return _then(_$CitiesModelImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -118,15 +118,15 @@ class __$$_CitiesModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CitiesModel implements _CitiesModel {
-  const _$_CitiesModel(
+class _$CitiesModelImpl implements _CitiesModel {
+  const _$CitiesModelImpl(
       {required this.error,
       required this.msg,
       required final List<CountryData> data})
       : _data = data;
 
-  factory _$_CitiesModel.fromJson(Map<String, dynamic> json) =>
-      _$$_CitiesModelFromJson(json);
+  factory _$CitiesModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CitiesModelImplFromJson(json);
 
   @override
   final bool error;
@@ -149,7 +149,7 @@ class _$_CitiesModel implements _CitiesModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CitiesModel &&
+            other is _$CitiesModelImpl &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.msg, msg) || other.msg == msg) &&
             const DeepCollectionEquality().equals(other._data, _data));
@@ -163,12 +163,12 @@ class _$_CitiesModel implements _CitiesModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CitiesModelCopyWith<_$_CitiesModel> get copyWith =>
-      __$$_CitiesModelCopyWithImpl<_$_CitiesModel>(this, _$identity);
+  _$$CitiesModelImplCopyWith<_$CitiesModelImpl> get copyWith =>
+      __$$CitiesModelImplCopyWithImpl<_$CitiesModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CitiesModelToJson(
+    return _$$CitiesModelImplToJson(
       this,
     );
   }
@@ -178,10 +178,10 @@ abstract class _CitiesModel implements CitiesModel {
   const factory _CitiesModel(
       {required final bool error,
       required final String msg,
-      required final List<CountryData> data}) = _$_CitiesModel;
+      required final List<CountryData> data}) = _$CitiesModelImpl;
 
   factory _CitiesModel.fromJson(Map<String, dynamic> json) =
-      _$_CitiesModel.fromJson;
+      _$CitiesModelImpl.fromJson;
 
   @override
   bool get error;
@@ -191,7 +191,7 @@ abstract class _CitiesModel implements CitiesModel {
   List<CountryData> get data;
   @override
   @JsonKey(ignore: true)
-  _$$_CitiesModelCopyWith<_$_CitiesModel> get copyWith =>
+  _$$CitiesModelImplCopyWith<_$CitiesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -261,22 +261,22 @@ class _$CountryDataCopyWithImpl<$Res, $Val extends CountryData>
 }
 
 /// @nodoc
-abstract class _$$_CountryDataCopyWith<$Res>
+abstract class _$$CountryDataImplCopyWith<$Res>
     implements $CountryDataCopyWith<$Res> {
-  factory _$$_CountryDataCopyWith(
-          _$_CountryData value, $Res Function(_$_CountryData) then) =
-      __$$_CountryDataCopyWithImpl<$Res>;
+  factory _$$CountryDataImplCopyWith(
+          _$CountryDataImpl value, $Res Function(_$CountryDataImpl) then) =
+      __$$CountryDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String iso3, String iso2, String country, List<String> cities});
 }
 
 /// @nodoc
-class __$$_CountryDataCopyWithImpl<$Res>
-    extends _$CountryDataCopyWithImpl<$Res, _$_CountryData>
-    implements _$$_CountryDataCopyWith<$Res> {
-  __$$_CountryDataCopyWithImpl(
-      _$_CountryData _value, $Res Function(_$_CountryData) _then)
+class __$$CountryDataImplCopyWithImpl<$Res>
+    extends _$CountryDataCopyWithImpl<$Res, _$CountryDataImpl>
+    implements _$$CountryDataImplCopyWith<$Res> {
+  __$$CountryDataImplCopyWithImpl(
+      _$CountryDataImpl _value, $Res Function(_$CountryDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -287,7 +287,7 @@ class __$$_CountryDataCopyWithImpl<$Res>
     Object? country = null,
     Object? cities = null,
   }) {
-    return _then(_$_CountryData(
+    return _then(_$CountryDataImpl(
       iso3: null == iso3
           ? _value.iso3
           : iso3 // ignore: cast_nullable_to_non_nullable
@@ -310,16 +310,16 @@ class __$$_CountryDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CountryData implements _CountryData {
-  const _$_CountryData(
+class _$CountryDataImpl implements _CountryData {
+  const _$CountryDataImpl(
       {required this.iso3,
       required this.iso2,
       required this.country,
       required final List<String> cities})
       : _cities = cities;
 
-  factory _$_CountryData.fromJson(Map<String, dynamic> json) =>
-      _$$_CountryDataFromJson(json);
+  factory _$CountryDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CountryDataImplFromJson(json);
 
   @override
   final String iso3;
@@ -344,7 +344,7 @@ class _$_CountryData implements _CountryData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CountryData &&
+            other is _$CountryDataImpl &&
             (identical(other.iso3, iso3) || other.iso3 == iso3) &&
             (identical(other.iso2, iso2) || other.iso2 == iso2) &&
             (identical(other.country, country) || other.country == country) &&
@@ -359,12 +359,12 @@ class _$_CountryData implements _CountryData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CountryDataCopyWith<_$_CountryData> get copyWith =>
-      __$$_CountryDataCopyWithImpl<_$_CountryData>(this, _$identity);
+  _$$CountryDataImplCopyWith<_$CountryDataImpl> get copyWith =>
+      __$$CountryDataImplCopyWithImpl<_$CountryDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CountryDataToJson(
+    return _$$CountryDataImplToJson(
       this,
     );
   }
@@ -375,10 +375,10 @@ abstract class _CountryData implements CountryData {
       {required final String iso3,
       required final String iso2,
       required final String country,
-      required final List<String> cities}) = _$_CountryData;
+      required final List<String> cities}) = _$CountryDataImpl;
 
   factory _CountryData.fromJson(Map<String, dynamic> json) =
-      _$_CountryData.fromJson;
+      _$CountryDataImpl.fromJson;
 
   @override
   String get iso3;
@@ -390,6 +390,6 @@ abstract class _CountryData implements CountryData {
   List<String> get cities;
   @override
   @JsonKey(ignore: true)
-  _$$_CountryDataCopyWith<_$_CountryData> get copyWith =>
+  _$$CountryDataImplCopyWith<_$CountryDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

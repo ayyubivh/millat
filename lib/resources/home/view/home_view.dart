@@ -322,7 +322,7 @@ class _HomeViewState extends State<HomeView> {
                                                   .homeTasbihIcon,
                                               text: Appstrings.tasbih,
                                               onTap: () {
-                                                context.goNamed(
+                                                context.pushNamed(
                                                     MyAppRouteConstants
                                                         .tasbihRouteName);
                                               },

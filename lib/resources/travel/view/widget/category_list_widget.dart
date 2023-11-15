@@ -20,13 +20,13 @@ class CategoryProductWidget extends StatelessWidget {
         children: [
           ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Utilities()
-                  .buildCachedNetworkImage(imageUrl: image, height: 75)),
+              child: Utilities().buildCachedNetworkImage(
+                  imageUrl: image, height: 75, width: 75)),
           kHeight8,
           Text(
             country,
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: FontWeight.w500,
               color: ColorManager.blackColor,
             ),

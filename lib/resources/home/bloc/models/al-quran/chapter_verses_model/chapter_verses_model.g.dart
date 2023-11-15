@@ -6,28 +6,28 @@ part of 'chapter_verses_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ChapterVersesModel _$$_ChapterVersesModelFromJson(
+_$ChapterVersesModelImpl _$$ChapterVersesModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ChapterVersesModel(
+    _$ChapterVersesModelImpl(
       code: json['code'] as int,
       status: json['status'] as String,
       data: VersesData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ChapterVersesModelToJson(
-        _$_ChapterVersesModel instance) =>
+Map<String, dynamic> _$$ChapterVersesModelImplToJson(
+        _$ChapterVersesModelImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'status': instance.status,
       'data': instance.data,
     };
 
-_$_VersesData _$$_VersesDataFromJson(Map<String, dynamic> json) =>
-    _$_VersesData(
+_$VersesDataImpl _$$VersesDataImplFromJson(Map<String, dynamic> json) =>
+    _$VersesDataImpl(
       englishName: json['englishName'] as String,
     );
 
-Map<String, dynamic> _$$_VersesDataToJson(_$_VersesData instance) =>
+Map<String, dynamic> _$$VersesDataImplToJson(_$VersesDataImpl instance) =>
     <String, dynamic>{
       'englishName': instance.englishName,
     };

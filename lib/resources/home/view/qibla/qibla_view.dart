@@ -83,13 +83,17 @@ class _QiblahScreenState extends State<QiblahScreen>
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/images/kaaba.png'),
-                    const SizedBox(height: 10),
+                    // AnimatedBuilder(
+                    //     animation: animation!,
+                    //     builder: (context, child) => Transform.rotate(
+                    //         angle: animation!.value,
+                    //         child: Image.asset('assets/images/kaaba.png'))),
+                    // const SizedBox(height: 10),
                     Stack(
                       alignment: Alignment.center,
                       children: [
                         Container(
-                            height: 300,
+                            height: 250,
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 boxShadow: [
@@ -106,9 +110,17 @@ class _QiblahScreenState extends State<QiblahScreen>
                               animation: animation!,
                               builder: (context, child) => Transform.rotate(
                                   angle: animation!.value,
-                                  child: Image.asset(
-                                    compassImages[state.compassTheme]
-                                        .toString(),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Image.asset('assets/images/kaaba.png'),
+                                      kHeight10,
+                                      Image.asset(
+                                        compassImages[state.compassTheme]
+                                            .toString(),
+                                        height: 300,
+                                      ),
+                                    ],
                                   )),
                             )),
                       ],

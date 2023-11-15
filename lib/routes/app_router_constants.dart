@@ -64,6 +64,7 @@ class MyAppRouteConstants {
   static const String orderReturnDetailRouteName = 'order_return_details';
   static const String orderReturnSuccesRouteName = 'order_return_success';
   static const String imageFullViewRoutename = "image_full_view";
+  static const String rewardsTabRouteName = "rewards_tab";
 
   // Travel
   static const String travelHomeRoutename = 'travel_home';

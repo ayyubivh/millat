@@ -137,20 +137,20 @@ class _$TasbihEventCopyWithImpl<$Res, $Val extends TasbihEvent>
 }
 
 /// @nodoc
-abstract class _$$SelectDhikerEventCopyWith<$Res> {
-  factory _$$SelectDhikerEventCopyWith(
-          _$SelectDhikerEvent value, $Res Function(_$SelectDhikerEvent) then) =
-      __$$SelectDhikerEventCopyWithImpl<$Res>;
+abstract class _$$SelectDhikerEventImplCopyWith<$Res> {
+  factory _$$SelectDhikerEventImplCopyWith(_$SelectDhikerEventImpl value,
+          $Res Function(_$SelectDhikerEventImpl) then) =
+      __$$SelectDhikerEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String dikr, String translate, String id});
 }
 
 /// @nodoc
-class __$$SelectDhikerEventCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$SelectDhikerEvent>
-    implements _$$SelectDhikerEventCopyWith<$Res> {
-  __$$SelectDhikerEventCopyWithImpl(
-      _$SelectDhikerEvent _value, $Res Function(_$SelectDhikerEvent) _then)
+class __$$SelectDhikerEventImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$SelectDhikerEventImpl>
+    implements _$$SelectDhikerEventImplCopyWith<$Res> {
+  __$$SelectDhikerEventImplCopyWithImpl(_$SelectDhikerEventImpl _value,
+      $Res Function(_$SelectDhikerEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -160,7 +160,7 @@ class __$$SelectDhikerEventCopyWithImpl<$Res>
     Object? translate = null,
     Object? id = null,
   }) {
-    return _then(_$SelectDhikerEvent(
+    return _then(_$SelectDhikerEventImpl(
       dikr: null == dikr
           ? _value.dikr
           : dikr // ignore: cast_nullable_to_non_nullable
@@ -179,8 +179,8 @@ class __$$SelectDhikerEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SelectDhikerEvent implements SelectDhikerEvent {
-  const _$SelectDhikerEvent(
+class _$SelectDhikerEventImpl implements SelectDhikerEvent {
+  const _$SelectDhikerEventImpl(
       {required this.dikr, required this.translate, required this.id});
 
   @override
@@ -199,7 +199,7 @@ class _$SelectDhikerEvent implements SelectDhikerEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SelectDhikerEvent &&
+            other is _$SelectDhikerEventImpl &&
             (identical(other.dikr, dikr) || other.dikr == dikr) &&
             (identical(other.translate, translate) ||
                 other.translate == translate) &&
@@ -212,8 +212,9 @@ class _$SelectDhikerEvent implements SelectDhikerEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SelectDhikerEventCopyWith<_$SelectDhikerEvent> get copyWith =>
-      __$$SelectDhikerEventCopyWithImpl<_$SelectDhikerEvent>(this, _$identity);
+  _$$SelectDhikerEventImplCopyWith<_$SelectDhikerEventImpl> get copyWith =>
+      __$$SelectDhikerEventImplCopyWithImpl<_$SelectDhikerEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -344,36 +345,36 @@ abstract class SelectDhikerEvent implements TasbihEvent {
   const factory SelectDhikerEvent(
       {required final String dikr,
       required final String translate,
-      required final String id}) = _$SelectDhikerEvent;
+      required final String id}) = _$SelectDhikerEventImpl;
 
   String get dikr;
   String get translate;
   String get id;
   @JsonKey(ignore: true)
-  _$$SelectDhikerEventCopyWith<_$SelectDhikerEvent> get copyWith =>
+  _$$SelectDhikerEventImplCopyWith<_$SelectDhikerEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchDhikrCopyWith<$Res> {
-  factory _$$FetchDhikrCopyWith(
-          _$FetchDhikr value, $Res Function(_$FetchDhikr) then) =
-      __$$FetchDhikrCopyWithImpl<$Res>;
+abstract class _$$FetchDhikrImplCopyWith<$Res> {
+  factory _$$FetchDhikrImplCopyWith(
+          _$FetchDhikrImpl value, $Res Function(_$FetchDhikrImpl) then) =
+      __$$FetchDhikrImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchDhikrCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$FetchDhikr>
-    implements _$$FetchDhikrCopyWith<$Res> {
-  __$$FetchDhikrCopyWithImpl(
-      _$FetchDhikr _value, $Res Function(_$FetchDhikr) _then)
+class __$$FetchDhikrImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$FetchDhikrImpl>
+    implements _$$FetchDhikrImplCopyWith<$Res> {
+  __$$FetchDhikrImplCopyWithImpl(
+      _$FetchDhikrImpl _value, $Res Function(_$FetchDhikrImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchDhikr implements FetchDhikr {
-  const _$FetchDhikr();
+class _$FetchDhikrImpl implements FetchDhikr {
+  const _$FetchDhikrImpl();
 
   @override
   String toString() {
@@ -383,7 +384,7 @@ class _$FetchDhikr implements FetchDhikr {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchDhikr);
+        (other.runtimeType == runtimeType && other is _$FetchDhikrImpl);
   }
 
   @override
@@ -515,29 +516,31 @@ class _$FetchDhikr implements FetchDhikr {
 }
 
 abstract class FetchDhikr implements TasbihEvent {
-  const factory FetchDhikr() = _$FetchDhikr;
+  const factory FetchDhikr() = _$FetchDhikrImpl;
 }
 
 /// @nodoc
-abstract class _$$DikhrIncreaseCountEventCopyWith<$Res> {
-  factory _$$DikhrIncreaseCountEventCopyWith(_$DikhrIncreaseCountEvent value,
-          $Res Function(_$DikhrIncreaseCountEvent) then) =
-      __$$DikhrIncreaseCountEventCopyWithImpl<$Res>;
+abstract class _$$DikhrIncreaseCountEventImplCopyWith<$Res> {
+  factory _$$DikhrIncreaseCountEventImplCopyWith(
+          _$DikhrIncreaseCountEventImpl value,
+          $Res Function(_$DikhrIncreaseCountEventImpl) then) =
+      __$$DikhrIncreaseCountEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DikhrIncreaseCountEventCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$DikhrIncreaseCountEvent>
-    implements _$$DikhrIncreaseCountEventCopyWith<$Res> {
-  __$$DikhrIncreaseCountEventCopyWithImpl(_$DikhrIncreaseCountEvent _value,
-      $Res Function(_$DikhrIncreaseCountEvent) _then)
+class __$$DikhrIncreaseCountEventImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$DikhrIncreaseCountEventImpl>
+    implements _$$DikhrIncreaseCountEventImplCopyWith<$Res> {
+  __$$DikhrIncreaseCountEventImplCopyWithImpl(
+      _$DikhrIncreaseCountEventImpl _value,
+      $Res Function(_$DikhrIncreaseCountEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DikhrIncreaseCountEvent implements DikhrIncreaseCountEvent {
-  const _$DikhrIncreaseCountEvent();
+class _$DikhrIncreaseCountEventImpl implements DikhrIncreaseCountEvent {
+  const _$DikhrIncreaseCountEventImpl();
 
   @override
   String toString() {
@@ -548,7 +551,7 @@ class _$DikhrIncreaseCountEvent implements DikhrIncreaseCountEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DikhrIncreaseCountEvent);
+            other is _$DikhrIncreaseCountEventImpl);
   }
 
   @override
@@ -680,24 +683,25 @@ class _$DikhrIncreaseCountEvent implements DikhrIncreaseCountEvent {
 }
 
 abstract class DikhrIncreaseCountEvent implements TasbihEvent {
-  const factory DikhrIncreaseCountEvent() = _$DikhrIncreaseCountEvent;
+  const factory DikhrIncreaseCountEvent() = _$DikhrIncreaseCountEventImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeTasbihGoalEventCopyWith<$Res> {
-  factory _$$ChangeTasbihGoalEventCopyWith(_$ChangeTasbihGoalEvent value,
-          $Res Function(_$ChangeTasbihGoalEvent) then) =
-      __$$ChangeTasbihGoalEventCopyWithImpl<$Res>;
+abstract class _$$ChangeTasbihGoalEventImplCopyWith<$Res> {
+  factory _$$ChangeTasbihGoalEventImplCopyWith(
+          _$ChangeTasbihGoalEventImpl value,
+          $Res Function(_$ChangeTasbihGoalEventImpl) then) =
+      __$$ChangeTasbihGoalEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int newValue});
 }
 
 /// @nodoc
-class __$$ChangeTasbihGoalEventCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$ChangeTasbihGoalEvent>
-    implements _$$ChangeTasbihGoalEventCopyWith<$Res> {
-  __$$ChangeTasbihGoalEventCopyWithImpl(_$ChangeTasbihGoalEvent _value,
-      $Res Function(_$ChangeTasbihGoalEvent) _then)
+class __$$ChangeTasbihGoalEventImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$ChangeTasbihGoalEventImpl>
+    implements _$$ChangeTasbihGoalEventImplCopyWith<$Res> {
+  __$$ChangeTasbihGoalEventImplCopyWithImpl(_$ChangeTasbihGoalEventImpl _value,
+      $Res Function(_$ChangeTasbihGoalEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -705,7 +709,7 @@ class __$$ChangeTasbihGoalEventCopyWithImpl<$Res>
   $Res call({
     Object? newValue = null,
   }) {
-    return _then(_$ChangeTasbihGoalEvent(
+    return _then(_$ChangeTasbihGoalEventImpl(
       newValue: null == newValue
           ? _value.newValue
           : newValue // ignore: cast_nullable_to_non_nullable
@@ -716,8 +720,8 @@ class __$$ChangeTasbihGoalEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
-  const _$ChangeTasbihGoalEvent({required this.newValue});
+class _$ChangeTasbihGoalEventImpl implements ChangeTasbihGoalEvent {
+  const _$ChangeTasbihGoalEventImpl({required this.newValue});
 
   @override
   final int newValue;
@@ -731,7 +735,7 @@ class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeTasbihGoalEvent &&
+            other is _$ChangeTasbihGoalEventImpl &&
             (identical(other.newValue, newValue) ||
                 other.newValue == newValue));
   }
@@ -742,9 +746,9 @@ class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeTasbihGoalEventCopyWith<_$ChangeTasbihGoalEvent> get copyWith =>
-      __$$ChangeTasbihGoalEventCopyWithImpl<_$ChangeTasbihGoalEvent>(
-          this, _$identity);
+  _$$ChangeTasbihGoalEventImplCopyWith<_$ChangeTasbihGoalEventImpl>
+      get copyWith => __$$ChangeTasbihGoalEventImplCopyWithImpl<
+          _$ChangeTasbihGoalEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -873,34 +877,36 @@ class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
 
 abstract class ChangeTasbihGoalEvent implements TasbihEvent {
   const factory ChangeTasbihGoalEvent({required final int newValue}) =
-      _$ChangeTasbihGoalEvent;
+      _$ChangeTasbihGoalEventImpl;
 
   int get newValue;
   @JsonKey(ignore: true)
-  _$$ChangeTasbihGoalEventCopyWith<_$ChangeTasbihGoalEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangeTasbihGoalEventImplCopyWith<_$ChangeTasbihGoalEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ResetTashbihCounterEventCopyWith<$Res> {
-  factory _$$ResetTashbihCounterEventCopyWith(_$ResetTashbihCounterEvent value,
-          $Res Function(_$ResetTashbihCounterEvent) then) =
-      __$$ResetTashbihCounterEventCopyWithImpl<$Res>;
+abstract class _$$ResetTashbihCounterEventImplCopyWith<$Res> {
+  factory _$$ResetTashbihCounterEventImplCopyWith(
+          _$ResetTashbihCounterEventImpl value,
+          $Res Function(_$ResetTashbihCounterEventImpl) then) =
+      __$$ResetTashbihCounterEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ResetTashbihCounterEventCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$ResetTashbihCounterEvent>
-    implements _$$ResetTashbihCounterEventCopyWith<$Res> {
-  __$$ResetTashbihCounterEventCopyWithImpl(_$ResetTashbihCounterEvent _value,
-      $Res Function(_$ResetTashbihCounterEvent) _then)
+class __$$ResetTashbihCounterEventImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$ResetTashbihCounterEventImpl>
+    implements _$$ResetTashbihCounterEventImplCopyWith<$Res> {
+  __$$ResetTashbihCounterEventImplCopyWithImpl(
+      _$ResetTashbihCounterEventImpl _value,
+      $Res Function(_$ResetTashbihCounterEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ResetTashbihCounterEvent implements ResetTashbihCounterEvent {
-  const _$ResetTashbihCounterEvent();
+class _$ResetTashbihCounterEventImpl implements ResetTashbihCounterEvent {
+  const _$ResetTashbihCounterEventImpl();
 
   @override
   String toString() {
@@ -911,7 +917,7 @@ class _$ResetTashbihCounterEvent implements ResetTashbihCounterEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ResetTashbihCounterEvent);
+            other is _$ResetTashbihCounterEventImpl);
   }
 
   @override
@@ -1043,24 +1049,24 @@ class _$ResetTashbihCounterEvent implements ResetTashbihCounterEvent {
 }
 
 abstract class ResetTashbihCounterEvent implements TasbihEvent {
-  const factory ResetTashbihCounterEvent() = _$ResetTashbihCounterEvent;
+  const factory ResetTashbihCounterEvent() = _$ResetTashbihCounterEventImpl;
 }
 
 /// @nodoc
-abstract class _$$AddTasbihEventCopyWith<$Res> {
-  factory _$$AddTasbihEventCopyWith(
-          _$AddTasbihEvent value, $Res Function(_$AddTasbihEvent) then) =
-      __$$AddTasbihEventCopyWithImpl<$Res>;
+abstract class _$$AddTasbihEventImplCopyWith<$Res> {
+  factory _$$AddTasbihEventImplCopyWith(_$AddTasbihEventImpl value,
+          $Res Function(_$AddTasbihEventImpl) then) =
+      __$$AddTasbihEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext buildContext, String id});
 }
 
 /// @nodoc
-class __$$AddTasbihEventCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$AddTasbihEvent>
-    implements _$$AddTasbihEventCopyWith<$Res> {
-  __$$AddTasbihEventCopyWithImpl(
-      _$AddTasbihEvent _value, $Res Function(_$AddTasbihEvent) _then)
+class __$$AddTasbihEventImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$AddTasbihEventImpl>
+    implements _$$AddTasbihEventImplCopyWith<$Res> {
+  __$$AddTasbihEventImplCopyWithImpl(
+      _$AddTasbihEventImpl _value, $Res Function(_$AddTasbihEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1069,7 +1075,7 @@ class __$$AddTasbihEventCopyWithImpl<$Res>
     Object? buildContext = null,
     Object? id = null,
   }) {
-    return _then(_$AddTasbihEvent(
+    return _then(_$AddTasbihEventImpl(
       buildContext: null == buildContext
           ? _value.buildContext
           : buildContext // ignore: cast_nullable_to_non_nullable
@@ -1084,8 +1090,8 @@ class __$$AddTasbihEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddTasbihEvent implements AddTasbihEvent {
-  const _$AddTasbihEvent({required this.buildContext, required this.id});
+class _$AddTasbihEventImpl implements AddTasbihEvent {
+  const _$AddTasbihEventImpl({required this.buildContext, required this.id});
 
   @override
   final BuildContext buildContext;
@@ -1101,7 +1107,7 @@ class _$AddTasbihEvent implements AddTasbihEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddTasbihEvent &&
+            other is _$AddTasbihEventImpl &&
             (identical(other.buildContext, buildContext) ||
                 other.buildContext == buildContext) &&
             (identical(other.id, id) || other.id == id));
@@ -1113,8 +1119,9 @@ class _$AddTasbihEvent implements AddTasbihEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddTasbihEventCopyWith<_$AddTasbihEvent> get copyWith =>
-      __$$AddTasbihEventCopyWithImpl<_$AddTasbihEvent>(this, _$identity);
+  _$$AddTasbihEventImplCopyWith<_$AddTasbihEventImpl> get copyWith =>
+      __$$AddTasbihEventImplCopyWithImpl<_$AddTasbihEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1244,35 +1251,35 @@ class _$AddTasbihEvent implements AddTasbihEvent {
 abstract class AddTasbihEvent implements TasbihEvent {
   const factory AddTasbihEvent(
       {required final BuildContext buildContext,
-      required final String id}) = _$AddTasbihEvent;
+      required final String id}) = _$AddTasbihEventImpl;
 
   BuildContext get buildContext;
   String get id;
   @JsonKey(ignore: true)
-  _$$AddTasbihEventCopyWith<_$AddTasbihEvent> get copyWith =>
+  _$$AddTasbihEventImplCopyWith<_$AddTasbihEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CheckLoopEventCopyWith<$Res> {
-  factory _$$CheckLoopEventCopyWith(
-          _$CheckLoopEvent value, $Res Function(_$CheckLoopEvent) then) =
-      __$$CheckLoopEventCopyWithImpl<$Res>;
+abstract class _$$CheckLoopEventImplCopyWith<$Res> {
+  factory _$$CheckLoopEventImplCopyWith(_$CheckLoopEventImpl value,
+          $Res Function(_$CheckLoopEventImpl) then) =
+      __$$CheckLoopEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CheckLoopEventCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$CheckLoopEvent>
-    implements _$$CheckLoopEventCopyWith<$Res> {
-  __$$CheckLoopEventCopyWithImpl(
-      _$CheckLoopEvent _value, $Res Function(_$CheckLoopEvent) _then)
+class __$$CheckLoopEventImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$CheckLoopEventImpl>
+    implements _$$CheckLoopEventImplCopyWith<$Res> {
+  __$$CheckLoopEventImplCopyWithImpl(
+      _$CheckLoopEventImpl _value, $Res Function(_$CheckLoopEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CheckLoopEvent implements CheckLoopEvent {
-  const _$CheckLoopEvent();
+class _$CheckLoopEventImpl implements CheckLoopEvent {
+  const _$CheckLoopEventImpl();
 
   @override
   String toString() {
@@ -1282,7 +1289,7 @@ class _$CheckLoopEvent implements CheckLoopEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CheckLoopEvent);
+        (other.runtimeType == runtimeType && other is _$CheckLoopEventImpl);
   }
 
   @override
@@ -1414,29 +1421,31 @@ class _$CheckLoopEvent implements CheckLoopEvent {
 }
 
 abstract class CheckLoopEvent implements TasbihEvent {
-  const factory CheckLoopEvent() = _$CheckLoopEvent;
+  const factory CheckLoopEvent() = _$CheckLoopEventImpl;
 }
 
 /// @nodoc
-abstract class _$$DecreaseTasbhiCountEventCopyWith<$Res> {
-  factory _$$DecreaseTasbhiCountEventCopyWith(_$DecreaseTasbhiCountEvent value,
-          $Res Function(_$DecreaseTasbhiCountEvent) then) =
-      __$$DecreaseTasbhiCountEventCopyWithImpl<$Res>;
+abstract class _$$DecreaseTasbhiCountEventImplCopyWith<$Res> {
+  factory _$$DecreaseTasbhiCountEventImplCopyWith(
+          _$DecreaseTasbhiCountEventImpl value,
+          $Res Function(_$DecreaseTasbhiCountEventImpl) then) =
+      __$$DecreaseTasbhiCountEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DecreaseTasbhiCountEventCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$DecreaseTasbhiCountEvent>
-    implements _$$DecreaseTasbhiCountEventCopyWith<$Res> {
-  __$$DecreaseTasbhiCountEventCopyWithImpl(_$DecreaseTasbhiCountEvent _value,
-      $Res Function(_$DecreaseTasbhiCountEvent) _then)
+class __$$DecreaseTasbhiCountEventImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$DecreaseTasbhiCountEventImpl>
+    implements _$$DecreaseTasbhiCountEventImplCopyWith<$Res> {
+  __$$DecreaseTasbhiCountEventImplCopyWithImpl(
+      _$DecreaseTasbhiCountEventImpl _value,
+      $Res Function(_$DecreaseTasbhiCountEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DecreaseTasbhiCountEvent implements DecreaseTasbhiCountEvent {
-  const _$DecreaseTasbhiCountEvent();
+class _$DecreaseTasbhiCountEventImpl implements DecreaseTasbhiCountEvent {
+  const _$DecreaseTasbhiCountEventImpl();
 
   @override
   String toString() {
@@ -1447,7 +1456,7 @@ class _$DecreaseTasbhiCountEvent implements DecreaseTasbhiCountEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DecreaseTasbhiCountEvent);
+            other is _$DecreaseTasbhiCountEventImpl);
   }
 
   @override
@@ -1579,24 +1588,24 @@ class _$DecreaseTasbhiCountEvent implements DecreaseTasbhiCountEvent {
 }
 
 abstract class DecreaseTasbhiCountEvent implements TasbihEvent {
-  const factory DecreaseTasbhiCountEvent() = _$DecreaseTasbhiCountEvent;
+  const factory DecreaseTasbhiCountEvent() = _$DecreaseTasbhiCountEventImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeThemeEventCopyWith<$Res> {
-  factory _$$ChangeThemeEventCopyWith(
-          _$ChangeThemeEvent value, $Res Function(_$ChangeThemeEvent) then) =
-      __$$ChangeThemeEventCopyWithImpl<$Res>;
+abstract class _$$ChangeThemeEventImplCopyWith<$Res> {
+  factory _$$ChangeThemeEventImplCopyWith(_$ChangeThemeEventImpl value,
+          $Res Function(_$ChangeThemeEventImpl) then) =
+      __$$ChangeThemeEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({TasbihThemes tasbihTheme});
 }
 
 /// @nodoc
-class __$$ChangeThemeEventCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$ChangeThemeEvent>
-    implements _$$ChangeThemeEventCopyWith<$Res> {
-  __$$ChangeThemeEventCopyWithImpl(
-      _$ChangeThemeEvent _value, $Res Function(_$ChangeThemeEvent) _then)
+class __$$ChangeThemeEventImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$ChangeThemeEventImpl>
+    implements _$$ChangeThemeEventImplCopyWith<$Res> {
+  __$$ChangeThemeEventImplCopyWithImpl(_$ChangeThemeEventImpl _value,
+      $Res Function(_$ChangeThemeEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1604,7 +1613,7 @@ class __$$ChangeThemeEventCopyWithImpl<$Res>
   $Res call({
     Object? tasbihTheme = null,
   }) {
-    return _then(_$ChangeThemeEvent(
+    return _then(_$ChangeThemeEventImpl(
       tasbihTheme: null == tasbihTheme
           ? _value.tasbihTheme
           : tasbihTheme // ignore: cast_nullable_to_non_nullable
@@ -1615,8 +1624,8 @@ class __$$ChangeThemeEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeThemeEvent implements ChangeThemeEvent {
-  const _$ChangeThemeEvent({required this.tasbihTheme});
+class _$ChangeThemeEventImpl implements ChangeThemeEvent {
+  const _$ChangeThemeEventImpl({required this.tasbihTheme});
 
   @override
   final TasbihThemes tasbihTheme;
@@ -1630,7 +1639,7 @@ class _$ChangeThemeEvent implements ChangeThemeEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeThemeEvent &&
+            other is _$ChangeThemeEventImpl &&
             (identical(other.tasbihTheme, tasbihTheme) ||
                 other.tasbihTheme == tasbihTheme));
   }
@@ -1641,8 +1650,9 @@ class _$ChangeThemeEvent implements ChangeThemeEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeThemeEventCopyWith<_$ChangeThemeEvent> get copyWith =>
-      __$$ChangeThemeEventCopyWithImpl<_$ChangeThemeEvent>(this, _$identity);
+  _$$ChangeThemeEventImplCopyWith<_$ChangeThemeEventImpl> get copyWith =>
+      __$$ChangeThemeEventImplCopyWithImpl<_$ChangeThemeEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1771,29 +1781,29 @@ class _$ChangeThemeEvent implements ChangeThemeEvent {
 
 abstract class ChangeThemeEvent implements TasbihEvent {
   const factory ChangeThemeEvent({required final TasbihThemes tasbihTheme}) =
-      _$ChangeThemeEvent;
+      _$ChangeThemeEventImpl;
 
   TasbihThemes get tasbihTheme;
   @JsonKey(ignore: true)
-  _$$ChangeThemeEventCopyWith<_$ChangeThemeEvent> get copyWith =>
+  _$$ChangeThemeEventImplCopyWith<_$ChangeThemeEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeThemeIndexCopyWith<$Res> {
-  factory _$$ChangeThemeIndexCopyWith(
-          _$ChangeThemeIndex value, $Res Function(_$ChangeThemeIndex) then) =
-      __$$ChangeThemeIndexCopyWithImpl<$Res>;
+abstract class _$$ChangeThemeIndexImplCopyWith<$Res> {
+  factory _$$ChangeThemeIndexImplCopyWith(_$ChangeThemeIndexImpl value,
+          $Res Function(_$ChangeThemeIndexImpl) then) =
+      __$$ChangeThemeIndexImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int themeIndex});
 }
 
 /// @nodoc
-class __$$ChangeThemeIndexCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$ChangeThemeIndex>
-    implements _$$ChangeThemeIndexCopyWith<$Res> {
-  __$$ChangeThemeIndexCopyWithImpl(
-      _$ChangeThemeIndex _value, $Res Function(_$ChangeThemeIndex) _then)
+class __$$ChangeThemeIndexImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$ChangeThemeIndexImpl>
+    implements _$$ChangeThemeIndexImplCopyWith<$Res> {
+  __$$ChangeThemeIndexImplCopyWithImpl(_$ChangeThemeIndexImpl _value,
+      $Res Function(_$ChangeThemeIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1801,7 +1811,7 @@ class __$$ChangeThemeIndexCopyWithImpl<$Res>
   $Res call({
     Object? themeIndex = null,
   }) {
-    return _then(_$ChangeThemeIndex(
+    return _then(_$ChangeThemeIndexImpl(
       themeIndex: null == themeIndex
           ? _value.themeIndex
           : themeIndex // ignore: cast_nullable_to_non_nullable
@@ -1812,8 +1822,8 @@ class __$$ChangeThemeIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeThemeIndex implements ChangeThemeIndex {
-  const _$ChangeThemeIndex({required this.themeIndex});
+class _$ChangeThemeIndexImpl implements ChangeThemeIndex {
+  const _$ChangeThemeIndexImpl({required this.themeIndex});
 
   @override
   final int themeIndex;
@@ -1827,7 +1837,7 @@ class _$ChangeThemeIndex implements ChangeThemeIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeThemeIndex &&
+            other is _$ChangeThemeIndexImpl &&
             (identical(other.themeIndex, themeIndex) ||
                 other.themeIndex == themeIndex));
   }
@@ -1838,8 +1848,9 @@ class _$ChangeThemeIndex implements ChangeThemeIndex {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeThemeIndexCopyWith<_$ChangeThemeIndex> get copyWith =>
-      __$$ChangeThemeIndexCopyWithImpl<_$ChangeThemeIndex>(this, _$identity);
+  _$$ChangeThemeIndexImplCopyWith<_$ChangeThemeIndexImpl> get copyWith =>
+      __$$ChangeThemeIndexImplCopyWithImpl<_$ChangeThemeIndexImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1968,34 +1979,34 @@ class _$ChangeThemeIndex implements ChangeThemeIndex {
 
 abstract class ChangeThemeIndex implements TasbihEvent {
   const factory ChangeThemeIndex({required final int themeIndex}) =
-      _$ChangeThemeIndex;
+      _$ChangeThemeIndexImpl;
 
   int get themeIndex;
   @JsonKey(ignore: true)
-  _$$ChangeThemeIndexCopyWith<_$ChangeThemeIndex> get copyWith =>
+  _$$ChangeThemeIndexImplCopyWith<_$ChangeThemeIndexImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MuteAudioEventCopyWith<$Res> {
-  factory _$$MuteAudioEventCopyWith(
-          _$MuteAudioEvent value, $Res Function(_$MuteAudioEvent) then) =
-      __$$MuteAudioEventCopyWithImpl<$Res>;
+abstract class _$$MuteAudioEventImplCopyWith<$Res> {
+  factory _$$MuteAudioEventImplCopyWith(_$MuteAudioEventImpl value,
+          $Res Function(_$MuteAudioEventImpl) then) =
+      __$$MuteAudioEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$MuteAudioEventCopyWithImpl<$Res>
-    extends _$TasbihEventCopyWithImpl<$Res, _$MuteAudioEvent>
-    implements _$$MuteAudioEventCopyWith<$Res> {
-  __$$MuteAudioEventCopyWithImpl(
-      _$MuteAudioEvent _value, $Res Function(_$MuteAudioEvent) _then)
+class __$$MuteAudioEventImplCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$MuteAudioEventImpl>
+    implements _$$MuteAudioEventImplCopyWith<$Res> {
+  __$$MuteAudioEventImplCopyWithImpl(
+      _$MuteAudioEventImpl _value, $Res Function(_$MuteAudioEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$MuteAudioEvent implements MuteAudioEvent {
-  const _$MuteAudioEvent();
+class _$MuteAudioEventImpl implements MuteAudioEvent {
+  const _$MuteAudioEventImpl();
 
   @override
   String toString() {
@@ -2005,7 +2016,7 @@ class _$MuteAudioEvent implements MuteAudioEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$MuteAudioEvent);
+        (other.runtimeType == runtimeType && other is _$MuteAudioEventImpl);
   }
 
   @override
@@ -2137,7 +2148,7 @@ class _$MuteAudioEvent implements MuteAudioEvent {
 }
 
 abstract class MuteAudioEvent implements TasbihEvent {
-  const factory MuteAudioEvent() = _$MuteAudioEvent;
+  const factory MuteAudioEvent() = _$MuteAudioEventImpl;
 }
 
 /// @nodoc
@@ -2268,11 +2279,11 @@ class _$TasbihStateCopyWithImpl<$Res, $Val extends TasbihState>
 }
 
 /// @nodoc
-abstract class _$$_TasbihStateCopyWith<$Res>
+abstract class _$$TasbihStateImplCopyWith<$Res>
     implements $TasbihStateCopyWith<$Res> {
-  factory _$$_TasbihStateCopyWith(
-          _$_TasbihState value, $Res Function(_$_TasbihState) then) =
-      __$$_TasbihStateCopyWithImpl<$Res>;
+  factory _$$TasbihStateImplCopyWith(
+          _$TasbihStateImpl value, $Res Function(_$TasbihStateImpl) then) =
+      __$$TasbihStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2293,11 +2304,11 @@ abstract class _$$_TasbihStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TasbihStateCopyWithImpl<$Res>
-    extends _$TasbihStateCopyWithImpl<$Res, _$_TasbihState>
-    implements _$$_TasbihStateCopyWith<$Res> {
-  __$$_TasbihStateCopyWithImpl(
-      _$_TasbihState _value, $Res Function(_$_TasbihState) _then)
+class __$$TasbihStateImplCopyWithImpl<$Res>
+    extends _$TasbihStateCopyWithImpl<$Res, _$TasbihStateImpl>
+    implements _$$TasbihStateImplCopyWith<$Res> {
+  __$$TasbihStateImplCopyWithImpl(
+      _$TasbihStateImpl _value, $Res Function(_$TasbihStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2315,7 +2326,7 @@ class __$$_TasbihStateCopyWithImpl<$Res>
     Object? audioPlaying = null,
     Object? audioMute = null,
   }) {
-    return _then(_$_TasbihState(
+    return _then(_$TasbihStateImpl(
       tasbihDhikr: null == tasbihDhikr
           ? _value.tasbihDhikr
           : tasbihDhikr // ignore: cast_nullable_to_non_nullable
@@ -2366,8 +2377,8 @@ class __$$_TasbihStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TasbihState implements _TasbihState {
-  const _$_TasbihState(
+class _$TasbihStateImpl implements _TasbihState {
+  const _$TasbihStateImpl(
       {required this.tasbihDhikr,
       required this.tasbihDikrTranslate,
       required this.tasbihId,
@@ -2412,7 +2423,7 @@ class _$_TasbihState implements _TasbihState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TasbihState &&
+            other is _$TasbihStateImpl &&
             (identical(other.tasbihDhikr, tasbihDhikr) ||
                 other.tasbihDhikr == tasbihDhikr) &&
             (identical(other.tasbihDikrTranslate, tasbihDikrTranslate) ||
@@ -2455,8 +2466,8 @@ class _$_TasbihState implements _TasbihState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TasbihStateCopyWith<_$_TasbihState> get copyWith =>
-      __$$_TasbihStateCopyWithImpl<_$_TasbihState>(this, _$identity);
+  _$$TasbihStateImplCopyWith<_$TasbihStateImpl> get copyWith =>
+      __$$TasbihStateImplCopyWithImpl<_$TasbihStateImpl>(this, _$identity);
 }
 
 abstract class _TasbihState implements TasbihState {
@@ -2471,7 +2482,7 @@ abstract class _TasbihState implements TasbihState {
       required final TasbihThemes tasbihThemes,
       required final int? themeIndex,
       required final bool audioPlaying,
-      required final bool audioMute}) = _$_TasbihState;
+      required final bool audioMute}) = _$TasbihStateImpl;
 
   @override
   String get tasbihDhikr;
@@ -2497,6 +2508,6 @@ abstract class _TasbihState implements TasbihState {
   bool get audioMute;
   @override
   @JsonKey(ignore: true)
-  _$$_TasbihStateCopyWith<_$_TasbihState> get copyWith =>
+  _$$TasbihStateImplCopyWith<_$TasbihStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

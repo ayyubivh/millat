@@ -6,8 +6,9 @@ part of 'quran_all_translations_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TranslationsModel _$$_TranslationsModelFromJson(Map<String, dynamic> json) =>
-    _$_TranslationsModel(
+_$TranslationsModelImpl _$$TranslationsModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$TranslationsModelImpl(
       translations: (json['translations'] as List<dynamic>)
           .map((e) => e == null
               ? null
@@ -15,14 +16,14 @@ _$_TranslationsModel _$$_TranslationsModelFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_TranslationsModelToJson(
-        _$_TranslationsModel instance) =>
+Map<String, dynamic> _$$TranslationsModelImplToJson(
+        _$TranslationsModelImpl instance) =>
     <String, dynamic>{
       'translations': instance.translations,
     };
 
-_$_Translations _$$_TranslationsFromJson(Map<String, dynamic> json) =>
-    _$_Translations(
+_$TranslationsImpl _$$TranslationsImplFromJson(Map<String, dynamic> json) =>
+    _$TranslationsImpl(
       id: json['id'] as int?,
       name: json['name'] as String?,
       authorName: json['author_name'] as String?,
@@ -34,7 +35,7 @@ _$_Translations _$$_TranslationsFromJson(Map<String, dynamic> json) =>
               json['translated_name'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_TranslationsToJson(_$_Translations instance) =>
+Map<String, dynamic> _$$TranslationsImplToJson(_$TranslationsImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -44,13 +45,14 @@ Map<String, dynamic> _$$_TranslationsToJson(_$_Translations instance) =>
       'translated_name': instance.translatedName,
     };
 
-_$_TranslatedName _$$_TranslatedNameFromJson(Map<String, dynamic> json) =>
-    _$_TranslatedName(
+_$TranslatedNameImpl _$$TranslatedNameImplFromJson(Map<String, dynamic> json) =>
+    _$TranslatedNameImpl(
       name: json['name'] as String?,
       languageName: json['language_name'] as String?,
     );
 
-Map<String, dynamic> _$$_TranslatedNameToJson(_$_TranslatedName instance) =>
+Map<String, dynamic> _$$TranslatedNameImplToJson(
+        _$TranslatedNameImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'language_name': instance.languageName,

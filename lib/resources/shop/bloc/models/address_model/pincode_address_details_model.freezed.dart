@@ -80,11 +80,11 @@ class _$PincodeAddressModelCopyWithImpl<$Res, $Val extends PincodeAddressModel>
 }
 
 /// @nodoc
-abstract class _$$_PincodeAddressModelCopyWith<$Res>
+abstract class _$$PincodeAddressModelImplCopyWith<$Res>
     implements $PincodeAddressModelCopyWith<$Res> {
-  factory _$$_PincodeAddressModelCopyWith(_$_PincodeAddressModel value,
-          $Res Function(_$_PincodeAddressModel) then) =
-      __$$_PincodeAddressModelCopyWithImpl<$Res>;
+  factory _$$PincodeAddressModelImplCopyWith(_$PincodeAddressModelImpl value,
+          $Res Function(_$PincodeAddressModelImpl) then) =
+      __$$PincodeAddressModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_PincodeAddressModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PincodeAddressModelCopyWithImpl<$Res>
-    extends _$PincodeAddressModelCopyWithImpl<$Res, _$_PincodeAddressModel>
-    implements _$$_PincodeAddressModelCopyWith<$Res> {
-  __$$_PincodeAddressModelCopyWithImpl(_$_PincodeAddressModel _value,
-      $Res Function(_$_PincodeAddressModel) _then)
+class __$$PincodeAddressModelImplCopyWithImpl<$Res>
+    extends _$PincodeAddressModelCopyWithImpl<$Res, _$PincodeAddressModelImpl>
+    implements _$$PincodeAddressModelImplCopyWith<$Res> {
+  __$$PincodeAddressModelImplCopyWithImpl(_$PincodeAddressModelImpl _value,
+      $Res Function(_$PincodeAddressModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_PincodeAddressModelCopyWithImpl<$Res>
     Object? status = freezed,
     Object? postOffice = freezed,
   }) {
-    return _then(_$_PincodeAddressModel(
+    return _then(_$PincodeAddressModelImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -127,15 +127,15 @@ class __$$_PincodeAddressModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PincodeAddressModel implements _PincodeAddressModel {
-  const _$_PincodeAddressModel(
+class _$PincodeAddressModelImpl implements _PincodeAddressModel {
+  const _$PincodeAddressModelImpl(
       {@JsonKey(name: 'Message') required this.message,
       @JsonKey(name: 'Status') required this.status,
       @JsonKey(name: 'PostOffice') required final List<PostOffice>? postOffice})
       : _postOffice = postOffice;
 
-  factory _$_PincodeAddressModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PincodeAddressModelFromJson(json);
+  factory _$PincodeAddressModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PincodeAddressModelImplFromJson(json);
 
   @override
   @JsonKey(name: 'Message')
@@ -163,7 +163,7 @@ class _$_PincodeAddressModel implements _PincodeAddressModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PincodeAddressModel &&
+            other is _$PincodeAddressModelImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality()
@@ -178,13 +178,13 @@ class _$_PincodeAddressModel implements _PincodeAddressModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PincodeAddressModelCopyWith<_$_PincodeAddressModel> get copyWith =>
-      __$$_PincodeAddressModelCopyWithImpl<_$_PincodeAddressModel>(
+  _$$PincodeAddressModelImplCopyWith<_$PincodeAddressModelImpl> get copyWith =>
+      __$$PincodeAddressModelImplCopyWithImpl<_$PincodeAddressModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PincodeAddressModelToJson(
+    return _$$PincodeAddressModelImplToJson(
       this,
     );
   }
@@ -195,10 +195,10 @@ abstract class _PincodeAddressModel implements PincodeAddressModel {
       {@JsonKey(name: 'Message') required final String? message,
       @JsonKey(name: 'Status') required final String? status,
       @JsonKey(name: 'PostOffice')
-      required final List<PostOffice>? postOffice}) = _$_PincodeAddressModel;
+      required final List<PostOffice>? postOffice}) = _$PincodeAddressModelImpl;
 
   factory _PincodeAddressModel.fromJson(Map<String, dynamic> json) =
-      _$_PincodeAddressModel.fromJson;
+      _$PincodeAddressModelImpl.fromJson;
 
   @override
   @JsonKey(name: 'Message')
@@ -211,7 +211,7 @@ abstract class _PincodeAddressModel implements PincodeAddressModel {
   List<PostOffice>? get postOffice;
   @override
   @JsonKey(ignore: true)
-  _$$_PincodeAddressModelCopyWith<_$_PincodeAddressModel> get copyWith =>
+  _$$PincodeAddressModelImplCopyWith<_$PincodeAddressModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -345,11 +345,11 @@ class _$PostOfficeCopyWithImpl<$Res, $Val extends PostOffice>
 }
 
 /// @nodoc
-abstract class _$$_PostOfficeCopyWith<$Res>
+abstract class _$$PostOfficeImplCopyWith<$Res>
     implements $PostOfficeCopyWith<$Res> {
-  factory _$$_PostOfficeCopyWith(
-          _$_PostOffice value, $Res Function(_$_PostOffice) then) =
-      __$$_PostOfficeCopyWithImpl<$Res>;
+  factory _$$PostOfficeImplCopyWith(
+          _$PostOfficeImpl value, $Res Function(_$PostOfficeImpl) then) =
+      __$$PostOfficeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -367,11 +367,11 @@ abstract class _$$_PostOfficeCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PostOfficeCopyWithImpl<$Res>
-    extends _$PostOfficeCopyWithImpl<$Res, _$_PostOffice>
-    implements _$$_PostOfficeCopyWith<$Res> {
-  __$$_PostOfficeCopyWithImpl(
-      _$_PostOffice _value, $Res Function(_$_PostOffice) _then)
+class __$$PostOfficeImplCopyWithImpl<$Res>
+    extends _$PostOfficeCopyWithImpl<$Res, _$PostOfficeImpl>
+    implements _$$PostOfficeImplCopyWith<$Res> {
+  __$$PostOfficeImplCopyWithImpl(
+      _$PostOfficeImpl _value, $Res Function(_$PostOfficeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -389,7 +389,7 @@ class __$$_PostOfficeCopyWithImpl<$Res>
     Object? country = freezed,
     Object? pincode = freezed,
   }) {
-    return _then(_$_PostOffice(
+    return _then(_$PostOfficeImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -440,8 +440,8 @@ class __$$_PostOfficeCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PostOffice implements _PostOffice {
-  const _$_PostOffice(
+class _$PostOfficeImpl implements _PostOffice {
+  const _$PostOfficeImpl(
       {@JsonKey(name: 'Name') required this.name,
       @JsonKey(name: 'BranchType') required this.branchType,
       @JsonKey(name: 'DeliveryStatus') required this.deliveryStatus,
@@ -454,8 +454,8 @@ class _$_PostOffice implements _PostOffice {
       @JsonKey(name: 'Country') required this.country,
       @JsonKey(name: 'Pincode') required this.pincode});
 
-  factory _$_PostOffice.fromJson(Map<String, dynamic> json) =>
-      _$$_PostOfficeFromJson(json);
+  factory _$PostOfficeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostOfficeImplFromJson(json);
 
   @override
   @JsonKey(name: 'Name')
@@ -500,7 +500,7 @@ class _$_PostOffice implements _PostOffice {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PostOffice &&
+            other is _$PostOfficeImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.branchType, branchType) ||
                 other.branchType == branchType) &&
@@ -526,12 +526,12 @@ class _$_PostOffice implements _PostOffice {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PostOfficeCopyWith<_$_PostOffice> get copyWith =>
-      __$$_PostOfficeCopyWithImpl<_$_PostOffice>(this, _$identity);
+  _$$PostOfficeImplCopyWith<_$PostOfficeImpl> get copyWith =>
+      __$$PostOfficeImplCopyWithImpl<_$PostOfficeImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PostOfficeToJson(
+    return _$$PostOfficeImplToJson(
       this,
     );
   }
@@ -550,10 +550,10 @@ abstract class _PostOffice implements PostOffice {
       @JsonKey(name: 'State') required final String? state,
       @JsonKey(name: 'Country') required final String? country,
       @JsonKey(name: 'Pincode')
-      required final String? pincode}) = _$_PostOffice;
+      required final String? pincode}) = _$PostOfficeImpl;
 
   factory _PostOffice.fromJson(Map<String, dynamic> json) =
-      _$_PostOffice.fromJson;
+      _$PostOfficeImpl.fromJson;
 
   @override
   @JsonKey(name: 'Name')
@@ -590,6 +590,6 @@ abstract class _PostOffice implements PostOffice {
   String? get pincode;
   @override
   @JsonKey(ignore: true)
-  _$$_PostOfficeCopyWith<_$_PostOffice> get copyWith =>
+  _$$PostOfficeImplCopyWith<_$PostOfficeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,17 +6,20 @@ part of 'chapter_by_id_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ChapterByIdModel _$$_ChapterByIdModelFromJson(Map<String, dynamic> json) =>
-    _$_ChapterByIdModel(
+_$ChapterByIdModelImpl _$$ChapterByIdModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ChapterByIdModelImpl(
       chapter: Chapter.fromJson(json['chapter'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ChapterByIdModelToJson(_$_ChapterByIdModel instance) =>
+Map<String, dynamic> _$$ChapterByIdModelImplToJson(
+        _$ChapterByIdModelImpl instance) =>
     <String, dynamic>{
       'chapter': instance.chapter,
     };
 
-_$_Chapter _$$_ChapterFromJson(Map<String, dynamic> json) => _$_Chapter(
+_$ChapterImpl _$$ChapterImplFromJson(Map<String, dynamic> json) =>
+    _$ChapterImpl(
       id: json['id'] as int,
       revelationPlace: json['revelation_place'] as String,
       revelationOrder: json['revelation_order'] as int,
@@ -32,7 +35,7 @@ _$_Chapter _$$_ChapterFromJson(Map<String, dynamic> json) => _$_Chapter(
               json['translated_name'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ChapterToJson(_$_Chapter instance) =>
+Map<String, dynamic> _$$ChapterImplToJson(_$ChapterImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'revelation_place': instance.revelationPlace,
@@ -46,13 +49,14 @@ Map<String, dynamic> _$$_ChapterToJson(_$_Chapter instance) =>
       'translated_name': instance.translatedName,
     };
 
-_$_TranslatedName _$$_TranslatedNameFromJson(Map<String, dynamic> json) =>
-    _$_TranslatedName(
+_$TranslatedNameImpl _$$TranslatedNameImplFromJson(Map<String, dynamic> json) =>
+    _$TranslatedNameImpl(
       languageName: json['language_name'] as String,
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$$_TranslatedNameToJson(_$_TranslatedName instance) =>
+Map<String, dynamic> _$$TranslatedNameImplToJson(
+        _$TranslatedNameImpl instance) =>
     <String, dynamic>{
       'language_name': instance.languageName,
       'name': instance.name,

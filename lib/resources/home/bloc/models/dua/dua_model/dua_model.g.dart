@@ -6,7 +6,8 @@ part of 'dua_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DuaModel _$$_DuaModelFromJson(Map<String, dynamic> json) => _$_DuaModel(
+_$DuaModelImpl _$$DuaModelImplFromJson(Map<String, dynamic> json) =>
+    _$DuaModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -15,7 +16,7 @@ _$_DuaModel _$$_DuaModelFromJson(Map<String, dynamic> json) => _$_DuaModel(
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_DuaModelToJson(_$_DuaModel instance) =>
+Map<String, dynamic> _$$DuaModelImplToJson(_$DuaModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -23,17 +24,18 @@ Map<String, dynamic> _$$_DuaModelToJson(_$_DuaModel instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       duas: (json['duaes'] as List<dynamic>?)
           ?.map((e) => Duae.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'duaes': instance.duas,
     };
 
-_$_Duae _$$_DuaeFromJson(Map<String, dynamic> json) => _$_Duae(
+_$DuaeImpl _$$DuaeImplFromJson(Map<String, dynamic> json) => _$DuaeImpl(
       id: json['_id'] as String?,
       subCategory: json['subCategoryId'] == null
           ? null
@@ -48,7 +50,8 @@ _$_Duae _$$_DuaeFromJson(Map<String, dynamic> json) => _$_Duae(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_DuaeToJson(_$_Duae instance) => <String, dynamic>{
+Map<String, dynamic> _$$DuaeImplToJson(_$DuaeImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'subCategoryId': instance.subCategory,
       'content': instance.content,
@@ -59,8 +62,8 @@ Map<String, dynamic> _$$_DuaeToJson(_$_Duae instance) => <String, dynamic>{
       'updatedAt': instance.updatedAt,
     };
 
-_$_SubCategory _$$_SubCategoryFromJson(Map<String, dynamic> json) =>
-    _$_SubCategory(
+_$SubCategoryImpl _$$SubCategoryImplFromJson(Map<String, dynamic> json) =>
+    _$SubCategoryImpl(
       id: json['_id'] as String?,
       categoryId: json['categoryId'] == null
           ? null
@@ -71,7 +74,7 @@ _$_SubCategory _$$_SubCategoryFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_SubCategoryToJson(_$_SubCategory instance) =>
+Map<String, dynamic> _$$SubCategoryImplToJson(_$SubCategoryImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'categoryId': instance.categoryId,
@@ -81,8 +84,8 @@ Map<String, dynamic> _$$_SubCategoryToJson(_$_SubCategory instance) =>
       'updatedAt': instance.updatedAt,
     };
 
-_$_CategoryId _$$_CategoryIdFromJson(Map<String, dynamic> json) =>
-    _$_CategoryId(
+_$CategoryIdImpl _$$CategoryIdImplFromJson(Map<String, dynamic> json) =>
+    _$CategoryIdImpl(
       id: json['_id'] as String?,
       category: json['category'] as String?,
       image: json['image'] as String?,
@@ -90,7 +93,7 @@ _$_CategoryId _$$_CategoryIdFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_CategoryIdToJson(_$_CategoryId instance) =>
+Map<String, dynamic> _$$CategoryIdImplToJson(_$CategoryIdImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'category': instance.category,
@@ -99,13 +102,14 @@ Map<String, dynamic> _$$_CategoryIdToJson(_$_CategoryId instance) =>
       'updatedAt': instance.updatedAt,
     };
 
-_$_Translate _$$_TranslateFromJson(Map<String, dynamic> json) => _$_Translate(
+_$TranslateImpl _$$TranslateImplFromJson(Map<String, dynamic> json) =>
+    _$TranslateImpl(
       language: json['language'] as String?,
       content: json['content'] as String?,
       id: json['_id'] as String?,
     );
 
-Map<String, dynamic> _$$_TranslateToJson(_$_Translate instance) =>
+Map<String, dynamic> _$$TranslateImplToJson(_$TranslateImpl instance) =>
     <String, dynamic>{
       'language': instance.language,
       'content': instance.content,

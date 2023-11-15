@@ -62,22 +62,22 @@ class _$NamazMethodsModelCopyWithImpl<$Res, $Val extends NamazMethodsModel>
 }
 
 /// @nodoc
-abstract class _$$_NamazMethodsModelCopyWith<$Res>
+abstract class _$$NamazMethodsModelImplCopyWith<$Res>
     implements $NamazMethodsModelCopyWith<$Res> {
-  factory _$$_NamazMethodsModelCopyWith(_$_NamazMethodsModel value,
-          $Res Function(_$_NamazMethodsModel) then) =
-      __$$_NamazMethodsModelCopyWithImpl<$Res>;
+  factory _$$NamazMethodsModelImplCopyWith(_$NamazMethodsModelImpl value,
+          $Res Function(_$NamazMethodsModelImpl) then) =
+      __$$NamazMethodsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Map<String, NamazTimeData>? data});
 }
 
 /// @nodoc
-class __$$_NamazMethodsModelCopyWithImpl<$Res>
-    extends _$NamazMethodsModelCopyWithImpl<$Res, _$_NamazMethodsModel>
-    implements _$$_NamazMethodsModelCopyWith<$Res> {
-  __$$_NamazMethodsModelCopyWithImpl(
-      _$_NamazMethodsModel _value, $Res Function(_$_NamazMethodsModel) _then)
+class __$$NamazMethodsModelImplCopyWithImpl<$Res>
+    extends _$NamazMethodsModelCopyWithImpl<$Res, _$NamazMethodsModelImpl>
+    implements _$$NamazMethodsModelImplCopyWith<$Res> {
+  __$$NamazMethodsModelImplCopyWithImpl(_$NamazMethodsModelImpl _value,
+      $Res Function(_$NamazMethodsModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_NamazMethodsModelCopyWithImpl<$Res>
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_$_NamazMethodsModel(
+    return _then(_$NamazMethodsModelImpl(
       data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -96,12 +96,13 @@ class __$$_NamazMethodsModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NamazMethodsModel implements _NamazMethodsModel {
-  const _$_NamazMethodsModel({required final Map<String, NamazTimeData>? data})
+class _$NamazMethodsModelImpl implements _NamazMethodsModel {
+  const _$NamazMethodsModelImpl(
+      {required final Map<String, NamazTimeData>? data})
       : _data = data;
 
-  factory _$_NamazMethodsModel.fromJson(Map<String, dynamic> json) =>
-      _$$_NamazMethodsModelFromJson(json);
+  factory _$NamazMethodsModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NamazMethodsModelImplFromJson(json);
 
   final Map<String, NamazTimeData>? _data;
   @override
@@ -122,7 +123,7 @@ class _$_NamazMethodsModel implements _NamazMethodsModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NamazMethodsModel &&
+            other is _$NamazMethodsModelImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -134,13 +135,13 @@ class _$_NamazMethodsModel implements _NamazMethodsModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NamazMethodsModelCopyWith<_$_NamazMethodsModel> get copyWith =>
-      __$$_NamazMethodsModelCopyWithImpl<_$_NamazMethodsModel>(
+  _$$NamazMethodsModelImplCopyWith<_$NamazMethodsModelImpl> get copyWith =>
+      __$$NamazMethodsModelImplCopyWithImpl<_$NamazMethodsModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NamazMethodsModelToJson(
+    return _$$NamazMethodsModelImplToJson(
       this,
     );
   }
@@ -148,16 +149,17 @@ class _$_NamazMethodsModel implements _NamazMethodsModel {
 
 abstract class _NamazMethodsModel implements NamazMethodsModel {
   const factory _NamazMethodsModel(
-      {required final Map<String, NamazTimeData>? data}) = _$_NamazMethodsModel;
+          {required final Map<String, NamazTimeData>? data}) =
+      _$NamazMethodsModelImpl;
 
   factory _NamazMethodsModel.fromJson(Map<String, dynamic> json) =
-      _$_NamazMethodsModel.fromJson;
+      _$NamazMethodsModelImpl.fromJson;
 
   @override
   Map<String, NamazTimeData>? get data;
   @override
   @JsonKey(ignore: true)
-  _$$_NamazMethodsModelCopyWith<_$_NamazMethodsModel> get copyWith =>
+  _$$NamazMethodsModelImplCopyWith<_$NamazMethodsModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -258,11 +260,11 @@ class _$NamazTimeDataCopyWithImpl<$Res, $Val extends NamazTimeData>
 }
 
 /// @nodoc
-abstract class _$$_NamazTimeDataCopyWith<$Res>
+abstract class _$$NamazTimeDataImplCopyWith<$Res>
     implements $NamazTimeDataCopyWith<$Res> {
-  factory _$$_NamazTimeDataCopyWith(
-          _$_NamazTimeData value, $Res Function(_$_NamazTimeData) then) =
-      __$$_NamazTimeDataCopyWithImpl<$Res>;
+  factory _$$NamazTimeDataImplCopyWith(
+          _$NamazTimeDataImpl value, $Res Function(_$NamazTimeDataImpl) then) =
+      __$$NamazTimeDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -278,11 +280,11 @@ abstract class _$$_NamazTimeDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_NamazTimeDataCopyWithImpl<$Res>
-    extends _$NamazTimeDataCopyWithImpl<$Res, _$_NamazTimeData>
-    implements _$$_NamazTimeDataCopyWith<$Res> {
-  __$$_NamazTimeDataCopyWithImpl(
-      _$_NamazTimeData _value, $Res Function(_$_NamazTimeData) _then)
+class __$$NamazTimeDataImplCopyWithImpl<$Res>
+    extends _$NamazTimeDataCopyWithImpl<$Res, _$NamazTimeDataImpl>
+    implements _$$NamazTimeDataImplCopyWith<$Res> {
+  __$$NamazTimeDataImplCopyWithImpl(
+      _$NamazTimeDataImpl _value, $Res Function(_$NamazTimeDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -293,7 +295,7 @@ class __$$_NamazTimeDataCopyWithImpl<$Res>
     Object? params = freezed,
     Object? location = freezed,
   }) {
-    return _then(_$_NamazTimeData(
+    return _then(_$NamazTimeDataImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -316,15 +318,15 @@ class __$$_NamazTimeDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NamazTimeData implements _NamazTimeData {
-  const _$_NamazTimeData(
+class _$NamazTimeDataImpl implements _NamazTimeData {
+  const _$NamazTimeDataImpl(
       {required this.id,
       required this.name,
       required this.params,
       required this.location});
 
-  factory _$_NamazTimeData.fromJson(Map<String, dynamic> json) =>
-      _$$_NamazTimeDataFromJson(json);
+  factory _$NamazTimeDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NamazTimeDataImplFromJson(json);
 
   @override
   final int? id;
@@ -344,7 +346,7 @@ class _$_NamazTimeData implements _NamazTimeData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NamazTimeData &&
+            other is _$NamazTimeDataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.params, params) || other.params == params) &&
@@ -359,12 +361,12 @@ class _$_NamazTimeData implements _NamazTimeData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NamazTimeDataCopyWith<_$_NamazTimeData> get copyWith =>
-      __$$_NamazTimeDataCopyWithImpl<_$_NamazTimeData>(this, _$identity);
+  _$$NamazTimeDataImplCopyWith<_$NamazTimeDataImpl> get copyWith =>
+      __$$NamazTimeDataImplCopyWithImpl<_$NamazTimeDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NamazTimeDataToJson(
+    return _$$NamazTimeDataImplToJson(
       this,
     );
   }
@@ -375,10 +377,10 @@ abstract class _NamazTimeData implements NamazTimeData {
       {required final int? id,
       required final String? name,
       required final NamazTimeParams? params,
-      required final NamazTimeLocation? location}) = _$_NamazTimeData;
+      required final NamazTimeLocation? location}) = _$NamazTimeDataImpl;
 
   factory _NamazTimeData.fromJson(Map<String, dynamic> json) =
-      _$_NamazTimeData.fromJson;
+      _$NamazTimeDataImpl.fromJson;
 
   @override
   int? get id;
@@ -390,7 +392,7 @@ abstract class _NamazTimeData implements NamazTimeData {
   NamazTimeLocation? get location;
   @override
   @JsonKey(ignore: true)
-  _$$_NamazTimeDataCopyWith<_$_NamazTimeData> get copyWith =>
+  _$$NamazTimeDataImplCopyWith<_$NamazTimeDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -473,11 +475,11 @@ class _$NamazTimeParamsCopyWithImpl<$Res, $Val extends NamazTimeParams>
 }
 
 /// @nodoc
-abstract class _$$_NamazTimeParamsCopyWith<$Res>
+abstract class _$$NamazTimeParamsImplCopyWith<$Res>
     implements $NamazTimeParamsCopyWith<$Res> {
-  factory _$$_NamazTimeParamsCopyWith(
-          _$_NamazTimeParams value, $Res Function(_$_NamazTimeParams) then) =
-      __$$_NamazTimeParamsCopyWithImpl<$Res>;
+  factory _$$NamazTimeParamsImplCopyWith(_$NamazTimeParamsImpl value,
+          $Res Function(_$NamazTimeParamsImpl) then) =
+      __$$NamazTimeParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -489,11 +491,11 @@ abstract class _$$_NamazTimeParamsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_NamazTimeParamsCopyWithImpl<$Res>
-    extends _$NamazTimeParamsCopyWithImpl<$Res, _$_NamazTimeParams>
-    implements _$$_NamazTimeParamsCopyWith<$Res> {
-  __$$_NamazTimeParamsCopyWithImpl(
-      _$_NamazTimeParams _value, $Res Function(_$_NamazTimeParams) _then)
+class __$$NamazTimeParamsImplCopyWithImpl<$Res>
+    extends _$NamazTimeParamsCopyWithImpl<$Res, _$NamazTimeParamsImpl>
+    implements _$$NamazTimeParamsImplCopyWith<$Res> {
+  __$$NamazTimeParamsImplCopyWithImpl(
+      _$NamazTimeParamsImpl _value, $Res Function(_$NamazTimeParamsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -505,7 +507,7 @@ class __$$_NamazTimeParamsCopyWithImpl<$Res>
     Object? midnight = freezed,
     Object? shafaq = freezed,
   }) {
-    return _then(_$_NamazTimeParams(
+    return _then(_$NamazTimeParamsImpl(
       fajr: freezed == fajr
           ? _value.fajr
           : fajr // ignore: cast_nullable_to_non_nullable
@@ -532,16 +534,16 @@ class __$$_NamazTimeParamsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NamazTimeParams implements _NamazTimeParams {
-  const _$_NamazTimeParams(
+class _$NamazTimeParamsImpl implements _NamazTimeParams {
+  const _$NamazTimeParamsImpl(
       {@JsonKey(name: 'Fajr') required this.fajr,
       @JsonKey(name: 'Isha') required this.isha,
       this.maghrib,
       this.midnight,
       this.shafaq});
 
-  factory _$_NamazTimeParams.fromJson(Map<String, dynamic> json) =>
-      _$$_NamazTimeParamsFromJson(json);
+  factory _$NamazTimeParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NamazTimeParamsImplFromJson(json);
 
   @override
   @JsonKey(name: 'Fajr')
@@ -565,7 +567,7 @@ class _$_NamazTimeParams implements _NamazTimeParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NamazTimeParams &&
+            other is _$NamazTimeParamsImpl &&
             (identical(other.fajr, fajr) || other.fajr == fajr) &&
             const DeepCollectionEquality().equals(other.isha, isha) &&
             (identical(other.maghrib, maghrib) || other.maghrib == maghrib) &&
@@ -586,12 +588,13 @@ class _$_NamazTimeParams implements _NamazTimeParams {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NamazTimeParamsCopyWith<_$_NamazTimeParams> get copyWith =>
-      __$$_NamazTimeParamsCopyWithImpl<_$_NamazTimeParams>(this, _$identity);
+  _$$NamazTimeParamsImplCopyWith<_$NamazTimeParamsImpl> get copyWith =>
+      __$$NamazTimeParamsImplCopyWithImpl<_$NamazTimeParamsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NamazTimeParamsToJson(
+    return _$$NamazTimeParamsImplToJson(
       this,
     );
   }
@@ -603,10 +606,10 @@ abstract class _NamazTimeParams implements NamazTimeParams {
       @JsonKey(name: 'Isha') required final dynamic isha,
       final double? maghrib,
       final dynamic midnight,
-      final dynamic shafaq}) = _$_NamazTimeParams;
+      final dynamic shafaq}) = _$NamazTimeParamsImpl;
 
   factory _NamazTimeParams.fromJson(Map<String, dynamic> json) =
-      _$_NamazTimeParams.fromJson;
+      _$NamazTimeParamsImpl.fromJson;
 
   @override
   @JsonKey(name: 'Fajr')
@@ -622,7 +625,7 @@ abstract class _NamazTimeParams implements NamazTimeParams {
   dynamic get shafaq;
   @override
   @JsonKey(ignore: true)
-  _$$_NamazTimeParamsCopyWith<_$_NamazTimeParams> get copyWith =>
+  _$$NamazTimeParamsImplCopyWith<_$NamazTimeParamsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -680,22 +683,22 @@ class _$NamazTimeLocationCopyWithImpl<$Res, $Val extends NamazTimeLocation>
 }
 
 /// @nodoc
-abstract class _$$_NamazTimeLocationCopyWith<$Res>
+abstract class _$$NamazTimeLocationImplCopyWith<$Res>
     implements $NamazTimeLocationCopyWith<$Res> {
-  factory _$$_NamazTimeLocationCopyWith(_$_NamazTimeLocation value,
-          $Res Function(_$_NamazTimeLocation) then) =
-      __$$_NamazTimeLocationCopyWithImpl<$Res>;
+  factory _$$NamazTimeLocationImplCopyWith(_$NamazTimeLocationImpl value,
+          $Res Function(_$NamazTimeLocationImpl) then) =
+      __$$NamazTimeLocationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
-class __$$_NamazTimeLocationCopyWithImpl<$Res>
-    extends _$NamazTimeLocationCopyWithImpl<$Res, _$_NamazTimeLocation>
-    implements _$$_NamazTimeLocationCopyWith<$Res> {
-  __$$_NamazTimeLocationCopyWithImpl(
-      _$_NamazTimeLocation _value, $Res Function(_$_NamazTimeLocation) _then)
+class __$$NamazTimeLocationImplCopyWithImpl<$Res>
+    extends _$NamazTimeLocationCopyWithImpl<$Res, _$NamazTimeLocationImpl>
+    implements _$$NamazTimeLocationImplCopyWith<$Res> {
+  __$$NamazTimeLocationImplCopyWithImpl(_$NamazTimeLocationImpl _value,
+      $Res Function(_$NamazTimeLocationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -704,7 +707,7 @@ class __$$_NamazTimeLocationCopyWithImpl<$Res>
     Object? latitude = null,
     Object? longitude = null,
   }) {
-    return _then(_$_NamazTimeLocation(
+    return _then(_$NamazTimeLocationImpl(
       latitude: null == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -719,11 +722,12 @@ class __$$_NamazTimeLocationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NamazTimeLocation implements _NamazTimeLocation {
-  const _$_NamazTimeLocation({required this.latitude, required this.longitude});
+class _$NamazTimeLocationImpl implements _NamazTimeLocation {
+  const _$NamazTimeLocationImpl(
+      {required this.latitude, required this.longitude});
 
-  factory _$_NamazTimeLocation.fromJson(Map<String, dynamic> json) =>
-      _$$_NamazTimeLocationFromJson(json);
+  factory _$NamazTimeLocationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NamazTimeLocationImplFromJson(json);
 
   @override
   final double latitude;
@@ -739,7 +743,7 @@ class _$_NamazTimeLocation implements _NamazTimeLocation {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NamazTimeLocation &&
+            other is _$NamazTimeLocationImpl &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
@@ -753,13 +757,13 @@ class _$_NamazTimeLocation implements _NamazTimeLocation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NamazTimeLocationCopyWith<_$_NamazTimeLocation> get copyWith =>
-      __$$_NamazTimeLocationCopyWithImpl<_$_NamazTimeLocation>(
+  _$$NamazTimeLocationImplCopyWith<_$NamazTimeLocationImpl> get copyWith =>
+      __$$NamazTimeLocationImplCopyWithImpl<_$NamazTimeLocationImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NamazTimeLocationToJson(
+    return _$$NamazTimeLocationImplToJson(
       this,
     );
   }
@@ -768,10 +772,10 @@ class _$_NamazTimeLocation implements _NamazTimeLocation {
 abstract class _NamazTimeLocation implements NamazTimeLocation {
   const factory _NamazTimeLocation(
       {required final double latitude,
-      required final double longitude}) = _$_NamazTimeLocation;
+      required final double longitude}) = _$NamazTimeLocationImpl;
 
   factory _NamazTimeLocation.fromJson(Map<String, dynamic> json) =
-      _$_NamazTimeLocation.fromJson;
+      _$NamazTimeLocationImpl.fromJson;
 
   @override
   double get latitude;
@@ -779,6 +783,6 @@ abstract class _NamazTimeLocation implements NamazTimeLocation {
   double get longitude;
   @override
   @JsonKey(ignore: true)
-  _$$_NamazTimeLocationCopyWith<_$_NamazTimeLocation> get copyWith =>
+  _$$NamazTimeLocationImplCopyWith<_$NamazTimeLocationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

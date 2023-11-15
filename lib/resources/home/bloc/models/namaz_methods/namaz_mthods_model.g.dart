@@ -6,22 +6,23 @@ part of 'namaz_mthods_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NamazMethodsModel _$$_NamazMethodsModelFromJson(Map<String, dynamic> json) =>
-    _$_NamazMethodsModel(
+_$NamazMethodsModelImpl _$$NamazMethodsModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$NamazMethodsModelImpl(
       data: (json['data'] as Map<String, dynamic>?)?.map(
         (k, e) =>
             MapEntry(k, NamazTimeData.fromJson(e as Map<String, dynamic>)),
       ),
     );
 
-Map<String, dynamic> _$$_NamazMethodsModelToJson(
-        _$_NamazMethodsModel instance) =>
+Map<String, dynamic> _$$NamazMethodsModelImplToJson(
+        _$NamazMethodsModelImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
     };
 
-_$_NamazTimeData _$$_NamazTimeDataFromJson(Map<String, dynamic> json) =>
-    _$_NamazTimeData(
+_$NamazTimeDataImpl _$$NamazTimeDataImplFromJson(Map<String, dynamic> json) =>
+    _$NamazTimeDataImpl(
       id: json['id'] as int?,
       name: json['name'] as String?,
       params: json['params'] == null
@@ -33,7 +34,7 @@ _$_NamazTimeData _$$_NamazTimeDataFromJson(Map<String, dynamic> json) =>
               json['location'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_NamazTimeDataToJson(_$_NamazTimeData instance) =>
+Map<String, dynamic> _$$NamazTimeDataImplToJson(_$NamazTimeDataImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -41,8 +42,9 @@ Map<String, dynamic> _$$_NamazTimeDataToJson(_$_NamazTimeData instance) =>
       'location': instance.location,
     };
 
-_$_NamazTimeParams _$$_NamazTimeParamsFromJson(Map<String, dynamic> json) =>
-    _$_NamazTimeParams(
+_$NamazTimeParamsImpl _$$NamazTimeParamsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$NamazTimeParamsImpl(
       fajr: (json['Fajr'] as num?)?.toDouble(),
       isha: json['Isha'],
       maghrib: (json['maghrib'] as num?)?.toDouble(),
@@ -50,7 +52,8 @@ _$_NamazTimeParams _$$_NamazTimeParamsFromJson(Map<String, dynamic> json) =>
       shafaq: json['shafaq'],
     );
 
-Map<String, dynamic> _$$_NamazTimeParamsToJson(_$_NamazTimeParams instance) =>
+Map<String, dynamic> _$$NamazTimeParamsImplToJson(
+        _$NamazTimeParamsImpl instance) =>
     <String, dynamic>{
       'Fajr': instance.fajr,
       'Isha': instance.isha,
@@ -59,14 +62,15 @@ Map<String, dynamic> _$$_NamazTimeParamsToJson(_$_NamazTimeParams instance) =>
       'shafaq': instance.shafaq,
     };
 
-_$_NamazTimeLocation _$$_NamazTimeLocationFromJson(Map<String, dynamic> json) =>
-    _$_NamazTimeLocation(
+_$NamazTimeLocationImpl _$$NamazTimeLocationImplFromJson(
+        Map<String, dynamic> json) =>
+    _$NamazTimeLocationImpl(
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$_NamazTimeLocationToJson(
-        _$_NamazTimeLocation instance) =>
+Map<String, dynamic> _$$NamazTimeLocationImplToJson(
+        _$NamazTimeLocationImpl instance) =>
     <String, dynamic>{
       'latitude': instance.latitude,
       'longitude': instance.longitude,

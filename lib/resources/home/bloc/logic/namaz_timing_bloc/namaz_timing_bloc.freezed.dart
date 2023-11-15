@@ -248,20 +248,20 @@ class _$NamazTimingEventCopyWithImpl<$Res, $Val extends NamazTimingEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchPrayerTimingCopyWith<$Res> {
-  factory _$$FetchPrayerTimingCopyWith(
-          _$FetchPrayerTiming value, $Res Function(_$FetchPrayerTiming) then) =
-      __$$FetchPrayerTimingCopyWithImpl<$Res>;
+abstract class _$$FetchPrayerTimingImplCopyWith<$Res> {
+  factory _$$FetchPrayerTimingImplCopyWith(_$FetchPrayerTimingImpl value,
+          $Res Function(_$FetchPrayerTimingImpl) then) =
+      __$$FetchPrayerTimingImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$FetchPrayerTimingCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$FetchPrayerTiming>
-    implements _$$FetchPrayerTimingCopyWith<$Res> {
-  __$$FetchPrayerTimingCopyWithImpl(
-      _$FetchPrayerTiming _value, $Res Function(_$FetchPrayerTiming) _then)
+class __$$FetchPrayerTimingImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$FetchPrayerTimingImpl>
+    implements _$$FetchPrayerTimingImplCopyWith<$Res> {
+  __$$FetchPrayerTimingImplCopyWithImpl(_$FetchPrayerTimingImpl _value,
+      $Res Function(_$FetchPrayerTimingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -269,7 +269,7 @@ class __$$FetchPrayerTimingCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
   }) {
-    return _then(_$FetchPrayerTiming(
+    return _then(_$FetchPrayerTimingImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -280,8 +280,8 @@ class __$$FetchPrayerTimingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchPrayerTiming implements FetchPrayerTiming {
-  const _$FetchPrayerTiming({required this.context});
+class _$FetchPrayerTimingImpl implements FetchPrayerTiming {
+  const _$FetchPrayerTimingImpl({required this.context});
 
   @override
   final BuildContext context;
@@ -295,7 +295,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchPrayerTiming &&
+            other is _$FetchPrayerTimingImpl &&
             (identical(other.context, context) || other.context == context));
   }
 
@@ -305,8 +305,9 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchPrayerTimingCopyWith<_$FetchPrayerTiming> get copyWith =>
-      __$$FetchPrayerTimingCopyWithImpl<_$FetchPrayerTiming>(this, _$identity);
+  _$$FetchPrayerTimingImplCopyWith<_$FetchPrayerTimingImpl> get copyWith =>
+      __$$FetchPrayerTimingImplCopyWithImpl<_$FetchPrayerTimingImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -546,34 +547,34 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
 
 abstract class FetchPrayerTiming implements NamazTimingEvent {
   const factory FetchPrayerTiming({required final BuildContext context}) =
-      _$FetchPrayerTiming;
+      _$FetchPrayerTimingImpl;
 
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$FetchPrayerTimingCopyWith<_$FetchPrayerTiming> get copyWith =>
+  _$$FetchPrayerTimingImplCopyWith<_$FetchPrayerTimingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PrayerTimingEventCopyWith<$Res> {
-  factory _$$PrayerTimingEventCopyWith(
-          _$PrayerTimingEvent value, $Res Function(_$PrayerTimingEvent) then) =
-      __$$PrayerTimingEventCopyWithImpl<$Res>;
+abstract class _$$PrayerTimingEventImplCopyWith<$Res> {
+  factory _$$PrayerTimingEventImplCopyWith(_$PrayerTimingEventImpl value,
+          $Res Function(_$PrayerTimingEventImpl) then) =
+      __$$PrayerTimingEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PrayerTimingEventCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$PrayerTimingEvent>
-    implements _$$PrayerTimingEventCopyWith<$Res> {
-  __$$PrayerTimingEventCopyWithImpl(
-      _$PrayerTimingEvent _value, $Res Function(_$PrayerTimingEvent) _then)
+class __$$PrayerTimingEventImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$PrayerTimingEventImpl>
+    implements _$$PrayerTimingEventImplCopyWith<$Res> {
+  __$$PrayerTimingEventImplCopyWithImpl(_$PrayerTimingEventImpl _value,
+      $Res Function(_$PrayerTimingEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PrayerTimingEvent implements PrayerTimingEvent {
-  const _$PrayerTimingEvent();
+class _$PrayerTimingEventImpl implements PrayerTimingEvent {
+  const _$PrayerTimingEventImpl();
 
   @override
   String toString() {
@@ -583,7 +584,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PrayerTimingEvent);
+        (other.runtimeType == runtimeType && other is _$PrayerTimingEventImpl);
   }
 
   @override
@@ -826,29 +827,29 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
 }
 
 abstract class PrayerTimingEvent implements NamazTimingEvent {
-  const factory PrayerTimingEvent() = _$PrayerTimingEvent;
+  const factory PrayerTimingEvent() = _$PrayerTimingEventImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeArtCalcMethodCopyWith<$Res> {
-  factory _$$ChangeArtCalcMethodCopyWith(_$ChangeArtCalcMethod value,
-          $Res Function(_$ChangeArtCalcMethod) then) =
-      __$$ChangeArtCalcMethodCopyWithImpl<$Res>;
+abstract class _$$ChangeArtCalcMethodImplCopyWith<$Res> {
+  factory _$$ChangeArtCalcMethodImplCopyWith(_$ChangeArtCalcMethodImpl value,
+          $Res Function(_$ChangeArtCalcMethodImpl) then) =
+      __$$ChangeArtCalcMethodImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ChangeArtCalcMethodCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeArtCalcMethod>
-    implements _$$ChangeArtCalcMethodCopyWith<$Res> {
-  __$$ChangeArtCalcMethodCopyWithImpl(
-      _$ChangeArtCalcMethod _value, $Res Function(_$ChangeArtCalcMethod) _then)
+class __$$ChangeArtCalcMethodImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeArtCalcMethodImpl>
+    implements _$$ChangeArtCalcMethodImplCopyWith<$Res> {
+  __$$ChangeArtCalcMethodImplCopyWithImpl(_$ChangeArtCalcMethodImpl _value,
+      $Res Function(_$ChangeArtCalcMethodImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
-  const _$ChangeArtCalcMethod();
+class _$ChangeArtCalcMethodImpl implements ChangeArtCalcMethod {
+  const _$ChangeArtCalcMethodImpl();
 
   @override
   String toString() {
@@ -858,7 +859,8 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChangeArtCalcMethod);
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeArtCalcMethodImpl);
   }
 
   @override
@@ -1101,29 +1103,29 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
 }
 
 abstract class ChangeArtCalcMethod implements NamazTimingEvent {
-  const factory ChangeArtCalcMethod() = _$ChangeArtCalcMethod;
+  const factory ChangeArtCalcMethod() = _$ChangeArtCalcMethodImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchNamazMethodsCopyWith<$Res> {
-  factory _$$FetchNamazMethodsCopyWith(
-          _$FetchNamazMethods value, $Res Function(_$FetchNamazMethods) then) =
-      __$$FetchNamazMethodsCopyWithImpl<$Res>;
+abstract class _$$FetchNamazMethodsImplCopyWith<$Res> {
+  factory _$$FetchNamazMethodsImplCopyWith(_$FetchNamazMethodsImpl value,
+          $Res Function(_$FetchNamazMethodsImpl) then) =
+      __$$FetchNamazMethodsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchNamazMethodsCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$FetchNamazMethods>
-    implements _$$FetchNamazMethodsCopyWith<$Res> {
-  __$$FetchNamazMethodsCopyWithImpl(
-      _$FetchNamazMethods _value, $Res Function(_$FetchNamazMethods) _then)
+class __$$FetchNamazMethodsImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$FetchNamazMethodsImpl>
+    implements _$$FetchNamazMethodsImplCopyWith<$Res> {
+  __$$FetchNamazMethodsImplCopyWithImpl(_$FetchNamazMethodsImpl _value,
+      $Res Function(_$FetchNamazMethodsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchNamazMethods implements FetchNamazMethods {
-  const _$FetchNamazMethods();
+class _$FetchNamazMethodsImpl implements FetchNamazMethods {
+  const _$FetchNamazMethodsImpl();
 
   @override
   String toString() {
@@ -1133,7 +1135,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchNamazMethods);
+        (other.runtimeType == runtimeType && other is _$FetchNamazMethodsImpl);
   }
 
   @override
@@ -1376,24 +1378,24 @@ class _$FetchNamazMethods implements FetchNamazMethods {
 }
 
 abstract class FetchNamazMethods implements NamazTimingEvent {
-  const factory FetchNamazMethods() = _$FetchNamazMethods;
+  const factory FetchNamazMethods() = _$FetchNamazMethodsImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeNamazMethodsCopyWith<$Res> {
-  factory _$$ChangeNamazMethodsCopyWith(_$ChangeNamazMethods value,
-          $Res Function(_$ChangeNamazMethods) then) =
-      __$$ChangeNamazMethodsCopyWithImpl<$Res>;
+abstract class _$$ChangeNamazMethodsImplCopyWith<$Res> {
+  factory _$$ChangeNamazMethodsImplCopyWith(_$ChangeNamazMethodsImpl value,
+          $Res Function(_$ChangeNamazMethodsImpl) then) =
+      __$$ChangeNamazMethodsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int method, BuildContext context});
 }
 
 /// @nodoc
-class __$$ChangeNamazMethodsCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeNamazMethods>
-    implements _$$ChangeNamazMethodsCopyWith<$Res> {
-  __$$ChangeNamazMethodsCopyWithImpl(
-      _$ChangeNamazMethods _value, $Res Function(_$ChangeNamazMethods) _then)
+class __$$ChangeNamazMethodsImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeNamazMethodsImpl>
+    implements _$$ChangeNamazMethodsImplCopyWith<$Res> {
+  __$$ChangeNamazMethodsImplCopyWithImpl(_$ChangeNamazMethodsImpl _value,
+      $Res Function(_$ChangeNamazMethodsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1402,7 +1404,7 @@ class __$$ChangeNamazMethodsCopyWithImpl<$Res>
     Object? method = null,
     Object? context = null,
   }) {
-    return _then(_$ChangeNamazMethods(
+    return _then(_$ChangeNamazMethodsImpl(
       method: null == method
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
@@ -1417,8 +1419,8 @@ class __$$ChangeNamazMethodsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeNamazMethods implements ChangeNamazMethods {
-  const _$ChangeNamazMethods({required this.method, required this.context});
+class _$ChangeNamazMethodsImpl implements ChangeNamazMethods {
+  const _$ChangeNamazMethodsImpl({required this.method, required this.context});
 
   @override
   final int method;
@@ -1434,7 +1436,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeNamazMethods &&
+            other is _$ChangeNamazMethodsImpl &&
             (identical(other.method, method) || other.method == method) &&
             (identical(other.context, context) || other.context == context));
   }
@@ -1445,8 +1447,8 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeNamazMethodsCopyWith<_$ChangeNamazMethods> get copyWith =>
-      __$$ChangeNamazMethodsCopyWithImpl<_$ChangeNamazMethods>(
+  _$$ChangeNamazMethodsImplCopyWith<_$ChangeNamazMethodsImpl> get copyWith =>
+      __$$ChangeNamazMethodsImplCopyWithImpl<_$ChangeNamazMethodsImpl>(
           this, _$identity);
 
   @override
@@ -1688,30 +1690,30 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
 abstract class ChangeNamazMethods implements NamazTimingEvent {
   const factory ChangeNamazMethods(
       {required final int method,
-      required final BuildContext context}) = _$ChangeNamazMethods;
+      required final BuildContext context}) = _$ChangeNamazMethodsImpl;
 
   int get method;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$ChangeNamazMethodsCopyWith<_$ChangeNamazMethods> get copyWith =>
+  _$$ChangeNamazMethodsImplCopyWith<_$ChangeNamazMethodsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeSchoolEventCopyWith<$Res> {
-  factory _$$ChangeSchoolEventCopyWith(
-          _$ChangeSchoolEvent value, $Res Function(_$ChangeSchoolEvent) then) =
-      __$$ChangeSchoolEventCopyWithImpl<$Res>;
+abstract class _$$ChangeSchoolEventImplCopyWith<$Res> {
+  factory _$$ChangeSchoolEventImplCopyWith(_$ChangeSchoolEventImpl value,
+          $Res Function(_$ChangeSchoolEventImpl) then) =
+      __$$ChangeSchoolEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int school, BuildContext context});
 }
 
 /// @nodoc
-class __$$ChangeSchoolEventCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeSchoolEvent>
-    implements _$$ChangeSchoolEventCopyWith<$Res> {
-  __$$ChangeSchoolEventCopyWithImpl(
-      _$ChangeSchoolEvent _value, $Res Function(_$ChangeSchoolEvent) _then)
+class __$$ChangeSchoolEventImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeSchoolEventImpl>
+    implements _$$ChangeSchoolEventImplCopyWith<$Res> {
+  __$$ChangeSchoolEventImplCopyWithImpl(_$ChangeSchoolEventImpl _value,
+      $Res Function(_$ChangeSchoolEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1720,7 +1722,7 @@ class __$$ChangeSchoolEventCopyWithImpl<$Res>
     Object? school = null,
     Object? context = null,
   }) {
-    return _then(_$ChangeSchoolEvent(
+    return _then(_$ChangeSchoolEventImpl(
       school: null == school
           ? _value.school
           : school // ignore: cast_nullable_to_non_nullable
@@ -1735,8 +1737,8 @@ class __$$ChangeSchoolEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeSchoolEvent implements ChangeSchoolEvent {
-  const _$ChangeSchoolEvent({required this.school, required this.context});
+class _$ChangeSchoolEventImpl implements ChangeSchoolEvent {
+  const _$ChangeSchoolEventImpl({required this.school, required this.context});
 
   @override
   final int school;
@@ -1752,7 +1754,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeSchoolEvent &&
+            other is _$ChangeSchoolEventImpl &&
             (identical(other.school, school) || other.school == school) &&
             (identical(other.context, context) || other.context == context));
   }
@@ -1763,8 +1765,9 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeSchoolEventCopyWith<_$ChangeSchoolEvent> get copyWith =>
-      __$$ChangeSchoolEventCopyWithImpl<_$ChangeSchoolEvent>(this, _$identity);
+  _$$ChangeSchoolEventImplCopyWith<_$ChangeSchoolEventImpl> get copyWith =>
+      __$$ChangeSchoolEventImplCopyWithImpl<_$ChangeSchoolEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2005,30 +2008,32 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
 abstract class ChangeSchoolEvent implements NamazTimingEvent {
   const factory ChangeSchoolEvent(
       {required final int school,
-      required final BuildContext context}) = _$ChangeSchoolEvent;
+      required final BuildContext context}) = _$ChangeSchoolEventImpl;
 
   int get school;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$ChangeSchoolEventCopyWith<_$ChangeSchoolEvent> get copyWith =>
+  _$$ChangeSchoolEventImplCopyWith<_$ChangeSchoolEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeHighLatitudeMethodCopyWith<$Res> {
-  factory _$$ChangeHighLatitudeMethodCopyWith(_$ChangeHighLatitudeMethod value,
-          $Res Function(_$ChangeHighLatitudeMethod) then) =
-      __$$ChangeHighLatitudeMethodCopyWithImpl<$Res>;
+abstract class _$$ChangeHighLatitudeMethodImplCopyWith<$Res> {
+  factory _$$ChangeHighLatitudeMethodImplCopyWith(
+          _$ChangeHighLatitudeMethodImpl value,
+          $Res Function(_$ChangeHighLatitudeMethodImpl) then) =
+      __$$ChangeHighLatitudeMethodImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int numValue, BuildContext context});
 }
 
 /// @nodoc
-class __$$ChangeHighLatitudeMethodCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeHighLatitudeMethod>
-    implements _$$ChangeHighLatitudeMethodCopyWith<$Res> {
-  __$$ChangeHighLatitudeMethodCopyWithImpl(_$ChangeHighLatitudeMethod _value,
-      $Res Function(_$ChangeHighLatitudeMethod) _then)
+class __$$ChangeHighLatitudeMethodImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeHighLatitudeMethodImpl>
+    implements _$$ChangeHighLatitudeMethodImplCopyWith<$Res> {
+  __$$ChangeHighLatitudeMethodImplCopyWithImpl(
+      _$ChangeHighLatitudeMethodImpl _value,
+      $Res Function(_$ChangeHighLatitudeMethodImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2037,7 +2042,7 @@ class __$$ChangeHighLatitudeMethodCopyWithImpl<$Res>
     Object? numValue = null,
     Object? context = null,
   }) {
-    return _then(_$ChangeHighLatitudeMethod(
+    return _then(_$ChangeHighLatitudeMethodImpl(
       numValue: null == numValue
           ? _value.numValue
           : numValue // ignore: cast_nullable_to_non_nullable
@@ -2052,8 +2057,8 @@ class __$$ChangeHighLatitudeMethodCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
-  const _$ChangeHighLatitudeMethod(
+class _$ChangeHighLatitudeMethodImpl implements ChangeHighLatitudeMethod {
+  const _$ChangeHighLatitudeMethodImpl(
       {required this.numValue, required this.context});
 
   @override
@@ -2070,7 +2075,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeHighLatitudeMethod &&
+            other is _$ChangeHighLatitudeMethodImpl &&
             (identical(other.numValue, numValue) ||
                 other.numValue == numValue) &&
             (identical(other.context, context) || other.context == context));
@@ -2082,10 +2087,9 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeHighLatitudeMethodCopyWith<_$ChangeHighLatitudeMethod>
-      get copyWith =>
-          __$$ChangeHighLatitudeMethodCopyWithImpl<_$ChangeHighLatitudeMethod>(
-              this, _$identity);
+  _$$ChangeHighLatitudeMethodImplCopyWith<_$ChangeHighLatitudeMethodImpl>
+      get copyWith => __$$ChangeHighLatitudeMethodImplCopyWithImpl<
+          _$ChangeHighLatitudeMethodImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2326,35 +2330,37 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
 abstract class ChangeHighLatitudeMethod implements NamazTimingEvent {
   const factory ChangeHighLatitudeMethod(
       {required final int numValue,
-      required final BuildContext context}) = _$ChangeHighLatitudeMethod;
+      required final BuildContext context}) = _$ChangeHighLatitudeMethodImpl;
 
   int get numValue;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$ChangeHighLatitudeMethodCopyWith<_$ChangeHighLatitudeMethod>
+  _$$ChangeHighLatitudeMethodImplCopyWith<_$ChangeHighLatitudeMethodImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeLangLongtoAddressCopyWith<$Res> {
-  factory _$$ChangeLangLongtoAddressCopyWith(_$ChangeLangLongtoAddress value,
-          $Res Function(_$ChangeLangLongtoAddress) then) =
-      __$$ChangeLangLongtoAddressCopyWithImpl<$Res>;
+abstract class _$$ChangeLangLongtoAddressImplCopyWith<$Res> {
+  factory _$$ChangeLangLongtoAddressImplCopyWith(
+          _$ChangeLangLongtoAddressImpl value,
+          $Res Function(_$ChangeLangLongtoAddressImpl) then) =
+      __$$ChangeLangLongtoAddressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ChangeLangLongtoAddressCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeLangLongtoAddress>
-    implements _$$ChangeLangLongtoAddressCopyWith<$Res> {
-  __$$ChangeLangLongtoAddressCopyWithImpl(_$ChangeLangLongtoAddress _value,
-      $Res Function(_$ChangeLangLongtoAddress) _then)
+class __$$ChangeLangLongtoAddressImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeLangLongtoAddressImpl>
+    implements _$$ChangeLangLongtoAddressImplCopyWith<$Res> {
+  __$$ChangeLangLongtoAddressImplCopyWithImpl(
+      _$ChangeLangLongtoAddressImpl _value,
+      $Res Function(_$ChangeLangLongtoAddressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
-  const _$ChangeLangLongtoAddress();
+class _$ChangeLangLongtoAddressImpl implements ChangeLangLongtoAddress {
+  const _$ChangeLangLongtoAddressImpl();
 
   @override
   String toString() {
@@ -2365,7 +2371,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeLangLongtoAddress);
+            other is _$ChangeLangLongtoAddressImpl);
   }
 
   @override
@@ -2608,24 +2614,24 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
 }
 
 abstract class ChangeLangLongtoAddress implements NamazTimingEvent {
-  const factory ChangeLangLongtoAddress() = _$ChangeLangLongtoAddress;
+  const factory ChangeLangLongtoAddress() = _$ChangeLangLongtoAddressImpl;
 }
 
 /// @nodoc
-abstract class _$$OnNotiyOnOffEventCopyWith<$Res> {
-  factory _$$OnNotiyOnOffEventCopyWith(
-          _$OnNotiyOnOffEvent value, $Res Function(_$OnNotiyOnOffEvent) then) =
-      __$$OnNotiyOnOffEventCopyWithImpl<$Res>;
+abstract class _$$OnNotiyOnOffEventImplCopyWith<$Res> {
+  factory _$$OnNotiyOnOffEventImplCopyWith(_$OnNotiyOnOffEventImpl value,
+          $Res Function(_$OnNotiyOnOffEventImpl) then) =
+      __$$OnNotiyOnOffEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$OnNotiyOnOffEventCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$OnNotiyOnOffEvent>
-    implements _$$OnNotiyOnOffEventCopyWith<$Res> {
-  __$$OnNotiyOnOffEventCopyWithImpl(
-      _$OnNotiyOnOffEvent _value, $Res Function(_$OnNotiyOnOffEvent) _then)
+class __$$OnNotiyOnOffEventImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$OnNotiyOnOffEventImpl>
+    implements _$$OnNotiyOnOffEventImplCopyWith<$Res> {
+  __$$OnNotiyOnOffEventImplCopyWithImpl(_$OnNotiyOnOffEventImpl _value,
+      $Res Function(_$OnNotiyOnOffEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2633,7 +2639,7 @@ class __$$OnNotiyOnOffEventCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$OnNotiyOnOffEvent(
+    return _then(_$OnNotiyOnOffEventImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -2644,8 +2650,8 @@ class __$$OnNotiyOnOffEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
-  const _$OnNotiyOnOffEvent({required this.index});
+class _$OnNotiyOnOffEventImpl implements OnNotiyOnOffEvent {
+  const _$OnNotiyOnOffEventImpl({required this.index});
 
   @override
   final int index;
@@ -2659,7 +2665,7 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OnNotiyOnOffEvent &&
+            other is _$OnNotiyOnOffEventImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -2669,8 +2675,9 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OnNotiyOnOffEventCopyWith<_$OnNotiyOnOffEvent> get copyWith =>
-      __$$OnNotiyOnOffEventCopyWithImpl<_$OnNotiyOnOffEvent>(this, _$identity);
+  _$$OnNotiyOnOffEventImplCopyWith<_$OnNotiyOnOffEventImpl> get copyWith =>
+      __$$OnNotiyOnOffEventImplCopyWithImpl<_$OnNotiyOnOffEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2910,29 +2917,29 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
 
 abstract class OnNotiyOnOffEvent implements NamazTimingEvent {
   const factory OnNotiyOnOffEvent({required final int index}) =
-      _$OnNotiyOnOffEvent;
+      _$OnNotiyOnOffEventImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$OnNotiyOnOffEventCopyWith<_$OnNotiyOnOffEvent> get copyWith =>
+  _$$OnNotiyOnOffEventImplCopyWith<_$OnNotiyOnOffEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeIndexCopyWith<$Res> {
-  factory _$$ChangeIndexCopyWith(
-          _$ChangeIndex value, $Res Function(_$ChangeIndex) then) =
-      __$$ChangeIndexCopyWithImpl<$Res>;
+abstract class _$$ChangeIndexImplCopyWith<$Res> {
+  factory _$$ChangeIndexImplCopyWith(
+          _$ChangeIndexImpl value, $Res Function(_$ChangeIndexImpl) then) =
+      __$$ChangeIndexImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeIndexCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeIndex>
-    implements _$$ChangeIndexCopyWith<$Res> {
-  __$$ChangeIndexCopyWithImpl(
-      _$ChangeIndex _value, $Res Function(_$ChangeIndex) _then)
+class __$$ChangeIndexImplCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeIndexImpl>
+    implements _$$ChangeIndexImplCopyWith<$Res> {
+  __$$ChangeIndexImplCopyWithImpl(
+      _$ChangeIndexImpl _value, $Res Function(_$ChangeIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2940,7 +2947,7 @@ class __$$ChangeIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeIndex(
+    return _then(_$ChangeIndexImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -2951,8 +2958,8 @@ class __$$ChangeIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeIndex implements ChangeIndex {
-  const _$ChangeIndex({required this.index});
+class _$ChangeIndexImpl implements ChangeIndex {
+  const _$ChangeIndexImpl({required this.index});
 
   @override
   final int index;
@@ -2966,7 +2973,7 @@ class _$ChangeIndex implements ChangeIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeIndex &&
+            other is _$ChangeIndexImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -2976,8 +2983,8 @@ class _$ChangeIndex implements ChangeIndex {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeIndexCopyWith<_$ChangeIndex> get copyWith =>
-      __$$ChangeIndexCopyWithImpl<_$ChangeIndex>(this, _$identity);
+  _$$ChangeIndexImplCopyWith<_$ChangeIndexImpl> get copyWith =>
+      __$$ChangeIndexImplCopyWithImpl<_$ChangeIndexImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3216,32 +3223,32 @@ class _$ChangeIndex implements ChangeIndex {
 }
 
 abstract class ChangeIndex implements NamazTimingEvent {
-  const factory ChangeIndex({required final int index}) = _$ChangeIndex;
+  const factory ChangeIndex({required final int index}) = _$ChangeIndexImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeIndexCopyWith<_$ChangeIndex> get copyWith =>
+  _$$ChangeIndexImplCopyWith<_$ChangeIndexImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddAutoDetectValToLocalStorageCopyWith<$Res> {
-  factory _$$AddAutoDetectValToLocalStorageCopyWith(
-          _$AddAutoDetectValToLocalStorage value,
-          $Res Function(_$AddAutoDetectValToLocalStorage) then) =
-      __$$AddAutoDetectValToLocalStorageCopyWithImpl<$Res>;
+abstract class _$$AddAutoDetectValToLocalStorageImplCopyWith<$Res> {
+  factory _$$AddAutoDetectValToLocalStorageImplCopyWith(
+          _$AddAutoDetectValToLocalStorageImpl value,
+          $Res Function(_$AddAutoDetectValToLocalStorageImpl) then) =
+      __$$AddAutoDetectValToLocalStorageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$AddAutoDetectValToLocalStorageCopyWithImpl<$Res>
+class __$$AddAutoDetectValToLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddAutoDetectValToLocalStorage>
-    implements _$$AddAutoDetectValToLocalStorageCopyWith<$Res> {
-  __$$AddAutoDetectValToLocalStorageCopyWithImpl(
-      _$AddAutoDetectValToLocalStorage _value,
-      $Res Function(_$AddAutoDetectValToLocalStorage) _then)
+        _$AddAutoDetectValToLocalStorageImpl>
+    implements _$$AddAutoDetectValToLocalStorageImplCopyWith<$Res> {
+  __$$AddAutoDetectValToLocalStorageImplCopyWithImpl(
+      _$AddAutoDetectValToLocalStorageImpl _value,
+      $Res Function(_$AddAutoDetectValToLocalStorageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3249,7 +3256,7 @@ class __$$AddAutoDetectValToLocalStorageCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$AddAutoDetectValToLocalStorage(
+    return _then(_$AddAutoDetectValToLocalStorageImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -3260,9 +3267,9 @@ class __$$AddAutoDetectValToLocalStorageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddAutoDetectValToLocalStorage
+class _$AddAutoDetectValToLocalStorageImpl
     implements AddAutoDetectValToLocalStorage {
-  const _$AddAutoDetectValToLocalStorage({required this.value});
+  const _$AddAutoDetectValToLocalStorageImpl({required this.value});
 
   @override
   final bool value;
@@ -3276,7 +3283,7 @@ class _$AddAutoDetectValToLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddAutoDetectValToLocalStorage &&
+            other is _$AddAutoDetectValToLocalStorageImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -3286,9 +3293,10 @@ class _$AddAutoDetectValToLocalStorage
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddAutoDetectValToLocalStorageCopyWith<_$AddAutoDetectValToLocalStorage>
-      get copyWith => __$$AddAutoDetectValToLocalStorageCopyWithImpl<
-          _$AddAutoDetectValToLocalStorage>(this, _$identity);
+  _$$AddAutoDetectValToLocalStorageImplCopyWith<
+          _$AddAutoDetectValToLocalStorageImpl>
+      get copyWith => __$$AddAutoDetectValToLocalStorageImplCopyWithImpl<
+          _$AddAutoDetectValToLocalStorageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3528,38 +3536,39 @@ class _$AddAutoDetectValToLocalStorage
 
 abstract class AddAutoDetectValToLocalStorage implements NamazTimingEvent {
   const factory AddAutoDetectValToLocalStorage({required final bool value}) =
-      _$AddAutoDetectValToLocalStorage;
+      _$AddAutoDetectValToLocalStorageImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$AddAutoDetectValToLocalStorageCopyWith<_$AddAutoDetectValToLocalStorage>
+  _$$AddAutoDetectValToLocalStorageImplCopyWith<
+          _$AddAutoDetectValToLocalStorageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetAutoDetetectLocationFromLocalStorageCopyWith<$Res> {
-  factory _$$GetAutoDetetectLocationFromLocalStorageCopyWith(
-          _$GetAutoDetetectLocationFromLocalStorage value,
-          $Res Function(_$GetAutoDetetectLocationFromLocalStorage) then) =
-      __$$GetAutoDetetectLocationFromLocalStorageCopyWithImpl<$Res>;
+abstract class _$$GetAutoDetetectLocationFromLocalStorageImplCopyWith<$Res> {
+  factory _$$GetAutoDetetectLocationFromLocalStorageImplCopyWith(
+          _$GetAutoDetetectLocationFromLocalStorageImpl value,
+          $Res Function(_$GetAutoDetetectLocationFromLocalStorageImpl) then) =
+      __$$GetAutoDetetectLocationFromLocalStorageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetAutoDetetectLocationFromLocalStorageCopyWithImpl<$Res>
+class __$$GetAutoDetetectLocationFromLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetAutoDetetectLocationFromLocalStorage>
-    implements _$$GetAutoDetetectLocationFromLocalStorageCopyWith<$Res> {
-  __$$GetAutoDetetectLocationFromLocalStorageCopyWithImpl(
-      _$GetAutoDetetectLocationFromLocalStorage _value,
-      $Res Function(_$GetAutoDetetectLocationFromLocalStorage) _then)
+        _$GetAutoDetetectLocationFromLocalStorageImpl>
+    implements _$$GetAutoDetetectLocationFromLocalStorageImplCopyWith<$Res> {
+  __$$GetAutoDetetectLocationFromLocalStorageImplCopyWithImpl(
+      _$GetAutoDetetectLocationFromLocalStorageImpl _value,
+      $Res Function(_$GetAutoDetetectLocationFromLocalStorageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetAutoDetetectLocationFromLocalStorage
+class _$GetAutoDetetectLocationFromLocalStorageImpl
     implements GetAutoDetetectLocationFromLocalStorage {
-  const _$GetAutoDetetectLocationFromLocalStorage();
+  const _$GetAutoDetetectLocationFromLocalStorageImpl();
 
   @override
   String toString() {
@@ -3570,7 +3579,7 @@ class _$GetAutoDetetectLocationFromLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetAutoDetetectLocationFromLocalStorage);
+            other is _$GetAutoDetetectLocationFromLocalStorageImpl);
   }
 
   @override
@@ -3815,27 +3824,27 @@ class _$GetAutoDetetectLocationFromLocalStorage
 abstract class GetAutoDetetectLocationFromLocalStorage
     implements NamazTimingEvent {
   const factory GetAutoDetetectLocationFromLocalStorage() =
-      _$GetAutoDetetectLocationFromLocalStorage;
+      _$GetAutoDetetectLocationFromLocalStorageImpl;
 }
 
 /// @nodoc
-abstract class _$$AddAutomaticSettingToLocalStorageCopyWith<$Res> {
-  factory _$$AddAutomaticSettingToLocalStorageCopyWith(
-          _$AddAutomaticSettingToLocalStorage value,
-          $Res Function(_$AddAutomaticSettingToLocalStorage) then) =
-      __$$AddAutomaticSettingToLocalStorageCopyWithImpl<$Res>;
+abstract class _$$AddAutomaticSettingToLocalStorageImplCopyWith<$Res> {
+  factory _$$AddAutomaticSettingToLocalStorageImplCopyWith(
+          _$AddAutomaticSettingToLocalStorageImpl value,
+          $Res Function(_$AddAutomaticSettingToLocalStorageImpl) then) =
+      __$$AddAutomaticSettingToLocalStorageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$AddAutomaticSettingToLocalStorageCopyWithImpl<$Res>
+class __$$AddAutomaticSettingToLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddAutomaticSettingToLocalStorage>
-    implements _$$AddAutomaticSettingToLocalStorageCopyWith<$Res> {
-  __$$AddAutomaticSettingToLocalStorageCopyWithImpl(
-      _$AddAutomaticSettingToLocalStorage _value,
-      $Res Function(_$AddAutomaticSettingToLocalStorage) _then)
+        _$AddAutomaticSettingToLocalStorageImpl>
+    implements _$$AddAutomaticSettingToLocalStorageImplCopyWith<$Res> {
+  __$$AddAutomaticSettingToLocalStorageImplCopyWithImpl(
+      _$AddAutomaticSettingToLocalStorageImpl _value,
+      $Res Function(_$AddAutomaticSettingToLocalStorageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3843,7 +3852,7 @@ class __$$AddAutomaticSettingToLocalStorageCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$AddAutomaticSettingToLocalStorage(
+    return _then(_$AddAutomaticSettingToLocalStorageImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -3854,9 +3863,9 @@ class __$$AddAutomaticSettingToLocalStorageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddAutomaticSettingToLocalStorage
+class _$AddAutomaticSettingToLocalStorageImpl
     implements AddAutomaticSettingToLocalStorage {
-  const _$AddAutomaticSettingToLocalStorage({required this.value});
+  const _$AddAutomaticSettingToLocalStorageImpl({required this.value});
 
   @override
   final bool value;
@@ -3870,7 +3879,7 @@ class _$AddAutomaticSettingToLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddAutomaticSettingToLocalStorage &&
+            other is _$AddAutomaticSettingToLocalStorageImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -3880,10 +3889,10 @@ class _$AddAutomaticSettingToLocalStorage
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddAutomaticSettingToLocalStorageCopyWith<
-          _$AddAutomaticSettingToLocalStorage>
-      get copyWith => __$$AddAutomaticSettingToLocalStorageCopyWithImpl<
-          _$AddAutomaticSettingToLocalStorage>(this, _$identity);
+  _$$AddAutomaticSettingToLocalStorageImplCopyWith<
+          _$AddAutomaticSettingToLocalStorageImpl>
+      get copyWith => __$$AddAutomaticSettingToLocalStorageImplCopyWithImpl<
+          _$AddAutomaticSettingToLocalStorageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4123,39 +4132,39 @@ class _$AddAutomaticSettingToLocalStorage
 
 abstract class AddAutomaticSettingToLocalStorage implements NamazTimingEvent {
   const factory AddAutomaticSettingToLocalStorage({required final bool value}) =
-      _$AddAutomaticSettingToLocalStorage;
+      _$AddAutomaticSettingToLocalStorageImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$AddAutomaticSettingToLocalStorageCopyWith<
-          _$AddAutomaticSettingToLocalStorage>
+  _$$AddAutomaticSettingToLocalStorageImplCopyWith<
+          _$AddAutomaticSettingToLocalStorageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetAutomaticSettingsFromLocalStorageCopyWith<$Res> {
-  factory _$$GetAutomaticSettingsFromLocalStorageCopyWith(
-          _$GetAutomaticSettingsFromLocalStorage value,
-          $Res Function(_$GetAutomaticSettingsFromLocalStorage) then) =
-      __$$GetAutomaticSettingsFromLocalStorageCopyWithImpl<$Res>;
+abstract class _$$GetAutomaticSettingsFromLocalStorageImplCopyWith<$Res> {
+  factory _$$GetAutomaticSettingsFromLocalStorageImplCopyWith(
+          _$GetAutomaticSettingsFromLocalStorageImpl value,
+          $Res Function(_$GetAutomaticSettingsFromLocalStorageImpl) then) =
+      __$$GetAutomaticSettingsFromLocalStorageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetAutomaticSettingsFromLocalStorageCopyWithImpl<$Res>
+class __$$GetAutomaticSettingsFromLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetAutomaticSettingsFromLocalStorage>
-    implements _$$GetAutomaticSettingsFromLocalStorageCopyWith<$Res> {
-  __$$GetAutomaticSettingsFromLocalStorageCopyWithImpl(
-      _$GetAutomaticSettingsFromLocalStorage _value,
-      $Res Function(_$GetAutomaticSettingsFromLocalStorage) _then)
+        _$GetAutomaticSettingsFromLocalStorageImpl>
+    implements _$$GetAutomaticSettingsFromLocalStorageImplCopyWith<$Res> {
+  __$$GetAutomaticSettingsFromLocalStorageImplCopyWithImpl(
+      _$GetAutomaticSettingsFromLocalStorageImpl _value,
+      $Res Function(_$GetAutomaticSettingsFromLocalStorageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetAutomaticSettingsFromLocalStorage
+class _$GetAutomaticSettingsFromLocalStorageImpl
     implements GetAutomaticSettingsFromLocalStorage {
-  const _$GetAutomaticSettingsFromLocalStorage();
+  const _$GetAutomaticSettingsFromLocalStorageImpl();
 
   @override
   String toString() {
@@ -4166,7 +4175,7 @@ class _$GetAutomaticSettingsFromLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetAutomaticSettingsFromLocalStorage);
+            other is _$GetAutomaticSettingsFromLocalStorageImpl);
   }
 
   @override
@@ -4411,27 +4420,27 @@ class _$GetAutomaticSettingsFromLocalStorage
 abstract class GetAutomaticSettingsFromLocalStorage
     implements NamazTimingEvent {
   const factory GetAutomaticSettingsFromLocalStorage() =
-      _$GetAutomaticSettingsFromLocalStorage;
+      _$GetAutomaticSettingsFromLocalStorageImpl;
 }
 
 /// @nodoc
-abstract class _$$AddShowimsakValToLocalStorageCopyWith<$Res> {
-  factory _$$AddShowimsakValToLocalStorageCopyWith(
-          _$AddShowimsakValToLocalStorage value,
-          $Res Function(_$AddShowimsakValToLocalStorage) then) =
-      __$$AddShowimsakValToLocalStorageCopyWithImpl<$Res>;
+abstract class _$$AddShowimsakValToLocalStorageImplCopyWith<$Res> {
+  factory _$$AddShowimsakValToLocalStorageImplCopyWith(
+          _$AddShowimsakValToLocalStorageImpl value,
+          $Res Function(_$AddShowimsakValToLocalStorageImpl) then) =
+      __$$AddShowimsakValToLocalStorageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$AddShowimsakValToLocalStorageCopyWithImpl<$Res>
+class __$$AddShowimsakValToLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddShowimsakValToLocalStorage>
-    implements _$$AddShowimsakValToLocalStorageCopyWith<$Res> {
-  __$$AddShowimsakValToLocalStorageCopyWithImpl(
-      _$AddShowimsakValToLocalStorage _value,
-      $Res Function(_$AddShowimsakValToLocalStorage) _then)
+        _$AddShowimsakValToLocalStorageImpl>
+    implements _$$AddShowimsakValToLocalStorageImplCopyWith<$Res> {
+  __$$AddShowimsakValToLocalStorageImplCopyWithImpl(
+      _$AddShowimsakValToLocalStorageImpl _value,
+      $Res Function(_$AddShowimsakValToLocalStorageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4439,7 +4448,7 @@ class __$$AddShowimsakValToLocalStorageCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$AddShowimsakValToLocalStorage(
+    return _then(_$AddShowimsakValToLocalStorageImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -4450,8 +4459,9 @@ class __$$AddShowimsakValToLocalStorageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddShowimsakValToLocalStorage implements AddShowimsakValToLocalStorage {
-  const _$AddShowimsakValToLocalStorage({required this.value});
+class _$AddShowimsakValToLocalStorageImpl
+    implements AddShowimsakValToLocalStorage {
+  const _$AddShowimsakValToLocalStorageImpl({required this.value});
 
   @override
   final bool value;
@@ -4465,7 +4475,7 @@ class _$AddShowimsakValToLocalStorage implements AddShowimsakValToLocalStorage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddShowimsakValToLocalStorage &&
+            other is _$AddShowimsakValToLocalStorageImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -4475,9 +4485,10 @@ class _$AddShowimsakValToLocalStorage implements AddShowimsakValToLocalStorage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddShowimsakValToLocalStorageCopyWith<_$AddShowimsakValToLocalStorage>
-      get copyWith => __$$AddShowimsakValToLocalStorageCopyWithImpl<
-          _$AddShowimsakValToLocalStorage>(this, _$identity);
+  _$$AddShowimsakValToLocalStorageImplCopyWith<
+          _$AddShowimsakValToLocalStorageImpl>
+      get copyWith => __$$AddShowimsakValToLocalStorageImplCopyWithImpl<
+          _$AddShowimsakValToLocalStorageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4717,38 +4728,39 @@ class _$AddShowimsakValToLocalStorage implements AddShowimsakValToLocalStorage {
 
 abstract class AddShowimsakValToLocalStorage implements NamazTimingEvent {
   const factory AddShowimsakValToLocalStorage({required final bool value}) =
-      _$AddShowimsakValToLocalStorage;
+      _$AddShowimsakValToLocalStorageImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$AddShowimsakValToLocalStorageCopyWith<_$AddShowimsakValToLocalStorage>
+  _$$AddShowimsakValToLocalStorageImplCopyWith<
+          _$AddShowimsakValToLocalStorageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetShowimskValFromLocalStorageCopyWith<$Res> {
-  factory _$$GetShowimskValFromLocalStorageCopyWith(
-          _$GetShowimskValFromLocalStorage value,
-          $Res Function(_$GetShowimskValFromLocalStorage) then) =
-      __$$GetShowimskValFromLocalStorageCopyWithImpl<$Res>;
+abstract class _$$GetShowimskValFromLocalStorageImplCopyWith<$Res> {
+  factory _$$GetShowimskValFromLocalStorageImplCopyWith(
+          _$GetShowimskValFromLocalStorageImpl value,
+          $Res Function(_$GetShowimskValFromLocalStorageImpl) then) =
+      __$$GetShowimskValFromLocalStorageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetShowimskValFromLocalStorageCopyWithImpl<$Res>
+class __$$GetShowimskValFromLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetShowimskValFromLocalStorage>
-    implements _$$GetShowimskValFromLocalStorageCopyWith<$Res> {
-  __$$GetShowimskValFromLocalStorageCopyWithImpl(
-      _$GetShowimskValFromLocalStorage _value,
-      $Res Function(_$GetShowimskValFromLocalStorage) _then)
+        _$GetShowimskValFromLocalStorageImpl>
+    implements _$$GetShowimskValFromLocalStorageImplCopyWith<$Res> {
+  __$$GetShowimskValFromLocalStorageImplCopyWithImpl(
+      _$GetShowimskValFromLocalStorageImpl _value,
+      $Res Function(_$GetShowimskValFromLocalStorageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetShowimskValFromLocalStorage
+class _$GetShowimskValFromLocalStorageImpl
     implements GetShowimskValFromLocalStorage {
-  const _$GetShowimskValFromLocalStorage();
+  const _$GetShowimskValFromLocalStorageImpl();
 
   @override
   String toString() {
@@ -4759,7 +4771,7 @@ class _$GetShowimskValFromLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetShowimskValFromLocalStorage);
+            other is _$GetShowimskValFromLocalStorageImpl);
   }
 
   @override
@@ -5003,27 +5015,27 @@ class _$GetShowimskValFromLocalStorage
 
 abstract class GetShowimskValFromLocalStorage implements NamazTimingEvent {
   const factory GetShowimskValFromLocalStorage() =
-      _$GetShowimskValFromLocalStorage;
+      _$GetShowimskValFromLocalStorageImpl;
 }
 
 /// @nodoc
-abstract class _$$AddCalculationMethodToLocalStorageCopyWith<$Res> {
-  factory _$$AddCalculationMethodToLocalStorageCopyWith(
-          _$AddCalculationMethodToLocalStorage value,
-          $Res Function(_$AddCalculationMethodToLocalStorage) then) =
-      __$$AddCalculationMethodToLocalStorageCopyWithImpl<$Res>;
+abstract class _$$AddCalculationMethodToLocalStorageImplCopyWith<$Res> {
+  factory _$$AddCalculationMethodToLocalStorageImplCopyWith(
+          _$AddCalculationMethodToLocalStorageImpl value,
+          $Res Function(_$AddCalculationMethodToLocalStorageImpl) then) =
+      __$$AddCalculationMethodToLocalStorageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$AddCalculationMethodToLocalStorageCopyWithImpl<$Res>
+class __$$AddCalculationMethodToLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddCalculationMethodToLocalStorage>
-    implements _$$AddCalculationMethodToLocalStorageCopyWith<$Res> {
-  __$$AddCalculationMethodToLocalStorageCopyWithImpl(
-      _$AddCalculationMethodToLocalStorage _value,
-      $Res Function(_$AddCalculationMethodToLocalStorage) _then)
+        _$AddCalculationMethodToLocalStorageImpl>
+    implements _$$AddCalculationMethodToLocalStorageImplCopyWith<$Res> {
+  __$$AddCalculationMethodToLocalStorageImplCopyWithImpl(
+      _$AddCalculationMethodToLocalStorageImpl _value,
+      $Res Function(_$AddCalculationMethodToLocalStorageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5031,7 +5043,7 @@ class __$$AddCalculationMethodToLocalStorageCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$AddCalculationMethodToLocalStorage(
+    return _then(_$AddCalculationMethodToLocalStorageImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -5042,9 +5054,9 @@ class __$$AddCalculationMethodToLocalStorageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddCalculationMethodToLocalStorage
+class _$AddCalculationMethodToLocalStorageImpl
     implements AddCalculationMethodToLocalStorage {
-  const _$AddCalculationMethodToLocalStorage({required this.value});
+  const _$AddCalculationMethodToLocalStorageImpl({required this.value});
 
   @override
   final int value;
@@ -5058,7 +5070,7 @@ class _$AddCalculationMethodToLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddCalculationMethodToLocalStorage &&
+            other is _$AddCalculationMethodToLocalStorageImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -5068,10 +5080,10 @@ class _$AddCalculationMethodToLocalStorage
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddCalculationMethodToLocalStorageCopyWith<
-          _$AddCalculationMethodToLocalStorage>
-      get copyWith => __$$AddCalculationMethodToLocalStorageCopyWithImpl<
-          _$AddCalculationMethodToLocalStorage>(this, _$identity);
+  _$$AddCalculationMethodToLocalStorageImplCopyWith<
+          _$AddCalculationMethodToLocalStorageImpl>
+      get copyWith => __$$AddCalculationMethodToLocalStorageImplCopyWithImpl<
+          _$AddCalculationMethodToLocalStorageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5311,39 +5323,39 @@ class _$AddCalculationMethodToLocalStorage
 
 abstract class AddCalculationMethodToLocalStorage implements NamazTimingEvent {
   const factory AddCalculationMethodToLocalStorage({required final int value}) =
-      _$AddCalculationMethodToLocalStorage;
+      _$AddCalculationMethodToLocalStorageImpl;
 
   int get value;
   @JsonKey(ignore: true)
-  _$$AddCalculationMethodToLocalStorageCopyWith<
-          _$AddCalculationMethodToLocalStorage>
+  _$$AddCalculationMethodToLocalStorageImplCopyWith<
+          _$AddCalculationMethodToLocalStorageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetCalculationMethodFromStorageCopyWith<$Res> {
-  factory _$$GetCalculationMethodFromStorageCopyWith(
-          _$GetCalculationMethodFromStorage value,
-          $Res Function(_$GetCalculationMethodFromStorage) then) =
-      __$$GetCalculationMethodFromStorageCopyWithImpl<$Res>;
+abstract class _$$GetCalculationMethodFromStorageImplCopyWith<$Res> {
+  factory _$$GetCalculationMethodFromStorageImplCopyWith(
+          _$GetCalculationMethodFromStorageImpl value,
+          $Res Function(_$GetCalculationMethodFromStorageImpl) then) =
+      __$$GetCalculationMethodFromStorageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetCalculationMethodFromStorageCopyWithImpl<$Res>
+class __$$GetCalculationMethodFromStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetCalculationMethodFromStorage>
-    implements _$$GetCalculationMethodFromStorageCopyWith<$Res> {
-  __$$GetCalculationMethodFromStorageCopyWithImpl(
-      _$GetCalculationMethodFromStorage _value,
-      $Res Function(_$GetCalculationMethodFromStorage) _then)
+        _$GetCalculationMethodFromStorageImpl>
+    implements _$$GetCalculationMethodFromStorageImplCopyWith<$Res> {
+  __$$GetCalculationMethodFromStorageImplCopyWithImpl(
+      _$GetCalculationMethodFromStorageImpl _value,
+      $Res Function(_$GetCalculationMethodFromStorageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetCalculationMethodFromStorage
+class _$GetCalculationMethodFromStorageImpl
     implements GetCalculationMethodFromStorage {
-  const _$GetCalculationMethodFromStorage();
+  const _$GetCalculationMethodFromStorageImpl();
 
   @override
   String toString() {
@@ -5354,7 +5366,7 @@ class _$GetCalculationMethodFromStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetCalculationMethodFromStorage);
+            other is _$GetCalculationMethodFromStorageImpl);
   }
 
   @override
@@ -5598,27 +5610,27 @@ class _$GetCalculationMethodFromStorage
 
 abstract class GetCalculationMethodFromStorage implements NamazTimingEvent {
   const factory GetCalculationMethodFromStorage() =
-      _$GetCalculationMethodFromStorage;
+      _$GetCalculationMethodFromStorageImpl;
 }
 
 /// @nodoc
-abstract class _$$AddAsrCalculationMethodToLocalStorageCopyWith<$Res> {
-  factory _$$AddAsrCalculationMethodToLocalStorageCopyWith(
-          _$AddAsrCalculationMethodToLocalStorage value,
-          $Res Function(_$AddAsrCalculationMethodToLocalStorage) then) =
-      __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl<$Res>;
+abstract class _$$AddAsrCalculationMethodToLocalStorageImplCopyWith<$Res> {
+  factory _$$AddAsrCalculationMethodToLocalStorageImplCopyWith(
+          _$AddAsrCalculationMethodToLocalStorageImpl value,
+          $Res Function(_$AddAsrCalculationMethodToLocalStorageImpl) then) =
+      __$$AddAsrCalculationMethodToLocalStorageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl<$Res>
+class __$$AddAsrCalculationMethodToLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddAsrCalculationMethodToLocalStorage>
-    implements _$$AddAsrCalculationMethodToLocalStorageCopyWith<$Res> {
-  __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl(
-      _$AddAsrCalculationMethodToLocalStorage _value,
-      $Res Function(_$AddAsrCalculationMethodToLocalStorage) _then)
+        _$AddAsrCalculationMethodToLocalStorageImpl>
+    implements _$$AddAsrCalculationMethodToLocalStorageImplCopyWith<$Res> {
+  __$$AddAsrCalculationMethodToLocalStorageImplCopyWithImpl(
+      _$AddAsrCalculationMethodToLocalStorageImpl _value,
+      $Res Function(_$AddAsrCalculationMethodToLocalStorageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5626,7 +5638,7 @@ class __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$AddAsrCalculationMethodToLocalStorage(
+    return _then(_$AddAsrCalculationMethodToLocalStorageImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -5637,9 +5649,9 @@ class __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddAsrCalculationMethodToLocalStorage
+class _$AddAsrCalculationMethodToLocalStorageImpl
     implements AddAsrCalculationMethodToLocalStorage {
-  const _$AddAsrCalculationMethodToLocalStorage({required this.value});
+  const _$AddAsrCalculationMethodToLocalStorageImpl({required this.value});
 
   @override
   final int value;
@@ -5653,7 +5665,7 @@ class _$AddAsrCalculationMethodToLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddAsrCalculationMethodToLocalStorage &&
+            other is _$AddAsrCalculationMethodToLocalStorageImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -5663,10 +5675,10 @@ class _$AddAsrCalculationMethodToLocalStorage
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddAsrCalculationMethodToLocalStorageCopyWith<
-          _$AddAsrCalculationMethodToLocalStorage>
-      get copyWith => __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl<
-          _$AddAsrCalculationMethodToLocalStorage>(this, _$identity);
+  _$$AddAsrCalculationMethodToLocalStorageImplCopyWith<
+          _$AddAsrCalculationMethodToLocalStorageImpl>
+      get copyWith => __$$AddAsrCalculationMethodToLocalStorageImplCopyWithImpl<
+          _$AddAsrCalculationMethodToLocalStorageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5907,39 +5919,39 @@ class _$AddAsrCalculationMethodToLocalStorage
 abstract class AddAsrCalculationMethodToLocalStorage
     implements NamazTimingEvent {
   const factory AddAsrCalculationMethodToLocalStorage(
-      {required final int value}) = _$AddAsrCalculationMethodToLocalStorage;
+      {required final int value}) = _$AddAsrCalculationMethodToLocalStorageImpl;
 
   int get value;
   @JsonKey(ignore: true)
-  _$$AddAsrCalculationMethodToLocalStorageCopyWith<
-          _$AddAsrCalculationMethodToLocalStorage>
+  _$$AddAsrCalculationMethodToLocalStorageImplCopyWith<
+          _$AddAsrCalculationMethodToLocalStorageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetAsrCalculationMethodFromStorageCopyWith<$Res> {
-  factory _$$GetAsrCalculationMethodFromStorageCopyWith(
-          _$GetAsrCalculationMethodFromStorage value,
-          $Res Function(_$GetAsrCalculationMethodFromStorage) then) =
-      __$$GetAsrCalculationMethodFromStorageCopyWithImpl<$Res>;
+abstract class _$$GetAsrCalculationMethodFromStorageImplCopyWith<$Res> {
+  factory _$$GetAsrCalculationMethodFromStorageImplCopyWith(
+          _$GetAsrCalculationMethodFromStorageImpl value,
+          $Res Function(_$GetAsrCalculationMethodFromStorageImpl) then) =
+      __$$GetAsrCalculationMethodFromStorageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetAsrCalculationMethodFromStorageCopyWithImpl<$Res>
+class __$$GetAsrCalculationMethodFromStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetAsrCalculationMethodFromStorage>
-    implements _$$GetAsrCalculationMethodFromStorageCopyWith<$Res> {
-  __$$GetAsrCalculationMethodFromStorageCopyWithImpl(
-      _$GetAsrCalculationMethodFromStorage _value,
-      $Res Function(_$GetAsrCalculationMethodFromStorage) _then)
+        _$GetAsrCalculationMethodFromStorageImpl>
+    implements _$$GetAsrCalculationMethodFromStorageImplCopyWith<$Res> {
+  __$$GetAsrCalculationMethodFromStorageImplCopyWithImpl(
+      _$GetAsrCalculationMethodFromStorageImpl _value,
+      $Res Function(_$GetAsrCalculationMethodFromStorageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetAsrCalculationMethodFromStorage
+class _$GetAsrCalculationMethodFromStorageImpl
     implements GetAsrCalculationMethodFromStorage {
-  const _$GetAsrCalculationMethodFromStorage();
+  const _$GetAsrCalculationMethodFromStorageImpl();
 
   @override
   String toString() {
@@ -5950,7 +5962,7 @@ class _$GetAsrCalculationMethodFromStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetAsrCalculationMethodFromStorage);
+            other is _$GetAsrCalculationMethodFromStorageImpl);
   }
 
   @override
@@ -6194,27 +6206,27 @@ class _$GetAsrCalculationMethodFromStorage
 
 abstract class GetAsrCalculationMethodFromStorage implements NamazTimingEvent {
   const factory GetAsrCalculationMethodFromStorage() =
-      _$GetAsrCalculationMethodFromStorage;
+      _$GetAsrCalculationMethodFromStorageImpl;
 }
 
 /// @nodoc
-abstract class _$$AddHighLatitudeMethodsToLocalStorageCopyWith<$Res> {
-  factory _$$AddHighLatitudeMethodsToLocalStorageCopyWith(
-          _$AddHighLatitudeMethodsToLocalStorage value,
-          $Res Function(_$AddHighLatitudeMethodsToLocalStorage) then) =
-      __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>;
+abstract class _$$AddHighLatitudeMethodsToLocalStorageImplCopyWith<$Res> {
+  factory _$$AddHighLatitudeMethodsToLocalStorageImplCopyWith(
+          _$AddHighLatitudeMethodsToLocalStorageImpl value,
+          $Res Function(_$AddHighLatitudeMethodsToLocalStorageImpl) then) =
+      __$$AddHighLatitudeMethodsToLocalStorageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int value});
 }
 
 /// @nodoc
-class __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>
+class __$$AddHighLatitudeMethodsToLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddHighLatitudeMethodsToLocalStorage>
-    implements _$$AddHighLatitudeMethodsToLocalStorageCopyWith<$Res> {
-  __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl(
-      _$AddHighLatitudeMethodsToLocalStorage _value,
-      $Res Function(_$AddHighLatitudeMethodsToLocalStorage) _then)
+        _$AddHighLatitudeMethodsToLocalStorageImpl>
+    implements _$$AddHighLatitudeMethodsToLocalStorageImplCopyWith<$Res> {
+  __$$AddHighLatitudeMethodsToLocalStorageImplCopyWithImpl(
+      _$AddHighLatitudeMethodsToLocalStorageImpl _value,
+      $Res Function(_$AddHighLatitudeMethodsToLocalStorageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6222,7 +6234,7 @@ class __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$AddHighLatitudeMethodsToLocalStorage(
+    return _then(_$AddHighLatitudeMethodsToLocalStorageImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -6233,9 +6245,9 @@ class __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddHighLatitudeMethodsToLocalStorage
+class _$AddHighLatitudeMethodsToLocalStorageImpl
     implements AddHighLatitudeMethodsToLocalStorage {
-  const _$AddHighLatitudeMethodsToLocalStorage({required this.value});
+  const _$AddHighLatitudeMethodsToLocalStorageImpl({required this.value});
 
   @override
   final int value;
@@ -6249,7 +6261,7 @@ class _$AddHighLatitudeMethodsToLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddHighLatitudeMethodsToLocalStorage &&
+            other is _$AddHighLatitudeMethodsToLocalStorageImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -6259,10 +6271,10 @@ class _$AddHighLatitudeMethodsToLocalStorage
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddHighLatitudeMethodsToLocalStorageCopyWith<
-          _$AddHighLatitudeMethodsToLocalStorage>
-      get copyWith => __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl<
-          _$AddHighLatitudeMethodsToLocalStorage>(this, _$identity);
+  _$$AddHighLatitudeMethodsToLocalStorageImplCopyWith<
+          _$AddHighLatitudeMethodsToLocalStorageImpl>
+      get copyWith => __$$AddHighLatitudeMethodsToLocalStorageImplCopyWithImpl<
+          _$AddHighLatitudeMethodsToLocalStorageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6503,39 +6515,39 @@ class _$AddHighLatitudeMethodsToLocalStorage
 abstract class AddHighLatitudeMethodsToLocalStorage
     implements NamazTimingEvent {
   const factory AddHighLatitudeMethodsToLocalStorage(
-      {required final int value}) = _$AddHighLatitudeMethodsToLocalStorage;
+      {required final int value}) = _$AddHighLatitudeMethodsToLocalStorageImpl;
 
   int get value;
   @JsonKey(ignore: true)
-  _$$AddHighLatitudeMethodsToLocalStorageCopyWith<
-          _$AddHighLatitudeMethodsToLocalStorage>
+  _$$AddHighLatitudeMethodsToLocalStorageImplCopyWith<
+          _$AddHighLatitudeMethodsToLocalStorageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetHighLatitudeMethodsToLocalStorageCopyWith<$Res> {
-  factory _$$GetHighLatitudeMethodsToLocalStorageCopyWith(
-          _$GetHighLatitudeMethodsToLocalStorage value,
-          $Res Function(_$GetHighLatitudeMethodsToLocalStorage) then) =
-      __$$GetHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>;
+abstract class _$$GetHighLatitudeMethodsToLocalStorageImplCopyWith<$Res> {
+  factory _$$GetHighLatitudeMethodsToLocalStorageImplCopyWith(
+          _$GetHighLatitudeMethodsToLocalStorageImpl value,
+          $Res Function(_$GetHighLatitudeMethodsToLocalStorageImpl) then) =
+      __$$GetHighLatitudeMethodsToLocalStorageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>
+class __$$GetHighLatitudeMethodsToLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetHighLatitudeMethodsToLocalStorage>
-    implements _$$GetHighLatitudeMethodsToLocalStorageCopyWith<$Res> {
-  __$$GetHighLatitudeMethodsToLocalStorageCopyWithImpl(
-      _$GetHighLatitudeMethodsToLocalStorage _value,
-      $Res Function(_$GetHighLatitudeMethodsToLocalStorage) _then)
+        _$GetHighLatitudeMethodsToLocalStorageImpl>
+    implements _$$GetHighLatitudeMethodsToLocalStorageImplCopyWith<$Res> {
+  __$$GetHighLatitudeMethodsToLocalStorageImplCopyWithImpl(
+      _$GetHighLatitudeMethodsToLocalStorageImpl _value,
+      $Res Function(_$GetHighLatitudeMethodsToLocalStorageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetHighLatitudeMethodsToLocalStorage
+class _$GetHighLatitudeMethodsToLocalStorageImpl
     implements GetHighLatitudeMethodsToLocalStorage {
-  const _$GetHighLatitudeMethodsToLocalStorage();
+  const _$GetHighLatitudeMethodsToLocalStorageImpl();
 
   @override
   String toString() {
@@ -6546,7 +6558,7 @@ class _$GetHighLatitudeMethodsToLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetHighLatitudeMethodsToLocalStorage);
+            other is _$GetHighLatitudeMethodsToLocalStorageImpl);
   }
 
   @override
@@ -6791,33 +6803,36 @@ class _$GetHighLatitudeMethodsToLocalStorage
 abstract class GetHighLatitudeMethodsToLocalStorage
     implements NamazTimingEvent {
   const factory GetHighLatitudeMethodsToLocalStorage() =
-      _$GetHighLatitudeMethodsToLocalStorage;
+      _$GetHighLatitudeMethodsToLocalStorageImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchNamazTimingNotificationsFromLocalStorageCopyWith<$Res> {
-  factory _$$FetchNamazTimingNotificationsFromLocalStorageCopyWith(
-          _$FetchNamazTimingNotificationsFromLocalStorage value,
-          $Res Function(_$FetchNamazTimingNotificationsFromLocalStorage) then) =
-      __$$FetchNamazTimingNotificationsFromLocalStorageCopyWithImpl<$Res>;
+abstract class _$$FetchNamazTimingNotificationsFromLocalStorageImplCopyWith<
+    $Res> {
+  factory _$$FetchNamazTimingNotificationsFromLocalStorageImplCopyWith(
+          _$FetchNamazTimingNotificationsFromLocalStorageImpl value,
+          $Res Function(_$FetchNamazTimingNotificationsFromLocalStorageImpl)
+              then) =
+      __$$FetchNamazTimingNotificationsFromLocalStorageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchNamazTimingNotificationsFromLocalStorageCopyWithImpl<$Res>
+class __$$FetchNamazTimingNotificationsFromLocalStorageImplCopyWithImpl<$Res>
     extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$FetchNamazTimingNotificationsFromLocalStorage>
-    implements _$$FetchNamazTimingNotificationsFromLocalStorageCopyWith<$Res> {
-  __$$FetchNamazTimingNotificationsFromLocalStorageCopyWithImpl(
-      _$FetchNamazTimingNotificationsFromLocalStorage _value,
-      $Res Function(_$FetchNamazTimingNotificationsFromLocalStorage) _then)
+        _$FetchNamazTimingNotificationsFromLocalStorageImpl>
+    implements
+        _$$FetchNamazTimingNotificationsFromLocalStorageImplCopyWith<$Res> {
+  __$$FetchNamazTimingNotificationsFromLocalStorageImplCopyWithImpl(
+      _$FetchNamazTimingNotificationsFromLocalStorageImpl _value,
+      $Res Function(_$FetchNamazTimingNotificationsFromLocalStorageImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchNamazTimingNotificationsFromLocalStorage
+class _$FetchNamazTimingNotificationsFromLocalStorageImpl
     implements FetchNamazTimingNotificationsFromLocalStorage {
-  const _$FetchNamazTimingNotificationsFromLocalStorage();
+  const _$FetchNamazTimingNotificationsFromLocalStorageImpl();
 
   @override
   String toString() {
@@ -6828,7 +6843,7 @@ class _$FetchNamazTimingNotificationsFromLocalStorage
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchNamazTimingNotificationsFromLocalStorage);
+            other is _$FetchNamazTimingNotificationsFromLocalStorageImpl);
   }
 
   @override
@@ -7073,7 +7088,7 @@ class _$FetchNamazTimingNotificationsFromLocalStorage
 abstract class FetchNamazTimingNotificationsFromLocalStorage
     implements NamazTimingEvent {
   const factory FetchNamazTimingNotificationsFromLocalStorage() =
-      _$FetchNamazTimingNotificationsFromLocalStorage;
+      _$FetchNamazTimingNotificationsFromLocalStorageImpl;
 }
 
 /// @nodoc
@@ -7338,11 +7353,11 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$InitialImplCopyWith<$Res>
     implements $NamazTimingStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -7382,10 +7397,11 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$NamazTimingStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$NamazTimingStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -7422,7 +7438,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? asrCalculationMehod = null,
     Object? manualCorrections = null,
   }) {
-    return _then(_$_Initial(
+    return _then(_$InitialImpl(
       success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -7549,8 +7565,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial(
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl(
       {required this.success,
       required this.error,
       required this.prayerModel,
@@ -7680,7 +7696,7 @@ class _$_Initial implements _Initial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$InitialImpl &&
             (identical(other.success, success) || other.success == success) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.prayerModel, prayerModel) ||
@@ -7775,8 +7791,8 @@ class _$_Initial implements _Initial {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 }
 
 abstract class _Initial implements NamazTimingState {
@@ -7810,7 +7826,7 @@ abstract class _Initial implements NamazTimingState {
       required final String location,
       required final int calculationMethod,
       required final int asrCalculationMehod,
-      required final int manualCorrections}) = _$_Initial;
+      required final int manualCorrections}) = _$InitialImpl;
 
   @override
   String get success;
@@ -7874,6 +7890,6 @@ abstract class _Initial implements NamazTimingState {
   int get manualCorrections;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,8 +6,9 @@ part of 'subcategories.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SubCategoryModel _$$_SubCategoryModelFromJson(Map<String, dynamic> json) =>
-    _$_SubCategoryModel(
+_$SubCategoryModelImpl _$$SubCategoryModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SubCategoryModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +17,8 @@ _$_SubCategoryModel _$$_SubCategoryModelFromJson(Map<String, dynamic> json) =>
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SubCategoryModelToJson(_$_SubCategoryModel instance) =>
+Map<String, dynamic> _$$SubCategoryModelImplToJson(
+        _$SubCategoryModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,18 +26,19 @@ Map<String, dynamic> _$$_SubCategoryModelToJson(_$_SubCategoryModel instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       subCategory: (json['subCategory'] as List<dynamic>?)
           ?.map((e) => SubCategory.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'subCategory': instance.subCategory,
     };
 
-_$_SubCategory _$$_SubCategoryFromJson(Map<String, dynamic> json) =>
-    _$_SubCategory(
+_$SubCategoryImpl _$$SubCategoryImplFromJson(Map<String, dynamic> json) =>
+    _$SubCategoryImpl(
       id: json['_id'] as String?,
       categoryId: json['categoryId'] == null
           ? null
@@ -46,7 +49,7 @@ _$_SubCategory _$$_SubCategoryFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_SubCategoryToJson(_$_SubCategory instance) =>
+Map<String, dynamic> _$$SubCategoryImplToJson(_$SubCategoryImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'categoryId': instance.categoryId,
@@ -56,7 +59,8 @@ Map<String, dynamic> _$$_SubCategoryToJson(_$_SubCategory instance) =>
       'updatedAt': instance.updatedAt,
     };
 
-_$_Category _$$_CategoryFromJson(Map<String, dynamic> json) => _$_Category(
+_$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
+    _$CategoryImpl(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       image: json['image'] as String?,
@@ -64,7 +68,7 @@ _$_Category _$$_CategoryFromJson(Map<String, dynamic> json) => _$_Category(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_CategoryToJson(_$_Category instance) =>
+Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,

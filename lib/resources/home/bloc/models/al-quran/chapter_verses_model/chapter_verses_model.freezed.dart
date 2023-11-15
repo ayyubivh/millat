@@ -84,11 +84,11 @@ class _$ChapterVersesModelCopyWithImpl<$Res, $Val extends ChapterVersesModel>
 }
 
 /// @nodoc
-abstract class _$$_ChapterVersesModelCopyWith<$Res>
+abstract class _$$ChapterVersesModelImplCopyWith<$Res>
     implements $ChapterVersesModelCopyWith<$Res> {
-  factory _$$_ChapterVersesModelCopyWith(_$_ChapterVersesModel value,
-          $Res Function(_$_ChapterVersesModel) then) =
-      __$$_ChapterVersesModelCopyWithImpl<$Res>;
+  factory _$$ChapterVersesModelImplCopyWith(_$ChapterVersesModelImpl value,
+          $Res Function(_$ChapterVersesModelImpl) then) =
+      __$$ChapterVersesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int code, String status, VersesData data});
@@ -98,11 +98,11 @@ abstract class _$$_ChapterVersesModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ChapterVersesModelCopyWithImpl<$Res>
-    extends _$ChapterVersesModelCopyWithImpl<$Res, _$_ChapterVersesModel>
-    implements _$$_ChapterVersesModelCopyWith<$Res> {
-  __$$_ChapterVersesModelCopyWithImpl(
-      _$_ChapterVersesModel _value, $Res Function(_$_ChapterVersesModel) _then)
+class __$$ChapterVersesModelImplCopyWithImpl<$Res>
+    extends _$ChapterVersesModelCopyWithImpl<$Res, _$ChapterVersesModelImpl>
+    implements _$$ChapterVersesModelImplCopyWith<$Res> {
+  __$$ChapterVersesModelImplCopyWithImpl(_$ChapterVersesModelImpl _value,
+      $Res Function(_$ChapterVersesModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_ChapterVersesModelCopyWithImpl<$Res>
     Object? status = null,
     Object? data = null,
   }) {
-    return _then(_$_ChapterVersesModel(
+    return _then(_$ChapterVersesModelImpl(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -131,12 +131,12 @@ class __$$_ChapterVersesModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ChapterVersesModel implements _ChapterVersesModel {
-  const _$_ChapterVersesModel(
+class _$ChapterVersesModelImpl implements _ChapterVersesModel {
+  const _$ChapterVersesModelImpl(
       {required this.code, required this.status, required this.data});
 
-  factory _$_ChapterVersesModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ChapterVersesModelFromJson(json);
+  factory _$ChapterVersesModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChapterVersesModelImplFromJson(json);
 
   @override
   final int code;
@@ -154,7 +154,7 @@ class _$_ChapterVersesModel implements _ChapterVersesModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChapterVersesModel &&
+            other is _$ChapterVersesModelImpl &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.data, data) || other.data == data));
@@ -167,13 +167,13 @@ class _$_ChapterVersesModel implements _ChapterVersesModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChapterVersesModelCopyWith<_$_ChapterVersesModel> get copyWith =>
-      __$$_ChapterVersesModelCopyWithImpl<_$_ChapterVersesModel>(
+  _$$ChapterVersesModelImplCopyWith<_$ChapterVersesModelImpl> get copyWith =>
+      __$$ChapterVersesModelImplCopyWithImpl<_$ChapterVersesModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChapterVersesModelToJson(
+    return _$$ChapterVersesModelImplToJson(
       this,
     );
   }
@@ -183,10 +183,10 @@ abstract class _ChapterVersesModel implements ChapterVersesModel {
   const factory _ChapterVersesModel(
       {required final int code,
       required final String status,
-      required final VersesData data}) = _$_ChapterVersesModel;
+      required final VersesData data}) = _$ChapterVersesModelImpl;
 
   factory _ChapterVersesModel.fromJson(Map<String, dynamic> json) =
-      _$_ChapterVersesModel.fromJson;
+      _$ChapterVersesModelImpl.fromJson;
 
   @override
   int get code;
@@ -196,7 +196,7 @@ abstract class _ChapterVersesModel implements ChapterVersesModel {
   VersesData get data;
   @override
   @JsonKey(ignore: true)
-  _$$_ChapterVersesModelCopyWith<_$_ChapterVersesModel> get copyWith =>
+  _$$ChapterVersesModelImplCopyWith<_$ChapterVersesModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -248,22 +248,22 @@ class _$VersesDataCopyWithImpl<$Res, $Val extends VersesData>
 }
 
 /// @nodoc
-abstract class _$$_VersesDataCopyWith<$Res>
+abstract class _$$VersesDataImplCopyWith<$Res>
     implements $VersesDataCopyWith<$Res> {
-  factory _$$_VersesDataCopyWith(
-          _$_VersesData value, $Res Function(_$_VersesData) then) =
-      __$$_VersesDataCopyWithImpl<$Res>;
+  factory _$$VersesDataImplCopyWith(
+          _$VersesDataImpl value, $Res Function(_$VersesDataImpl) then) =
+      __$$VersesDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String englishName});
 }
 
 /// @nodoc
-class __$$_VersesDataCopyWithImpl<$Res>
-    extends _$VersesDataCopyWithImpl<$Res, _$_VersesData>
-    implements _$$_VersesDataCopyWith<$Res> {
-  __$$_VersesDataCopyWithImpl(
-      _$_VersesData _value, $Res Function(_$_VersesData) _then)
+class __$$VersesDataImplCopyWithImpl<$Res>
+    extends _$VersesDataCopyWithImpl<$Res, _$VersesDataImpl>
+    implements _$$VersesDataImplCopyWith<$Res> {
+  __$$VersesDataImplCopyWithImpl(
+      _$VersesDataImpl _value, $Res Function(_$VersesDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -271,7 +271,7 @@ class __$$_VersesDataCopyWithImpl<$Res>
   $Res call({
     Object? englishName = null,
   }) {
-    return _then(_$_VersesData(
+    return _then(_$VersesDataImpl(
       englishName: null == englishName
           ? _value.englishName
           : englishName // ignore: cast_nullable_to_non_nullable
@@ -282,11 +282,11 @@ class __$$_VersesDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_VersesData implements _VersesData {
-  const _$_VersesData({required this.englishName});
+class _$VersesDataImpl implements _VersesData {
+  const _$VersesDataImpl({required this.englishName});
 
-  factory _$_VersesData.fromJson(Map<String, dynamic> json) =>
-      _$$_VersesDataFromJson(json);
+  factory _$VersesDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VersesDataImplFromJson(json);
 
   @override
   final String englishName;
@@ -300,7 +300,7 @@ class _$_VersesData implements _VersesData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VersesData &&
+            other is _$VersesDataImpl &&
             (identical(other.englishName, englishName) ||
                 other.englishName == englishName));
   }
@@ -312,12 +312,12 @@ class _$_VersesData implements _VersesData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VersesDataCopyWith<_$_VersesData> get copyWith =>
-      __$$_VersesDataCopyWithImpl<_$_VersesData>(this, _$identity);
+  _$$VersesDataImplCopyWith<_$VersesDataImpl> get copyWith =>
+      __$$VersesDataImplCopyWithImpl<_$VersesDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VersesDataToJson(
+    return _$$VersesDataImplToJson(
       this,
     );
   }
@@ -325,15 +325,15 @@ class _$_VersesData implements _VersesData {
 
 abstract class _VersesData implements VersesData {
   const factory _VersesData({required final String englishName}) =
-      _$_VersesData;
+      _$VersesDataImpl;
 
   factory _VersesData.fromJson(Map<String, dynamic> json) =
-      _$_VersesData.fromJson;
+      _$VersesDataImpl.fromJson;
 
   @override
   String get englishName;
   @override
   @JsonKey(ignore: true)
-  _$$_VersesDataCopyWith<_$_VersesData> get copyWith =>
+  _$$VersesDataImplCopyWith<_$VersesDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

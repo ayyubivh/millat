@@ -6,9 +6,9 @@ part of 'specific_category_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SpecificCategoryModel _$$_SpecificCategoryModelFromJson(
+_$SpecificCategoryModelImpl _$$SpecificCategoryModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SpecificCategoryModel(
+    _$SpecificCategoryModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -17,8 +17,8 @@ _$_SpecificCategoryModel _$$_SpecificCategoryModelFromJson(
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SpecificCategoryModelToJson(
-        _$_SpecificCategoryModel instance) =>
+Map<String, dynamic> _$$SpecificCategoryModelImplToJson(
+        _$SpecificCategoryModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -26,17 +26,18 @@ Map<String, dynamic> _$$_SpecificCategoryModelToJson(
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       data: json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'data': instance.data,
     };
 
-_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+_$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       bigBannerImage: json['bigBannerImage'] == null
           ? null
           : BigBannerImage.fromJson(
@@ -53,7 +54,8 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
+    <String, dynamic>{
       'bigBannerImage': instance.bigBannerImage,
       'id': instance.id,
       'slug': instance.slug,
@@ -63,29 +65,32 @@ Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
       'updatedAt': instance.updatedAt,
     };
 
-_$_BigBannerImage _$$_BigBannerImageFromJson(Map<String, dynamic> json) =>
-    _$_BigBannerImage(
+_$BigBannerImageImpl _$$BigBannerImageImplFromJson(Map<String, dynamic> json) =>
+    _$BigBannerImageImpl(
       imageUrl: json['imageUrl'] as String?,
       url: json['url'] as String?,
       discount: json['discount'] as String?,
     );
 
-Map<String, dynamic> _$$_BigBannerImageToJson(_$_BigBannerImage instance) =>
+Map<String, dynamic> _$$BigBannerImageImplToJson(
+        _$BigBannerImageImpl instance) =>
     <String, dynamic>{
       'imageUrl': instance.imageUrl,
       'url': instance.url,
       'discount': instance.discount,
     };
 
-_$_SmallBannerImage _$$_SmallBannerImageFromJson(Map<String, dynamic> json) =>
-    _$_SmallBannerImage(
+_$SmallBannerImageImpl _$$SmallBannerImageImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SmallBannerImageImpl(
       imageUrl: json['imageUrl'] as String?,
       url: json['url'] as String?,
       discount: json['discount'] as String?,
       id: json['id'] as String?,
     );
 
-Map<String, dynamic> _$$_SmallBannerImageToJson(_$_SmallBannerImage instance) =>
+Map<String, dynamic> _$$SmallBannerImageImplToJson(
+        _$SmallBannerImageImpl instance) =>
     <String, dynamic>{
       'imageUrl': instance.imageUrl,
       'url': instance.url,

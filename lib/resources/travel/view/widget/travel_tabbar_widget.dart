@@ -47,6 +47,9 @@ class TravelTabBarWidget extends StatelessWidget {
                     Tab(
                       text: "Overview",
                     ),
+                    // Tab(
+                    //   text: "Day by day",
+                    // ),
                     Tab(
                       text: "Photos",
                     ),
@@ -86,29 +89,27 @@ class TravelTabBarWidget extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     if (index % 2 == 0) {
                       return GestureDetector(
-                        onTap: () {
-                          context.pushNamed(
-                              MyAppRouteConstants.imageFullViewRoutename,
-                              extra: {
-                                "imageUrls": imageUrl,
-                                "initialIndex": index,
-                              });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: _imageWidget(imageUrl[index]),
-                              ),
-                              kWidth10,
-                              Expanded(
-                                child: _imageWidget(imageUrl[index]),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
+                          onTap: () {
+                            context.pushNamed(
+                                MyAppRouteConstants.imageFullViewRoutename,
+                                extra: {
+                                  "imageUrls": imageUrl,
+                                  "initialIndex": index,
+                                });
+                          },
+                          child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: _imageWidget(imageUrl[index]),
+                                  ),
+                                  kWidth10,
+                                  Expanded(
+                                    child: _imageWidget(imageUrl[index]),
+                                  ),
+                                ],
+                              )));
                     } else {
                       return _imageWidget(imageUrl[index]);
                     }

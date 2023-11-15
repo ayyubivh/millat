@@ -83,7 +83,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             var options = {
               'order_id': state.orderIdRazorPay,
               'key': 'rzp_live_CPvXnR4zHHC8cD',
-              'amount': 1,
+              'amount': state.totalAmount * 100,
               'name': 'Millat',
               'description': cartItems![0].productId?.title,
               'retry': {'enabled': true, 'max_count': 1},
@@ -432,7 +432,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                           } else {
                             context.read<ShopProductsBloc>().add(
                                 ShopProductsEvent.postOrderIdOnlinePayment(
-                                    context: context, amount: 1));
+                                    context: context, amount: total));
                           }
                         }),
               ],

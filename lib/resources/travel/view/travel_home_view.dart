@@ -438,159 +438,168 @@ class RecommendationWidget extends StatelessWidget {
                   final data =
                       state.travelPopularProductsModel?.products[reversedIndex];
 
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 110,
-                          width: SizeUtility(context).width / 1.5,
-                          decoration: BoxDecoration(
-                            color: ColorManager.darkWhite,
-                            border: Border.all(
-                              color: ColorManager.whiteE0,
-                            ),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          padding: const EdgeInsets.all(12),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Utilities()
-                                          .buildCachedNetworkImage(
-                                              imageUrl: data?.mainImage,
-                                              height: 55,
-                                              width: 55)),
-                                  kWidth10,
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        data!.name,
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      kHeight10,
-                                      Row(
-                                        children: [
-                                          ImageIcon(
-                                            const AssetImage(
-                                              AppAssetsStrings.locations,
-                                            ),
-                                            size: 16,
-                                            color: ColorManager.lightGrey85,
-                                          ),
-                                          kWidth10,
-                                          Text(
-                                            data.location,
-                                            style: const TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  const Spacer(),
-                                  Container(
-                                    height: 32,
-                                    width: 71,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          ColorManager.green0F.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Available",
-                                        style: TextStyle(
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.bold,
-                                          color: ColorManager.green0F,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                  return GestureDetector(
+                    onTap: () {
+                      context.pushNamed(
+                          MyAppRouteConstants.travelSingleRoutename,
+                          pathParameters: {
+                            'id': data.id,
+                          });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 110,
+                            width: SizeUtility(context).width / 1.5,
+                            decoration: BoxDecoration(
+                              color: ColorManager.darkWhite,
+                              border: Border.all(
+                                color: ColorManager.whiteE0,
                               ),
-                              const Spacer(),
-                              Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      ImageIcon(
-                                        const AssetImage(
-                                            AppAssetsStrings.discount_2),
-                                        size: 16,
-                                        color: ColorManager.greyB4,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.circular(12),
+                                        child: Utilities()
+                                            .buildCachedNetworkImage(
+                                                imageUrl: data?.mainImage,
+                                                height: 55,
+                                                width: 55)),
+                                    kWidth10,
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          data!.name,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        kHeight10,
+                                        Row(
+                                          children: [
+                                            ImageIcon(
+                                              const AssetImage(
+                                                AppAssetsStrings.locations,
+                                              ),
+                                              size: 16,
+                                              color: ColorManager.lightGrey85,
+                                            ),
+                                            kWidth10,
+                                            Text(
+                                              data.location,
+                                              style: const TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    Container(
+                                      height: 32,
+                                      width: 71,
+                                      decoration: BoxDecoration(
+                                        color: ColorManager.green0F
+                                            .withOpacity(0.2),
+                                        borderRadius: BorderRadius.circular(30),
                                       ),
-                                      kWidth3,
-                                      Text(
-                                        data.price.toString(),
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w700,
-                                          color: ColorManager.primary,
+                                      child: Center(
+                                        child: Text(
+                                          "Available",
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.bold,
+                                            color: ColorManager.green0F,
+                                          ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                  const Spacer(),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      ImageIcon(
-                                        const AssetImage(
-                                            AppAssetsStrings.starIcon),
-                                        size: 16,
-                                        color: ColorManager.greyB4,
-                                      ),
-                                      kWidth3,
-                                      Text(
-                                        "4.5",
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w700,
-                                          color: ColorManager.blackColor,
+                                    ),
+                                  ],
+                                ),
+                                const Spacer(),
+                                Row(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        ImageIcon(
+                                          const AssetImage(
+                                              AppAssetsStrings.discount_2),
+                                          size: 16,
+                                          color: ColorManager.greyB4,
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  const Spacer(),
-                                  Row(
-                                    children: [
-                                      ImageIcon(
-                                        const AssetImage(
-                                            AppAssetsStrings.dateIcon),
-                                        size: 16,
-                                        color: ColorManager.greyB4,
-                                      ),
-                                      kWidth3,
-                                      Text(
-                                        Utilities.formatDate(
-                                            DateTime.now().toString()),
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w700,
-                                          color: ColorManager.blackColor,
+                                        kWidth3,
+                                        Text(
+                                          data.price.toString(),
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w700,
+                                            color: ColorManager.primary,
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        )
-                      ],
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ImageIcon(
+                                          const AssetImage(
+                                              AppAssetsStrings.starIcon),
+                                          size: 16,
+                                          color: ColorManager.greyB4,
+                                        ),
+                                        kWidth3,
+                                        Text(
+                                          "4.5",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w700,
+                                            color: ColorManager.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    Row(
+                                      children: [
+                                        ImageIcon(
+                                          const AssetImage(
+                                              AppAssetsStrings.dateIcon),
+                                          size: 16,
+                                          color: ColorManager.greyB4,
+                                        ),
+                                        kWidth3,
+                                        Text(
+                                          Utilities.formatDate(
+                                              DateTime.now().toString()),
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w700,
+                                            color: ColorManager.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },

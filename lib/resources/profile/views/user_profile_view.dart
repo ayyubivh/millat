@@ -261,7 +261,7 @@ class UserProfileView extends StatelessWidget {
                       ],
                     ),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
+                        horizontal: 20, vertical: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -286,7 +286,7 @@ class UserProfileView extends StatelessWidget {
                               Appstrings.orderHistory,
                               Appstrings.address,
                             ];
-                            final navigations = [
+                            final navigation = [
                               () {
                                 context.pushNamed(
                                     MyAppRouteConstants.orderHistoryRouteName);
@@ -299,7 +299,7 @@ class UserProfileView extends StatelessWidget {
                             return _buildItemRow(
                               image: images[index],
                               text: texts[index],
-                              onTap: navigations[index],
+                              onTap: navigation[index],
                             );
                           },
                           separatorBuilder: (context, index) => const Divider(),

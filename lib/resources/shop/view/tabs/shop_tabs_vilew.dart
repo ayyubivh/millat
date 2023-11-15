@@ -64,10 +64,6 @@ class ShopTabsView extends StatelessWidget {
             child: BottomNavigationBar(
               onTap: (newIndex) {
                 if (newIndex == 0 && state.index == newIndex) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const TabsView()),
-                  );
                   context
                       .read<HomeBloc>()
                       .add(const ChangeHomeTabIndexEvent(newIndex: 0));

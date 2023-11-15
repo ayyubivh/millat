@@ -30,7 +30,6 @@ class TravelTabsView extends StatelessWidget {
           return Future.value(true);
         },
         child: Scaffold(
-          extendBody: true,
           body: screens[state.tabIndex],
           bottomNavigationBar: SizedBox(
             height: Platform.isIOS
@@ -86,7 +85,7 @@ class TravelTabsView extends StatelessWidget {
                 BottomNavigationBarItem(
                   label: '',
                   icon: ImageIcon(
-                    AssetImage(AppAssetsStrings.travelTabIcon),
+                    AssetImage(AppAssetsStrings.profile),
                     size: 22,
                   ),
                 ),

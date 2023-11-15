@@ -44,9 +44,8 @@ class TabsView extends StatelessWidget {
           }
         },
         child: Scaffold(
-          extendBody: true,
           bottomNavigationBar: state.homeTabIndex != 0 &&
-                  state.homeBannerIndex != 4
+                  state.homeTabIndex != 4
               ? const SizedBox()
               : SizedBox(
                   height: Platform.isIOS

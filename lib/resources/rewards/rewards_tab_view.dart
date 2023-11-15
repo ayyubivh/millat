@@ -9,6 +9,7 @@ import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
+import '../home/bloc/logic/home_bloc/home_bloc.dart';
 import '../profile/views/user_profile_view.dart';
 
 class RewardsTabView extends StatelessWidget {
@@ -31,7 +32,6 @@ class RewardsTabView extends StatelessWidget {
           return Future.value(true);
         },
         child: Scaffold(
-          extendBody: true,
           body: screens[state.tabIndex],
           bottomNavigationBar: SizedBox(
             height: Platform.isIOS
@@ -45,8 +45,8 @@ class RewardsTabView extends StatelessWidget {
                   //   MaterialPageRoute(builder: (context) => const TabsView()),
                   // );
                   context
-                      .read<RewardsBloc>()
-                      .add(const ChangeRewardsTabIndex(index: 0));
+                      .read<HomeBloc>()
+                      .add(const ChangeHomeTabIndexEvent(newIndex: 0));
                 } else {
                   context
                       .read<RewardsBloc>()

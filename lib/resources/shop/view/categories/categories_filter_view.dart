@@ -7,6 +7,7 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 
 class CategoriesFilterView extends StatelessWidget {
   const CategoriesFilterView({Key? key}) : super(key: key);
@@ -132,14 +133,10 @@ class CategoriesFilterView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final data =
                         state.subcategoryByCategoryIdModel?.result?.subCategory;
-                    if (data == null) {
-                      return const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: ShimmersWidget(
-                          width: 40,
-                          height: 40,
-                          borderRadius: 12,
-                        ),
+                    if (data == null || state.subCategoryLoading) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ShimmerUtils.categoriesShimmers(),
                       );
                     }
                     return GestureDetector(

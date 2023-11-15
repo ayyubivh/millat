@@ -109,25 +109,31 @@ class ShopBrandView extends StatelessWidget {
   Widget _brandsListPart() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        if (state.brandModels?.result?.data == null) {
-          return const SizedBox();
-        }
         return Column(
           children: [
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: state.brandModels!.result?.data?.length,
+              itemCount: state.brandModels?.result?.data?.length ?? 3,
               itemBuilder: (context, index) {
-                final data = state.brandModels!.result?.data?[index];
+                final data = state.brandModels?.result;
+                if (data == null) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: ShimmerUtils.customRectangleShimmer(
+                        SizeUtility(context).width, 160,
+                        borderRadius: 14),
+                  );
+                }
                 final itemCount = state.brandProductsItemCount;
+                final passValue = data.data?[index];
                 return GestureDetector(
                   onTap: () {
                     context.pushNamed(MyAppRouteConstants.singleBrandRouteName,
                         extra: {'passValue': data});
                   },
                   child: brandTileContainer(
-                      context, data, itemCount?[index].toInt() ?? 0),
+                      context, passValue, itemCount?[index].toInt() ?? 0),
                 );
               },
             ),

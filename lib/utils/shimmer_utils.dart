@@ -60,6 +60,48 @@ class ShimmerUtils {
     );
   }
 
+// cart shimmer
+  static Widget cartShimmer(BuildContext context) {
+    final width = SizeUtility(context).width;
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ShimmerUtilWidget.borderRectangle(
+          height: 80,
+          width: width / 6,
+        ),
+        kWidth10,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            kHeight10,
+            ShimmerUtilWidget.rectangle(
+              height: 8,
+              width: width / 5,
+            ),
+            kHeight10,
+            ShimmerUtilWidget.rectangle(
+              height: 8,
+              width: width / 4,
+            ),
+            kHeight8,
+            ShimmerUtilWidget.rectangle(
+              height: 5,
+              width: width / 6,
+            ),
+            kHeight16,
+            ShimmerUtilWidget.rectangle(
+              height: 7,
+              width: width / 3,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
 // articles screen shimmer
   static Widget articlesShimmer() {
     return const Padding(

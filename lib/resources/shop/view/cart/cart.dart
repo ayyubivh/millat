@@ -10,6 +10,7 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -41,7 +42,10 @@ class CartView extends StatelessWidget {
       body: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           if (state.cartLoading) {
-            return const Loader();
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
+              child: ShimmerUtils.cartShimmer(context),
+            );
           } else if (state
                   .cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
               true) {
@@ -55,7 +59,7 @@ class CartView extends StatelessWidget {
                   state.cartModel?.result?.cartProducts?.cartItems![index];
 
               if (data == null) {
-                return const SizedBox();
+                return ShimmerUtils.cartShimmer(context);
               }
               return CartProductWidget(
                 showQuantity: true,

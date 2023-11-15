@@ -22,11 +22,17 @@ import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../utils/color_manager.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
 
-class ShopView extends StatelessWidget {
+class ShopView extends StatefulWidget {
   const ShopView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  State<ShopView> createState() => _ShopViewState();
+}
+
+class _ShopViewState extends State<ShopView> {
+  @override
+  void initState() {
+    super.initState();
     final shopProductsBloc = BlocProvider.of<ShopProductsBloc>(context);
     final cartBloc = BlocProvider.of<CartBloc>(context);
     final categoryBloc = BlocProvider.of<CategoryBloc>(context);
@@ -49,7 +55,10 @@ class ShopView extends StatelessWidget {
     cartBloc.add(FetchCartEvent(context));
     BlocProvider.of<AddressBloc>(context).add(const FetchAddressDefaultIndex());
     context.read<DatabaseBloc>().add(FetchAuthUser(context: context));
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       body: SingleChildScrollView(

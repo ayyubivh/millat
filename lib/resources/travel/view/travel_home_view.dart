@@ -21,12 +21,12 @@ class TravelHomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const widgets = [
+    final widgets = [
       kHeight20,
-      CategoryList(),
-      RecommendationWidget(),
-      PopularDestinationWidget(),
-      BestPlaceWidget(),
+      const CategoryList(),
+      const RecommendationWidget(),
+      const PopularDestinationWidget(),
+      const BestPlaceWidget(),
       kHeight100,
     ];
 
@@ -278,7 +278,7 @@ class TravelProductWidget extends StatelessWidget {
             });
       },
       child: Container(
-        height: 280,
+        // height: 280,
         width: SizeUtility(context).width / 2,
         margin: const EdgeInsets.only(right: 12),
         decoration: BoxDecoration(
@@ -292,7 +292,7 @@ class TravelProductWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 180,
+              height: 160,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Utilities().buildCachedNetworkImage(
@@ -363,12 +363,13 @@ class TravelProductWidget extends StatelessWidget {
                 ),
                 kWidth3,
                 Text(
-                  "₹100,000 /",
+                  "₹100,000/",
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
                     color: ColorManager.blackColor,
                     decoration: TextDecoration.lineThrough,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 Text(
@@ -407,152 +408,195 @@ class RecommendationWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          kHeight25,
+          kHeight16,
           TitleWidget(
             titleName: Appstrings.tourRecommendations,
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(MyAppRouteConstants.travelPackagesView,
+                  pathParameters: {
+                    "title": Appstrings.products,
+                  },
+                  extra: {
+                    "type": TravelsPackagesType.popularProducts
+                  });
+            },
           ),
-          kHeight16,
-          Container(
-            height: 104,
-            width: SizeUtility(context).width,
-            decoration: BoxDecoration(
-              color: ColorManager.darkWhite,
-              border: Border.all(
-                color: ColorManager.whiteE0,
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        AppAssetsStrings.karbala,
-                        height: 50,
-                      ),
-                    ),
-                    kWidth10,
-                    Column(
+          kHeight15,
+          BlocBuilder<TravelBloc, TravelState>(
+            builder: (context, state) => SizedBox(
+              height: 120,
+              child: ListView.builder(
+                itemCount: 2,
+                scrollDirection: Axis.horizontal,
+                reverse: true,
+                itemBuilder: (context, index) {
+                  final products = state.travelPopularProductsModel?.products;
+                  if (state.travelPopularProductsModel?.products == null) {
+                    return const SizedBox();
+                  }
+                  int reversedIndex = products!.length - 1 - index;
+                  final data =
+                      state.travelPopularProductsModel?.products[reversedIndex];
+
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: Column(
                       children: [
-                        const Text(
-                          "Karbala",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        kHeight10,
-                        Row(
-                          children: [
-                            ImageIcon(
-                              const AssetImage(
-                                AppAssetsStrings.locations,
-                              ),
-                              size: 16,
-                              color: ColorManager.lightGrey85,
+                        Container(
+                          height: 110,
+                          width: SizeUtility(context).width / 1.5,
+                          decoration: BoxDecoration(
+                            color: ColorManager.darkWhite,
+                            border: Border.all(
+                              color: ColorManager.whiteE0,
                             ),
-                            kWidth10,
-                            const Text(
-                              "Iraq",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          padding: const EdgeInsets.all(12),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Utilities()
+                                          .buildCachedNetworkImage(
+                                              imageUrl: data?.mainImage,
+                                              height: 55,
+                                              width: 55)),
+                                  kWidth10,
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        data!.name,
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      kHeight10,
+                                      Row(
+                                        children: [
+                                          ImageIcon(
+                                            const AssetImage(
+                                              AppAssetsStrings.locations,
+                                            ),
+                                            size: 16,
+                                            color: ColorManager.lightGrey85,
+                                          ),
+                                          kWidth10,
+                                          Text(
+                                            data.location,
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  Container(
+                                    height: 32,
+                                    width: 71,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          ColorManager.green0F.withOpacity(0.2),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "Available",
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.bold,
+                                          color: ColorManager.green0F,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            )
-                          ],
-                        ),
+                              const Spacer(),
+                              Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      ImageIcon(
+                                        const AssetImage(
+                                            AppAssetsStrings.discount_2),
+                                        size: 16,
+                                        color: ColorManager.greyB4,
+                                      ),
+                                      kWidth3,
+                                      Text(
+                                        data.price.toString(),
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w700,
+                                          color: ColorManager.primary,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      ImageIcon(
+                                        const AssetImage(
+                                            AppAssetsStrings.starIcon),
+                                        size: 16,
+                                        color: ColorManager.greyB4,
+                                      ),
+                                      kWidth3,
+                                      Text(
+                                        "4.5",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w700,
+                                          color: ColorManager.blackColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  Row(
+                                    children: [
+                                      ImageIcon(
+                                        const AssetImage(
+                                            AppAssetsStrings.dateIcon),
+                                        size: 16,
+                                        color: ColorManager.greyB4,
+                                      ),
+                                      kWidth3,
+                                      Text(
+                                        Utilities.formatDate(
+                                            DateTime.now().toString()),
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w700,
+                                          color: ColorManager.blackColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
-                    const Spacer(),
-                    Container(
-                      height: 32,
-                      width: 71,
-                      decoration: BoxDecoration(
-                        color: ColorManager.green0F.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Available",
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: ColorManager.green0F,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const Spacer(),
-                Row(
-                  children: [
-                    Row(
-                      children: [
-                        ImageIcon(
-                          const AssetImage(AppAssetsStrings.discount_2),
-                          size: 16,
-                          color: ColorManager.greyB4,
-                        ),
-                        kWidth3,
-                        Text(
-                          "88,000",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.primary,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ImageIcon(
-                          const AssetImage(AppAssetsStrings.starIcon),
-                          size: 16,
-                          color: ColorManager.greyB4,
-                        ),
-                        kWidth3,
-                        Text(
-                          "4.5",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.blackColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        ImageIcon(
-                          const AssetImage(AppAssetsStrings.dateIcon),
-                          size: 16,
-                          color: ColorManager.greyB4,
-                        ),
-                        kWidth3,
-                        Text(
-                          "12-16 Feb",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.blackColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
+                  );
+                },
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -743,82 +787,83 @@ class BookNowContainer extends StatelessWidget {
       right: 20,
       bottom: 10,
       child: Container(
-        decoration: BoxDecoration(
-          color: ColorManager.whiteColor,
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              color: ColorManager.lightBlackColor.withOpacity(0.3),
-              offset: const Offset(0, 1),
-              blurRadius: 5,
-              spreadRadius: 1,
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Container(
-              height: 56,
-              width: SizeUtility(context).width / 2,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: BlocBuilder<TravelBloc, TravelState>(
-                builder: (context, state) {
-                  final data = state.travelHomeBannerPackages![state.index];
-                  if (state.travelHomeBannerPackages == null) {
-                    return const SizedBox();
-                  }
-                  return GestureDetector(
-                    onTap: () {
-                      context.pushNamed(
-                          MyAppRouteConstants.travelBookingFormRoutename,
-                          pathParameters: {"id": data.id!});
-                    },
-                    child: Row(
-                      children: [
-                        Text(
-                          "₹100,000 /",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.textGrey,
-                            decoration: TextDecoration.lineThrough,
-                          ),
-                        ),
-                        Text(
-                          " ${data.price}",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.primary,
-                          ),
-                        ),
-                      ],
-                    ),
+          decoration: BoxDecoration(
+            color: ColorManager.whiteColor,
+            borderRadius: BorderRadius.circular(30),
+            boxShadow: [
+              BoxShadow(
+                color: ColorManager.lightBlackColor.withOpacity(0.3),
+                offset: const Offset(0, 1),
+                blurRadius: 5,
+                spreadRadius: 1,
+              ),
+            ],
+          ),
+          child: BlocBuilder<TravelBloc, TravelState>(
+            builder: (context, state) {
+              final data = state.travelHomeBannerPackages?[state.index];
+              if (data == null) {
+                return const SizedBox();
+              }
+
+              return GestureDetector(
+                onTap: () {
+                  context.pushNamed(
+                    MyAppRouteConstants.travelBookingFormRoutename,
+                    pathParameters: {"id": data.id!},
                   );
                 },
-              ),
-            ),
-            const Spacer(),
-            gradientContainer(
-              child: Center(
-                child: Text(
-                  Appstrings.bookNow,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700,
-                    color: ColorManager.whiteColor,
-                  ),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 56,
+                      width: SizeUtility(context).width / 2,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        children: [
+                          Text(
+                            "₹100,000 /",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: ColorManager.textGrey,
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                          ),
+                          Text(
+                            " ${data.price}",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: ColorManager.primary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Spacer(),
+                    gradientContainer(
+                      child: Center(
+                        child: Text(
+                          Appstrings.bookNow,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: ColorManager.whiteColor,
+                          ),
+                        ),
+                      ),
+                      width: 84,
+                      radius: 30,
+                      height: 42,
+                      padding: const EdgeInsets.all(0),
+                    ),
+                    kWidth10,
+                  ],
                 ),
-              ),
-              width: 84,
-              radius: 30,
-              height: 42,
-              padding: const EdgeInsets.all(0),
-            ),
-            kWidth10,
-          ],
-        ),
-      ),
+              );
+            },
+          )),
     );
   }
 }

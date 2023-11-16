@@ -67,7 +67,7 @@ class ShopProductsState with _$ShopProductsState {
   }) = _Initial;
 
   factory ShopProductsState.initial() => const ShopProductsState(
-        indexVal: -1,
+        indexVal: 0,
         popularProducts: null,
         flashSaleproducts: null,
         flashSaleLoading: false,

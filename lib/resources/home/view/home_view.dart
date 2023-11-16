@@ -8,8 +8,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
-import 'package:millat/components/shimmers/shimmer_widget.dart';
-import 'package:millat/resources/travel/bloc/service/travel_services.dart';
 
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/shimmer_utils.dart';
@@ -23,7 +21,6 @@ import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/widgets/hadit_tinder_cards.dart';
 
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import '../../../enums/enumertations.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/color_manager.dart';
@@ -32,7 +29,6 @@ import '../../../utils/string_constants.dart';
 import '../../../utils/utils.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import '../../travel/bloc/logic/travel_bloc.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
@@ -1173,9 +1169,9 @@ class _HomeViewState extends State<HomeView> {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         if (state.homeBanner == null) {
-          return ShimmersWidget(
-            height: 150,
-            width: SizeUtility(context).width,
+          return ShimmerUtils.customRectangleShimmer(
+            SizeUtility(context).width,
+            150,
             borderRadius: 16,
           );
         }

@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/green_gradient_button.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
-import 'package:millat/components/shimmers/shimmer_widget.dart';
-import 'package:millat/components/shimmers/shimmers_widget_rounded.dart';
+
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
@@ -20,6 +19,7 @@ import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../utils/color_manager.dart';
+import '../../../utils/shimmer_utils.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class ShopView extends StatefulWidget {
@@ -132,10 +132,9 @@ class _ShopViewState extends State<ShopView> {
                             ],
                             textColor: ColorManager.whiteColor,
                             child: womenSubCategoryData == null
-                                ? ShimmersWidget(
-                                    height: 60,
-                                    width: SizeUtility(context).width,
-                                  )
+                                ? ShimmerUtils.customRectangleShimmer(
+                                    SizeUtility(context).width, 60,
+                                    borderRadius: 16)
                                 : shopCardSubcategoryWidget(
                                     getId: (index) =>
                                         womenSubCategoryData[index].id ?? "",
@@ -177,10 +176,9 @@ class _ShopViewState extends State<ShopView> {
                             ],
                             textColor: ColorManager.blackColor,
                             child: healthyDietSubCategoryData == null
-                                ? ShimmersWidget(
-                                    height: 60,
-                                    width: SizeUtility(context).width,
-                                  )
+                                ? ShimmerUtils.customRectangleShimmer(
+                                    SizeUtility(context).width, 60,
+                                    borderRadius: 16)
                                 : shopCardSubcategoryWidget(
                                     getId: (index) =>
                                         healthyDietSubCategoryData[index].id ??
@@ -220,10 +218,9 @@ class _ShopViewState extends State<ShopView> {
                             ],
                             textColor: ColorManager.whiteColor,
                             child: sunnahSubCategoryData == null
-                                ? ShimmersWidget(
-                                    height: 60,
-                                    width: SizeUtility(context).width,
-                                  )
+                                ? ShimmerUtils.customRectangleShimmer(
+                                    SizeUtility(context).width, 60,
+                                    borderRadius: 16)
                                 : shopCardSubcategoryWidget(
                                     data: sunnahSubCategoryData,
                                     getId: (index) =>
@@ -335,10 +332,9 @@ class _ShopViewState extends State<ShopView> {
             itemBuilder: (BuildContext context, int index) {
               final data = state.brandModels?.result?.data?[index];
               return state.brandModels?.result?.data == null
-                  ? const ShimmersRounded(
-                      height: 10,
-                      width: 10,
-                    )
+                  ? const Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: ShimmerUtilWidgetRounded(width: 56, height: 56))
                   : GestureDetector(
                       onTap: () {
                         context.goNamed(
@@ -358,9 +354,9 @@ class _ShopViewState extends State<ShopView> {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         if (state.shopAdBrands?.result?.data == null) {
-          return ShimmersWidget(
-            width: SizeUtility(context).width,
-            height: 150,
+          return ShimmerUtils.customRectangleShimmer(
+            SizeUtility(context).width,
+            150,
             borderRadius: 12,
           );
         }
@@ -499,9 +495,9 @@ class _ShopViewState extends State<ShopView> {
         if (state.shopBanner == null) {
           return Padding(
             padding: const EdgeInsets.only(top: 18.0),
-            child: ShimmersWidget(
-              width: SizeUtility(context).width,
-              height: 150,
+            child: ShimmerUtils.customRectangleShimmer(
+              SizeUtility(context).width,
+              150,
               borderRadius: 12,
             ),
           );
@@ -669,9 +665,12 @@ class _ShopViewState extends State<ShopView> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     if (state.category?.result?.category == null) {
-                      return const ShimmersRounded(
-                        height: 30,
-                        width: 30,
+                      return const Padding(
+                        padding: EdgeInsets.all(12.0),
+                        child: ShimmerUtilWidgetRounded(
+                          height: 10,
+                          width: 10,
+                        ),
                       );
                     }
                     final data = state.category!.result!.category![index];

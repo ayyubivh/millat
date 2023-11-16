@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
-import 'package:millat/components/shimmers/shimmer_widget.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Utilities {
@@ -139,9 +139,9 @@ class Utilities {
         height: height,
         width: width,
         fit: boxFit,
-        placeholder: (context, url) => ShimmersWidget(
-          width: width ?? 0,
-          height: height ?? 0,
+        placeholder: (context, url) => ShimmerUtils.customRectangleShimmer(
+          width ?? 0,
+          height ?? 0,
         ),
         errorWidget: (context, url, error) =>
             const Center(child: Icon(Icons.report_gmailerrorred_outlined)),

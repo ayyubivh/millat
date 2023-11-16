@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
-import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/resources/travel/view/widget/travel_tabbar_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
@@ -314,9 +313,9 @@ class HeaderImageWidget extends StatelessWidget {
       builder: (context, state) {
         final img = state.travelProductsModel?.product.images?[0];
         return img == null
-            ? ShimmersWidget(
-                width: SizeUtility(context).width,
-                height: 200,
+            ? ShimmerUtils.customRectangleShimmer(
+                SizeUtility(context).width,
+                200,
                 borderRadius: 16,
               )
             : Utilities().buildCachedNetworkImage(

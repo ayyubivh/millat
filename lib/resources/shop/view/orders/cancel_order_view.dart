@@ -75,7 +75,7 @@ class CancelView extends StatelessWidget {
                                                 BorderRadius.circular(12),
                                             image: DecorationImage(
                                               image: NetworkImage(
-                                                  data?.productId?.images![0] ??
+                                                  data.productId?.images![0] ??
                                                       ""),
                                             ),
                                           ),
@@ -95,7 +95,7 @@ class CancelView extends StatelessWidget {
                                             ),
                                             kWidth5,
                                             Text(
-                                              data?.orderId ?? '',
+                                              data.orderId ?? '',
                                               style: TextStyle(
                                                 fontSize: 13,
                                                 color: ColorManager.textGrey7A,
@@ -116,7 +116,7 @@ class CancelView extends StatelessWidget {
                                                   .width *
                                               0.4,
                                           child: Text(
-                                            data?.productId?.title ?? "",
+                                            data.productId?.title ?? "",
                                             style: const TextStyle(
                                               color: textBlack,
                                               fontSize: 17,
@@ -126,7 +126,7 @@ class CancelView extends StatelessWidget {
                                         ),
                                         kHeight8,
                                         Text(
-                                          "${data?.productId?.color ?? ""},${data?.productId?.size?[0].size ?? ""}",
+                                          "${data.productId?.color ?? ""},${data.productId?.size?[0].size ?? ""}",
                                           style: TextStyle(
                                             color: ColorManager.textGrey7A,
                                             fontSize: 13,
@@ -142,7 +142,7 @@ class CancelView extends StatelessWidget {
                                         ),
                                         kHeight8,
                                         Text(
-                                          data?.sellingPrice.toString() ?? "",
+                                          data.sellingPrice.toString() ?? "",
                                           style: TextStyle(
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold,
@@ -241,27 +241,32 @@ class CancelView extends StatelessWidget {
           ),
         ),
       ),
-      bottomSheet: Container(
-        padding:
-            const EdgeInsets.only(top: 10, bottom: 30, left: 20, right: 20),
-        height: 100,
-        width: double.infinity,
-        child: MainButton(
-          title: Appstrings.submit,
-          onPressed: () {
-            final data = context.read<ShopProductsBloc>().state;
-            final id = data.ordersByIdModel!.result!.order!.shiprocketOrderId;
+      bottomSheet: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+        builder: (context, state) => Container(
+          padding:
+              const EdgeInsets.only(top: 10, bottom: 30, left: 20, right: 20),
+          height: 100,
+          width: double.infinity,
+          child: MainButton(
+            title: Appstrings.submit,
+            onPressed: () {
+              final id =
+                  state.ordersByIdModel!.result!.order!.shiprocketOrderId;
+              print(state.indexVal);
+              context.read<ShopProductsBloc>()
+                ..add(
+                    CancelOrder(context: context, shiprockeId: int.parse(id!)))
+                ..add(AddReasons(
+                    endpoint: Appstrings.addCancelReasonEnpoint,
+                    text: state
+                            .reasonModel?.result?.data?.reasons![state.indexVal]
+                            .toString() ??
+                        ""));
 
-            context.read<ShopProductsBloc>()
-              ..add(CancelOrder(context: context, shiprockeId: int.parse(id!)))
-              ..add(AddReasons(
-                  endpoint: Appstrings.addCancelReasonEnpoint,
-                  text: data.reasonModel!.result!.data!.reasons![data.indexVal]
-                      .toString()));
-
-            context.pushNamed(MyAppRouteConstants.orderReturnSuccesRouteName,
-                extra: {'orderType': OrderType.cancelOrder});
-          },
+              context.pushNamed(MyAppRouteConstants.orderReturnSuccesRouteName,
+                  extra: {'orderType': OrderType.cancelOrder});
+            },
+          ),
         ),
       ),
     );

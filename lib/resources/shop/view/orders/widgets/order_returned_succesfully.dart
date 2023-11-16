@@ -59,7 +59,7 @@ class OrderReturnSuccessView extends StatelessWidget {
                     title: Appstrings.keepShopping,
                     onPressed: () {
                       context.pushReplacementNamed(
-                          MyAppRouteConstants.shopTabsRouteName);
+                          MyAppRouteConstants.homeTabsRouteName);
                     },
                   ))),
     );

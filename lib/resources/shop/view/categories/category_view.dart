@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
-import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
-import 'package:millat/utils/shimmer_utils.dart';
+ import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -391,8 +389,8 @@ class CategoryView extends StatelessWidget {
                                 .toList() ??
                             [];
                         return state.specificCategoryModel?.result?.data == null
-                            ? ShimmersWidget(
-                                width: SizeUtility(context).width, height: 120)
+                            ? ShimmerUtils.customRectangleShimmer(
+                                SizeUtility(context).width, 120)
                             : Column(
                                 children: [
                                   for (var i = 0;

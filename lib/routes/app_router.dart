@@ -16,7 +16,7 @@ import 'package:millat/resources/home/view/dua/dua_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_bookmar_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_category_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/inside_dua_view.dart';
-import 'package:millat/resources/home/view/home_view.dart';
+import 'package:millat/resources/home/view/main_home/home_view.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/home/view/qibla/qibla_view.dart';
 import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';

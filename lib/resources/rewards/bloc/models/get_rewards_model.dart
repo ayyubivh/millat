@@ -30,7 +30,7 @@ class Reward with _$Reward {
   const factory Reward({
     @JsonKey(name: '_id') String? id,
     @JsonKey(name: 'userId') String? userId,
-    int? coins,
+    double? coins,
     @JsonKey(name: 'createdAt') String? createdAt,
     @JsonKey(name: 'updatedAt') String? updatedAt,
   }) = _Reward;

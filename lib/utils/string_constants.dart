@@ -4,6 +4,8 @@ class Appstrings {
   static const String namazMethodDb = "NamazMethode-Db";
   static const String autoDetectLocationKey = "Autodetect-Location";
   static const String autoMaticSettingsKey = "Automatic-settings";
+  static const String lastTimestampKey = 'lastTimestamp';
+  static const String rewardsCoinsKey = "Rewards-conins";
   static const String showImsakKey = "Show-imsak";
   static const String calculationMethodKey = "Calculation-Method";
   static const String asrCalculationMethodKey = "Asr-calculation-Method";
@@ -76,7 +78,7 @@ class Appstrings {
   static const String notifications = "Notifications";
   static const String millatCo = "Millat.co";
   static const String aboutUsDescription =
-      "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.We don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
+      "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may cedfrom you acedross our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.We don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
   static const String privacyPolicyDescription =
       "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.\n\nWe don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
   static const String inviteYourFriend = "Invite your Friends";
@@ -253,6 +255,7 @@ class Appstrings {
   static const String coins = "Coins";
   static const String earnFreeConins = "Earn free coins everyday";
   static const String collect = "Collect";
+  static const String collected = "Collected";
   static const String howEarn = "How to \nEarn ?";
   static const String howRedeem = "How to \nRedeem?";
   static const String howToEarn = "How to earn";

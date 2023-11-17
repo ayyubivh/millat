@@ -164,8 +164,8 @@ class ShopProductWidget extends StatelessWidget {
                       }
                     },
                     child: Container(
-                      height: 20,
-                      width: 20,
+                      height: 23,
+                      width: 23,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: isProductInCart
@@ -175,7 +175,7 @@ class ShopProductWidget extends StatelessWidget {
                       child: Center(
                         child: Icon(
                           isProductInCart ? Icons.remove : Icons.add,
-                          size: 17,
+                          size: 21,
                           color: ColorManager.whiteColor,
                         ),
                       ),

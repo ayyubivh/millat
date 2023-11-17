@@ -23,6 +23,7 @@ mixin _$RewardsEvent {
     required TResult Function(String id) fetchRewardProductsById,
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$RewardsEvent {
     TResult? Function(String id)? fetchRewardProductsById,
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$RewardsEvent {
     TResult Function(String id)? fetchRewardProductsById,
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +57,7 @@ mixin _$RewardsEvent {
         changeCarousselImageIndex,
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +68,7 @@ mixin _$RewardsEvent {
     TResult? Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +79,7 @@ mixin _$RewardsEvent {
     TResult Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -166,6 +172,7 @@ class _$FetchRewardsImpl implements _FetchRewards {
     required TResult Function(String id) fetchRewardProductsById,
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
   }) {
     return fetchRewards(context);
   }
@@ -178,6 +185,7 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult? Function(String id)? fetchRewardProductsById,
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
   }) {
     return fetchRewards?.call(context);
   }
@@ -190,6 +198,7 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult Function(String id)? fetchRewardProductsById,
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
     required TResult orElse(),
   }) {
     if (fetchRewards != null) {
@@ -209,6 +218,7 @@ class _$FetchRewardsImpl implements _FetchRewards {
         changeCarousselImageIndex,
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
   }) {
     return fetchRewards(this);
   }
@@ -222,6 +232,7 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult? Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
   }) {
     return fetchRewards?.call(this);
   }
@@ -235,6 +246,7 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
     required TResult orElse(),
   }) {
     if (fetchRewards != null) {
@@ -298,6 +310,7 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     required TResult Function(String id) fetchRewardProductsById,
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
   }) {
     return fetchRewardProducts();
   }
@@ -310,6 +323,7 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult? Function(String id)? fetchRewardProductsById,
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
   }) {
     return fetchRewardProducts?.call();
   }
@@ -322,6 +336,7 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult Function(String id)? fetchRewardProductsById,
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
     required TResult orElse(),
   }) {
     if (fetchRewardProducts != null) {
@@ -341,6 +356,7 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
         changeCarousselImageIndex,
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
   }) {
     return fetchRewardProducts(this);
   }
@@ -354,6 +370,7 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult? Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
   }) {
     return fetchRewardProducts?.call(this);
   }
@@ -367,6 +384,7 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
     required TResult orElse(),
   }) {
     if (fetchRewardProducts != null) {
@@ -452,6 +470,7 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     required TResult Function(String id) fetchRewardProductsById,
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
   }) {
     return fetchRewardProductsById(id);
   }
@@ -464,6 +483,7 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult? Function(String id)? fetchRewardProductsById,
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
   }) {
     return fetchRewardProductsById?.call(id);
   }
@@ -476,6 +496,7 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult Function(String id)? fetchRewardProductsById,
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
     required TResult orElse(),
   }) {
     if (fetchRewardProductsById != null) {
@@ -495,6 +516,7 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
         changeCarousselImageIndex,
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
   }) {
     return fetchRewardProductsById(this);
   }
@@ -508,6 +530,7 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult? Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
   }) {
     return fetchRewardProductsById?.call(this);
   }
@@ -521,6 +544,7 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
     required TResult orElse(),
   }) {
     if (fetchRewardProductsById != null) {
@@ -612,6 +636,7 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     required TResult Function(String id) fetchRewardProductsById,
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
   }) {
     return changeCarousselImageIndex(index);
   }
@@ -624,6 +649,7 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult? Function(String id)? fetchRewardProductsById,
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
   }) {
     return changeCarousselImageIndex?.call(index);
   }
@@ -636,6 +662,7 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult Function(String id)? fetchRewardProductsById,
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
     required TResult orElse(),
   }) {
     if (changeCarousselImageIndex != null) {
@@ -655,6 +682,7 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
         changeCarousselImageIndex,
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
   }) {
     return changeCarousselImageIndex(this);
   }
@@ -668,6 +696,7 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult? Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
   }) {
     return changeCarousselImageIndex?.call(this);
   }
@@ -681,6 +710,7 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
     required TResult orElse(),
   }) {
     if (changeCarousselImageIndex != null) {
@@ -771,6 +801,7 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     required TResult Function(String id) fetchRewardProductsById,
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
   }) {
     return changeRewardsTabIndex(index);
   }
@@ -783,6 +814,7 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult? Function(String id)? fetchRewardProductsById,
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
   }) {
     return changeRewardsTabIndex?.call(index);
   }
@@ -795,6 +827,7 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult Function(String id)? fetchRewardProductsById,
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
     required TResult orElse(),
   }) {
     if (changeRewardsTabIndex != null) {
@@ -814,6 +847,7 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
         changeCarousselImageIndex,
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
   }) {
     return changeRewardsTabIndex(this);
   }
@@ -827,6 +861,7 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult? Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
   }) {
     return changeRewardsTabIndex?.call(this);
   }
@@ -840,6 +875,7 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult Function(ChangeCarousselImageIndex value)?
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
     required TResult orElse(),
   }) {
     if (changeRewardsTabIndex != null) {
@@ -860,6 +896,168 @@ abstract class ChangeRewardsTabIndex implements RewardsEvent {
 }
 
 /// @nodoc
+abstract class _$$AddRewardsImplCopyWith<$Res> {
+  factory _$$AddRewardsImplCopyWith(
+          _$AddRewardsImpl value, $Res Function(_$AddRewardsImpl) then) =
+      __$$AddRewardsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int rewards});
+}
+
+/// @nodoc
+class __$$AddRewardsImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$AddRewardsImpl>
+    implements _$$AddRewardsImplCopyWith<$Res> {
+  __$$AddRewardsImplCopyWithImpl(
+      _$AddRewardsImpl _value, $Res Function(_$AddRewardsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? rewards = null,
+  }) {
+    return _then(_$AddRewardsImpl(
+      rewards: null == rewards
+          ? _value.rewards
+          : rewards // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddRewardsImpl implements AddRewards {
+  const _$AddRewardsImpl({required this.rewards});
+
+  @override
+  final int rewards;
+
+  @override
+  String toString() {
+    return 'RewardsEvent.addRewards(rewards: $rewards)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddRewardsImpl &&
+            (identical(other.rewards, rewards) || other.rewards == rewards));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, rewards);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddRewardsImplCopyWith<_$AddRewardsImpl> get copyWith =>
+      __$$AddRewardsImplCopyWithImpl<_$AddRewardsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchRewards,
+    required TResult Function() fetchRewardProducts,
+    required TResult Function(String id) fetchRewardProductsById,
+    required TResult Function(int index) changeCarousselImageIndex,
+    required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
+  }) {
+    return addRewards(rewards);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchRewards,
+    TResult? Function()? fetchRewardProducts,
+    TResult? Function(String id)? fetchRewardProductsById,
+    TResult? Function(int index)? changeCarousselImageIndex,
+    TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
+  }) {
+    return addRewards?.call(rewards);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchRewards,
+    TResult Function()? fetchRewardProducts,
+    TResult Function(String id)? fetchRewardProductsById,
+    TResult Function(int index)? changeCarousselImageIndex,
+    TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
+    required TResult orElse(),
+  }) {
+    if (addRewards != null) {
+      return addRewards(rewards);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchRewards value) fetchRewards,
+    required TResult Function(_FetchRewardProducts value) fetchRewardProducts,
+    required TResult Function(_FetchRewardProductsById value)
+        fetchRewardProductsById,
+    required TResult Function(ChangeCarousselImageIndex value)
+        changeCarousselImageIndex,
+    required TResult Function(ChangeRewardsTabIndex value)
+        changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
+  }) {
+    return addRewards(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchRewards value)? fetchRewards,
+    TResult? Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult? Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult? Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
+  }) {
+    return addRewards?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchRewards value)? fetchRewards,
+    TResult Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
+    required TResult orElse(),
+  }) {
+    if (addRewards != null) {
+      return addRewards(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddRewards implements RewardsEvent {
+  const factory AddRewards({required final int rewards}) = _$AddRewardsImpl;
+
+  int get rewards;
+  @JsonKey(ignore: true)
+  _$$AddRewardsImplCopyWith<_$AddRewardsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$RewardsState {
   bool get isLoading => throw _privateConstructorUsedError;
   RewardsModel? get rewardsModel => throw _privateConstructorUsedError;
@@ -869,6 +1067,7 @@ mixin _$RewardsState {
       throw _privateConstructorUsedError;
   int get carouselImageIndex => throw _privateConstructorUsedError;
   int get tabIndex => throw _privateConstructorUsedError;
+  double get rewardCoins => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RewardsStateCopyWith<RewardsState> get copyWith =>
@@ -887,7 +1086,8 @@ abstract class $RewardsStateCopyWith<$Res> {
       RewardsProductByIdModel? rewardsProductByIdModel,
       RewardsProductsModel? rewardsProductsModel,
       int carouselImageIndex,
-      int tabIndex});
+      int tabIndex,
+      double rewardCoins});
 
   $RewardsModelCopyWith<$Res>? get rewardsModel;
   $RewardsProductByIdModelCopyWith<$Res>? get rewardsProductByIdModel;
@@ -913,6 +1113,7 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
     Object? rewardsProductsModel = freezed,
     Object? carouselImageIndex = null,
     Object? tabIndex = null,
+    Object? rewardCoins = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -939,6 +1140,10 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
           ? _value.tabIndex
           : tabIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      rewardCoins: null == rewardCoins
+          ? _value.rewardCoins
+          : rewardCoins // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 
@@ -995,7 +1200,8 @@ abstract class _$$RewardsStateImplCopyWith<$Res>
       RewardsProductByIdModel? rewardsProductByIdModel,
       RewardsProductsModel? rewardsProductsModel,
       int carouselImageIndex,
-      int tabIndex});
+      int tabIndex,
+      double rewardCoins});
 
   @override
   $RewardsModelCopyWith<$Res>? get rewardsModel;
@@ -1022,6 +1228,7 @@ class __$$RewardsStateImplCopyWithImpl<$Res>
     Object? rewardsProductsModel = freezed,
     Object? carouselImageIndex = null,
     Object? tabIndex = null,
+    Object? rewardCoins = null,
   }) {
     return _then(_$RewardsStateImpl(
       isLoading: null == isLoading
@@ -1048,6 +1255,10 @@ class __$$RewardsStateImplCopyWithImpl<$Res>
           ? _value.tabIndex
           : tabIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      rewardCoins: null == rewardCoins
+          ? _value.rewardCoins
+          : rewardCoins // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -1061,7 +1272,8 @@ class _$RewardsStateImpl implements _RewardsState {
       required this.rewardsProductByIdModel,
       required this.rewardsProductsModel,
       required this.carouselImageIndex,
-      required this.tabIndex});
+      required this.tabIndex,
+      required this.rewardCoins});
 
   @override
   final bool isLoading;
@@ -1075,10 +1287,12 @@ class _$RewardsStateImpl implements _RewardsState {
   final int carouselImageIndex;
   @override
   final int tabIndex;
+  @override
+  final double rewardCoins;
 
   @override
   String toString() {
-    return 'RewardsState(isLoading: $isLoading, rewardsModel: $rewardsModel, rewardsProductByIdModel: $rewardsProductByIdModel, rewardsProductsModel: $rewardsProductsModel, carouselImageIndex: $carouselImageIndex, tabIndex: $tabIndex)';
+    return 'RewardsState(isLoading: $isLoading, rewardsModel: $rewardsModel, rewardsProductByIdModel: $rewardsProductByIdModel, rewardsProductsModel: $rewardsProductsModel, carouselImageIndex: $carouselImageIndex, tabIndex: $tabIndex, rewardCoins: $rewardCoins)';
   }
 
   @override
@@ -1098,7 +1312,9 @@ class _$RewardsStateImpl implements _RewardsState {
             (identical(other.carouselImageIndex, carouselImageIndex) ||
                 other.carouselImageIndex == carouselImageIndex) &&
             (identical(other.tabIndex, tabIndex) ||
-                other.tabIndex == tabIndex));
+                other.tabIndex == tabIndex) &&
+            (identical(other.rewardCoins, rewardCoins) ||
+                other.rewardCoins == rewardCoins));
   }
 
   @override
@@ -1109,7 +1325,8 @@ class _$RewardsStateImpl implements _RewardsState {
       rewardsProductByIdModel,
       rewardsProductsModel,
       carouselImageIndex,
-      tabIndex);
+      tabIndex,
+      rewardCoins);
 
   @JsonKey(ignore: true)
   @override
@@ -1125,7 +1342,8 @@ abstract class _RewardsState implements RewardsState {
       required final RewardsProductByIdModel? rewardsProductByIdModel,
       required final RewardsProductsModel? rewardsProductsModel,
       required final int carouselImageIndex,
-      required final int tabIndex}) = _$RewardsStateImpl;
+      required final int tabIndex,
+      required final double rewardCoins}) = _$RewardsStateImpl;
 
   @override
   bool get isLoading;
@@ -1139,6 +1357,8 @@ abstract class _RewardsState implements RewardsState {
   int get carouselImageIndex;
   @override
   int get tabIndex;
+  @override
+  double get rewardCoins;
   @override
   @JsonKey(ignore: true)
   _$$RewardsStateImplCopyWith<_$RewardsStateImpl> get copyWith =>

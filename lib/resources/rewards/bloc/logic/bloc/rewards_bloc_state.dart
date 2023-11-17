@@ -9,6 +9,7 @@ class RewardsState with _$RewardsState {
     required RewardsProductsModel? rewardsProductsModel,
     required int carouselImageIndex,
     required int tabIndex,
+    required double rewardCoins,
   }) = _RewardsState;
   factory RewardsState.initial() => const RewardsState(
         isLoading: false,
@@ -17,5 +18,6 @@ class RewardsState with _$RewardsState {
         rewardsProductByIdModel: null,
         carouselImageIndex: 0,
         tabIndex: 0,
+        rewardCoins: 0,
       );
 }

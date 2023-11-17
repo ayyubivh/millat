@@ -87,4 +87,40 @@ class RewardServices extends HttpServices {
       throw Exception('Token not available');
     }
   }
+
+  // add rewards point
+  addReward({
+    required int rewards,
+  }) async {
+    const endPoint = 'reward/add';
+
+    final body = {
+      "rewards": rewards.toString(),
+    };
+
+    final response = await put(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
+
+    try {
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+
+        return data;
+      } else if (response.statusCode == 409) {
+        final data = json.decode(response.body);
+
+        return data;
+      } else {
+        print('API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
+    }
+  }
 }

@@ -38,7 +38,7 @@ Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
 _$RewardImpl _$$RewardImplFromJson(Map<String, dynamic> json) => _$RewardImpl(
       id: json['_id'] as String?,
       userId: json['userId'] as String?,
-      coins: json['coins'] as int?,
+      coins: (json['coins'] as num?)?.toDouble(),
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
     );

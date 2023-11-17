@@ -21,6 +21,7 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
     on<_FetchRewardProductsById>(__fetchRewardProductsById);
     on<ChangeCarousselImageIndex>(_changeCarouselimageIndex);
     on<ChangeRewardsTabIndex>(_changeRewardsTabIndex);
+    on<AddRewards>(_addRewards);
   }
 
   _fetchRewards(_FetchRewards event, Emitter<RewardsState> emit) async {
@@ -28,7 +29,10 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
     try {
       final data = await rewardServices.fetchRewards(event.context);
 
-      emit(state.copyWith(rewardsModel: data, isLoading: false));
+      emit(state.copyWith(
+          rewardsModel: data,
+          isLoading: false,
+          rewardCoins: data.result?.reward?.coins?.toDouble() ?? 0));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }
@@ -69,5 +73,19 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
   _changeRewardsTabIndex(
       ChangeRewardsTabIndex event, Emitter<RewardsState> emit) {
     emit(state.copyWith(tabIndex: event.index));
+  }
+
+  _addRewards(AddRewards event, Emitter<RewardsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await rewardServices.addReward(rewards: event.rewards);
+
+      emit(state.copyWith(
+          isLoading: false, rewardCoins: state.rewardCoins + event.rewards));
+      print(data);
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      throw Exception(e);
+    }
   }
 }

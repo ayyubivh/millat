@@ -12,4 +12,5 @@ class RewardsEvent with _$RewardsEvent {
       ChangeCarousselImageIndex;
   const factory RewardsEvent.changeRewardsTabIndex({required int index}) =
       ChangeRewardsTabIndex;
+  const factory RewardsEvent.addRewards({required int rewards}) = AddRewards;
 }

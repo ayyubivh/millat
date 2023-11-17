@@ -1,5 +1,8 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -17,48 +20,77 @@ class DailyCoinsWidget extends StatefulWidget {
 
 class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   late Timer _timer;
-
+  bool? isCoinColleted = false;
   Duration duration = const Duration();
-  final deadLine = DateTime.now().add(const Duration(hours: 8));
-  SharedPreferences? prefs;
-  final String lastTimestampKey = 'lastTimestamp';
-  final Duration dailyDuration = const Duration(hours: 8);
+  late SharedPreferences prefs;
+
+  final Duration initialDuration = const Duration(seconds: 10);
+
   @override
   void initState() {
     super.initState();
-    print("latest time ========= ${_loadLastTimestamp()}");
+    _initSharedPreferences();
+  }
 
+  _initSharedPreferences() async {
+    prefs = await SharedPreferences.getInstance();
+    print("latest time ========= ${_loadLastTimestamp()}");
     _loadLastTimestamp();
-    calculateTimeLeft();
+    _startTimer();
+  }
+
+  _startTimer() {
     _timer =
         Timer.periodic(const Duration(seconds: 1), (_) => calculateTimeLeft());
   }
 
   calculateTimeLeft() {
+    _checkConisCollected();
     final lastTimestamp = _loadLastTimestamp();
-    // print(lastTimestamp);
+    print("latest time ========= ${lastTimestamp}");
     final now = DateTime.now();
     final elapsedSeconds = now.difference(lastTimestamp).inSeconds;
-    // print(elapsedSeconds);
-    // print(dailyDuration.inSeconds);
-    final remainingSeconds = dailyDuration.inSeconds - elapsedSeconds;
-    // print(remainingSeconds);
-    final adjustedDuration = Duration(seconds: remainingSeconds);
-    // print("adjust duration is here-  -  -  - - - -  $adjustedDuration");
+    print("elapsed seconds ========= ${elapsedSeconds}");
+    print("initial duration========= ${initialDuration.inSeconds}");
     setState(() {
-      duration = adjustedDuration;
+      duration = Duration(seconds: initialDuration.inSeconds - elapsedSeconds);
+    });
+    print("duration ============== $duration");
+    if (elapsedSeconds >= initialDuration.inSeconds) {
+      _saveCurrentTimestamp();
+      _timer.cancel();
+      _startTimer();
+      _resetCollectedValue();
+    }
+  }
+
+  _resetCollectedValue() async {
+    await Utilities.saveBoolToSharedPreferences(
+        Appstrings.rewardsCoinsKey, false);
+    setState(() {
+      isCoinColleted = false;
     });
   }
 
-  _saveCurrentTimestamp() {
+  _checkConisCollected() async {
+    final value = await Utilities.getBoolFromSharedPreferences(
+        Appstrings.rewardsCoinsKey);
+    setState(() {
+      isCoinColleted = value;
+    });
+    print("is coins collected value ============= $value");
+  }
+
+  _saveCurrentTimestamp() async {
     print(DateTime.now().millisecondsSinceEpoch);
-    Utilities.saveIntToSharedPreferences(
-        lastTimestampKey, DateTime.now().millisecondsSinceEpoch);
+    await Utilities.saveIntToSharedPreferences(
+        Appstrings.lastTimestampKey, DateTime.now().millisecondsSinceEpoch);
   }
 
   DateTime _loadLastTimestamp() {
-    final lastTimestamp = prefs?.getInt(lastTimestampKey) ??
+    final lastTimestamp = prefs.getInt(Appstrings.lastTimestampKey) ??
         DateTime.now().millisecondsSinceEpoch;
+
     return DateTime.fromMillisecondsSinceEpoch(lastTimestamp);
   }
 
@@ -205,27 +237,38 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                 ],
               ),
               kHeight20,
-              Container(
-                height: 38,
-                width: SizeUtility(context).width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: ColorManager.primary,
-                    gradient: LinearGradient(
-                      colors: [
-                        ColorManager.primary.withOpacity(0.6),
-                        ColorManager.primary,
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    )),
-                child: Center(
-                  child: Text(
-                    Appstrings.collect,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: ColorManager.whiteColor,
+              GestureDetector(
+                onTap: () async {
+                  await Utilities.saveBoolToSharedPreferences(
+                      Appstrings.rewardsCoinsKey, true);
+                  BlocProvider.of<RewardsBloc>(context)
+                      .add(AddRewards(rewards: 1));
+                },
+                child: Container(
+                  height: 38,
+                  width: SizeUtility(context).width,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      gradient: LinearGradient(
+                        colors: [
+                          ColorManager.primary
+                              .withOpacity(isCoinColleted == true ? 0.4 : 0.6),
+                          ColorManager.primary
+                              .withOpacity(isCoinColleted == true ? 0.6 : 1),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      )),
+                  child: Center(
+                    child: Text(
+                      isCoinColleted == true
+                          ? Appstrings.collected
+                          : Appstrings.collect,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: ColorManager.whiteColor,
+                      ),
                     ),
                   ),
                 ),

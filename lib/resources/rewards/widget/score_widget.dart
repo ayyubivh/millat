@@ -49,8 +49,7 @@ class ScoreWidget extends StatelessWidget {
                     kWidth10,
                     BlocBuilder<RewardsBloc, RewardsState>(
                       builder: (context, state) => Text(
-                        state.rewardsModel?.result?.reward?.coins.toString() ??
-                            "0",
+                        state.rewardCoins.toInt().toString(),
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,

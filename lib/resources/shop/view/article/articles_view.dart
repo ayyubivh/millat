@@ -7,7 +7,7 @@ import 'package:millat/resources/shop/view/article/widgets/artilce_build_widget.
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -165,7 +165,7 @@ class ArticlesView extends StatelessWidget {
               child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
                 builder: (context, state) {
                   if (state.articles == null || state.isLoading) {
-                    return const Loader();
+                    return ShimmerUtils.articlesShimmer();
                   }
                   return ListView.builder(
                     itemCount: state.articles?.length,

@@ -7,6 +7,8 @@ import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.da
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
+import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
 import '../../../../../utils/constants.dart';
@@ -46,10 +48,13 @@ class InsideDuaView extends StatelessWidget {
           ],
         ),
         body: BlocBuilder<DuaBloc, DuaState>(builder: (context, state) {
-          if (state.isLoading) {
-            return const Loader();
-          } else if (state.duaModel == null) {
-            return const Loader();
+          if (state.duaModel == null || state.isLoading) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              child: ShimmerUtils.customRectangleShimmer(
+                  SizeUtility(context).width, 160,
+                  borderRadius: 12),
+            );
           } else {
             return ListView.separated(
                 itemBuilder: (context, index) {

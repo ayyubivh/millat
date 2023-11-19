@@ -7,6 +7,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 
 import '../../../../../utils/size_utility.dart';
 
@@ -36,10 +37,14 @@ class DuaBookMarkView extends StatelessWidget {
       body: Column(
         children: [
           BlocBuilder<DuaBloc, DuaState>(builder: (context, state) {
-            if (state.isLoading) {
-              return const Loader();
-            } else if (state.duaModelbyId == null) {
-              return const Loader();
+            if (state.duaModelbyId == null || state.isLoading) {
+              return Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                child: ShimmerUtils.customRectangleShimmer(
+                    SizeUtility(context).width, 160,
+                    borderRadius: 12),
+              );
             } else if (state.duaBookMarkModel?.result == null) {
               return Padding(
                   padding:

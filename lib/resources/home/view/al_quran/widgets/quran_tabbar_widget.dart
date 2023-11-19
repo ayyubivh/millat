@@ -6,6 +6,7 @@ import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dar
 import 'package:millat/resources/home/view/al_quran/widgets/creat_new_bookmark_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
@@ -208,21 +209,25 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
   }
 
   Widget _paraTabBar() {
-    return ListView.separated(
-      itemCount: verses.length,
-      itemBuilder: (context, index) {
-        final verse = verses[index];
-        String englishVerse = verse['english'] ?? '';
-        String arabicVerse = verse['arabic'] ?? '';
-        return BlocBuilder<QuranBloc, QuranState>(
-          builder: (context, state) {
+    return BlocBuilder<QuranBloc, QuranState>(
+      builder: (context, state) {
+        return ListView.separated(
+          itemCount: verses.length,
+          itemBuilder: (context, index) {
+            if (state.quranParaModel?.juzs == null) {
+              return ShimmerUtils.quranShimmers();
+            }
+            final verse = verses[index];
+            String englishVerse = verse['english'] ?? '';
+            String arabicVerse = verse['arabic'] ?? '';
             return ListTile(
               onTap: () {
                 final id = state.quranParaModel!.juzs[index].juzNumber!.toInt();
-
                 context.read<QuranBloc>().add(FetchParaVerses(id: id));
                 context.read<QuranBloc>().add(FetchTranslationParaTexts(
-                    translationId: state.globalTransilationId, paraId: id));
+                      translationId: state.globalTransilationId,
+                      paraId: id,
+                    ));
                 context
                     .read<QuranBloc>()
                     .add(FetchParaAudios(id: id, recitorId: state.recitorId));
@@ -282,24 +287,24 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
               ),
             );
           },
+          separatorBuilder: (context, index) => const Divider(thickness: 1),
         );
       },
-      separatorBuilder: (context, index) => const Divider(thickness: 1),
     );
   }
 
   Widget _surahTabBar() {
     return BlocBuilder<QuranBloc, QuranState>(
       builder: (context, state) {
-        if (state.isLoading || state.quranChaptersModel?.chapters == null) {
-          return const Loader();
-        }
-
-        final chapters = state.quranChaptersModel!.chapters;
-
         return ListView.separated(
-          itemCount: chapters.length,
+          itemCount: state.quranChaptersModel?.chapters.length ?? 5,
           itemBuilder: (context, index) {
+            if (state.isLoading || state.quranChaptersModel?.chapters == null) {
+              return ShimmerUtils.quranShimmers();
+            }
+
+            final chapters = state.quranChaptersModel!.chapters;
+
             final chapter = chapters[index];
 
             return _buildSurahTile(

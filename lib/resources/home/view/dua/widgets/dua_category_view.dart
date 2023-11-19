@@ -6,6 +6,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class DuaCategoryView extends StatelessWidget {
@@ -80,9 +81,9 @@ class DuaCategoryView extends StatelessWidget {
             Expanded(child: BlocBuilder<DuaBloc, DuaState>(
               builder: (context, state) {
                 return state.duaSubcategoryModel == null
-                    ? const Loader()
+                    ? ShimmerUtils.duaShimmers()
                     : state.isLoading
-                        ? const Loader()
+                        ? ShimmerUtils.duaShimmers()
                         : ListView.builder(
                             itemCount: state.duaSubcategoryModel?.result
                                 .duaSubCategory!.length,

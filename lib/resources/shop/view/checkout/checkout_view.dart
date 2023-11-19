@@ -9,6 +9,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -106,7 +107,8 @@ class CheckoutView extends StatelessWidget {
                 BlocBuilder<AddressBloc, AddressState>(
                   builder: (context, state) {
                     return state.addressModel == null
-                        ? const Loader()
+                        ? ShimmerUtils.customRectangleShimmer(
+                            SizeUtility(context).width, 140)
                         : ListView.separated(
                             shrinkWrap: true,
                             itemCount:

@@ -250,7 +250,8 @@ class AlQuranSettings extends StatelessWidget {
                             separatorBuilder: (context, index) =>
                                 const Divider(thickness: 1),
                             itemCount:
-                                state.translationsModel!.translations.length,
+                                state.translationsModel?.translations.length ??
+                                    0,
                             itemBuilder: (context, index) {
                               final data =
                                   state.translationsModel?.translations[index];

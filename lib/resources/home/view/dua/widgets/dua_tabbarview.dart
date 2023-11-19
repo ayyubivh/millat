@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
 
@@ -42,68 +43,66 @@ class DuaTabbarview extends StatelessWidget {
               children: [
                 BlocBuilder<DuaBloc, DuaState>(
                   builder: (context, state) {
-                    if (state.isLoading) {
-                      const Loader();
-                    }
-                    final data = state.duaCategoryModel?.result.duaCategory;
-                    return data == null
-                        ? const Loader()
-                        : GridView.builder(
-                            itemCount: data.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 13,
-                              crossAxisSpacing: 13,
-                            ),
-                            itemBuilder: (context, index) {
-                              return GestureDetector(
-                                onTap: () {
-                                  context.read<DuaBloc>().add(
-                                      FetchDuaSubCategorybyCategory(
-                                          categoryId: state.duaCategoryModel!
-                                              .result.duaCategory[index].id
-                                              .toString()));
-                                  context.read<DuaBloc>().add(
-                                      ChangeSubcategoryNameEvent(
-                                          newName: state
-                                              .duaCategoryModel!
-                                              .result
-                                              .duaCategory[index]
-                                              .category!));
-                                  context.goNamed(
-                                      MyAppRouteConstants.duaCategoryRouteName);
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12),
-                                      border: Border.all(
-                                        color: ColorManager.primary,
-                                        width: 1.5,
-                                      )),
-                                  padding: const EdgeInsets.all(10),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.network(
-                                        "${data[index].image}",
-                                        height: 60,
-                                        width: 60,
-                                      ),
-                                      kHeight15,
-                                      Text(
-                                        data[index].category.toString(),
-                                        style: const TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                    return GridView.builder(
+                      itemCount:
+                          state.duaCategoryModel?.result.duaCategory.length ??
+                              8,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 13,
+                        crossAxisSpacing: 13,
+                      ),
+                      itemBuilder: (context, index) {
+                        final data = state.duaCategoryModel?.result.duaCategory;
+                        if (data == null || state.isLoading) {
+                          return ShimmerUtils.customRectangleShimmer(100, 100,
+                              borderRadius: 12);
+                        }
+                        return GestureDetector(
+                          onTap: () {
+                            context.read<DuaBloc>().add(
+                                FetchDuaSubCategorybyCategory(
+                                    categoryId: state.duaCategoryModel!.result
+                                        .duaCategory[index].id
+                                        .toString()));
+                            context.read<DuaBloc>().add(
+                                ChangeSubcategoryNameEvent(
+                                    newName: state.duaCategoryModel!.result
+                                        .duaCategory[index].category!));
+                            context.goNamed(
+                                MyAppRouteConstants.duaCategoryRouteName);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: ColorManager.primary,
+                                  width: 1.5,
+                                )),
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.network(
+                                  "${data[index].image}",
+                                  height: 60,
+                                  width: 60,
                                 ),
-                              );
-                            },
-                          );
+                                kHeight15,
+                                Text(
+                                  data[index].category.toString(),
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
                   },
                 ),
                 Container(

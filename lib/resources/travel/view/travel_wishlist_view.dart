@@ -4,6 +4,7 @@ import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -37,7 +38,21 @@ class TravelWishlistView extends StatelessWidget {
         child: BlocBuilder<TravelBloc, TravelState>(
           builder: (context, state) {
             if (state.wishlistProducts == null || state.isLoading) {
-              return const Loader();
+              return Row(
+                children: [
+                  ...List.generate(
+                    2,
+                    (index) => Padding(
+                      padding: const EdgeInsets.only(right: 15.0),
+                      child: ShimmerUtils.productsShimmers(
+                        context: context,
+                        height: 160,
+                        width: SizeUtility(context).width / 2.5,
+                      ),
+                    ),
+                  )
+                ],
+              );
             } else {
               if (state.wishlistProducts?.length == 0) {
                 return Padding(

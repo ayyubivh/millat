@@ -14,6 +14,7 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -141,15 +142,21 @@ class RewardsHomeView extends StatelessWidget {
                 height: 106,
                 child: BlocBuilder<RewardsBloc, RewardsState>(
                   builder: (context, state) {
-                    final data = state.rewardsProductsModel?.result.products;
-                    if (data == null) {
-                      return const Loader();
-                    }
-
                     return ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: data.length,
+                      itemCount:
+                          state.rewardsProductsModel?.result.products.length ??
+                              4,
                       itemBuilder: (context, index) {
+                        final data =
+                            state.rewardsProductsModel?.result.products;
+                        if (data == null || state.isLoading) {
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: ShimmerUtils.customRectangleShimmer(106, 93,
+                                borderRadius: 8),
+                          );
+                        }
                         return Container(
                           height: 106,
                           width: 93,

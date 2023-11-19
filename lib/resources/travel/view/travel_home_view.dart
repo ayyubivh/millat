@@ -11,6 +11,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../utils/color_manager.dart';
@@ -77,7 +78,6 @@ class BestPlaceWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: BlocBuilder<TravelBloc, TravelState>(
         builder: (context, state) {
-          final data = state.travelBestPlacesModel?.products.products;
           return SizedBox(
             height: 240,
             child: Column(
@@ -92,112 +92,128 @@ class BestPlaceWidget extends StatelessWidget {
                 SizedBox(
                   height: 180,
                   child: ListView.builder(
-                    itemCount: data?.length,
+                    itemCount: state
+                            .travelBestPlacesModel?.products.products?.length ??
+                        3,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => GestureDetector(
-                      onTap: () {
-                        context.pushNamed(
-                            MyAppRouteConstants.travelSingleRoutename,
-                            pathParameters: {
-                              'id': data?[index].id ?? "",
-                            });
-                      },
-                      child: Column(
-                        children: [
-                          Stack(
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.only(right: 10),
-                                height: 180,
-                                width: SizeUtility(context).width / 1.3,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Utilities().buildCachedNetworkImage(
-                                      imageUrl: data?[index].images?[0]),
+                    itemBuilder: (context, index) {
+                      final data =
+                          state.travelBestPlacesModel?.products.products;
+                      if (data == null) {
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 12.0, top: 20),
+                          child: ShimmerUtils.customRectangleShimmer(
+                              SizeUtility(context).width / 1.6, 120,
+                              borderRadius: 14),
+                        );
+                      }
+                      return GestureDetector(
+                        onTap: () {
+                          context.pushNamed(
+                              MyAppRouteConstants.travelSingleRoutename,
+                              pathParameters: {
+                                'id': data[index].id ?? "",
+                              });
+                        },
+                        child: Column(
+                          children: [
+                            Stack(
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.only(right: 10),
+                                  height: 180,
+                                  width: SizeUtility(context).width / 1.3,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: Utilities().buildCachedNetworkImage(
+                                        imageUrl: data[index].images?[0]),
+                                  ),
                                 ),
-                              ),
-                              Positioned(
-                                bottom: 0,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(16),
-                                  child: Row(
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 140,
-                                            child: Text(
-                                              data?[index].name ?? "",
-                                              style: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.bold,
-                                                color: ColorManager.whiteColor,
-                                              ),
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                          kHeight5,
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              ImageIcon(
-                                                const AssetImage(
-                                                  AppAssetsStrings.locations,
-                                                ),
-                                                size: 12,
-                                                color: ColorManager.whiteColor,
-                                              ),
-                                              kWidth3,
-                                              Text(
-                                                data?[index].location ?? "",
+                                Positioned(
+                                  bottom: 0,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16),
+                                    child: Row(
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            SizedBox(
+                                              width: 140,
+                                              child: Text(
+                                                data[index].name ?? "",
                                                 style: TextStyle(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.bold,
                                                   color:
                                                       ColorManager.whiteColor,
                                                 ),
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.only(
-                                            left:
-                                                SizeUtility(context).width / 5),
-                                        width: 80,
-                                        height: 29,
-                                        decoration: BoxDecoration(
-                                          color: ColorManager.primary,
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            " Up to ₹${data?[index].price}",
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w700,
-                                              color: ColorManager.whiteColor,
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
                                             ),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
+                                            kHeight5,
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                ImageIcon(
+                                                  const AssetImage(
+                                                    AppAssetsStrings.locations,
+                                                  ),
+                                                  size: 12,
+                                                  color:
+                                                      ColorManager.whiteColor,
+                                                ),
+                                                kWidth3,
+                                                Text(
+                                                  data?[index].location ?? "",
+                                                  style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w500,
+                                                    color:
+                                                        ColorManager.whiteColor,
+                                                  ),
+                                                )
+                                              ],
+                                            )
+                                          ],
                                         ),
-                                      )
-                                    ],
+                                        Container(
+                                          margin: EdgeInsets.only(
+                                              left: SizeUtility(context).width /
+                                                  5),
+                                          width: 80,
+                                          height: 29,
+                                          decoration: BoxDecoration(
+                                            color: ColorManager.primary,
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              " Up to ₹${data?[index].price}",
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w700,
+                                                color: ColorManager.whiteColor,
+                                              ),
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],
@@ -239,7 +255,18 @@ class PopularDestinationWidget extends StatelessWidget {
             builder: (context, state) {
               final travelProducts = state.travelPopularProductsModel?.products;
               if (travelProducts == null || state.isLoading) {
-                return const Loader();
+                return Row(
+                    children: List.generate(
+                  2,
+                  (index) => Padding(
+                    padding: const EdgeInsets.only(right: 15.0),
+                    child: ShimmerUtils.productsShimmers(
+                      context: context,
+                      height: 200,
+                      width: SizeUtility(context).width / 2.5,
+                    ),
+                  ),
+                ));
               }
               return SizedBox(
                 height: 280,
@@ -428,13 +455,17 @@ class RecommendationWidget extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 2,
                 scrollDirection: Axis.horizontal,
-                reverse: true,
                 itemBuilder: (context, index) {
                   final products = state.travelPopularProductsModel?.products;
-                  if (state.travelPopularProductsModel?.products == null) {
-                    return const SizedBox();
+                  if (products == null) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 12.0),
+                      child: ShimmerUtils.customRectangleShimmer(
+                          SizeUtility(context).width / 1.6, 80,
+                          borderRadius: 14),
+                    );
                   }
-                  int reversedIndex = products!.length - 1 - index;
+                  int reversedIndex = products.length - 1 - index;
                   final data =
                       state.travelPopularProductsModel?.products[reversedIndex];
 
@@ -679,7 +710,17 @@ class CategoryList extends StatelessWidget {
             builder: (context, state) {
               final cities = state.travelCitiesModel?.cities;
               if (cities == null || state.isLoading) {
-                return const Loader();
+                return Row(
+                  children: [
+                    ...List.generate(
+                      5,
+                      (index) => Padding(
+                        padding: const EdgeInsets.only(right: 15.0),
+                        child: ShimmerUtils.categoriesShimmers(),
+                      ),
+                    )
+                  ],
+                );
               }
               if (cities.isEmpty) {
                 return const Center(child: Text('No cities available.'));
@@ -725,7 +766,9 @@ class BannerCarousel extends StatelessWidget {
       builder: (context, state) {
         final banners = state.travelHomeBannerPackages;
         return banners == null
-            ? const Loader()
+            ? ShimmerUtils.customRectangleShimmer(
+                SizeUtility(context).width, 240,
+                borderRadius: 50)
             : Stack(
                 children: [
                   CarouselSlider(

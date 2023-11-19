@@ -8,6 +8,7 @@ import 'package:millat/resources/home/view/al_quran/widgets/quran_fav_bookmark_c
 import 'package:millat/resources/home/view/al_quran/widgets/verses_card.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:share_plus/share_plus.dart';
@@ -136,7 +137,9 @@ class _VersesViewState extends State<VersesView> {
                     return state.quranTextTypeName == indopak
                         ? state.chapterVersesIndoPakModel?.verses == null ||
                                 state.chapterTranslationText!.isEmpty
-                            ? const Loader()
+                            ? Padding(
+                                padding: const EdgeInsets.only(top: 50),
+                                child: ShimmerUtils.quranVersesShimmer(context))
                             : ScrollablePositionedList.builder(
                                 itemScrollController: itemScrollController,
                                 itemPositionsListener: itemPositionsListener,
@@ -198,7 +201,10 @@ class _VersesViewState extends State<VersesView> {
                               )
                         : state.quranTextTypeName == uthmani
                             ? state.chapterVersesOfUthmani?.verses == null
-                                ? const Loader()
+                                ? Padding(
+                                    padding: const EdgeInsets.only(top: 50),
+                                    child: ShimmerUtils.quranVersesShimmer(
+                                        context))
                                 : ScrollablePositionedList.builder(
                                     itemScrollController: itemScrollController,
                                     itemPositionsListener:
@@ -264,7 +270,10 @@ class _VersesViewState extends State<VersesView> {
                                     },
                                   )
                             : state.chapterVersesOfNosymbol?.verses == null
-                                ? const Loader()
+                                ? Padding(
+                                    padding: const EdgeInsets.only(top: 50),
+                                    child: ShimmerUtils.quranVersesShimmer(
+                                        context))
                                 : ScrollablePositionedList.builder(
                                     itemScrollController: itemScrollController,
                                     itemPositionsListener:
@@ -336,7 +345,11 @@ class _VersesViewState extends State<VersesView> {
                       builder: (context, state) {
                         return state.quranTextTypeName == indopak
                             ? state.paraVersesModel == null
-                                ? const Loader()
+                                ? Padding(
+                                    padding: const EdgeInsets.only(top: 50),
+                                    child: ShimmerUtils.quranVersesShimmer(
+                                        context),
+                                  )
                                 : ScrollablePositionedList.builder(
                                     itemScrollController: itemScrollController,
                                     itemPositionsListener:
@@ -348,7 +361,12 @@ class _VersesViewState extends State<VersesView> {
                                           state.paraVersesModel!.verses;
 
                                       return state.paraTranslationText!.isEmpty
-                                          ? const Loader()
+                                          ? Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 50),
+                                              child: ShimmerUtils
+                                                  .quranVersesShimmer(context),
+                                            )
                                           : VersesCardWidget(
                                               isValue:
                                                   '${widget.chapterid}:${index + 1}',
@@ -411,7 +429,10 @@ class _VersesViewState extends State<VersesView> {
                                   )
                             : state.quranTextTypeName == uthmani
                                 ? state.paraVersesModelofUthmani == null
-                                    ? const Loader()
+                                    ? Padding(
+                                        padding: const EdgeInsets.only(top: 50),
+                                        child: ShimmerUtils.quranVersesShimmer(
+                                            context))
                                     : ScrollablePositionedList.builder(
                                         itemScrollController:
                                             itemScrollController,
@@ -427,7 +448,8 @@ class _VersesViewState extends State<VersesView> {
                                               .paraVersesModelofUthmani!.verses;
                                           return state.paraTranslationText ==
                                                   null
-                                              ? const Loader()
+                                              ? ShimmerUtils.quranVersesShimmer(
+                                                  context)
                                               : VersesCardWidget(
                                                   isValue:
                                                       '${widget.chapterid}:${index + 1}',
@@ -492,7 +514,10 @@ class _VersesViewState extends State<VersesView> {
                                       )
                                 : state.paraVersesModelofNoSymbol == null ||
                                         state.paraTranslationText!.isEmpty
-                                    ? const Loader()
+                                    ? Padding(
+                                        padding: const EdgeInsets.only(top: 50),
+                                        child: ShimmerUtils.quranVersesShimmer(
+                                            context))
                                     : ScrollablePositionedList.builder(
                                         itemScrollController:
                                             itemScrollController,
@@ -570,7 +595,10 @@ class _VersesViewState extends State<VersesView> {
                   : BlocBuilder<QuranBloc, QuranState>(
                       builder: (context, state) {
                         if (state.isLoading || state.versesByKeyModel == null) {
-                          return const Loader();
+                          return Padding(
+                            padding: const EdgeInsets.only(top: 50),
+                            child: ShimmerUtils.quranVersesShimmer(context),
+                          );
                         }
                         final data = state.versesByKeyModel![0].verses;
 
@@ -1222,7 +1250,10 @@ class _VersesViewState extends State<VersesView> {
                       child: BlocBuilder<QuranBloc, QuranState>(
                         builder: (context, state) {
                           if (state.translationsModel?.translations == null) {
-                            return const Loader();
+                            return Padding(
+                              padding: const EdgeInsets.only(top: 50),
+                              child: ShimmerUtils.quranVersesShimmer(context),
+                            );
                           }
                           return ListView.separated(
                             separatorBuilder: (context, index) =>

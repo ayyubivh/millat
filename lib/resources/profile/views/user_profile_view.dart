@@ -279,8 +279,8 @@ class UserProfileView extends StatelessWidget {
                           itemCount: 2,
                           itemBuilder: (context, index) {
                             final images = [
-                              AppAssetsStrings.termsAndConditions,
-                              AppAssetsStrings.support,
+                              AppAssetsStrings.orderHistory,
+                              AppAssetsStrings.addressBookIcon,
                             ];
                             final texts = [
                               Appstrings.orderHistory,

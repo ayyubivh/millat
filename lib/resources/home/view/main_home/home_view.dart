@@ -8,8 +8,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
-import 'package:millat/components/shimmers/shimmer_widget.dart';
-import 'package:millat/resources/travel/bloc/service/travel_services.dart';
 
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
@@ -592,13 +590,8 @@ class _HomeViewState extends State<HomeView> {
                   itemBuilder: (context, index) {
                     if (state.largeDiscountModel?.result?.banners == null) {
                       return const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: ShimmersWidget(
-                          height: 90,
-                          width: 80,
-                          borderRadius: 12,
-                        ),
-                      );
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          child: SizedBox());
                     }
                     final banner =
                         state.largeDiscountModel?.result?.banners[index];
@@ -1036,11 +1029,7 @@ class _HomeViewState extends State<HomeView> {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         if (state.homeBanner == null) {
-          return ShimmersWidget(
-            height: 150,
-            width: SizeUtility(context).width,
-            borderRadius: 16,
-          );
+          return SizedBox();
         }
 
         final banners = state.homeBanner?.result!.banners;

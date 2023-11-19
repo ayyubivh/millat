@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
-import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
+ import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -79,7 +78,8 @@ class CategoryView extends StatelessWidget {
                       state.specificCategoryModel?.result?.data?.sliderImage;
 
                   return sliderImage == null
-                      ? const SizedBox()
+                      ? ShimmerUtils.customRectangleShimmer(
+                          SizeUtility(context).width, 200)
                       : Stack(
                           children: [
                             CarouselSlider(
@@ -147,7 +147,21 @@ class CategoryView extends StatelessWidget {
                         ? BlocBuilder<ShopProductsBloc, ShopProductsState>(
                             builder: (context, state) {
                               List<dynamic>? productItems;
-
+                              if (state.productItemsSubCategoryWomenModel ==
+                                      null &&
+                                  state.productItemsSubCategoryHealthModel ==
+                                      null) {
+                                return Row(
+                                  children: List.generate(
+                                      5,
+                                      (index) => Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 15),
+                                            child: ShimmerUtils
+                                                .categoriesShimmers(),
+                                          )),
+                                );
+                              }
                               if (category == "women") {
                                 productItems = state
                                     .productItemsSubCategoryWomenModel
@@ -297,14 +311,18 @@ class CategoryView extends StatelessWidget {
                     kHeight20,
                     BlocBuilder<ShopProductsBloc, ShopProductsState>(
                       builder: (context, state) {
-                        if (state.isLoading) {
-                          return const Loader();
-                        }
-
                         final products = state.flashSaleproducts?.result
                             ?.shopProductCategory?.products;
                         if (products == null) {
-                          return const Loader();
+                          return Row(
+                              children: List.generate(
+                            2,
+                            (index) => Padding(
+                              padding: const EdgeInsets.only(right: 40),
+                              child: ShimmerUtils.productsShimmers(
+                                  context: context),
+                            ),
+                          ));
                         }
                         return products.isEmpty
                             ? const SizedBox()
@@ -371,8 +389,8 @@ class CategoryView extends StatelessWidget {
                                 .toList() ??
                             [];
                         return state.specificCategoryModel?.result?.data == null
-                            ? ShimmersWidget(
-                                width: SizeUtility(context).width, height: 120)
+                            ? ShimmerUtils.customRectangleShimmer(
+                                SizeUtility(context).width, 120)
                             : Column(
                                 children: [
                                   for (var i = 0;
@@ -413,10 +431,6 @@ class CategoryView extends StatelessWidget {
                     kHeight20,
                     BlocBuilder<ShopProductsBloc, ShopProductsState>(
                       builder: (context, state) {
-                        // if (state.popularProductLoading) {
-                        //   return const Loader();
-                        // }
-
                         final products = state.popularProducts?.result
                             ?.shopProductCategory?.products;
 
@@ -482,7 +496,8 @@ class CategoryView extends StatelessWidget {
                         final bigBannerImageUrl = state.specificCategoryModel
                             ?.result?.data?.bigBannerImage?.imageUrl;
                         return bigBannerImageUrl == null
-                            ? const Loader()
+                            ? ShimmerUtils.customRectangleShimmer(
+                                SizeUtility(context).width, 100)
                             : GestureDetector(
                                 onTap: () {
                                   context.pushNamed(

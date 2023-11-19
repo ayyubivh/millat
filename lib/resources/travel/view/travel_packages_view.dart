@@ -6,6 +6,8 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
+import '../../../utils/shimmer_utils.dart';
+import '../../../utils/size_utility.dart';
 import 'travel_home_view.dart';
 import 'widget/travel_product_item_widget.dart';
 
@@ -40,15 +42,12 @@ class TravelPackagesView extends StatelessWidget {
             child: type == TravelsPackagesType.popularProducts
                 ? BlocBuilder<TravelBloc, TravelState>(
                     builder: (context, state) {
-                      final travelProducts =
-                          state.travelPopularProductsModel?.products;
-                      if (travelProducts == null || state.isLoading) {
-                        return const Loader();
-                      }
                       return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: GridView.builder(
-                          itemCount: travelProducts.length,
+                          itemCount: state.travelPopularProductsModel?.products
+                                  .length ??
+                              8,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
@@ -56,6 +55,18 @@ class TravelPackagesView extends StatelessWidget {
                                   mainAxisExtent: 260,
                                   mainAxisSpacing: 20),
                           itemBuilder: (context, index) {
+                            final travelProducts =
+                                state.travelPopularProductsModel?.products;
+                            if (travelProducts == null || state.isLoading) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 17.0),
+                                child: ShimmerUtils.productsShimmers(
+                                  context: context,
+                                  height: 160,
+                                  width: SizeUtility(context).width / 2.5,
+                                ),
+                              );
+                            }
                             return TravelProductWidget(
                                 data: travelProducts[index]);
                           },
@@ -65,11 +76,8 @@ class TravelPackagesView extends StatelessWidget {
                   )
                 : BlocBuilder<TravelBloc, TravelState>(
                     builder: (context, state) {
-                      if (state.searchProducts == null || state.isLoading) {
-                        return const Loader();
-                      }
                       return GridView.builder(
-                        itemCount: state.searchProducts?.length,
+                        itemCount: state.searchProducts?.length ?? 8,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
@@ -77,6 +85,16 @@ class TravelPackagesView extends StatelessWidget {
                           mainAxisExtent: 230,
                         ),
                         itemBuilder: (context, index) {
+                          if (state.searchProducts == null || state.isLoading) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 17.0),
+                              child: ShimmerUtils.productsShimmers(
+                                context: context,
+                                height: 160,
+                                width: SizeUtility(context).width / 2.5,
+                              ),
+                            );
+                          }
                           //   return _buildItems(
                           //       context, state.searchProducts![index]);
                           final data = state.searchProducts![index];

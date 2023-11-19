@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/utils.dart';
 
 import '../../../../../utils/color_manager.dart';
@@ -48,7 +48,7 @@ class CartProductWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               image == null
-                  ? const ShimmersWidget(width: 80, height: 50)
+                  ? ShimmerUtils.customRectangleShimmer(80, 50)
                   : ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: Utilities().buildCachedNetworkImage(

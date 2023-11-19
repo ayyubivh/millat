@@ -195,13 +195,13 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   }
 
   void scheduleInitialNamazTimingNotification(
-      DateTime upcomingNamazTime, String namazTimeName) {
+      DateTime upcomingNamazTime, String namazTimeName, int id) {
     NotificationService().scheduleNotification(
-      scheduledNotificationDateTime: upcomingNamazTime,
-      title: 'Namaz Reminder',
-      body: namazTimeName,
-      isNotificationOn: true,
-    );
+        scheduledNotificationDateTime: upcomingNamazTime,
+        title: 'Namaz Reminder',
+        body: namazTimeName,
+        isNotificationOn: true,
+        id: id);
   }
 
   _prayerTimingEvent(PrayerTimingEvent event, Emitter<NamazTimingState> emit) {
@@ -250,31 +250,31 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   setNamazTimeNotification(PrayerTimings prayerTimings) {
     if (prayerTimings.asr != null && state.notifyAsr == true) {
       scheduleInitialNamazTimingNotification(
-          formatTime(prayerTimings.asr!), 'Asr');
+          formatTime(prayerTimings.asr!), 'Asr', 1);
     }
     if (prayerTimings.dhuhr != null && state.notifyDhuhr == true) {
       scheduleInitialNamazTimingNotification(
-          formatTime(prayerTimings.dhuhr!), 'Dhuhr');
+          formatTime(prayerTimings.dhuhr!), 'Dhuhr', 2);
     }
     if (prayerTimings.fajr != null && state.notifyFajr == true) {
       scheduleInitialNamazTimingNotification(
-          formatTime(prayerTimings.fajr!), 'Fajr');
+          formatTime(prayerTimings.fajr!), 'Fajr', 3);
     }
     if (prayerTimings.isha != null && state.notifyIsha == true) {
       scheduleInitialNamazTimingNotification(
-          formatTime(prayerTimings.isha!), 'Isha');
+          formatTime(prayerTimings.isha!), 'Isha', 4);
     }
     if (prayerTimings.maghrib != null && state.notifyMagrib == true) {
       scheduleInitialNamazTimingNotification(
-          formatTime(prayerTimings.maghrib!), 'Maghrib');
+          formatTime(prayerTimings.maghrib!), 'Maghrib', 5);
     }
     if (prayerTimings.sunrise != null && state.notifySunrise == true) {
       scheduleInitialNamazTimingNotification(
-          formatTime(prayerTimings.sunrise!), 'Sunrise');
+          formatTime(prayerTimings.sunrise!), 'Sunrise', 6);
     }
     if (prayerTimings.imsak != null && state.notifyQiyam == true) {
       scheduleInitialNamazTimingNotification(
-          formatTime(prayerTimings.imsak!), 'Qiyam');
+          formatTime(prayerTimings.imsak!), 'Qiyam', 7);
     }
   }
 

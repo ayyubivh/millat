@@ -33,7 +33,7 @@ class NotificationService extends HttpServices {
   }
 
   Future<void> scheduleNotification({
-    int id = 0,
+   required int id ,
     String? title,
     String? body,
     String? payload,

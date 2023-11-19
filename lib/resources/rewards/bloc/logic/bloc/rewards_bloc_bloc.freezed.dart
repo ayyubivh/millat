@@ -1067,7 +1067,7 @@ mixin _$RewardsState {
       throw _privateConstructorUsedError;
   int get carouselImageIndex => throw _privateConstructorUsedError;
   int get tabIndex => throw _privateConstructorUsedError;
-  double get rewardCoins => throw _privateConstructorUsedError;
+  int get rewardCoins => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RewardsStateCopyWith<RewardsState> get copyWith =>
@@ -1087,7 +1087,7 @@ abstract class $RewardsStateCopyWith<$Res> {
       RewardsProductsModel? rewardsProductsModel,
       int carouselImageIndex,
       int tabIndex,
-      double rewardCoins});
+      int rewardCoins});
 
   $RewardsModelCopyWith<$Res>? get rewardsModel;
   $RewardsProductByIdModelCopyWith<$Res>? get rewardsProductByIdModel;
@@ -1143,7 +1143,7 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
       rewardCoins: null == rewardCoins
           ? _value.rewardCoins
           : rewardCoins // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ) as $Val);
   }
 
@@ -1201,7 +1201,7 @@ abstract class _$$RewardsStateImplCopyWith<$Res>
       RewardsProductsModel? rewardsProductsModel,
       int carouselImageIndex,
       int tabIndex,
-      double rewardCoins});
+      int rewardCoins});
 
   @override
   $RewardsModelCopyWith<$Res>? get rewardsModel;
@@ -1258,7 +1258,7 @@ class __$$RewardsStateImplCopyWithImpl<$Res>
       rewardCoins: null == rewardCoins
           ? _value.rewardCoins
           : rewardCoins // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
     ));
   }
 }
@@ -1288,7 +1288,7 @@ class _$RewardsStateImpl implements _RewardsState {
   @override
   final int tabIndex;
   @override
-  final double rewardCoins;
+  final int rewardCoins;
 
   @override
   String toString() {
@@ -1343,7 +1343,7 @@ abstract class _RewardsState implements RewardsState {
       required final RewardsProductsModel? rewardsProductsModel,
       required final int carouselImageIndex,
       required final int tabIndex,
-      required final double rewardCoins}) = _$RewardsStateImpl;
+      required final int rewardCoins}) = _$RewardsStateImpl;
 
   @override
   bool get isLoading;
@@ -1358,7 +1358,7 @@ abstract class _RewardsState implements RewardsState {
   @override
   int get tabIndex;
   @override
-  double get rewardCoins;
+  int get rewardCoins;
   @override
   @JsonKey(ignore: true)
   _$$RewardsStateImplCopyWith<_$RewardsStateImpl> get copyWith =>

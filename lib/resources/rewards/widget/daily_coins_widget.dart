@@ -241,8 +241,10 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                 onTap: () async {
                   await Utilities.saveBoolToSharedPreferences(
                       Appstrings.rewardsCoinsKey, true);
-                  BlocProvider.of<RewardsBloc>(context)
-                      .add(AddRewards(rewards: 1));
+                  isCoinColleted == false
+                      ? BlocProvider.of<RewardsBloc>(context)
+                          .add(const AddRewards(rewards: 1))
+                      : null;
                 },
                 child: Container(
                   height: 38,

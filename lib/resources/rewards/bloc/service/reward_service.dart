@@ -111,7 +111,6 @@ class RewardServices extends HttpServices {
         return data;
       } else if (response.statusCode == 409) {
         final data = json.decode(response.body);
-
         return data;
       } else {
         print('API request failed with status code: ${response.statusCode}');

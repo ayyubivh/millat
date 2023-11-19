@@ -32,7 +32,7 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
       emit(state.copyWith(
           rewardsModel: data,
           isLoading: false,
-          rewardCoins: data.result?.reward?.coins?.toDouble() ?? 0));
+          rewardCoins: data.result?.reward?.coins?.toInt() ?? 0));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }

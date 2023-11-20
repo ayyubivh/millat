@@ -370,27 +370,37 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
                                 ),
                               ),
                               kHeight10,
-                              BlocBuilder<DatabaseBloc, DatabaseState>(
-                                builder: (context, state) => GestureDetector(
-                                  onTap: () {
-                                    BlocProvider.of<DatabaseBloc>(context).add(
-                                        const UploadImageEvent(
-                                            source: ImageSource.gallery));
-                                  },
-                                  child: Container(
-                                    height: 113,
-                                    width: SizeUtility(context).width,
-                                    decoration: BoxDecoration(
-                                      color: ColorManager.whiteColor,
-                                      borderRadius: BorderRadius.circular(12),
-                                      border: Border.all(
-                                        color: ColorManager.whiteE0,
-                                      ),
+                              BlocBuilder<TravelBloc, TravelState>(
+                                builder: (context, state) => Container(
+                                  height: 113,
+                                  width: SizeUtility(context).width,
+                                  decoration: BoxDecoration(
+                                    color: ColorManager.whiteColor,
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                      color: ColorManager.whiteE0,
                                     ),
-                                    child: state.imagebytes != null
-                                        ? Image(
-                                            image: FileImage(state.imagebytes!))
-                                        : Column(
+                                  ),
+                                  child: state.formImages.isNotEmpty
+                                      ? ListView.builder(
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: state.formImages.length,
+                                          itemBuilder: (context, index) =>
+                                              Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 4, top: 5, bottom: 5),
+                                            child: Image(
+                                                image: FileImage(
+                                                    state.formImages[index])),
+                                          ),
+                                        )
+                                      : GestureDetector(
+                                          onTap: () {
+                                            BlocProvider.of<TravelBloc>(context)
+                                                .add(
+                                                    const PickMultipleImageEvent());
+                                          },
+                                          child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
@@ -412,7 +422,7 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
                                               ),
                                             ],
                                           ),
-                                  ),
+                                        ),
                                 ),
                               )
                             ],
@@ -430,32 +440,27 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
                     .copyWith(bottom: 10),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
-                  child: BlocBuilder<DatabaseBloc, DatabaseState>(
+                  child: BlocBuilder<TravelBloc, TravelState>(
                     builder: (context, state) {
-                      final _img = state.imagebytes;
-
-                      return BlocBuilder<TravelBloc, TravelState>(
-                        builder: (context, state) {
-                          final country = state.country;
-                          return MainButton(
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                print(
-                                    "text editing controller values ${_nameController.text}\n${_emailController.text}\n${_phoneController.text}");
-                                BlocProvider.of<TravelBloc>(context)
-                                    .add(TravelEvent.bookTravelEvent(
-                                  name: _nameController.text,
-                                  email: _emailController.text,
-                                  phoneNumber: _phoneController.text,
-                                  passPortPhoto: _img,
-                                  country: country,
-                                  productId: widget.id,
-                                ));
-                              }
-                            },
-                            title: Appstrings.submit,
-                          );
+                      final country = state.country;
+                      final _img = state.formImages;
+                      return MainButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            print(
+                                "text editing controller values ${_nameController.text}\n${_emailController.text}\n${_phoneController.text}");
+                            BlocProvider.of<TravelBloc>(context)
+                                .add(TravelEvent.bookTravelEvent(
+                              name: _nameController.text,
+                              email: _emailController.text,
+                              phoneNumber: _phoneController.text,
+                              passPortPhoto: _img,
+                              country: country,
+                              productId: widget.id,
+                            ));
+                          }
                         },
+                        title: Appstrings.submit,
                       );
                     },
                   ),

@@ -25,6 +25,7 @@ class TravelState with _$TravelState {
     required Set<String>? travelWishlistItems,
     required bool bookingSuccess,
     required List<TravelPackageItems>? travelHomeBannerPackages,
+    required List<File> formImages,
   }) = _TravelState;
   factory TravelState.initial() => TravelState(
         index: 0,
@@ -49,5 +50,6 @@ class TravelState with _$TravelState {
         travelWishlistItems: {},
         bookingSuccess: false,
         travelHomeBannerPackages: null,
+        formImages: [],
       );
 }

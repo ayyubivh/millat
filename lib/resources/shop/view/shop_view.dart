@@ -605,6 +605,17 @@ class _ShopViewState extends State<ShopView> {
                   color: ColorManager.whiteColor,
                 ),
               ),
+              kWidth8,
+              GestureDetector(
+                onTap: () {
+                  context.pushNamed(MyAppRouteConstants.wishlistRouteName);
+                },
+                child: ImageIcon(
+                  AssetImage(AppAssetsStrings.wishList),
+                  color: ColorManager.whiteColor,
+                  size: 22,
+                ),
+              ),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
                   return CartIconWidget(

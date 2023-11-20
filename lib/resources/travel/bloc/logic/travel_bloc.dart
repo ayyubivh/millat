@@ -35,6 +35,10 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     on<AddTravelWishlist>(_addTravelWishlist);
     on<TravelBookingCompleted>(_travelBookingCompleted);
     on<FetchTravelHomeBannerPackages>(_fetchTravelHomeBannerPackages);
+    on<FetchTravelPopularProducts>(_fetchTravelPopularProducts);
+    on<FetchBestPlacesProducts>(_fetchTravelBestplacesProducts);
+    on<FetchTravelSearchLocations>(_fetchTravelSearchLocations);
+    on<FetchTravelProductsById>(_fetchTravelProductsById);
   }
 
   _changeBannerIndex(ChangeBannerIndex event, Emitter<TravelState> emit) {
@@ -66,7 +70,7 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     }
   }
 
-  fetchTravelProductsById(
+  _fetchTravelProductsById(
       FetchTravelProductsById event, Emitter<TravelState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {

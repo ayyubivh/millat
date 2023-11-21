@@ -6,6 +6,7 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
+import 'package:millat/resources/shop/view/categories/category_products_filter_view.dart';
 import 'package:millat/resources/shop/view/categories/category_view.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -21,7 +22,6 @@ class ShopTabsView extends StatelessWidget {
     List screens = [
       const ShopView(),
       const ArticlesView(),
-      // const CategoriesFilter(),
       const CategoryView(
           categoryType: CategoryType.specificCategory,
           category: "women",

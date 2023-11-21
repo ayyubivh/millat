@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:millat/components/common_widgets/full_screen_widget.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:go_router/go_router.dart';
@@ -93,20 +92,29 @@ class SingleProductView extends StatelessWidget {
                             height: 2,
                           ),
                         ),
-                        Text('₹${data.regularPrice}',
-                            style: const TextStyle(
-                                color: black60,
-                                fontSize: 17,
-                                decoration: TextDecoration.lineThrough,
-                                height: 1.5)),
                         Text(data.brand?.name ?? 'Millat',
                             style: const TextStyle(
                                 color: black60, fontSize: 17, height: 1.5)),
-                        Text('${data.salePrice} ₹',
-                            style: TextStyle(
-                                color: ColorManager.greenColor1,
-                                fontSize: 22,
-                                height: 1.5)),
+                        Row(
+                          children: [
+                            Text('${data.salePrice} ₹',
+                                style: TextStyle(
+                                  color: ColorManager.primary,
+                                  fontSize: 21,
+                                  fontWeight: FontWeight.w700,
+                                  height: 1.5,
+                                )),
+                            kWidth10,
+                            Text('₹${data.regularPrice}',
+                                style: const TextStyle(
+                                  color: black60,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  decoration: TextDecoration.lineThrough,
+                                  height: 1.5,
+                                )),
+                          ],
+                        ),
                         kHeight10,
                         reviews(),
                         selectOptions(context, data, selectedColor,

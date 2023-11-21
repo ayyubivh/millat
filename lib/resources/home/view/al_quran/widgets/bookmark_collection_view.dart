@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:millat/components/buttons/main_text_button.dart';
+import 'package:millat/components/buttons/outlined_button.dart';
 import 'package:millat/resources/home/bloc/db/db_functions.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
@@ -101,6 +103,7 @@ class BookmarkCollectionView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _editButton(context),
+                  kWidth10,
                   _playButton(context),
                 ],
               ),
@@ -263,33 +266,35 @@ class BookmarkCollectionView extends StatelessWidget {
     );
   }
 
-  Container _editButton(BuildContext context) {
-    return Container(
+  Widget _editButton(BuildContext context) {
+    return SizedBox(
       height: 50,
       width: SizeUtility(context).width / 2.4,
-      decoration: BoxDecoration(
-          border: Border.all(
-        color: ColorManager.primary,
-      )),
-      child: TextButton.icon(
-        onPressed: () {
+      child: CustomOutlinedButton(
+        onTap: () {
           context.goNamed(MyAppRouteConstants.addNewQuranBookmarkRouteName,
               extra: {
                 'passvalue': passvalue,
                 'type': BookMarkCollectionType.edit
               });
         },
-        icon: ImageIcon(
-          const AssetImage("assets/icons/edit_2.png"),
-          color: ColorManager.primary,
-        ),
-        label: Text(
-          "Edit",
-          style: TextStyle(
-            color: ColorManager.primary,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ImageIcon(
+              const AssetImage("assets/icons/edit_2.png"),
+              color: ColorManager.primary,
+            ),
+            const SizedBox(width: 8), // Adjust the spacing as needed
+            Text(
+              "Edit",
+              style: TextStyle(
+                color: ColorManager.primary,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );

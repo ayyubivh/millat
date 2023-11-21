@@ -1,3 +1,3 @@
 class AppSize {
-  static const s8 = 8;
+  static const s8 = 1;
 }

@@ -42,6 +42,7 @@ import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
+import 'package:millat/resources/shop/view/categories/category_products_filter_view.dart';
 import 'package:millat/resources/shop/view/categories/category_view.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
@@ -378,21 +379,37 @@ class MyAppRouter {
                           },
                         ),
                         GoRoute(
-                          name: MyAppRouteConstants.categoriesProductsRouteName,
-                          path: MyAppRouteConstants.categoriesProductsRouteName,
-                          pageBuilder: (context, state) {
-                            Map data = state.extra as Map;
-                            return MaterialPage(
-                              child: CategoriesProductView(
-                                category: data['category'],
-                                subCategory: data['subCategory'],
-                                type: data['type'],
-                                itemId: data['itemId'],
-                                itemName: data['itemName'],
+                            name:
+                                MyAppRouteConstants.categoriesProductsRouteName,
+                            path:
+                                MyAppRouteConstants.categoriesProductsRouteName,
+                            pageBuilder: (context, state) {
+                              Map data = state.extra as Map;
+                              return MaterialPage(
+                                child: CategoriesProductView(
+                                  category: data['category'],
+                                  subCategory: data['subCategory'],
+                                  type: data['type'],
+                                  itemId: data['itemId'],
+                                  itemName: data['itemName'],
+                                ),
+                              );
+                            },
+                            routes: [
+                              GoRoute(
+                                name: MyAppRouteConstants
+                                    .categoryProductsFilterRouteName,
+                                path: MyAppRouteConstants
+                                    .categoryProductsFilterRouteName,
+                                pageBuilder: (context, state) {
+                                  Map data = state.extra as Map;
+                                  return MaterialPage(
+                                      child: CategoryProductsFilterView(
+                                    categoryId: data['categoryId'],
+                                  ));
+                                },
                               ),
-                            );
-                          },
-                        ),
+                            ]),
                       ],
                     ),
                     GoRoute(

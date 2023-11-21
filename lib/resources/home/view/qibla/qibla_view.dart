@@ -46,6 +46,12 @@ class _QiblahScreenState extends State<QiblahScreen>
   }
 
   @override
+  void dispose() {
+    _animationController!.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) => Scaffold(

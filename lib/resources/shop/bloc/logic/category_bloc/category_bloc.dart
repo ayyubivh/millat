@@ -34,6 +34,8 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<FetchProductsByFilterPricerange>(_fetchProductsByFilterPricerange);
     on<FetchItemsByCategory>(_fetchItemsByCategory);
     on<ChangeCategoryIndexEvent>(_changeCategoryIndexEvent);
+    on<ChangeFilterIndex>(_changeFilterIndex);
+    on<FilterCheckboxChangingEvent>(_filterCheckboxChangingEvent);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -193,5 +195,14 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   _changeCategoryIndexEvent(
       ChangeCategoryIndexEvent event, Emitter<CategoryState> emit) {
     emit(state.copyWith(categoryIndex: event.index));
+  }
+
+  _changeFilterIndex(ChangeFilterIndex event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(filterIndex: event.index));
+  }
+
+  _filterCheckboxChangingEvent(
+      FilterCheckboxChangingEvent event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(filterCheckboxIndex: event.index));
   }
 }

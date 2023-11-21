@@ -47,4 +47,11 @@ class CategoryEvent with _$CategoryEvent {
       required String maxPrice,
       required String category,
       required String subCategory}) = FetchProductsByFilterPricerange;
+  const factory CategoryEvent.changeFilterIndex({
+    required int index,
+  }) = ChangeFilterIndex;
+  const factory CategoryEvent.filterCheckboxChangingEvent({
+    required int index,
+  }) =
+      FilterCheckboxChangingEvent;
 }

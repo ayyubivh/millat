@@ -102,6 +102,7 @@ class Appstrings {
       'We have proudly collaborated with 1000+ \nrenowned brands!"';
   static const String top8brands = "Top 8 Brands";
   static const String filters = "Filters";
+  static const String filter = "Filter";
   static const String byReview = "By Review";
   static const String sortBy = "Sort By";
   static const String womensCare = "Women's Care";
@@ -180,6 +181,9 @@ class Appstrings {
   static const String l = "L";
   static const String xxl = "XXL";
   static const String category = "Category";
+  static const String subCategory = "Sub Category";
+  static const String price = "Price";
+  static const String colors = "Colors";
   static const String all = "All";
   static const String women = "Women";
   static const String men = "Men";

@@ -23,6 +23,8 @@ class CategoryState with _$CategoryState {
     required RangeValues rangeValues,
     required CategoryItemModel? categoryItemModel,
     required int categoryIndex,
+    required int filterIndex,
+    required int filterCheckboxIndex,
   }) = _CategoryState;
   factory CategoryState.initial() => const CategoryState(
         product: null,
@@ -45,5 +47,7 @@ class CategoryState with _$CategoryState {
         rangeValues: RangeValues(1, 5000),
         categoryItemModel: null,
         categoryIndex: 0,
+        filterIndex: 0,
+        filterCheckboxIndex: -1,
       );
 }

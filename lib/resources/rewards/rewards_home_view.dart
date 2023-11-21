@@ -1,23 +1,23 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
-import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/rewards/widget/daily_coins_widget.dart';
 import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
 import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
 import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
 import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
 import 'package:millat/resources/rewards/widget/score_widget.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
+
+import 'bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 
 class RewardsHomeView extends StatelessWidget {
   const RewardsHomeView({super.key});
@@ -94,9 +94,7 @@ class RewardsHomeView extends StatelessWidget {
   Widget _shopWithCoinsWidget(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const RewardShopView(),
-        ));
+        context.goNamed(MyAppRouteConstants.rewardsShopRouteName);
       },
       child: Container(
           width: SizeUtility(context).width,

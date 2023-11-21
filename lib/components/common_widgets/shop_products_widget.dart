@@ -46,8 +46,9 @@ class ShopProductWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               child: Utilities().buildCachedNetworkImage(
                 imageUrl: image,
-                height: SizeUtility(context).height * 0.15,
+                height: SizeUtility(context).height * 0.18,
                 width: SizeUtility(context).width,
+                // boxFit: BoxFit.contain,
               )),
           kHeight5,
           Row(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+
+import '../bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 
 class ScoreWidget extends StatelessWidget {
   const ScoreWidget({super.key});

@@ -250,7 +250,7 @@ class ShopBrandView extends StatelessWidget {
                 children: [
                   data == null || data.coverImage!.isEmpty
                       ? Container(
-                          height: 209,
+                          height: SizeUtility(context).height / 4.045,
                           width: double.infinity,
                           color: ColorManager.black4A,
                           child: const Icon(
@@ -269,7 +269,11 @@ class ShopBrandView extends StatelessWidget {
                             end: Alignment.topCenter,
                           ).createShader(bounds),
                           child: Utilities().buildCachedNetworkImage(
-                              imageUrl: data.coverImage!, boxFit: BoxFit.cover),
+                            imageUrl: data.coverImage!,
+                            boxFit: BoxFit.cover,
+                            height: SizeUtility(context).height / 4.045,
+                            width: double.infinity,
+                          ),
                         ),
                   Positioned.fill(
                     child: DecoratedBox(

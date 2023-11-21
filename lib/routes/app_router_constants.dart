@@ -64,7 +64,6 @@ class MyAppRouteConstants {
   static const String orderReturnDetailRouteName = 'order_return_details';
   static const String orderReturnSuccesRouteName = 'order_return_success';
   static const String imageFullViewRoutename = "image_full_view";
-  static const String rewardsTabRouteName = "rewards_tab";
 
   // Travel
   static const String travelHomeRoutename = 'travel_home';
@@ -72,4 +71,9 @@ class MyAppRouteConstants {
   static const String travelSingleRoutename = 'travel_singleproudct';
   static const String travelBookingFormRoutename = 'travel_bookingform';
   static const String travelPackagesView = "travel_packages";
+
+  //rewards
+  // static const String rewardsTabRouteName = "rewards_tab";
+  static const String rewardsShopRouteName = "rewards_shop";
+  static const String rewardsShopProductRoutename = "rewards_shop_product";
 }

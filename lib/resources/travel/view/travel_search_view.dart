@@ -7,6 +7,7 @@ import 'package:millat/components/debounce/debounce.dart';
 import 'package:millat/components/textfields/custom_text_field.dart';
 import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
+import 'package:millat/resources/travel/view/widget/travel_search_textfield.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -374,7 +375,7 @@ class SearchWidget extends StatelessWidget {
                           ),
                           kHeight8,
                           BlocBuilder<LocationBloc, LocationState>(
-                            builder: (context, state) => CustomTextField(
+                            builder: (context, state) => TravelSearchTextField(
                               onChanged: (value) {
                                 _debounce.run(() {
                                   BlocProvider.of<TravelBloc>(context).add(
@@ -384,7 +385,7 @@ class SearchWidget extends StatelessWidget {
                               },
                               icon: Icon(
                                 Icons.search,
-                                color: ColorManager.primary,
+                                color: ColorManager.blackColor,
                               ),
                               hint: Appstrings.searchYourDestination,
                             ),

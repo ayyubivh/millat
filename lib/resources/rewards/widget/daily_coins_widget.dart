@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
+import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_coins_collect_bloc.dart';
+import 'package:millat/utils/app_size.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -10,6 +10,8 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+
+import '../bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 
 class DailyCoinsWidget extends StatefulWidget {
   const DailyCoinsWidget({Key? key}) : super(key: key);
@@ -20,11 +22,11 @@ class DailyCoinsWidget extends StatefulWidget {
 
 class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   late Timer _timer;
-  bool? isCoinColleted = false;
+
   Duration duration = const Duration();
   late SharedPreferences prefs;
 
-  final Duration initialDuration = const Duration(seconds: 10);
+  final Duration initialDuration = const Duration(hours: AppSize.s8);
 
   @override
   void initState() {
@@ -34,7 +36,7 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
 
   _initSharedPreferences() async {
     prefs = await SharedPreferences.getInstance();
-    print("latest time ========= ${_loadLastTimestamp()}");
+
     _loadLastTimestamp();
     _startTimer();
   }
@@ -45,17 +47,16 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   }
 
   calculateTimeLeft() {
-    _checkConisCollected();
+    _checkCoinsCollected();
     final lastTimestamp = _loadLastTimestamp();
-    print("latest time ========= ${lastTimestamp}");
+
     final now = DateTime.now();
     final elapsedSeconds = now.difference(lastTimestamp).inSeconds;
-    print("elapsed seconds ========= ${elapsedSeconds}");
-    print("initial duration========= ${initialDuration.inSeconds}");
+
     setState(() {
       duration = Duration(seconds: initialDuration.inSeconds - elapsedSeconds);
     });
-    print("duration ============== $duration");
+
     if (elapsedSeconds >= initialDuration.inSeconds) {
       _saveCurrentTimestamp();
       _timer.cancel();
@@ -67,18 +68,17 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   _resetCollectedValue() async {
     await Utilities.saveBoolToSharedPreferences(
         Appstrings.rewardsCoinsKey, false);
-    setState(() {
-      isCoinColleted = false;
-    });
+
+    BlocProvider.of<RewardsCoinsCollectBloc>(context)
+        .add(const CheckCoinsCollected(value: false));
   }
 
-  _checkConisCollected() async {
+  _checkCoinsCollected() async {
     final value = await Utilities.getBoolFromSharedPreferences(
         Appstrings.rewardsCoinsKey);
-    setState(() {
-      isCoinColleted = value;
-    });
-    print("is coins collected value ============= $value");
+
+    BlocProvider.of<RewardsCoinsCollectBloc>(context)
+        .add(CheckCoinsCollected(value: value));
   }
 
   _saveCurrentTimestamp() async {
@@ -237,39 +237,44 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                 ],
               ),
               kHeight20,
-              GestureDetector(
-                onTap: () async {
-                  await Utilities.saveBoolToSharedPreferences(
-                      Appstrings.rewardsCoinsKey, true);
-                  isCoinColleted == false
-                      ? BlocProvider.of<RewardsBloc>(context)
-                          .add(const AddRewards(rewards: 1))
-                      : null;
-                },
-                child: Container(
-                  height: 38,
-                  width: SizeUtility(context).width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      gradient: LinearGradient(
-                        colors: [
-                          ColorManager.primary
-                              .withOpacity(isCoinColleted == true ? 0.4 : 0.6),
-                          ColorManager.primary
-                              .withOpacity(isCoinColleted == true ? 0.6 : 1),
-                        ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      )),
-                  child: Center(
-                    child: Text(
-                      isCoinColleted == true
-                          ? Appstrings.collected
-                          : Appstrings.collect,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: ColorManager.whiteColor,
+              BlocBuilder<RewardsCoinsCollectBloc, RewardsCoinsCollectState>(
+                builder: (context, state) => GestureDetector(
+                  onTap: () async {
+                    await Utilities.saveBoolToSharedPreferences(
+                        Appstrings.rewardsCoinsKey, true);
+                    BlocProvider.of<RewardsCoinsCollectBloc>(context).add(
+                        RewardsCoinsCollectEvent.checkCoinsCollected(
+                            value: true));
+                    state.checkCoinsCollected == false
+                        ? BlocProvider.of<RewardsBloc>(context)
+                            .add(const AddRewards(rewards: 1))
+                        : null;
+                  },
+                  child: Container(
+                    height: 38,
+                    width: SizeUtility(context).width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        gradient: LinearGradient(
+                          colors: [
+                            ColorManager.primary.withOpacity(
+                                state.checkCoinsCollected == true ? 0.4 : 0.6),
+                            ColorManager.primary.withOpacity(
+                                state.checkCoinsCollected == false ? 1 : 0.4),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        )),
+                    child: Center(
+                      child: Text(
+                        state.checkCoinsCollected == true
+                            ? Appstrings.collected
+                            : Appstrings.collect,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.whiteColor,
+                        ),
                       ),
                     ),
                   ),

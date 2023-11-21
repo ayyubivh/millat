@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/rewards/widget/rewards_single_shop_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
+
+import '../bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 
 class RewardShopView extends StatelessWidget {
   const RewardShopView({super.key});
@@ -55,10 +57,9 @@ class RewardShopView extends StatelessWidget {
               }
               return GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          RewardsSingleShopView(id: data[index].id ?? ""),
-                    ));
+                    context.pushNamed(
+                        MyAppRouteConstants.rewardsShopProductRoutename,
+                        extra: {'id': data[index].id});
                   },
                   child: SizedBox(
                     height: 320,

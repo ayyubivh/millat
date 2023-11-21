@@ -34,12 +34,17 @@ class OrderHistoryView extends StatelessWidget {
             color: ColorManager.blackColor,
           ),
         ),
-        actions: const [
-          ImageIcon(
-            AssetImage(AppAssetsStrings.support),
-            size: 30,
+        actions: [
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(MyAppRouteConstants.supportHelpRouteName);
+            },
+            child: const ImageIcon(
+              AssetImage(AppAssetsStrings.support),
+              size: 30,
+            ),
           ),
-          kWidth20,
+          kWidth30,
         ],
       ),
       body: BlocBuilder<ShopProductsBloc, ShopProductsState>(

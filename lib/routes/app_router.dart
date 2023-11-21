@@ -34,6 +34,7 @@ import 'package:millat/resources/profile/views/invite_friend_view.dart';
 import 'package:millat/resources/profile/views/order_history_view.dart';
 import 'package:millat/resources/profile/views/user_profile_view.dart';
 import 'package:millat/resources/rewards/rewards_tab_view.dart';
+import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';
 import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
@@ -66,6 +67,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import '../resources/home/view/al_quran/bookmark_view.dart';
 import '../resources/home/view/al_quran/widgets/add_sura_search_view.dart';
 import '../resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
+import '../resources/rewards/widget/rewards_single_shop_view.dart';
 import '../resources/shop/view/order_status/order_details_view.dart';
 import '../resources/shop/view/search/shop_search_view.dart';
 
@@ -117,12 +119,24 @@ class MyAppRouter {
                 },
               ),
               GoRoute(
-                name: MyAppRouteConstants.rewardsTabRouteName,
-                path: MyAppRouteConstants.rewardsTabRouteName,
-                pageBuilder: (context, state) {
-                  return const MaterialPage(child: RewardsTabView());
-                },
-              ),
+                  name: MyAppRouteConstants.rewardsShopRouteName,
+                  path: MyAppRouteConstants.rewardsShopRouteName,
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(child: RewardShopView());
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.rewardsShopProductRoutename,
+                      path: MyAppRouteConstants.rewardsShopProductRoutename,
+                      pageBuilder: (context, state) {
+                        Map data = state.extra as Map;
+                        return MaterialPage(
+                            child: RewardsSingleShopView(
+                          id: data['id'],
+                        ));
+                      },
+                    ),
+                  ]),
               GoRoute(
                   name: MyAppRouteConstants.travelHomeRoutename,
                   path: MyAppRouteConstants.travelHomeRoutename,

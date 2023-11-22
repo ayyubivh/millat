@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import '../../utils/color_manager.dart';
 import '../../utils/constants.dart';
 
@@ -23,9 +21,11 @@ class BookMarkCollectionContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      color: isSelected == true
-          ? ColorManager.primary.withOpacity(0.2)
-          : ColorManager.whiteColor,
+      color:
+          // isSelected == true
+          //     ? ColorManager.primary.withOpacity(0.2)
+          //     :
+          ColorManager.whiteColor,
       child: Row(
         children: [
           Stack(
@@ -81,17 +81,15 @@ class BookMarkCollectionContainer extends StatelessWidget {
             ),
           ),
           kWidth5,
-          BlocBuilder<QuranBloc, QuranState>(
-            builder: (context, state) => state.isExpand2 == true && isIndex
-                ? const Icon(
-                    Icons.expand_more,
-                    size: 30,
-                  )
-                : const Icon(
-                    Icons.navigate_next,
-                    size: 30,
-                  ),
-          ),
+          isIndex
+              ? const Icon(
+                  Icons.expand_more,
+                  size: 30,
+                )
+              : const Icon(
+                  Icons.navigate_next,
+                  size: 30,
+                ),
         ],
       ),
     );

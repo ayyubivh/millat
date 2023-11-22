@@ -17,6 +17,7 @@ import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import '../bookmark_view.dart';
 import 'new_collection_widget.dart';
+import 'quran_bookmark_collection.dart';
 
 class VersesView extends StatefulWidget {
   final Qurantype type;
@@ -853,7 +854,7 @@ class _VersesViewState extends State<VersesView> {
                               .add(const FetchCollectionItem());
                           context.pop();
                         },
-                        child: buildCollectionContainer(
+                        child: QuranBookmarkCollectionWidget(
                           passvalue: data,
                           context: context,
                           img: data.image,

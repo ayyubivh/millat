@@ -38,9 +38,14 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
       TextEditingController();
   String img = "";
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
-    BlocProvider.of<QuranBloc>(context).add(const EmptyQuranVersesbyKey());
+    widget.type != BookMarkCollectionType.edit
+        ? BlocProvider.of<QuranBloc>(context).add(const EmptyQuranVersesbyKey())
+        : null;
+
     widget.type == BookMarkCollectionType.edit ? addField() : null;
     context.read<BookmarkBloc>().add(const SaveImageEvent(img: ""));
     widget.type == BookMarkCollectionType.addSpecificOne
@@ -154,40 +159,62 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
               },
             ),
             kHeight20,
-            const Text(
-              'Collection Name',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
+            Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Collection Name',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  kHeight15,
+                  CustomTextField(
+                    controller: nameTextEditingController,
+                    icon: const Icon(null),
+                    hint: "Give a Name",
+                    onChanged: (value) {
+                      context
+                          .read<BookmarkBloc>()
+                          .add(NameChanged(nameValue: value));
+                    },
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'please enter a name!';
+                      }
+                      return null;
+                    },
+                  ),
+                  kHeight20,
+                  const Text(
+                    'Discription',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  kHeight15,
+                  CustomTextField(
+                    controller: descriptionTextEditingController,
+                    icon: const Icon(null),
+                    hint: "Add Description",
+                    onChanged: (value) {
+                      context
+                          .read<BookmarkBloc>()
+                          .add(DescriptionChanged(descriptionValue: value));
+                    },
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'please enter a description';
+                      }
+                      return null;
+                    },
+                  ),
+                ],
               ),
-            ),
-            kHeight15,
-            CustomTextField(
-              controller: nameTextEditingController,
-              icon: const Icon(null),
-              hint: "Give a Name",
-              onChanged: (value) {
-                context.read<BookmarkBloc>().add(NameChanged(nameValue: value));
-              },
-            ),
-            kHeight20,
-            const Text(
-              'Discription',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            kHeight15,
-            CustomTextField(
-              controller: descriptionTextEditingController,
-              icon: const Icon(null),
-              hint: "Add Description",
-              onChanged: (value) {
-                context
-                    .read<BookmarkBloc>()
-                    .add(DescriptionChanged(descriptionValue: value));
-              },
             ),
             kHeight30,
             MainButton(
@@ -206,7 +233,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                           itemCount: state.versesByKeyModel?.length ?? 0,
                           itemBuilder: (context, index) => ListTile(
                             onTap: () {
-                              context.goNamed(
+                              context.pushNamed(
                                   MyAppRouteConstants.quranVersesRoutename,
                                   extra: {"type": Qurantype.verse});
                             },
@@ -300,56 +327,59 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                       ),
                     ),
                     BlocBuilder<BookmarkBloc, BookmarkState>(
-                      builder: (context, state) => GestureDetector(
-                        onTap: () {
-                          if (nameTextEditingController.text.isEmpty ||
-                              descriptionTextEditingController.text.isEmpty) {
-                            context.pop();
-                            return;
-                          }
-                          widget.type == BookMarkCollectionType.add
-                              ? ctx.read<BookmarkBloc>().add(AddCollection(
-                                  context: context,
-                                  name: nameTextEditingController.text,
-                                  description:
-                                      descriptionTextEditingController.text,
-                                  verskey: state.verskey,
-                                  image: state.image,
-                                  dbId: DateTime.now()
-                                      .millisecondsSinceEpoch
-                                      .toString()))
-                              : widget.type == BookMarkCollectionType.edit
-                                  ? ctx.read<BookmarkBloc>().add(
-                                        EditCollection(
+                      builder: (context, state) => TextButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            final _verseList = context
+                                    .read<QuranBloc>()
+                                    .state
+                                    .bookmarkAudioPlaylist +
+                                state.verskey;
+                            print(_verseList);
+                            widget.type == BookMarkCollectionType.add
+                                ? ctx.read<BookmarkBloc>().add(AddCollection(
+                                    context: context,
+                                    name: nameTextEditingController.text,
+                                    description:
+                                        descriptionTextEditingController.text,
+                                    verskey: state.verskey,
+                                    image: state.image,
+                                    dbId: DateTime.now()
+                                        .millisecondsSinceEpoch
+                                        .toString()))
+                                : widget.type == BookMarkCollectionType.edit
+                                    ? ctx.read<BookmarkBloc>().add(
+                                          EditCollection(
+                                              context: context,
+                                              name: nameTextEditingController
+                                                  .text,
+                                              description:
+                                                  descriptionTextEditingController
+                                                      .text,
+                                              verskey: _verseList,
+                                              image:
+                                                  img == "" ? state.image : img,
+                                              dbId: passValue!.id!),
+                                        )
+                                    : ctx.read<BookmarkBloc>().add(
+                                        AddCollection(
                                             context: context,
                                             name:
                                                 nameTextEditingController.text,
                                             description:
                                                 descriptionTextEditingController
                                                     .text,
-                                            verskey: state.verskey == []
-                                                ? passValue!.verseKey
-                                                : state.verskey,
-                                            image:
-                                                img == "" ? state.image : img,
-                                            dbId: passValue!.id!),
-                                      )
-                                  : ctx.read<BookmarkBloc>().add(AddCollection(
-                                      context: context,
-                                      name: nameTextEditingController.text,
-                                      description:
-                                          descriptionTextEditingController.text,
-                                      verskey: state.verskey,
-                                      image: state.image,
-                                      dbId: DateTime.now()
-                                          .millisecondsSinceEpoch
-                                          .toString()));
-                          context.read<BookmarkBloc>()
-                            ..add(const SaveQuranChapterId(id: []))
-                            ..add(const FetchCollectionItem())
-                            ..add(const EmptyVerseKeyEvent());
-                          context.pop();
-                          context.pop();
+                                            verskey: state.verskey,
+                                            image: state.image,
+                                            dbId: DateTime.now()
+                                                .millisecondsSinceEpoch
+                                                .toString()));
+                            context.read<BookmarkBloc>()
+                              ..add(const SaveQuranChapterId(id: []))
+                              ..add(const FetchCollectionItem())
+                              ..add(const EmptyVerseKeyEvent());
+                            context.pop();
+                          }
                         },
                         child: Text(
                           'Done',
@@ -417,7 +447,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
     );
   }
 
-  Container _popUpWidget(BuildContext context) {
+  Widget _popUpWidget(BuildContext context) {
     return Container(
       height: SizeUtility(context).height * 0.90,
       decoration: BoxDecoration(

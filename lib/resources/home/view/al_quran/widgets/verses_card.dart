@@ -32,10 +32,10 @@ class VersesCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 5)
-          .copyWith(top: 10, bottom: 5),
+          .copyWith(top: 15, bottom: 5),
       margin: const EdgeInsets.all(5).copyWith(top: 5, bottom: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(7),
+        borderRadius: BorderRadius.circular(10),
         color: ColorManager.whiteColor,
         boxShadow: [
           BoxShadow(
@@ -144,7 +144,7 @@ class VersesCardWidget extends StatelessWidget {
                     color: ColorManager.primary,
                   ),
                 ),
-                kWidth15,
+                kWidth20,
                 BlocBuilder<QuranBloc, QuranState>(
                   builder: (context, state) => state.audioPlaying && isSelected
                       ? GestureDetector(
@@ -162,7 +162,7 @@ class VersesCardWidget extends StatelessWidget {
                           ),
                         ),
                 ),
-                kWidth15,
+                kWidth20,
                 BlocBuilder<BookmarkBloc, BookmarkState>(
                   builder: (context, state) => GestureDetector(
                     onTap: bookMarkOntap,
@@ -180,6 +180,7 @@ class VersesCardWidget extends StatelessWidget {
                           ),
                   ),
                 ),
+                kWidth10,
               ],
             ),
           )

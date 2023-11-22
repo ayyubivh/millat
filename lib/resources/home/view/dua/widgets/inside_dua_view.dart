@@ -6,7 +6,6 @@ import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
@@ -64,7 +63,7 @@ class InsideDuaView extends StatelessWidget {
                           ? data.translate![state.translationText].content ?? ''
                           : '';
 
-                  return _builDuaContainer(
+                  return _buildDuaContainer(
                     context: context,
                     index: index,
                     arabicText: state.displayArabicText ? data.content! : "",
@@ -97,7 +96,7 @@ class InsideDuaView extends StatelessWidget {
         }));
   }
 
-  Widget _builDuaContainer(
+  Widget _buildDuaContainer(
       {required BuildContext context,
       required int index,
       required String arabicText,
@@ -109,7 +108,7 @@ class InsideDuaView extends StatelessWidget {
       required String translatedText,
       String? duaId}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 18),
+      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -171,7 +170,7 @@ class InsideDuaView extends StatelessWidget {
                   children: [
                     const ImageIcon(
                       AssetImage("assets/icons/dua_play.png"),
-                      size: 19,
+                      size: 20,
                     ),
                     kWidth10,
                     GestureDetector(
@@ -184,7 +183,7 @@ class InsideDuaView extends StatelessWidget {
                       },
                       child: const ImageIcon(
                         AssetImage("assets/icons/dua_tasbih.png"),
-                        size: 19,
+                        size: 20,
                       ),
                     ),
                     kWidth10,
@@ -232,7 +231,7 @@ class InsideDuaView extends StatelessWidget {
                       },
                       child: const ImageIcon(
                         AssetImage("assets/icons/dua_gpay.png"),
-                        size: 19,
+                        size: 20,
                       ),
                     ),
                   ],
@@ -251,7 +250,7 @@ class InsideDuaView extends StatelessWidget {
                       onTap: onTapCopyText,
                       child: const ImageIcon(
                         AssetImage("assets/icons/copy.png"),
-                        size: 19,
+                        size: 20,
                       ),
                     ),
                     kWidth10,
@@ -268,7 +267,7 @@ class InsideDuaView extends StatelessWidget {
                               },
                               child: const ImageIcon(
                                 AssetImage('assets/icons/bookmark_filled.png'),
-                                size: 19,
+                                size: 20,
                               ),
                             )
                           : GestureDetector(
@@ -281,7 +280,7 @@ class InsideDuaView extends StatelessWidget {
                               },
                               child: const ImageIcon(
                                 AssetImage("assets/icons/bookmark.png"),
-                                size: 19,
+                                size: 20,
                               ),
                             ),
                     ),

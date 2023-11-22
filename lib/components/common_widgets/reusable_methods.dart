@@ -31,19 +31,36 @@ Widget gradientContainer(
 }
 
 // book mark veres Tile
-Widget bookMarkVersesTile(
-    {required int index,
-    required VoidCallback onTap,
-    required String text,
-    required bool isSelected}) {
+Widget bookMarkVersesTile({
+  required int index,
+  required VoidCallback onTap,
+  required String text,
+  required bool isSelected,
+}) {
   return Container(
     color: isSelected == true ? ColorManager.primary.withOpacity(0.3) : null,
     margin: const EdgeInsets.all(2),
     child: ListTile(
       onTap: onTap,
-      leading: ImageIcon(
-        const AssetImage("assets/images/folder_red.png"),
-        color: ColorManager.redColor,
+      leading: Stack(
+        children: [
+          InkWell(
+            onTap: () {},
+            child: ImageIcon(
+              const AssetImage("assets/icons/folder_green.png"),
+              color: ColorManager.primary,
+            ),
+          ),
+          Positioned(
+            top: 5,
+            left: 4,
+            child: Icon(
+              Icons.add,
+              color: ColorManager.whiteColor,
+              size: 16,
+            ),
+          )
+        ],
       ),
       title: Text(text),
       trailing: Icon(

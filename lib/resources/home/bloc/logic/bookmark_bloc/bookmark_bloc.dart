@@ -157,7 +157,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     emit(newState);
     final name = state.name;
     final img = state.image;
-    final id = state.verskey;
+    final id = event.verskey;
     final desc = state.description;
     final dbId = event.dbId;
 

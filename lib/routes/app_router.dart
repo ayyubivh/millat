@@ -524,52 +524,42 @@ class MyAppRouter {
                           ),
                         ]),
                     GoRoute(
-                        name: MyAppRouteConstants.quranBookmarkRouteName,
-                        path: 'quran_bookmark',
-                        pageBuilder: (context, state) {
-                          return const MaterialPage(child: BookmarkView());
-                        },
-                        routes: [
-                          GoRoute(
-                            name: MyAppRouteConstants
-                                .addNewQuranBookmarkRouteName,
-                            path: MyAppRouteConstants
-                                .addNewQuranBookmarkRouteName,
-                            pageBuilder: (context, state) {
-                              Map data = state.extra as Map;
-                              return MaterialPage(
-                                child: AddNewBookMarkCollection(
-                                  passvalue: data['passvalue'],
-                                  type: data['type'],
-                                  verseKeys: data['verseKeys'],
-                                ),
-                              );
-                            },
+                      name: MyAppRouteConstants.addNewQuranBookmarkRouteName,
+                      path: MyAppRouteConstants.addNewQuranBookmarkRouteName,
+                      pageBuilder: (context, state) {
+                        Map data = state.extra as Map;
+                        return MaterialPage(
+                          child: AddNewBookMarkCollection(
+                            passvalue: data['passvalue'],
+                            type: data['type'],
+                            verseKeys: data['verseKeys'],
                           ),
-                          GoRoute(
-                            name: MyAppRouteConstants
-                                .quranBookmarkCollectionRouteName,
-                            path: MyAppRouteConstants
-                                .quranBookmarkCollectionRouteName,
-                            pageBuilder: (context, state) {
-                              Map data = state.extra as Map;
-                              return MaterialPage(
-                                child: BookmarkCollectionView(
-                                  passvalue: data['passvalue'],
-                                ),
-                              );
-                            },
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      name:
+                          MyAppRouteConstants.quranBookmarkCollectionRouteName,
+                      path:
+                          MyAppRouteConstants.quranBookmarkCollectionRouteName,
+                      pageBuilder: (context, state) {
+                        Map data = state.extra as Map;
+                        return MaterialPage(
+                          child: BookmarkCollectionView(
+                            passvalue: data['passvalue'],
                           ),
-                          GoRoute(
-                            name: MyAppRouteConstants.addSuraSearchRouteName,
-                            path: MyAppRouteConstants.addSuraSearchRouteName,
-                            pageBuilder: (context, state) {
-                              return const MaterialPage(
-                                child: AddSuraSearchView(),
-                              );
-                            },
-                          ),
-                        ]),
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.addSuraSearchRouteName,
+                      path: MyAppRouteConstants.addSuraSearchRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(
+                          child: AddSuraSearchView(),
+                        );
+                      },
+                    ),
                   ]),
               GoRoute(
                 name: MyAppRouteConstants.compassRouteName,

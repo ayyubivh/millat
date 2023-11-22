@@ -10,24 +10,32 @@ import '../../../../../components/common_widgets/reusable_methods.dart';
 
 import '../../../bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 
-class AddSuraSearchView extends StatelessWidget {
+class AddSuraSearchView extends StatefulWidget {
   const AddSuraSearchView({Key? key}) : super(key: key);
 
   @override
+  State<AddSuraSearchView> createState() => _AddSuraSearchViewState();
+}
+
+class _AddSuraSearchViewState extends State<AddSuraSearchView> {
+  @override
+  void initState() {
+    BlocProvider.of<BookmarkBloc>(context)
+      ..add(const ClearIndexEvent())
+      ..add(const EmptyIndexEvent());
+    BlocProvider.of<QuranBloc>(context).add(SearchChapterEvent(query: ""));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<BookmarkBloc>(context)
-        ..add(const ClearIndexEvent())
-        ..add(const EmptyIndexEvent());
-      BlocProvider.of<QuranBloc>(context).add(SearchChapterEvent(query: ""));
-    });
     return Scaffold(
       appBar: _appBar(context),
       backgroundColor: ColorManager.whiteColor,
       body: BlocBuilder<QuranBloc, QuranState>(
         builder: (context, state) {
           final chapters = state.searchChapters;
-          if (chapters == null) {
+          if (chapters == null || state.isLoading) {
             return const Loader();
           }
 
@@ -52,6 +60,9 @@ class AddSuraSearchView extends StatelessWidget {
                             context.read<BookmarkBloc>().state.index == index) {
                           context.read<QuranBloc>().add(
                               const IsExpandonSearchEvent(isExpand: false));
+                          context
+                              .read<BookmarkBloc>()
+                              .add(ChangeIndexEvent(-1));
                         } else {
                           context
                               .read<BookmarkBloc>()
@@ -177,11 +188,15 @@ class AddSuraSearchView extends StatelessWidget {
                             // final id = context.read<BookmarkBloc>().state.id;
                             // print('here is the $id');
                             // context.read<QuranBloc>().add(FechtChapterbyId(id: id));
-
+                            final currentList = context
+                                    .read<QuranBloc>()
+                                    .state
+                                    .bookmarkAudioPlaylist +
+                                state.verskey;
                             context.read<QuranBloc>().add(FetchVersesByKey(
-                                  verseKey: state.verskey,
+                                  verseKey: currentList.toSet().toList(),
                                 ));
-                            print('versekey ${state.verskey}');
+                            print('versekey $currentList');
                             context.pop();
                           },
                           child: Text(

@@ -227,7 +227,7 @@ class QuranServices {
         final response = await http.get(Uri.parse("$url$verseKey"));
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
-          print('here is the data for verse key $verseKey: $data');
+          
           return VersesByKeyModel.fromJson(data);
         } else {
           throw Exception(

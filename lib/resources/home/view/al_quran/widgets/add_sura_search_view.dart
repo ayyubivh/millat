@@ -107,6 +107,7 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                                       (verseIndex) {
                                         final ayah = verseIndex + 1;
                                         return bookMarkVersesTile(
+                                          verseText: "",
                                           isSelected: state.versesIndexList
                                               .contains(verseIndex),
                                           text: 'Aya $ayah',
@@ -154,7 +155,7 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
           Container(
             height: 50,
             color: ColorManager.appBarColor,
-            padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
             child: Align(
               alignment: Alignment.topCenter,
               child: Column(
@@ -162,8 +163,8 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
-                        onTap: () {
+                      TextButton(
+                        onPressed: () {
                           context.pop();
                         },
                         child: Text(
@@ -183,8 +184,8 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                         ),
                       ),
                       BlocBuilder<BookmarkBloc, BookmarkState>(
-                        builder: (context, state) => GestureDetector(
-                          onTap: () {
+                        builder: (context, state) => TextButton(
+                          onPressed: () {
                             // final id = context.read<BookmarkBloc>().state.id;
                             // print('here is the $id');
                             // context.read<QuranBloc>().add(FechtChapterbyId(id: id));

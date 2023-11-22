@@ -36,9 +36,10 @@ Widget bookMarkVersesTile({
   required VoidCallback onTap,
   required String text,
   required bool isSelected,
+  required String verseText,
 }) {
   return Container(
-    color: isSelected == true ? ColorManager.primary.withOpacity(0.3) : null,
+    color: ColorManager.whiteColor,
     margin: const EdgeInsets.all(2),
     child: ListTile(
       onTap: onTap,
@@ -48,21 +49,34 @@ Widget bookMarkVersesTile({
             onTap: () {},
             child: ImageIcon(
               const AssetImage("assets/icons/folder_green.png"),
-              color: ColorManager.primary,
+              color: isSelected ? ColorManager.redColor : ColorManager.primary,
             ),
           ),
           Positioned(
             top: 5,
             left: 4,
             child: Icon(
-              Icons.add,
+              isSelected ? Icons.remove : Icons.add,
               color: ColorManager.whiteColor,
               size: 16,
             ),
           )
         ],
       ),
-      title: Text(text),
+      title: Text(
+        text,
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      subtitle: Text(
+        isSelected ? verseText : "",
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
       trailing: Icon(
         Icons.navigate_next,
         size: 30,

@@ -47,11 +47,14 @@ class BookmarkCollectionView extends StatelessWidget {
             kHeight25,
             Align(
               alignment: Alignment.center,
-              child: Image.asset(
-                passvalue.image,
-                height: 150,
-                width: 155,
-                fit: BoxFit.fill,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  passvalue.image,
+                  height: 150,
+                  width: 155,
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
             kHeight25,

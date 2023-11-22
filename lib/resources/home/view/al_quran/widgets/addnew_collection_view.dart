@@ -226,51 +226,78 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
             kHeight25,
             BlocBuilder<QuranBloc, QuranState>(
               builder: (context, state) {
+                final vesrskeydata = state.versesByKeyModel;
+
                 return state.versesByKeyModel == []
                     ? const SizedBox()
                     : Expanded(
-                        child: ListView.builder(
-                          itemCount: state.versesByKeyModel?.length ?? 0,
-                          itemBuilder: (context, index) => ListTile(
-                            onTap: () {
-                              context.pushNamed(
-                                  MyAppRouteConstants.quranVersesRoutename,
-                                  extra: {"type": Qurantype.verse});
+                        child: BlocBuilder<BookmarkBloc, BookmarkState>(
+                          builder: (context, state) => ListView.builder(
+                            itemCount: vesrskeydata?.length ?? 0,
+                            itemBuilder: (context, index) {
+                              final verseKey =
+                                  vesrskeydata![index].verses[0].verseKey;
+                              final isSelected = state.verskey.contains(
+                                  vesrskeydata[index].verses[0].verseKey);
+                              return ListTile(
+                                onTap: () {
+                                  // context.pushNamed(
+                                  //     MyAppRouteConstants.quranVersesRoutename,
+                                  //     extra: {"type": Qurantype.verse});
+                                  context
+                                      .read<BookmarkBloc>()
+                                      .add(SaveVerseKeyEvent(verseKey));
+                                },
+                                leading: Stack(
+                                  children: [
+                                    ImageIcon(
+                                      const AssetImage(
+                                          "assets/icons/folder_green.png"),
+                                      color: isSelected
+                                          ? ColorManager.redColor
+                                          : ColorManager.primary,
+                                    ),
+                                    Positioned(
+                                      top: 5,
+                                      left: 4,
+                                      child: Icon(
+                                        isSelected ? Icons.remove : Icons.add,
+                                        color: ColorManager.whiteColor,
+                                        size: 16,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      vesrskeydata[index].verses[0].textIndopak,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: 'Hafs',
+                                      ),
+                                      maxLines: 1,
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                    Text(
+                                      verseKey,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorManager.textGrey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                // trailing: Icon(
+                                //   Icons.navigate_next,
+                                //   size: 30,
+                                //   color: ColorManager.blackColor,
+                                // ),
+                              );
                             },
-                            leading: ImageIcon(
-                              const AssetImage("assets/images/folder_red.png"),
-                              color: ColorManager.primary,
-                            ),
-                            title: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  state.versesByKeyModel![index].verses[0]
-                                      .textIndopak,
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600,
-                                    fontFamily: 'Hafs',
-                                  ),
-                                  maxLines: 1,
-                                  textDirection: TextDirection.rtl,
-                                ),
-                                Text(
-                                  state.versesByKeyModel![index].verses[0]
-                                      .verseKey,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    color: ColorManager.textGrey,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            trailing: Icon(
-                              Icons.navigate_next,
-                              size: 30,
-                              color: ColorManager.blackColor,
-                            ),
                           ),
                         ),
                       );
@@ -292,17 +319,18 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
         alignment: Alignment.topCenter,
         children: [
           Container(
-            height: 50,
+            height: 70,
             color: ColorManager.appBarColor,
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 50)
-                .copyWith(bottom: 0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 25,
+            ).copyWith(top: 30),
             child: Align(
                 alignment: Alignment.topCenter,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GestureDetector(
-                      onTap: () {
+                    TextButton(
+                      onPressed: () {
                         context.read<BookmarkBloc>()
                           ..add(const SaveQuranChapterId(id: []))
                           ..add(const EmptyVerseKeyEvent());

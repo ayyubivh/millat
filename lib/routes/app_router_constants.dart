@@ -14,7 +14,6 @@ class MyAppRouteConstants {
   static const String compassRouteName = "compass";
   static const String tasbihRouteName = "tasbih";
   static const String duaRouteName = "dua";
-  static const String quranBookmarkRouteName = "quran_bookmark";
   static const String quranBookmarkCollectionRouteName =
       "quran_bookmark_collection";
   static const String addSuraSearchRouteName = "add_sura_search";

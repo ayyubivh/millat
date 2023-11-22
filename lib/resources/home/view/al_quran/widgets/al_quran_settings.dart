@@ -101,29 +101,29 @@ class AlQuranSettings extends StatelessWidget {
                 ),
               ),
               kHeight15,
-              const Text(
-                'Daily Verse',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              kHeight15,
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: ColorManager.darkWhite,
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                padding: const EdgeInsets.all(12),
-                child: const Text(
-                  "Mark All Quotes As Read",
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              )
+              // const Text(
+              //   'Daily Verse',
+              //   style: TextStyle(
+              //     fontSize: 16,
+              //     fontWeight: FontWeight.w500,
+              //   ),
+              // ),
+              // kHeight15,
+              // Container(
+              //   width: double.infinity,
+              //   decoration: BoxDecoration(
+              //     color: ColorManager.darkWhite,
+              //     borderRadius: BorderRadius.circular(6),
+              //   ),
+              //   padding: const EdgeInsets.all(12),
+              //   child: const Text(
+              //     "Mark All Quotes As Read",
+              //     style: TextStyle(
+              //       fontSize: 17,
+              //       fontWeight: FontWeight.bold,
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),

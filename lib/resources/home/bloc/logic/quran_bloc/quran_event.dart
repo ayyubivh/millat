@@ -76,4 +76,5 @@ class QuranEvent with _$QuranEvent {
     required String aya,
     required String chapterId,
   }) = PlaySingleAudio;
+  const factory QuranEvent.emptyQuranVersesbyKey() = EmptyQuranVersesbyKey;  
 }

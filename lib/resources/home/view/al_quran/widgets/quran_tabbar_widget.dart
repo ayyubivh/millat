@@ -114,7 +114,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
 
                               return InkWell(
                                 onTap: () {
-                                  context.goNamed(
+                                  context.pushNamed(
                                       MyAppRouteConstants
                                           .quranBookmarkCollectionRouteName,
                                       extra: {'passvalue': data});

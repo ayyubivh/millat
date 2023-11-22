@@ -29,16 +29,16 @@ class BookmarkView extends StatelessWidget {
           ),
         ),
         actions: [
-          ImageIcon(
-            const AssetImage("assets/icons/settings.png"),
-            color: ColorManager.blackColor,
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(MyAppRouteConstants.quranSettingsRouteName);
+            },
+            child: ImageIcon(
+              const AssetImage("assets/icons/settings.png"),
+              color: ColorManager.blackColor,
+            ),
           ),
-          kWidth10,
-          ImageIcon(
-            const AssetImage("assets/icons/search.png"),
-            color: ColorManager.blackColor,
-          ),
-          kWidth10,
+          kWidth20,
         ],
       ),
       body: BlocProvider(

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -58,6 +60,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<SaveLastReadEvent>(_saveLastReadEvent);
     on<FetchSingleVerseTranslation>(_fetchSingleVerseTranslation);
     on<PlaySingleAudio>(_playSingleAudio);
+    on<EmptyQuranVersesbyKey>(_emptyQuranVersesKey);
   }
 
   _fetchQuranChapters(
@@ -456,5 +459,11 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  _emptyQuranVersesKey(EmptyQuranVersesbyKey event, Emitter<QuranState> emit) {
+    emit(state.copyWith(
+      versesByKeyModel: null,
+    ));
   }
 }

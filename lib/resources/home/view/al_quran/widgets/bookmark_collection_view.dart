@@ -93,7 +93,10 @@ class BookmarkCollectionView extends StatelessWidget {
                               ),
                             );
                           },
-                          child: const Icon(Icons.more_horiz))
+                          child: Icon(
+                            Icons.more_horiz,
+                            color: ColorManager.primary,
+                          ))
                     ],
                   )
                 ],
@@ -209,6 +212,7 @@ class BookmarkCollectionView extends StatelessWidget {
               BookMarkDB.instance.removeCollection(passvalue.id!);
               context.read<BookmarkBloc>().add(const FetchCollectionItem());
               context.pop();
+              context.pop();
             },
             child: Text(
               'Delete',
@@ -240,27 +244,31 @@ class BookmarkCollectionView extends StatelessWidget {
     );
   }
 
-  Container _playButton(BuildContext context) {
-    return Container(
+  Widget _playButton(BuildContext context) {
+    return SizedBox(
       height: 50,
       width: SizeUtility(context).width / 2.4,
-      decoration: BoxDecoration(
-        color: ColorManager.primary,
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: TextButton.icon(
-        onPressed: () {},
-        icon: ImageIcon(
-          const AssetImage("assets/icons/play_2.png"),
-          color: ColorManager.whiteColor,
-        ),
-        label: Text(
-          "Play",
-          style: TextStyle(
-            color: ColorManager.whiteColor,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+      child: CustomOutlinedButton(
+        backGroundColor: ColorManager.primary,
+        onTap: () {},
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.play_arrow_outlined,
+              color: ColorManager.whiteColor,
+              size: 24,
+            ),
+            kWidth8,
+            Text(
+              "Play",
+              style: TextStyle(
+                color: ColorManager.whiteColor,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -285,7 +293,7 @@ class BookmarkCollectionView extends StatelessWidget {
               const AssetImage("assets/icons/edit_2.png"),
               color: ColorManager.primary,
             ),
-            const SizedBox(width: 8), // Adjust the spacing as needed
+            kWidth8,
             Text(
               "Edit",
               style: TextStyle(

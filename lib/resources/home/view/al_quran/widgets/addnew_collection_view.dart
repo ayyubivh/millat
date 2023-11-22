@@ -40,6 +40,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
 
   @override
   void initState() {
+    BlocProvider.of<QuranBloc>(context).add(const EmptyQuranVersesbyKey());
     widget.type == BookMarkCollectionType.edit ? addField() : null;
     context.read<BookmarkBloc>().add(const SaveImageEvent(img: ""));
     widget.type == BookMarkCollectionType.addSpecificOne
@@ -192,7 +193,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
             MainButton(
               title: "Add Suras",
               onPressed: () {
-                context.goNamed(MyAppRouteConstants.addSuraSearchRouteName);
+                context.pushNamed(MyAppRouteConstants.addSuraSearchRouteName);
               },
             ),
             kHeight25,
@@ -202,7 +203,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                     ? const SizedBox()
                     : Expanded(
                         child: ListView.builder(
-                          itemCount: state.versesByKeyModel!.length,
+                          itemCount: state.versesByKeyModel?.length ?? 0,
                           itemBuilder: (context, index) => ListTile(
                             onTap: () {
                               context.goNamed(
@@ -347,6 +348,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                             ..add(const SaveQuranChapterId(id: []))
                             ..add(const FetchCollectionItem())
                             ..add(const EmptyVerseKeyEvent());
+                          context.pop();
                           context.pop();
                         },
                         child: Text(

@@ -142,12 +142,12 @@ class RewardsHomeView extends StatelessWidget {
                   builder: (context, state) {
                     return ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount:
-                          state.rewardsProductsModel?.result.products.length ??
-                              4,
+                      itemCount: state
+                              .rewardsProductsModel?.result?.products?.length ??
+                          4,
                       itemBuilder: (context, index) {
                         final data =
-                            state.rewardsProductsModel?.result.products;
+                            state.rewardsProductsModel?.result?.products;
                         if (data == null || state.isLoading) {
                           return Padding(
                             padding: const EdgeInsets.only(right: 10),
@@ -172,14 +172,14 @@ class RewardsHomeView extends StatelessWidget {
                             children: [
                               Utilities().buildCachedNetworkImage(
                                 imageUrl:
-                                    data[index].productId?.images[0] ?? "",
+                                    data[index]?.productId?.images?[0] ?? "",
                                 height: 73,
                                 width: 106,
                                 boxFit: BoxFit.fill,
                               ),
                               kHeight3,
                               Text(
-                                data[index].productId?.salePrice.toString() ??
+                                data[index]?.productId?.salePrice.toString() ??
                                     "",
                                 style: TextStyle(
                                   fontSize: 13,

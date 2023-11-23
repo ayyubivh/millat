@@ -812,8 +812,9 @@ class _VersesViewState extends State<VersesView> {
           child: Column(
             children: [
               BookmarkNewCollectionWidget(
-                  verseKeys: ["${widget.chapterid}:${index + 1}"],
-                  type: BookMarkCollectionType.addSpecificOne),
+                verseKeys: ["${widget.chapterid}:${index + 1}"],
+                type: BookMarkCollectionType.addSpecificOne,
+              ),
               kHeight16,
               BlocBuilder<BookmarkBloc, BookmarkState>(
                 builder: (context, state) =>

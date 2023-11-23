@@ -50,13 +50,13 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
     context.read<BookmarkBloc>().add(const SaveImageEvent(img: ""));
     widget.type == BookMarkCollectionType.addSpecificOne
         ? context.read<QuranBloc>().add(FetchVersesByKey(
-              verseKey: widget.verseKeys!,
+              verseKey: widget.verseKeys ?? [],
             ))
         : null;
     widget.type == BookMarkCollectionType.addSpecificOne
         ? context
             .read<BookmarkBloc>()
-            .add(SaveVerseKeyEvent(widget.verseKeys![0]))
+            .add(SaveVerseKeyEvent(widget.verseKeys?[0] ?? ''))
         : null;
     super.initState();
   }
@@ -65,6 +65,8 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
     nameTextEditingController.text = widget.passvalue!.name;
     descriptionTextEditingController.text = widget.passvalue!.discription;
     img = widget.passvalue!.image;
+    BlocProvider.of<BookmarkBloc>(context)
+        .add(SaveVerseKeyEvent((widget.passvalue!.verseKey.join(" "))));
   }
 
   @override

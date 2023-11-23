@@ -209,6 +209,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
         versesByKeyModel: data,
         isLoading: false,
       ));
+      print(state.versesByKeyModel);
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");

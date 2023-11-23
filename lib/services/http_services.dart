@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/utils/string_constants.dart';
@@ -48,7 +50,7 @@ class HttpServices {
           body: body,
           headers: isToken
               ? {
-                  // 'Content-Type': 'application/json; charset=utf-8',
+                  // 'Content-Type': 'application/x-www-form-urlencoded',
                   'Authorization': 'Bearer ${_getToken()}',
                 }
               : {});

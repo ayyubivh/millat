@@ -95,7 +95,7 @@ class RewardServices extends HttpServices {
     const endPoint = 'reward/add';
 
     final body = {
-      "rewards": rewards.toString(),
+      'rewards': rewards.toString(),
     };
 
     final response = await put(

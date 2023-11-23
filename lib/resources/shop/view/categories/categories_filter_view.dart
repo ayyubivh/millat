@@ -159,7 +159,7 @@ class CategoriesFilterView extends StatelessWidget {
                   },
                   itemCount: state.subcategoryByCategoryIdModel?.result
                           ?.subCategory?.length ??
-                      20,
+                      10,
                 ));
               },
             )

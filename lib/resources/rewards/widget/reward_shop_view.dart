@@ -49,9 +49,9 @@ class RewardShopView extends StatelessWidget {
               mainAxisSpacing: 10,
               mainAxisExtent: 360,
             ),
-            itemCount: state.rewardsProductsModel?.result.products.length,
+            itemCount: state.rewardsProductsModel?.result?.products?.length,
             itemBuilder: (context, index) {
-              final data = state.rewardsProductsModel?.result.products;
+              final data = state.rewardsProductsModel?.result!.products;
               if (data == null) {
                 return ShimmerUtils.productsShimmers(context: context);
               }
@@ -59,7 +59,7 @@ class RewardShopView extends StatelessWidget {
                   onTap: () {
                     context.pushNamed(
                         MyAppRouteConstants.rewardsShopProductRoutename,
-                        extra: {'id': data[index].id});
+                        extra: {'id': data[index]!.id});
                   },
                   child: SizedBox(
                     height: 320,
@@ -68,7 +68,7 @@ class RewardShopView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Utilities().buildCachedNetworkImage(
-                          imageUrl: data[index].productId?.images[0] ?? "",
+                          imageUrl: data[index]!.productId!.images![0],
                           width: SizeUtility(context).width / 2,
                           height: 180,
                           boxFit: BoxFit.fill,
@@ -93,7 +93,7 @@ class RewardShopView extends StatelessWidget {
                         ),
                         kHeight16,
                         Text(
-                          data[index].productId?.title ?? "",
+                          data[index]?.productId?.title ?? "",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -107,7 +107,7 @@ class RewardShopView extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              data[index].offerPrice.toString(),
+                              data[index]?.offerPrice.toString() ?? "",
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,
@@ -116,7 +116,8 @@ class RewardShopView extends StatelessWidget {
                             ),
                             kWidth5,
                             Text(
-                              data[index].productId?.salePrice.toString() ?? "",
+                              data[index]?.productId?.salePrice.toString() ??
+                                  "",
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w700,
@@ -126,7 +127,7 @@ class RewardShopView extends StatelessWidget {
                             ),
                             kWidth3,
                             Text(
-                              "${data[index].productId?.discount}% off",
+                              "${data[index]?.productId?.discount}% off",
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w700,

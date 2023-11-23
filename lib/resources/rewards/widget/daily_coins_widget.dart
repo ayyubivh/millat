@@ -247,7 +247,7 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                             value: true));
                     state.checkCoinsCollected == false
                         ? BlocProvider.of<RewardsBloc>(context)
-                            .add(const AddRewards(rewards: 1))
+                            .add(const AddRewards(rewards: 500))
                         : null;
                   },
                   child: Container(

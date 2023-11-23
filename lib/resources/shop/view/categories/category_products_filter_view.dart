@@ -1,11 +1,17 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/string_constants.dart';
+
+import '../../../../enums/enumertations.dart';
+import '../../../../routes/app_router_constants.dart';
 
 class CategoryProductsFilterView extends StatelessWidget {
   final String categoryId;
@@ -77,7 +83,7 @@ class CategoryProductsFilterView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
-                            context.read<CategoryBloc>().add(
+                            BlocProvider.of<CategoryBloc>(context).add(
                                 CategoryEvent.changeFilterIndex(index: index));
                           },
                           child: Padding(
@@ -127,34 +133,32 @@ class CategoryProductsFilterView extends StatelessWidget {
                           ?.subCategory?[index];
                       bool isSelected = index == state.filterCheckboxIndex;
 
-                      return GestureDetector(
-                        onTap: () {
-                          context.read<CategoryBloc>().add(
-                              CategoryEvent.changeFilterIndex(index: index));
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 14),
-                          child: Row(
-                            children: [
-                              Checkbox(
-                                activeColor: ColorManager.primary,
-                                value: isSelected,
-                                onChanged: (value) {
-                                  context.read<CategoryBloc>().add(
-                                      CategoryEvent.filterCheckboxChangingEvent(
-                                          index: index));
-                                },
-                              ),
-                              Text(
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        child: Row(
+                          children: [
+                            Checkbox(
+                              activeColor: ColorManager.primary,
+                              value: isSelected,
+                              onChanged: (value) {
+                                context.read<CategoryBloc>().add(
+                                    CategoryEvent.filterCheckboxChangingEvent(
+                                        index: index));
+                              },
+                            ),
+                            Flexible(
+                              child: Text(
                                 data?.title ?? "",
                                 style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                   color: ColorManager.textGrey68,
                                 ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       );
                     },
@@ -165,6 +169,67 @@ class CategoryProductsFilterView extends StatelessWidget {
           ],
         ),
       ),
+      bottomSheet: BlocBuilder<CategoryBloc, CategoryState>(
+        builder: (context, state) {
+          final data = state.subcategoryByCategoryIdModel?.result
+              ?.subCategory?[state.filterCheckboxIndex];
+
+          return SizedBox(
+            height: 50,
+            child: Row(
+              children: [
+                Expanded(
+                  child: BottomWidget(
+                    color: ColorManager.whiteColor,
+                    text: Appstrings.clearAll,
+                    textColor: ColorManager.blackColor,
+                    onTap: () {},
+                  ),
+                ),
+                Expanded(
+                    child: BottomWidget(
+                  color: ColorManager.primary,
+                  text: Appstrings.apply,
+                  textColor: ColorManager.whiteColor,
+                  onTap: () {
+                    context.pushReplacementNamed(
+                        MyAppRouteConstants.categoriesProductsRouteName,
+                        extra: {
+                          'type': FilterType.category,
+                          'subCategory': data!.title,
+                          'category': state.category?.result
+                                  ?.category?[state.categoryIndex].title ??
+                              ""
+                        });
+                    print(data);
+                  },
+                )),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class BottomWidget extends StatelessWidget {
+  const BottomWidget({
+    Key? key,
+    required this.color,
+    required this.text,
+    required this.textColor,
+    required this.onTap,
+  }) : super(key: key);
+  final Color color;
+  final String text;
+  final Color textColor;
+  final VoidCallback onTap;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: color,
+      child: MainTextButton(title: text, onTap: onTap, textColor: textColor),
     );
   }
 }

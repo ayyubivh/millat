@@ -216,8 +216,8 @@ class Appstrings {
   static const String hadith = "Hadith";
   static const String noProductsFound = "No products found!";
   static const String buyNow = "Buy Now";
-
-//Profile
+  static const String clearAll = "Clear All";
+  //Profile
   static const String referFriendEarn = "Reffer Friends, Get 100 coins Each ";
   static const String toName = "To:Name,Phone, or Email";
   static const String contact = "CONTACT";
@@ -336,7 +336,7 @@ class Appstrings {
   static const String popularDestination = "Popular Destination";
   static const String bestPlace = "Best Place";
   static const String searchYourDestination = "Search Your Destination";
-  static const String clearAll = "Clear All";
+  
   static const String bookingForm = "Booking Form";
   static const String phoneNumber = "Phone Number";
   static const String guests = "Guests";

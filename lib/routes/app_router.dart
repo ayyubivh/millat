@@ -406,6 +406,7 @@ class MyAppRouter {
                                   return MaterialPage(
                                       child: CategoryProductsFilterView(
                                     categoryId: data['categoryId'],
+                                    category: data['category'],
                                   ));
                                 },
                               ),

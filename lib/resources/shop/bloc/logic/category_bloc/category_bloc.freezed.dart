@@ -40,10 +40,13 @@ mixin _$CategoryEvent {
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,10 +70,13 @@ mixin _$CategoryEvent {
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,10 +99,13 @@ mixin _$CategoryEvent {
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,11 +129,17 @@ mixin _$CategoryEvent {
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -144,11 +159,15 @@ mixin _$CategoryEvent {
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -168,11 +187,15 @@ mixin _$CategoryEvent {
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -314,10 +337,13 @@ class _$FetchFilterProductsImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return fetchFilterProducts(category, subCategory, itemId);
   }
@@ -344,10 +370,13 @@ class _$FetchFilterProductsImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return fetchFilterProducts?.call(category, subCategory, itemId);
   }
@@ -373,10 +402,13 @@ class _$FetchFilterProductsImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchFilterProducts != null) {
@@ -406,11 +438,17 @@ class _$FetchFilterProductsImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return fetchFilterProducts(this);
   }
@@ -433,11 +471,15 @@ class _$FetchFilterProductsImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return fetchFilterProducts?.call(this);
   }
@@ -460,11 +502,15 @@ class _$FetchFilterProductsImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchFilterProducts != null) {
@@ -557,10 +603,13 @@ class _$FetchCategoriesImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return fetchCategories();
   }
@@ -587,10 +636,13 @@ class _$FetchCategoriesImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return fetchCategories?.call();
   }
@@ -616,10 +668,13 @@ class _$FetchCategoriesImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchCategories != null) {
@@ -649,11 +704,17 @@ class _$FetchCategoriesImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return fetchCategories(this);
   }
@@ -676,11 +737,15 @@ class _$FetchCategoriesImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return fetchCategories?.call(this);
   }
@@ -703,11 +768,15 @@ class _$FetchCategoriesImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchCategories != null) {
@@ -790,10 +859,13 @@ class _$FetchSubcategoriesImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return fetchSubcategories();
   }
@@ -820,10 +892,13 @@ class _$FetchSubcategoriesImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return fetchSubcategories?.call();
   }
@@ -849,10 +924,13 @@ class _$FetchSubcategoriesImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchSubcategories != null) {
@@ -882,11 +960,17 @@ class _$FetchSubcategoriesImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return fetchSubcategories(this);
   }
@@ -909,11 +993,15 @@ class _$FetchSubcategoriesImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return fetchSubcategories?.call(this);
   }
@@ -936,11 +1024,15 @@ class _$FetchSubcategoriesImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchSubcategories != null) {
@@ -1051,10 +1143,13 @@ class _$OnSelectFilterImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return onSelectFilter(value);
   }
@@ -1081,10 +1176,13 @@ class _$OnSelectFilterImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return onSelectFilter?.call(value);
   }
@@ -1110,10 +1208,13 @@ class _$OnSelectFilterImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (onSelectFilter != null) {
@@ -1143,11 +1244,17 @@ class _$OnSelectFilterImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return onSelectFilter(this);
   }
@@ -1170,11 +1277,15 @@ class _$OnSelectFilterImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return onSelectFilter?.call(this);
   }
@@ -1197,11 +1308,15 @@ class _$OnSelectFilterImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (onSelectFilter != null) {
@@ -1320,10 +1435,13 @@ class _$FetchItemsByCategoryImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return fetchItemsByCategory(category);
   }
@@ -1350,10 +1468,13 @@ class _$FetchItemsByCategoryImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return fetchItemsByCategory?.call(category);
   }
@@ -1379,10 +1500,13 @@ class _$FetchItemsByCategoryImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchItemsByCategory != null) {
@@ -1412,11 +1536,17 @@ class _$FetchItemsByCategoryImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return fetchItemsByCategory(this);
   }
@@ -1439,11 +1569,15 @@ class _$FetchItemsByCategoryImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return fetchItemsByCategory?.call(this);
   }
@@ -1466,11 +1600,15 @@ class _$FetchItemsByCategoryImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchItemsByCategory != null) {
@@ -1590,10 +1728,13 @@ class _$ChangeCategoryIndexEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return changeCategoryIndexEvent(index);
   }
@@ -1620,10 +1761,13 @@ class _$ChangeCategoryIndexEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return changeCategoryIndexEvent?.call(index);
   }
@@ -1649,10 +1793,13 @@ class _$ChangeCategoryIndexEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (changeCategoryIndexEvent != null) {
@@ -1682,11 +1829,17 @@ class _$ChangeCategoryIndexEventImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return changeCategoryIndexEvent(this);
   }
@@ -1709,11 +1862,15 @@ class _$ChangeCategoryIndexEventImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return changeCategoryIndexEvent?.call(this);
   }
@@ -1736,11 +1893,15 @@ class _$ChangeCategoryIndexEventImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (changeCategoryIndexEvent != null) {
@@ -1865,10 +2026,13 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return filterEvent(category, subCategory);
   }
@@ -1895,10 +2059,13 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return filterEvent?.call(category, subCategory);
   }
@@ -1924,10 +2091,13 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (filterEvent != null) {
@@ -1957,11 +2127,17 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return filterEvent(this);
   }
@@ -1984,11 +2160,15 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return filterEvent?.call(this);
   }
@@ -2011,11 +2191,15 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (filterEvent != null) {
@@ -2135,10 +2319,13 @@ class _$FilterBrandPickEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return filterBrandPickEvent(brand);
   }
@@ -2165,10 +2352,13 @@ class _$FilterBrandPickEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return filterBrandPickEvent?.call(brand);
   }
@@ -2194,10 +2384,13 @@ class _$FilterBrandPickEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (filterBrandPickEvent != null) {
@@ -2227,11 +2420,17 @@ class _$FilterBrandPickEventImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return filterBrandPickEvent(this);
   }
@@ -2254,11 +2453,15 @@ class _$FilterBrandPickEventImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return filterBrandPickEvent?.call(this);
   }
@@ -2281,11 +2484,15 @@ class _$FilterBrandPickEventImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (filterBrandPickEvent != null) {
@@ -2402,10 +2609,13 @@ class _$PriceRangeEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return priceRangeEvent(index);
   }
@@ -2432,10 +2642,13 @@ class _$PriceRangeEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return priceRangeEvent?.call(index);
   }
@@ -2461,10 +2674,13 @@ class _$PriceRangeEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (priceRangeEvent != null) {
@@ -2494,11 +2710,17 @@ class _$PriceRangeEventImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return priceRangeEvent(this);
   }
@@ -2521,11 +2743,15 @@ class _$PriceRangeEventImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return priceRangeEvent?.call(this);
   }
@@ -2548,11 +2774,15 @@ class _$PriceRangeEventImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (priceRangeEvent != null) {
@@ -2675,10 +2905,13 @@ class _$FetchSubCategoriesByCategoryIdImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return fetchSubCategoriesByCategoryId(categoryId);
   }
@@ -2705,10 +2938,13 @@ class _$FetchSubCategoriesByCategoryIdImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return fetchSubCategoriesByCategoryId?.call(categoryId);
   }
@@ -2734,10 +2970,13 @@ class _$FetchSubCategoriesByCategoryIdImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchSubCategoriesByCategoryId != null) {
@@ -2767,11 +3006,17 @@ class _$FetchSubCategoriesByCategoryIdImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return fetchSubCategoriesByCategoryId(this);
   }
@@ -2794,11 +3039,15 @@ class _$FetchSubCategoriesByCategoryIdImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return fetchSubCategoriesByCategoryId?.call(this);
   }
@@ -2821,11 +3070,15 @@ class _$FetchSubCategoriesByCategoryIdImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchSubCategoriesByCategoryId != null) {
@@ -2946,10 +3199,13 @@ class _$SaveCategoryFilterValImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return saveCategoryFilterVal(filterVal);
   }
@@ -2976,10 +3232,13 @@ class _$SaveCategoryFilterValImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return saveCategoryFilterVal?.call(filterVal);
   }
@@ -3005,10 +3264,13 @@ class _$SaveCategoryFilterValImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (saveCategoryFilterVal != null) {
@@ -3038,11 +3300,17 @@ class _$SaveCategoryFilterValImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return saveCategoryFilterVal(this);
   }
@@ -3065,11 +3333,15 @@ class _$SaveCategoryFilterValImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return saveCategoryFilterVal?.call(this);
   }
@@ -3092,11 +3364,15 @@ class _$SaveCategoryFilterValImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (saveCategoryFilterVal != null) {
@@ -3237,10 +3513,13 @@ class _$SavePriceRangeImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return savePriceRange(minPrice, maxPrice, rangeValues);
   }
@@ -3267,10 +3546,13 @@ class _$SavePriceRangeImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return savePriceRange?.call(minPrice, maxPrice, rangeValues);
   }
@@ -3296,10 +3578,13 @@ class _$SavePriceRangeImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (savePriceRange != null) {
@@ -3329,11 +3614,17 @@ class _$SavePriceRangeImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return savePriceRange(this);
   }
@@ -3356,11 +3647,15 @@ class _$SavePriceRangeImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return savePriceRange?.call(this);
   }
@@ -3383,11 +3678,15 @@ class _$SavePriceRangeImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (savePriceRange != null) {
@@ -3532,10 +3831,13 @@ class _$FetchProductSortByPriceImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return fetchProductSortByPrice(order, category, subCategory);
   }
@@ -3562,10 +3864,13 @@ class _$FetchProductSortByPriceImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return fetchProductSortByPrice?.call(order, category, subCategory);
   }
@@ -3591,10 +3896,13 @@ class _$FetchProductSortByPriceImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchProductSortByPrice != null) {
@@ -3624,11 +3932,17 @@ class _$FetchProductSortByPriceImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return fetchProductSortByPrice(this);
   }
@@ -3651,11 +3965,15 @@ class _$FetchProductSortByPriceImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return fetchProductSortByPrice?.call(this);
   }
@@ -3678,11 +3996,15 @@ class _$FetchProductSortByPriceImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (fetchProductSortByPrice != null) {
@@ -3803,10 +4125,13 @@ class _$ChangeSortListIndexImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return changeSortListIndex(index);
   }
@@ -3833,10 +4158,13 @@ class _$ChangeSortListIndexImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return changeSortListIndex?.call(index);
   }
@@ -3862,10 +4190,13 @@ class _$ChangeSortListIndexImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (changeSortListIndex != null) {
@@ -3895,11 +4226,17 @@ class _$ChangeSortListIndexImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return changeSortListIndex(this);
   }
@@ -3922,11 +4259,15 @@ class _$ChangeSortListIndexImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return changeSortListIndex?.call(this);
   }
@@ -3949,11 +4290,15 @@ class _$ChangeSortListIndexImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (changeSortListIndex != null) {
@@ -3974,24 +4319,27 @@ abstract class ChangeSortListIndex implements CategoryEvent {
 }
 
 /// @nodoc
-abstract class _$$FetchProductsByFilterPricerangeImplCopyWith<$Res> {
-  factory _$$FetchProductsByFilterPricerangeImplCopyWith(
-          _$FetchProductsByFilterPricerangeImpl value,
-          $Res Function(_$FetchProductsByFilterPricerangeImpl) then) =
-      __$$FetchProductsByFilterPricerangeImplCopyWithImpl<$Res>;
+abstract class _$$FetchProductsByFilterImplCopyWith<$Res> {
+  factory _$$FetchProductsByFilterImplCopyWith(
+          _$FetchProductsByFilterImpl value,
+          $Res Function(_$FetchProductsByFilterImpl) then) =
+      __$$FetchProductsByFilterImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {String minPrice, String maxPrice, String category, String subCategory});
+      {String minPrice,
+      String maxPrice,
+      String category,
+      String subCategory,
+      String brand,
+      String color});
 }
 
 /// @nodoc
-class __$$FetchProductsByFilterPricerangeImplCopyWithImpl<$Res>
-    extends _$CategoryEventCopyWithImpl<$Res,
-        _$FetchProductsByFilterPricerangeImpl>
-    implements _$$FetchProductsByFilterPricerangeImplCopyWith<$Res> {
-  __$$FetchProductsByFilterPricerangeImplCopyWithImpl(
-      _$FetchProductsByFilterPricerangeImpl _value,
-      $Res Function(_$FetchProductsByFilterPricerangeImpl) _then)
+class __$$FetchProductsByFilterImplCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res, _$FetchProductsByFilterImpl>
+    implements _$$FetchProductsByFilterImplCopyWith<$Res> {
+  __$$FetchProductsByFilterImplCopyWithImpl(_$FetchProductsByFilterImpl _value,
+      $Res Function(_$FetchProductsByFilterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4001,8 +4349,10 @@ class __$$FetchProductsByFilterPricerangeImplCopyWithImpl<$Res>
     Object? maxPrice = null,
     Object? category = null,
     Object? subCategory = null,
+    Object? brand = null,
+    Object? color = null,
   }) {
-    return _then(_$FetchProductsByFilterPricerangeImpl(
+    return _then(_$FetchProductsByFilterImpl(
       minPrice: null == minPrice
           ? _value.minPrice
           : minPrice // ignore: cast_nullable_to_non_nullable
@@ -4019,20 +4369,30 @@ class __$$FetchProductsByFilterPricerangeImplCopyWithImpl<$Res>
           ? _value.subCategory
           : subCategory // ignore: cast_nullable_to_non_nullable
               as String,
+      brand: null == brand
+          ? _value.brand
+          : brand // ignore: cast_nullable_to_non_nullable
+              as String,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$FetchProductsByFilterPricerangeImpl
+class _$FetchProductsByFilterImpl
     with DiagnosticableTreeMixin
-    implements FetchProductsByFilterPricerange {
-  const _$FetchProductsByFilterPricerangeImpl(
+    implements FetchProductsByFilter {
+  const _$FetchProductsByFilterImpl(
       {required this.minPrice,
       required this.maxPrice,
       required this.category,
-      required this.subCategory});
+      required this.subCategory,
+      required this.brand,
+      required this.color});
 
   @override
   final String minPrice;
@@ -4042,29 +4402,34 @@ class _$FetchProductsByFilterPricerangeImpl
   final String category;
   @override
   final String subCategory;
+  @override
+  final String brand;
+  @override
+  final String color;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryEvent.fetchProductsByFilterPricerange(minPrice: $minPrice, maxPrice: $maxPrice, category: $category, subCategory: $subCategory)';
+    return 'CategoryEvent.fetchProductsByFilter(minPrice: $minPrice, maxPrice: $maxPrice, category: $category, subCategory: $subCategory, brand: $brand, color: $color)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty(
-          'type', 'CategoryEvent.fetchProductsByFilterPricerange'))
+      ..add(DiagnosticsProperty('type', 'CategoryEvent.fetchProductsByFilter'))
       ..add(DiagnosticsProperty('minPrice', minPrice))
       ..add(DiagnosticsProperty('maxPrice', maxPrice))
       ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('subCategory', subCategory));
+      ..add(DiagnosticsProperty('subCategory', subCategory))
+      ..add(DiagnosticsProperty('brand', brand))
+      ..add(DiagnosticsProperty('color', color));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchProductsByFilterPricerangeImpl &&
+            other is _$FetchProductsByFilterImpl &&
             (identical(other.minPrice, minPrice) ||
                 other.minPrice == minPrice) &&
             (identical(other.maxPrice, maxPrice) ||
@@ -4072,20 +4437,21 @@ class _$FetchProductsByFilterPricerangeImpl
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.subCategory, subCategory) ||
-                other.subCategory == subCategory));
+                other.subCategory == subCategory) &&
+            (identical(other.brand, brand) || other.brand == brand) &&
+            (identical(other.color, color) || other.color == color));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, minPrice, maxPrice, category, subCategory);
+  int get hashCode => Object.hash(
+      runtimeType, minPrice, maxPrice, category, subCategory, brand, color);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchProductsByFilterPricerangeImplCopyWith<
-          _$FetchProductsByFilterPricerangeImpl>
-      get copyWith => __$$FetchProductsByFilterPricerangeImplCopyWithImpl<
-          _$FetchProductsByFilterPricerangeImpl>(this, _$identity);
+  _$$FetchProductsByFilterImplCopyWith<_$FetchProductsByFilterImpl>
+      get copyWith => __$$FetchProductsByFilterImplCopyWithImpl<
+          _$FetchProductsByFilterImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4112,13 +4478,16 @@ class _$FetchProductsByFilterPricerangeImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
-    return fetchProductsByFilterPricerange(
-        minPrice, maxPrice, category, subCategory);
+    return fetchProductsByFilter(
+        minPrice, maxPrice, category, subCategory, brand, color);
   }
 
   @override
@@ -4143,13 +4512,16 @@ class _$FetchProductsByFilterPricerangeImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
-    return fetchProductsByFilterPricerange?.call(
-        minPrice, maxPrice, category, subCategory);
+    return fetchProductsByFilter?.call(
+        minPrice, maxPrice, category, subCategory, brand, color);
   }
 
   @override
@@ -4173,15 +4545,18 @@ class _$FetchProductsByFilterPricerangeImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
-    if (fetchProductsByFilterPricerange != null) {
-      return fetchProductsByFilterPricerange(
-          minPrice, maxPrice, category, subCategory);
+    if (fetchProductsByFilter != null) {
+      return fetchProductsByFilter(
+          minPrice, maxPrice, category, subCategory, brand, color);
     }
     return orElse();
   }
@@ -4207,13 +4582,19 @@ class _$FetchProductsByFilterPricerangeImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
-    return fetchProductsByFilterPricerange(this);
+    return fetchProductsByFilter(this);
   }
 
   @override
@@ -4234,13 +4615,17 @@ class _$FetchProductsByFilterPricerangeImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
-    return fetchProductsByFilterPricerange?.call(this);
+    return fetchProductsByFilter?.call(this);
   }
 
   @override
@@ -4261,35 +4646,41 @@ class _$FetchProductsByFilterPricerangeImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
-    if (fetchProductsByFilterPricerange != null) {
-      return fetchProductsByFilterPricerange(this);
+    if (fetchProductsByFilter != null) {
+      return fetchProductsByFilter(this);
     }
     return orElse();
   }
 }
 
-abstract class FetchProductsByFilterPricerange implements CategoryEvent {
-  const factory FetchProductsByFilterPricerange(
-          {required final String minPrice,
-          required final String maxPrice,
-          required final String category,
-          required final String subCategory}) =
-      _$FetchProductsByFilterPricerangeImpl;
+abstract class FetchProductsByFilter implements CategoryEvent {
+  const factory FetchProductsByFilter(
+      {required final String minPrice,
+      required final String maxPrice,
+      required final String category,
+      required final String subCategory,
+      required final String brand,
+      required final String color}) = _$FetchProductsByFilterImpl;
 
   String get minPrice;
   String get maxPrice;
   String get category;
   String get subCategory;
+  String get brand;
+  String get color;
   @JsonKey(ignore: true)
-  _$$FetchProductsByFilterPricerangeImplCopyWith<
-          _$FetchProductsByFilterPricerangeImpl>
+  _$$FetchProductsByFilterImplCopyWith<_$FetchProductsByFilterImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -4390,10 +4781,13 @@ class _$ChangeFilterIndexImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return changeFilterIndex(index);
   }
@@ -4420,10 +4814,13 @@ class _$ChangeFilterIndexImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return changeFilterIndex?.call(index);
   }
@@ -4449,10 +4846,13 @@ class _$ChangeFilterIndexImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (changeFilterIndex != null) {
@@ -4482,11 +4882,17 @@ class _$ChangeFilterIndexImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
     return changeFilterIndex(this);
   }
@@ -4509,11 +4915,15 @@ class _$ChangeFilterIndexImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
     return changeFilterIndex?.call(this);
   }
@@ -4536,11 +4946,15 @@ class _$ChangeFilterIndexImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
     if (changeFilterIndex != null) {
@@ -4561,22 +4975,23 @@ abstract class ChangeFilterIndex implements CategoryEvent {
 }
 
 /// @nodoc
-abstract class _$$FilterCheckboxChangingEventImplCopyWith<$Res> {
-  factory _$$FilterCheckboxChangingEventImplCopyWith(
-          _$FilterCheckboxChangingEventImpl value,
-          $Res Function(_$FilterCheckboxChangingEventImpl) then) =
-      __$$FilterCheckboxChangingEventImplCopyWithImpl<$Res>;
+abstract class _$$FilterSubCategoryCheckboxChangingEventImplCopyWith<$Res> {
+  factory _$$FilterSubCategoryCheckboxChangingEventImplCopyWith(
+          _$FilterSubCategoryCheckboxChangingEventImpl value,
+          $Res Function(_$FilterSubCategoryCheckboxChangingEventImpl) then) =
+      __$$FilterSubCategoryCheckboxChangingEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$FilterCheckboxChangingEventImplCopyWithImpl<$Res>
-    extends _$CategoryEventCopyWithImpl<$Res, _$FilterCheckboxChangingEventImpl>
-    implements _$$FilterCheckboxChangingEventImplCopyWith<$Res> {
-  __$$FilterCheckboxChangingEventImplCopyWithImpl(
-      _$FilterCheckboxChangingEventImpl _value,
-      $Res Function(_$FilterCheckboxChangingEventImpl) _then)
+class __$$FilterSubCategoryCheckboxChangingEventImplCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res,
+        _$FilterSubCategoryCheckboxChangingEventImpl>
+    implements _$$FilterSubCategoryCheckboxChangingEventImplCopyWith<$Res> {
+  __$$FilterSubCategoryCheckboxChangingEventImplCopyWithImpl(
+      _$FilterSubCategoryCheckboxChangingEventImpl _value,
+      $Res Function(_$FilterSubCategoryCheckboxChangingEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4584,7 +4999,7 @@ class __$$FilterCheckboxChangingEventImplCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$FilterCheckboxChangingEventImpl(
+    return _then(_$FilterSubCategoryCheckboxChangingEventImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -4595,17 +5010,17 @@ class __$$FilterCheckboxChangingEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterCheckboxChangingEventImpl
+class _$FilterSubCategoryCheckboxChangingEventImpl
     with DiagnosticableTreeMixin
-    implements FilterCheckboxChangingEvent {
-  const _$FilterCheckboxChangingEventImpl({required this.index});
+    implements FilterSubCategoryCheckboxChangingEvent {
+  const _$FilterSubCategoryCheckboxChangingEventImpl({required this.index});
 
   @override
   final int index;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryEvent.filterCheckboxChangingEvent(index: $index)';
+    return 'CategoryEvent.filterSubCategoryCheckboxChangingEvent(index: $index)';
   }
 
   @override
@@ -4613,7 +5028,7 @@ class _$FilterCheckboxChangingEventImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty(
-          'type', 'CategoryEvent.filterCheckboxChangingEvent'))
+          'type', 'CategoryEvent.filterSubCategoryCheckboxChangingEvent'))
       ..add(DiagnosticsProperty('index', index));
   }
 
@@ -4621,7 +5036,7 @@ class _$FilterCheckboxChangingEventImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FilterCheckboxChangingEventImpl &&
+            other is _$FilterSubCategoryCheckboxChangingEventImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -4631,9 +5046,11 @@ class _$FilterCheckboxChangingEventImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterCheckboxChangingEventImplCopyWith<_$FilterCheckboxChangingEventImpl>
-      get copyWith => __$$FilterCheckboxChangingEventImplCopyWithImpl<
-          _$FilterCheckboxChangingEventImpl>(this, _$identity);
+  _$$FilterSubCategoryCheckboxChangingEventImplCopyWith<
+          _$FilterSubCategoryCheckboxChangingEventImpl>
+      get copyWith =>
+          __$$FilterSubCategoryCheckboxChangingEventImplCopyWithImpl<
+              _$FilterSubCategoryCheckboxChangingEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4660,12 +5077,15 @@ class _$FilterCheckboxChangingEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
-    required TResult Function(int index) filterCheckboxChangingEvent,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
   }) {
-    return filterCheckboxChangingEvent(index);
+    return filterSubCategoryCheckboxChangingEvent(index);
   }
 
   @override
@@ -4690,12 +5110,15 @@ class _$FilterCheckboxChangingEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
-    TResult? Function(int index)? filterCheckboxChangingEvent,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
-    return filterCheckboxChangingEvent?.call(index);
+    return filterSubCategoryCheckboxChangingEvent?.call(index);
   }
 
   @override
@@ -4719,14 +5142,17 @@ class _$FilterCheckboxChangingEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory)?
-        fetchProductsByFilterPricerange,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
-    TResult Function(int index)? filterCheckboxChangingEvent,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
-    if (filterCheckboxChangingEvent != null) {
-      return filterCheckboxChangingEvent(index);
+    if (filterSubCategoryCheckboxChangingEvent != null) {
+      return filterSubCategoryCheckboxChangingEvent(index);
     }
     return orElse();
   }
@@ -4752,13 +5178,19 @@ class _$FilterCheckboxChangingEventImpl
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-    required TResult Function(FetchProductsByFilterPricerange value)
-        fetchProductsByFilterPricerange,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
     required TResult Function(ChangeFilterIndex value) changeFilterIndex,
-    required TResult Function(FilterCheckboxChangingEvent value)
-        filterCheckboxChangingEvent,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
   }) {
-    return filterCheckboxChangingEvent(this);
+    return filterSubCategoryCheckboxChangingEvent(this);
   }
 
   @override
@@ -4779,13 +5211,17 @@ class _$FilterCheckboxChangingEventImpl
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult? Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult? Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
   }) {
-    return filterCheckboxChangingEvent?.call(this);
+    return filterSubCategoryCheckboxChangingEvent?.call(this);
   }
 
   @override
@@ -4806,27 +5242,918 @@ class _$FilterCheckboxChangingEventImpl
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    TResult Function(FetchProductsByFilterPricerange value)?
-        fetchProductsByFilterPricerange,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
     TResult Function(ChangeFilterIndex value)? changeFilterIndex,
-    TResult Function(FilterCheckboxChangingEvent value)?
-        filterCheckboxChangingEvent,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
     required TResult orElse(),
   }) {
-    if (filterCheckboxChangingEvent != null) {
-      return filterCheckboxChangingEvent(this);
+    if (filterSubCategoryCheckboxChangingEvent != null) {
+      return filterSubCategoryCheckboxChangingEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class FilterCheckboxChangingEvent implements CategoryEvent {
-  const factory FilterCheckboxChangingEvent({required final int index}) =
-      _$FilterCheckboxChangingEventImpl;
+abstract class FilterSubCategoryCheckboxChangingEvent implements CategoryEvent {
+  const factory FilterSubCategoryCheckboxChangingEvent(
+          {required final int index}) =
+      _$FilterSubCategoryCheckboxChangingEventImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$FilterCheckboxChangingEventImplCopyWith<_$FilterCheckboxChangingEventImpl>
+  _$$FilterSubCategoryCheckboxChangingEventImplCopyWith<
+          _$FilterSubCategoryCheckboxChangingEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterBrandCheckboxChangingEventImplCopyWith<$Res> {
+  factory _$$FilterBrandCheckboxChangingEventImplCopyWith(
+          _$FilterBrandCheckboxChangingEventImpl value,
+          $Res Function(_$FilterBrandCheckboxChangingEventImpl) then) =
+      __$$FilterBrandCheckboxChangingEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$FilterBrandCheckboxChangingEventImplCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res,
+        _$FilterBrandCheckboxChangingEventImpl>
+    implements _$$FilterBrandCheckboxChangingEventImplCopyWith<$Res> {
+  __$$FilterBrandCheckboxChangingEventImplCopyWithImpl(
+      _$FilterBrandCheckboxChangingEventImpl _value,
+      $Res Function(_$FilterBrandCheckboxChangingEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$FilterBrandCheckboxChangingEventImpl(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterBrandCheckboxChangingEventImpl
+    with DiagnosticableTreeMixin
+    implements FilterBrandCheckboxChangingEvent {
+  const _$FilterBrandCheckboxChangingEventImpl({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryEvent.filterBrandCheckboxChangingEvent(index: $index)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'CategoryEvent.filterBrandCheckboxChangingEvent'))
+      ..add(DiagnosticsProperty('index', index));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterBrandCheckboxChangingEventImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterBrandCheckboxChangingEventImplCopyWith<
+          _$FilterBrandCheckboxChangingEventImpl>
+      get copyWith => __$$FilterBrandCheckboxChangingEventImplCopyWithImpl<
+          _$FilterBrandCheckboxChangingEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
+        fetchFilterProducts,
+    required TResult Function() fetchCategories,
+    required TResult Function() fetchSubcategories,
+    required TResult Function(String value) onSelectFilter,
+    required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
+    required TResult Function(String? category, String? subCategory)
+        filterEvent,
+    required TResult Function(String brand) filterBrandPickEvent,
+    required TResult Function(int index) priceRangeEvent,
+    required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
+    required TResult Function(String filterVal) saveCategoryFilterVal,
+    required TResult Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)
+        savePriceRange,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
+    required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
+    required TResult Function(int index) changeFilterIndex,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
+  }) {
+    return filterBrandCheckboxChangingEvent(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult? Function()? fetchCategories,
+    TResult? Function()? fetchSubcategories,
+    TResult? Function(String value)? onSelectFilter,
+    TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
+    TResult? Function(String? category, String? subCategory)? filterEvent,
+    TResult? Function(String brand)? filterBrandPickEvent,
+    TResult? Function(int index)? priceRangeEvent,
+    TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult? Function(String filterVal)? saveCategoryFilterVal,
+    TResult? Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
+    TResult? Function(int index)? changeFilterIndex,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
+  }) {
+    return filterBrandCheckboxChangingEvent?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult Function()? fetchCategories,
+    TResult Function()? fetchSubcategories,
+    TResult Function(String value)? onSelectFilter,
+    TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
+    TResult Function(String? category, String? subCategory)? filterEvent,
+    TResult Function(String brand)? filterBrandPickEvent,
+    TResult Function(int index)? priceRangeEvent,
+    TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult Function(String filterVal)? saveCategoryFilterVal,
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
+    TResult Function(int index)? changeFilterIndex,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
+    required TResult orElse(),
+  }) {
+    if (filterBrandCheckboxChangingEvent != null) {
+      return filterBrandCheckboxChangingEvent(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFilterProducts value) fetchFilterProducts,
+    required TResult Function(FetchCategories value) fetchCategories,
+    required TResult Function(FetchSubcategories value) fetchSubcategories,
+    required TResult Function(OnSelectFilter value) onSelectFilter,
+    required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
+    required TResult Function(FilterEvent value) filterEvent,
+    required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
+    required TResult Function(PriceRangeEvent value) priceRangeEvent,
+    required TResult Function(FetchSubCategoriesByCategoryId value)
+        fetchSubCategoriesByCategoryId,
+    required TResult Function(SaveCategoryFilterVal value)
+        saveCategoryFilterVal,
+    required TResult Function(SavePriceRange value) savePriceRange,
+    required TResult Function(FetchProductSortByPrice value)
+        fetchProductSortByPrice,
+    required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
+    required TResult Function(ChangeFilterIndex value) changeFilterIndex,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
+  }) {
+    return filterBrandCheckboxChangingEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult? Function(FetchCategories value)? fetchCategories,
+    TResult? Function(FetchSubcategories value)? fetchSubcategories,
+    TResult? Function(OnSelectFilter value)? onSelectFilter,
+    TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult? Function(FilterEvent value)? filterEvent,
+    TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult? Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult? Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult? Function(SavePriceRange value)? savePriceRange,
+    TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
+    TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
+  }) {
+    return filterBrandCheckboxChangingEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult Function(FetchCategories value)? fetchCategories,
+    TResult Function(FetchSubcategories value)? fetchSubcategories,
+    TResult Function(OnSelectFilter value)? onSelectFilter,
+    TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult Function(FilterEvent value)? filterEvent,
+    TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult Function(SavePriceRange value)? savePriceRange,
+    TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
+    TResult Function(ChangeFilterIndex value)? changeFilterIndex,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
+    required TResult orElse(),
+  }) {
+    if (filterBrandCheckboxChangingEvent != null) {
+      return filterBrandCheckboxChangingEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FilterBrandCheckboxChangingEvent implements CategoryEvent {
+  const factory FilterBrandCheckboxChangingEvent({required final int index}) =
+      _$FilterBrandCheckboxChangingEventImpl;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$FilterBrandCheckboxChangingEventImplCopyWith<
+          _$FilterBrandCheckboxChangingEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FilterColorCheckboxChangingEventImplCopyWith<$Res> {
+  factory _$$FilterColorCheckboxChangingEventImplCopyWith(
+          _$FilterColorCheckboxChangingEventImpl value,
+          $Res Function(_$FilterColorCheckboxChangingEventImpl) then) =
+      __$$FilterColorCheckboxChangingEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$FilterColorCheckboxChangingEventImplCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res,
+        _$FilterColorCheckboxChangingEventImpl>
+    implements _$$FilterColorCheckboxChangingEventImplCopyWith<$Res> {
+  __$$FilterColorCheckboxChangingEventImplCopyWithImpl(
+      _$FilterColorCheckboxChangingEventImpl _value,
+      $Res Function(_$FilterColorCheckboxChangingEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$FilterColorCheckboxChangingEventImpl(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FilterColorCheckboxChangingEventImpl
+    with DiagnosticableTreeMixin
+    implements FilterColorCheckboxChangingEvent {
+  const _$FilterColorCheckboxChangingEventImpl({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryEvent.filterColorCheckboxChangingEvent(index: $index)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'CategoryEvent.filterColorCheckboxChangingEvent'))
+      ..add(DiagnosticsProperty('index', index));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FilterColorCheckboxChangingEventImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FilterColorCheckboxChangingEventImplCopyWith<
+          _$FilterColorCheckboxChangingEventImpl>
+      get copyWith => __$$FilterColorCheckboxChangingEventImplCopyWithImpl<
+          _$FilterColorCheckboxChangingEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
+        fetchFilterProducts,
+    required TResult Function() fetchCategories,
+    required TResult Function() fetchSubcategories,
+    required TResult Function(String value) onSelectFilter,
+    required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
+    required TResult Function(String? category, String? subCategory)
+        filterEvent,
+    required TResult Function(String brand) filterBrandPickEvent,
+    required TResult Function(int index) priceRangeEvent,
+    required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
+    required TResult Function(String filterVal) saveCategoryFilterVal,
+    required TResult Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)
+        savePriceRange,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
+    required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
+    required TResult Function(int index) changeFilterIndex,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
+  }) {
+    return filterColorCheckboxChangingEvent(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult? Function()? fetchCategories,
+    TResult? Function()? fetchSubcategories,
+    TResult? Function(String value)? onSelectFilter,
+    TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
+    TResult? Function(String? category, String? subCategory)? filterEvent,
+    TResult? Function(String brand)? filterBrandPickEvent,
+    TResult? Function(int index)? priceRangeEvent,
+    TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult? Function(String filterVal)? saveCategoryFilterVal,
+    TResult? Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
+    TResult? Function(int index)? changeFilterIndex,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
+  }) {
+    return filterColorCheckboxChangingEvent?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult Function()? fetchCategories,
+    TResult Function()? fetchSubcategories,
+    TResult Function(String value)? onSelectFilter,
+    TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
+    TResult Function(String? category, String? subCategory)? filterEvent,
+    TResult Function(String brand)? filterBrandPickEvent,
+    TResult Function(int index)? priceRangeEvent,
+    TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult Function(String filterVal)? saveCategoryFilterVal,
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
+    TResult Function(int index)? changeFilterIndex,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
+    required TResult orElse(),
+  }) {
+    if (filterColorCheckboxChangingEvent != null) {
+      return filterColorCheckboxChangingEvent(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFilterProducts value) fetchFilterProducts,
+    required TResult Function(FetchCategories value) fetchCategories,
+    required TResult Function(FetchSubcategories value) fetchSubcategories,
+    required TResult Function(OnSelectFilter value) onSelectFilter,
+    required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
+    required TResult Function(FilterEvent value) filterEvent,
+    required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
+    required TResult Function(PriceRangeEvent value) priceRangeEvent,
+    required TResult Function(FetchSubCategoriesByCategoryId value)
+        fetchSubCategoriesByCategoryId,
+    required TResult Function(SaveCategoryFilterVal value)
+        saveCategoryFilterVal,
+    required TResult Function(SavePriceRange value) savePriceRange,
+    required TResult Function(FetchProductSortByPrice value)
+        fetchProductSortByPrice,
+    required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
+    required TResult Function(ChangeFilterIndex value) changeFilterIndex,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
+  }) {
+    return filterColorCheckboxChangingEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult? Function(FetchCategories value)? fetchCategories,
+    TResult? Function(FetchSubcategories value)? fetchSubcategories,
+    TResult? Function(OnSelectFilter value)? onSelectFilter,
+    TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult? Function(FilterEvent value)? filterEvent,
+    TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult? Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult? Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult? Function(SavePriceRange value)? savePriceRange,
+    TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
+    TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
+  }) {
+    return filterColorCheckboxChangingEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult Function(FetchCategories value)? fetchCategories,
+    TResult Function(FetchSubcategories value)? fetchSubcategories,
+    TResult Function(OnSelectFilter value)? onSelectFilter,
+    TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult Function(FilterEvent value)? filterEvent,
+    TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult Function(SavePriceRange value)? savePriceRange,
+    TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
+    TResult Function(ChangeFilterIndex value)? changeFilterIndex,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
+    required TResult orElse(),
+  }) {
+    if (filterColorCheckboxChangingEvent != null) {
+      return filterColorCheckboxChangingEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FilterColorCheckboxChangingEvent implements CategoryEvent {
+  const factory FilterColorCheckboxChangingEvent({required final int index}) =
+      _$FilterColorCheckboxChangingEventImpl;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$FilterColorCheckboxChangingEventImplCopyWith<
+          _$FilterColorCheckboxChangingEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchFilterOptionEventImplCopyWith<$Res> {
+  factory _$$FetchFilterOptionEventImplCopyWith(
+          _$FetchFilterOptionEventImpl value,
+          $Res Function(_$FetchFilterOptionEventImpl) then) =
+      __$$FetchFilterOptionEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String category});
+}
+
+/// @nodoc
+class __$$FetchFilterOptionEventImplCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res, _$FetchFilterOptionEventImpl>
+    implements _$$FetchFilterOptionEventImplCopyWith<$Res> {
+  __$$FetchFilterOptionEventImplCopyWithImpl(
+      _$FetchFilterOptionEventImpl _value,
+      $Res Function(_$FetchFilterOptionEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? category = null,
+  }) {
+    return _then(_$FetchFilterOptionEventImpl(
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchFilterOptionEventImpl
+    with DiagnosticableTreeMixin
+    implements FetchFilterOptionEvent {
+  const _$FetchFilterOptionEventImpl({required this.category});
+
+  @override
+  final String category;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryEvent.fetchFilterOptionEvent(category: $category)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CategoryEvent.fetchFilterOptionEvent'))
+      ..add(DiagnosticsProperty('category', category));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchFilterOptionEventImpl &&
+            (identical(other.category, category) ||
+                other.category == category));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, category);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchFilterOptionEventImplCopyWith<_$FetchFilterOptionEventImpl>
+      get copyWith => __$$FetchFilterOptionEventImplCopyWithImpl<
+          _$FetchFilterOptionEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
+        fetchFilterProducts,
+    required TResult Function() fetchCategories,
+    required TResult Function() fetchSubcategories,
+    required TResult Function(String value) onSelectFilter,
+    required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
+    required TResult Function(String? category, String? subCategory)
+        filterEvent,
+    required TResult Function(String brand) filterBrandPickEvent,
+    required TResult Function(int index) priceRangeEvent,
+    required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
+    required TResult Function(String filterVal) saveCategoryFilterVal,
+    required TResult Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)
+        savePriceRange,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
+    required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory, String brand, String color)
+        fetchProductsByFilter,
+    required TResult Function(int index) changeFilterIndex,
+    required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(int index) filterBrandCheckboxChangingEvent,
+    required TResult Function(int index) filterColorCheckboxChangingEvent,
+    required TResult Function(String category) fetchFilterOptionEvent,
+  }) {
+    return fetchFilterOptionEvent(category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult? Function()? fetchCategories,
+    TResult? Function()? fetchSubcategories,
+    TResult? Function(String value)? onSelectFilter,
+    TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
+    TResult? Function(String? category, String? subCategory)? filterEvent,
+    TResult? Function(String brand)? filterBrandPickEvent,
+    TResult? Function(int index)? priceRangeEvent,
+    TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult? Function(String filterVal)? saveCategoryFilterVal,
+    TResult? Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
+    TResult? Function(int index)? changeFilterIndex,
+    TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult? Function(int index)? filterColorCheckboxChangingEvent,
+    TResult? Function(String category)? fetchFilterOptionEvent,
+  }) {
+    return fetchFilterOptionEvent?.call(category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult Function()? fetchCategories,
+    TResult Function()? fetchSubcategories,
+    TResult Function(String value)? onSelectFilter,
+    TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
+    TResult Function(String? category, String? subCategory)? filterEvent,
+    TResult Function(String brand)? filterBrandPickEvent,
+    TResult Function(int index)? priceRangeEvent,
+    TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult Function(String filterVal)? saveCategoryFilterVal,
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory, String brand, String color)?
+        fetchProductsByFilter,
+    TResult Function(int index)? changeFilterIndex,
+    TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
+    TResult Function(int index)? filterBrandCheckboxChangingEvent,
+    TResult Function(int index)? filterColorCheckboxChangingEvent,
+    TResult Function(String category)? fetchFilterOptionEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchFilterOptionEvent != null) {
+      return fetchFilterOptionEvent(category);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFilterProducts value) fetchFilterProducts,
+    required TResult Function(FetchCategories value) fetchCategories,
+    required TResult Function(FetchSubcategories value) fetchSubcategories,
+    required TResult Function(OnSelectFilter value) onSelectFilter,
+    required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
+    required TResult Function(FilterEvent value) filterEvent,
+    required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
+    required TResult Function(PriceRangeEvent value) priceRangeEvent,
+    required TResult Function(FetchSubCategoriesByCategoryId value)
+        fetchSubCategoriesByCategoryId,
+    required TResult Function(SaveCategoryFilterVal value)
+        saveCategoryFilterVal,
+    required TResult Function(SavePriceRange value) savePriceRange,
+    required TResult Function(FetchProductSortByPrice value)
+        fetchProductSortByPrice,
+    required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
+    required TResult Function(ChangeFilterIndex value) changeFilterIndex,
+    required TResult Function(FilterSubCategoryCheckboxChangingEvent value)
+        filterSubCategoryCheckboxChangingEvent,
+    required TResult Function(FilterBrandCheckboxChangingEvent value)
+        filterBrandCheckboxChangingEvent,
+    required TResult Function(FilterColorCheckboxChangingEvent value)
+        filterColorCheckboxChangingEvent,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
+  }) {
+    return fetchFilterOptionEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult? Function(FetchCategories value)? fetchCategories,
+    TResult? Function(FetchSubcategories value)? fetchSubcategories,
+    TResult? Function(OnSelectFilter value)? onSelectFilter,
+    TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult? Function(FilterEvent value)? filterEvent,
+    TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult? Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult? Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult? Function(SavePriceRange value)? savePriceRange,
+    TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
+    TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
+    TResult? Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult? Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult? Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
+  }) {
+    return fetchFilterOptionEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult Function(FetchCategories value)? fetchCategories,
+    TResult Function(FetchSubcategories value)? fetchSubcategories,
+    TResult Function(OnSelectFilter value)? onSelectFilter,
+    TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult Function(FilterEvent value)? filterEvent,
+    TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult Function(SavePriceRange value)? savePriceRange,
+    TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
+    TResult Function(ChangeFilterIndex value)? changeFilterIndex,
+    TResult Function(FilterSubCategoryCheckboxChangingEvent value)?
+        filterSubCategoryCheckboxChangingEvent,
+    TResult Function(FilterBrandCheckboxChangingEvent value)?
+        filterBrandCheckboxChangingEvent,
+    TResult Function(FilterColorCheckboxChangingEvent value)?
+        filterColorCheckboxChangingEvent,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchFilterOptionEvent != null) {
+      return fetchFilterOptionEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchFilterOptionEvent implements CategoryEvent {
+  const factory FetchFilterOptionEvent({required final String category}) =
+      _$FetchFilterOptionEventImpl;
+
+  String get category;
+  @JsonKey(ignore: true)
+  _$$FetchFilterOptionEventImplCopyWith<_$FetchFilterOptionEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -4855,7 +6182,11 @@ mixin _$CategoryState {
       throw _privateConstructorUsedError;
   int get categoryIndex => throw _privateConstructorUsedError;
   int get filterIndex => throw _privateConstructorUsedError;
-  int get filterCheckboxIndex => throw _privateConstructorUsedError;
+  int get filterSubcategoryCheckboxIndex => throw _privateConstructorUsedError;
+  int get filterBrandCheckboxIndex => throw _privateConstructorUsedError;
+  int get filterColorCheckboxIndex => throw _privateConstructorUsedError;
+  FilterOptionModel? get filterOptionModel =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryStateCopyWith<CategoryState> get copyWith =>
@@ -4890,13 +6221,17 @@ abstract class $CategoryStateCopyWith<$Res> {
       CategoryItemModel? categoryItemModel,
       int categoryIndex,
       int filterIndex,
-      int filterCheckboxIndex});
+      int filterSubcategoryCheckboxIndex,
+      int filterBrandCheckboxIndex,
+      int filterColorCheckboxIndex,
+      FilterOptionModel? filterOptionModel});
 
   $ProductModelCopyWith<$Res>? get product;
   $CategoryModelCopyWith<$Res>? get category;
   $SubCategoryModelCopyWith<$Res>? get subCategory;
   $SubcategoryByCategoryIdModelCopyWith<$Res>? get subcategoryByCategoryIdModel;
   $CategoryItemModelCopyWith<$Res>? get categoryItemModel;
+  $FilterOptionModelCopyWith<$Res>? get filterOptionModel;
 }
 
 /// @nodoc
@@ -4933,7 +6268,10 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
     Object? categoryItemModel = freezed,
     Object? categoryIndex = null,
     Object? filterIndex = null,
-    Object? filterCheckboxIndex = null,
+    Object? filterSubcategoryCheckboxIndex = null,
+    Object? filterBrandCheckboxIndex = null,
+    Object? filterColorCheckboxIndex = null,
+    Object? filterOptionModel = freezed,
   }) {
     return _then(_value.copyWith(
       product: freezed == product
@@ -5020,10 +6358,22 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
           ? _value.filterIndex
           : filterIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      filterCheckboxIndex: null == filterCheckboxIndex
-          ? _value.filterCheckboxIndex
-          : filterCheckboxIndex // ignore: cast_nullable_to_non_nullable
+      filterSubcategoryCheckboxIndex: null == filterSubcategoryCheckboxIndex
+          ? _value.filterSubcategoryCheckboxIndex
+          : filterSubcategoryCheckboxIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      filterBrandCheckboxIndex: null == filterBrandCheckboxIndex
+          ? _value.filterBrandCheckboxIndex
+          : filterBrandCheckboxIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      filterColorCheckboxIndex: null == filterColorCheckboxIndex
+          ? _value.filterColorCheckboxIndex
+          : filterColorCheckboxIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      filterOptionModel: freezed == filterOptionModel
+          ? _value.filterOptionModel
+          : filterOptionModel // ignore: cast_nullable_to_non_nullable
+              as FilterOptionModel?,
     ) as $Val);
   }
 
@@ -5089,6 +6439,18 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
       return _then(_value.copyWith(categoryItemModel: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FilterOptionModelCopyWith<$Res>? get filterOptionModel {
+    if (_value.filterOptionModel == null) {
+      return null;
+    }
+
+    return $FilterOptionModelCopyWith<$Res>(_value.filterOptionModel!, (value) {
+      return _then(_value.copyWith(filterOptionModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -5121,7 +6483,10 @@ abstract class _$$CategoryStateImplCopyWith<$Res>
       CategoryItemModel? categoryItemModel,
       int categoryIndex,
       int filterIndex,
-      int filterCheckboxIndex});
+      int filterSubcategoryCheckboxIndex,
+      int filterBrandCheckboxIndex,
+      int filterColorCheckboxIndex,
+      FilterOptionModel? filterOptionModel});
 
   @override
   $ProductModelCopyWith<$Res>? get product;
@@ -5133,6 +6498,8 @@ abstract class _$$CategoryStateImplCopyWith<$Res>
   $SubcategoryByCategoryIdModelCopyWith<$Res>? get subcategoryByCategoryIdModel;
   @override
   $CategoryItemModelCopyWith<$Res>? get categoryItemModel;
+  @override
+  $FilterOptionModelCopyWith<$Res>? get filterOptionModel;
 }
 
 /// @nodoc
@@ -5167,7 +6534,10 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
     Object? categoryItemModel = freezed,
     Object? categoryIndex = null,
     Object? filterIndex = null,
-    Object? filterCheckboxIndex = null,
+    Object? filterSubcategoryCheckboxIndex = null,
+    Object? filterBrandCheckboxIndex = null,
+    Object? filterColorCheckboxIndex = null,
+    Object? filterOptionModel = freezed,
   }) {
     return _then(_$CategoryStateImpl(
       product: freezed == product
@@ -5254,10 +6624,22 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
           ? _value.filterIndex
           : filterIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      filterCheckboxIndex: null == filterCheckboxIndex
-          ? _value.filterCheckboxIndex
-          : filterCheckboxIndex // ignore: cast_nullable_to_non_nullable
+      filterSubcategoryCheckboxIndex: null == filterSubcategoryCheckboxIndex
+          ? _value.filterSubcategoryCheckboxIndex
+          : filterSubcategoryCheckboxIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      filterBrandCheckboxIndex: null == filterBrandCheckboxIndex
+          ? _value.filterBrandCheckboxIndex
+          : filterBrandCheckboxIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      filterColorCheckboxIndex: null == filterColorCheckboxIndex
+          ? _value.filterColorCheckboxIndex
+          : filterColorCheckboxIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      filterOptionModel: freezed == filterOptionModel
+          ? _value.filterOptionModel
+          : filterOptionModel // ignore: cast_nullable_to_non_nullable
+              as FilterOptionModel?,
     ));
   }
 }
@@ -5289,7 +6671,10 @@ class _$CategoryStateImpl
       required this.categoryItemModel,
       required this.categoryIndex,
       required this.filterIndex,
-      required this.filterCheckboxIndex});
+      required this.filterSubcategoryCheckboxIndex,
+      required this.filterBrandCheckboxIndex,
+      required this.filterColorCheckboxIndex,
+      required this.filterOptionModel});
 
   @override
   final ProductModel? product;
@@ -5334,11 +6719,17 @@ class _$CategoryStateImpl
   @override
   final int filterIndex;
   @override
-  final int filterCheckboxIndex;
+  final int filterSubcategoryCheckboxIndex;
+  @override
+  final int filterBrandCheckboxIndex;
+  @override
+  final int filterColorCheckboxIndex;
+  @override
+  final FilterOptionModel? filterOptionModel;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryState(product: $product, productLoading: $productLoading, errorMessage: $errorMessage, category: $category, categoryLoading: $categoryLoading, subCategory: $subCategory, subCategoryLoading: $subCategoryLoading, selectedFilter: $selectedFilter, filterCategory: $filterCategory, filterSubCategory: $filterSubCategory, filterBrand: $filterBrand, priceRangeIndex: $priceRangeIndex, subcategoryByCategoryIdModel: $subcategoryByCategoryIdModel, filterVal: $filterVal, minPrice: $minPrice, maxPrice: $maxPrice, sortListIndex: $sortListIndex, rangeValues: $rangeValues, categoryItemModel: $categoryItemModel, categoryIndex: $categoryIndex, filterIndex: $filterIndex, filterCheckboxIndex: $filterCheckboxIndex)';
+    return 'CategoryState(product: $product, productLoading: $productLoading, errorMessage: $errorMessage, category: $category, categoryLoading: $categoryLoading, subCategory: $subCategory, subCategoryLoading: $subCategoryLoading, selectedFilter: $selectedFilter, filterCategory: $filterCategory, filterSubCategory: $filterSubCategory, filterBrand: $filterBrand, priceRangeIndex: $priceRangeIndex, subcategoryByCategoryIdModel: $subcategoryByCategoryIdModel, filterVal: $filterVal, minPrice: $minPrice, maxPrice: $maxPrice, sortListIndex: $sortListIndex, rangeValues: $rangeValues, categoryItemModel: $categoryItemModel, categoryIndex: $categoryIndex, filterIndex: $filterIndex, filterSubcategoryCheckboxIndex: $filterSubcategoryCheckboxIndex, filterBrandCheckboxIndex: $filterBrandCheckboxIndex, filterColorCheckboxIndex: $filterColorCheckboxIndex, filterOptionModel: $filterOptionModel)';
   }
 
   @override
@@ -5368,7 +6759,13 @@ class _$CategoryStateImpl
       ..add(DiagnosticsProperty('categoryItemModel', categoryItemModel))
       ..add(DiagnosticsProperty('categoryIndex', categoryIndex))
       ..add(DiagnosticsProperty('filterIndex', filterIndex))
-      ..add(DiagnosticsProperty('filterCheckboxIndex', filterCheckboxIndex));
+      ..add(DiagnosticsProperty(
+          'filterSubcategoryCheckboxIndex', filterSubcategoryCheckboxIndex))
+      ..add(DiagnosticsProperty(
+          'filterBrandCheckboxIndex', filterBrandCheckboxIndex))
+      ..add(DiagnosticsProperty(
+          'filterColorCheckboxIndex', filterColorCheckboxIndex))
+      ..add(DiagnosticsProperty('filterOptionModel', filterOptionModel));
   }
 
   @override
@@ -5419,8 +6816,18 @@ class _$CategoryStateImpl
                 other.categoryIndex == categoryIndex) &&
             (identical(other.filterIndex, filterIndex) ||
                 other.filterIndex == filterIndex) &&
-            (identical(other.filterCheckboxIndex, filterCheckboxIndex) ||
-                other.filterCheckboxIndex == filterCheckboxIndex));
+            (identical(other.filterSubcategoryCheckboxIndex,
+                    filterSubcategoryCheckboxIndex) ||
+                other.filterSubcategoryCheckboxIndex ==
+                    filterSubcategoryCheckboxIndex) &&
+            (identical(
+                    other.filterBrandCheckboxIndex, filterBrandCheckboxIndex) ||
+                other.filterBrandCheckboxIndex == filterBrandCheckboxIndex) &&
+            (identical(
+                    other.filterColorCheckboxIndex, filterColorCheckboxIndex) ||
+                other.filterColorCheckboxIndex == filterColorCheckboxIndex) &&
+            (identical(other.filterOptionModel, filterOptionModel) ||
+                other.filterOptionModel == filterOptionModel));
   }
 
   @override
@@ -5447,7 +6854,10 @@ class _$CategoryStateImpl
         categoryItemModel,
         categoryIndex,
         filterIndex,
-        filterCheckboxIndex
+        filterSubcategoryCheckboxIndex,
+        filterBrandCheckboxIndex,
+        filterColorCheckboxIndex,
+        filterOptionModel
       ]);
 
   @JsonKey(ignore: true)
@@ -5480,7 +6890,11 @@ abstract class _CategoryState implements CategoryState {
       required final CategoryItemModel? categoryItemModel,
       required final int categoryIndex,
       required final int filterIndex,
-      required final int filterCheckboxIndex}) = _$CategoryStateImpl;
+      required final int filterSubcategoryCheckboxIndex,
+      required final int filterBrandCheckboxIndex,
+      required final int filterColorCheckboxIndex,
+      required final FilterOptionModel?
+          filterOptionModel}) = _$CategoryStateImpl;
 
   @override
   ProductModel? get product;
@@ -5525,7 +6939,13 @@ abstract class _CategoryState implements CategoryState {
   @override
   int get filterIndex;
   @override
-  int get filterCheckboxIndex;
+  int get filterSubcategoryCheckboxIndex;
+  @override
+  int get filterBrandCheckboxIndex;
+  @override
+  int get filterColorCheckboxIndex;
+  @override
+  FilterOptionModel? get filterOptionModel;
   @override
   @JsonKey(ignore: true)
   _$$CategoryStateImplCopyWith<_$CategoryStateImpl> get copyWith =>

@@ -156,6 +156,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   onTap: () {
                     context.goNamed(MyAppRouteConstants.signUpRouteName);
                   },
+                  textStyle:
+                      TextStyle(color: ColorManager.blackColor, fontSize: 16),
                 )
               ],
             ),

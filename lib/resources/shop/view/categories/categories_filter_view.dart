@@ -140,6 +140,9 @@ class CategoriesFilterView extends StatelessWidget {
                     }
                     return GestureDetector(
                       onTap: () {
+                        BlocProvider.of<CategoryBloc>(context).add(
+                            SaveCategoryFilterVal(
+                                filterVal: data[index].title.toString()));
                         context.pushNamed(
                             MyAppRouteConstants.categoriesProductsRouteName,
                             extra: {

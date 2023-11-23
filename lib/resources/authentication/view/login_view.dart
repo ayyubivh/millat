@@ -108,6 +108,9 @@ class _LoginViewState extends State<LoginView> {
                   context.goNamed(MyAppRouteConstants.sendOtpRouteName,
                       pathParameters: {'isSignIn': 'true'});
                 },
+                textStyle: TextStyle(
+                  color: ColorManager.blackColor,
+                ),
               ),
               MainButton(
                   title: 'Login',

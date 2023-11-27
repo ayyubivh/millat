@@ -9,7 +9,7 @@ import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.da
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
- import 'package:millat/utils/shimmer_utils.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -187,18 +187,18 @@ class CategoryView extends StatelessWidget {
                                         productItems?[index];
                                     return GestureDetector(
                                       onTap: () {
-                                        print(
-                                            "item id ${productItems?[index].id}");
+                                        print(" category id ==== $categoryId");
 
                                         context.pushNamed(
                                             MyAppRouteConstants
                                                 .categoriesProductsRouteName,
                                             extra: {
                                               'itemId': productItems?[index].id,
-                                              'category': "",
+                                              'category': category,
                                               'subCategory': "",
                                               'type':
-                                                  FilterType.specificCategory
+                                                  FilterType.specificCategory,
+                                              'categoryId': categoryId
                                             });
                                       },
                                       child: Column(
@@ -257,14 +257,16 @@ class CategoryView extends StatelessWidget {
 
                                     return GestureDetector(
                                       onTap: () {
+                                        print(" category id ==== $categoryId");
                                         context.pushNamed(
                                             MyAppRouteConstants
                                                 .categoriesProductsRouteName,
                                             extra: {
                                               'itemName': data?.title,
                                               'itemId': data?.id,
-                                              'category': "",
+                                              'category': category,
                                               'subCategory': "",
+                                              'categoryId': categoryId,
                                               'type':
                                                   FilterType.specificCategory
                                             });

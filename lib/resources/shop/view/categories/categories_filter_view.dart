@@ -14,6 +14,7 @@ class CategoriesFilterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      print("categoryies filter view");
       BlocProvider.of<CategoryBloc>(context).add(FetchSubCategoriesByCategoryId(
           categoryId: context
               .read<CategoryBloc>()
@@ -140,6 +141,14 @@ class CategoriesFilterView extends StatelessWidget {
                     }
                     return GestureDetector(
                       onTap: () {
+                        final categoryId = context
+                            .read<CategoryBloc>()
+                            .state
+                            .category!
+                            .result!
+                            .category!
+                            .first
+                            .id!;
                         BlocProvider.of<CategoryBloc>(context).add(
                             SaveCategoryFilterVal(
                                 filterVal: data[index].title.toString()));
@@ -147,6 +156,7 @@ class CategoriesFilterView extends StatelessWidget {
                             MyAppRouteConstants.categoriesProductsRouteName,
                             extra: {
                               'type': FilterType.category,
+                              'categoryId': categoryId,
                               'subCategory': data[index].title,
                               'category': state.category?.result
                                       ?.category?[state.categoryIndex].title ??

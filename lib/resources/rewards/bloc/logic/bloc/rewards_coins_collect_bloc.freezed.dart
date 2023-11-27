@@ -20,18 +20,21 @@ mixin _$RewardsCoinsCollectEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() rewardsCollectionInitialEvent,
     required TResult Function(bool value) checkCoinsCollected,
+    required TResult Function() startTimerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? rewardsCollectionInitialEvent,
     TResult? Function(bool value)? checkCoinsCollected,
+    TResult? Function()? startTimerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? rewardsCollectionInitialEvent,
     TResult Function(bool value)? checkCoinsCollected,
+    TResult Function()? startTimerEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,6 +43,7 @@ mixin _$RewardsCoinsCollectEvent {
     required TResult Function(RewardsCollectionInitialEvent value)
         rewardsCollectionInitialEvent,
     required TResult Function(CheckCoinsCollected value) checkCoinsCollected,
+    required TResult Function(StartTimerEvent value) startTimerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +51,7 @@ mixin _$RewardsCoinsCollectEvent {
     TResult? Function(RewardsCollectionInitialEvent value)?
         rewardsCollectionInitialEvent,
     TResult? Function(CheckCoinsCollected value)? checkCoinsCollected,
+    TResult? Function(StartTimerEvent value)? startTimerEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +59,7 @@ mixin _$RewardsCoinsCollectEvent {
     TResult Function(RewardsCollectionInitialEvent value)?
         rewardsCollectionInitialEvent,
     TResult Function(CheckCoinsCollected value)? checkCoinsCollected,
+    TResult Function(StartTimerEvent value)? startTimerEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -123,6 +129,7 @@ class _$RewardsCollectionInitialEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() rewardsCollectionInitialEvent,
     required TResult Function(bool value) checkCoinsCollected,
+    required TResult Function() startTimerEvent,
   }) {
     return rewardsCollectionInitialEvent();
   }
@@ -132,6 +139,7 @@ class _$RewardsCollectionInitialEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? rewardsCollectionInitialEvent,
     TResult? Function(bool value)? checkCoinsCollected,
+    TResult? Function()? startTimerEvent,
   }) {
     return rewardsCollectionInitialEvent?.call();
   }
@@ -141,6 +149,7 @@ class _$RewardsCollectionInitialEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? rewardsCollectionInitialEvent,
     TResult Function(bool value)? checkCoinsCollected,
+    TResult Function()? startTimerEvent,
     required TResult orElse(),
   }) {
     if (rewardsCollectionInitialEvent != null) {
@@ -155,6 +164,7 @@ class _$RewardsCollectionInitialEventImpl
     required TResult Function(RewardsCollectionInitialEvent value)
         rewardsCollectionInitialEvent,
     required TResult Function(CheckCoinsCollected value) checkCoinsCollected,
+    required TResult Function(StartTimerEvent value) startTimerEvent,
   }) {
     return rewardsCollectionInitialEvent(this);
   }
@@ -165,6 +175,7 @@ class _$RewardsCollectionInitialEventImpl
     TResult? Function(RewardsCollectionInitialEvent value)?
         rewardsCollectionInitialEvent,
     TResult? Function(CheckCoinsCollected value)? checkCoinsCollected,
+    TResult? Function(StartTimerEvent value)? startTimerEvent,
   }) {
     return rewardsCollectionInitialEvent?.call(this);
   }
@@ -175,6 +186,7 @@ class _$RewardsCollectionInitialEventImpl
     TResult Function(RewardsCollectionInitialEvent value)?
         rewardsCollectionInitialEvent,
     TResult Function(CheckCoinsCollected value)? checkCoinsCollected,
+    TResult Function(StartTimerEvent value)? startTimerEvent,
     required TResult orElse(),
   }) {
     if (rewardsCollectionInitialEvent != null) {
@@ -258,6 +270,7 @@ class _$CheckCoinsCollectedImpl implements CheckCoinsCollected {
   TResult when<TResult extends Object?>({
     required TResult Function() rewardsCollectionInitialEvent,
     required TResult Function(bool value) checkCoinsCollected,
+    required TResult Function() startTimerEvent,
   }) {
     return checkCoinsCollected(value);
   }
@@ -267,6 +280,7 @@ class _$CheckCoinsCollectedImpl implements CheckCoinsCollected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? rewardsCollectionInitialEvent,
     TResult? Function(bool value)? checkCoinsCollected,
+    TResult? Function()? startTimerEvent,
   }) {
     return checkCoinsCollected?.call(value);
   }
@@ -276,6 +290,7 @@ class _$CheckCoinsCollectedImpl implements CheckCoinsCollected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? rewardsCollectionInitialEvent,
     TResult Function(bool value)? checkCoinsCollected,
+    TResult Function()? startTimerEvent,
     required TResult orElse(),
   }) {
     if (checkCoinsCollected != null) {
@@ -290,6 +305,7 @@ class _$CheckCoinsCollectedImpl implements CheckCoinsCollected {
     required TResult Function(RewardsCollectionInitialEvent value)
         rewardsCollectionInitialEvent,
     required TResult Function(CheckCoinsCollected value) checkCoinsCollected,
+    required TResult Function(StartTimerEvent value) startTimerEvent,
   }) {
     return checkCoinsCollected(this);
   }
@@ -300,6 +316,7 @@ class _$CheckCoinsCollectedImpl implements CheckCoinsCollected {
     TResult? Function(RewardsCollectionInitialEvent value)?
         rewardsCollectionInitialEvent,
     TResult? Function(CheckCoinsCollected value)? checkCoinsCollected,
+    TResult? Function(StartTimerEvent value)? startTimerEvent,
   }) {
     return checkCoinsCollected?.call(this);
   }
@@ -310,6 +327,7 @@ class _$CheckCoinsCollectedImpl implements CheckCoinsCollected {
     TResult Function(RewardsCollectionInitialEvent value)?
         rewardsCollectionInitialEvent,
     TResult Function(CheckCoinsCollected value)? checkCoinsCollected,
+    TResult Function(StartTimerEvent value)? startTimerEvent,
     required TResult orElse(),
   }) {
     if (checkCoinsCollected != null) {
@@ -327,6 +345,117 @@ abstract class CheckCoinsCollected implements RewardsCoinsCollectEvent {
   @JsonKey(ignore: true)
   _$$CheckCoinsCollectedImplCopyWith<_$CheckCoinsCollectedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$StartTimerEventImplCopyWith<$Res> {
+  factory _$$StartTimerEventImplCopyWith(_$StartTimerEventImpl value,
+          $Res Function(_$StartTimerEventImpl) then) =
+      __$$StartTimerEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StartTimerEventImplCopyWithImpl<$Res>
+    extends _$RewardsCoinsCollectEventCopyWithImpl<$Res, _$StartTimerEventImpl>
+    implements _$$StartTimerEventImplCopyWith<$Res> {
+  __$$StartTimerEventImplCopyWithImpl(
+      _$StartTimerEventImpl _value, $Res Function(_$StartTimerEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$StartTimerEventImpl implements StartTimerEvent {
+  const _$StartTimerEventImpl();
+
+  @override
+  String toString() {
+    return 'RewardsCoinsCollectEvent.startTimerEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$StartTimerEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() rewardsCollectionInitialEvent,
+    required TResult Function(bool value) checkCoinsCollected,
+    required TResult Function() startTimerEvent,
+  }) {
+    return startTimerEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? rewardsCollectionInitialEvent,
+    TResult? Function(bool value)? checkCoinsCollected,
+    TResult? Function()? startTimerEvent,
+  }) {
+    return startTimerEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? rewardsCollectionInitialEvent,
+    TResult Function(bool value)? checkCoinsCollected,
+    TResult Function()? startTimerEvent,
+    required TResult orElse(),
+  }) {
+    if (startTimerEvent != null) {
+      return startTimerEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RewardsCollectionInitialEvent value)
+        rewardsCollectionInitialEvent,
+    required TResult Function(CheckCoinsCollected value) checkCoinsCollected,
+    required TResult Function(StartTimerEvent value) startTimerEvent,
+  }) {
+    return startTimerEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RewardsCollectionInitialEvent value)?
+        rewardsCollectionInitialEvent,
+    TResult? Function(CheckCoinsCollected value)? checkCoinsCollected,
+    TResult? Function(StartTimerEvent value)? startTimerEvent,
+  }) {
+    return startTimerEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RewardsCollectionInitialEvent value)?
+        rewardsCollectionInitialEvent,
+    TResult Function(CheckCoinsCollected value)? checkCoinsCollected,
+    TResult Function(StartTimerEvent value)? startTimerEvent,
+    required TResult orElse(),
+  }) {
+    if (startTimerEvent != null) {
+      return startTimerEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StartTimerEvent implements RewardsCoinsCollectEvent {
+  const factory StartTimerEvent() = _$StartTimerEventImpl;
 }
 
 /// @nodoc

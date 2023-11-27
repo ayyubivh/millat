@@ -7,4 +7,5 @@ class RewardsCoinsCollectEvent with _$RewardsCoinsCollectEvent {
   const factory RewardsCoinsCollectEvent.checkCoinsCollected({
     required bool value,
   }) = CheckCoinsCollected;
+  const factory RewardsCoinsCollectEvent.startTimerEvent() = StartTimerEvent;
 }

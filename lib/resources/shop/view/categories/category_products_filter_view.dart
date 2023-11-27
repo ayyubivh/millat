@@ -12,10 +12,8 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
 class CategoryProductsFilterView extends StatelessWidget {
-  final String categoryId;
   final String category;
-  const CategoryProductsFilterView(
-      {super.key, required this.categoryId, required this.category});
+  const CategoryProductsFilterView({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {

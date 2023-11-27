@@ -40,7 +40,7 @@ class SingleBrandView extends StatelessWidget {
               stretch: true,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
-                background: passValue.coverImage == ""
+                background: passValue.coverImage == null
                     ? const HeaderImageErrorWidget()
                     : HeaderImageWidget(passValue: passValue),
                 title: BrandLogoName(passValue: passValue),

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -14,7 +12,6 @@ import '../../../../components/common_widgets/shop_products_widget.dart';
 import '../../../../routes/app_router_constants.dart';
 import '../../../../utils/color_manager.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
-import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 
 class CategoriesProductView extends StatefulWidget {
   static const String routeName = "category-view";
@@ -22,13 +19,15 @@ class CategoriesProductView extends StatefulWidget {
   final String? subCategory;
   final String? itemId;
   final String? itemName;
+  final String? categoryId;
   const CategoriesProductView(
       {super.key,
       required this.category,
       required this.subCategory,
       required this.type,
       this.itemId,
-      this.itemName});
+      this.itemName,
+      this.categoryId});
   final FilterType type;
 
   @override
@@ -38,6 +37,7 @@ class CategoriesProductView extends StatefulWidget {
 class _CategoriesProductViewState extends State<CategoriesProductView> {
   @override
   void initState() {
+    print("category id --=-=-=-=-=-= ${widget.categoryId}");
     BlocProvider.of<CategoryBloc>(context).add(
         widget.type == FilterType.specificCategory
             ? FetchFilterProducts(
@@ -210,15 +210,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
       onTap: () {
         context.pushNamed(MyAppRouteConstants.categoryProductsFilterRouteName,
             extra: {
-              'categoryId': context
-                  .read<CategoryBloc>()
-                  .state
-                  .subcategoryByCategoryIdModel!
-                  .result!
-                  .subCategory!
-                  .first
-                  .categoryId
-                  .toString(),
+              'categoryId': widget.categoryId,
               'category': widget.category,
             });
         // showModalBottomSheet(

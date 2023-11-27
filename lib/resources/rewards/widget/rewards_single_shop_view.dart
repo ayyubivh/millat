@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/rewards/widget/reward_cart_view.dart';
@@ -9,6 +10,7 @@ import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart'
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -139,7 +141,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                           Row(
                             children: [
                               Text(
-                                data.offerPrice.toString(),
+                                data.productId?.salePrice.toString() ?? "",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700,
@@ -148,7 +150,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                               ),
                               kWidth5,
                               Text(
-                                data.productId!.salePrice.toString(),
+                                data.productId?.regularPrice.toString() ?? '',
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w700,
@@ -288,10 +290,12 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                   ),
                 ));
               } else {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>
-                      const CheckoutView(checkoutType: CheckoutType.rewards),
-                ));
+                context.pushNamed(MyAppRouteConstants.checkoutRouteName,
+                    extra: {'checkoutType': CheckoutType.rewards});
+                // Navigator.of(context).push(MaterialPageRoute(
+                //   builder: (context) =>
+                //       const CheckoutView(checkoutType: CheckoutType.rewards),
+                // ));
               }
             },
             child: Container(

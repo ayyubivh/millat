@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -8,7 +10,6 @@ import 'package:millat/resources/authentication/bloc/logic/database_bloc/databas
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -173,13 +174,11 @@ class CheckoutView extends StatelessWidget {
                     }
                     checkoutType == CheckoutType.rewards
                         ? context.pushNamed(
-                            MyAppRouteConstants.checkoutConfirmationRouteName,
-                            extra: {
-                                'paymentType': 0,
-                                'checkoutType': CheckoutType.rewards
-                              })
+                            MyAppRouteConstants.checkoutPaymentRouteName,
+                            extra: {'checkoutType': CheckoutType.rewards})
                         : context.pushNamed(
-                            MyAppRouteConstants.checkoutPaymentRouteName);
+                            MyAppRouteConstants.checkoutPaymentRouteName,
+                            extra: {'checkoutType': CheckoutType.shop});
                   },
                 ));
           },

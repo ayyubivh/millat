@@ -159,7 +159,7 @@ class InsideDuaView extends StatelessWidget {
           kHeight15,
           Container(
             height: 45,
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10).copyWith(left: 20, right: 20),
             decoration: BoxDecoration(
               color: ColorManager.darkWhite,
               borderRadius: BorderRadius.circular(12),
@@ -168,11 +168,39 @@ class InsideDuaView extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const ImageIcon(
-                      AssetImage("assets/icons/dua_play.png"),
-                      size: 20,
+                    GestureDetector(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              // title: Text("No Audio Available"),
+                              content: const Text(
+                                "There is no audio available.",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    context.pop();
+                                  },
+                                  child: Text("OK"),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: ImageIcon(
+                        const AssetImage("assets/icons/dua_play.png"),
+                        size: 20,
+                        color: ColorManager.black4F,
+                      ),
                     ),
-                    kWidth10,
+                    kWidth15,
                     GestureDetector(
                       onTap: () {
                         context.read<TasbihBloc>().add(SelectDhikerEvent(
@@ -181,12 +209,13 @@ class InsideDuaView extends StatelessWidget {
                             id: duaId!));
                         context.pushNamed(MyAppRouteConstants.tasbihRouteName);
                       },
-                      child: const ImageIcon(
-                        AssetImage("assets/icons/dua_tasbih.png"),
+                      child: ImageIcon(
+                        const AssetImage("assets/icons/dua_tasbih.png"),
                         size: 20,
+                        color: ColorManager.black4F,
                       ),
                     ),
-                    kWidth10,
+                    kWidth15,
                     GestureDetector(
                       onTap: () {
                         showModalBottomSheet(
@@ -229,9 +258,10 @@ class InsideDuaView extends StatelessWidget {
                           },
                         );
                       },
-                      child: const ImageIcon(
-                        AssetImage("assets/icons/dua_gpay.png"),
+                      child: ImageIcon(
+                        const AssetImage("assets/icons/dua_gpay.png"),
                         size: 20,
+                        color: ColorManager.black4F,
                       ),
                     ),
                   ],
@@ -245,15 +275,16 @@ class InsideDuaView extends StatelessWidget {
                     //     AssetImage("assets/icons/send.png"),
                     //   ),
                     // ),
-                    kWidth10,
+                    kWidth15,
                     InkWell(
                       onTap: onTapCopyText,
-                      child: const ImageIcon(
-                        AssetImage("assets/icons/copy.png"),
+                      child: ImageIcon(
+                        const AssetImage("assets/icons/copy.png"),
                         size: 20,
+                        color: ColorManager.black4F,
                       ),
                     ),
-                    kWidth10,
+                    kWidth15,
                     BlocBuilder<DuaBloc, DuaState>(
                       builder: (context, state) => state.bookmarkItems!
                               .contains(duaId)
@@ -265,9 +296,10 @@ class InsideDuaView extends StatelessWidget {
                                     .read<DuaBloc>()
                                     .add(FetchDuaBookMarksEvent(context));
                               },
-                              child: const ImageIcon(
+                              child: ImageIcon(
                                 AssetImage('assets/icons/bookmark_filled.png'),
                                 size: 20,
+                                color: ColorManager.black4F,
                               ),
                             )
                           : GestureDetector(
@@ -278,9 +310,10 @@ class InsideDuaView extends StatelessWidget {
                                     .read<DuaBloc>()
                                     .add(FetchDuaBookMarksEvent(context));
                               },
-                              child: const ImageIcon(
-                                AssetImage("assets/icons/bookmark.png"),
+                              child: ImageIcon(
+                                const AssetImage("assets/icons/bookmark.png"),
                                 size: 20,
+                                color: ColorManager.black4F,
                               ),
                             ),
                     ),

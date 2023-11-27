@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:go_router/go_router.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,7 +47,7 @@ class SingleProductView extends StatelessWidget {
           color: ColorManager.grey08,
         );
         return state.isLoading || data == null
-            ? const Loader()
+            ? ShimmerUtils.singleProductShimmer(context)
             : Scaffold(
                 appBar: AppBar(
                   backgroundColor: Colors.transparent,

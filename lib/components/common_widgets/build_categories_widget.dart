@@ -19,7 +19,7 @@ class BuildCategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(
+        context.goNamed(
           MyAppRouteConstants.categoryRouteName,
           extra: {'category': text, 'categoryId': categoryId},
         );

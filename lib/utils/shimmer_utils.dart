@@ -274,6 +274,70 @@ class ShimmerUtils {
     );
   }
 
+  // single product shimmer
+  static Widget singleProductShimmer(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 60, bottom: 20),
+            child: ShimmerUtilWidget.borderRectangle(
+              width: SizeUtility(context).width,
+              height: SizeUtility(context).height * 30 / 100,
+            ),
+          ),
+          ShimmerUtilWidget.rectangle(
+              width: SizeUtility(context).width / 1.5, height: 25),
+          kHeight16,
+          ShimmerUtilWidget.rectangle(
+              width: SizeUtility(context).width / 3.5, height: 10),
+          kHeight16,
+          ShimmerUtilWidget.rectangle(
+              width: SizeUtility(context).width / 2.8, height: 12),
+          kHeight16,
+          ShimmerUtilWidget.rectangle(
+              width: SizeUtility(context).width / 3.5, height: 14),
+          kHeight16,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ShimmerUtilWidget.rectangle(
+                  width: SizeUtility(context).width / 2.8, height: 12),
+              const ShimmerUtilWidget.borderRectangle(
+                width: 20,
+                height: 20,
+                borderRadius: 8,
+              )
+            ],
+          ),
+          kHeight20,
+          ShimmerUtilWidget.rectangle(
+              width: SizeUtility(context).width, height: 10),
+          kHeight20,
+          ShimmerUtilWidget.rectangle(
+              width: SizeUtility(context).width / 3.5, height: 10),
+          kHeight20,
+          ShimmerUtilWidget.rectangle(
+              width: SizeUtility(context).width, height: 10),
+          kHeight20,
+          ShimmerUtilWidget.rectangle(
+              width: SizeUtility(context).width / 4, height: 10),
+          kHeight10,
+          ...List.generate(
+            6,
+            (index) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: ShimmerUtilWidget.rectangle(
+                  width: SizeUtility(context).width, height: 10),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
 // articles screen shimmer
   static Widget articlesShimmer() {
     return const Padding(
@@ -374,7 +438,7 @@ class ShimmerUtilWidgetRounded extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.grey,
         ),

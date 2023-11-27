@@ -218,8 +218,11 @@ class MyAppRouter {
                                 name: MyAppRouteConstants.checkoutRouteName,
                                 path: MyAppRouteConstants.checkoutRouteName,
                                 pageBuilder: (context, state) {
-                                  return const MaterialPage(
-                                      child: CheckoutView());
+                                  Map data = state.extra as Map;
+                                  return MaterialPage(
+                                      child: CheckoutView(
+                                    checkoutType: data['checkoutType'],
+                                  ));
                                 },
                               ),
                               GoRoute(
@@ -241,8 +244,12 @@ class MyAppRouter {
                                       path: MyAppRouteConstants
                                           .checkoutPaymentRouteName,
                                       pageBuilder: (context, state) {
-                                        return const MaterialPage(
-                                            child: CheckoutPayment());
+                                        Map data = state.extra as Map;
+                                        return MaterialPage(
+                                          child: CheckoutPayment(
+                                            checkoutType: data['checkoutType'],
+                                          ),
+                                        );
                                       },
                                     ),
                                     GoRoute(
@@ -387,6 +394,7 @@ class MyAppRouter {
                               Map data = state.extra as Map;
                               return MaterialPage(
                                 child: CategoriesProductView(
+                                  categoryId: data['categoryId'],
                                   category: data['category'],
                                   subCategory: data['subCategory'],
                                   type: data['type'],
@@ -405,7 +413,7 @@ class MyAppRouter {
                                   Map data = state.extra as Map;
                                   return MaterialPage(
                                       child: CategoryProductsFilterView(
-                                    categoryId: data['categoryId'],
+                                    // categoryId: data['categoryId'],
                                     category: data['category'],
                                   ));
                                 },

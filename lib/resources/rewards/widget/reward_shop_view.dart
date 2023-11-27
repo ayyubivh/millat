@@ -107,7 +107,8 @@ class RewardShopView extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              data[index]?.offerPrice.toString() ?? "",
+                              data[index]?.productId!.salePrice.toString() ??
+                                  "",
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,
@@ -116,7 +117,7 @@ class RewardShopView extends StatelessWidget {
                             ),
                             kWidth5,
                             Text(
-                              data[index]?.productId?.salePrice.toString() ??
+                              data[index]?.productId?.regularPrice.toString() ??
                                   "",
                               style: TextStyle(
                                 fontSize: 12,

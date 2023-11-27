@@ -70,6 +70,35 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
       body: BlocConsumer<ShopProductsBloc, ShopProductsState>(
         listener: (context, state) {
           if (state.orderIdRazorPay != "") {
+            final userData =
+                context.read<DatabaseBloc>().state.authUserModel?.result?.user;
+
+            if (widget.checkoutType == CheckoutType.rewards) {
+              final data = context
+                  .read<RewardsBloc>()
+                  .state
+                  .rewardsProductByIdModel
+                  ?.result
+                  ?.product;
+              var options = {
+                'order_id': state.orderIdRazorPay,
+                'key': 'rzp_live_CPvXnR4zHHC8cD',
+                'amount': state.totalAmount * 100,
+                'name': 'Millat',
+                'description': data?.productId?.title,
+                'retry': {'enabled': true, 'max_count': 1},
+                'send_sms_hash': true,
+                'timeout': 120,
+                'prefill': {
+                  'contact': userData?.phoneNumber,
+                  'email': userData?.email,
+                },
+                // 'external': {
+                //   'wallets': ['paytm']
+                // }
+              };
+              _razorpay.open(options);
+            }
             final cartItems = context
                 .read<CartBloc>()
                 .state
@@ -77,8 +106,6 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 ?.result
                 ?.cartProducts
                 ?.cartItems;
-            final userData =
-                context.read<DatabaseBloc>().state.authUserModel?.result?.user;
 
             var options = {
               'order_id': state.orderIdRazorPay,
@@ -201,6 +228,10 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 final subTotal = state.rewardsProductByIdModel?.result?.product
                     ?.productId?.salePrice
                     ?.toInt();
+                final coins =
+                    state.rewardsProductByIdModel?.result?.product?.coins;
+                const deliveryCharge = 90;
+                final total = subTotal! + deliveryCharge - coins!;
                 return Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
@@ -211,7 +242,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            Appstrings.subTotal,
+                            Appstrings.coins,
                             style: TextStyle(
                               color: ColorManager.blackColor,
                               fontSize: 15,
@@ -219,7 +250,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             ),
                           ),
                           Text(
-                            '₹$subTotal',
+                            '₹$coins',
                             style: TextStyle(
                                 color: ColorManager.blackColor,
                                 fontSize: 17,
@@ -240,7 +271,28 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             ),
                           ),
                           Text(
-                            '₹ 90',
+                            '₹ $deliveryCharge',
+                            style: TextStyle(
+                                color: ColorManager.blackColor,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      kHeight16,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            Appstrings.subTotal,
+                            style: TextStyle(
+                              color: ColorManager.blackColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            '₹$total',
                             style: TextStyle(
                                 color: ColorManager.blackColor,
                                 fontSize: 17,
@@ -252,46 +304,50 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                       MainButton(
                         title: Appstrings.placeOrder,
                         onPressed: () {
-                          final pickUpaddress = context
-                              .read<AddressBloc>()
-                              .state
-                              .addressIdModel!
-                              .result
-                              .address;
+                          context.read<ShopProductsBloc>().add(
+                              ShopProductsEvent.postOrderIdOnlinePayment(
+                                  context: context, amount: total.toDouble()));
+                          // final pickUpaddress = context
+                          //     .read<AddressBloc>()
+                          //     .state
+                          //     .addressIdModel!
+                          //     .result
+                          //     .address;
 
-                          print(
-                              "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
-                          final userCoins = context
-                                  .read<RewardsBloc>()
-                                  .state
-                                  .rewardsModel
-                                  ?.result
-                                  ?.reward
-                                  ?.coins ??
-                              0;
-                          final productCoin = state.rewardsProductByIdModel
-                                  ?.result?.product?.coins
-                                  ?.toInt() ??
-                              0;
-                          print('here is the address id ${pickUpaddress.id}');
-                          final data = state.rewardsProductByIdModel?.result
-                              ?.product?.productId;
-                          if (userCoins >= productCoin) {
-                            context.read<ShopProductsBloc>().add(
-                                PostOrdersRewards(
-                                    context: context,
-                                    price: data?.salePrice?.toDouble() ?? 0,
-                                    coins: productCoin,
-                                    addressId: pickUpaddress.id,
-                                    totalQuantity: 1,
-                                    productId: data?.id ?? "",
-                                    brandId: data?.brand ?? "",
-                                    size: data?.size![0].size ?? "",
-                                    color: data?.color ?? ""));
-                          } else {
-                            showSnackBar(
-                                context, "Not enough coins to buy product!");
-                          }
+                          // print(
+                          //     "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
+                          // final userCoins = context
+                          //         .read<RewardsBloc>()
+                          //         .state
+                          //         .rewardsModel
+                          //         ?.result
+                          //         ?.reward
+                          //         ?.coins ??
+                          //     0;
+                          // final productCoin = state.rewardsProductByIdModel
+                          //         ?.result?.product?.coins
+                          //         ?.toInt() ??
+                          //     0;
+                          // print('here is the address id ${pickUpaddress.id}');
+                          // final data = state.rewardsProductByIdModel?.result
+                          //     ?.product?.productId;
+
+                          // if (userCoins >= productCoin) {
+                          //   context.read<ShopProductsBloc>().add(
+                          //       PostOrdersRewards(
+                          //           context: context,
+                          //           price: data?.salePrice?.toDouble() ?? 0,
+                          //           coins: productCoin,
+                          //           addressId: pickUpaddress.id,
+                          //           totalQuantity: 1,
+                          //           productId: data?.id ?? "",
+                          //           brandId: data?.brand ?? "",
+                          //           size: data?.size![0].size ?? "",
+                          //           color: data?.color ?? ""));
+                          // } else {
+                          //   showSnackBar(
+                          //       context, "Not enough coins to buy product!");
+                          // }
                         },
                       ),
                     ],

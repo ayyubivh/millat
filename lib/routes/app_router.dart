@@ -413,6 +413,7 @@ class MyAppRouter {
                                   Map data = state.extra as Map;
                                   return MaterialPage(
                                       child: CategoryProductsFilterView(
+                                    type: data['type'],
                                     // categoryId: data['categoryId'],
                                     category: data['category'],
                                   ));

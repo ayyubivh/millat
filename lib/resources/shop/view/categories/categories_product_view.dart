@@ -37,7 +37,8 @@ class CategoriesProductView extends StatefulWidget {
 class _CategoriesProductViewState extends State<CategoriesProductView> {
   @override
   void initState() {
-    print("category id --=-=-=-=-=-= ${widget.categoryId}");
+    print(
+        "category type--=-=-=-=-=-= ${widget.type} category name ${widget.category}");
     BlocProvider.of<CategoryBloc>(context).add(
         widget.type == FilterType.specificCategory
             ? FetchFilterProducts(
@@ -47,8 +48,16 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
             : FetchFilterProducts(
                 category: widget.category, subCategory: widget.subCategory));
 
-    BlocProvider.of<CategoryBloc>(context)
-        .add(FetchFilterOptionEvent(category: widget.category ?? ""));
+    BlocProvider.of<CategoryBloc>(context).add(
+      FetchFilterOptionEvent(
+        category: widget.type == FilterType.specificCategory
+            ? (widget.category == "women"
+                ? "subcategory=Hijab"
+                : "subcategory=Honey")
+            : "category=${widget.category}",
+      ),
+    );
+
     super.initState();
   }
 
@@ -212,6 +221,9 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
             extra: {
               'categoryId': widget.categoryId,
               'category': widget.category,
+              'type': widget.type == FilterType.specificCategory
+                  ? FilterType.specificCategory
+                  : FilterType.category
             });
         // showModalBottomSheet(
         //   context: context,

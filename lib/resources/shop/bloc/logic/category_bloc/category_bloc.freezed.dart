@@ -40,7 +40,7 @@ mixin _$CategoryEvent {
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -70,7 +70,7 @@ mixin _$CategoryEvent {
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -99,7 +99,7 @@ mixin _$CategoryEvent {
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -337,7 +337,7 @@ class _$FetchFilterProductsImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -370,7 +370,7 @@ class _$FetchFilterProductsImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -402,7 +402,7 @@ class _$FetchFilterProductsImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -603,7 +603,7 @@ class _$FetchCategoriesImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -636,7 +636,7 @@ class _$FetchCategoriesImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -668,7 +668,7 @@ class _$FetchCategoriesImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -859,7 +859,7 @@ class _$FetchSubcategoriesImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -892,7 +892,7 @@ class _$FetchSubcategoriesImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -924,7 +924,7 @@ class _$FetchSubcategoriesImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -1143,7 +1143,7 @@ class _$OnSelectFilterImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -1176,7 +1176,7 @@ class _$OnSelectFilterImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -1208,7 +1208,7 @@ class _$OnSelectFilterImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -1435,7 +1435,7 @@ class _$FetchItemsByCategoryImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -1468,7 +1468,7 @@ class _$FetchItemsByCategoryImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -1500,7 +1500,7 @@ class _$FetchItemsByCategoryImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -1728,7 +1728,7 @@ class _$ChangeCategoryIndexEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -1761,7 +1761,7 @@ class _$ChangeCategoryIndexEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -1793,7 +1793,7 @@ class _$ChangeCategoryIndexEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -2026,7 +2026,7 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -2059,7 +2059,7 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -2091,7 +2091,7 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -2319,7 +2319,7 @@ class _$FilterBrandPickEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -2352,7 +2352,7 @@ class _$FilterBrandPickEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -2384,7 +2384,7 @@ class _$FilterBrandPickEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -2609,7 +2609,7 @@ class _$PriceRangeEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -2642,7 +2642,7 @@ class _$PriceRangeEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -2674,7 +2674,7 @@ class _$PriceRangeEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -2905,7 +2905,7 @@ class _$FetchSubCategoriesByCategoryIdImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -2938,7 +2938,7 @@ class _$FetchSubCategoriesByCategoryIdImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -2970,7 +2970,7 @@ class _$FetchSubCategoriesByCategoryIdImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -3199,7 +3199,7 @@ class _$SaveCategoryFilterValImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -3232,7 +3232,7 @@ class _$SaveCategoryFilterValImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -3264,7 +3264,7 @@ class _$SaveCategoryFilterValImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -3513,7 +3513,7 @@ class _$SavePriceRangeImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -3546,7 +3546,7 @@ class _$SavePriceRangeImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -3578,7 +3578,7 @@ class _$SavePriceRangeImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -3831,7 +3831,7 @@ class _$FetchProductSortByPriceImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -3864,7 +3864,7 @@ class _$FetchProductSortByPriceImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -3896,7 +3896,7 @@ class _$FetchProductSortByPriceImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -4125,7 +4125,7 @@ class _$ChangeSortListIndexImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -4158,7 +4158,7 @@ class _$ChangeSortListIndexImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -4190,7 +4190,7 @@ class _$ChangeSortListIndexImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -4331,7 +4331,8 @@ abstract class _$$FetchProductsByFilterImplCopyWith<$Res> {
       String category,
       String subCategory,
       String brand,
-      String color});
+      String color,
+      String? itemId});
 }
 
 /// @nodoc
@@ -4351,6 +4352,7 @@ class __$$FetchProductsByFilterImplCopyWithImpl<$Res>
     Object? subCategory = null,
     Object? brand = null,
     Object? color = null,
+    Object? itemId = freezed,
   }) {
     return _then(_$FetchProductsByFilterImpl(
       minPrice: null == minPrice
@@ -4377,6 +4379,10 @@ class __$$FetchProductsByFilterImplCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String,
+      itemId: freezed == itemId
+          ? _value.itemId
+          : itemId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -4392,7 +4398,8 @@ class _$FetchProductsByFilterImpl
       required this.category,
       required this.subCategory,
       required this.brand,
-      required this.color});
+      required this.color,
+      this.itemId});
 
   @override
   final String minPrice;
@@ -4406,10 +4413,12 @@ class _$FetchProductsByFilterImpl
   final String brand;
   @override
   final String color;
+  @override
+  final String? itemId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryEvent.fetchProductsByFilter(minPrice: $minPrice, maxPrice: $maxPrice, category: $category, subCategory: $subCategory, brand: $brand, color: $color)';
+    return 'CategoryEvent.fetchProductsByFilter(minPrice: $minPrice, maxPrice: $maxPrice, category: $category, subCategory: $subCategory, brand: $brand, color: $color, itemId: $itemId)';
   }
 
   @override
@@ -4422,7 +4431,8 @@ class _$FetchProductsByFilterImpl
       ..add(DiagnosticsProperty('category', category))
       ..add(DiagnosticsProperty('subCategory', subCategory))
       ..add(DiagnosticsProperty('brand', brand))
-      ..add(DiagnosticsProperty('color', color));
+      ..add(DiagnosticsProperty('color', color))
+      ..add(DiagnosticsProperty('itemId', itemId));
   }
 
   @override
@@ -4439,12 +4449,13 @@ class _$FetchProductsByFilterImpl
             (identical(other.subCategory, subCategory) ||
                 other.subCategory == subCategory) &&
             (identical(other.brand, brand) || other.brand == brand) &&
-            (identical(other.color, color) || other.color == color));
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.itemId, itemId) || other.itemId == itemId));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, minPrice, maxPrice, category, subCategory, brand, color);
+  int get hashCode => Object.hash(runtimeType, minPrice, maxPrice, category,
+      subCategory, brand, color, itemId);
 
   @JsonKey(ignore: true)
   @override
@@ -4478,7 +4489,7 @@ class _$FetchProductsByFilterImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -4487,7 +4498,7 @@ class _$FetchProductsByFilterImpl
     required TResult Function(String category) fetchFilterOptionEvent,
   }) {
     return fetchProductsByFilter(
-        minPrice, maxPrice, category, subCategory, brand, color);
+        minPrice, maxPrice, category, subCategory, brand, color, itemId);
   }
 
   @override
@@ -4512,7 +4523,7 @@ class _$FetchProductsByFilterImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -4521,7 +4532,7 @@ class _$FetchProductsByFilterImpl
     TResult? Function(String category)? fetchFilterOptionEvent,
   }) {
     return fetchProductsByFilter?.call(
-        minPrice, maxPrice, category, subCategory, brand, color);
+        minPrice, maxPrice, category, subCategory, brand, color, itemId);
   }
 
   @override
@@ -4545,7 +4556,7 @@ class _$FetchProductsByFilterImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -4556,7 +4567,7 @@ class _$FetchProductsByFilterImpl
   }) {
     if (fetchProductsByFilter != null) {
       return fetchProductsByFilter(
-          minPrice, maxPrice, category, subCategory, brand, color);
+          minPrice, maxPrice, category, subCategory, brand, color, itemId);
     }
     return orElse();
   }
@@ -4671,7 +4682,8 @@ abstract class FetchProductsByFilter implements CategoryEvent {
       required final String category,
       required final String subCategory,
       required final String brand,
-      required final String color}) = _$FetchProductsByFilterImpl;
+      required final String color,
+      final String? itemId}) = _$FetchProductsByFilterImpl;
 
   String get minPrice;
   String get maxPrice;
@@ -4679,6 +4691,7 @@ abstract class FetchProductsByFilter implements CategoryEvent {
   String get subCategory;
   String get brand;
   String get color;
+  String? get itemId;
   @JsonKey(ignore: true)
   _$$FetchProductsByFilterImplCopyWith<_$FetchProductsByFilterImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -4781,7 +4794,7 @@ class _$ChangeFilterIndexImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -4814,7 +4827,7 @@ class _$ChangeFilterIndexImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -4846,7 +4859,7 @@ class _$ChangeFilterIndexImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -5077,7 +5090,7 @@ class _$FilterSubCategoryCheckboxChangingEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -5110,7 +5123,7 @@ class _$FilterSubCategoryCheckboxChangingEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -5142,7 +5155,7 @@ class _$FilterSubCategoryCheckboxChangingEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -5374,7 +5387,7 @@ class _$FilterBrandCheckboxChangingEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -5407,7 +5420,7 @@ class _$FilterBrandCheckboxChangingEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -5439,7 +5452,7 @@ class _$FilterBrandCheckboxChangingEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -5670,7 +5683,7 @@ class _$FilterColorCheckboxChangingEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -5703,7 +5716,7 @@ class _$FilterColorCheckboxChangingEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -5735,7 +5748,7 @@ class _$FilterColorCheckboxChangingEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -5964,7 +5977,7 @@ class _$FetchFilterOptionEventImpl
         fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
     required TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)
+            String subCategory, String brand, String color, String? itemId)
         fetchProductsByFilter,
     required TResult Function(int index) changeFilterIndex,
     required TResult Function(int index) filterSubCategoryCheckboxChangingEvent,
@@ -5997,7 +6010,7 @@ class _$FetchFilterOptionEventImpl
         fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
     TResult? Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult? Function(int index)? changeFilterIndex,
     TResult? Function(int index)? filterSubCategoryCheckboxChangingEvent,
@@ -6029,7 +6042,7 @@ class _$FetchFilterOptionEventImpl
         fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
     TResult Function(String minPrice, String maxPrice, String category,
-            String subCategory, String brand, String color)?
+            String subCategory, String brand, String color, String? itemId)?
         fetchProductsByFilter,
     TResult Function(int index)? changeFilterIndex,
     TResult Function(int index)? filterSubCategoryCheckboxChangingEvent,

@@ -159,9 +159,10 @@ class CategoryService extends HttpServices {
     required String subCategory,
     required String brand,
     required String color,
+    required String? itemId,
   }) async {
     final endpoint =
-        "product/filter?priceRange=$minPrice-$maxPrice&category=$category&subcate=$subCategory&brand=$brand&color=$color";
+        "product/filter?priceRange=$minPrice-$maxPrice&category=$category&subcate=$subCategory&itemId=${itemId ?? ''}&brand=$brand&color=$color";
 
     final response = await get(endPoint: endpoint);
 
@@ -185,7 +186,7 @@ class CategoryService extends HttpServices {
   Future<FilterOptionModel> fetchFilterOptions({
     required String category,
   }) async {
-    final endpoint = "filter_option?category=$category";
+    final endpoint = "filter_option?$category";
     final response = await get(endPoint: endpoint);
 
     if (response.statusCode == 200) {
@@ -195,7 +196,7 @@ class CategoryService extends HttpServices {
         print(result);
         return result;
       } catch (e) {
-        print('error on Category API fetch: ${e.toString()}');
+        print('error on filter option API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

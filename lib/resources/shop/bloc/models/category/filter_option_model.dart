@@ -29,6 +29,7 @@ class Data with _$Data {
   const factory Data(
     List<Brand>? brand,
     List<Subcategory>? subcategory,
+    List<Subcategory>? itemList,
     List<String>? colors,
     int? maxPrice,
   ) = _Data;

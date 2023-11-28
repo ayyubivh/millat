@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -232,6 +234,8 @@ class CategoryView extends StatelessWidget {
                                               fontWeight: FontWeight.w600,
                                             ),
                                             textAlign: TextAlign.center,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
                                           ),
                                         ],
                                       ),
@@ -244,7 +248,7 @@ class CategoryView extends StatelessWidget {
                         : BlocBuilder<CategoryBloc, CategoryState>(
                             builder: (context, state) {
                               return SizedBox(
-                                height: 100,
+                                height: 110,
                                 child: ListView.builder(
                                   itemCount: state.categoryItemModel?.result
                                           ?.items?.length ??
@@ -267,8 +271,7 @@ class CategoryView extends StatelessWidget {
                                               'category': category,
                                               'subCategory': "",
                                               'categoryId': categoryId,
-                                              'type':
-                                                  FilterType.specificCategory
+                                              'type': FilterType.category,
                                             });
                                       },
                                       child: Column(

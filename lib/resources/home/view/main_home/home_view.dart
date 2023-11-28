@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable
 
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -96,6 +97,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    // log("Screen build");
     return Scaffold(
       // endDrawer: const HomeDrawyerWidget(),
       backgroundColor: ColorManager.whiteColor,
@@ -614,6 +616,7 @@ class _HomeViewState extends State<HomeView> {
                     final subCategoryName = banner?.subCategoryName;
                     return GestureDetector(
                       onTap: () {
+                        log("category -=-=-=-= $subCategoryIdTitle subcategory $subCategoryName ");
                         context.pushNamed(
                             MyAppRouteConstants.categoriesProductsRouteName,
                             extra: {
@@ -1064,8 +1067,8 @@ class _HomeViewState extends State<HomeView> {
                       context.pushNamed(
                           MyAppRouteConstants.categoriesProductsRouteName,
                           extra: {
-                            'category': "",
-                            'subCategory': "",
+                            'category': "Pro Muslim",
+                            'subCategory': "Thobe",
                             'type': FilterType.category
                           });
                     },

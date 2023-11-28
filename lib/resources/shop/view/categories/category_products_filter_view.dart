@@ -1,9 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:millat/components/buttons/main_text_button.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -13,10 +16,17 @@ import 'package:millat/utils/string_constants.dart';
 
 class CategoryProductsFilterView extends StatelessWidget {
   final String category;
-  const CategoryProductsFilterView({super.key, required this.category});
+  final FilterType type;
+  const CategoryProductsFilterView(
+      {super.key, required this.category, required this.type});
 
   @override
   Widget build(BuildContext context) {
+    final state = context.read<CategoryBloc>().state;
+    log('filter type ${type == FilterType.specificCategory ? 'specific category' : 'default category'}');
+    log('category $category');
+    log('subcategory: ${state.filterOptionModel?.result?.data.subcategory}');
+
     // WidgetsBinding.instance.addPostFrameCallback((_) {
     //   BlocProvider.of<CategoryBloc>(context)
     //       .add(FetchSubCategoriesByCategoryId(categoryId: categoryId));
@@ -63,7 +73,7 @@ class CategoryProductsFilterView extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-              width: SizeUtility(context).width / 3,
+              width: SizeUtility(context).width / 2.6,
               child: BlocBuilder<CategoryBloc, CategoryState>(
                 builder: (context, state) {
                   final items = [
@@ -161,21 +171,41 @@ class CategoryProductsFilterView extends StatelessWidget {
                     final subCategoryFilterIndex =
                         state.filterSubcategoryCheckboxIndex;
                     final brandFilterIndex = state.filterBrandCheckboxIndex;
-                    context.read<CategoryBloc>().add(FetchProductsByFilter(
-                        maxPrice: state.maxPrice.toString(),
-                        minPrice: state.minPrice.toString(),
-                        category: category,
-                        subCategory: subCategoryFilterIndex == -1
-                            ? state.filterVal
-                            : data?.subcategory?[subCategoryFilterIndex]
-                                    .title ??
-                                state.filterVal,
-                        brand: brandFilterIndex == -1
-                            ? ''
-                            : data?.brand?[brandFilterIndex].brandName ?? "",
-                        color: colorFilterIndex == -1
-                            ? ''
-                            : data?.colors?[colorFilterIndex] ?? ''));
+
+                    type == FilterType.specificCategory
+                        ? context
+                            .read<CategoryBloc>()
+                            .add(FetchProductsByFilter(
+                              maxPrice: state.maxPrice.toString(),
+                              minPrice: state.minPrice.toString(),
+                              category: '',
+                              subCategory: '',
+                              itemId:
+                                  data?.itemList?[subCategoryFilterIndex].id,
+                              brand: brandFilterIndex == -1
+                                  ? ''
+                                  : data?.brand?[brandFilterIndex].brandName ??
+                                      "",
+                              color: '',
+                            ))
+                        : context.read<CategoryBloc>().add(
+                            FetchProductsByFilter(
+                                maxPrice: state.maxPrice.toString(),
+                                minPrice: state.minPrice.toString(),
+                                category: category,
+                                subCategory: subCategoryFilterIndex == -1
+                                    ? state.filterVal
+                                    : data?.subcategory?[subCategoryFilterIndex]
+                                            .title ??
+                                        state.filterVal,
+                                brand: brandFilterIndex == -1
+                                    ? ''
+                                    : data?.brand?[brandFilterIndex]
+                                            .brandName ??
+                                        "",
+                                color: colorFilterIndex == -1
+                                    ? ''
+                                    : data?.colors?[colorFilterIndex] ?? ''));
                     context.pop();
 
                     // context.pushReplacementNamed(
@@ -301,32 +331,38 @@ class CategoryProductsFilterView extends StatelessWidget {
   Widget subCategoryWidget() {
     return Expanded(
       child: BlocBuilder<CategoryBloc, CategoryState>(
-        builder: (context, state) => Container(
-          color: ColorManager.whiteColor,
-          padding: const EdgeInsets.only(left: 10),
-          child: ListView.builder(
-            itemCount:
-                state.filterOptionModel?.result?.data.subcategory?.length ?? 0,
-            itemBuilder: (context, index) {
-              final data = state.filterOptionModel?.result?.data.subcategory;
-              bool isSelected = index == state.filterSubcategoryCheckboxIndex;
+        builder: (context, state) {
+          final data = type == FilterType.specificCategory
+              ? state.filterOptionModel?.result?.data.itemList
+              : state.filterOptionModel?.result?.data.subcategory;
 
-              return _listItemWidget(
-                isSelected: isSelected,
-                context: context,
-                name: data?[index].title ?? "",
-                index: index,
-                onChanged: (value) {
-                  BlocProvider.of<CategoryBloc>(context).add(
-                      FilterSubCategoryCheckboxChangingEvent(index: index));
-                  BlocProvider.of<CategoryBloc>(context).add(
+          return Container(
+            color: ColorManager.whiteColor,
+            padding: const EdgeInsets.only(left: 10),
+            child: ListView.builder(
+              itemCount: data?.length ?? 0,
+              itemBuilder: (context, index) {
+                bool isSelected = index == state.filterSubcategoryCheckboxIndex;
+
+                return _listItemWidget(
+                  isSelected: isSelected,
+                  context: context,
+                  name: data?[index].title ?? "",
+                  index: index,
+                  onChanged: (value) {
+                    BlocProvider.of<CategoryBloc>(context).add(
+                      FilterSubCategoryCheckboxChangingEvent(index: index),
+                    );
+                    BlocProvider.of<CategoryBloc>(context).add(
                       SaveCategoryFilterVal(
-                          filterVal: data?[index].title ?? ""));
-                },
-              );
-            },
-          ),
-        ),
+                          filterVal: data?[index].title ?? ""),
+                    );
+                  },
+                );
+              },
+            ),
+          );
+        },
       ),
     );
   }

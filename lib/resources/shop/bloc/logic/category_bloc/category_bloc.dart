@@ -175,6 +175,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         subCategory: event.subCategory,
         brand: event.brand,
         color: event.color,
+        itemId: event.itemId,
       );
       print("filtered products $data");
       emit(state.copyWith(

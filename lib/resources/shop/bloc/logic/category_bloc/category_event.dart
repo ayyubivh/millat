@@ -49,6 +49,7 @@ class CategoryEvent with _$CategoryEvent {
     required String subCategory,
     required String brand,
     required String color,
+    String? itemId,
   }) = FetchProductsByFilter;
   const factory CategoryEvent.changeFilterIndex({
     required int index,

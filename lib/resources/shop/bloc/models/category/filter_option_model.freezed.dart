@@ -374,6 +374,7 @@ Data _$DataFromJson(Map<String, dynamic> json) {
 mixin _$Data {
   List<Brand>? get brand => throw _privateConstructorUsedError;
   List<Subcategory>? get subcategory => throw _privateConstructorUsedError;
+  List<Subcategory>? get itemList => throw _privateConstructorUsedError;
   List<String>? get colors => throw _privateConstructorUsedError;
   int? get maxPrice => throw _privateConstructorUsedError;
 
@@ -390,6 +391,7 @@ abstract class $DataCopyWith<$Res> {
   $Res call(
       {List<Brand>? brand,
       List<Subcategory>? subcategory,
+      List<Subcategory>? itemList,
       List<String>? colors,
       int? maxPrice});
 }
@@ -409,6 +411,7 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
   $Res call({
     Object? brand = freezed,
     Object? subcategory = freezed,
+    Object? itemList = freezed,
     Object? colors = freezed,
     Object? maxPrice = freezed,
   }) {
@@ -420,6 +423,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
       subcategory: freezed == subcategory
           ? _value.subcategory
           : subcategory // ignore: cast_nullable_to_non_nullable
+              as List<Subcategory>?,
+      itemList: freezed == itemList
+          ? _value.itemList
+          : itemList // ignore: cast_nullable_to_non_nullable
               as List<Subcategory>?,
       colors: freezed == colors
           ? _value.colors
@@ -443,6 +450,7 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
   $Res call(
       {List<Brand>? brand,
       List<Subcategory>? subcategory,
+      List<Subcategory>? itemList,
       List<String>? colors,
       int? maxPrice});
 }
@@ -459,6 +467,7 @@ class __$$DataImplCopyWithImpl<$Res>
   $Res call({
     Object? brand = freezed,
     Object? subcategory = freezed,
+    Object? itemList = freezed,
     Object? colors = freezed,
     Object? maxPrice = freezed,
   }) {
@@ -470,6 +479,10 @@ class __$$DataImplCopyWithImpl<$Res>
       freezed == subcategory
           ? _value._subcategory
           : subcategory // ignore: cast_nullable_to_non_nullable
+              as List<Subcategory>?,
+      freezed == itemList
+          ? _value._itemList
+          : itemList // ignore: cast_nullable_to_non_nullable
               as List<Subcategory>?,
       freezed == colors
           ? _value._colors
@@ -489,10 +502,12 @@ class _$DataImpl implements _Data {
   const _$DataImpl(
       final List<Brand>? brand,
       final List<Subcategory>? subcategory,
+      final List<Subcategory>? itemList,
       final List<String>? colors,
       this.maxPrice)
       : _brand = brand,
         _subcategory = subcategory,
+        _itemList = itemList,
         _colors = colors;
 
   factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
@@ -518,6 +533,16 @@ class _$DataImpl implements _Data {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<Subcategory>? _itemList;
+  @override
+  List<Subcategory>? get itemList {
+    final value = _itemList;
+    if (value == null) return null;
+    if (_itemList is EqualUnmodifiableListView) return _itemList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   final List<String>? _colors;
   @override
   List<String>? get colors {
@@ -533,7 +558,7 @@ class _$DataImpl implements _Data {
 
   @override
   String toString() {
-    return 'Data(brand: $brand, subcategory: $subcategory, colors: $colors, maxPrice: $maxPrice)';
+    return 'Data(brand: $brand, subcategory: $subcategory, itemList: $itemList, colors: $colors, maxPrice: $maxPrice)';
   }
 
   @override
@@ -544,6 +569,7 @@ class _$DataImpl implements _Data {
             const DeepCollectionEquality().equals(other._brand, _brand) &&
             const DeepCollectionEquality()
                 .equals(other._subcategory, _subcategory) &&
+            const DeepCollectionEquality().equals(other._itemList, _itemList) &&
             const DeepCollectionEquality().equals(other._colors, _colors) &&
             (identical(other.maxPrice, maxPrice) ||
                 other.maxPrice == maxPrice));
@@ -555,6 +581,7 @@ class _$DataImpl implements _Data {
       runtimeType,
       const DeepCollectionEquality().hash(_brand),
       const DeepCollectionEquality().hash(_subcategory),
+      const DeepCollectionEquality().hash(_itemList),
       const DeepCollectionEquality().hash(_colors),
       maxPrice);
 
@@ -576,6 +603,7 @@ abstract class _Data implements Data {
   const factory _Data(
       final List<Brand>? brand,
       final List<Subcategory>? subcategory,
+      final List<Subcategory>? itemList,
       final List<String>? colors,
       final int? maxPrice) = _$DataImpl;
 
@@ -585,6 +613,8 @@ abstract class _Data implements Data {
   List<Brand>? get brand;
   @override
   List<Subcategory>? get subcategory;
+  @override
+  List<Subcategory>? get itemList;
   @override
   List<String>? get colors;
   @override

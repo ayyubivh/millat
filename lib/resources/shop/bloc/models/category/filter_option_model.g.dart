@@ -42,6 +42,9 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       (json['subcategory'] as List<dynamic>?)
           ?.map((e) => Subcategory.fromJson(e as Map<String, dynamic>))
           .toList(),
+      (json['itemList'] as List<dynamic>?)
+          ?.map((e) => Subcategory.fromJson(e as Map<String, dynamic>))
+          .toList(),
       (json['colors'] as List<dynamic>?)?.map((e) => e as String).toList(),
       json['maxPrice'] as int?,
     );
@@ -50,6 +53,7 @@ Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
     <String, dynamic>{
       'brand': instance.brand,
       'subcategory': instance.subcategory,
+      'itemList': instance.itemList,
       'colors': instance.colors,
       'maxPrice': instance.maxPrice,
     };

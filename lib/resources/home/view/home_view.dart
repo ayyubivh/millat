@@ -10,6 +10,7 @@ import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:millat/routes/app_router_constants.dart';
+import 'package:millat/utils/responsive.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -280,7 +281,11 @@ class _HomeViewState extends State<HomeView> {
                                       children: [
                                         Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                              Responsive.isMobile(context)
+                                                  ? MainAxisAlignment
+                                                      .spaceBetween
+                                                  : MainAxisAlignment
+                                                      .spaceAround,
                                           children: [
                                             buildIconWidget(
                                               image: AppAssetsStrings

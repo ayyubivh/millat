@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:http/http.dart';
 import 'package:millat/components/buttons/green_gradient_button.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 
@@ -14,6 +17,7 @@ import 'package:millat/resources/shop/view/widgets/shop_home_subcategory_card_wi
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/responsive.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -59,6 +63,7 @@ class _ShopViewState extends State<ShopView> {
 
   @override
   Widget build(BuildContext context) {
+    log(SizeUtility(context).width.toString());
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       body: SingleChildScrollView(
@@ -327,6 +332,7 @@ class _ShopViewState extends State<ShopView> {
         return SizedBox(
           height: 100,
           child: ListView.builder(
+            itemExtent: !Responsive.isMobile(context) ? 150 : 100,
             scrollDirection: Axis.horizontal,
             itemCount: state.brandModels?.result?.data?.length ?? 6,
             itemBuilder: (BuildContext context, int index) {
@@ -661,7 +667,7 @@ class _ShopViewState extends State<ShopView> {
                 height: 95,
                 child: ListView.builder(
                   itemCount: state.category?.result?.category?.length,
-                  itemExtent: 100,
+                  itemExtent: !Responsive.isMobile(context) ? 150 : 100,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     if (state.category?.result?.category == null) {
@@ -676,9 +682,10 @@ class _ShopViewState extends State<ShopView> {
                     final data = state.category!.result!.category![index];
 
                     return BuildCategoryWidget(
-                        categoryId: data.id!,
-                        image: data.image!,
-                        text: data.title.toString());
+                      categoryId: data.id!,
+                      image: data.image!,
+                      text: data.title.toString(),
+                    );
                   },
                 ),
               );

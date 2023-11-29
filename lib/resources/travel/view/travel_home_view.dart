@@ -22,6 +22,14 @@ class TravelHomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<TravelBloc>(context)
+        ..add(const TravelEvent.fetchTravelPopularProducts())
+        ..add(const TravelEvent.fetchTravelCities())
+        ..add(const TravelEvent.fetchBestPlacesProducts())
+        ..add(const TravelEvent.fetchTravelWishlistProducts())
+        ..add(const TravelEvent.fetchTravelHomeBannerPackages());
+    });
     final widgets = [
       kHeight20,
       const CategoryList(),
@@ -33,37 +41,29 @@ class TravelHomeView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
-      body: BlocProvider(
-        create: (context) => TravelBloc()
-          ..add(const TravelEvent.fetchTravelPopularProducts())
-          ..add(const TravelEvent.fetchTravelCities())
-          ..add(const TravelEvent.fetchBestPlacesProducts())
-          ..add(const TravelEvent.fetchTravelWishlistProducts())
-          ..add(const TravelEvent.fetchTravelHomeBannerPackages()),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              expandedHeight: SizeUtility(context).height / 3.1,
-              flexibleSpace: const FlexibleSpaceBar(
-                background: BannerCarousel(),
-              ),
-              actions: const [
-                SearchIconWidget(),
-                kWidth30,
-              ],
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            expandedHeight: SizeUtility(context).height / 3.1,
+            flexibleSpace: const FlexibleSpaceBar(
+              background: BannerCarousel(),
             ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return widgets[index];
-                },
-                childCount: widgets.length,
-              ),
+            actions: const [
+              SearchIconWidget(),
+              kWidth30,
+            ],
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return widgets[index];
+              },
+              childCount: widgets.length,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -168,7 +168,7 @@ class BestPlaceWidget extends StatelessWidget {
                                                 ),
                                                 kWidth3,
                                                 Text(
-                                                  data?[index].location ?? "",
+                                                  data[index].location ?? "",
                                                   style: TextStyle(
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.w500,
@@ -193,7 +193,7 @@ class BestPlaceWidget extends StatelessWidget {
                                           ),
                                           child: Center(
                                             child: Text(
-                                              " Up to ₹${data?[index].price}",
+                                              " Up to ₹${data[index].price}",
                                               style: TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w700,

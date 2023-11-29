@@ -357,8 +357,11 @@ class _HomeViewState extends State<HomeView> {
                                   _eventOfTheMonthWidget(context),
                                   kHeight20,
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 30),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            !Responsive.isMobile(context)
+                                                ? 110
+                                                : 30),
                                     child: Column(
                                       children: [
                                         _topOffersWidget(),
@@ -438,7 +441,9 @@ class _HomeViewState extends State<HomeView> {
                             borderRadius: BorderRadius.circular(14),
                           ),
                           height: 230,
-                          width: SizeUtility(context).width / 1.6,
+                          width: !Responsive.isMobile(context)
+                              ? SizeUtility(context).width / 2
+                              : SizeUtility(context).width / 1.6,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(14),
                             child: Stack(
@@ -506,7 +511,9 @@ class _HomeViewState extends State<HomeView> {
 
   Widget _topOffersWidget() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: !Responsive.isMobile(context)
+          ? CrossAxisAlignment.center
+          : CrossAxisAlignment.start,
       children: [
         const Text(
           Appstrings.homeHeading2,
@@ -518,47 +525,51 @@ class _HomeViewState extends State<HomeView> {
         kHeight10,
         BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
-            return SizedBox(
-              height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: state.topOffersModel?.result.banners.length ?? 4,
-                itemExtent: 95,
-                itemBuilder: (context, index) {
-                  if (state.isLoading ||
-                      state.topOffersModel?.result.banners == null) {
-                    return ShimmerUtils.categoriesShimmers();
-                  }
-                  final data = state.topOffersModel?.result.banners[index];
-                  return GestureDetector(
-                    onTap: () {
-                      context.pushNamed(
+            return Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: state.topOffersModel?.result.banners.length ?? 4,
+                  itemExtent: !Responsive.isMobile(context) ? 130 : 95,
+                  itemBuilder: (context, index) {
+                    if (state.isLoading ||
+                        state.topOffersModel?.result.banners == null) {
+                      return ShimmerUtils.categoriesShimmers();
+                    }
+                    final data = state.topOffersModel?.result.banners[index];
+                    return GestureDetector(
+                      onTap: () {
+                        context.pushNamed(
                           MyAppRouteConstants.categoriesProductsRouteName,
                           extra: {
                             'category': data?.subCategoryId?.title,
                             'subCategory': data?.subCategoryName,
                             'type': FilterType.category
-                          });
-                    },
-                    child: Column(
-                      children: [
-                        Utilities().buildCachedNetworkImage(
-                          imageUrl: data?.image ?? "",
-                          height: 75,
-                          width: 75,
-                        ),
-                        kHeight5,
-                        Text(
-                          data?.subCategoryName ?? "",
-                          style: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
+                          },
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Utilities().buildCachedNetworkImage(
+                            imageUrl: data?.image ?? "",
+                            height: 75,
+                            width: 75,
                           ),
-                        )
-                      ],
-                    ),
-                  );
-                },
+                          kHeight5,
+                          Text(
+                            data?.subCategoryName ?? "",
+                            style: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ),
             );
           },
@@ -719,40 +730,46 @@ class _HomeViewState extends State<HomeView> {
 
               // }
 
-              return SizedBox(
-                height: 90,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount:
-                      state.largeDiscountModel?.result?.banners.length ?? 6,
-                  itemBuilder: (context, index) {
-                    if (state.largeDiscountModel?.result?.banners == null) {
-                      return Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: ShimmerUtils.categoriesShimmers());
-                    }
-                    final banner =
-                        state.largeDiscountModel?.result?.banners[index];
-                    final subCategoryIdTitle = banner?.subCategoryId?.title;
-                    final subCategoryName = banner?.subCategoryName;
-                    return GestureDetector(
-                      onTap: () {
-                        context.pushNamed(
-                            MyAppRouteConstants.categoriesProductsRouteName,
-                            extra: {
-                              'category': subCategoryIdTitle,
-                              'subCategory': subCategoryName,
-                              'type': FilterType.category
-                            });
-                      },
-                      child: Utilities().buildCachedNetworkImage(
-                        imageUrl: banner!.image,
-                        boxFit: BoxFit.contain,
-                        height: 70,
-                        width: 90,
-                      ),
-                    );
-                  },
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: !Responsive.isMobile(context) ? 120 : 0),
+                child: SizedBox(
+                  height: 90,
+                  child: ListView.builder(
+                    itemExtent: !Responsive.isMobile(context) ? 140 : 90,
+                    scrollDirection: Axis.horizontal,
+                    itemCount:
+                        state.largeDiscountModel?.result?.banners.length ?? 6,
+                    itemBuilder: (context, index) {
+                      if (state.largeDiscountModel?.result?.banners == null) {
+                        return Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: ShimmerUtils.categoriesShimmers());
+                      }
+                      final banner =
+                          state.largeDiscountModel?.result?.banners[index];
+                      final subCategoryIdTitle = banner?.subCategoryId?.title;
+                      final subCategoryName = banner?.subCategoryName;
+                      return GestureDetector(
+                        onTap: () {
+                          context.pushNamed(
+                              MyAppRouteConstants.categoriesProductsRouteName,
+                              extra: {
+                                'category': subCategoryIdTitle,
+                                'subCategory': subCategoryName,
+                                'type': FilterType.category
+                              });
+                        },
+                        child: Utilities().buildCachedNetworkImage(
+                          imageUrl: banner!.image,
+                          boxFit: BoxFit.contain,
+                          height: 70,
+                          width: 90,
+                        ),
+                      );
+                    },
+                  ),
                 ),
               );
             },
@@ -1010,7 +1027,9 @@ class _HomeViewState extends State<HomeView> {
   Widget _quranAyaWidget(BuildContext context) {
     return SizedBox(
       height: 290,
-      width: SizeUtility(context).width,
+      width: !Responsive.isMobile(context)
+          ? SizeUtility(context).width / 2
+          : SizeUtility(context).width / 1.2,
       child: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: PageController(
@@ -1030,120 +1049,123 @@ class _HomeViewState extends State<HomeView> {
                   final data = state.versesByKeyModel?[0];
                   return Container(
                     height: 290,
-                    width: SizeUtility(context).width,
+                    width: SizeUtility(context).width / 1.2,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 10),
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(
-                                "assets/backgrounds/allay_says_bg_$index.png"))),
+                      "assets/backgrounds/allay_says_bg_$index.png",
+                    ))),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 10),
-                      child: Column(
-                        children: [
-                          kHeight15,
-                          Text(
-                            Appstrings.allaySays,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.primary,
-                            ),
-                          ),
-                          kHeight10,
-                          // Text(
-                          //   "Al-Faitha : 2,3",
-                          //   style: TextStyle(
-                          //     fontSize: 15,
-                          //     fontWeight: FontWeight.w500,
-                          //     color: ColorManager.textGrey88,
-                          //   ),
-                          // ),
-                          kHeight10,
-                          Text(
-                            data!.verses[0].textIndopak,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.blackColor,
-                              fontFamily: "Hafs",
-                            ),
-                            textDirection: TextDirection.rtl,
-                          ),
-                          kHeight5,
-                          Divider(
-                            thickness: 1,
-                            color: ColorManager.blackColor,
-                          ),
-                          kHeight8,
-                          Text(
-                            verskey == "1:2"
-                                ? Appstrings.tempAyaMeaning1
-                                : verskey == "2:2"
-                                    ? Appstrings.tempAyaMeaning2
-                                    : verskey == "3:4"
-                                        ? Appstrings.tempAyaMeaning3
-                                        : Appstrings.tempAyaMeaning4,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.blackColor,
-                              letterSpacing: 0.5,
-                              height: 1.2,
-                            ),
-                            textDirection: TextDirection.rtl,
-                          ),
-                          kHeight5,
-                          const Spacer(),
-                          GestureDetector(
-                            onTap: () {
-                              final quranState =
-                                  context.read<QuranBloc>().state;
-
-                              final _verskey = verskey;
-                              final parts = verskey.split(":");
-                              final firstPart = parts[0];
-                              context.read<QuranBloc>().add(
-                                  FetchChaperVersesEvent(
-                                      id: int.parse(firstPart)));
-                              context.read<QuranBloc>().add(
-                                  FetchChapterVersesbyTextName(
-                                      id: int.parse(firstPart)));
-                              context.read<QuranBloc>().add(
-                                  FetchTranslationChapterTexts(
-                                      translationId:
-                                          quranState.globalTransilationId,
-                                      chapterId: int.parse(firstPart)));
-                              context.read<QuranBloc>().add(
-                                  FetchChapterAudioFiles(
-                                      id: int.parse(firstPart),
-                                      recitorId: quranState.recitorId));
-                              context
-                                  .read<QuranBloc>()
-                                  .add(SaveLastReadEvent(value: verskey));
-
-                              context.pushNamed(
-                                  MyAppRouteConstants.quranVersesRoutename,
-                                  extra: {
-                                    'scrollType': VersesScroll.home,
-                                    'type': Qurantype.sura,
-                                    'chapterid': int.parse(firstPart)
-                                  });
-                            },
-                            child: Align(
-                              alignment: Alignment.topLeft,
-                              child: Text(
-                                Appstrings.learnMore,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  color: ColorManager.primary,
-                                ),
+                      child: ClipRRect(
+                        child: Column(
+                          children: [
+                            kHeight15,
+                            Text(
+                              Appstrings.allaySays,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: ColorManager.primary,
                               ),
                             ),
-                          )
-                        ],
+                            kHeight10,
+                            // Text(
+                            //   "Al-Faitha : 2,3",
+                            //   style: TextStyle(
+                            //     fontSize: 15,
+                            //     fontWeight: FontWeight.w500,
+                            //     color: ColorManager.textGrey88,
+                            //   ),
+                            // ),
+                            kHeight10,
+                            Text(
+                              data!.verses[0].textIndopak,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: ColorManager.blackColor,
+                                fontFamily: "Hafs",
+                              ),
+                              textDirection: TextDirection.rtl,
+                            ),
+                            kHeight5,
+                            Divider(
+                              thickness: 1,
+                              color: ColorManager.blackColor,
+                            ),
+                            kHeight8,
+                            Text(
+                              verskey == "1:2"
+                                  ? Appstrings.tempAyaMeaning1
+                                  : verskey == "2:2"
+                                      ? Appstrings.tempAyaMeaning2
+                                      : verskey == "3:4"
+                                          ? Appstrings.tempAyaMeaning3
+                                          : Appstrings.tempAyaMeaning4,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: ColorManager.blackColor,
+                                letterSpacing: 0.5,
+                                height: 1.2,
+                              ),
+                              textDirection: TextDirection.rtl,
+                            ),
+                            kHeight5,
+                            const Spacer(),
+                            GestureDetector(
+                              onTap: () {
+                                final quranState =
+                                    context.read<QuranBloc>().state;
+
+                                final _verskey = verskey;
+                                final parts = verskey.split(":");
+                                final firstPart = parts[0];
+                                context.read<QuranBloc>().add(
+                                    FetchChaperVersesEvent(
+                                        id: int.parse(firstPart)));
+                                context.read<QuranBloc>().add(
+                                    FetchChapterVersesbyTextName(
+                                        id: int.parse(firstPart)));
+                                context.read<QuranBloc>().add(
+                                    FetchTranslationChapterTexts(
+                                        translationId:
+                                            quranState.globalTransilationId,
+                                        chapterId: int.parse(firstPart)));
+                                context.read<QuranBloc>().add(
+                                    FetchChapterAudioFiles(
+                                        id: int.parse(firstPart),
+                                        recitorId: quranState.recitorId));
+                                context
+                                    .read<QuranBloc>()
+                                    .add(SaveLastReadEvent(value: verskey));
+
+                                context.pushNamed(
+                                    MyAppRouteConstants.quranVersesRoutename,
+                                    extra: {
+                                      'scrollType': VersesScroll.home,
+                                      'type': Qurantype.sura,
+                                      'chapterid': int.parse(firstPart)
+                                    });
+                              },
+                              child: Align(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  Appstrings.learnMore,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorManager.primary,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   );

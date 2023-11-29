@@ -130,28 +130,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'SofiaPro',
         primarySwatch: Colors.blue,
       ),
-      // routes: {
-      //   CategoriesProductView.routeName: (context) {
-      //     final args = ModalRoute.of(context)!.settings.arguments
-      //         as Map<String, dynamic>;
-      //     final category = args["category"];
-      //     final subCategory = args["subCategory"];
-      //     final type = args["type"];
-      //     return CategoriesProductView(
-      //         category: category, subCategory: subCategory, type: type);
-      //   },
-      //   NamazTimingView.routeName: (context) => const NamazTimingView(),
-      //   ManageAddress.routeName: (context) => const ManageAddress(),
-      //   SearchView.routeName: (context) => const SearchView(),
-      //   ProductsView.routeName: (context) {
-      //     final args = ModalRoute.of(context)!.settings.arguments
-      //         as Map<String, dynamic>;
-      //     final appBarTitle = args['appBarTitle'];
-      //     final passValue = args['passValue'];
-      //     return ProductsView(appBarTitle: appBarTitle, passValue: passValue);
-      //   },
-      // },
-      // home: _getInitialScreen(),
+      
     );
   }
 

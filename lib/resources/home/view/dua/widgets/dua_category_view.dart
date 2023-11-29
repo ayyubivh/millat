@@ -5,7 +5,6 @@ import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 

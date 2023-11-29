@@ -1,15 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/rewards/widget/reward_cart_view.dart';
 import 'package:millat/resources/rewards/widget/score_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -17,6 +18,8 @@ import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
+
+import '../bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 
 class RewardsSingleShopView extends StatefulWidget {
   final String id;
@@ -138,7 +141,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                           Row(
                             children: [
                               Text(
-                                data.offerPrice.toString(),
+                                data.productId?.salePrice.toString() ?? "",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700,
@@ -147,7 +150,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                               ),
                               kWidth5,
                               Text(
-                                data.productId!.salePrice.toString(),
+                                data.productId?.regularPrice.toString() ?? '',
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w700,
@@ -172,15 +175,15 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                               Text(
                                 "By using",
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.w500,
                                   color: ColorManager.greyB4,
                                 ),
                               ),
                               kWidth8,
                               Container(
-                                height: 16,
-                                width: 55,
+                                height: 24,
+                                width: 63,
                                 decoration: BoxDecoration(
                                   color: ColorManager.greyEB,
                                   borderRadius: BorderRadius.circular(50),
@@ -192,16 +195,16 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                                   children: [
                                     Image.asset(
                                       AppAssetsStrings.score,
-                                      height: 16,
-                                      width: 16,
+                                      height: 24,
+                                      width: 24,
                                       fit: BoxFit.cover,
                                     ),
                                     Text(
                                       data.coins.toString(),
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 16,
                                         color: ColorManager.black4F,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     )
                                   ],
@@ -233,9 +236,10 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                           Text(
                             data.productId!.description ?? "",
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 15,
                               fontWeight: FontWeight.w500,
                               color: ColorManager.textGrey99,
+                              height: 1.3,
                             ),
                           ),
                           kHeight10,
@@ -286,10 +290,12 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                   ),
                 ));
               } else {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>
-                      const CheckoutView(checkoutType: CheckoutType.rewards),
-                ));
+                context.pushNamed(MyAppRouteConstants.checkoutRouteName,
+                    extra: {'checkoutType': CheckoutType.rewards});
+                // Navigator.of(context).push(MaterialPageRoute(
+                //   builder: (context) =>
+                //       const CheckoutView(checkoutType: CheckoutType.rewards),
+                // ));
               }
             },
             child: Container(
@@ -409,7 +415,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
             padding: const EdgeInsets.all(4),
             child: Center(
               child: Text(
-                Appstrings.islamicStore,
+                Appstrings.islamicStore2,
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w600,
@@ -417,6 +423,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                   height: 1.1,
                 ),
                 textAlign: TextAlign.center,
+                overflow: TextOverflow.fade,
               ),
             ),
           ),

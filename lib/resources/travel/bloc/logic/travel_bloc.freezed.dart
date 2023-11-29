@@ -44,6 +44,7 @@ mixin _$TravelEvent {
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +75,7 @@ mixin _$TravelEvent {
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -104,6 +106,7 @@ mixin _$TravelEvent {
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,6 +142,8 @@ mixin _$TravelEvent {
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -169,6 +174,7 @@ mixin _$TravelEvent {
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -199,6 +205,7 @@ mixin _$TravelEvent {
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -323,6 +330,7 @@ class _$ChangeBannerIndexImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return changeBannerIndex(index);
   }
@@ -356,6 +364,7 @@ class _$ChangeBannerIndexImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return changeBannerIndex?.call(index);
   }
@@ -389,6 +398,7 @@ class _$ChangeBannerIndexImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (changeBannerIndex != null) {
@@ -430,6 +440,8 @@ class _$ChangeBannerIndexImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return changeBannerIndex(this);
   }
@@ -463,6 +475,7 @@ class _$ChangeBannerIndexImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return changeBannerIndex?.call(this);
   }
@@ -496,6 +509,7 @@ class _$ChangeBannerIndexImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (changeBannerIndex != null) {
@@ -617,6 +631,7 @@ class _$ChangeTravelTabIndexImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return changeTravelTabIndex(index);
   }
@@ -650,6 +665,7 @@ class _$ChangeTravelTabIndexImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return changeTravelTabIndex?.call(index);
   }
@@ -683,6 +699,7 @@ class _$ChangeTravelTabIndexImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (changeTravelTabIndex != null) {
@@ -724,6 +741,8 @@ class _$ChangeTravelTabIndexImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return changeTravelTabIndex(this);
   }
@@ -757,6 +776,7 @@ class _$ChangeTravelTabIndexImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return changeTravelTabIndex?.call(this);
   }
@@ -790,6 +810,7 @@ class _$ChangeTravelTabIndexImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (changeTravelTabIndex != null) {
@@ -885,6 +906,7 @@ class _$FetchTravelPopularProductsImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return fetchTravelPopularProducts();
   }
@@ -918,6 +940,7 @@ class _$FetchTravelPopularProductsImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return fetchTravelPopularProducts?.call();
   }
@@ -951,6 +974,7 @@ class _$FetchTravelPopularProductsImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelPopularProducts != null) {
@@ -992,6 +1016,8 @@ class _$FetchTravelPopularProductsImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return fetchTravelPopularProducts(this);
   }
@@ -1025,6 +1051,7 @@ class _$FetchTravelPopularProductsImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return fetchTravelPopularProducts?.call(this);
   }
@@ -1058,6 +1085,7 @@ class _$FetchTravelPopularProductsImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelPopularProducts != null) {
@@ -1147,6 +1175,7 @@ class _$FetchBestPlacesProductsImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return fetchBestPlacesProducts();
   }
@@ -1180,6 +1209,7 @@ class _$FetchBestPlacesProductsImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return fetchBestPlacesProducts?.call();
   }
@@ -1213,6 +1243,7 @@ class _$FetchBestPlacesProductsImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchBestPlacesProducts != null) {
@@ -1254,6 +1285,8 @@ class _$FetchBestPlacesProductsImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return fetchBestPlacesProducts(this);
   }
@@ -1287,6 +1320,7 @@ class _$FetchBestPlacesProductsImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return fetchBestPlacesProducts?.call(this);
   }
@@ -1320,6 +1354,7 @@ class _$FetchBestPlacesProductsImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchBestPlacesProducts != null) {
@@ -1406,6 +1441,7 @@ class _$FetchTravelCitiesImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return fetchTravelCities();
   }
@@ -1439,6 +1475,7 @@ class _$FetchTravelCitiesImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return fetchTravelCities?.call();
   }
@@ -1472,6 +1509,7 @@ class _$FetchTravelCitiesImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelCities != null) {
@@ -1513,6 +1551,8 @@ class _$FetchTravelCitiesImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return fetchTravelCities(this);
   }
@@ -1546,6 +1586,7 @@ class _$FetchTravelCitiesImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return fetchTravelCities?.call(this);
   }
@@ -1579,6 +1620,7 @@ class _$FetchTravelCitiesImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelCities != null) {
@@ -1695,6 +1737,7 @@ class _$FetchTravelProductsByIdImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return fetchTravelProductById(id);
   }
@@ -1728,6 +1771,7 @@ class _$FetchTravelProductsByIdImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return fetchTravelProductById?.call(id);
   }
@@ -1761,6 +1805,7 @@ class _$FetchTravelProductsByIdImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelProductById != null) {
@@ -1802,6 +1847,8 @@ class _$FetchTravelProductsByIdImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return fetchTravelProductById(this);
   }
@@ -1835,6 +1882,7 @@ class _$FetchTravelProductsByIdImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return fetchTravelProductById?.call(this);
   }
@@ -1868,6 +1916,7 @@ class _$FetchTravelProductsByIdImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelProductById != null) {
@@ -1992,6 +2041,7 @@ class _$FetchTravelSearchLocationsImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return fetchTravelSearchLocations(searchquery);
   }
@@ -2025,6 +2075,7 @@ class _$FetchTravelSearchLocationsImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return fetchTravelSearchLocations?.call(searchquery);
   }
@@ -2058,6 +2109,7 @@ class _$FetchTravelSearchLocationsImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelSearchLocations != null) {
@@ -2099,6 +2151,8 @@ class _$FetchTravelSearchLocationsImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return fetchTravelSearchLocations(this);
   }
@@ -2132,6 +2186,7 @@ class _$FetchTravelSearchLocationsImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return fetchTravelSearchLocations?.call(this);
   }
@@ -2165,6 +2220,7 @@ class _$FetchTravelSearchLocationsImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelSearchLocations != null) {
@@ -2288,6 +2344,7 @@ class _$FetchProductByLocationImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return fetchProductByLocation(location);
   }
@@ -2321,6 +2378,7 @@ class _$FetchProductByLocationImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return fetchProductByLocation?.call(location);
   }
@@ -2354,6 +2412,7 @@ class _$FetchProductByLocationImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchProductByLocation != null) {
@@ -2395,6 +2454,8 @@ class _$FetchProductByLocationImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return fetchProductByLocation(this);
   }
@@ -2428,6 +2489,7 @@ class _$FetchProductByLocationImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return fetchProductByLocation?.call(this);
   }
@@ -2461,6 +2523,7 @@ class _$FetchProductByLocationImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchProductByLocation != null) {
@@ -2642,6 +2705,7 @@ class _$BookTravelEventImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return bookTravelEvent(
         name, email, phoneNumber, passPortPhoto, country, productId);
@@ -2676,6 +2740,7 @@ class _$BookTravelEventImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return bookTravelEvent?.call(
         name, email, phoneNumber, passPortPhoto, country, productId);
@@ -2710,6 +2775,7 @@ class _$BookTravelEventImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (bookTravelEvent != null) {
@@ -2752,6 +2818,8 @@ class _$BookTravelEventImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return bookTravelEvent(this);
   }
@@ -2785,6 +2853,7 @@ class _$BookTravelEventImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return bookTravelEvent?.call(this);
   }
@@ -2818,6 +2887,7 @@ class _$BookTravelEventImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (bookTravelEvent != null) {
@@ -2920,6 +2990,7 @@ class _$IncreaseGuestEventImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return increaseGuestEvent();
   }
@@ -2953,6 +3024,7 @@ class _$IncreaseGuestEventImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return increaseGuestEvent?.call();
   }
@@ -2986,6 +3058,7 @@ class _$IncreaseGuestEventImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (increaseGuestEvent != null) {
@@ -3027,6 +3100,8 @@ class _$IncreaseGuestEventImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return increaseGuestEvent(this);
   }
@@ -3060,6 +3135,7 @@ class _$IncreaseGuestEventImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return increaseGuestEvent?.call(this);
   }
@@ -3093,6 +3169,7 @@ class _$IncreaseGuestEventImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (increaseGuestEvent != null) {
@@ -3179,6 +3256,7 @@ class _$DecreaseGuestEventImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return decreaseGuestEvent();
   }
@@ -3212,6 +3290,7 @@ class _$DecreaseGuestEventImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return decreaseGuestEvent?.call();
   }
@@ -3245,6 +3324,7 @@ class _$DecreaseGuestEventImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (decreaseGuestEvent != null) {
@@ -3286,6 +3366,8 @@ class _$DecreaseGuestEventImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return decreaseGuestEvent(this);
   }
@@ -3319,6 +3401,7 @@ class _$DecreaseGuestEventImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return decreaseGuestEvent?.call(this);
   }
@@ -3352,6 +3435,7 @@ class _$DecreaseGuestEventImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (decreaseGuestEvent != null) {
@@ -3466,6 +3550,7 @@ class _$SelectCountryEventImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return selectCountryEvent(country);
   }
@@ -3499,6 +3584,7 @@ class _$SelectCountryEventImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return selectCountryEvent?.call(country);
   }
@@ -3532,6 +3618,7 @@ class _$SelectCountryEventImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (selectCountryEvent != null) {
@@ -3573,6 +3660,8 @@ class _$SelectCountryEventImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return selectCountryEvent(this);
   }
@@ -3606,6 +3695,7 @@ class _$SelectCountryEventImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return selectCountryEvent?.call(this);
   }
@@ -3639,6 +3729,7 @@ class _$SelectCountryEventImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (selectCountryEvent != null) {
@@ -3760,6 +3851,7 @@ class _$SaveSearchLocationImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return saveSearchLocation(location);
   }
@@ -3793,6 +3885,7 @@ class _$SaveSearchLocationImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return saveSearchLocation?.call(location);
   }
@@ -3826,6 +3919,7 @@ class _$SaveSearchLocationImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (saveSearchLocation != null) {
@@ -3867,6 +3961,8 @@ class _$SaveSearchLocationImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return saveSearchLocation(this);
   }
@@ -3900,6 +3996,7 @@ class _$SaveSearchLocationImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return saveSearchLocation?.call(this);
   }
@@ -3933,6 +4030,7 @@ class _$SaveSearchLocationImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (saveSearchLocation != null) {
@@ -4024,6 +4122,7 @@ class _$ResetSearchDataImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return resetSearchData();
   }
@@ -4057,6 +4156,7 @@ class _$ResetSearchDataImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return resetSearchData?.call();
   }
@@ -4090,6 +4190,7 @@ class _$ResetSearchDataImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (resetSearchData != null) {
@@ -4131,6 +4232,8 @@ class _$ResetSearchDataImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return resetSearchData(this);
   }
@@ -4164,6 +4267,7 @@ class _$ResetSearchDataImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return resetSearchData?.call(this);
   }
@@ -4197,6 +4301,7 @@ class _$ResetSearchDataImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (resetSearchData != null) {
@@ -4283,6 +4388,7 @@ class _$ShowCalendarEventImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return showCalendarEvent();
   }
@@ -4316,6 +4422,7 @@ class _$ShowCalendarEventImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return showCalendarEvent?.call();
   }
@@ -4349,6 +4456,7 @@ class _$ShowCalendarEventImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (showCalendarEvent != null) {
@@ -4390,6 +4498,8 @@ class _$ShowCalendarEventImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return showCalendarEvent(this);
   }
@@ -4423,6 +4533,7 @@ class _$ShowCalendarEventImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return showCalendarEvent?.call(this);
   }
@@ -4456,6 +4567,7 @@ class _$ShowCalendarEventImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (showCalendarEvent != null) {
@@ -4591,6 +4703,7 @@ class _$SelectDateRangeEventImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return selectDateRangeEvent(start, end, focusedDay);
   }
@@ -4624,6 +4737,7 @@ class _$SelectDateRangeEventImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return selectDateRangeEvent?.call(start, end, focusedDay);
   }
@@ -4657,6 +4771,7 @@ class _$SelectDateRangeEventImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (selectDateRangeEvent != null) {
@@ -4698,6 +4813,8 @@ class _$SelectDateRangeEventImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return selectDateRangeEvent(this);
   }
@@ -4731,6 +4848,7 @@ class _$SelectDateRangeEventImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return selectDateRangeEvent?.call(this);
   }
@@ -4764,6 +4882,7 @@ class _$SelectDateRangeEventImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (selectDateRangeEvent != null) {
@@ -4911,6 +5030,7 @@ class _$FetchTravelSearchedProductsImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return fetchTravelSearchedProducts(country, location, date);
   }
@@ -4944,6 +5064,7 @@ class _$FetchTravelSearchedProductsImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return fetchTravelSearchedProducts?.call(country, location, date);
   }
@@ -4977,6 +5098,7 @@ class _$FetchTravelSearchedProductsImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelSearchedProducts != null) {
@@ -5018,6 +5140,8 @@ class _$FetchTravelSearchedProductsImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return fetchTravelSearchedProducts(this);
   }
@@ -5051,6 +5175,7 @@ class _$FetchTravelSearchedProductsImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return fetchTravelSearchedProducts?.call(this);
   }
@@ -5084,6 +5209,7 @@ class _$FetchTravelSearchedProductsImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelSearchedProducts != null) {
@@ -5183,6 +5309,7 @@ class _$FetchTravelWishlistProductsImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return fetchTravelWishlistProducts();
   }
@@ -5216,6 +5343,7 @@ class _$FetchTravelWishlistProductsImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return fetchTravelWishlistProducts?.call();
   }
@@ -5249,6 +5377,7 @@ class _$FetchTravelWishlistProductsImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelWishlistProducts != null) {
@@ -5290,6 +5419,8 @@ class _$FetchTravelWishlistProductsImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return fetchTravelWishlistProducts(this);
   }
@@ -5323,6 +5454,7 @@ class _$FetchTravelWishlistProductsImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return fetchTravelWishlistProducts?.call(this);
   }
@@ -5356,6 +5488,7 @@ class _$FetchTravelWishlistProductsImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelWishlistProducts != null) {
@@ -5483,6 +5616,7 @@ class _$AddTravelWishlistImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return addTravelWishlist(productId, wishlistType);
   }
@@ -5516,6 +5650,7 @@ class _$AddTravelWishlistImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return addTravelWishlist?.call(productId, wishlistType);
   }
@@ -5549,6 +5684,7 @@ class _$AddTravelWishlistImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (addTravelWishlist != null) {
@@ -5590,6 +5726,8 @@ class _$AddTravelWishlistImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return addTravelWishlist(this);
   }
@@ -5623,6 +5761,7 @@ class _$AddTravelWishlistImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return addTravelWishlist?.call(this);
   }
@@ -5656,6 +5795,7 @@ class _$AddTravelWishlistImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (addTravelWishlist != null) {
@@ -5753,6 +5893,7 @@ class _$TravelBookingCompletedImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return travelbookingCompleted();
   }
@@ -5786,6 +5927,7 @@ class _$TravelBookingCompletedImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return travelbookingCompleted?.call();
   }
@@ -5819,6 +5961,7 @@ class _$TravelBookingCompletedImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (travelbookingCompleted != null) {
@@ -5860,6 +6003,8 @@ class _$TravelBookingCompletedImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return travelbookingCompleted(this);
   }
@@ -5893,6 +6038,7 @@ class _$TravelBookingCompletedImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return travelbookingCompleted?.call(this);
   }
@@ -5926,6 +6072,7 @@ class _$TravelBookingCompletedImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (travelbookingCompleted != null) {
@@ -6015,6 +6162,7 @@ class _$FetchTravelHomeBannerPackagesImpl
         addTravelWishlist,
     required TResult Function() travelbookingCompleted,
     required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
   }) {
     return fetchTravelHomeBannerPackages();
   }
@@ -6048,6 +6196,7 @@ class _$FetchTravelHomeBannerPackagesImpl
         addTravelWishlist,
     TResult? Function()? travelbookingCompleted,
     TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
   }) {
     return fetchTravelHomeBannerPackages?.call();
   }
@@ -6081,6 +6230,7 @@ class _$FetchTravelHomeBannerPackagesImpl
         addTravelWishlist,
     TResult Function()? travelbookingCompleted,
     TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelHomeBannerPackages != null) {
@@ -6122,6 +6272,8 @@ class _$FetchTravelHomeBannerPackagesImpl
         travelbookingCompleted,
     required TResult Function(FetchTravelHomeBannerPackages value)
         fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
   }) {
     return fetchTravelHomeBannerPackages(this);
   }
@@ -6155,6 +6307,7 @@ class _$FetchTravelHomeBannerPackagesImpl
     TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult? Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
   }) {
     return fetchTravelHomeBannerPackages?.call(this);
   }
@@ -6188,6 +6341,7 @@ class _$FetchTravelHomeBannerPackagesImpl
     TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
     TResult Function(FetchTravelHomeBannerPackages value)?
         fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
     required TResult orElse(),
   }) {
     if (fetchTravelHomeBannerPackages != null) {
@@ -6200,6 +6354,275 @@ class _$FetchTravelHomeBannerPackagesImpl
 abstract class FetchTravelHomeBannerPackages implements TravelEvent {
   const factory FetchTravelHomeBannerPackages() =
       _$FetchTravelHomeBannerPackagesImpl;
+}
+
+/// @nodoc
+abstract class _$$PickMultipleImageEventImplCopyWith<$Res> {
+  factory _$$PickMultipleImageEventImplCopyWith(
+          _$PickMultipleImageEventImpl value,
+          $Res Function(_$PickMultipleImageEventImpl) then) =
+      __$$PickMultipleImageEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PickMultipleImageEventImplCopyWithImpl<$Res>
+    extends _$TravelEventCopyWithImpl<$Res, _$PickMultipleImageEventImpl>
+    implements _$$PickMultipleImageEventImplCopyWith<$Res> {
+  __$$PickMultipleImageEventImplCopyWithImpl(
+      _$PickMultipleImageEventImpl _value,
+      $Res Function(_$PickMultipleImageEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PickMultipleImageEventImpl
+    with DiagnosticableTreeMixin
+    implements PickMultipleImageEvent {
+  const _$PickMultipleImageEventImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'TravelEvent.pickMultipleImageEvent()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'TravelEvent.pickMultipleImageEvent'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PickMultipleImageEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int index) changeBannerIndex,
+    required TResult Function(int index) changeTravelTabIndex,
+    required TResult Function() fetchTravelPopularProducts,
+    required TResult Function() fetchBestPlacesProducts,
+    required TResult Function() fetchTravelCities,
+    required TResult Function(String id) fetchTravelProductById,
+    required TResult Function(String searchquery) fetchTravelSearchLocations,
+    required TResult Function(String location) fetchProductByLocation,
+    required TResult Function(String name, String email, String phoneNumber,
+            dynamic passPortPhoto, String country, String productId)
+        bookTravelEvent,
+    required TResult Function() increaseGuestEvent,
+    required TResult Function() decreaseGuestEvent,
+    required TResult Function(String country) selectCountryEvent,
+    required TResult Function(String location) saveSearchLocation,
+    required TResult Function() resetSearchData,
+    required TResult Function() showCalendarEvent,
+    required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
+        selectDateRangeEvent,
+    required TResult Function(String country, String location, String date)
+        fetchTravelSearchedProducts,
+    required TResult Function() fetchTravelWishlistProducts,
+    required TResult Function(String productId, TravelWishlist wishlistType)
+        addTravelWishlist,
+    required TResult Function() travelbookingCompleted,
+    required TResult Function() fetchTravelHomeBannerPackages,
+    required TResult Function() pickMultipleImageEvent,
+  }) {
+    return pickMultipleImageEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int index)? changeBannerIndex,
+    TResult? Function(int index)? changeTravelTabIndex,
+    TResult? Function()? fetchTravelPopularProducts,
+    TResult? Function()? fetchBestPlacesProducts,
+    TResult? Function()? fetchTravelCities,
+    TResult? Function(String id)? fetchTravelProductById,
+    TResult? Function(String searchquery)? fetchTravelSearchLocations,
+    TResult? Function(String location)? fetchProductByLocation,
+    TResult? Function(String name, String email, String phoneNumber,
+            dynamic passPortPhoto, String country, String productId)?
+        bookTravelEvent,
+    TResult? Function()? increaseGuestEvent,
+    TResult? Function()? decreaseGuestEvent,
+    TResult? Function(String country)? selectCountryEvent,
+    TResult? Function(String location)? saveSearchLocation,
+    TResult? Function()? resetSearchData,
+    TResult? Function()? showCalendarEvent,
+    TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
+        selectDateRangeEvent,
+    TResult? Function(String country, String location, String date)?
+        fetchTravelSearchedProducts,
+    TResult? Function()? fetchTravelWishlistProducts,
+    TResult? Function(String productId, TravelWishlist wishlistType)?
+        addTravelWishlist,
+    TResult? Function()? travelbookingCompleted,
+    TResult? Function()? fetchTravelHomeBannerPackages,
+    TResult? Function()? pickMultipleImageEvent,
+  }) {
+    return pickMultipleImageEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int index)? changeBannerIndex,
+    TResult Function(int index)? changeTravelTabIndex,
+    TResult Function()? fetchTravelPopularProducts,
+    TResult Function()? fetchBestPlacesProducts,
+    TResult Function()? fetchTravelCities,
+    TResult Function(String id)? fetchTravelProductById,
+    TResult Function(String searchquery)? fetchTravelSearchLocations,
+    TResult Function(String location)? fetchProductByLocation,
+    TResult Function(String name, String email, String phoneNumber,
+            dynamic passPortPhoto, String country, String productId)?
+        bookTravelEvent,
+    TResult Function()? increaseGuestEvent,
+    TResult Function()? decreaseGuestEvent,
+    TResult Function(String country)? selectCountryEvent,
+    TResult Function(String location)? saveSearchLocation,
+    TResult Function()? resetSearchData,
+    TResult Function()? showCalendarEvent,
+    TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
+        selectDateRangeEvent,
+    TResult Function(String country, String location, String date)?
+        fetchTravelSearchedProducts,
+    TResult Function()? fetchTravelWishlistProducts,
+    TResult Function(String productId, TravelWishlist wishlistType)?
+        addTravelWishlist,
+    TResult Function()? travelbookingCompleted,
+    TResult Function()? fetchTravelHomeBannerPackages,
+    TResult Function()? pickMultipleImageEvent,
+    required TResult orElse(),
+  }) {
+    if (pickMultipleImageEvent != null) {
+      return pickMultipleImageEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChangeBannerIndex value) changeBannerIndex,
+    required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
+    required TResult Function(FetchTravelPopularProducts value)
+        fetchTravelPopularProducts,
+    required TResult Function(FetchBestPlacesProducts value)
+        fetchBestPlacesProducts,
+    required TResult Function(FetchTravelCities value) fetchTravelCities,
+    required TResult Function(FetchTravelProductsById value)
+        fetchTravelProductById,
+    required TResult Function(FetchTravelSearchLocations value)
+        fetchTravelSearchLocations,
+    required TResult Function(FetchProductByLocation value)
+        fetchProductByLocation,
+    required TResult Function(BookTravelEvent value) bookTravelEvent,
+    required TResult Function(IncreaseGuestEvent value) increaseGuestEvent,
+    required TResult Function(DecreaseGuestEvent value) decreaseGuestEvent,
+    required TResult Function(SelectCountryEvent value) selectCountryEvent,
+    required TResult Function(SaveSearchLocation value) saveSearchLocation,
+    required TResult Function(ResetSearchData value) resetSearchData,
+    required TResult Function(ShowCalendarEvent value) showCalendarEvent,
+    required TResult Function(SelectDateRangeEvent value) selectDateRangeEvent,
+    required TResult Function(FetchTravelSearchedProducts value)
+        fetchTravelSearchedProducts,
+    required TResult Function(FetchTravelWishlistProducts value)
+        fetchTravelWishlistProducts,
+    required TResult Function(AddTravelWishlist value) addTravelWishlist,
+    required TResult Function(TravelBookingCompleted value)
+        travelbookingCompleted,
+    required TResult Function(FetchTravelHomeBannerPackages value)
+        fetchTravelHomeBannerPackages,
+    required TResult Function(PickMultipleImageEvent value)
+        pickMultipleImageEvent,
+  }) {
+    return pickMultipleImageEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
+    TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
+    TResult? Function(FetchTravelPopularProducts value)?
+        fetchTravelPopularProducts,
+    TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
+    TResult? Function(FetchTravelCities value)? fetchTravelCities,
+    TResult? Function(FetchTravelProductsById value)? fetchTravelProductById,
+    TResult? Function(FetchTravelSearchLocations value)?
+        fetchTravelSearchLocations,
+    TResult? Function(FetchProductByLocation value)? fetchProductByLocation,
+    TResult? Function(BookTravelEvent value)? bookTravelEvent,
+    TResult? Function(IncreaseGuestEvent value)? increaseGuestEvent,
+    TResult? Function(DecreaseGuestEvent value)? decreaseGuestEvent,
+    TResult? Function(SelectCountryEvent value)? selectCountryEvent,
+    TResult? Function(SaveSearchLocation value)? saveSearchLocation,
+    TResult? Function(ResetSearchData value)? resetSearchData,
+    TResult? Function(ShowCalendarEvent value)? showCalendarEvent,
+    TResult? Function(SelectDateRangeEvent value)? selectDateRangeEvent,
+    TResult? Function(FetchTravelSearchedProducts value)?
+        fetchTravelSearchedProducts,
+    TResult? Function(FetchTravelWishlistProducts value)?
+        fetchTravelWishlistProducts,
+    TResult? Function(AddTravelWishlist value)? addTravelWishlist,
+    TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
+    TResult? Function(FetchTravelHomeBannerPackages value)?
+        fetchTravelHomeBannerPackages,
+    TResult? Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
+  }) {
+    return pickMultipleImageEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChangeBannerIndex value)? changeBannerIndex,
+    TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
+    TResult Function(FetchTravelPopularProducts value)?
+        fetchTravelPopularProducts,
+    TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
+    TResult Function(FetchTravelCities value)? fetchTravelCities,
+    TResult Function(FetchTravelProductsById value)? fetchTravelProductById,
+    TResult Function(FetchTravelSearchLocations value)?
+        fetchTravelSearchLocations,
+    TResult Function(FetchProductByLocation value)? fetchProductByLocation,
+    TResult Function(BookTravelEvent value)? bookTravelEvent,
+    TResult Function(IncreaseGuestEvent value)? increaseGuestEvent,
+    TResult Function(DecreaseGuestEvent value)? decreaseGuestEvent,
+    TResult Function(SelectCountryEvent value)? selectCountryEvent,
+    TResult Function(SaveSearchLocation value)? saveSearchLocation,
+    TResult Function(ResetSearchData value)? resetSearchData,
+    TResult Function(ShowCalendarEvent value)? showCalendarEvent,
+    TResult Function(SelectDateRangeEvent value)? selectDateRangeEvent,
+    TResult Function(FetchTravelSearchedProducts value)?
+        fetchTravelSearchedProducts,
+    TResult Function(FetchTravelWishlistProducts value)?
+        fetchTravelWishlistProducts,
+    TResult Function(AddTravelWishlist value)? addTravelWishlist,
+    TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
+    TResult Function(FetchTravelHomeBannerPackages value)?
+        fetchTravelHomeBannerPackages,
+    TResult Function(PickMultipleImageEvent value)? pickMultipleImageEvent,
+    required TResult orElse(),
+  }) {
+    if (pickMultipleImageEvent != null) {
+      return pickMultipleImageEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PickMultipleImageEvent implements TravelEvent {
+  const factory PickMultipleImageEvent() = _$PickMultipleImageEventImpl;
 }
 
 /// @nodoc
@@ -6234,6 +6657,7 @@ mixin _$TravelState {
   bool get bookingSuccess => throw _privateConstructorUsedError;
   List<TravelPackageItems>? get travelHomeBannerPackages =>
       throw _privateConstructorUsedError;
+  List<File> get formImages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TravelStateCopyWith<TravelState> get copyWith =>
@@ -6268,7 +6692,8 @@ abstract class $TravelStateCopyWith<$Res> {
       List<TravelProductsModel>? wishlistProducts,
       Set<String>? travelWishlistItems,
       bool bookingSuccess,
-      List<TravelPackageItems>? travelHomeBannerPackages});
+      List<TravelPackageItems>? travelHomeBannerPackages,
+      List<File> formImages});
 
   $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel;
   $TravelCitiesModelCopyWith<$Res>? get travelCitiesModel;
@@ -6312,6 +6737,7 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
     Object? travelWishlistItems = freezed,
     Object? bookingSuccess = null,
     Object? travelHomeBannerPackages = freezed,
+    Object? formImages = null,
   }) {
     return _then(_value.copyWith(
       index: null == index
@@ -6402,6 +6828,10 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
           ? _value.travelHomeBannerPackages
           : travelHomeBannerPackages // ignore: cast_nullable_to_non_nullable
               as List<TravelPackageItems>?,
+      formImages: null == formImages
+          ? _value.formImages
+          : formImages // ignore: cast_nullable_to_non_nullable
+              as List<File>,
     ) as $Val);
   }
 
@@ -6500,7 +6930,8 @@ abstract class _$$TravelStateImplCopyWith<$Res>
       List<TravelProductsModel>? wishlistProducts,
       Set<String>? travelWishlistItems,
       bool bookingSuccess,
-      List<TravelPackageItems>? travelHomeBannerPackages});
+      List<TravelPackageItems>? travelHomeBannerPackages,
+      List<File> formImages});
 
   @override
   $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel;
@@ -6547,6 +6978,7 @@ class __$$TravelStateImplCopyWithImpl<$Res>
     Object? travelWishlistItems = freezed,
     Object? bookingSuccess = null,
     Object? travelHomeBannerPackages = freezed,
+    Object? formImages = null,
   }) {
     return _then(_$TravelStateImpl(
       index: null == index
@@ -6637,6 +7069,10 @@ class __$$TravelStateImplCopyWithImpl<$Res>
           ? _value._travelHomeBannerPackages
           : travelHomeBannerPackages // ignore: cast_nullable_to_non_nullable
               as List<TravelPackageItems>?,
+      formImages: null == formImages
+          ? _value._formImages
+          : formImages // ignore: cast_nullable_to_non_nullable
+              as List<File>,
     ));
   }
 }
@@ -6667,12 +7103,14 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
       required final List<TravelProductsModel>? wishlistProducts,
       required final Set<String>? travelWishlistItems,
       required this.bookingSuccess,
-      required final List<TravelPackageItems>? travelHomeBannerPackages})
+      required final List<TravelPackageItems>? travelHomeBannerPackages,
+      required final List<File> formImages})
       : _searchProducts = searchProducts,
         _travelSearchLocationModels = travelSearchLocationModels,
         _wishlistProducts = wishlistProducts,
         _travelWishlistItems = travelWishlistItems,
-        _travelHomeBannerPackages = travelHomeBannerPackages;
+        _travelHomeBannerPackages = travelHomeBannerPackages,
+        _formImages = formImages;
 
   @override
   final int index;
@@ -6762,9 +7200,17 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<File> _formImages;
+  @override
+  List<File> get formImages {
+    if (_formImages is EqualUnmodifiableListView) return _formImages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_formImages);
+  }
+
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TravelState(index: $index, isLoading: $isLoading, travelPopularProductsModel: $travelPopularProductsModel, travelCitiesModel: $travelCitiesModel, travelProductsModel: $travelProductsModel, searchProducts: $searchProducts, travelBestPlacesModel: $travelBestPlacesModel, productByLocationModel: $productByLocationModel, numberOfGuest: $numberOfGuest, country: $country, travelSearchLocationModels: $travelSearchLocationModels, searchedLocation: $searchedLocation, showCalendar: $showCalendar, tabIndex: $tabIndex, selectedStartDate: $selectedStartDate, selectedEndDate: $selectedEndDate, focusDay: $focusDay, formattedDateRang: $formattedDateRang, wishlistProducts: $wishlistProducts, travelWishlistItems: $travelWishlistItems, bookingSuccess: $bookingSuccess, travelHomeBannerPackages: $travelHomeBannerPackages)';
+    return 'TravelState(index: $index, isLoading: $isLoading, travelPopularProductsModel: $travelPopularProductsModel, travelCitiesModel: $travelCitiesModel, travelProductsModel: $travelProductsModel, searchProducts: $searchProducts, travelBestPlacesModel: $travelBestPlacesModel, productByLocationModel: $productByLocationModel, numberOfGuest: $numberOfGuest, country: $country, travelSearchLocationModels: $travelSearchLocationModels, searchedLocation: $searchedLocation, showCalendar: $showCalendar, tabIndex: $tabIndex, selectedStartDate: $selectedStartDate, selectedEndDate: $selectedEndDate, focusDay: $focusDay, formattedDateRang: $formattedDateRang, wishlistProducts: $wishlistProducts, travelWishlistItems: $travelWishlistItems, bookingSuccess: $bookingSuccess, travelHomeBannerPackages: $travelHomeBannerPackages, formImages: $formImages)';
   }
 
   @override
@@ -6797,7 +7243,8 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
       ..add(DiagnosticsProperty('travelWishlistItems', travelWishlistItems))
       ..add(DiagnosticsProperty('bookingSuccess', bookingSuccess))
       ..add(DiagnosticsProperty(
-          'travelHomeBannerPackages', travelHomeBannerPackages));
+          'travelHomeBannerPackages', travelHomeBannerPackages))
+      ..add(DiagnosticsProperty('formImages', formImages));
   }
 
   @override
@@ -6849,7 +7296,9 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
             (identical(other.bookingSuccess, bookingSuccess) ||
                 other.bookingSuccess == bookingSuccess) &&
             const DeepCollectionEquality().equals(
-                other._travelHomeBannerPackages, _travelHomeBannerPackages));
+                other._travelHomeBannerPackages, _travelHomeBannerPackages) &&
+            const DeepCollectionEquality()
+                .equals(other._formImages, _formImages));
   }
 
   @override
@@ -6876,7 +7325,8 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
         const DeepCollectionEquality().hash(_wishlistProducts),
         const DeepCollectionEquality().hash(_travelWishlistItems),
         bookingSuccess,
-        const DeepCollectionEquality().hash(_travelHomeBannerPackages)
+        const DeepCollectionEquality().hash(_travelHomeBannerPackages),
+        const DeepCollectionEquality().hash(_formImages)
       ]);
 
   @JsonKey(ignore: true)
@@ -6888,30 +7338,30 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
 
 abstract class _TravelState implements TravelState {
   const factory _TravelState(
-          {required final int index,
-          required final bool isLoading,
-          required final TravelPopularProductsModel? travelPopularProductsModel,
-          required final TravelCitiesModel? travelCitiesModel,
-          required final TravelProductsModel? travelProductsModel,
-          required final List<TravelProduct>? searchProducts,
-          required final TravelBestPlacesModel? travelBestPlacesModel,
-          required final TravelPopularProductsModel? productByLocationModel,
-          required final int numberOfGuest,
-          required final String country,
-          required final List<TravelSearchLocationModels>?
-              travelSearchLocationModels,
-          required final String searchedLocation,
-          required final bool showCalendar,
-          required final int tabIndex,
-          required final DateTime? selectedStartDate,
-          required final DateTime? selectedEndDate,
-          required final DateTime focusDay,
-          required final String formattedDateRang,
-          required final List<TravelProductsModel>? wishlistProducts,
-          required final Set<String>? travelWishlistItems,
-          required final bool bookingSuccess,
-          required final List<TravelPackageItems>? travelHomeBannerPackages}) =
-      _$TravelStateImpl;
+      {required final int index,
+      required final bool isLoading,
+      required final TravelPopularProductsModel? travelPopularProductsModel,
+      required final TravelCitiesModel? travelCitiesModel,
+      required final TravelProductsModel? travelProductsModel,
+      required final List<TravelProduct>? searchProducts,
+      required final TravelBestPlacesModel? travelBestPlacesModel,
+      required final TravelPopularProductsModel? productByLocationModel,
+      required final int numberOfGuest,
+      required final String country,
+      required final List<TravelSearchLocationModels>?
+          travelSearchLocationModels,
+      required final String searchedLocation,
+      required final bool showCalendar,
+      required final int tabIndex,
+      required final DateTime? selectedStartDate,
+      required final DateTime? selectedEndDate,
+      required final DateTime focusDay,
+      required final String formattedDateRang,
+      required final List<TravelProductsModel>? wishlistProducts,
+      required final Set<String>? travelWishlistItems,
+      required final bool bookingSuccess,
+      required final List<TravelPackageItems>? travelHomeBannerPackages,
+      required final List<File> formImages}) = _$TravelStateImpl;
 
   @override
   int get index;
@@ -6957,6 +7407,8 @@ abstract class _TravelState implements TravelState {
   bool get bookingSuccess;
   @override
   List<TravelPackageItems>? get travelHomeBannerPackages;
+  @override
+  List<File> get formImages;
   @override
   @JsonKey(ignore: true)
   _$$TravelStateImplCopyWith<_$TravelStateImpl> get copyWith =>

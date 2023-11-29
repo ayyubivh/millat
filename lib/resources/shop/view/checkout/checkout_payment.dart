@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -10,10 +12,12 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
+import '../../../../enums/enumertations.dart';
 import '../../../../utils/string_constants.dart';
 
 class CheckoutPayment extends StatelessWidget {
-  const CheckoutPayment({Key? key}) : super(key: key);
+  final CheckoutType? checkoutType;
+  const CheckoutPayment({Key? key, this.checkoutType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -90,15 +94,17 @@ class CheckoutPayment extends StatelessWidget {
                   child: paymentOnlineWidget(),
                 ),
                 kHeight10,
-                Container(
-                  height: 96,
-                  width: SizeUtility(context).width,
-                  decoration: BoxDecoration(
-                    color: ColorManager.darkWhite,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: paymenCODwidget(context),
-                )
+                // checkoutType == CheckoutType.rewards
+                //     ? const SizedBox()
+                //     : Container(
+                //         height: 96,
+                //         width: SizeUtility(context).width,
+                //         decoration: BoxDecoration(
+                //           color: ColorManager.darkWhite,
+                //           borderRadius: BorderRadius.circular(6),
+                //         ),
+                //         child: paymenCODwidget(context),
+                //       )
               ],
             ),
           ),
@@ -113,10 +119,16 @@ class CheckoutPayment extends StatelessWidget {
                   showSnackBar(context, 'Select the Payment method!');
                   return;
                 }
-
-                context.pushNamed(
-                    MyAppRouteConstants.checkoutConfirmationRouteName,
-                    extra: {'paymentType': state.paymentMethod});
+                checkoutType == CheckoutType.rewards
+                    ? context.pushNamed(
+                        MyAppRouteConstants.checkoutConfirmationRouteName,
+                        extra: {
+                            'paymentType': state.paymentMethod,
+                            'checkoutType': CheckoutType.rewards,
+                          })
+                    : context.pushNamed(
+                        MyAppRouteConstants.checkoutConfirmationRouteName,
+                        extra: {'paymentType': state.paymentMethod});
               },
             ),
           ),

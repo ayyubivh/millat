@@ -1,13 +1,17 @@
+import 'dart:async';
 import 'dart:developer';
+import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:millat/resources/travel/bloc/models/travel_best_places_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_popular_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_search_model.dart';
 import 'package:millat/resources/travel/bloc/service/travel_services.dart';
+
 import '../../../../enums/enumertations.dart';
 import '../models/travel_cities_model.dart';
 part 'travel_event.dart';
@@ -35,6 +39,11 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     on<AddTravelWishlist>(_addTravelWishlist);
     on<TravelBookingCompleted>(_travelBookingCompleted);
     on<FetchTravelHomeBannerPackages>(_fetchTravelHomeBannerPackages);
+    on<FetchTravelPopularProducts>(_fetchTravelPopularProducts);
+    on<FetchBestPlacesProducts>(_fetchTravelBestplacesProducts);
+    on<FetchTravelSearchLocations>(_fetchTravelSearchLocations);
+    on<FetchTravelProductsById>(_fetchTravelProductsById);
+    on<PickMultipleImageEvent>(_pickMultipleImageEvent);
   }
 
   _changeBannerIndex(ChangeBannerIndex event, Emitter<TravelState> emit) {
@@ -66,7 +75,7 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     }
   }
 
-  fetchTravelProductsById(
+  _fetchTravelProductsById(
       FetchTravelProductsById event, Emitter<TravelState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
@@ -265,6 +274,14 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
 
       throw Exception(e);
     }
+  }
+
+  FutureOr<void> _pickMultipleImageEvent(
+      PickMultipleImageEvent event, Emitter<TravelState> emit) async {
+    final data = await travelServices.pickImages();
+
+    emit(state.copyWith(formImages: data));
+    print(state.formImages);
   }
 }
 

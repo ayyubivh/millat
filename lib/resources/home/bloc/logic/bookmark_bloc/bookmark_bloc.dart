@@ -157,7 +157,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     emit(newState);
     final name = state.name;
     final img = state.image;
-    final id = state.verskey;
+    final id = event.verskey;
     final desc = state.description;
     final dbId = event.dbId;
 
@@ -195,23 +195,27 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
 
   _saveVerseIndex(SaveVersesIndexEvent event, Emitter<BookmarkState> emit) {
     List<int> updatedIndexList = List.from(state.versesIndexList);
-    updatedIndexList.add(event.versesIndexList);
-    if (state.versesIndexList.contains(event.versesIndexList)) {
-      return;
+
+    if (updatedIndexList.contains(event.versesIndexList)) {
+      updatedIndexList.remove(event.versesIndexList);
     } else {
-      emit(state.copyWith(versesIndexList: updatedIndexList));
+      updatedIndexList.add(event.versesIndexList);
     }
+
+    emit(state.copyWith(versesIndexList: updatedIndexList));
   }
 
   _saveVerseKeyEvent(SaveVerseKeyEvent event, Emitter<BookmarkState> emit) {
     List<String> updatedIndexList = List.from(state.verskey);
-    updatedIndexList.add(event.versekey);
-    if (state.verskey.contains(event.versekey)) {
-      return;
+
+    if (updatedIndexList.contains(event.versekey)) {
+      updatedIndexList.remove(event.versekey);
     } else {
-      emit(state.copyWith(verskey: updatedIndexList));
-      print('here is the verskey list ${state.verskey}');
+      updatedIndexList.add(event.versekey);
     }
+
+    emit(state.copyWith(verskey: updatedIndexList));
+    print('here is the verskey list $updatedIndexList');
   }
 
   _emptyIndexEvent(event, Emitter<BookmarkState> emit) {

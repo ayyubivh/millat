@@ -105,6 +105,7 @@ class AppAssetsStrings {
   static const String mailIcon = "$iconsPath/mail.png";
   static const String shopMenuIcons = "$iconsPath/shop_menu.png";
   static const String filterIcon = "$iconsPath/filter_search.png";
+  static const String filter2 = "$iconsPath/filter_2.png";
   static const String starIcon = "$iconsPath/star.png";
   static const String reviewStar = "$iconsPath/review_star.png";
   static const String womensCareTabs = "$iconsPath/women_care_tabs.png";

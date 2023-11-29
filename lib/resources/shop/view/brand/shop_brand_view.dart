@@ -7,7 +7,6 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -130,7 +129,7 @@ class ShopBrandView extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {
                     context.pushNamed(MyAppRouteConstants.singleBrandRouteName,
-                        extra: {'passValue': data});
+                        extra: {'passValue': passValue});
                   },
                   child: brandTileContainer(
                       context, passValue, itemCount?[index].toInt() ?? 0),
@@ -250,7 +249,7 @@ class ShopBrandView extends StatelessWidget {
                 children: [
                   data == null || data.coverImage!.isEmpty
                       ? Container(
-                          height: 209,
+                          height: SizeUtility(context).height / 4.045,
                           width: double.infinity,
                           color: ColorManager.black4A,
                           child: const Icon(
@@ -269,7 +268,11 @@ class ShopBrandView extends StatelessWidget {
                             end: Alignment.topCenter,
                           ).createShader(bounds),
                           child: Utilities().buildCachedNetworkImage(
-                              imageUrl: data.coverImage!, boxFit: BoxFit.cover),
+                            imageUrl: data.coverImage!,
+                            boxFit: BoxFit.cover,
+                            height: SizeUtility(context).height / 4.045,
+                            width: double.infinity,
+                          ),
                         ),
                   Positioned.fill(
                     child: DecoratedBox(

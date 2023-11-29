@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable
 
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -8,30 +9,31 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
+import 'package:millat/resources/shop/bloc/service/category_services.dart';
 
 import 'package:millat/routes/app_router_constants.dart';
-import 'package:millat/utils/responsive.dart';
-import 'package:millat/utils/shimmer_utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
-
 import 'package:millat/resources/home/view/widgets/hadit_tinder_cards.dart';
-
 import 'package:millat/utils/constants.dart';
-import '../../../enums/enumertations.dart';
-import '../../../utils/assets_paths.dart';
-import '../../../utils/color_manager.dart';
-import '../../../utils/size_utility.dart';
-import '../../../utils/string_constants.dart';
-import '../../../utils/utils.dart';
-import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
-import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import '../bloc/logic/location_bloc/location_bloc.dart';
+import '../../../../enums/enumertations.dart';
+import '../../../../utils/assets_paths.dart';
+import '../../../../utils/color_manager.dart';
+import '../../../../utils/responsive.dart';
+import '../../../../utils/shimmer_utils.dart';
+import '../../../../utils/size_utility.dart';
+import '../../../../utils/string_constants.dart';
+import '../../../../utils/utils.dart';
+import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import '../../bloc/logic/location_bloc/location_bloc.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+
+import 'widgets/home_namaz_timing_card.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
@@ -96,8 +98,8 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    // log("Screen build");
     return Scaffold(
-      extendBody: true,
       // endDrawer: const HomeDrawyerWidget(),
       backgroundColor: ColorManager.whiteColor,
       body: BlocListener<DatabaseBloc, DatabaseState>(
@@ -142,130 +144,8 @@ class _HomeViewState extends State<HomeView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AnimatedContainer(
-                        duration: const Duration(milliseconds: 1000),
-                        height: scrollNotifier.value == true
-                            ? Platform.isIOS
-                                ? 310
-                                : 280
-                            : Platform.isIOS
-                                ? 210
-                                : 180,
-                        width: SizeUtility(context).width,
-                        decoration:
-                            BoxDecoration(color: ColorManager.midGreenColor),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 30,
-                          ).copyWith(top: Platform.isIOS ? 60 : 35),
-                          child: Stack(
-                            children: [
-                              Row(
-                                children: [
-                                  AnimatedSwitcher(
-                                    duration:
-                                        const Duration(milliseconds: 1000),
-                                    child: scrollNotifier.value == false
-                                        ? Text(
-                                            Appstrings.assalamuAlaikum,
-                                            key:
-                                                const ValueKey<String>('text1'),
-                                            style: TextStyle(
-                                              color: ColorManager.whiteColor,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          )
-                                        : Text(
-                                            Appstrings.assalamuAlaikum,
-                                            key:
-                                                const ValueKey<String>('text2'),
-                                            style: TextStyle(
-                                              color: ColorManager.whiteColor,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                  ),
-                                  const Spacer(),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 5),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        context.goNamed(MyAppRouteConstants
-                                            .notificationRouteName);
-                                      },
-                                      child: ImageIcon(
-                                          const AssetImage(
-                                              AppAssetsStrings.bellIcon),
-                                          color: ColorManager.whiteColor,
-                                          size: 25),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              BlocBuilder<DatabaseBloc, DatabaseState>(
-                                builder: (context, state) => Padding(
-                                  padding: EdgeInsets.only(
-                                      top: scrollNotifier.value == true
-                                          ? 28
-                                          : 24),
-                                  child: AnimatedSwitcher(
-                                    duration:
-                                        const Duration(milliseconds: 1000),
-                                    child: scrollNotifier.value == false
-                                        ? Text(
-                                            state.authUserModel?.result?.user
-                                                    ?.name ??
-                                                "",
-                                            key:
-                                                const ValueKey<String>('text1'),
-                                            style: TextStyle(
-                                              color: ColorManager.whiteColor,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w500,
-                                            ))
-                                        : Text(
-                                            state.authUserModel?.result?.user
-                                                    ?.name ??
-                                                "",
-                                            key:
-                                                const ValueKey<String>('text2'),
-                                            style: TextStyle(
-                                              color: ColorManager.whiteColor,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w500,
-                                            )),
-                                  ),
-                                ),
-                              ),
-                              AnimatedContainer(
-                                curve: Curves.linear,
-                                duration: const Duration(milliseconds: 1000),
-                                padding: EdgeInsets.only(
-                                  left: scrollNotifier.value ? 115 : 150,
-                                  top: scrollNotifier.value == true ? 0 : 5,
-                                ),
-                                child: Image.asset(
-                                  AppAssetsStrings.homeBgDesign,
-                                  height: scrollNotifier.value ? 80 : 70,
-                                  // width: SizeUtility(context).width / 2,
-                                  // fit: BoxFit.cover,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 60,
-                                  // bottom: 15,
-                                ),
-                                child: scrollNotifier.value
-                                    ? animatedContainerWidget1(context)
-                                    : animatedContainerWidget2(context),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      HomeNamazTimingCard(
+                          scrollNotifierValue: scrollNotifier.value),
                       Expanded(
                         child: SingleChildScrollView(
                           child: Column(
@@ -369,7 +249,11 @@ class _HomeViewState extends State<HomeView> {
                                       ],
                                     ),
                                   ),
-                                  _brandOftheDayWidget(),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 30),
+                                    child: _brandOftheDayWidget(),
+                                  ),
                                   kHeight50,
                                   kHeight50,
                                 ],
@@ -525,51 +409,50 @@ class _HomeViewState extends State<HomeView> {
         kHeight10,
         BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
-            return Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                height: 100,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: state.topOffersModel?.result.banners.length ?? 4,
-                  itemExtent: !Responsive.isMobile(context) ? 130 : 95,
-                  itemBuilder: (context, index) {
-                    if (state.isLoading ||
-                        state.topOffersModel?.result.banners == null) {
-                      return ShimmerUtils.categoriesShimmers();
-                    }
-                    final data = state.topOffersModel?.result.banners[index];
-                    return GestureDetector(
-                      onTap: () {
-                        context.pushNamed(
+            return SizedBox(
+              height: 100,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: state.topOffersModel?.result.banners.length ?? 4,
+                itemExtent: !Responsive.isMobile(context) ? 130 : 95,
+                itemBuilder: (context, index) {
+                  if (state.isLoading ||
+                      state.topOffersModel?.result.banners == null) {
+                    return ShimmerUtils.categoriesShimmers();
+                  }
+                  final data = state.topOffersModel?.result.banners[index];
+                  return GestureDetector(
+                    onTap: () {
+                      context.pushNamed(
                           MyAppRouteConstants.categoriesProductsRouteName,
                           extra: {
                             'category': data?.subCategoryId?.title,
                             'subCategory': data?.subCategoryName,
                             'type': FilterType.category
-                          },
-                        );
-                      },
-                      child: Column(
-                        children: [
-                          Utilities().buildCachedNetworkImage(
+                          });
+                    },
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Utilities().buildCachedNetworkImage(
                             imageUrl: data?.image ?? "",
                             height: 75,
                             width: 75,
                           ),
-                          kHeight5,
-                          Text(
-                            data?.subCategoryName ?? "",
-                            style: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                ),
+                        ),
+                        kHeight5,
+                        Text(
+                          data?.subCategoryName ?? "",
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
               ),
             );
           },
@@ -1196,11 +1079,7 @@ class _HomeViewState extends State<HomeView> {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         if (state.homeBanner == null) {
-          return ShimmerUtils.customRectangleShimmer(
-            SizeUtility(context).width,
-            150,
-            borderRadius: 16,
-          );
+          return SizedBox();
         }
 
         final banners = state.homeBanner?.result!.banners;
@@ -1213,8 +1092,8 @@ class _HomeViewState extends State<HomeView> {
                       context.pushNamed(
                           MyAppRouteConstants.categoriesProductsRouteName,
                           extra: {
-                            'category': "",
-                            'subCategory': "",
+                            'category': "Pro Muslim",
+                            'subCategory': "Thobe",
                             'type': FilterType.category
                           });
                     },
@@ -1293,506 +1172,6 @@ class _HomeViewState extends State<HomeView> {
             style: const TextStyle(color: black165),
           )
         ],
-      ),
-    );
-  }
-
-  animatedContainerWidget2(BuildContext context) {
-    return AnimatedContainer(
-        curve: Curves.linear,
-        duration: const Duration(milliseconds: 1000),
-        height: 74,
-        // margin: const EdgeInsets.symmetric(horizontal: 30),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        decoration: BoxDecoration(
-          color: ColorManager.whiteColor,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: ColorManager.primary.withOpacity(0.1),
-              blurRadius: 2,
-              spreadRadius: 0,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: BlocBuilder<LocationBloc, LocationState>(
-          builder: (context, state) => state.currentLocaion.isEmpty
-              ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _offlineText(),
-                    // _locationButton(context),
-                  ],
-                )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _nowText(),
-                        const SizedBox(height: 6),
-                        BlocBuilder<NamazTimingBloc, NamazTimingState>(
-                          builder: (context, state) {
-                            final currentNamaz = state.currentNamaz;
-                            final currentNamazName =
-                                currentNamaz?['name'] ?? '';
-                            final currentNamazTime =
-                                currentNamaz?['time'] ?? '';
-
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  currentNamazName,
-                                  style: _currentNamazTextstyle(),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  currentNamazTime,
-                                  style: const TextStyle(
-                                    color: black132,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                    Container(
-                      color: black166,
-                      width: 0.5,
-                      height: 40,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _upcomingText(),
-                        const SizedBox(height: 6),
-                        BlocBuilder<NamazTimingBloc, NamazTimingState>(
-                          builder: (context, state) {
-                            final upcomingNamaz = state.upcomingNamaz;
-                            final upcomingNamazName =
-                                upcomingNamaz?['name'] ?? '';
-                            final upcomingNamazTime =
-                                upcomingNamaz?['time'] ?? '';
-
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  upcomingNamazName,
-                                  style: _currentNamazTextstyle(),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  upcomingNamazTime,
-                                  style: const TextStyle(
-                                    color: black132,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-        ));
-  }
-
-  Widget animatedContainerWidget1(BuildContext context) {
-    return AnimatedContainer(
-      curve: Curves.linear,
-      duration: const Duration(milliseconds: 1000),
-      height: 167,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      // margin: const EdgeInsets.symmetric(horizontal: 30),
-      decoration: BoxDecoration(
-        color: ColorManager.whiteColor,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: ColorManager.primary.withOpacity(0.1),
-            blurRadius: 2,
-            spreadRadius: 1,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: SingleChildScrollView(
-        child: BlocBuilder<LocationBloc, LocationState>(
-          builder: (context, state) {
-            return state.currentLocaion.isEmpty
-                ? offlineContainer(context)
-                : buildNamazTiming(context);
-          },
-        ),
-      ),
-    );
-  }
-
-  Widget offlineContainer(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            ImageIcon(
-              const AssetImage('assets/icons/calendar.png'),
-              color: ColorManager.mainColor,
-              size: 24,
-            ),
-            kWidth10,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                BlocBuilder<NamazTimingBloc, NamazTimingState>(
-                  builder: (context, state) => Text(
-                    state.arabicDate,
-                    style: const TextStyle(
-                      fontFamily: 'ArabicFont',
-                      color: black104,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  Utilities.formatDate(DateTime.now().toString()),
-                  style: const TextStyle(color: black104),
-                )
-              ],
-            ),
-            const Spacer(),
-            TextButton.icon(
-                onPressed: () {
-                  context.pushNamed(MyAppRouteConstants.namazTimingRouteName);
-                },
-                icon: const ImageIcon(
-                  AssetImage('assets/icons/map-pin.png'),
-                  color: blueColor,
-                  size: 16,
-                ),
-                label: const Text(
-                  'Allow Me',
-                  style: TextStyle(
-                    color: blueColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )),
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: _offlineText(),
-        ),
-        kHeight5,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _locationButton(context),
-          ],
-        )
-      ],
-    );
-  }
-
-  Widget _offlineText() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _nowText(),
-            const Text(
-              "----------",
-              style: TextStyle(
-                fontSize: 16,
-                color: black165,
-              ),
-            )
-          ],
-        ),
-        Container(
-          height: 20,
-          width: 0.7,
-          color: dividerColor,
-        ),
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Upcoming Namaz',
-              style: TextStyle(color: black104, fontSize: 15),
-            ),
-            kHeight5,
-            Text(
-              "----------",
-              style: TextStyle(
-                fontSize: 16,
-                color: black165,
-              ),
-            )
-          ],
-        ),
-      ],
-    );
-  }
-
-  Text _nowText() {
-    return Text(
-      'Now',
-      style: TextStyle(
-        color: ColorManager.darkGrey68,
-        fontSize: 12,
-        fontWeight: FontWeight.w400,
-      ),
-    );
-  }
-
-  Widget _locationButton(BuildContext context) {
-    return SizedBox(
-      height: 30,
-      width: SizeUtility(context).width / 2.8,
-      child: ElevatedButton(
-        onPressed: () {
-          context.read<LocationBloc>().isClickedOnLocationButton = true;
-          context.read<LocationBloc>().add(const FetchCurrentLocation());
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: ColorManager.primary,
-        ),
-        child: const Row(
-          children: [
-            Icon(Icons.location_on),
-            Text(
-              'Enable Location',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildNamazTiming(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            ImageIcon(
-              const AssetImage('assets/icons/calendar.png'),
-              color: ColorManager.mainColor,
-              size: 24,
-            ),
-            kWidth10,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                BlocBuilder<NamazTimingBloc, NamazTimingState>(
-                  builder: (context, state) => Text(
-                    state.arabicDate,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: 'ArabicFont',
-                      color: ColorManager.darkGrey68,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                kHeight5,
-                Text(
-                  Utilities.formatDate(DateTime.now().toString()),
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: ColorManager.darkGrey68,
-                  ),
-                )
-              ],
-            ),
-            const Spacer(),
-            TextButton.icon(
-                onPressed: () {
-                  context.pushNamed(MyAppRouteConstants.namazTimingRouteName);
-                },
-                icon: const ImageIcon(
-                  AssetImage('assets/icons/bell.png'),
-                  color: blueColor,
-                  size: 16,
-                ),
-                label: const Text(
-                  'Notify Me',
-                  style: TextStyle(
-                    color: blueColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )),
-          ],
-        ),
-        kHeight8,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _nowText(),
-                kHeight5,
-                BlocBuilder<NamazTimingBloc, NamazTimingState>(
-                  builder: (context, state) {
-                    final currentNamaz = state.currentNamaz;
-                    final currentNamazName = currentNamaz?['name'] ?? '';
-                    final currentNamazTime = currentNamaz?['time'] ?? '';
-
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          currentNamazName,
-                          style: _currentNamazTextstyle(),
-                        ),
-                        kWidth10,
-                        Text(
-                          currentNamazTime,
-                          style: TextStyle(
-                            color: ColorManager.darkGrey68,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ],
-            ),
-            Container(
-              height: 30,
-              width: 0.7,
-              color: dividerColor,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _upcomingText(),
-                kHeight5,
-                BlocBuilder<NamazTimingBloc, NamazTimingState>(
-                  builder: (context, state) {
-                    final upcomingNamaz = state.upcomingNamaz;
-                    final upcomingNamazName = upcomingNamaz?['name'] ?? '';
-                    final upcomingNamazTime = upcomingNamaz?['time'] ?? '';
-
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(upcomingNamazName,
-                            style: _currentNamazTextstyle()),
-                        kWidth10,
-                        Text(
-                          upcomingNamazTime,
-                          style: TextStyle(
-                            color: ColorManager.darkGrey68,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
-        kHeight16,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                const ImageIcon(
-                  AssetImage('assets/icons/map-pin.png'),
-                  color: black165,
-                  size: 20,
-                ),
-                kWidth8,
-                BlocBuilder<LocationBloc, LocationState>(
-                  builder: (context, state) => Text(state.currentLocaion,
-                      style: TextStyle(
-                        color: ColorManager.textGrey,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      )),
-                )
-              ],
-            ),
-            GestureDetector(
-              onTap: () {
-                Share.share(
-                  "Salam ! I'm your true friend It's ${context.read<NamazTimingBloc>().state.currentNamaz?['name'] ?? ""} time. Don't miss your  ${context.read<NamazTimingBloc>().state.currentNamaz?['name'] ?? ""} salah. It will help you to do better in duniya & akhirah To always be on time for salah install our app (link) This app is 100% add free. Yay! Install Now",
-                );
-              },
-              child: const Row(
-                children: [
-                  ImageIcon(
-                    AssetImage('assets/icons/share.png'),
-                    color: black165,
-                    size: 16,
-                  ),
-                  kWidth8,
-                  Text(
-                    Appstrings.share,
-                    style: TextStyle(
-                      color: black165,
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      ],
-    );
-  }
-
-  TextStyle _currentNamazTextstyle() {
-    return TextStyle(
-      color: ColorManager.lightPrimary,
-      fontSize: 20,
-      fontWeight: FontWeight.w600,
-    );
-  }
-
-  Text _upcomingText() {
-    return Text(
-      'Upcoming Namaz',
-      style: TextStyle(
-        color: ColorManager.darkGrey68,
-        fontSize: 12,
-        fontWeight: FontWeight.w400,
       ),
     );
   }

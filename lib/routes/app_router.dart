@@ -16,7 +16,7 @@ import 'package:millat/resources/home/view/dua/dua_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_bookmar_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_category_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/inside_dua_view.dart';
-import 'package:millat/resources/home/view/home_view.dart';
+import 'package:millat/resources/home/view/main_home/home_view.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/home/view/qibla/qibla_view.dart';
 import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
@@ -34,6 +34,7 @@ import 'package:millat/resources/profile/views/invite_friend_view.dart';
 import 'package:millat/resources/profile/views/order_history_view.dart';
 import 'package:millat/resources/profile/views/user_profile_view.dart';
 import 'package:millat/resources/rewards/rewards_tab_view.dart';
+import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';
 import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
@@ -41,6 +42,7 @@ import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
+import 'package:millat/resources/shop/view/categories/category_products_filter_view.dart';
 import 'package:millat/resources/shop/view/categories/category_view.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
@@ -66,6 +68,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import '../resources/home/view/al_quran/bookmark_view.dart';
 import '../resources/home/view/al_quran/widgets/add_sura_search_view.dart';
 import '../resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
+import '../resources/rewards/widget/rewards_single_shop_view.dart';
 import '../resources/shop/view/order_status/order_details_view.dart';
 import '../resources/shop/view/search/shop_search_view.dart';
 
@@ -117,12 +120,24 @@ class MyAppRouter {
                 },
               ),
               GoRoute(
-                name: MyAppRouteConstants.rewardsTabRouteName,
-                path: MyAppRouteConstants.rewardsTabRouteName,
-                pageBuilder: (context, state) {
-                  return const MaterialPage(child: RewardsTabView());
-                },
-              ),
+                  name: MyAppRouteConstants.rewardsShopRouteName,
+                  path: MyAppRouteConstants.rewardsShopRouteName,
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(child: RewardShopView());
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.rewardsShopProductRoutename,
+                      path: MyAppRouteConstants.rewardsShopProductRoutename,
+                      pageBuilder: (context, state) {
+                        Map data = state.extra as Map;
+                        return MaterialPage(
+                            child: RewardsSingleShopView(
+                          id: data['id'],
+                        ));
+                      },
+                    ),
+                  ]),
               GoRoute(
                   name: MyAppRouteConstants.travelHomeRoutename,
                   path: MyAppRouteConstants.travelHomeRoutename,
@@ -203,8 +218,11 @@ class MyAppRouter {
                                 name: MyAppRouteConstants.checkoutRouteName,
                                 path: MyAppRouteConstants.checkoutRouteName,
                                 pageBuilder: (context, state) {
-                                  return const MaterialPage(
-                                      child: CheckoutView());
+                                  Map data = state.extra as Map;
+                                  return MaterialPage(
+                                      child: CheckoutView(
+                                    checkoutType: data['checkoutType'],
+                                  ));
                                 },
                               ),
                               GoRoute(
@@ -226,8 +244,12 @@ class MyAppRouter {
                                       path: MyAppRouteConstants
                                           .checkoutPaymentRouteName,
                                       pageBuilder: (context, state) {
-                                        return const MaterialPage(
-                                            child: CheckoutPayment());
+                                        Map data = state.extra as Map;
+                                        return MaterialPage(
+                                          child: CheckoutPayment(
+                                            checkoutType: data['checkoutType'],
+                                          ),
+                                        );
                                       },
                                     ),
                                     GoRoute(
@@ -364,21 +386,40 @@ class MyAppRouter {
                           },
                         ),
                         GoRoute(
-                          name: MyAppRouteConstants.categoriesProductsRouteName,
-                          path: MyAppRouteConstants.categoriesProductsRouteName,
-                          pageBuilder: (context, state) {
-                            Map data = state.extra as Map;
-                            return MaterialPage(
-                              child: CategoriesProductView(
-                                category: data['category'],
-                                subCategory: data['subCategory'],
-                                type: data['type'],
-                                itemId: data['itemId'],
-                                itemName: data['itemName'],
+                            name:
+                                MyAppRouteConstants.categoriesProductsRouteName,
+                            path:
+                                MyAppRouteConstants.categoriesProductsRouteName,
+                            pageBuilder: (context, state) {
+                              Map data = state.extra as Map;
+                              return MaterialPage(
+                                child: CategoriesProductView(
+                                  categoryId: data['categoryId'],
+                                  category: data['category'],
+                                  subCategory: data['subCategory'],
+                                  type: data['type'],
+                                  itemId: data['itemId'],
+                                  itemName: data['itemName'],
+                                ),
+                              );
+                            },
+                            routes: [
+                              GoRoute(
+                                name: MyAppRouteConstants
+                                    .categoryProductsFilterRouteName,
+                                path: MyAppRouteConstants
+                                    .categoryProductsFilterRouteName,
+                                pageBuilder: (context, state) {
+                                  Map data = state.extra as Map;
+                                  return MaterialPage(
+                                      child: CategoryProductsFilterView(
+                                    type: data['type'],
+                                    // categoryId: data['categoryId'],
+                                    category: data['category'],
+                                  ));
+                                },
                               ),
-                            );
-                          },
-                        ),
+                            ]),
                       ],
                     ),
                     GoRoute(
@@ -493,52 +534,42 @@ class MyAppRouter {
                           ),
                         ]),
                     GoRoute(
-                        name: MyAppRouteConstants.quranBookmarkRouteName,
-                        path: 'quran_bookmark',
-                        pageBuilder: (context, state) {
-                          return const MaterialPage(child: BookmarkView());
-                        },
-                        routes: [
-                          GoRoute(
-                            name: MyAppRouteConstants
-                                .addNewQuranBookmarkRouteName,
-                            path: MyAppRouteConstants
-                                .addNewQuranBookmarkRouteName,
-                            pageBuilder: (context, state) {
-                              Map data = state.extra as Map;
-                              return MaterialPage(
-                                child: AddNewBookMarkCollection(
-                                  passvalue: data['passvalue'],
-                                  type: data['type'],
-                                  verseKeys: data['verseKeys'],
-                                ),
-                              );
-                            },
+                      name: MyAppRouteConstants.addNewQuranBookmarkRouteName,
+                      path: MyAppRouteConstants.addNewQuranBookmarkRouteName,
+                      pageBuilder: (context, state) {
+                        Map data = state.extra as Map;
+                        return MaterialPage(
+                          child: AddNewBookMarkCollection(
+                            passvalue: data['passvalue'],
+                            type: data['type'],
+                            verseKeys: data['verseKeys'],
                           ),
-                          GoRoute(
-                            name: MyAppRouteConstants
-                                .quranBookmarkCollectionRouteName,
-                            path: MyAppRouteConstants
-                                .quranBookmarkCollectionRouteName,
-                            pageBuilder: (context, state) {
-                              Map data = state.extra as Map;
-                              return MaterialPage(
-                                child: BookmarkCollectionView(
-                                  passvalue: data['passvalue'],
-                                ),
-                              );
-                            },
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      name:
+                          MyAppRouteConstants.quranBookmarkCollectionRouteName,
+                      path:
+                          MyAppRouteConstants.quranBookmarkCollectionRouteName,
+                      pageBuilder: (context, state) {
+                        Map data = state.extra as Map;
+                        return MaterialPage(
+                          child: BookmarkCollectionView(
+                            passvalue: data['passvalue'],
                           ),
-                          GoRoute(
-                            name: MyAppRouteConstants.addSuraSearchRouteName,
-                            path: MyAppRouteConstants.addSuraSearchRouteName,
-                            pageBuilder: (context, state) {
-                              return const MaterialPage(
-                                child: AddSuraSearchView(),
-                              );
-                            },
-                          ),
-                        ]),
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.addSuraSearchRouteName,
+                      path: MyAppRouteConstants.addSuraSearchRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(
+                          child: AddSuraSearchView(),
+                        );
+                      },
+                    ),
                   ]),
               GoRoute(
                 name: MyAppRouteConstants.compassRouteName,

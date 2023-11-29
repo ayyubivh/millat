@@ -7,7 +7,6 @@ import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_fav_bookmark_collection_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_card.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -18,6 +17,7 @@ import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import '../bookmark_view.dart';
 import 'new_collection_widget.dart';
+import 'quran_bookmark_collection.dart';
 
 class VersesView extends StatefulWidget {
   final Qurantype type;
@@ -656,120 +656,126 @@ class _VersesViewState extends State<VersesView> {
                     )),
       bottomSheet: BlocBuilder<QuranBloc, QuranState>(
         builder: (context, state) => state.isShowMusicbar
-            ? Container(
-                height: 78,
-                margin: const EdgeInsets.symmetric(horizontal: 35),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                ).copyWith(bottom: 10),
-                decoration: BoxDecoration(
-                    color: ColorManager.primary,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12),
-                    )),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        context.read<QuranBloc>().add(const ShowMusicbar());
-                      },
-                      child: Icon(
+            ? GestureDetector(
+                onTap: () {
+                  context.read<QuranBloc>().add(const ShowMusicbar());
+                },
+                child: Container(
+                  height: 78,
+                  margin: const EdgeInsets.symmetric(horizontal: 35),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                  ).copyWith(bottom: 10),
+                  decoration: BoxDecoration(
+                      color: ColorManager.primary,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
+                      )),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
                         Icons.expand_more,
                         color: ColorManager.whiteColor,
                         size: 30,
                       ),
-                    ),
-                    Row(
-                      children: [
-                        const SizedBox(width: 10),
-                        _buildPlayIcons("assets/icons/display.png", "Display",
-                            () {
-                          _buildDisplayPopUp(context);
-                        }),
-                        const SizedBox(width: 10),
-                        _buildPlayIcons("assets/icons/headphones.png", "Audio",
-                            () {
-                          _audioPopup(context);
-                        }),
-                        const Spacer(),
-                        BlocBuilder<QuranBloc, QuranState>(
-                          builder: (context, state) => Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  context
-                                      .read<QuranBloc>()
-                                      .add(const OnTapofPrevEvent());
-                                  context.read<QuranBloc>().add(
-                                      FetchChaperVersesEvent(
-                                          id: state.nxtAndprevValue));
-                                  context.read<QuranBloc>().add(
-                                      FetchTranslationChapterTexts(
-                                          translationId: 131,
-                                          chapterId: state.nxtAndprevValue));
-                                  context.read<QuranBloc>().add(
-                                      FetchChapterAudioFiles(
-                                          id: state.nxtAndprevValue,
-                                          recitorId: state.recitorId));
-                                },
-                                child: Icon(
-                                  Icons.skip_previous,
-                                  color:
-                                      ColorManager.whiteColor.withOpacity(0.5),
-                                  size: 28,
+                      Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          _buildPlayIcons("assets/icons/display.png", "Display",
+                              () {
+                            _buildDisplayPopUp(context);
+                          }),
+                          const SizedBox(width: 10),
+                          _buildPlayIcons(
+                              "assets/icons/headphones.png", "Audio", () {
+                            _audioPopup(context);
+                          }),
+                          const Spacer(),
+                          BlocBuilder<QuranBloc, QuranState>(
+                            builder: (context, state) => Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    context
+                                        .read<QuranBloc>()
+                                        .add(const OnTapofPrevEvent());
+                                    context.read<QuranBloc>().add(
+                                        FetchChaperVersesEvent(
+                                            id: state.nxtAndprevValue));
+                                    context.read<QuranBloc>().add(
+                                        FetchTranslationChapterTexts(
+                                            translationId: 131,
+                                            chapterId: state.nxtAndprevValue));
+                                    context.read<QuranBloc>().add(
+                                        FetchChapterAudioFiles(
+                                            id: state.nxtAndprevValue,
+                                            recitorId: state.recitorId));
+                                  },
+                                  child: Icon(
+                                    Icons.skip_previous,
+                                    color: ColorManager.whiteColor
+                                        .withOpacity(0.5),
+                                    size: 28,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 5),
-                              state.audioPlaying
-                                  ? GestureDetector(
-                                      onTap: () {
-                                        context.read<QuranBloc>().add(
-                                            const PlayAllChapterAudiosAuto());
-                                      },
-                                      child: Icon(
-                                        Icons.pause_circle_filled,
-                                        color: ColorManager.whiteColor,
-                                        size: 38,
+                                const SizedBox(width: 5),
+                                state.audioPlaying
+                                    ? GestureDetector(
+                                        onTap: () {
+                                          context.read<QuranBloc>().add(
+                                              const PlayAllChapterAudiosAuto());
+                                        },
+                                        child: Icon(
+                                          Icons.pause_circle_filled,
+                                          color: ColorManager.whiteColor,
+                                          size: 38,
+                                        ),
+                                      )
+                                    : GestureDetector(
+                                        onTap: () {
+                                          context.read<QuranBloc>().add(
+                                              const PlayAllChapterAudiosAuto());
+                                        },
+                                        child: Icon(
+                                          Icons.play_circle_fill,
+                                          color: ColorManager.whiteColor,
+                                          size: 38,
+                                        ),
                                       ),
-                                    )
-                                  : Icon(
-                                      Icons.play_circle_fill,
-                                      color: ColorManager.whiteColor,
-                                      size: 38,
-                                    ),
-                              kWidth5,
-                              GestureDetector(
-                                onTap: () {
-                                  context
-                                      .read<QuranBloc>()
-                                      .add(const OnTapofNextEvent());
-                                  context.read<QuranBloc>().add(
-                                      FetchChaperVersesEvent(
-                                          id: state.nxtAndprevValue));
-                                  context.read<QuranBloc>().add(
-                                      FetchTranslationChapterTexts(
-                                          translationId: 131,
-                                          chapterId: state.nxtAndprevValue));
-                                  context.read<QuranBloc>().add(
-                                      FetchChapterAudioFiles(
-                                          id: state.nxtAndprevValue,
-                                          recitorId: state.recitorId));
-                                },
-                                child: Icon(
-                                  Icons.skip_next,
-                                  color:
-                                      ColorManager.whiteColor.withOpacity(0.5),
-                                  size: 28,
+                                kWidth5,
+                                GestureDetector(
+                                  onTap: () {
+                                    context
+                                        .read<QuranBloc>()
+                                        .add(const OnTapofNextEvent());
+                                    context.read<QuranBloc>().add(
+                                        FetchChaperVersesEvent(
+                                            id: state.nxtAndprevValue));
+                                    context.read<QuranBloc>().add(
+                                        FetchTranslationChapterTexts(
+                                            translationId: 131,
+                                            chapterId: state.nxtAndprevValue));
+                                    context.read<QuranBloc>().add(
+                                        FetchChapterAudioFiles(
+                                            id: state.nxtAndprevValue,
+                                            recitorId: state.recitorId));
+                                  },
+                                  child: Icon(
+                                    Icons.skip_next,
+                                    color: ColorManager.whiteColor
+                                        .withOpacity(0.5),
+                                    size: 28,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               )
             : GestureDetector(
@@ -777,6 +783,7 @@ class _VersesViewState extends State<VersesView> {
                   context.read<QuranBloc>().add(const ShowMusicbar());
                 },
                 child: Container(
+                  color: ColorManager.whiteColor,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.only(bottom: 15),
                   height: 30,
@@ -805,8 +812,9 @@ class _VersesViewState extends State<VersesView> {
           child: Column(
             children: [
               BookmarkNewCollectionWidget(
-                  verseKeys: ["${widget.chapterid}:${index + 1}"],
-                  type: BookMarkCollectionType.addSpecificOne),
+                verseKeys: ["${widget.chapterid}:${index + 1}"],
+                type: BookMarkCollectionType.addSpecificOne,
+              ),
               kHeight16,
               BlocBuilder<BookmarkBloc, BookmarkState>(
                 builder: (context, state) =>
@@ -847,7 +855,7 @@ class _VersesViewState extends State<VersesView> {
                               .add(const FetchCollectionItem());
                           context.pop();
                         },
-                        child: buildCollectionContainer(
+                        child: QuranBookmarkCollectionWidget(
                           passvalue: data,
                           context: context,
                           img: data.image,

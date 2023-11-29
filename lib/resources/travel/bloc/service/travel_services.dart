@@ -1,7 +1,9 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
+
 import 'package:millat/resources/travel/bloc/models/travel_best_places_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_popular_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
@@ -10,6 +12,7 @@ import 'package:millat/utils/string_constants.dart';
 
 import '../../../../enums/enumertations.dart';
 import '../models/travel_cities_model.dart';
+import 'package:file_picker/file_picker.dart';
 
 class TravelServices {
 //Fetching Travel Home-Banner-Package
@@ -259,6 +262,24 @@ class TravelServices {
         'message': 'An error occurred $e',
       };
     }
+  }
+
+//pick multiple images
+
+  Future<List<File>> pickImages() async {
+    List<File> images = [];
+    try {
+      var files = await FilePicker.platform
+          .pickFiles(type: FileType.image, allowMultiple: true);
+      if (files != null && files.files.isNotEmpty) {
+        for (int i = 0; i < files.files.length; i++) {
+          images.add(File(files.files[i].path!));
+        }
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    return images;
   }
 
   // Fetching Travel Wishlist Products

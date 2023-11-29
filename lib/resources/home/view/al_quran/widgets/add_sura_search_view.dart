@@ -10,133 +10,207 @@ import '../../../../../components/common_widgets/reusable_methods.dart';
 
 import '../../../bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 
-class AddSuraSearchView extends StatelessWidget {
+class AddSuraSearchView extends StatefulWidget {
   const AddSuraSearchView({Key? key}) : super(key: key);
+
+  @override
+  State<AddSuraSearchView> createState() => _AddSuraSearchViewState();
+}
+
+class _AddSuraSearchViewState extends State<AddSuraSearchView> {
+  @override
+  void initState() {
+    BlocProvider.of<BookmarkBloc>(context)
+      ..add(const ClearIndexEvent())
+      ..add(const EmptyIndexEvent());
+    BlocProvider.of<QuranBloc>(context).add(SearchChapterEvent(query: ""));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(context),
       backgroundColor: ColorManager.whiteColor,
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-              create: (context) => BookmarkBloc()
-                ..add(const ClearIndexEvent())
-                ..add(const EmptyIndexEvent())),
-          BlocProvider(
-            create: (context) =>
-                QuranBloc()..add(const SearchChapterEvent(query: "")),
-          )
-        ],
-        child: BlocBuilder<QuranBloc, QuranState>(
-          builder: (context, state) {
-            final chapters = state.searchChapters;
-            if (chapters == null) {
-              return const Loader();
-            }
+      body: BlocBuilder<QuranBloc, QuranState>(
+        builder: (context, state) {
+          final chapters = state.searchChapters;
+          if (chapters == null || state.isLoading) {
+            return const Loader();
+          }
 
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: chapters.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: chapters.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        context
+                            .read<BookmarkBloc>()
+                            .add(const EmptyIndexEvent());
+                        context
+                            .read<BookmarkBloc>()
+                            .add(ChangeIndexEvent(index));
+
+                        if (state.isExpand &&
+                            context.read<BookmarkBloc>().state.index == index) {
+                          context.read<QuranBloc>().add(
+                              const IsExpandonSearchEvent(isExpand: false));
                           context
                               .read<BookmarkBloc>()
-                              .add(const EmptyIndexEvent());
+                              .add(ChangeIndexEvent(-1));
+                        } else {
                           context
                               .read<BookmarkBloc>()
-                              .add(ChangeIndexEvent(index));
-
+                              .add(SaveIndexEvent(indexList: index));
+                          context
+                              .read<QuranBloc>()
+                              .add(FechtChapterbyId(id: [index + 1]));
+                          context
+                              .read<QuranBloc>()
+                              .add(const IsExpandonSearchEvent(isExpand: true));
+                          context
+                              .read<BookmarkBloc>()
+                              .add(SaveQuranChapterId(id: [index + 1]));
+                        }
+                      },
+                      child: Column(
+                        children: [
+                          BlocBuilder<BookmarkBloc, BookmarkState>(
+                            builder: (context, state) {
+                              return BookMarkCollectionContainer(
+                                isSelected: state.indexList.contains(index),
+                                versesName: chapters[index].nameSimple,
+                                versesCount: chapters[index].versesCount,
+                                arabicName: chapters[index].nameArabic,
+                                isIndex: state.index == index,
+                              );
+                            },
+                          ),
                           if (state.isExpand &&
-                              context.read<BookmarkBloc>().state.index ==
-                                  index) {
-                            context.read<QuranBloc>().add(
-                                const IsExpandonSearchEvent(isExpand: false));
-                          } else {
-                            context
-                                .read<BookmarkBloc>()
-                                .add(SaveIndexEvent(indexList: index));
-                            context
-                                .read<QuranBloc>()
-                                .add(FechtChapterbyId(id: [index + 1]));
-                            context.read<QuranBloc>().add(
-                                const IsExpandonSearchEvent(isExpand: true));
-                            context
-                                .read<BookmarkBloc>()
-                                .add(SaveQuranChapterId(id: [index + 1]));
-                          }
-                        },
-                        child: Column(
-                          children: [
-                            BlocBuilder<BookmarkBloc, BookmarkState>(
-                              builder: (context, state) {
-                                return BookMarkCollectionContainer(
-                                  isSelected: state.indexList.contains(index),
-                                  versesName: chapters[index].nameSimple,
-                                  versesCount: chapters[index].versesCount,
-                                  arabicName: chapters[index].nameArabic,
-                                  isIndex: state.index == index,
-                                );
-                              },
-                            ),
-                            if (state.isExpand &&
-                                context.read<BookmarkBloc>().state.index ==
-                                    index)
-                              ListView.builder(
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                itemCount: state.chapterByIdModel?.length ?? 0,
-                                itemBuilder: (context, index) {
-                                  final chapter =
-                                      state.chapterByIdModel?[index].chapter;
-                                  return BlocBuilder<BookmarkBloc,
-                                      BookmarkState>(
-                                    builder: (context, state) => Column(
-                                      children: List.generate(
-                                        chapter?.versesCount ?? 0,
-                                        (verseIndex) {
-                                          final ayah = verseIndex + 1;
-                                          return bookMarkVersesTile(
-                                            isSelected: state.versesIndexList
-                                                .contains(verseIndex),
-                                            text: 'Aya $ayah',
-                                            index: ayah,
+                              context.read<BookmarkBloc>().state.index == index)
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: state.chapterByIdModel?.length ?? 0,
+                              itemBuilder: (context, index) {
+                                final chapter =
+                                    state.chapterByIdModel?[index].chapter;
+                                return BlocBuilder<BookmarkBloc, BookmarkState>(
+                                  builder: (context, state) => Column(
+                                    children: List.generate(
+                                      chapter?.versesCount ?? 0,
+                                      (verseIndex) {
+                                        final ayah = verseIndex + 1;
+                                        final isSelected = state.versesIndexList
+                                            .contains(verseIndex);
+                                        return Container(
+                                          color: ColorManager.whiteColor,
+                                          margin: const EdgeInsets.all(2),
+                                          child: ListTile(
                                             onTap: () {
+                                              context
+                                                  .read<QuranBloc>()
+                                                  .add(FetchVersesByKey(
+                                                    verseKey: [
+                                                      "${chapter!.id}:$ayah"
+                                                    ],
+                                                  ));
                                               context.read<BookmarkBloc>().add(
                                                   SaveVerseKeyEvent(
-                                                      "${chapter?.id}:$ayah"));
+                                                      "${chapter.id}:$ayah"));
                                               context.read<BookmarkBloc>().add(
                                                   SaveVersesIndexEvent(
                                                       versesIndexList:
                                                           verseIndex));
-
-                                              print(
-                                                  'here is the chapter ${chapter?.id ?? ''} and the aya is here $ayah');
                                             },
-                                          );
-                                        },
-                                      ),
+                                            leading: Stack(
+                                              children: [
+                                                ImageIcon(
+                                                  const AssetImage(
+                                                      "assets/icons/folder_green.png"),
+                                                  color: isSelected
+                                                      ? ColorManager.redColor
+                                                      : ColorManager.primary,
+                                                ),
+                                                Positioned(
+                                                  top: 5,
+                                                  left: 4,
+                                                  child: Icon(
+                                                    isSelected
+                                                        ? Icons.remove
+                                                        : Icons.add,
+                                                    color:
+                                                        ColorManager.whiteColor,
+                                                    size: 16,
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                            title: Text(
+                                              'Aya $ayah',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                            subtitle: BlocBuilder<QuranBloc,
+                                                QuranState>(
+                                              builder: (context, state) => Text(
+                                                isSelected
+                                                    ? state
+                                                        .versesByKeyModel![
+                                                            index]
+                                                        .verses[0]
+                                                        .textIndopak
+                                                    : "",
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                            ),
+                                            trailing: IconButton(
+                                              onPressed: () {
+                                                print("${chapter!.id}:$ayah");
+                                                context
+                                                    .read<QuranBloc>()
+                                                    .add(FetchVersesByKey(
+                                                      verseKey: [
+                                                        "${chapter.id}:$ayah"
+                                                      ],
+                                                    ));
+                                              },
+                                              icon: Icon(
+                                                isSelected
+                                                    ? Icons.expand_more
+                                                    : Icons.navigate_next,
+                                                size: 30,
+                                              ),
+                                              color: ColorManager.blackColor,
+                                            ),
+                                          ),
+                                        );
+                                      },
                                     ),
-                                  );
-                                },
-                              ),
-                          ],
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) => const Divider(),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
+                                  ),
+                                );
+                              },
+                            ),
+                        ],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => const Divider(),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
@@ -151,7 +225,7 @@ class AddSuraSearchView extends StatelessWidget {
           Container(
             height: 50,
             color: ColorManager.appBarColor,
-            padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
             child: Align(
               alignment: Alignment.topCenter,
               child: Column(
@@ -159,8 +233,8 @@ class AddSuraSearchView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
-                        onTap: () {
+                      TextButton(
+                        onPressed: () {
                           context.pop();
                         },
                         child: Text(
@@ -180,16 +254,20 @@ class AddSuraSearchView extends StatelessWidget {
                         ),
                       ),
                       BlocBuilder<BookmarkBloc, BookmarkState>(
-                        builder: (context, state) => GestureDetector(
-                          onTap: () {
+                        builder: (context, state) => TextButton(
+                          onPressed: () {
                             // final id = context.read<BookmarkBloc>().state.id;
                             // print('here is the $id');
                             // context.read<QuranBloc>().add(FechtChapterbyId(id: id));
-
+                            final currentList = context
+                                    .read<QuranBloc>()
+                                    .state
+                                    .bookmarkAudioPlaylist +
+                                state.verskey;
                             context.read<QuranBloc>().add(FetchVersesByKey(
-                                  verseKey: state.verskey,
+                                  verseKey: currentList.toSet().toList(),
                                 ));
-                            print('versekey ${state.verskey}');
+                            print('versekey $currentList');
                             context.pop();
                           },
                           child: Text(

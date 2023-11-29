@@ -244,7 +244,8 @@ class CartView extends StatelessWidget {
                         MyAppRouteConstants.checkoutDetailRoutename,
                         extra: {'type': AddressNavType.checkout});
                   } else {
-                    context.pushNamed(MyAppRouteConstants.checkoutRouteName);
+                    context.pushNamed(MyAppRouteConstants.checkoutRouteName,
+                        extra: {'checkoutType': CheckoutType.shop});
                   }
                 },
               ),

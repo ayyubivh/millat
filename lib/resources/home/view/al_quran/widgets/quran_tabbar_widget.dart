@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/creat_new_bookmark_widget.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/quran_bookmark_collection.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
@@ -114,12 +115,12 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
 
                               return InkWell(
                                 onTap: () {
-                                  context.goNamed(
+                                  context.pushNamed(
                                       MyAppRouteConstants
                                           .quranBookmarkCollectionRouteName,
                                       extra: {'passvalue': data});
                                 },
-                                child: buildCollectionContainer(
+                                child: QuranBookmarkCollectionWidget(
                                     passvalue: data,
                                     context: context,
                                     img: data.image,

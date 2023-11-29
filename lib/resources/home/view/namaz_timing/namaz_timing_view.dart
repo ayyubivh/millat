@@ -4,6 +4,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
+import 'package:millat/utils/string_constants.dart';
 import '../../../../utils/color_manager.dart';
 import '../../../../utils/constants.dart';
 import '../../../../utils/size_utility.dart';
@@ -79,7 +80,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Asslamualaikum',
+                            Text(Appstrings.assalamuAlaikum,
                                 style: TextStyle(
                                     color: ColorManager.whiteColor,
                                     fontSize: 18)),
@@ -103,705 +104,17 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         const Spacer(),
                         InkWell(
                           onTap: () {
-                            showModalBottomSheet(
-                              backgroundColor: Colors.transparent,
-                              context: context,
-                              isScrollControlled: true,
-                              builder: (context) {
-                                return StatefulBuilder(
-                                  builder: (context, setState) {
-                                    return BlocBuilder<NamazTimingBloc,
-                                        NamazTimingState>(
-                                      builder: (context, state) {
-                                        return Container(
-                                          height: state.automaticSettingsDb ==
-                                                  true
-                                              ? SizeUtility(context).height /
-                                                  2.2
-                                              : SizeUtility(context).height *
-                                                  0.75,
-                                          decoration: BoxDecoration(
-                                            color: ColorManager.whiteColor,
-                                            borderRadius:
-                                                const BorderRadius.only(
-                                              topLeft: Radius.circular(30.0),
-                                              topRight: Radius.circular(30.0),
-                                            ),
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 18.0),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                const SizedBox(height: 6),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    const Expanded(
-                                                      child: Align(
-                                                        alignment:
-                                                            Alignment.center,
-                                                        child: Text(
-                                                          'Prayer Timings Setting',
-                                                          style: TextStyle(
-                                                            fontSize: 16,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    IconButton(
-                                                      onPressed: () {
-                                                        context.pop();
-                                                      },
-                                                      icon: Icon(
-                                                        Icons.close,
-                                                        size: 14,
-                                                        color: ColorManager
-                                                            .textGrey99,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                const Divider(),
-                                                const SizedBox(height: 12),
-                                                const Text(
-                                                  'Location',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 13,
-                                                  ),
-                                                ),
-                                                const SizedBox(height: 10),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    const Text(
-                                                      'Auto-Detect My location',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 17,
-                                                      ),
-                                                    ),
-                                                    BlocBuilder<NamazTimingBloc,
-                                                        NamazTimingState>(
-                                                      builder:
-                                                          (context, state) =>
-                                                              Switch(
-                                                        activeColor:
-                                                            ColorManager
-                                                                .primary,
-                                                        value: state
-                                                            .autoDetectLocationDb,
-                                                        onChanged: (value) {
-                                                          context
-                                                              .read<
-                                                                  NamazTimingBloc>()
-                                                              .add(AddAutoDetectValToLocalStorage(
-                                                                  value:
-                                                                      value));
-
-                                                          if (state
-                                                                  .autoDetectLocationDb ==
-                                                              true) {
-                                                            context
-                                                                .read<
-                                                                    LocationBloc>()
-                                                                .add(
-                                                                    const ChangeLocationOnToggle());
-                                                          }
-                                                        },
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                const SizedBox(height: 7),
-                                                BlocBuilder<NamazTimingBloc,
-                                                    NamazTimingState>(
-                                                  builder: (context, state) {
-                                                    return state.autoDetectLocationDb ==
-                                                            true
-                                                        ? BlocBuilder<
-                                                            LocationBloc,
-                                                            LocationState>(
-                                                            builder: (context,
-                                                                state) {
-                                                              return Text(
-                                                                  state
-                                                                      .currentLocaion,
-                                                                  style: const TextStyle(
-                                                                      color:
-                                                                          black165));
-                                                            },
-                                                          )
-                                                        : Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              const Text(
-                                                                'Location',
-                                                                style:
-                                                                    TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontSize: 16,
-                                                                ),
-                                                              ),
-                                                              Row(
-                                                                children: [
-                                                                  BlocBuilder<
-                                                                      LocationBloc,
-                                                                      LocationState>(
-                                                                    builder: (context, state) => Text(
-                                                                        state
-                                                                            .currentLocaion,
-                                                                        style: const TextStyle(
-                                                                            color:
-                                                                                black165)),
-                                                                  ),
-                                                                  IconButton(
-                                                                    onPressed:
-                                                                        () {
-                                                                      showModalBottomSheet(
-                                                                        isScrollControlled:
-                                                                            true,
-                                                                        backgroundColor:
-                                                                            Colors.transparent,
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (context) {
-                                                                          return locationWidget(
-                                                                              context);
-                                                                        },
-                                                                      );
-                                                                    },
-                                                                    icon: const Icon(
-                                                                        Icons
-                                                                            .arrow_forward_ios_rounded),
-                                                                    iconSize:
-                                                                        14,
-                                                                    color:
-                                                                        black102,
-                                                                  )
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          );
-                                                  },
-                                                ),
-                                                const SizedBox(height: 7),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    const Text(
-                                                      'Automatic Settings',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 17,
-                                                      ),
-                                                    ),
-                                                    BlocBuilder<NamazTimingBloc,
-                                                        NamazTimingState>(
-                                                      builder:
-                                                          (context, state) =>
-                                                              Switch(
-                                                        activeColor:
-                                                            ColorManager
-                                                                .primary,
-                                                        value: state
-                                                            .automaticSettingsDb,
-                                                        onChanged: (value) {
-                                                          context
-                                                              .read<
-                                                                  NamazTimingBloc>()
-                                                              .add(AddAutomaticSettingToLocalStorage(
-                                                                  value:
-                                                                      value));
-                                                        },
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                BlocBuilder<NamazTimingBloc,
-                                                    NamazTimingState>(
-                                                  builder: (context, state) =>
-                                                      Text(
-                                                    state.namazMethodName,
-                                                    style: const TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      fontSize: 12,
-                                                    ),
-                                                  ),
-                                                ),
-                                                const SizedBox(height: 14),
-                                                BlocBuilder<NamazTimingBloc,
-                                                    NamazTimingState>(
-                                                  builder: (context, state) =>
-                                                      state.automaticSettingsDb ==
-                                                              true
-                                                          ? const SizedBox
-                                                              .shrink()
-                                                          : Column(
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceBetween,
-                                                                  children: [
-                                                                    const Text(
-                                                                      'calculation method',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                        fontSize:
-                                                                            17,
-                                                                      ),
-                                                                    ),
-                                                                    Row(
-                                                                      children: [
-                                                                        BlocBuilder<
-                                                                            NamazTimingBloc,
-                                                                            NamazTimingState>(
-                                                                          builder:
-                                                                              (context, state) {
-                                                                            final namazMethodName =
-                                                                                state.namazMethodName;
-                                                                            final halfLength =
-                                                                                (namazMethodName.length / 2).ceil();
-
-                                                                            return Column(
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Text(
-                                                                                  namazMethodName.substring(0, halfLength),
-                                                                                  style: const TextStyle(
-                                                                                    fontWeight: FontWeight.w400,
-                                                                                    fontSize: 12,
-                                                                                  ),
-                                                                                  maxLines: 1,
-                                                                                  overflow: TextOverflow.ellipsis,
-                                                                                ),
-                                                                                Text(
-                                                                                  namazMethodName.substring(halfLength),
-                                                                                  style: const TextStyle(
-                                                                                    fontWeight: FontWeight.w400,
-                                                                                    fontSize: 12,
-                                                                                  ),
-                                                                                  maxLines: 1,
-                                                                                  overflow: TextOverflow.ellipsis,
-                                                                                ),
-                                                                              ],
-                                                                            );
-                                                                          },
-                                                                        ),
-                                                                        IconButton(
-                                                                          onPressed:
-                                                                              () {
-                                                                            showModalBottomSheet(
-                                                                              isScrollControlled: true,
-                                                                              backgroundColor: Colors.transparent,
-                                                                              context: context,
-                                                                              builder: (context) {
-                                                                                return calculationMethodWidget(context);
-                                                                              },
-                                                                            );
-                                                                          },
-                                                                          icon:
-                                                                              const Icon(Icons.arrow_forward_ios_rounded),
-                                                                          iconSize:
-                                                                              14,
-                                                                          color:
-                                                                              Colors.black,
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceBetween,
-                                                                  children: [
-                                                                    const Text(
-                                                                      'Asr Calculation-\nJuristic method',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                        fontSize:
-                                                                            17,
-                                                                      ),
-                                                                    ),
-                                                                    Row(
-                                                                      children: [
-                                                                        BlocBuilder<
-                                                                            NamazTimingBloc,
-                                                                            NamazTimingState>(
-                                                                          builder: (context, state) =>
-                                                                              Text(
-                                                                            state.school == 1
-                                                                                ? "Hanafi"
-                                                                                : "Standard(Shafi, Malik, Hambali)",
-                                                                            style:
-                                                                                const TextStyle(
-                                                                              fontWeight: FontWeight.w400,
-                                                                              fontSize: 12,
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        IconButton(
-                                                                          onPressed:
-                                                                              () {
-                                                                            showModalBottomSheet(
-                                                                              backgroundColor: Colors.transparent,
-                                                                              context: context,
-                                                                              builder: (context) {
-                                                                                return artCalculationWidget(context);
-                                                                              },
-                                                                            );
-                                                                          },
-                                                                          icon:
-                                                                              const Icon(Icons.arrow_forward_ios_rounded),
-                                                                          iconSize:
-                                                                              14,
-                                                                          color:
-                                                                              black102,
-                                                                        )
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                const SizedBox(
-                                                                    height: 7),
-                                                                Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceBetween,
-                                                                  children: [
-                                                                    const Text(
-                                                                      'High Latitude methods ',
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                        fontSize:
-                                                                            17,
-                                                                      ),
-                                                                    ),
-                                                                    Row(
-                                                                      children: [
-                                                                        BlocBuilder<
-                                                                            NamazTimingBloc,
-                                                                            NamazTimingState>(
-                                                                          builder: (context, state) =>
-                                                                              Text(
-                                                                            state.highLatMethodVal == 0
-                                                                                ? "None"
-                                                                                : state.highLatMethodVal == 1
-                                                                                    ? "Middle of the night"
-                                                                                    : state.highLatMethodVal == 2
-                                                                                        ? "1/7th of night"
-                                                                                        : state.highLatMethodVal == 3
-                                                                                            ? "Angle based method"
-                                                                                            : "",
-                                                                            style:
-                                                                                const TextStyle(
-                                                                              fontWeight: FontWeight.w400,
-                                                                              fontSize: 12,
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        IconButton(
-                                                                          onPressed:
-                                                                              () {
-                                                                            showModalBottomSheet(
-                                                                              backgroundColor: Colors.transparent,
-                                                                              context: context,
-                                                                              builder: (context) {
-                                                                                return highLatitudeWidget(context);
-                                                                              },
-                                                                            );
-                                                                          },
-                                                                          icon:
-                                                                              const Icon(Icons.arrow_forward_ios_rounded),
-                                                                          iconSize:
-                                                                              14,
-                                                                          color:
-                                                                              black102,
-                                                                        )
-                                                                      ],
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                //                 Row(
-                                                                //                   mainAxisAlignment:
-                                                                //                       MainAxisAlignment
-                                                                //                           .spaceBetween,
-                                                                //                   children: [
-                                                                //                     const Text(
-                                                                //                       'Manual Corrections',
-                                                                //                       style:
-                                                                //                           TextStyle(
-                                                                //                         fontWeight:
-                                                                //                             FontWeight.w600,
-                                                                //                         fontSize:
-                                                                //                             17,
-                                                                //                       ),
-                                                                //                     ),
-                                                                //                     Row(
-                                                                //                       children: [
-                                                                //                         const Text(
-                                                                //                           '0,0,0,0,0,0',
-                                                                //                           style:
-                                                                //                               TextStyle(
-                                                                //                             fontWeight:
-                                                                //                                 FontWeight.w400,
-                                                                //                             fontSize:
-                                                                //                                 12,
-                                                                //                           ),
-                                                                //                         ),
-                                                                //                         IconButton(
-                                                                //                           onPressed:
-                                                                //                               () {
-                                                                //                             showModalBottomSheet(
-                                                                //                               context: context,
-                                                                //                               builder: (context) {
-                                                                //                                 return Column(
-                                                                //                                   children: [
-                                                                //                                     Row(
-                                                                //                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                //                                       children: [
-                                                                //                                         IconButton(
-                                                                //                                             onPressed: () {
-                                                                //                                               context.pop();
-                                                                //                                             },
-                                                                //                                             icon: const Icon(Icons.arrow_back_ios)),
-                                                                //                                         const Text(
-                                                                //                                           'Manual Corrections',
-                                                                //                                           style: TextStyle(
-                                                                //                                             fontSize: 16,
-                                                                //                                             fontWeight: FontWeight.w600,
-                                                                //                                           ),
-                                                                //                                         ),
-                                                                //                                         IconButton(
-                                                                //                                           onPressed: () {
-                                                                //                                             context.pop();
-                                                                //                                           },
-                                                                //                                           icon: const Icon(
-                                                                //                                             Icons.close,
-                                                                //                                             size: 16,
-                                                                //                                             // color: black122,
-                                                                //                                           ),
-                                                                //                                         ),
-                                                                //                                       ],
-                                                                //                                     ),
-                                                                //                                     const Divider(),
-                                                                //                                     const Padding(
-                                                                //                                       padding: EdgeInsets.all(18.0),
-                                                                //                                       child: Column(
-                                                                //                                         children: [
-                                                                //                                           Row(
-                                                                //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                //                                             children: [
-                                                                //                                               Text(
-                                                                //                                                 'Fajr',
-                                                                //                                                 style: TextStyle(
-                                                                //                                                   fontSize: 18,
-                                                                //                                                   fontWeight: FontWeight.bold,
-                                                                //                                                 ),
-                                                                //                                               ),
-                                                                //                                               Text('0 Minutes')
-                                                                //                                             ],
-                                                                //                                           ),
-                                                                //                                           SizedBox(height: 15),
-                                                                //                                           Row(
-                                                                //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                //                                             children: [
-                                                                //                                               Text(
-                                                                //                                                 'Sunrise',
-                                                                //                                                 style: TextStyle(
-                                                                //                                                   fontSize: 18,
-                                                                //                                                   fontWeight: FontWeight.bold,
-                                                                //                                                 ),
-                                                                //                                               ),
-                                                                //                                               Text('0 Minutes')
-                                                                //                                             ],
-                                                                //                                           ),
-                                                                //                                           SizedBox(height: 15),
-                                                                //                                           Row(
-                                                                //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                //                                             children: [
-                                                                //                                               Text(
-                                                                //                                                 'Dhuhr',
-                                                                //                                                 style: TextStyle(
-                                                                //                                                   fontSize: 18,
-                                                                //                                                   fontWeight: FontWeight.bold,
-                                                                //                                                 ),
-                                                                //                                               ),
-                                                                //                                               Text('0 Minutes')
-                                                                //                                             ],
-                                                                //                                           ),
-                                                                //                                           SizedBox(height: 15),
-                                                                //                                           Row(
-                                                                //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                //                                             children: [
-                                                                //                                               Text(
-                                                                //                                                 'Asr',
-                                                                //                                                 style: TextStyle(
-                                                                //                                                   fontSize: 18,
-                                                                //                                                   fontWeight: FontWeight.bold,
-                                                                //                                                 ),
-                                                                //                                               ),
-                                                                //                                               Text('0 Minutes')
-                                                                //                                             ],
-                                                                //                                           ),
-                                                                //                                           SizedBox(height: 15),
-                                                                //                                           Row(
-                                                                //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                //                                             children: [
-                                                                //                                               Text(
-                                                                //                                                 'Magrib',
-                                                                //                                                 style: TextStyle(
-                                                                //                                                   fontSize: 18,
-                                                                //                                                   fontWeight: FontWeight.bold,
-                                                                //                                                 ),
-                                                                //                                               ),
-                                                                //                                               Text('0 Minutes')
-                                                                //                                             ],
-                                                                //                                           ),
-                                                                //                                           SizedBox(height: 15),
-                                                                //                                           Row(
-                                                                //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                //                                             children: [
-                                                                //                                               Text(
-                                                                //                                                 'Isha',
-                                                                //                                                 style: TextStyle(
-                                                                //                                                   fontSize: 18,
-                                                                //                                                   fontWeight: FontWeight.bold,
-                                                                //                                                 ),
-                                                                //                                               ),
-                                                                //                                               Text('0 Minutes')
-                                                                //                                             ],
-                                                                //                                           ),
-                                                                //                                           SizedBox(height: 15),
-                                                                //                                           Row(
-                                                                //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                //                                             children: [
-                                                                //                                               Text(
-                                                                //                                                 'Qiyam',
-                                                                //                                                 style: TextStyle(
-                                                                //                                                   fontSize: 18,
-                                                                //                                                   fontWeight: FontWeight.bold,
-                                                                //                                                 ),
-                                                                //                                               ),
-                                                                //                                               Text('0 Minutes')
-                                                                //                                             ],
-                                                                //                                           )
-                                                                //                                         ],
-                                                                //                                       ),
-                                                                //                                     )
-                                                                //                                   ],
-                                                                //                                 );
-                                                                //                               },
-                                                                //                             );
-                                                                //                           },
-                                                                //                           icon:
-                                                                //                               const Icon(Icons.arrow_forward_ios_rounded),
-                                                                //                           iconSize:
-                                                                //                               14,
-                                                                //                           color:
-                                                                //                               black102,
-                                                                //                         )
-                                                                //                       ],
-                                                                //                     ),
-                                                                //                   ],
-                                                                //                 ),
-                                                              ],
-                                                            ),
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    const Text(
-                                                      'Show Qiyam in Prayer Time Page',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 17,
-                                                      ),
-                                                    ),
-                                                    BlocBuilder<NamazTimingBloc,
-                                                        NamazTimingState>(
-                                                      builder:
-                                                          (context, state) {
-                                                        return Switch(
-                                                          activeColor:
-                                                              ColorManager
-                                                                  .primary,
-                                                          value:
-                                                              state.showImsak,
-                                                          onChanged: (value) {
-                                                            context
-                                                                .read<
-                                                                    NamazTimingBloc>()
-                                                                .add(AddShowimsakValToLocalStorage(
-                                                                    value:
-                                                                        value));
-                                                          },
-                                                        );
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                                const Text(
-                                                  'Imsk- it is a period of time, about 10 mins, before \nthe down prayer begins and when people , who \nhave eaten suhoor, must stop eating.',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 12,
-                                                    height: 1.4,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                );
-                              },
-                            );
+                            _settingPopWidget(context);
                           },
                           child: ImageIcon(
                               const AssetImage('assets/icons/settings.png'),
                               color: ColorManager.whiteColor,
                               size: 25),
                         ),
-                        const SizedBox(
-                          width: 20,
-                        ),
+                        kWidth20,
                       ],
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    kHeight20,
                     Container(
                       height: 81,
                       padding: const EdgeInsets.all(20),
@@ -826,7 +139,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                               const Text(
                                 'Now',
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.w300,
                                 ),
                               ),
@@ -849,11 +162,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                         style: TextStyle(
                                           color: ColorManager.mainColor,
                                           fontSize: 20,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
+                                      kWidth20,
                                       Text(
                                         currentNamazTime,
                                         style: const TextStyle(
@@ -878,7 +190,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                               const Text(
                                 'Upcoming Namaz',
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.w300,
                                 ),
                               ),
@@ -899,13 +211,11 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                       Text(
                                         upcomingNamazName,
                                         style: TextStyle(
-                                          color: ColorManager.mainColor,
-                                          fontSize: 20,
-                                        ),
+                                            color: ColorManager.mainColor,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
                                       ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
+                                      kWidth10,
                                       Text(
                                         upcomingNamazTime,
                                         style: const TextStyle(
@@ -933,13 +243,14 @@ class _NamazTimingViewState extends State<NamazTimingView> {
           padding: const EdgeInsets.symmetric(horizontal: 35),
           child: Column(
             children: [
-              const SizedBox(height: 15),
+              kHeight15,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   BlocBuilder<LocationBloc, LocationState>(
                     builder: (context, state) => Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           '${state.weatherTemperature} °',
@@ -952,16 +263,17 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         kHeight10,
                         Text(
                           state.weatherConditionName,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: black104,
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: ColorManager.darkGrey68,
                           ),
                         ),
                       ],
                     ),
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       BlocBuilder<NamazTimingBloc, NamazTimingState>(
                         builder: (context, state) => Text(
@@ -970,17 +282,17 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                             fontFamily: 'ArabicFont',
                             color: ColorManager.primary,
                             fontSize: 20,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 9),
+                      kHeight10,
                       Text(
                         Utilities.formatDate(DateTime.now().toString()),
-                        style: const TextStyle(
-                          color: black104,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
+                        style: TextStyle(
+                          color: ColorManager.darkGrey68,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
@@ -1128,6 +440,604 @@ class _NamazTimingViewState extends State<NamazTimingView> {
         )
       ],
     ));
+  }
+
+  Future<dynamic> _settingPopWidget(BuildContext context) {
+    return showModalBottomSheet(
+      backgroundColor: Colors.transparent,
+      context: context,
+      isScrollControlled: true,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return BlocBuilder<NamazTimingBloc, NamazTimingState>(
+              builder: (context, state) {
+                return Container(
+                  height: state.automaticSettingsDb == true
+                      ? SizeUtility(context).height / 2.2
+                      : SizeUtility(context).height * 0.75,
+                  decoration: BoxDecoration(
+                    color: ColorManager.whiteColor,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.circular(30.0),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 6),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Expanded(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'Prayer Timings Setting',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                context.pop();
+                              },
+                              icon: Icon(
+                                Icons.close,
+                                size: 14,
+                                color: ColorManager.textGrey99,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Divider(),
+                        const SizedBox(height: 12),
+                        const Text(
+                          'Location',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Auto-Detect My location',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                              ),
+                            ),
+                            BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                              builder: (context, state) => Switch(
+                                activeColor: ColorManager.primary,
+                                value: state.autoDetectLocationDb,
+                                onChanged: (value) {
+                                  context.read<NamazTimingBloc>().add(
+                                      AddAutoDetectValToLocalStorage(
+                                          value: value));
+
+                                  if (state.autoDetectLocationDb == true) {
+                                    context
+                                        .read<LocationBloc>()
+                                        .add(const ChangeLocationOnToggle());
+                                  }
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 7),
+                        BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                          builder: (context, state) {
+                            return state.autoDetectLocationDb == true
+                                ? BlocBuilder<LocationBloc, LocationState>(
+                                    builder: (context, state) {
+                                      return Text(state.currentLocaion,
+                                          style:
+                                              const TextStyle(color: black165));
+                                    },
+                                  )
+                                : Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text(
+                                        'Location',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          BlocBuilder<LocationBloc,
+                                              LocationState>(
+                                            builder: (context, state) => Text(
+                                                state.currentLocaion,
+                                                style: const TextStyle(
+                                                    color: black165)),
+                                          ),
+                                          IconButton(
+                                            onPressed: () {
+                                              showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                context: context,
+                                                builder: (context) {
+                                                  return locationWidget(
+                                                      context);
+                                                },
+                                              );
+                                            },
+                                            icon: const Icon(Icons
+                                                .arrow_forward_ios_rounded),
+                                            iconSize: 14,
+                                            color: black102,
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  );
+                          },
+                        ),
+                        const SizedBox(height: 7),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Automatic Settings',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                              ),
+                            ),
+                            BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                              builder: (context, state) => Switch(
+                                activeColor: ColorManager.primary,
+                                value: state.automaticSettingsDb,
+                                onChanged: (value) {
+                                  context.read<NamazTimingBloc>().add(
+                                      AddAutomaticSettingToLocalStorage(
+                                          value: value));
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                        BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                          builder: (context, state) => Text(
+                            state.namazMethodName,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 14),
+                        BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                          builder: (context, state) => state
+                                      .automaticSettingsDb ==
+                                  true
+                              ? const SizedBox.shrink()
+                              : Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text(
+                                          'calculation method',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 17,
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            BlocBuilder<NamazTimingBloc,
+                                                NamazTimingState>(
+                                              builder: (context, state) {
+                                                final namazMethodName =
+                                                    state.namazMethodName;
+                                                final halfLength =
+                                                    (namazMethodName.length / 2)
+                                                        .ceil();
+
+                                                return Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      namazMethodName.substring(
+                                                          0, halfLength),
+                                                      style: const TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        fontSize: 12,
+                                                      ),
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                    ),
+                                                    Text(
+                                                      namazMethodName.substring(
+                                                          halfLength),
+                                                      style: const TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        fontSize: 12,
+                                                      ),
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            ),
+                                            IconButton(
+                                              onPressed: () {
+                                                showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return calculationMethodWidget(
+                                                        context);
+                                                  },
+                                                );
+                                              },
+                                              icon: const Icon(Icons
+                                                  .arrow_forward_ios_rounded),
+                                              iconSize: 14,
+                                              color: Colors.black,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text(
+                                          'Asr Calculation-\nJuristic method',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 17,
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            BlocBuilder<NamazTimingBloc,
+                                                NamazTimingState>(
+                                              builder: (context, state) => Text(
+                                                state.school == 1
+                                                    ? "Hanafi"
+                                                    : "Standard(Shafi, Malik, Hambali)",
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12,
+                                                ),
+                                              ),
+                                            ),
+                                            IconButton(
+                                              onPressed: () {
+                                                showModalBottomSheet(
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return artCalculationWidget(
+                                                        context);
+                                                  },
+                                                );
+                                              },
+                                              icon: const Icon(Icons
+                                                  .arrow_forward_ios_rounded),
+                                              iconSize: 14,
+                                              color: black102,
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 7),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text(
+                                          'High Latitude methods ',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 17,
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            BlocBuilder<NamazTimingBloc,
+                                                NamazTimingState>(
+                                              builder: (context, state) => Text(
+                                                state.highLatMethodVal == 0
+                                                    ? "None"
+                                                    : state.highLatMethodVal ==
+                                                            1
+                                                        ? "Middle of the night"
+                                                        : state.highLatMethodVal ==
+                                                                2
+                                                            ? "1/7th of night"
+                                                            : state.highLatMethodVal ==
+                                                                    3
+                                                                ? "Angle based method"
+                                                                : "",
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12,
+                                                ),
+                                              ),
+                                            ),
+                                            IconButton(
+                                              onPressed: () {
+                                                showModalBottomSheet(
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return highLatitudeWidget(
+                                                        context);
+                                                  },
+                                                );
+                                              },
+                                              icon: const Icon(Icons
+                                                  .arrow_forward_ios_rounded),
+                                              iconSize: 14,
+                                              color: black102,
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    //                 Row(
+                                    //                   mainAxisAlignment:
+                                    //                       MainAxisAlignment
+                                    //                           .spaceBetween,
+                                    //                   children: [
+                                    //                     const Text(
+                                    //                       'Manual Corrections',
+                                    //                       style:
+                                    //                           TextStyle(
+                                    //                         fontWeight:
+                                    //                             FontWeight.w600,
+                                    //                         fontSize:
+                                    //                             17,
+                                    //                       ),
+                                    //                     ),
+                                    //                     Row(
+                                    //                       children: [
+                                    //                         const Text(
+                                    //                           '0,0,0,0,0,0',
+                                    //                           style:
+                                    //                               TextStyle(
+                                    //                             fontWeight:
+                                    //                                 FontWeight.w400,
+                                    //                             fontSize:
+                                    //                                 12,
+                                    //                           ),
+                                    //                         ),
+                                    //                         IconButton(
+                                    //                           onPressed:
+                                    //                               () {
+                                    //                             showModalBottomSheet(
+                                    //                               context: context,
+                                    //                               builder: (context) {
+                                    //                                 return Column(
+                                    //                                   children: [
+                                    //                                     Row(
+                                    //                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //                                       children: [
+                                    //                                         IconButton(
+                                    //                                             onPressed: () {
+                                    //                                               context.pop();
+                                    //                                             },
+                                    //                                             icon: const Icon(Icons.arrow_back_ios)),
+                                    //                                         const Text(
+                                    //                                           'Manual Corrections',
+                                    //                                           style: TextStyle(
+                                    //                                             fontSize: 16,
+                                    //                                             fontWeight: FontWeight.w600,
+                                    //                                           ),
+                                    //                                         ),
+                                    //                                         IconButton(
+                                    //                                           onPressed: () {
+                                    //                                             context.pop();
+                                    //                                           },
+                                    //                                           icon: const Icon(
+                                    //                                             Icons.close,
+                                    //                                             size: 16,
+                                    //                                             // color: black122,
+                                    //                                           ),
+                                    //                                         ),
+                                    //                                       ],
+                                    //                                     ),
+                                    //                                     const Divider(),
+                                    //                                     const Padding(
+                                    //                                       padding: EdgeInsets.all(18.0),
+                                    //                                       child: Column(
+                                    //                                         children: [
+                                    //                                           Row(
+                                    //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //                                             children: [
+                                    //                                               Text(
+                                    //                                                 'Fajr',
+                                    //                                                 style: TextStyle(
+                                    //                                                   fontSize: 18,
+                                    //                                                   fontWeight: FontWeight.bold,
+                                    //                                                 ),
+                                    //                                               ),
+                                    //                                               Text('0 Minutes')
+                                    //                                             ],
+                                    //                                           ),
+                                    //                                           SizedBox(height: 15),
+                                    //                                           Row(
+                                    //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //                                             children: [
+                                    //                                               Text(
+                                    //                                                 'Sunrise',
+                                    //                                                 style: TextStyle(
+                                    //                                                   fontSize: 18,
+                                    //                                                   fontWeight: FontWeight.bold,
+                                    //                                                 ),
+                                    //                                               ),
+                                    //                                               Text('0 Minutes')
+                                    //                                             ],
+                                    //                                           ),
+                                    //                                           SizedBox(height: 15),
+                                    //                                           Row(
+                                    //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //                                             children: [
+                                    //                                               Text(
+                                    //                                                 'Dhuhr',
+                                    //                                                 style: TextStyle(
+                                    //                                                   fontSize: 18,
+                                    //                                                   fontWeight: FontWeight.bold,
+                                    //                                                 ),
+                                    //                                               ),
+                                    //                                               Text('0 Minutes')
+                                    //                                             ],
+                                    //                                           ),
+                                    //                                           SizedBox(height: 15),
+                                    //                                           Row(
+                                    //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //                                             children: [
+                                    //                                               Text(
+                                    //                                                 'Asr',
+                                    //                                                 style: TextStyle(
+                                    //                                                   fontSize: 18,
+                                    //                                                   fontWeight: FontWeight.bold,
+                                    //                                                 ),
+                                    //                                               ),
+                                    //                                               Text('0 Minutes')
+                                    //                                             ],
+                                    //                                           ),
+                                    //                                           SizedBox(height: 15),
+                                    //                                           Row(
+                                    //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //                                             children: [
+                                    //                                               Text(
+                                    //                                                 'Magrib',
+                                    //                                                 style: TextStyle(
+                                    //                                                   fontSize: 18,
+                                    //                                                   fontWeight: FontWeight.bold,
+                                    //                                                 ),
+                                    //                                               ),
+                                    //                                               Text('0 Minutes')
+                                    //                                             ],
+                                    //                                           ),
+                                    //                                           SizedBox(height: 15),
+                                    //                                           Row(
+                                    //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //                                             children: [
+                                    //                                               Text(
+                                    //                                                 'Isha',
+                                    //                                                 style: TextStyle(
+                                    //                                                   fontSize: 18,
+                                    //                                                   fontWeight: FontWeight.bold,
+                                    //                                                 ),
+                                    //                                               ),
+                                    //                                               Text('0 Minutes')
+                                    //                                             ],
+                                    //                                           ),
+                                    //                                           SizedBox(height: 15),
+                                    //                                           Row(
+                                    //                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    //                                             children: [
+                                    //                                               Text(
+                                    //                                                 'Qiyam',
+                                    //                                                 style: TextStyle(
+                                    //                                                   fontSize: 18,
+                                    //                                                   fontWeight: FontWeight.bold,
+                                    //                                                 ),
+                                    //                                               ),
+                                    //                                               Text('0 Minutes')
+                                    //                                             ],
+                                    //                                           )
+                                    //                                         ],
+                                    //                                       ),
+                                    //                                     )
+                                    //                                   ],
+                                    //                                 );
+                                    //                               },
+                                    //                             );
+                                    //                           },
+                                    //                           icon:
+                                    //                               const Icon(Icons.arrow_forward_ios_rounded),
+                                    //                           iconSize:
+                                    //                               14,
+                                    //                           color:
+                                    //                               black102,
+                                    //                         )
+                                    //                       ],
+                                    //                     ),
+                                    //                   ],
+                                    //                 ),
+                                  ],
+                                ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Show Qiyam in Prayer Time Page',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                              ),
+                            ),
+                            BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                              builder: (context, state) {
+                                return Switch(
+                                  activeColor: ColorManager.primary,
+                                  value: state.showImsak,
+                                  onChanged: (value) {
+                                    context.read<NamazTimingBloc>().add(
+                                        AddShowimsakValToLocalStorage(
+                                            value: value));
+                                  },
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                        const Text(
+                          'Imsk- it is a period of time, about 10 mins, before \nthe down prayer begins and when people , who \nhave eaten suhoor, must stop eating.',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            height: 1.4,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+        );
+      },
+    );
   }
 
   buildNamazTile({

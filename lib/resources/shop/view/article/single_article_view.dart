@@ -149,7 +149,8 @@ class SingleArticleView extends StatelessWidget {
           // }
           return GestureDetector(
             onTap: () {
-              context.pushNamed(MyAppRouteConstants.singleProductRouteName);
+              context.pushNamed(MyAppRouteConstants.singleProductRouteName,
+                  pathParameters: {'id': data?.product?.id ?? ""});
             },
             child: Container(
               height: 70,

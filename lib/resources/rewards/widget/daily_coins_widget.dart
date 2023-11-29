@@ -1,5 +1,9 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_coins_collect_bloc.dart';
+import 'package:millat/utils/app_size.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -7,6 +11,8 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+
+import '../bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 
 class DailyCoinsWidget extends StatefulWidget {
   const DailyCoinsWidget({Key? key}) : super(key: key);
@@ -17,55 +23,87 @@ class DailyCoinsWidget extends StatefulWidget {
 
 class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   late Timer _timer;
-
   Duration duration = const Duration();
-  final deadLine = DateTime.now().add(const Duration(hours: 8));
-  SharedPreferences? prefs;
-  final String lastTimestampKey = 'lastTimestamp';
-  final Duration dailyDuration = const Duration(hours: 8);
+  final _now = DateTime.now().millisecondsSinceEpoch;
+  late SharedPreferences prefs;
+  final Duration initialDuration = const Duration(hours: AppSize.s8);
+
   @override
   void initState() {
     super.initState();
-    print("latest time ========= ${_loadLastTimestamp()}");
 
+    _initSharedPreferences();
+  }
+
+  _initSharedPreferences() async {
+    prefs = await SharedPreferences.getInstance();
     _loadLastTimestamp();
-    calculateTimeLeft();
+    _startTimer();
+  }
+
+  _startTimer() {
     _timer =
         Timer.periodic(const Duration(seconds: 1), (_) => calculateTimeLeft());
   }
 
   calculateTimeLeft() {
+    _checkCoinsCollected();
     final lastTimestamp = _loadLastTimestamp();
-    // print(lastTimestamp);
+    log("calc last time stamp === $lastTimestamp");
     final now = DateTime.now();
     final elapsedSeconds = now.difference(lastTimestamp).inSeconds;
-    // print(elapsedSeconds);
-    // print(dailyDuration.inSeconds);
-    final remainingSeconds = dailyDuration.inSeconds - elapsedSeconds;
-    // print(remainingSeconds);
-    final adjustedDuration = Duration(seconds: remainingSeconds);
-    // print("adjust duration is here-  -  -  - - - -  $adjustedDuration");
+    log("elapsed one $elapsedSeconds");
+
     setState(() {
-      duration = adjustedDuration;
+      duration = Duration(seconds: initialDuration.inSeconds - elapsedSeconds);
     });
+
+    if (elapsedSeconds >= initialDuration.inSeconds) {
+      _startTimer();
+      _saveCurrentTimestamp();
+      _timer.cancel();
+
+      _resetCollectedValue();
+    }
   }
 
-  _saveCurrentTimestamp() {
-    print(DateTime.now().millisecondsSinceEpoch);
-    Utilities.saveIntToSharedPreferences(
-        lastTimestampKey, DateTime.now().millisecondsSinceEpoch);
+  _resetCollectedValue() async {
+    await Utilities.saveBoolToSharedPreferences(
+        Appstrings.rewardsCoinsKey, false);
+
+    BlocProvider.of<RewardsCoinsCollectBloc>(context)
+        .add(const CheckCoinsCollected(value: false));
+  }
+
+  _checkCoinsCollected() async {
+    final value = await Utilities.getBoolFromSharedPreferences(
+        Appstrings.rewardsCoinsKey);
+
+    BlocProvider.of<RewardsCoinsCollectBloc>(context)
+        .add(CheckCoinsCollected(value: value));
+  }
+
+  _saveCurrentTimestamp() async {
+    await prefs.setInt(
+        Appstrings.lastTimestampKey, DateTime.now().millisecondsSinceEpoch);
   }
 
   DateTime _loadLastTimestamp() {
-    final lastTimestamp = prefs?.getInt(lastTimestampKey) ??
-        DateTime.now().millisecondsSinceEpoch;
-    return DateTime.fromMillisecondsSinceEpoch(lastTimestamp);
+    final lastTimestamp = prefs.getInt(Appstrings.lastTimestampKey);
+
+    log('last time stamp = $lastTimestamp');
+    if (lastTimestamp != null) {
+      return DateTime.fromMillisecondsSinceEpoch(lastTimestamp);
+    } else {
+      return DateTime.fromMillisecondsSinceEpoch(_now);
+    }
   }
 
   @override
   void dispose() {
     _saveCurrentTimestamp();
     _timer.cancel();
+
     super.dispose();
   }
 
@@ -205,27 +243,45 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                 ],
               ),
               kHeight20,
-              Container(
-                height: 38,
-                width: SizeUtility(context).width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: ColorManager.primary,
-                    gradient: LinearGradient(
-                      colors: [
-                        ColorManager.primary.withOpacity(0.6),
-                        ColorManager.primary,
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    )),
-                child: Center(
-                  child: Text(
-                    Appstrings.collect,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: ColorManager.whiteColor,
+              BlocBuilder<RewardsCoinsCollectBloc, RewardsCoinsCollectState>(
+                builder: (context, state) => GestureDetector(
+                  onTap: () async {
+                    await Utilities.saveBoolToSharedPreferences(
+                        Appstrings.rewardsCoinsKey, true);
+                    BlocProvider.of<RewardsCoinsCollectBloc>(context).add(
+                        const RewardsCoinsCollectEvent.checkCoinsCollected(
+                            value: true));
+                    state.checkCoinsCollected == false
+                        ? BlocProvider.of<RewardsBloc>(context)
+                            .add(const AddRewards(rewards: 500))
+                        : null;
+                  },
+                  child: Container(
+                    height: 38,
+                    width: SizeUtility(context).width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        gradient: LinearGradient(
+                          colors: [
+                            ColorManager.primary.withOpacity(
+                                state.checkCoinsCollected == true ? 0.4 : 0.6),
+                            ColorManager.primary.withOpacity(
+                                state.checkCoinsCollected == false ? 1 : 0.4),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        )),
+                    child: Center(
+                      child: Text(
+                        state.checkCoinsCollected == true
+                            ? Appstrings.collected
+                            : Appstrings.collect,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.whiteColor,
+                        ),
+                      ),
                     ),
                   ),
                 ),

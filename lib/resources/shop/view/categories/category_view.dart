@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +12,7 @@ import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.da
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
- import 'package:millat/utils/shimmer_utils.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -65,7 +68,7 @@ class CategoryView extends StatelessWidget {
           actions: const [
             Padding(
               padding: EdgeInsets.only(right: 20),
-              child: timer(),
+              child: Timers(),
             ),
           ],
         ),
@@ -187,18 +190,18 @@ class CategoryView extends StatelessWidget {
                                         productItems?[index];
                                     return GestureDetector(
                                       onTap: () {
-                                        print(
-                                            "item id ${productItems?[index].id}");
+                                        print(" category id ==== $categoryId");
 
                                         context.pushNamed(
                                             MyAppRouteConstants
                                                 .categoriesProductsRouteName,
                                             extra: {
                                               'itemId': productItems?[index].id,
-                                              'category': "",
+                                              'category': category,
                                               'subCategory': "",
                                               'type':
-                                                  FilterType.specificCategory
+                                                  FilterType.specificCategory,
+                                              'categoryId': categoryId
                                             });
                                       },
                                       child: Column(
@@ -232,6 +235,8 @@ class CategoryView extends StatelessWidget {
                                               fontWeight: FontWeight.w600,
                                             ),
                                             textAlign: TextAlign.center,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
                                           ),
                                         ],
                                       ),
@@ -244,7 +249,7 @@ class CategoryView extends StatelessWidget {
                         : BlocBuilder<CategoryBloc, CategoryState>(
                             builder: (context, state) {
                               return SizedBox(
-                                height: 100,
+                                height: 110,
                                 child: ListView.builder(
                                   itemCount: state.categoryItemModel?.result
                                           ?.items?.length ??
@@ -257,16 +262,17 @@ class CategoryView extends StatelessWidget {
 
                                     return GestureDetector(
                                       onTap: () {
+                                        print(" category id ==== $categoryId");
                                         context.pushNamed(
                                             MyAppRouteConstants
                                                 .categoriesProductsRouteName,
                                             extra: {
                                               'itemName': data?.title,
                                               'itemId': data?.id,
-                                              'category': "",
+                                              'category': category,
                                               'subCategory': "",
-                                              'type':
-                                                  FilterType.specificCategory
+                                              'categoryId': categoryId,
+                                              'type': FilterType.category,
                                             });
                                       },
                                       child: Column(
@@ -298,6 +304,8 @@ class CategoryView extends StatelessWidget {
                                               fontSize: 14,
                                               fontWeight: FontWeight.w600,
                                             ),
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
                                             textAlign: TextAlign.center,
                                           ),
                                         ],
@@ -328,8 +336,7 @@ class CategoryView extends StatelessWidget {
                             ? const SizedBox()
                             : Column(
                                 children: [
-                                  _produtsTitleWidget(
-                                    context: context,
+                                  ProductTitleWidget(
                                     text: Appstrings.flashSale,
                                     isShowTimer: true,
                                   ),
@@ -438,8 +445,7 @@ class CategoryView extends StatelessWidget {
                             ? const SizedBox()
                             : Column(
                                 children: [
-                                  _produtsTitleWidget(
-                                    context: context,
+                                  ProductTitleWidget(
                                     text: Appstrings.mostPopular,
                                     isShowTimer: false,
                                   ),
@@ -523,12 +529,20 @@ class CategoryView extends StatelessWidget {
       ],
     ));
   }
+}
 
-  Widget _produtsTitleWidget({
-    required BuildContext context,
-    required String text,
-    bool isShowTimer = false,
-  }) {
+class ProductTitleWidget extends StatelessWidget {
+  final String text;
+  final bool isShowTimer;
+
+  const ProductTitleWidget({
+    Key? key,
+    required this.text,
+    this.isShowTimer = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -540,193 +554,217 @@ class CategoryView extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        isShowTimer
-            ? Row(
-                children: [
-                  Container(
-                    height: 24,
-                    width: 28,
-                    decoration: BoxDecoration(
-                        color: ColorManager.lightGreen,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: ColorManager.primary,
-                        )),
-                    child: Center(
-                      child: Text(
-                        "08",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: ColorManager.primary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  kWidth5,
-                  Text(
-                    ":",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: ColorManager.primary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  kWidth5,
-                  Container(
-                    height: 24,
-                    width: 28,
-                    decoration: BoxDecoration(
-                        color: ColorManager.lightGreen,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: ColorManager.primary,
-                        )),
-                    child: Center(
-                      child: Text(
-                        "23",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: ColorManager.primary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  kWidth5,
-                  Text(
-                    ":",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: ColorManager.primary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  kWidth5,
-                  Container(
-                    height: 24,
-                    width: 28,
-                    decoration: BoxDecoration(
-                        color: ColorManager.lightGreen,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: ColorManager.primary,
-                        )),
-                    child: Center(
-                      child: Text(
-                        "15",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: ColorManager.primary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  kWidth5,
-                ],
-              )
-            : const SizedBox()
-        // GestureDetector(
-        //   onTap: onTap,
-        //   child: Text(
-        //     'View All',
-        //     style: TextStyle(
-        //         color: ColorManager.mainColor,
-        //         fontSize: 15,
-        //         fontWeight: FontWeight.bold),
-        //   ),
-        // ),
+        isShowTimer ? TimerWidget() : const SizedBox(),
       ],
     );
   }
 }
 
-class timer extends StatelessWidget {
-  const timer({
+class TimerWidget extends StatefulWidget {
+  const TimerWidget({
     super.key,
   });
+
+  @override
+  _TimerWidgetState createState() => _TimerWidgetState();
+}
+
+class _TimerWidgetState extends State<TimerWidget> {
+  late Timer _timer;
+  int hours = 8;
+  int minutes = 0;
+  int seconds = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (seconds > 0) {
+          seconds--;
+        } else {
+          if (minutes > 0) {
+            minutes--;
+            seconds = 59;
+          } else {
+            if (hours > 0) {
+              hours--;
+              minutes = 59;
+              seconds = 59;
+            } else {
+              _timer.cancel();
+            }
+          }
+        }
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          height: 24,
-          width: 28,
-          decoration: BoxDecoration(
-            color: ColorManager.lightGreen.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Center(
-            child: Text(
-              "08",
-              style: TextStyle(
-                fontSize: 12,
-                color: ColorManager.whiteColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
+        _buildTimeContainer(hours),
         kWidth5,
         Text(
           ":",
           style: TextStyle(
             fontSize: 12,
-            color: ColorManager.whiteColor,
+            color: ColorManager.primary,
             fontWeight: FontWeight.bold,
           ),
         ),
         kWidth5,
-        Container(
-          height: 24,
-          width: 28,
-          decoration: BoxDecoration(
-            color: ColorManager.lightGreen.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Center(
-            child: Text(
-              "23",
-              style: TextStyle(
-                fontSize: 12,
-                color: ColorManager.whiteColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
+        _buildTimeContainer(minutes),
         kWidth5,
         Text(
           ":",
           style: TextStyle(
             fontSize: 12,
-            color: ColorManager.whiteColor,
+            color: ColorManager.primary,
             fontWeight: FontWeight.bold,
           ),
         ),
         kWidth5,
-        Container(
-          height: 24,
-          width: 28,
-          decoration: BoxDecoration(
-            color: ColorManager.lightGreen.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Center(
-            child: Text(
-              "15",
-              style: TextStyle(
-                fontSize: 12,
-                color: ColorManager.whiteColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
+        _buildTimeContainer(seconds),
         kWidth5,
       ],
     );
+  }
+
+  Widget _buildTimeContainer(int time) {
+    return Container(
+      height: 24,
+      width: 28,
+      decoration: BoxDecoration(
+        color: ColorManager.lightGreen,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+          color: ColorManager.primary,
+        ),
+      ),
+      child: Center(
+        child: Text(
+          time.toString().padLeft(2, '0'),
+          style: TextStyle(
+            fontSize: 12,
+            color: ColorManager.primary,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+}
+
+class Timers extends StatefulWidget {
+  const Timers({Key? key});
+
+  @override
+  _TimersState createState() => _TimersState();
+}
+
+class _TimersState extends State<Timers> {
+  late Timer _timer;
+  int hours = 8;
+  int minutes = 23;
+  int seconds = 15;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (seconds > 0) {
+          seconds--;
+        } else {
+          if (minutes > 0) {
+            minutes--;
+            seconds = 59;
+          } else {
+            if (hours > 0) {
+              hours--;
+              minutes = 59;
+              seconds = 59;
+            } else {
+              _timer.cancel();
+            }
+          }
+        }
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        _buildTimeContainer(hours),
+        kWidth5,
+        Text(
+          ":",
+          style: TextStyle(
+            fontSize: 12,
+            color: ColorManager.whiteColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        kWidth5,
+        _buildTimeContainer(minutes),
+        kWidth5,
+        Text(
+          ":",
+          style: TextStyle(
+            fontSize: 12,
+            color: ColorManager.whiteColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        kWidth5,
+        _buildTimeContainer(seconds),
+        kWidth5,
+      ],
+    );
+  }
+
+  Widget _buildTimeContainer(int time) {
+    return Container(
+      height: 24,
+      width: 28,
+      decoration: BoxDecoration(
+        color: ColorManager.lightGreen.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Center(
+        child: Text(
+          time.toString().padLeft(2, '0'),
+          style: TextStyle(
+            fontSize: 12,
+            color: ColorManager.whiteColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 }

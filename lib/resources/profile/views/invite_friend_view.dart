@@ -34,18 +34,18 @@ class InviteFriendView extends StatelessWidget {
               const AssetImage(
                 AppAssetsStrings.share,
               ),
-              size: 22,
+              size: 23,
               color: ColorManager.blackColor,
             ),
           ),
-          kWidth10,
+          kWidth20,
           GestureDetector(
             onTap: () {
               context.pop();
             },
             child: Icon(
               Icons.close,
-              size: 24,
+              size: 28,
               color: ColorManager.blackColor,
             ),
           ),
@@ -135,41 +135,39 @@ class InviteFriendView extends StatelessWidget {
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                trailing: GestureDetector(
-                                  onTap: () async {
-                                    final Uri smsLaunchUri = Uri(
-                                      scheme: 'sms',
-                                      path: contact.phones![0].value,
-                                      queryParameters: <String, String>{
-                                        'body': Uri.encodeComponent(
-                                            'Example Subject & Symbols are allowed!'),
-                                      },
-                                    );
-                                    if (await canLaunchUrl(smsLaunchUri)) {
-                                      await launchUrl(smsLaunchUri);
-                                    } else {
-                                      print("error on uri launcher");
-                                    }
-                                  },
-                                  child: Container(
-                                    height: 38,
-                                    width: 112,
-                                    decoration: BoxDecoration(
-                                      color: ColorManager.primary,
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        Appstrings.get100Coins,
-                                        style: TextStyle(
-                                          color: ColorManager.whiteColor,
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                trailing: Container(
+                                  height: 38,
+                                  width: 112,
+                                  decoration: BoxDecoration(
+                                    color: ColorManager.primary,
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      Appstrings.get100Coins,
+                                      style: TextStyle(
+                                        color: ColorManager.whiteColor,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
                                 ),
+                                onTap: () async {
+                                  final Uri smsLaunchUri = Uri(
+                                    scheme: 'sms',
+                                    path: contact.phones![0].value,
+                                    queryParameters: <String, String>{
+                                      'body': Uri.encodeComponent(
+                                          'Example Subject & Symbols are allowed!'),
+                                    },
+                                  );
+                                  if (await canLaunchUrl(smsLaunchUri)) {
+                                    await launchUrl(smsLaunchUri);
+                                  } else {
+                                    print("error on uri launcher");
+                                  }
+                                },
                               );
                             },
                           );

@@ -112,13 +112,13 @@ class _ShopSearchViewState extends State<ShopSearchView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      filterWidget(),
-                      sortByWidget(),
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     filterWidget(),
+                  //     sortByWidget(),
+                  //   ],
+                  // ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       final itemCount =
@@ -196,192 +196,192 @@ class _ShopSearchViewState extends State<ShopSearchView> {
   Widget filterWidget() {
     return GestureDetector(
       onTap: () {
-        showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          builder: (context) {
-            return StatefulBuilder(
-              builder: (context, setState) {
-                return Container(
-                  height: SizeUtility(context).height / 1.5,
-                  width: SizeUtility(context).width,
-                  padding:
-                      const EdgeInsets.all(15).copyWith(left: 30, right: 30),
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(20),
-                    ),
-                    color: ColorManager.whiteColor,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      kHeight25,
-                      Align(
-                        alignment: Alignment.center,
-                        child: _filterTitleText(Appstrings.filters),
-                      ),
-                      kHeight20,
-                      const Divider(),
-                      kHeight16,
-                      _filterTitleText(
-                        Appstrings.priceRange,
-                      ),
-                      SliderTheme(
-                        data: SliderThemeData(
-                          thumbColor: ColorManager.primary,
-                          activeTrackColor: ColorManager.yellowTanClr,
-                          inactiveTrackColor: ColorManager.lightGrey,
-                          trackHeight: 1,
-                        ),
-                        child: RangeSlider(
-                          values: priceRange,
-                          min: 0,
-                          max: 100,
-                          onChanged: (newRange) {
-                            setState(() {
-                              priceRange = newRange;
-                            });
-                          },
-                        ),
-                      ),
-                      kHeight16,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "₹${priceRange.start.toStringAsFixed(0)}",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.textGrey,
-                            ),
-                          ),
-                          Text("₹${priceRange.end.toStringAsFixed(0)}",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.textGrey,
-                              )),
-                        ],
-                      ),
-                      kHeight20,
-                      _filterTitleText(Appstrings.sizes),
-                      kHeight20,
-                      SizedBox(
-                        height: 48,
-                        child: ListView.builder(
-                          itemCount: 5,
-                          scrollDirection: Axis.horizontal,
-                          itemExtent: 70,
-                          itemBuilder: (context, index) {
-                            final text = [
-                              Appstrings.xs,
-                              Appstrings.s,
-                              Appstrings.l,
-                              Appstrings.xl,
-                              Appstrings.xxl,
-                            ];
-                            return Container(
-                              margin: const EdgeInsets.only(right: 15),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 14, vertical: 16),
-                              height: 48,
-                              width: 48,
-                              decoration: BoxDecoration(
-                                color: ColorManager.lightYellow,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Center(
-                                  child: Text(
-                                text[index],
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              )),
-                            );
-                          },
-                        ),
-                      ),
-                      kHeight20,
-                      _filterTitleText(
-                        Appstrings.category,
-                      ),
-                      kHeight20,
-                      Row(
-                        children: [
-                          FilterChip(
-                            label: const Text(Appstrings.all),
-                            selected: selectedFilter == Appstrings.all,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.all : '';
-                              });
-                            },
-                          ),
-                          kWidth10,
-                          FilterChip(
-                            label: const Text(Appstrings.women),
-                            selected: selectedFilter == Appstrings.women,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.women : '';
-                              });
-                            },
-                          ),
-                          kWidth10,
-                          FilterChip(
-                            label: const Text(Appstrings.men),
-                            selected: selectedFilter == Appstrings.men,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.men : '';
-                              });
-                            },
-                          ),
-                          kWidth10,
-                          FilterChip(
-                            label: const Text(Appstrings.boys),
-                            selected: selectedFilter == Appstrings.boys,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.boys : '';
-                              });
-                            },
-                          ),
-                          kWidth10,
-                          FilterChip(
-                            label: const Text(Appstrings.girls),
-                            selected: selectedFilter == Appstrings.girls,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.girls : '';
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      kHeight20,
-                      const Divider(),
-                      kHeight25,
-                      MainButton(
-                        title: Appstrings.apply,
-                        onPressed: () {},
-                      )
-                    ],
-                  ),
-                );
-              },
-            );
-          },
-        );
+        // showModalBottomSheet(
+        //   context: context,
+        //   isScrollControlled: true,
+        //   backgroundColor: Colors.transparent,
+        //   builder: (context) {
+        //     return StatefulBuilder(
+        //       builder: (context, setState) {
+        //         return Container(
+        //           height: SizeUtility(context).height / 1.5,
+        //           width: SizeUtility(context).width,
+        //           padding:
+        //               const EdgeInsets.all(15).copyWith(left: 30, right: 30),
+        //           decoration: BoxDecoration(
+        //             borderRadius: const BorderRadius.vertical(
+        //               top: Radius.circular(20),
+        //             ),
+        //             color: ColorManager.whiteColor,
+        //           ),
+        //           child: Column(
+        //             crossAxisAlignment: CrossAxisAlignment.start,
+        //             children: [
+        //               kHeight25,
+        //               Align(
+        //                 alignment: Alignment.center,
+        //                 child: _filterTitleText(Appstrings.filters),
+        //               ),
+        //               kHeight20,
+        //               const Divider(),
+        //               kHeight16,
+        //               _filterTitleText(
+        //                 Appstrings.priceRange,
+        //               ),
+        //               SliderTheme(
+        //                 data: SliderThemeData(
+        //                   thumbColor: ColorManager.primary,
+        //                   activeTrackColor: ColorManager.yellowTanClr,
+        //                   inactiveTrackColor: ColorManager.lightGrey,
+        //                   trackHeight: 1,
+        //                 ),
+        //                 child: RangeSlider(
+        //                   values: priceRange,
+        //                   min: 0,
+        //                   max: 100,
+        //                   onChanged: (newRange) {
+        //                     setState(() {
+        //                       priceRange = newRange;
+        //                     });
+        //                   },
+        //                 ),
+        //               ),
+        //               kHeight16,
+        //               Row(
+        //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //                 children: [
+        //                   Text(
+        //                     "₹${priceRange.start.toStringAsFixed(0)}",
+        //                     style: TextStyle(
+        //                       fontSize: 14,
+        //                       fontWeight: FontWeight.w600,
+        //                       color: ColorManager.textGrey,
+        //                     ),
+        //                   ),
+        //                   Text("₹${priceRange.end.toStringAsFixed(0)}",
+        //                       style: TextStyle(
+        //                         fontSize: 14,
+        //                         fontWeight: FontWeight.w600,
+        //                         color: ColorManager.textGrey,
+        //                       )),
+        //                 ],
+        //               ),
+        //               kHeight20,
+        //               _filterTitleText(Appstrings.sizes),
+        //               kHeight20,
+        //               SizedBox(
+        //                 height: 48,
+        //                 child: ListView.builder(
+        //                   itemCount: 5,
+        //                   scrollDirection: Axis.horizontal,
+        //                   itemExtent: 70,
+        //                   itemBuilder: (context, index) {
+        //                     final text = [
+        //                       Appstrings.xs,
+        //                       Appstrings.s,
+        //                       Appstrings.l,
+        //                       Appstrings.xl,
+        //                       Appstrings.xxl,
+        //                     ];
+        //                     return Container(
+        //                       margin: const EdgeInsets.only(right: 15),
+        //                       padding: const EdgeInsets.symmetric(
+        //                           horizontal: 14, vertical: 16),
+        //                       height: 48,
+        //                       width: 48,
+        //                       decoration: BoxDecoration(
+        //                         color: ColorManager.lightYellow,
+        //                         borderRadius: BorderRadius.circular(12),
+        //                       ),
+        //                       child: Center(
+        //                           child: Text(
+        //                         text[index],
+        //                         style: const TextStyle(
+        //                           fontSize: 15,
+        //                           fontWeight: FontWeight.w500,
+        //                         ),
+        //                       )),
+        //                     );
+        //                   },
+        //                 ),
+        //               ),
+        //               kHeight20,
+        //               _filterTitleText(
+        //                 Appstrings.category,
+        //               ),
+        //               kHeight20,
+        //               Row(
+        //                 children: [
+        //                   FilterChip(
+        //                     label: const Text(Appstrings.all),
+        //                     selected: selectedFilter == Appstrings.all,
+        //                     onSelected: (isSelected) {
+        //                       setState(() {
+        //                         selectedFilter =
+        //                             isSelected ? Appstrings.all : '';
+        //                       });
+        //                     },
+        //                   ),
+        //                   kWidth10,
+        //                   FilterChip(
+        //                     label: const Text(Appstrings.women),
+        //                     selected: selectedFilter == Appstrings.women,
+        //                     onSelected: (isSelected) {
+        //                       setState(() {
+        //                         selectedFilter =
+        //                             isSelected ? Appstrings.women : '';
+        //                       });
+        //                     },
+        //                   ),
+        //                   kWidth10,
+        //                   FilterChip(
+        //                     label: const Text(Appstrings.men),
+        //                     selected: selectedFilter == Appstrings.men,
+        //                     onSelected: (isSelected) {
+        //                       setState(() {
+        //                         selectedFilter =
+        //                             isSelected ? Appstrings.men : '';
+        //                       });
+        //                     },
+        //                   ),
+        //                   kWidth10,
+        //                   FilterChip(
+        //                     label: const Text(Appstrings.boys),
+        //                     selected: selectedFilter == Appstrings.boys,
+        //                     onSelected: (isSelected) {
+        //                       setState(() {
+        //                         selectedFilter =
+        //                             isSelected ? Appstrings.boys : '';
+        //                       });
+        //                     },
+        //                   ),
+        //                   kWidth10,
+        //                   FilterChip(
+        //                     label: const Text(Appstrings.girls),
+        //                     selected: selectedFilter == Appstrings.girls,
+        //                     onSelected: (isSelected) {
+        //                       setState(() {
+        //                         selectedFilter =
+        //                             isSelected ? Appstrings.girls : '';
+        //                       });
+        //                     },
+        //                   ),
+        //                 ],
+        //               ),
+        //               kHeight20,
+        //               const Divider(),
+        //               kHeight25,
+        //               MainButton(
+        //                 title: Appstrings.apply,
+        //                 onPressed: () {},
+        //               )
+        //             ],
+        //           ),
+        //         );
+        //       },
+        //     );
+        //   },
+        // );
       },
       child: Container(
         height: 38,

@@ -32,10 +32,10 @@ class VersesCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 5)
-          .copyWith(top: 10, bottom: 5),
-      margin: const EdgeInsets.all(5),
+          .copyWith(top: 15, bottom: 5),
+      margin: const EdgeInsets.all(5).copyWith(top: 5, bottom: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(7),
+        borderRadius: BorderRadius.circular(10),
         color: ColorManager.whiteColor,
         boxShadow: [
           BoxShadow(
@@ -49,67 +49,79 @@ class VersesCardWidget extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Stack(
-                children: [
-                  SizedBox(
-                    height: 40,
-                    width: 40,
-                    child: Image.asset("assets/images/muslim_1.png"),
-                  ),
-                  Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: LayoutBuilder(
-                        builder: (context, constraints) {
-                          final digits = numValue.toString().length;
-                          final fontSize = digits > 3 ? 12 : 16;
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Stack(
+                      children: [
+                        SizedBox(
+                          height: 40,
+                          width: 40,
+                          child: Image.asset("assets/images/muslim_1.png"),
+                        ),
+                        Positioned.fill(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: LayoutBuilder(
+                              builder: (context, constraints) {
+                                final digits = numValue.toString().length;
+                                final fontSize = digits > 3 ? 12 : 16;
 
-                          return Text(
-                            '$numValue',
-                            style: TextStyle(
-                              fontSize: fontSize.toDouble(),
-                              fontWeight: FontWeight.bold,
+                                return Text(
+                                  '$numValue',
+                                  style: TextStyle(
+                                    fontSize: fontSize.toDouble(),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                );
+                              },
                             ),
-                          );
-                        },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: SizedBox(
+                    child: BlocBuilder<QuranBloc, QuranState>(
+                      builder: (context, state) => Text(
+                        surah,
+                        style: TextStyle(
+                          fontSize: state.fontsize,
+                          fontWeight: FontWeight.w800,
+                          fontFamily: 'Uthmani Regular',
+                        ),
+                        textDirection: TextDirection.rtl,
+                        maxLines: 4,
                       ),
                     ),
                   ),
-                ],
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.topRight,
-            child: SizedBox(
-              child: BlocBuilder<QuranBloc, QuranState>(
-                builder: (context, state) => Text(
-                  surah,
-                  style: TextStyle(
-                    fontSize: state.fontsize,
-                    fontWeight: FontWeight.w800,
-                    fontFamily: 'Uthmani Regular',
-                  ),
-                  textDirection: TextDirection.rtl,
-                  maxLines: 4,
                 ),
-              ),
+                kHeight10,
+                BlocBuilder<QuranBloc, QuranState>(
+                  builder: (context, state) {
+                    return Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        Utilities.removeFootnotesFromMeaning(surahMeaning),
+                        style: TextStyle(
+                          fontSize: state.fontsize - 3,
+                          fontWeight: FontWeight.w500,
+                          height: 1.3,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
-          ),
-          kHeight10,
-          BlocBuilder<QuranBloc, QuranState>(
-            builder: (context, state) {
-              return Text(
-                Utilities.removeFootnotesFromMeaning(surahMeaning),
-                style: TextStyle(
-                    fontSize: state.fontsize - 3,
-                    fontWeight: FontWeight.w500,
-                    height: 1.3),
-              );
-            },
           ),
           const SizedBox(
             height: 5,
@@ -132,7 +144,7 @@ class VersesCardWidget extends StatelessWidget {
                     color: ColorManager.primary,
                   ),
                 ),
-                kWidth10,
+                kWidth20,
                 BlocBuilder<QuranBloc, QuranState>(
                   builder: (context, state) => state.audioPlaying && isSelected
                       ? GestureDetector(
@@ -150,7 +162,7 @@ class VersesCardWidget extends StatelessWidget {
                           ),
                         ),
                 ),
-                kWidth10,
+                kWidth20,
                 BlocBuilder<BookmarkBloc, BookmarkState>(
                   builder: (context, state) => GestureDetector(
                     onTap: bookMarkOntap,
@@ -168,6 +180,7 @@ class VersesCardWidget extends StatelessWidget {
                           ),
                   ),
                 ),
+                kWidth10,
               ],
             ),
           )

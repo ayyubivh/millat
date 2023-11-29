@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import '../../../../../components/buttons/main_button.dart';
+import '../../../../../enums/enumertations.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/size_utility.dart';
@@ -49,7 +50,10 @@ class CreateNewBookmarkWidget extends StatelessWidget {
           MainButton(
             title: "Create Now",
             onPressed: () {
-              context.goNamed(MyAppRouteConstants.quranBookmarkRouteName);
+              context.goNamed(
+                MyAppRouteConstants.addNewQuranBookmarkRouteName,
+                extra: {'type': BookMarkCollectionType.add},
+              );
             },
           ),
         ],

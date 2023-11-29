@@ -379,7 +379,7 @@ mixin _$Reward {
   String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'userId')
   String? get userId => throw _privateConstructorUsedError;
-  int? get coins => throw _privateConstructorUsedError;
+  double? get coins => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
   String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updatedAt')
@@ -398,7 +398,7 @@ abstract class $RewardCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'userId') String? userId,
-      int? coins,
+      double? coins,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt});
 }
@@ -434,7 +434,7 @@ class _$RewardCopyWithImpl<$Res, $Val extends Reward>
       coins: freezed == coins
           ? _value.coins
           : coins // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -457,7 +457,7 @@ abstract class _$$RewardImplCopyWith<$Res> implements $RewardCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'userId') String? userId,
-      int? coins,
+      double? coins,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt});
 }
@@ -491,7 +491,7 @@ class __$$RewardImplCopyWithImpl<$Res>
       coins: freezed == coins
           ? _value.coins
           : coins // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -524,7 +524,7 @@ class _$RewardImpl implements _Reward {
   @JsonKey(name: 'userId')
   final String? userId;
   @override
-  final int? coins;
+  final double? coins;
   @override
   @JsonKey(name: 'createdAt')
   final String? createdAt;
@@ -574,7 +574,7 @@ abstract class _Reward implements Reward {
   const factory _Reward(
       {@JsonKey(name: '_id') final String? id,
       @JsonKey(name: 'userId') final String? userId,
-      final int? coins,
+      final double? coins,
       @JsonKey(name: 'createdAt') final String? createdAt,
       @JsonKey(name: 'updatedAt') final String? updatedAt}) = _$RewardImpl;
 
@@ -587,7 +587,7 @@ abstract class _Reward implements Reward {
   @JsonKey(name: 'userId')
   String? get userId;
   @override
-  int? get coins;
+  double? get coins;
   @override
   @JsonKey(name: 'createdAt')
   String? get createdAt;

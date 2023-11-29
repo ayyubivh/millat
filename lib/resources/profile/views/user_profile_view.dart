@@ -297,6 +297,7 @@ class UserProfileView extends StatelessWidget {
                               },
                             ];
                             return _buildItemRow(
+                              context: context,
                               image: images[index],
                               text: texts[index],
                               onTap: navigation[index],
@@ -359,6 +360,7 @@ class UserProfileView extends StatelessWidget {
                           },
                         ];
                         return _buildItemRow(
+                          context: context,
                           image: images[index],
                           text: texts[index],
                           onTap: navigations[index],
@@ -509,11 +511,13 @@ class UserProfileView extends StatelessWidget {
   Widget _buildItemRow(
       {required String image,
       required String text,
-      required VoidCallback onTap}) {
+      required VoidCallback onTap,
+      required BuildContext context}) {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
         height: 40,
+        width: SizeUtility(context).width,
         child: Row(
           children: [
             ImageIcon(

@@ -14,7 +14,6 @@ class MyAppRouteConstants {
   static const String compassRouteName = "compass";
   static const String tasbihRouteName = "tasbih";
   static const String duaRouteName = "dua";
-  static const String quranBookmarkRouteName = "quran_bookmark";
   static const String quranBookmarkCollectionRouteName =
       "quran_bookmark_collection";
   static const String addSuraSearchRouteName = "add_sura_search";
@@ -64,12 +63,17 @@ class MyAppRouteConstants {
   static const String orderReturnDetailRouteName = 'order_return_details';
   static const String orderReturnSuccesRouteName = 'order_return_success';
   static const String imageFullViewRoutename = "image_full_view";
-  static const String rewardsTabRouteName = "rewards_tab";
-
+  static const String categoryProductsFilterRouteName =
+      "category_products_filter";
   // Travel
   static const String travelHomeRoutename = 'travel_home';
   static const String travelSearchRoutename = 'travel_search';
   static const String travelSingleRoutename = 'travel_singleproudct';
   static const String travelBookingFormRoutename = 'travel_bookingform';
   static const String travelPackagesView = "travel_packages";
+
+  //rewards
+  // static const String rewardsTabRouteName = "rewards_tab";
+  static const String rewardsShopRouteName = "rewards_shop";
+  static const String rewardsShopProductRoutename = "rewards_shop_product";
 }

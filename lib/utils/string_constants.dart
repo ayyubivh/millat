@@ -4,6 +4,8 @@ class Appstrings {
   static const String namazMethodDb = "NamazMethode-Db";
   static const String autoDetectLocationKey = "Autodetect-Location";
   static const String autoMaticSettingsKey = "Automatic-settings";
+  static const String lastTimestampKey = 'lastTimestamp';
+  static const String rewardsCoinsKey = "Rewards-conins";
   static const String showImsakKey = "Show-imsak";
   static const String calculationMethodKey = "Calculation-Method";
   static const String asrCalculationMethodKey = "Asr-calculation-Method";
@@ -76,7 +78,7 @@ class Appstrings {
   static const String notifications = "Notifications";
   static const String millatCo = "Millat.co";
   static const String aboutUsDescription =
-      "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.We don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
+      "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may cedfrom you acedross our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.We don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
   static const String privacyPolicyDescription =
       "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.\n\nWe don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
   static const String inviteYourFriend = "Invite your Friends";
@@ -100,6 +102,7 @@ class Appstrings {
       'We have proudly collaborated with 1000+ \nrenowned brands!"';
   static const String top8brands = "Top 8 Brands";
   static const String filters = "Filters";
+  static const String filter = "Filter";
   static const String byReview = "By Review";
   static const String sortBy = "Sort By";
   static const String womensCare = "Women's Care";
@@ -178,6 +181,9 @@ class Appstrings {
   static const String l = "L";
   static const String xxl = "XXL";
   static const String category = "Category";
+  static const String subCategory = "Sub Category";
+  static const String price = "Price";
+  static const String colors = "Colors";
   static const String all = "All";
   static const String women = "Women";
   static const String men = "Men";
@@ -210,8 +216,9 @@ class Appstrings {
   static const String hadith = "Hadith";
   static const String noProductsFound = "No products found!";
   static const String buyNow = "Buy Now";
-
-//Profile
+  static const String clearAll = "Clear All";
+  static const String yourRange = "Your range:";
+  //Profile
   static const String referFriendEarn = "Reffer Friends, Get 100 coins Each ";
   static const String toName = "To:Name,Phone, or Email";
   static const String contact = "CONTACT";
@@ -253,6 +260,7 @@ class Appstrings {
   static const String coins = "Coins";
   static const String earnFreeConins = "Earn free coins everyday";
   static const String collect = "Collect";
+  static const String collected = "Collected";
   static const String howEarn = "How to \nEarn ?";
   static const String howRedeem = "How to \nRedeem?";
   static const String howToEarn = "How to earn";
@@ -300,7 +308,8 @@ class Appstrings {
   static const String redeemedSuccessfully = "Redeemed Successfully";
   static const String claimShopReward = "Claim Shop Rewards";
   static const String incredibleSteals = "Incredible Steals";
-  static const String islamicStore = "Islamic \nStore";
+  static const String islamicStore = "Islamic Store";
+  static const String islamicStore2 = "Islamic \nStore";
   static const String aboutTheProduct = "About the Product";
   static const String aboutTheProductDummy =
       "We have something exciting for you to fall in love with if you are looking for something good in terms of fragrance and without alcohol. Attar Rose is a wonderful attar for both men and women. Attar Rose is ideal for both parties and everyday use. Indulge in the world of aroma with this incredible perfume, which is designed to blend with the body's natural scent. The bottle is compact and lightweight for easy handling. It lasts up to 24 hours and leaves a floral fragrance trail wherever you go. It's easy to carry and has a sweet floral effect with the best aromatic notes. We have a variety of attar to choose from that will keep you fresh and odour-free all day long. Experience the floral aroma of oud agarwood.";
@@ -328,7 +337,7 @@ class Appstrings {
   static const String popularDestination = "Popular Destination";
   static const String bestPlace = "Best Place";
   static const String searchYourDestination = "Search Your Destination";
-  static const String clearAll = "Clear All";
+
   static const String bookingForm = "Booking Form";
   static const String phoneNumber = "Phone Number";
   static const String guests = "Guests";

@@ -116,6 +116,7 @@ class _SignUpViewState extends State<SignUpView> {
                           context.goNamed(MyAppRouteConstants.sendOtpRouteName,
                               pathParameters: {'isSignIn': 'true'});
                         },
+                        textStyle: TextStyle(color: ColorManager.blackColor),
                       ),
                       MainButton(
                           title: 'Sign Up',

@@ -67,9 +67,15 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
   SwipeItem _buildSwipeItem(Data card) {
     return SwipeItem(
       content: card,
-      likeAction: () {},
-      nopeAction: () {},
-      superlikeAction: () {},
+      likeAction: () {
+        print('like action');
+      },
+      nopeAction: () {
+        print('nope action');
+      },
+      superlikeAction: () {
+        print('super like action');
+      },
     );
   }
 
@@ -126,8 +132,11 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                               color: ColorManager.blackColor,
+                              height: 1.3,
+                              overflow: TextOverflow.ellipsis,
                             ),
                             // textDirection: TextDirection.rtl,
+                            maxLines: 5,
                           ),
                         ),
                         const Spacer(),

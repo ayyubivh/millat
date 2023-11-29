@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
+import 'package:millat/resources/rewards/bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/resources/travel/view/widget/travel_tabbar_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 
+import '../../../enums/enumertations.dart';
 import '../../../utils/shimmer_utils.dart';
 
 class TravelSingleProductView extends StatelessWidget {
@@ -20,159 +21,148 @@ class TravelSingleProductView extends StatelessWidget {
   final String id;
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<TravelBloc>(context)
+          .add(TravelEvent.fetchTravelProductById(id: id));
+    });
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => TravelBloc()
-          ..add(
-            TravelEvent.fetchTravelProductById(id: id),
-          ),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              expandedHeight: SizeUtility(context).height / 3,
-              // centerTitle: true,
-              stretch: true,
-              flexibleSpace: const FlexibleSpaceBar(
-                centerTitle: true,
-                background: HeaderImageWidget(),
-                // title: BrandLogoName(passValue: passValue),
-              ),
-              actions: [
-                // BlocBuilder<TravelBloc, TravelState>(
-                //   builder: (context, state) {
-                //     return Padding(
-                //       padding: const EdgeInsets.symmetric(vertical: 10),
-                //       child: RatingWidget(
-                //         rating: state.travelProductsModel?.product.rating ?? 0,
-                //       ),
-                //     );
-                //   },
-                // ),
-                kWidth10,
-                Container(
-                  height: 36,
-                  width: 36,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: ColorManager.blackColor.withOpacity(0.5),
-                  ),
-                  child: const Icon(
-                    Icons.favorite_border_outlined,
-                  ),
-                ),
-                kWidth30,
-              ],
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            expandedHeight: SizeUtility(context).height / 3,
+            // centerTitle: true,
+            stretch: true,
+            flexibleSpace: const FlexibleSpaceBar(
+              centerTitle: true,
+              background: HeaderImageWidget(),
+              // title: BrandLogoName(passValue: passValue),
             ),
-            SliverToBoxAdapter(
-              child: BlocBuilder<TravelBloc, TravelState>(
+            actions: [
+              // BlocBuilder<TravelBloc, TravelState>(
+              //   builder: (context, state) {
+              //     return Padding(
+              //       padding: const EdgeInsets.symmetric(vertical: 10),
+              //       child: RatingWidget(
+              //         rating: state.travelProductsModel?.product.rating ?? 0,
+              //       ),
+              //     );
+              //   },
+              // ),
+              kWidth10,
+              BlocBuilder<TravelBloc, TravelState>(
                 builder: (context, state) {
-                  final data = state.travelProductsModel?.product;
-                  if (data == null) {
-                    return ShimmerUtils.travelSingleProductShimmer(context);
-                  }
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        kHeight25,
-                        Text(
-                          data.name!,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.blackColor,
-                          ),
-                        ),
-                        kHeight15,
-                        Row(
-                          children: [
-                            Image.asset(
-                              AppAssetsStrings.locations,
-                              height: 20,
-                              width: 20,
-                            ),
-                            kWidth3,
-                            Text(
-                              data.location ?? "",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.textGrey,
-                              ),
-                            ),
-                            const Spacer(),
-                            Image.asset(
-                              AppAssetsStrings.dateIcon,
-                              height: 20,
-                              width: 20,
-                              color: ColorManager.textGrey,
-                            ),
-                            kWidth3,
-                            Text(
-                              Utilities.formatDate(DateTime.now().toString()),
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.textGrey,
-                              ),
-                            )
-                          ],
-                        ),
-                        kHeight16,
-                        PriceDetailsWidget(price: data.price.toString()),
-                        kHeight16,
-                        SizedBox(
-                          height: 330,
-                          child: TravelTabBarWidget(
-                              overview: data.overview ?? "",
-                              imageUrl: data.images!),
-                        ),
-                        kHeight15,
-                        Text(
-                          Appstrings.aminities,
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.blackColor,
-                          ),
-                        ),
-                        kHeight10,
-                        SizedBox(
-                          height: 250,
-                          child: GridView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: 7,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4,
-                            ),
-                            itemBuilder: (context, index) {
-                              return Container(
-                                margin: const EdgeInsets.all(20),
-                                height: 10,
-                                width: 10,
-                                color: ColorManager.darkWhite,
-                                child: Image.asset(
-                                  "assets/icons/aminities_${index + 1}.png",
-                                  height: 27,
-                                  width: 27,
-                                ),
-                              );
-                            },
-                          ),
-                        )
-                      ],
+                  final isWishlist =
+                      state.travelWishlistItems?.contains(id) ?? false;
+                  return GestureDetector(
+                    onTap: () {
+                      if (isWishlist) {
+                        BlocProvider.of<TravelBloc>(context).add(
+                            AddTravelWishlist(
+                                productId: id,
+                                wishlistType: TravelWishlist.remove));
+                      } else {
+                        BlocProvider.of<TravelBloc>(context).add(
+                            AddTravelWishlist(
+                                productId: id,
+                                wishlistType: TravelWishlist.add));
+                      }
+                    },
+                    child: Container(
+                      height: 36,
+                      width: 36,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: ColorManager.blackColor.withOpacity(0.5),
+                      ),
+                      child: Icon(
+                        isWishlist
+                            ? Icons.favorite
+                            : Icons.favorite_outline_outlined,
+                        color: isWishlist
+                            ? ColorManager.redColor
+                            : ColorManager.whiteColor,
+                      ),
                     ),
                   );
                 },
               ),
-            )
-          ],
-        ),
+              kWidth30,
+            ],
+          ),
+          SliverToBoxAdapter(
+            child: BlocBuilder<TravelBloc, TravelState>(
+              builder: (context, state) {
+                final data = state.travelProductsModel?.product;
+                if (data == null) {
+                  return ShimmerUtils.travelSingleProductShimmer(context);
+                }
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      kHeight25,
+                      Text(
+                        data.name!,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.blackColor,
+                        ),
+                      ),
+                      kHeight15,
+                      Row(
+                        children: [
+                          Image.asset(
+                            AppAssetsStrings.locations,
+                            height: 20,
+                            width: 20,
+                          ),
+                          kWidth3,
+                          Text(
+                            data.location ?? "",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: ColorManager.textGrey,
+                            ),
+                          ),
+                          const Spacer(),
+                          Image.asset(
+                            AppAssetsStrings.dateIcon,
+                            height: 20,
+                            width: 20,
+                            color: ColorManager.textGrey,
+                          ),
+                          kWidth3,
+                          Text(
+                            Utilities.formatDate(DateTime.now().toString()),
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: ColorManager.textGrey,
+                            ),
+                          )
+                        ],
+                      ),
+                      kHeight16,
+                      PriceDetailsWidget(price: data.price.toString()),
+                      kHeight16,
+                      SizedBox(
+                        height: 600,
+                        child: TravelTabBarWidget(
+                            overview: data.overview ?? "",
+                            imageUrl: data.images!),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          )
+        ],
       ),
       bottomSheet: Container(
         height: 65,

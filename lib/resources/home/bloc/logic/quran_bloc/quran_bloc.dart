@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -57,7 +59,10 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<OnTapofPrevEvent>(_onTapofPrevEvent);
     on<SaveLastReadEvent>(_saveLastReadEvent);
     on<FetchSingleVerseTranslation>(_fetchSingleVerseTranslation);
-    on<PlaySingleAudio>(_playSingleAudio);
+    // on<PlaySingleAudio>(_playSingleAudio);
+    on<EmptyQuranVersesbyKey>(_emptyQuranVersesKey);
+    on<PlayPlayListAudio>(_playPlayListAudio);
+    on<AddVersesToPlayList>(_addVersesToPlayList);
   }
 
   _fetchQuranChapters(
@@ -176,19 +181,22 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
 
   _changeExpandOnSearchEvent(
       ChangeExpandOnSearchEvent event, Emitter<QuranState> emit) {
-    emit(state.copyWith(isExpand2: state.isExpand2 == false ? true : false));
+    emit(state.copyWith(isExpand2: !state.isExpand2));
   }
 
   _searchChapterEvent(SearchChapterEvent event, Emitter<QuranState> emit) {
+    emit(state.copyWith(isLoading: true));
     final query = event.query.toLowerCase();
     if (query.isEmpty) {
-      emit(state.copyWith(searchChapters: state.quranChaptersModel?.chapters));
+      emit(state.copyWith(
+          searchChapters: state.quranChaptersModel?.chapters,
+          isLoading: false));
     } else {
       final filteredChapters = state.quranChaptersModel!.chapters
           .where((chapter) => chapter.nameSimple.toLowerCase().contains(query))
           .toList();
 
-      emit(state.copyWith(searchChapters: filteredChapters));
+      emit(state.copyWith(searchChapters: filteredChapters, isLoading: false));
     }
   }
 
@@ -196,9 +204,12 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await quranServices.fetchVersesbyKey(event.verseKey);
-      print('here the list verses by key $data');
 
-      emit(state.copyWith(versesByKeyModel: data, isLoading: false));
+      emit(state.copyWith(
+        versesByKeyModel: data,
+        isLoading: false,
+      ));
+      print(state.versesByKeyModel);
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");
@@ -285,7 +296,6 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
           Uri.parse("https://verses.quran.com/${audioData['url']}"));
       return audioSource;
     }).toList();
-
     final playlist = ConcatenatingAudioSource(
       useLazyPreparation: true,
       shuffleOrder: DefaultShuffleOrder(),
@@ -312,33 +322,33 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     }
   }
 
-  _playSingleAudio(PlaySingleAudio event, Emitter<QuranState> emit) async {
-    try {
-      // Replace this with the correct URL or file path to your audio
-      final audioUrl =
-          "https://verses.quran.com/Alafasy/mp3/${event.chapterId}${event.aya}.mp3";
+  // _playSingleAudio(PlaySingleAudio event, Emitter<QuranState> emit) async {
+  //   try {
+  //     // Replace this with the correct URL or file path to your audio
+  //     final audioUrl =
+  //         "https://verses.quran.com/Alafasy/mp3/${event.chapterId}${event.aya}.mp3";
 
-      // Set the audio source URL
-      await audioPlayer.setUrl(audioUrl);
-      emit(state.copyWith(audioPlaying: true));
-      if (audioPlayer.playing) {
-        await audioPlayer.pause();
-        emit(state.copyWith(audioPlaying: false));
-      } else {
-        await audioPlayer.play();
-        emit(state.copyWith(audioPlaying: true));
-      }
-      await for (final playbackState in audioPlayer.playerStateStream) {
-        if (playbackState.processingState == ProcessingState.completed) {
-          emit(state.copyWith(audioPlaying: false));
-          break;
-        }
-      }
-    } catch (e) {
-      emit(state.copyWith(audioPlaying: false));
-      throw Exception(e);
-    }
-  }
+  //     // Set the audio source URL
+  //     await audioPlayer.setUrl(audioUrl);
+  //     emit(state.copyWith(audioPlaying: true));
+  //     if (audioPlayer.playing) {
+  //       await audioPlayer.pause();
+  //       emit(state.copyWith(audioPlaying: false));
+  //     } else {
+  //       await audioPlayer.play();
+  //       emit(state.copyWith(audioPlaying: true));
+  //     }
+  //     await for (final playbackState in audioPlayer.playerStateStream) {
+  //       if (playbackState.processingState == ProcessingState.completed) {
+  //         emit(state.copyWith(audioPlaying: false));
+  //         break;
+  //       }
+  //     }
+  //   } catch (e) {
+  //     emit(state.copyWith(audioPlaying: false));
+  //     throw Exception(e);
+  //   }
+  // }
 
   _playAllChapterAudiosAuto(
       PlayAllChapterAudiosAuto event, Emitter<QuranState> emit) async {
@@ -347,7 +357,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
           Uri.parse("https://verses.quran.com/${audioData['url']}"));
       return audioSource;
     }).toList();
-
+    print(audioSources);
     final playlist = ConcatenatingAudioSource(
       useLazyPreparation: true,
       shuffleOrder: DefaultShuffleOrder(),
@@ -377,6 +387,63 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     }
   }
 
+  _playPlayListAudio(PlayPlayListAudio event, Emitter<QuranState> emit) async {
+    final List<String> audioUrls = state.bookmarkAudioPlaylist.map((verseKey) {
+      List<String> verseKeyParts = verseKey.split(':');
+      print(verseKeyParts);
+      String chapterNumber = verseKeyParts[0].padLeft(3, '0');
+      print(chapterNumber);
+      String verseNumber = verseKeyParts[1].padLeft(3, '0');
+      print(verseNumber);
+      return 'https://verses.quran.com/AbdulBaset/Mujawwad/mp3/$chapterNumber$verseNumber.mp3';
+    }).toList();
+    print(audioUrls);
+    // Create an audio playlist from the list of URLs
+    final playlist = ConcatenatingAudioSource(
+      useLazyPreparation: true,
+      shuffleOrder: DefaultShuffleOrder(),
+      children:
+          audioUrls.map((url) => AudioSource.uri(Uri.parse(url))).toList(),
+    );
+
+    await audioPlayer.setAudioSource(
+      playlist,
+      initialPosition: Duration.zero,
+    );
+
+    if (state.audioPlaying) {
+      await audioPlayer.pause();
+      emit(state.copyWith(audioPlaying: false));
+    } else {
+      emit(state.copyWith(audioPlaying: true));
+      audioPlayer.play();
+    }
+    audioPlayer.currentIndexStream.listen((event) {
+      emit(state.copyWith(audioIndex: event!));
+    });
+    await for (final playbackState in audioPlayer.playerStateStream) {
+      if (playbackState.processingState == ProcessingState.completed) {
+        emit(state.copyWith(audioPlaying: false));
+        break;
+      }
+    }
+  }
+
+  _addVersesToPlayList(
+      AddVersesToPlayList event, Emitter<QuranState> emit) async {
+    final data = await quranServices.fetchVersesbyKey(event.verseKey);
+
+    final List<String> verseKeys = data
+        .map((e) => e.verses.map((e) => e.verseKey))
+        .expand((e) => e)
+        .toList();
+
+    // Update the state with the verse keys
+    emit(state.copyWith(bookmarkAudioPlaylist: verseKeys));
+
+    print('Here the list verses by key ${state.bookmarkAudioPlaylist}');
+  }
+
   _fetchChapterAudioFiles(
       FetchChapterAudioFiles event, Emitter<QuranState> emit) async {
     emit(state.copyWith(isLoading: true));
@@ -398,6 +465,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
   _isExpandonSearchEvent(
       IsExpandonSearchEvent event, Emitter<QuranState> emit) {
     emit(state.copyWith(isExpand: event.isExpand));
+
     print('here is the is expand state ${state.isExpand}');
   }
 
@@ -456,5 +524,11 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  _emptyQuranVersesKey(EmptyQuranVersesbyKey event, Emitter<QuranState> emit) {
+    emit(state.copyWith(
+      versesByKeyModel: null,
+    ));
   }
 }

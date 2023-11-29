@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
@@ -156,6 +157,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   onTap: () {
                     context.goNamed(MyAppRouteConstants.signUpRouteName);
                   },
+                  textStyle:
+                      TextStyle(color: ColorManager.blackColor, fontSize: 16),
                 )
               ],
             ),

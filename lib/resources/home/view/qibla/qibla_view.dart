@@ -46,19 +46,35 @@ class _QiblahScreenState extends State<QiblahScreen>
   }
 
   @override
+  void dispose() {
+    _animationController!.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) => Scaffold(
         backgroundColor: compassThemeData[state.compassTheme]!.primaryColor,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           iconTheme: IconThemeData(color: ColorManager.blackColor),
           backgroundColor: compassThemeData[state.compassTheme]!.primaryColor,
           elevation: 0,
-          title: Text(Appstrings.qiblaDirection,
-              style: TextStyle(
-                  color: ColorManager.blackColor,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold)),
+          title: Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Row(
+              children: [
+                const BackButton(),
+                kWidth5,
+                Text(Appstrings.qiblaDirection,
+                    style: TextStyle(
+                        color: ColorManager.blackColor,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold)),
+              ],
+            ),
+          ),
         ),
         body: StreamBuilder(
           stream: FlutterQiblah.qiblahStream,

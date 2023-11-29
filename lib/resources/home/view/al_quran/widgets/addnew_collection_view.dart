@@ -38,19 +38,25 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
       TextEditingController();
   String img = "";
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
+    widget.type != BookMarkCollectionType.edit
+        ? BlocProvider.of<QuranBloc>(context).add(const EmptyQuranVersesbyKey())
+        : null;
+
     widget.type == BookMarkCollectionType.edit ? addField() : null;
     context.read<BookmarkBloc>().add(const SaveImageEvent(img: ""));
     widget.type == BookMarkCollectionType.addSpecificOne
         ? context.read<QuranBloc>().add(FetchVersesByKey(
-              verseKey: widget.verseKeys!,
+              verseKey: widget.verseKeys ?? [],
             ))
         : null;
     widget.type == BookMarkCollectionType.addSpecificOne
         ? context
             .read<BookmarkBloc>()
-            .add(SaveVerseKeyEvent(widget.verseKeys![0]))
+            .add(SaveVerseKeyEvent(widget.verseKeys?[0] ?? ''))
         : null;
     super.initState();
   }
@@ -59,6 +65,8 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
     nameTextEditingController.text = widget.passvalue!.name;
     descriptionTextEditingController.text = widget.passvalue!.discription;
     img = widget.passvalue!.image;
+    BlocProvider.of<BookmarkBloc>(context)
+        .add(SaveVerseKeyEvent((widget.passvalue!.verseKey.join(" "))));
   }
 
   @override
@@ -153,96 +161,145 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
               },
             ),
             kHeight20,
-            const Text(
-              'Collection Name',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
+            Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Collection Name',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  kHeight15,
+                  CustomTextField(
+                    controller: nameTextEditingController,
+                    icon: const Icon(null),
+                    hint: "Give a Name",
+                    onChanged: (value) {
+                      context
+                          .read<BookmarkBloc>()
+                          .add(NameChanged(nameValue: value));
+                    },
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'please enter a name!';
+                      }
+                      return null;
+                    },
+                  ),
+                  kHeight20,
+                  const Text(
+                    'Discription',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  kHeight15,
+                  CustomTextField(
+                    controller: descriptionTextEditingController,
+                    icon: const Icon(null),
+                    hint: "Add Description",
+                    onChanged: (value) {
+                      context
+                          .read<BookmarkBloc>()
+                          .add(DescriptionChanged(descriptionValue: value));
+                    },
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'please enter a description';
+                      }
+                      return null;
+                    },
+                  ),
+                ],
               ),
-            ),
-            kHeight15,
-            CustomTextField(
-              controller: nameTextEditingController,
-              icon: const Icon(null),
-              hint: "Give a Name",
-              onChanged: (value) {
-                context.read<BookmarkBloc>().add(NameChanged(nameValue: value));
-              },
-            ),
-            kHeight20,
-            const Text(
-              'Discription',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            kHeight15,
-            CustomTextField(
-              controller: descriptionTextEditingController,
-              icon: const Icon(null),
-              hint: "Add Description",
-              onChanged: (value) {
-                context
-                    .read<BookmarkBloc>()
-                    .add(DescriptionChanged(descriptionValue: value));
-              },
             ),
             kHeight30,
             MainButton(
               title: "Add Suras",
               onPressed: () {
-                context.goNamed(MyAppRouteConstants.addSuraSearchRouteName);
+                context.pushNamed(MyAppRouteConstants.addSuraSearchRouteName);
               },
             ),
             kHeight25,
             BlocBuilder<QuranBloc, QuranState>(
               builder: (context, state) {
+                final vesrskeydata = state.versesByKeyModel;
+
                 return state.versesByKeyModel == []
                     ? const SizedBox()
                     : Expanded(
-                        child: ListView.builder(
-                          itemCount: state.versesByKeyModel!.length,
-                          itemBuilder: (context, index) => ListTile(
-                            onTap: () {
-                              context.goNamed(
-                                  MyAppRouteConstants.quranVersesRoutename,
-                                  extra: {"type": Qurantype.verse});
+                        child: BlocBuilder<BookmarkBloc, BookmarkState>(
+                          builder: (context, state) => ListView.builder(
+                            itemCount: vesrskeydata?.length ?? 0,
+                            itemBuilder: (context, index) {
+                              final verseKey =
+                                  vesrskeydata![index].verses[0].verseKey;
+                              final isSelected = state.verskey.contains(
+                                  vesrskeydata[index].verses[0].verseKey);
+                              return ListTile(
+                                onTap: () {
+                                  // context.pushNamed(
+                                  //     MyAppRouteConstants.quranVersesRoutename,
+                                  //     extra: {"type": Qurantype.verse});
+                                  context
+                                      .read<BookmarkBloc>()
+                                      .add(SaveVerseKeyEvent(verseKey));
+                                },
+                                leading: Stack(
+                                  children: [
+                                    ImageIcon(
+                                      const AssetImage(
+                                          "assets/icons/folder_green.png"),
+                                      color: isSelected
+                                          ? ColorManager.redColor
+                                          : ColorManager.primary,
+                                    ),
+                                    Positioned(
+                                      top: 5,
+                                      left: 4,
+                                      child: Icon(
+                                        isSelected ? Icons.remove : Icons.add,
+                                        color: ColorManager.whiteColor,
+                                        size: 16,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      vesrskeydata[index].verses[0].textIndopak,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily: 'Hafs',
+                                      ),
+                                      maxLines: 1,
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                    Text(
+                                      verseKey,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorManager.textGrey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                // trailing: Icon(
+                                //   Icons.navigate_next,
+                                //   size: 30,
+                                //   color: ColorManager.blackColor,
+                                // ),
+                              );
                             },
-                            leading: ImageIcon(
-                              const AssetImage("assets/images/folder_red.png"),
-                              color: ColorManager.primary,
-                            ),
-                            title: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  state.versesByKeyModel![index].verses[0]
-                                      .textIndopak,
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600,
-                                    fontFamily: 'Hafs',
-                                  ),
-                                  maxLines: 1,
-                                  textDirection: TextDirection.rtl,
-                                ),
-                                Text(
-                                  state.versesByKeyModel![index].verses[0]
-                                      .verseKey,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    color: ColorManager.textGrey,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            trailing: Icon(
-                              Icons.navigate_next,
-                              size: 30,
-                              color: ColorManager.blackColor,
-                            ),
                           ),
                         ),
                       );
@@ -264,17 +321,18 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
         alignment: Alignment.topCenter,
         children: [
           Container(
-            height: 50,
+            height: 70,
             color: ColorManager.appBarColor,
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 50)
-                .copyWith(bottom: 0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 25,
+            ).copyWith(top: 30),
             child: Align(
                 alignment: Alignment.topCenter,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GestureDetector(
-                      onTap: () {
+                    TextButton(
+                      onPressed: () {
                         context.read<BookmarkBloc>()
                           ..add(const SaveQuranChapterId(id: []))
                           ..add(const EmptyVerseKeyEvent());
@@ -299,55 +357,59 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                       ),
                     ),
                     BlocBuilder<BookmarkBloc, BookmarkState>(
-                      builder: (context, state) => GestureDetector(
-                        onTap: () {
-                          if (nameTextEditingController.text.isEmpty ||
-                              descriptionTextEditingController.text.isEmpty) {
-                            context.pop();
-                            return;
-                          }
-                          widget.type == BookMarkCollectionType.add
-                              ? ctx.read<BookmarkBloc>().add(AddCollection(
-                                  context: context,
-                                  name: nameTextEditingController.text,
-                                  description:
-                                      descriptionTextEditingController.text,
-                                  verskey: state.verskey,
-                                  image: state.image,
-                                  dbId: DateTime.now()
-                                      .millisecondsSinceEpoch
-                                      .toString()))
-                              : widget.type == BookMarkCollectionType.edit
-                                  ? ctx.read<BookmarkBloc>().add(
-                                        EditCollection(
+                      builder: (context, state) => TextButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            final _verseList = context
+                                    .read<QuranBloc>()
+                                    .state
+                                    .bookmarkAudioPlaylist +
+                                state.verskey;
+                            print(_verseList);
+                            widget.type == BookMarkCollectionType.add
+                                ? ctx.read<BookmarkBloc>().add(AddCollection(
+                                    context: context,
+                                    name: nameTextEditingController.text,
+                                    description:
+                                        descriptionTextEditingController.text,
+                                    verskey: state.verskey,
+                                    image: state.image,
+                                    dbId: DateTime.now()
+                                        .millisecondsSinceEpoch
+                                        .toString()))
+                                : widget.type == BookMarkCollectionType.edit
+                                    ? ctx.read<BookmarkBloc>().add(
+                                          EditCollection(
+                                              context: context,
+                                              name: nameTextEditingController
+                                                  .text,
+                                              description:
+                                                  descriptionTextEditingController
+                                                      .text,
+                                              verskey: _verseList,
+                                              image:
+                                                  img == "" ? state.image : img,
+                                              dbId: passValue!.id!),
+                                        )
+                                    : ctx.read<BookmarkBloc>().add(
+                                        AddCollection(
                                             context: context,
                                             name:
                                                 nameTextEditingController.text,
                                             description:
                                                 descriptionTextEditingController
                                                     .text,
-                                            verskey: state.verskey == []
-                                                ? passValue!.verseKey
-                                                : state.verskey,
-                                            image:
-                                                img == "" ? state.image : img,
-                                            dbId: passValue!.id!),
-                                      )
-                                  : ctx.read<BookmarkBloc>().add(AddCollection(
-                                      context: context,
-                                      name: nameTextEditingController.text,
-                                      description:
-                                          descriptionTextEditingController.text,
-                                      verskey: state.verskey,
-                                      image: state.image,
-                                      dbId: DateTime.now()
-                                          .millisecondsSinceEpoch
-                                          .toString()));
-                          context.read<BookmarkBloc>()
-                            ..add(const SaveQuranChapterId(id: []))
-                            ..add(const FetchCollectionItem())
-                            ..add(const EmptyVerseKeyEvent());
-                          context.pop();
+                                            verskey: state.verskey,
+                                            image: state.image,
+                                            dbId: DateTime.now()
+                                                .millisecondsSinceEpoch
+                                                .toString()));
+                            context.read<BookmarkBloc>()
+                              ..add(const SaveQuranChapterId(id: []))
+                              ..add(const FetchCollectionItem())
+                              ..add(const EmptyVerseKeyEvent());
+                            context.pop();
+                          }
                         },
                         child: Text(
                           'Done',
@@ -415,7 +477,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
     );
   }
 
-  Container _popUpWidget(BuildContext context) {
+  Widget _popUpWidget(BuildContext context) {
     return Container(
       height: SizeUtility(context).height * 0.90,
       decoration: BoxDecoration(

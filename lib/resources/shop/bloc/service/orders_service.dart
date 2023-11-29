@@ -1,8 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:millat/resources/shop/bloc/models/orders/reason_model.dart';
 import '../../../../services/http_services.dart';
+import 'package:http/http.dart' as http;
 
+import '../../../../utils/string_constants.dart';
 import '../models/orders/fetch_order_byId_model.dart';
 import '../models/orders/orders_model.dart';
 
@@ -128,25 +131,28 @@ class OrdersService extends HttpServices {
     const endPoint = 'order/payment/coin';
 
     final body = {
-      "coins": coins,
-      "price": price,
+      "coins": coins.toString(),
+      "price": price.toString(),
       "productId": productId,
       "address": addressId,
       "details": {
         "brandId": brandId,
         "quantity": totalQuantity,
         "size": size,
-        "color": color
+        "color": color,
       }
     };
 
-    final response = await posts(
-      endPoint: endPoint,
-      isToken: true,
-      body: body,
-    );
-
     try {
+      final response = await http.post(
+        Uri.parse(kBaseUrl + endPoint),
+        body: json.encode(body),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ${_getToken()}',
+        },
+      );
+
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         print('Response data in the postOrder function: $data');
@@ -333,5 +339,11 @@ class OrdersService extends HttpServices {
     } catch (e) {
       print('Error on API fetch: ${e.toString()}');
     }
+  }
+
+  _getToken() {
+    final tokenBox = Hive.box(userBox);
+    final String? token = tokenBox.get(authToken);
+    return token;
   }
 }

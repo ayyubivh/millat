@@ -10,6 +10,7 @@ import 'package:millat/resources/shop/bloc/models/category/subcategories_by_cate
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/bloc/service/category_services.dart';
 
+import '../../models/category/filter_option_model.dart';
 import '../../models/category/subcategories.dart';
 
 part 'category_event.dart';
@@ -31,9 +32,15 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<SavePriceRange>(_savePriceRagne);
     on<FetchProductSortByPrice>(_fetchProductSortByEvent);
     on<ChangeSortListIndex>(_changeSortListIndex);
-    on<FetchProductsByFilterPricerange>(_fetchProductsByFilterPricerange);
+    on<FetchProductsByFilter>(_fetchProductsByFilter);
     on<FetchItemsByCategory>(_fetchItemsByCategory);
     on<ChangeCategoryIndexEvent>(_changeCategoryIndexEvent);
+    on<ChangeFilterIndex>(_changeFilterIndex);
+    on<FilterSubCategoryCheckboxChangingEvent>(
+        _filterSubCategoryCheckboxChangingEvent);
+    on<FilterBrandCheckboxChangingEvent>(_filterBrandCheckboxChangingEvent);
+    on<FilterColorCheckboxChangingEvent>(_filterColorCheckboxChangingEvent);
+    on<FetchFilterOptionEvent>(_fetchFilterOptionEvent);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -121,6 +128,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   _saveCategoryFilterVal(
       SaveCategoryFilterVal event, Emitter<CategoryState> emit) {
     emit(state.copyWith(filterVal: event.filterVal));
+    print(state.filterVal);
   }
 
   _savePriceRagne(SavePriceRange event, Emitter<CategoryState> emit) {
@@ -155,16 +163,20 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     emit(state.copyWith(sortListIndex: event.index));
   }
 
-  _fetchProductsByFilterPricerange(FetchProductsByFilterPricerange event,
-      Emitter<CategoryState> emit) async {
+  _fetchProductsByFilter(
+      FetchProductsByFilter event, Emitter<CategoryState> emit) async {
     emit(state.copyWith(productLoading: true));
 
     try {
-      final data = await _categoryService.fetchProductsByFilterPriceRange(
-          maxPrice: event.maxPrice,
-          minPrice: event.minPrice,
-          category: event.category,
-          subCategory: event.subCategory);
+      final data = await _categoryService.fetchProductsByFilter(
+        maxPrice: event.maxPrice,
+        minPrice: event.minPrice,
+        category: event.category,
+        subCategory: event.subCategory,
+        brand: event.brand,
+        color: event.color,
+        itemId: event.itemId,
+      );
       print("filtered products $data");
       emit(state.copyWith(
         product: data,
@@ -193,5 +205,44 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   _changeCategoryIndexEvent(
       ChangeCategoryIndexEvent event, Emitter<CategoryState> emit) {
     emit(state.copyWith(categoryIndex: event.index));
+  }
+
+  _changeFilterIndex(ChangeFilterIndex event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(filterIndex: event.index));
+  }
+
+  _filterSubCategoryCheckboxChangingEvent(
+      FilterSubCategoryCheckboxChangingEvent event,
+      Emitter<CategoryState> emit) {
+    emit(state.copyWith(
+        filterSubcategoryCheckboxIndex:
+            state.filterSubcategoryCheckboxIndex == event.index
+                ? -1
+                : event.index));
+  }
+
+  _filterBrandCheckboxChangingEvent(
+      FilterBrandCheckboxChangingEvent event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(
+        filterBrandCheckboxIndex:
+            state.filterBrandCheckboxIndex == event.index ? -1 : event.index));
+  }
+
+  _filterColorCheckboxChangingEvent(
+      FilterColorCheckboxChangingEvent event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(
+        filterColorCheckboxIndex:
+            state.filterColorCheckboxIndex == event.index ? -1 : event.index));
+  }
+
+  _fetchFilterOptionEvent(
+      FetchFilterOptionEvent event, Emitter<CategoryState> emit) async {
+    try {
+      final data =
+          await _categoryService.fetchFilterOptions(category: event.category);
+      emit(state.copyWith(filterOptionModel: data));
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }

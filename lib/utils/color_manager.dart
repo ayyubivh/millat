@@ -69,6 +69,7 @@ class ColorManager {
   static Color grey83 = HexColor.fromHex("#838383");
   static Color greyShadow9D = HexColor.fromHex("#9D9D9D1F");
   static Color darkGrey68 = HexColor.fromHex("#686868");
+  static Color textGrey68 = HexColor.fromHex("#686464");
   // Tasbih Colors
   //theme pink
   static Color tasbihThemePinkBgClr = HexColor.fromHex("#FBE5E8");

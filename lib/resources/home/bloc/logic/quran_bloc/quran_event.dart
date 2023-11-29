@@ -72,8 +72,12 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.fetchSingleVerseTranslation({
     required String verseKey,
   }) = FetchSingleVerseTranslation;
-  const factory QuranEvent.playSingleAudio({
-    required String aya,
-    required String chapterId,
-  }) = PlaySingleAudio;
+  // const factory QuranEvent.playSingleAudio({
+  //   required String aya,
+  //   required String chapterId,
+  // }) = PlaySingleAudio;
+  const factory QuranEvent.playPlayListAudio() = PlayPlayListAudio;
+  const factory QuranEvent.emptyQuranVersesbyKey() = EmptyQuranVersesbyKey;
+  const factory QuranEvent.addVersesToPlayList(
+      {required List<String> verseKey}) = AddVersesToPlayList;
 }

@@ -5,6 +5,7 @@ import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import '../../../../services/http_services.dart';
 import '../models/category/categories._model.dart';
 import '../models/category/category_items_model.dart';
+import '../models/category/filter_option_model.dart';
 
 class CategoryService extends HttpServices {
   //Fetching Categories
@@ -151,13 +152,18 @@ class CategoryService extends HttpServices {
   }
   //fetch products by filter price range
 
-  Future<ProductModel> fetchProductsByFilterPriceRange(
-      {required String minPrice,
-      required String maxPrice,
-      required String category,
-      required String subCategory}) async {
+  Future<ProductModel> fetchProductsByFilter({
+    required String minPrice,
+    required String maxPrice,
+    required String category,
+    required String subCategory,
+    required String brand,
+    required String color,
+    required String? itemId,
+  }) async {
     final endpoint =
-        "product/filter?priceRange=$minPrice-$maxPrice&cate=$category&subcate=$subCategory";
+        "product/filter?priceRange=$minPrice-$maxPrice&category=$category&subcate=$subCategory&itemId=${itemId ?? ''}&brand=$brand&color=$color";
+
     final response = await get(endPoint: endpoint);
 
     if (response.statusCode == 200) {
@@ -168,6 +174,29 @@ class CategoryService extends HttpServices {
         return result;
       } catch (e) {
         print('error on Category API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  // filter option api
+  Future<FilterOptionModel> fetchFilterOptions({
+    required String category,
+  }) async {
+    final endpoint = "filter_option?$category";
+    final response = await get(endPoint: endpoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = FilterOptionModel.fromJson(data);
+        print(result);
+        return result;
+      } catch (e) {
+        print('error on filter option API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

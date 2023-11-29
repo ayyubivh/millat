@@ -46,8 +46,9 @@ class ShopProductWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               child: Utilities().buildCachedNetworkImage(
                 imageUrl: image,
-                height: SizeUtility(context).height * 0.15,
+                height: SizeUtility(context).height * 0.18,
                 width: SizeUtility(context).width,
+                // boxFit: BoxFit.contain,
               )),
           kHeight5,
           Row(
@@ -164,8 +165,8 @@ class ShopProductWidget extends StatelessWidget {
                       }
                     },
                     child: Container(
-                      height: 20,
-                      width: 20,
+                      height: 23,
+                      width: 23,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: isProductInCart
@@ -175,7 +176,7 @@ class ShopProductWidget extends StatelessWidget {
                       child: Center(
                         child: Icon(
                           isProductInCart ? Icons.remove : Icons.add,
-                          size: 17,
+                          size: 21,
                           color: ColorManager.whiteColor,
                         ),
                       ),

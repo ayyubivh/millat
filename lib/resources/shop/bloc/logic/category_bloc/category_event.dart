@@ -42,9 +42,28 @@ class CategoryEvent with _$CategoryEvent {
   const factory CategoryEvent.changeSortListIndex({
     required int index,
   }) = ChangeSortListIndex;
-  const factory CategoryEvent.fetchProductsByFilterPricerange(
-      {required String minPrice,
-      required String maxPrice,
-      required String category,
-      required String subCategory}) = FetchProductsByFilterPricerange;
+  const factory CategoryEvent.fetchProductsByFilter({
+    required String minPrice,
+    required String maxPrice,
+    required String category,
+    required String subCategory,
+    required String brand,
+    required String color,
+    String? itemId,
+  }) = FetchProductsByFilter;
+  const factory CategoryEvent.changeFilterIndex({
+    required int index,
+  }) = ChangeFilterIndex;
+  const factory CategoryEvent.filterSubCategoryCheckboxChangingEvent({
+    required int index,
+  }) = FilterSubCategoryCheckboxChangingEvent;
+  const factory CategoryEvent.filterBrandCheckboxChangingEvent({
+    required int index,
+  }) = FilterBrandCheckboxChangingEvent;
+  const factory CategoryEvent.filterColorCheckboxChangingEvent({
+    required int index,
+  }) = FilterColorCheckboxChangingEvent;
+  const factory CategoryEvent.fetchFilterOptionEvent({
+    required String category,
+  }) = FetchFilterOptionEvent;
 }

@@ -56,4 +56,5 @@ class TravelEvent with _$TravelEvent {
   const factory TravelEvent.travelbookingCompleted() = TravelBookingCompleted;
   const factory TravelEvent.fetchTravelHomeBannerPackages() =
       FetchTravelHomeBannerPackages;
+  const factory TravelEvent.pickMultipleImageEvent() = PickMultipleImageEvent;
 }

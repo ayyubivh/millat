@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
 import 'package:millat/routes/app_router_constants.dart';
@@ -23,12 +24,10 @@ class OrdetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   print(context.read<ShopProductsBloc>().state.orderId);
-    //   final shopBloc = BlocProvider.of<ShopProductsBloc>(context);
-    //   shopBloc.add(FetchOrdersById(
-    //       context, context.read<ShopProductsBloc>().state.orderId ?? 0));
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<CategoryBloc>(context)
+          .add(FetchFilterProducts(category: 'women', subCategory: 'women'));
+    });
     var containerHeight10 = Container(
       height: 8,
       width: double.infinity,
@@ -174,22 +173,18 @@ class OrdetailsView extends StatelessWidget {
             ),
           ),
           kHeight15,
-          BlocBuilder<ShopProductsBloc, ShopProductsState>(
+          BlocBuilder<CategoryBloc, CategoryState>(
             builder: (context, state) {
-              if (state
-                      .popularProducts?.result?.shopProductCategory?.products ==
-                  null) {
+              if (state.product?.result?.products == null) {
                 return const SizedBox();
               }
               return SizedBox(
                 height: 310,
                 child: ListView.builder(
-                  itemCount: state.popularProducts?.result?.shopProductCategory
-                      ?.products!.length,
+                  itemCount: state.product?.result?.products?.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    final data = state.popularProducts?.result
-                        ?.shopProductCategory!.products![index];
+                    final data = state.product?.result?.products?[index];
                     return GestureDetector(
                         onTap: () {
                           context.pushNamed(
@@ -202,7 +197,7 @@ class OrdetailsView extends StatelessWidget {
                               color: data?.color ?? "",
                               size: data?.size?[0].size ?? "",
                               brandId: data?.brand!.id,
-                              isWishlisted: state.isWishListed,
+                              isWishlisted: false,
                               brand: data!.brand!.name.toString(),
                               productId: data.id,
                               image: data.images?[0],

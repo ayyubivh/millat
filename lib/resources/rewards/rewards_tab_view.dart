@@ -8,6 +8,8 @@ import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 import '../home/bloc/logic/home_bloc/home_bloc.dart';
 import '../profile/views/user_profile_view.dart';
 import 'bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
@@ -40,10 +42,6 @@ class RewardsTabView extends StatelessWidget {
             child: BottomNavigationBar(
               onTap: (newIndex) {
                 if (newIndex == 0 && state.tabIndex == newIndex) {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const TabsView()),
-                  // );
                   context
                       .read<HomeBloc>()
                       .add(const ChangeHomeTabIndexEvent(newIndex: 0));

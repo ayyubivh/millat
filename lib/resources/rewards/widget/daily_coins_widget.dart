@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_coins_collect_bloc.dart';
@@ -22,21 +23,20 @@ class DailyCoinsWidget extends StatefulWidget {
 
 class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   late Timer _timer;
-
   Duration duration = const Duration();
+  final _now = DateTime.now().millisecondsSinceEpoch;
   late SharedPreferences prefs;
-
   final Duration initialDuration = const Duration(hours: AppSize.s8);
 
   @override
   void initState() {
     super.initState();
+
     _initSharedPreferences();
   }
 
   _initSharedPreferences() async {
     prefs = await SharedPreferences.getInstance();
-
     _loadLastTimestamp();
     _startTimer();
   }
@@ -49,18 +49,20 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   calculateTimeLeft() {
     _checkCoinsCollected();
     final lastTimestamp = _loadLastTimestamp();
-
+    log("calc last time stamp === $lastTimestamp");
     final now = DateTime.now();
     final elapsedSeconds = now.difference(lastTimestamp).inSeconds;
+    log("elapsed one $elapsedSeconds");
 
     setState(() {
       duration = Duration(seconds: initialDuration.inSeconds - elapsedSeconds);
     });
 
     if (elapsedSeconds >= initialDuration.inSeconds) {
+      _startTimer();
       _saveCurrentTimestamp();
       _timer.cancel();
-      _startTimer();
+
       _resetCollectedValue();
     }
   }
@@ -82,22 +84,26 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   }
 
   _saveCurrentTimestamp() async {
-    print(DateTime.now().millisecondsSinceEpoch);
-    await Utilities.saveIntToSharedPreferences(
+    await prefs.setInt(
         Appstrings.lastTimestampKey, DateTime.now().millisecondsSinceEpoch);
   }
 
   DateTime _loadLastTimestamp() {
-    final lastTimestamp = prefs.getInt(Appstrings.lastTimestampKey) ??
-        DateTime.now().millisecondsSinceEpoch;
+    final lastTimestamp = prefs.getInt(Appstrings.lastTimestampKey);
 
-    return DateTime.fromMillisecondsSinceEpoch(lastTimestamp);
+    log('last time stamp = $lastTimestamp');
+    if (lastTimestamp != null) {
+      return DateTime.fromMillisecondsSinceEpoch(lastTimestamp);
+    } else {
+      return DateTime.fromMillisecondsSinceEpoch(_now);
+    }
   }
 
   @override
   void dispose() {
     _saveCurrentTimestamp();
     _timer.cancel();
+
     super.dispose();
   }
 
@@ -243,7 +249,7 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                     await Utilities.saveBoolToSharedPreferences(
                         Appstrings.rewardsCoinsKey, true);
                     BlocProvider.of<RewardsCoinsCollectBloc>(context).add(
-                        RewardsCoinsCollectEvent.checkCoinsCollected(
+                        const RewardsCoinsCollectEvent.checkCoinsCollected(
                             value: true));
                     state.checkCoinsCollected == false
                         ? BlocProvider.of<RewardsBloc>(context)

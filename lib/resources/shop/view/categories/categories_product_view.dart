@@ -72,7 +72,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
             builder: (context, state) => Text(
                 widget.type == FilterType.category
                     ? state.filterVal == ""
-                        ? widget.subCategory.toString()
+                        ? widget.subCategory ?? widget.itemName ?? ""
                         : state.filterVal
                     : widget.itemName ?? "",
                 style: TextStyle(

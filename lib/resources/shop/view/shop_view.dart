@@ -4,7 +4,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:http/http.dart';
 import 'package:millat/components/buttons/green_gradient_button.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 
@@ -63,7 +62,6 @@ class _ShopViewState extends State<ShopView> {
 
   @override
   Widget build(BuildContext context) {
-    log(SizeUtility(context).width.toString());
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       body: SingleChildScrollView(
@@ -295,7 +293,8 @@ class _ShopViewState extends State<ShopView> {
                 Container(
                   height: 100,
                   width: 100,
-                  margin: const EdgeInsets.only(right: 15),
+                  margin: EdgeInsets.only(
+                      right: !Responsive.isMobile(context) ? 40 : 18),
                   decoration: BoxDecoration(
                       color: color, borderRadius: BorderRadius.circular(12)),
                   child: ClipRRect(
@@ -576,7 +575,7 @@ class _ShopViewState extends State<ShopView> {
 
   Widget _categorySections(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 45, left: 20, right: 20),
+      padding: const EdgeInsets.only(top: 45, left: 25, right: 25),
       width: SizeUtility(context).width,
       height: 300,
       decoration: BoxDecoration(
@@ -589,7 +588,6 @@ class _ShopViewState extends State<ShopView> {
           Row(
             children: [
               Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Image.asset(
                     whiteLogo,
@@ -601,7 +599,7 @@ class _ShopViewState extends State<ShopView> {
               GestureDetector(
                 onTap: () {
                   context
-                      .goNamed(MyAppRouteConstants.categoriesFilterRouteName);
+                      .pushNamed(MyAppRouteConstants.categoriesFilterRouteName);
                 },
                 child: ImageIcon(
                   const AssetImage(
@@ -611,17 +609,18 @@ class _ShopViewState extends State<ShopView> {
                   color: ColorManager.whiteColor,
                 ),
               ),
-              kWidth8,
+              !Responsive.isMobile(context) ? kWidth30 : kWidth10,
               GestureDetector(
                 onTap: () {
                   context.pushNamed(MyAppRouteConstants.wishlistRouteName);
                 },
                 child: ImageIcon(
-                  AssetImage(AppAssetsStrings.wishList),
+                  const AssetImage(AppAssetsStrings.wishList),
                   color: ColorManager.whiteColor,
                   size: 22,
                 ),
               ),
+              !Responsive.isMobile(context) ? kWidth20 : const SizedBox(),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
                   return CartIconWidget(

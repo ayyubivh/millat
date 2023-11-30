@@ -15,6 +15,7 @@ import '../../../../../utils/constants.dart';
 import '../../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../../bloc/logic/location_bloc/location_bloc.dart';
 import '../../../bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
+import 'fade_effect_text_widget.dart';
 
 class HomeNamazTimingCard extends StatelessWidget {
   const HomeNamazTimingCard({super.key, required this.scrollNotifierValue});
@@ -23,11 +24,13 @@ class HomeNamazTimingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 1000),
+      curve: Curves.slowMiddle,
+      duration:
+          Duration(milliseconds: scrollNotifierValue == true ? 500 : 1000),
       height: scrollNotifierValue == true
           ? Platform.isIOS
-              ? 310
-              : 280
+              ? 320
+              : 290
           : Platform.isIOS
               ? 210
               : 180,
@@ -46,7 +49,6 @@ class HomeNamazTimingCard extends StatelessWidget {
                   child: scrollNotifierValue == false
                       ? Text(
                           Appstrings.assalamuAlaikum,
-                          key: const ValueKey<String>('text1'),
                           style: TextStyle(
                             color: ColorManager.whiteColor,
                             fontSize: 16,
@@ -55,7 +57,6 @@ class HomeNamazTimingCard extends StatelessWidget {
                         )
                       : Text(
                           Appstrings.assalamuAlaikum,
-                          key: const ValueKey<String>('text2'),
                           style: TextStyle(
                             color: ColorManager.whiteColor,
                             fontSize: 16,
@@ -87,14 +88,12 @@ class HomeNamazTimingCard extends StatelessWidget {
                   duration: const Duration(milliseconds: 1000),
                   child: scrollNotifierValue == false
                       ? Text(state.authUserModel?.result?.user?.name ?? "",
-                          key: const ValueKey<String>('text1'),
                           style: TextStyle(
                             color: ColorManager.whiteColor,
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                           ))
                       : Text(state.authUserModel?.result?.user?.name ?? "",
-                          key: const ValueKey<String>('text2'),
                           style: TextStyle(
                             color: ColorManager.whiteColor,
                             fontSize: 15,
@@ -105,21 +104,21 @@ class HomeNamazTimingCard extends StatelessWidget {
             ),
             AnimatedContainer(
               curve: Curves.linear,
-              duration: const Duration(milliseconds: 1000),
+              duration: const Duration(milliseconds: 500),
               padding: EdgeInsets.only(
-                left: scrollNotifierValue ? 115 : 150,
-                top: scrollNotifierValue == true ? 0 : 5,
+                top: scrollNotifierValue == true ? 12 : 0,
+                left: SizeUtility(context).width / 3.5,
               ),
               child: Image.asset(
                 AppAssetsStrings.homeBgDesign,
-                height: scrollNotifierValue ? 80 : 70,
+                height: 70,
                 // width: SizeUtility(context).width / 2,
-                // fit: BoxFit.cover,
+                // fit: BoxFit.contain,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                top: 60,
+              padding: EdgeInsets.only(
+                top: scrollNotifierValue == true ? 75 : 55,
                 // bottom: 15,
               ),
               child: scrollNotifierValue
@@ -256,7 +255,7 @@ class HomeNamazTimingCard extends StatelessWidget {
       curve: Curves.linear,
       duration: const Duration(milliseconds: 1000),
       height: 167,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       // margin: const EdgeInsets.symmetric(horizontal: 30),
       decoration: BoxDecoration(
         color: ColorManager.whiteColor,
@@ -415,7 +414,7 @@ Widget buildNamazTiming(BuildContext context) {
           ),
         ],
       ),
-      kHeight16,
+      kHeight25,
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

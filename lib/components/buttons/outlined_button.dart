@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:millat/utils/color_manager.dart';
 
 class CustomOutlinedButton extends StatelessWidget {

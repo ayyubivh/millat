@@ -98,7 +98,6 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    // log("Screen build");
     return Scaffold(
       // endDrawer: const HomeDrawyerWidget(),
       backgroundColor: ColorManager.whiteColor,
@@ -644,11 +643,17 @@ class _HomeViewState extends State<HomeView> {
                                 'type': FilterType.category
                               });
                         },
-                        child: Utilities().buildCachedNetworkImage(
-                          imageUrl: banner!.image,
-                          boxFit: BoxFit.contain,
-                          height: 70,
-                          width: 90,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 12.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Utilities().buildCachedNetworkImage(
+                              imageUrl: banner!.image,
+                              boxFit: BoxFit.cover,
+                              height: 120,
+                              width: 80,
+                            ),
+                          ),
                         ),
                       );
                     },

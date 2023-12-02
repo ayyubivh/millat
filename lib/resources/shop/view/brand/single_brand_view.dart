@@ -127,11 +127,11 @@ class SingleBrandView extends StatelessWidget {
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
+                              SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 20,
                             mainAxisSpacing: 20,
-                            mainAxisExtent: 275,
+                            mainAxisExtent: SizeUtility(context).height / 3.4,
                           ),
                           itemCount: state.brandProductsModel?.result?.products
                                   ?.length ??

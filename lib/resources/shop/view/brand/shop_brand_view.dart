@@ -7,6 +7,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/responsive.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -321,7 +322,10 @@ class ShopBrandView extends StatelessWidget {
                                     fontWeight: FontWeight.w600,
                                     color: ColorManager.whiteColor),
                               ),
-                              SizedBox(width: SizeUtility(context).width / 2),
+                              SizedBox(
+                                  width: !Responsive.isMobile(context)
+                                      ? SizeUtility(context).width / 1.35
+                                      : SizeUtility(context).width / 1.8),
                               Icon(
                                 Icons.arrow_forward,
                                 color: ColorManager.whiteColor,

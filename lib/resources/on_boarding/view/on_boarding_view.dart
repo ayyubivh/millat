@@ -189,7 +189,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     fontSize: 16,
                     height: 1.3,
                     fontWeight: FontWeight.w100)),
-          kHeight40,
+          if (content == null) kHeight40,
         ],
       ),
     );

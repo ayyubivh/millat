@@ -202,6 +202,20 @@ class ShimmerUtils {
     );
   }
 
+//list of product shimmers
+  // static Widget listOfProductsShimmer(BuildContext context) {
+  //   return Column(
+  //     children: [
+  //       ...List.generate(
+  //           5,
+  //           (index) => Padding(
+  //                 padding: const EdgeInsets.only(bottom: 14),
+  //                 child: productsShimmers(context: context),
+  //               ))
+  //     ],
+  //   );
+  // }
+
 // product shimmers
   static Widget productsShimmers(
       {required BuildContext context, double? height, double? width}) {

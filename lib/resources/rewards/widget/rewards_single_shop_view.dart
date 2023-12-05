@@ -15,6 +15,7 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -62,7 +63,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
               builder: (context, state) {
                 final data = state.rewardsProductByIdModel?.result?.product;
                 if (data == null) {
-                  return const Loader();
+                  return ShimmerUtils.singleProductShimmer(context);
                 }
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

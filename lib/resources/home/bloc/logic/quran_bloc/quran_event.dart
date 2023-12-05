@@ -80,4 +80,5 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.emptyQuranVersesbyKey() = EmptyQuranVersesbyKey;
   const factory QuranEvent.addVersesToPlayList(
       {required List<String> verseKey}) = AddVersesToPlayList;
+      const factory QuranEvent.getShuffledAya()  = GetShuffledAya;
 }

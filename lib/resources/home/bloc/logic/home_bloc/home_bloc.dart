@@ -14,7 +14,6 @@ import '../../models/home_models/brand_of_the_day_model/brandofthe_day_model.dar
 import '../../models/home_models/hadit_of_the_day_model/hadit_oftheday_mode.dart';
 import '../../models/home_models/large_discount_model/home_large_discounts_model.dart';
 import '../../models/home_models/prayer_tracker_model.dart';
-
 part 'home_event.dart';
 part 'home_state.dart';
 part 'home_bloc.freezed.dart';
@@ -38,6 +37,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<FetchNotificationApi>(_fetchNotificationApi);
     on<AddMarkReadNotificationEvent>(_addMarkReadEvent);
     on<ChangeHomeBannerIndex>(_changeHomeBannerIndex);
+    on<ChangeEventOfTheMonthIndex>(_changeEventOfMonthIndex);
   }
 
   _fetchLargeDisountsBanner(
@@ -252,5 +252,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   _changeHomeBannerIndex(ChangeHomeBannerIndex event, Emitter<HomeState> emit) {
     emit(state.copyWith(homeBannerIndex: event.index));
+  }
+
+  _changeEventOfMonthIndex(
+      ChangeEventOfTheMonthIndex event, Emitter<HomeState> emit) {
+    emit(state.copyWith(eventOfMonthIndex: event.index));
   }
 }

@@ -15,7 +15,6 @@ import '../../../../../utils/constants.dart';
 import '../../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../../bloc/logic/location_bloc/location_bloc.dart';
 import '../../../bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
-import 'fade_effect_text_widget.dart';
 
 class HomeNamazTimingCard extends StatelessWidget {
   const HomeNamazTimingCard({super.key, required this.scrollNotifierValue});

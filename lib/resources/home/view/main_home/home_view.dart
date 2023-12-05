@@ -1,16 +1,12 @@
 // ignore_for_file: unused_local_variable
 
-import 'dart:developer';
 import 'dart:io';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
-import 'package:millat/resources/shop/bloc/service/category_services.dart';
-
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -35,8 +31,6 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'widgets/home_namaz_timing_card.dart';
 
-ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
-
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
@@ -45,13 +39,14 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _currentIndex = 0;
-  String verskey = "";
+  ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
   @override
   void initState() {
+    final verskey = context.read<QuranBloc>().state.shuffleVersKey;
+    BlocProvider.of<QuranBloc>(context).add(const GetShuffledAya());
     BlocProvider.of<QuranBloc>(context)
-        .add(FetchVersesByKey(verseKey: getShuffledList()));
+        .add(FetchVersesByKey(verseKey: [verskey]));
 
     BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
@@ -86,20 +81,9 @@ class _HomeViewState extends State<HomeView> {
     super.initState();
   }
 
-  List<String> getShuffledList() {
-    final shuffledList = List.from(context.read<QuranBloc>().state.tempListAya)
-      ..shuffle();
-    final selectedAya = shuffledList.first;
-    setState(() {
-      verskey = selectedAya;
-    });
-    return [selectedAya];
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // endDrawer: const HomeDrawyerWidget(),
       backgroundColor: ColorManager.whiteColor,
       body: BlocListener<DatabaseBloc, DatabaseState>(
         listener: (context, state) {
@@ -145,128 +129,107 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       HomeNamazTimingCard(
                           scrollNotifierValue: scrollNotifier.value),
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  kHeight16,
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 30),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              Responsive.isMobile(context)
-                                                  ? MainAxisAlignment
-                                                      .spaceBetween
-                                                  : MainAxisAlignment
-                                                      .spaceAround,
-                                          children: [
-                                            buildIconWidget(
-                                              image: AppAssetsStrings
-                                                  .homeQuranIcon,
-                                              text: Appstrings.quran,
-                                              onTap: () {
-                                                context.goNamed(
-                                                    MyAppRouteConstants
-                                                        .quranRouteName);
-                                              },
-                                            ),
-                                            BlocBuilder<LocationBloc,
-                                                LocationState>(
-                                              builder: (context, state) =>
-                                                  buildIconWidget(
-                                                image: AppAssetsStrings
-                                                    .homeCompassIcon,
-                                                text: Appstrings.compass,
-                                                onTap: () {
-                                                  if (state.currentLocaion
-                                                      .isNotEmpty) {
-                                                    context.goNamed(
-                                                        MyAppRouteConstants
-                                                            .compassRouteName);
-                                                  } else {
-                                                    showSnackBar(
-                                                      context,
-                                                      Appstrings.turnOnLocation,
-                                                    );
-                                                  }
-                                                },
-                                              ),
-                                            ),
-                                            buildIconWidget(
-                                              image: AppAssetsStrings
-                                                  .homeTasbihIcon,
-                                              text: Appstrings.tasbih,
-                                              onTap: () {
-                                                context.pushNamed(
-                                                    MyAppRouteConstants
-                                                        .tasbihRouteName);
-                                              },
-                                            ),
-                                            buildIconWidget(
-                                                image: AppAssetsStrings
-                                                    .homeDuaIcon,
-                                                text: Appstrings.dua,
-                                                onTap: () {
-                                                  context.goNamed(
-                                                      MyAppRouteConstants
-                                                          .duaRouteName);
-                                                })
-                                          ],
-                                        ),
-                                        kHeight20,
-                                        _bannerWidget(),
-                                        kHeight15,
-                                        _quranAyaWidget(context),
-                                        _dailyPrayerTracker(context),
-                                        const SizedBox(
-                                          height: 340,
-                                          child: HaditTinkerCards(),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  kHeight25,
-                                  _largeDiscountWidget(context),
-                                  _eventOfTheMonthWidget(context),
-                                  kHeight20,
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal:
-                                            !Responsive.isMobile(context)
-                                                ? 110
-                                                : 30),
-                                    child: Column(
-                                      children: [
-                                        _topOffersWidget(),
-                                        kHeight25,
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 30),
-                                    child: _brandOftheDayWidget(),
-                                  ),
-                                  kHeight50,
-                                  kHeight50,
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      _remainingWidgets(context),
                     ],
                   ),
                 );
               },
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _remainingWidgets(BuildContext context) {
+    return Expanded(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            kHeight16,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: Responsive.isMobile(context)
+                        ? MainAxisAlignment.spaceBetween
+                        : MainAxisAlignment.spaceAround,
+                    children: [
+                      buildIconWidget(
+                        image: AppAssetsStrings.homeQuranIcon,
+                        text: Appstrings.quran,
+                        onTap: () {
+                          context.goNamed(MyAppRouteConstants.quranRouteName);
+                        },
+                      ),
+                      BlocBuilder<LocationBloc, LocationState>(
+                        builder: (context, state) => buildIconWidget(
+                          image: AppAssetsStrings.homeCompassIcon,
+                          text: Appstrings.compass,
+                          onTap: () {
+                            if (state.currentLocaion.isNotEmpty) {
+                              context.goNamed(
+                                  MyAppRouteConstants.compassRouteName);
+                            } else {
+                              showSnackBar(
+                                context,
+                                Appstrings.turnOnLocation,
+                              );
+                            }
+                          },
+                        ),
+                      ),
+                      buildIconWidget(
+                        image: AppAssetsStrings.homeTasbihIcon,
+                        text: Appstrings.tasbih,
+                        onTap: () {
+                          context
+                              .pushNamed(MyAppRouteConstants.tasbihRouteName);
+                        },
+                      ),
+                      buildIconWidget(
+                          image: AppAssetsStrings.homeDuaIcon,
+                          text: Appstrings.dua,
+                          onTap: () {
+                            context.goNamed(MyAppRouteConstants.duaRouteName);
+                          })
+                    ],
+                  ),
+                  kHeight20,
+                  _bannerWidget(),
+                  kHeight15,
+                  _quranAyaWidget(context),
+                  _dailyPrayerTracker(context),
+                  const SizedBox(
+                    height: 340,
+                    child: HaditTinkerCards(),
+                  )
+                ],
+              ),
+            ),
+            kHeight25,
+            _largeDiscountWidget(context),
+            _eventOfTheMonthWidget(context),
+            kHeight20,
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: !Responsive.isMobile(context) ? 110 : 30),
+              child: Column(
+                children: [
+                  _topOffersWidget(),
+                  kHeight25,
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: _brandOftheDayWidget(),
+            ),
+            kHeight50,
+            kHeight50,
+          ],
         ),
       ),
     );
@@ -479,6 +442,7 @@ class _HomeViewState extends State<HomeView> {
           kHeight20,
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
+              final _currentIndex = state.eventOfMonthIndex;
               if (state.isLoading ||
                   state.eventOfTheMonthModel?.result?.event == null) {
                 return ShimmerUtils.customRectangleShimmer(
@@ -515,9 +479,8 @@ class _HomeViewState extends State<HomeView> {
                       autoPlayAnimationDuration:
                           const Duration(milliseconds: 800),
                       onPageChanged: (index, reason) {
-                        setState(() {
-                          _currentIndex = index;
-                        });
+                        BlocProvider.of<HomeBloc>(context)
+                            .add(ChangeEventOfTheMonthIndex(index: index));
                       },
                     ),
                   ),
@@ -916,7 +879,7 @@ class _HomeViewState extends State<HomeView> {
     return SizedBox(
       height: 290,
       width: !Responsive.isMobile(context)
-          ? SizeUtility(context).width / 2
+          ? SizeUtility(context).width / 2.5
           : SizeUtility(context).width / 1.2,
       child: PageView(
           physics: const NeverScrollableScrollPhysics(),
@@ -927,6 +890,7 @@ class _HomeViewState extends State<HomeView> {
             (index) {
               return BlocBuilder<QuranBloc, QuranState>(
                 builder: (context, state) {
+                  final verskey = state.shuffleVersKey;
                   if (state.versesByKeyModel!.isEmpty) {
                     return ShimmerUtils.customRectangleShimmer(
                       SizeUtility(context).width,
@@ -960,16 +924,7 @@ class _HomeViewState extends State<HomeView> {
                                 color: ColorManager.primary,
                               ),
                             ),
-                            kHeight10,
-                            // Text(
-                            //   "Al-Faitha : 2,3",
-                            //   style: TextStyle(
-                            //     fontSize: 15,
-                            //     fontWeight: FontWeight.w500,
-                            //     color: ColorManager.textGrey88,
-                            //   ),
-                            // ),
-                            kHeight10,
+                            kHeight16,
                             Text(
                               data!.verses[0].textIndopak,
                               style: TextStyle(
@@ -1000,6 +955,7 @@ class _HomeViewState extends State<HomeView> {
                                 color: ColorManager.blackColor,
                                 letterSpacing: 0.5,
                                 height: 1.2,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               textDirection: TextDirection.rtl,
                             ),
@@ -1119,29 +1075,32 @@ class _HomeViewState extends State<HomeView> {
                 scrollDirection: Axis.horizontal,
                 autoPlayAnimationDuration: const Duration(milliseconds: 800),
                 onPageChanged: (index, reason) {
-                  setState(() {
-                    _currentIndex = index;
-                  });
+                  BlocProvider.of<HomeBloc>(context)
+                      .add(ChangeHomeBannerIndex(index: index));
                 },
               ),
             ),
             kHeight10,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: banners!.map((banner) {
-                int index = banners.indexOf(banner);
-                return Container(
-                  width: 8,
-                  height: 8,
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: _currentIndex == index
-                        ? ColorManager.primary
-                        : ColorManager.greyD1,
-                  ),
+            BlocBuilder<HomeBloc, HomeState>(
+              builder: (context, state) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: banners!.map((banner) {
+                    int index = banners.indexOf(banner);
+                    return Container(
+                      width: 8,
+                      height: 8,
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: state.homeBannerIndex == index
+                            ? ColorManager.primary
+                            : ColorManager.greyD1,
+                      ),
+                    );
+                  }).toList(),
                 );
-              }).toList(),
+              },
             ),
           ],
         );

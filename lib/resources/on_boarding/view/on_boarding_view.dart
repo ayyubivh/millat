@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:millat/utils/responsive.dart';
+import 'package:millat/utils/size_utility.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
@@ -29,7 +30,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               controller: _pageController,
               children: [
                 buildOBView(
-                  imageWidget: Image.asset(shopImagePath, height: 400),
+                  image: shopImagePath,
                   content:
                       'Muslim consumers to access a range of halal products and services conveniently. making it easier for them to shop for halal products and services without compromising their faith.',
                   titleWidget: RichText(
@@ -55,7 +56,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   ])),
                 ),
                 buildOBView(
-                  imageWidget: Image.asset(familyImagePath, height: 400),
+                  image: familyImagePath,
+                  // height: SizeUtility(context).height / 2.4,
+
                   content:
                       'Muslim consumers to access a range of halal products and services conveniently. making it easier for them to shop for halal products and services without compromising their faith.',
                   titleWidget: RichText(
@@ -81,7 +84,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   ])),
                 ),
                 buildOBView(
-                  imageWidget: Image.asset(prayingImagePath, height: 400),
+                  image: prayingImagePath,
                   content:
                       'Namaz Time is an essential mobile app for Muslims around the world who want to stay connected to their faith by ensuring they never miss a prayer.',
                   titleWidget: RichText(
@@ -101,9 +104,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   ])),
                 ),
                 buildOBView(
-                  imageWidget: Image.asset(
-                    quranImagePath,
-                  ),
+                  image: quranImagePath,
                   titleWidget: RichText(
                       text: TextSpan(children: [
                     TextSpan(
@@ -169,20 +170,18 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   }
 
   Widget buildOBView(
-      {required Widget titleWidget,
-      required Widget imageWidget,
-      String? content}) {
+      {required Widget titleWidget, required String image, String? content}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 20)
+          .copyWith(top: 60),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const SizedBox(
-            height: 50,
-          ),
           titleWidget,
-          kHeight16,
-          imageWidget,
+          Image.asset(
+            image,
+            height: !Responsive.isMobile(context) ? 600 : 350,
+          ),
           if (content != null)
             Text(content,
                 style: TextStyle(
@@ -190,6 +189,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     fontSize: 16,
                     height: 1.3,
                     fontWeight: FontWeight.w100)),
+          if (content == null) kHeight40,
         ],
       ),
     );

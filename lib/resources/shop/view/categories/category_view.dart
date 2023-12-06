@@ -336,13 +336,13 @@ class CategoryView extends StatelessWidget {
                             ? const SizedBox()
                             : Column(
                                 children: [
-                                  ProductTitleWidget(
+                                  const ProductTitleWidget(
                                     text: Appstrings.flashSale,
                                     isShowTimer: true,
                                   ),
                                   kHeight16,
                                   SizedBox(
-                                    height: 280,
+                                    height: SizeUtility(context).height / 3,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemCount: products.length,
@@ -445,7 +445,7 @@ class CategoryView extends StatelessWidget {
                             ? const SizedBox()
                             : Column(
                                 children: [
-                                  ProductTitleWidget(
+                                  const ProductTitleWidget(
                                     text: Appstrings.mostPopular,
                                     isShowTimer: false,
                                   ),
@@ -554,7 +554,7 @@ class ProductTitleWidget extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        isShowTimer ? TimerWidget() : const SizedBox(),
+        isShowTimer ? const TimerWidget() : const SizedBox(),
       ],
     );
   }

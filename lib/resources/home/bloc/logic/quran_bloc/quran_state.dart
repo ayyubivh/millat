@@ -42,6 +42,7 @@ class QuranState with _$QuranState {
     required String lastRead,
     required String singleTranslation,
     required List<String> bookmarkAudioPlaylist,
+    required String shuffleVersKey,
   }) = _QuranState;
   factory QuranState.initial() => const QuranState(
         isLoading: false,
@@ -83,5 +84,6 @@ class QuranState with _$QuranState {
         lastRead: "1:1",
         singleTranslation: "",
         bookmarkAudioPlaylist: [],
+        shuffleVersKey: "2:2",
       );
 }

@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -70,29 +72,33 @@ void main() async {
   await Hive.openBox('userDetailsBox');
 
   runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(create: (context) => AuthBloc()),
-      BlocProvider(create: (context) => ShopProductsBloc()),
-      BlocProvider(create: (context) => CategoryBloc()),
-      BlocProvider(create: (context) => DatabaseBloc()),
-      BlocProvider(create: (context) => CartBloc()),
-      BlocProvider(create: (context) => AddressBloc()),
-      BlocProvider(create: (context) => LocationBloc()),
-      BlocProvider(create: (context) => NamazTimingBloc()),
-      BlocProvider(create: (context) => QuranBloc()),
-      BlocProvider(create: (context) => BookmarkBloc()),
-      BlocProvider(create: (context) => DuaBloc()),
-      BlocProvider(create: (context) => TasbihBloc()),
-      BlocProvider(create: (context) => HadithBloc()),
-      BlocProvider(create: (context) => HomeBloc()),
-      BlocProvider(create: (context) => TermsAndConditionsBloc()),
-      BlocProvider(create: (context) => RewardsBloc()),
-      BlocProvider(create: (context) => ReviewBloc()),
-      BlocProvider(create: (context) => TravelBloc()),
-      BlocProvider(create: (context) => RewardsCoinsCollectBloc())
-    ],
-    child: MyApp(),
-  ));
+      providers: [
+        BlocProvider(create: (context) => AuthBloc()),
+        BlocProvider(create: (context) => ShopProductsBloc()),
+        BlocProvider(create: (context) => CategoryBloc()),
+        BlocProvider(create: (context) => DatabaseBloc()),
+        BlocProvider(create: (context) => CartBloc()),
+        BlocProvider(create: (context) => AddressBloc()),
+        BlocProvider(create: (context) => LocationBloc()),
+        BlocProvider(create: (context) => NamazTimingBloc()),
+        BlocProvider(create: (context) => QuranBloc()),
+        BlocProvider(create: (context) => BookmarkBloc()),
+        BlocProvider(create: (context) => DuaBloc()),
+        BlocProvider(create: (context) => TasbihBloc()),
+        BlocProvider(create: (context) => HadithBloc()),
+        BlocProvider(create: (context) => HomeBloc()),
+        BlocProvider(create: (context) => TermsAndConditionsBloc()),
+        BlocProvider(create: (context) => RewardsBloc()),
+        BlocProvider(create: (context) => ReviewBloc()),
+        BlocProvider(create: (context) => TravelBloc()),
+        BlocProvider(create: (context) => RewardsCoinsCollectBloc())
+      ],
+      child: DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => MyApp(),
+      )
+      // child: MyApp(),
+      ));
 }
 
 class MyApp extends StatelessWidget {
@@ -127,28 +133,6 @@ class MyApp extends StatelessWidget {
         fontFamily: 'SofiaPro',
         primarySwatch: Colors.blue,
       ),
-      // routes: {
-      //   CategoriesProductView.routeName: (context) {
-      //     final args = ModalRoute.of(context)!.settings.arguments
-      //         as Map<String, dynamic>;
-      //     final category = args["category"];
-      //     final subCategory = args["subCategory"];
-      //     final type = args["type"];
-      //     return CategoriesProductView(
-      //         category: category, subCategory: subCategory, type: type);
-      //   },
-      //   NamazTimingView.routeName: (context) => const NamazTimingView(),
-      //   ManageAddress.routeName: (context) => const ManageAddress(),
-      //   SearchView.routeName: (context) => const SearchView(),
-      //   ProductsView.routeName: (context) {
-      //     final args = ModalRoute.of(context)!.settings.arguments
-      //         as Map<String, dynamic>;
-      //     final appBarTitle = args['appBarTitle'];
-      //     final passValue = args['passValue'];
-      //     return ProductsView(appBarTitle: appBarTitle, passValue: passValue);
-      //   },
-      // },
-      // home: _getInitialScreen(),
     );
   }
 

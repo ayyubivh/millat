@@ -24,6 +24,7 @@ class HomeState with _$HomeState {
     required int compassThemeIndex,
     required NotificationModel? notificationModel,
     required int homeBannerIndex,
+    required int eventOfMonthIndex,
   }) = _HomeState;
   factory HomeState.initial() => const HomeState(
         isLoading: false,
@@ -47,5 +48,6 @@ class HomeState with _$HomeState {
         compassThemeIndex: 0,
         notificationModel: null,
         homeBannerIndex: 0,
+        eventOfMonthIndex: 0,
       );
 }

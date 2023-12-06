@@ -63,6 +63,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<EmptyQuranVersesbyKey>(_emptyQuranVersesKey);
     on<PlayPlayListAudio>(_playPlayListAudio);
     on<AddVersesToPlayList>(_addVersesToPlayList);
+    on<GetShuffledAya>(_getShuffledAya);
   }
 
   _fetchQuranChapters(
@@ -530,5 +531,10 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     emit(state.copyWith(
       versesByKeyModel: null,
     ));
+  }
+
+  _getShuffledAya(GetShuffledAya event, Emitter<QuranState> emit) {
+    final shuffledList = List.from(state.tempListAya)..shuffle();
+    emit(state.copyWith(shuffleVersKey: shuffledList.first));
   }
 }

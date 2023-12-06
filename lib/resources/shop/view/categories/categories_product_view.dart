@@ -5,6 +5,7 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/responsive.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -118,11 +119,13 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                           : Expanded(
                               child: GridView.builder(
                                 gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                    SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
                                   crossAxisSpacing: 20,
                                   mainAxisSpacing: 20,
-                                  mainAxisExtent: 280,
+                                  mainAxisExtent: !Responsive.isMobile(context)
+                                      ? SizeUtility(context).height / 3.6
+                                      : SizeUtility(context).height / 3,
                                 ),
                                 itemCount:
                                     state.product?.result?.products?.length ??
@@ -166,11 +169,13 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                       : Expanded(
                           child: GridView.builder(
                             gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               crossAxisSpacing: 20,
                               mainAxisSpacing: 20,
-                              mainAxisExtent: 280,
+                              mainAxisExtent: !Responsive.isMobile(context)
+                                  ? SizeUtility(context).height / 3.6
+                                  : SizeUtility(context).height / 3,
                             ),
                             itemCount:
                                 state.product?.result?.products?.length ?? 10,

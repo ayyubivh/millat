@@ -122,7 +122,7 @@ class TravelTabBarWidget extends StatelessWidget {
                   ],
                 ),
                 ListView.builder(
-                  itemCount: 6,
+                  itemCount: imageUrl.length,
                   itemBuilder: (BuildContext context, int index) {
                     if (index % 2 == 0) {
                       return GestureDetector(

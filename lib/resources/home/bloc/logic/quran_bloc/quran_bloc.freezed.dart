@@ -54,6 +54,7 @@ mixin _$QuranEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +94,7 @@ mixin _$QuranEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -132,6 +134,7 @@ mixin _$QuranEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -185,6 +188,7 @@ mixin _$QuranEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -229,6 +233,7 @@ mixin _$QuranEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -273,6 +278,7 @@ mixin _$QuranEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -373,6 +379,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchQuaranChaptersEvent();
   }
@@ -415,6 +422,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchQuaranChaptersEvent?.call();
   }
@@ -457,6 +465,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchQuaranChaptersEvent != null) {
@@ -516,6 +525,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchQuaranChaptersEvent(this);
   }
@@ -563,6 +573,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchQuaranChaptersEvent?.call(this);
   }
@@ -610,6 +621,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchQuaranChaptersEvent != null) {
@@ -726,6 +738,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchChaperVersesEvent(id);
   }
@@ -768,6 +781,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchChaperVersesEvent?.call(id);
   }
@@ -810,6 +824,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchChaperVersesEvent != null) {
@@ -869,6 +884,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchChaperVersesEvent(this);
   }
@@ -916,6 +932,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchChaperVersesEvent?.call(this);
   }
@@ -963,6 +980,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchChaperVersesEvent != null) {
@@ -1087,6 +1105,7 @@ class _$FetchChapterVersesbyTextNameImpl
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchChapterVersesbyTextName(id);
   }
@@ -1129,6 +1148,7 @@ class _$FetchChapterVersesbyTextNameImpl
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchChapterVersesbyTextName?.call(id);
   }
@@ -1171,6 +1191,7 @@ class _$FetchChapterVersesbyTextNameImpl
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchChapterVersesbyTextName != null) {
@@ -1230,6 +1251,7 @@ class _$FetchChapterVersesbyTextNameImpl
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchChapterVersesbyTextName(this);
   }
@@ -1277,6 +1299,7 @@ class _$FetchChapterVersesbyTextNameImpl
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchChapterVersesbyTextName?.call(this);
   }
@@ -1324,6 +1347,7 @@ class _$FetchChapterVersesbyTextNameImpl
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchChapterVersesbyTextName != null) {
@@ -1445,6 +1469,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchParaVerses(id);
   }
@@ -1487,6 +1512,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchParaVerses?.call(id);
   }
@@ -1529,6 +1555,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchParaVerses != null) {
@@ -1588,6 +1615,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchParaVerses(this);
   }
@@ -1635,6 +1663,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchParaVerses?.call(this);
   }
@@ -1682,6 +1711,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchParaVerses != null) {
@@ -1775,6 +1805,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchQuranPara();
   }
@@ -1817,6 +1848,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchQuranPara?.call();
   }
@@ -1859,6 +1891,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchQuranPara != null) {
@@ -1918,6 +1951,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchQuranPara(this);
   }
@@ -1965,6 +1999,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchQuranPara?.call(this);
   }
@@ -2012,6 +2047,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchQuranPara != null) {
@@ -2102,6 +2138,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return changeExpandOnSearchEvent();
   }
@@ -2144,6 +2181,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return changeExpandOnSearchEvent?.call();
   }
@@ -2186,6 +2224,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (changeExpandOnSearchEvent != null) {
@@ -2245,6 +2284,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return changeExpandOnSearchEvent(this);
   }
@@ -2292,6 +2332,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return changeExpandOnSearchEvent?.call(this);
   }
@@ -2339,6 +2380,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (changeExpandOnSearchEvent != null) {
@@ -2459,6 +2501,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fechtChapterbyId(id);
   }
@@ -2501,6 +2544,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fechtChapterbyId?.call(id);
   }
@@ -2543,6 +2587,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fechtChapterbyId != null) {
@@ -2602,6 +2647,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fechtChapterbyId(this);
   }
@@ -2649,6 +2695,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fechtChapterbyId?.call(this);
   }
@@ -2696,6 +2743,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fechtChapterbyId != null) {
@@ -2816,6 +2864,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return searchChapterEvent(query);
   }
@@ -2858,6 +2907,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return searchChapterEvent?.call(query);
   }
@@ -2900,6 +2950,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (searchChapterEvent != null) {
@@ -2959,6 +3010,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return searchChapterEvent(this);
   }
@@ -3006,6 +3058,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return searchChapterEvent?.call(this);
   }
@@ -3053,6 +3106,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (searchChapterEvent != null) {
@@ -3180,6 +3234,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchVersesByKey(verseKey);
   }
@@ -3222,6 +3277,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchVersesByKey?.call(verseKey);
   }
@@ -3264,6 +3320,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchVersesByKey != null) {
@@ -3323,6 +3380,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchVersesByKey(this);
   }
@@ -3370,6 +3428,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchVersesByKey?.call(this);
   }
@@ -3417,6 +3476,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchVersesByKey != null) {
@@ -3546,6 +3606,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchParaAudios(id, recitorId);
   }
@@ -3588,6 +3649,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchParaAudios?.call(id, recitorId);
   }
@@ -3630,6 +3692,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchParaAudios != null) {
@@ -3689,6 +3752,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchParaAudios(this);
   }
@@ -3736,6 +3800,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchParaAudios?.call(this);
   }
@@ -3783,6 +3848,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchParaAudios != null) {
@@ -3917,6 +3983,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchChapterAudioFiles(id, recitorId);
   }
@@ -3959,6 +4026,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchChapterAudioFiles?.call(id, recitorId);
   }
@@ -4001,6 +4069,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchChapterAudioFiles != null) {
@@ -4060,6 +4129,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchChapterAudioFiles(this);
   }
@@ -4107,6 +4177,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchChapterAudioFiles?.call(this);
   }
@@ -4154,6 +4225,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchChapterAudioFiles != null) {
@@ -4280,6 +4352,7 @@ class _$ChangeIndexBackGroundSettingImpl
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return changeIndexBackGroundSetting(index);
   }
@@ -4322,6 +4395,7 @@ class _$ChangeIndexBackGroundSettingImpl
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return changeIndexBackGroundSetting?.call(index);
   }
@@ -4364,6 +4438,7 @@ class _$ChangeIndexBackGroundSettingImpl
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (changeIndexBackGroundSetting != null) {
@@ -4423,6 +4498,7 @@ class _$ChangeIndexBackGroundSettingImpl
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return changeIndexBackGroundSetting(this);
   }
@@ -4470,6 +4546,7 @@ class _$ChangeIndexBackGroundSettingImpl
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return changeIndexBackGroundSetting?.call(this);
   }
@@ -4517,6 +4594,7 @@ class _$ChangeIndexBackGroundSettingImpl
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (changeIndexBackGroundSetting != null) {
@@ -4611,6 +4689,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return increaseFontsize();
   }
@@ -4653,6 +4732,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return increaseFontsize?.call();
   }
@@ -4695,6 +4775,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (increaseFontsize != null) {
@@ -4754,6 +4835,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return increaseFontsize(this);
   }
@@ -4801,6 +4883,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return increaseFontsize?.call(this);
   }
@@ -4848,6 +4931,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (increaseFontsize != null) {
@@ -4935,6 +5019,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return decreaseFontsize();
   }
@@ -4977,6 +5062,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return decreaseFontsize?.call();
   }
@@ -5019,6 +5105,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (decreaseFontsize != null) {
@@ -5078,6 +5165,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return decreaseFontsize(this);
   }
@@ -5125,6 +5213,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return decreaseFontsize?.call(this);
   }
@@ -5172,6 +5261,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (decreaseFontsize != null) {
@@ -5262,6 +5352,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchAllTranslationsEvent();
   }
@@ -5304,6 +5395,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchAllTranslationsEvent?.call();
   }
@@ -5346,6 +5438,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchAllTranslationsEvent != null) {
@@ -5405,6 +5498,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchAllTranslationsEvent(this);
   }
@@ -5452,6 +5546,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchAllTranslationsEvent?.call(this);
   }
@@ -5499,6 +5594,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchAllTranslationsEvent != null) {
@@ -5628,6 +5724,7 @@ class _$FetchTranslationChapterTextsImpl
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchAllChapterTranslationTexts(chapterId, translationId);
   }
@@ -5670,6 +5767,7 @@ class _$FetchTranslationChapterTextsImpl
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchAllChapterTranslationTexts?.call(chapterId, translationId);
   }
@@ -5712,6 +5810,7 @@ class _$FetchTranslationChapterTextsImpl
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchAllChapterTranslationTexts != null) {
@@ -5771,6 +5870,7 @@ class _$FetchTranslationChapterTextsImpl
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchAllChapterTranslationTexts(this);
   }
@@ -5818,6 +5918,7 @@ class _$FetchTranslationChapterTextsImpl
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchAllChapterTranslationTexts?.call(this);
   }
@@ -5865,6 +5966,7 @@ class _$FetchTranslationChapterTextsImpl
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchAllChapterTranslationTexts != null) {
@@ -6000,6 +6102,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchAllParaTranslationTexts(paraId, translationId);
   }
@@ -6042,6 +6145,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchAllParaTranslationTexts?.call(paraId, translationId);
   }
@@ -6084,6 +6188,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchAllParaTranslationTexts != null) {
@@ -6143,6 +6248,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchAllParaTranslationTexts(this);
   }
@@ -6190,6 +6296,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchAllParaTranslationTexts?.call(this);
   }
@@ -6237,6 +6344,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchAllParaTranslationTexts != null) {
@@ -6360,6 +6468,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return playAllParaAudiosAuto(index);
   }
@@ -6402,6 +6511,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return playAllParaAudiosAuto?.call(index);
   }
@@ -6444,6 +6554,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (playAllParaAudiosAuto != null) {
@@ -6503,6 +6614,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return playAllParaAudiosAuto(this);
   }
@@ -6550,6 +6662,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return playAllParaAudiosAuto?.call(this);
   }
@@ -6597,6 +6710,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (playAllParaAudiosAuto != null) {
@@ -6719,6 +6833,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return playAllChapterAudiosAuto(index);
   }
@@ -6761,6 +6876,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return playAllChapterAudiosAuto?.call(index);
   }
@@ -6803,6 +6919,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (playAllChapterAudiosAuto != null) {
@@ -6862,6 +6979,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return playAllChapterAudiosAuto(this);
   }
@@ -6909,6 +7027,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return playAllChapterAudiosAuto?.call(this);
   }
@@ -6956,6 +7075,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (playAllChapterAudiosAuto != null) {
@@ -7049,6 +7169,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return showMusicbar();
   }
@@ -7091,6 +7212,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return showMusicbar?.call();
   }
@@ -7133,6 +7255,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (showMusicbar != null) {
@@ -7192,6 +7315,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return showMusicbar(this);
   }
@@ -7239,6 +7363,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return showMusicbar?.call(this);
   }
@@ -7286,6 +7411,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (showMusicbar != null) {
@@ -7402,6 +7528,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return isExpandonSearchEvent(isExpand);
   }
@@ -7444,6 +7571,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return isExpandonSearchEvent?.call(isExpand);
   }
@@ -7486,6 +7614,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (isExpandonSearchEvent != null) {
@@ -7545,6 +7674,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return isExpandonSearchEvent(this);
   }
@@ -7592,6 +7722,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return isExpandonSearchEvent?.call(this);
   }
@@ -7639,6 +7770,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (isExpandonSearchEvent != null) {
@@ -7775,6 +7907,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return saveGlobalTransilationIdAndName(transilationId, translationName);
   }
@@ -7817,6 +7950,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return saveGlobalTransilationIdAndName?.call(
         transilationId, translationName);
@@ -7860,6 +7994,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (saveGlobalTransilationIdAndName != null) {
@@ -7919,6 +8054,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return saveGlobalTransilationIdAndName(this);
   }
@@ -7966,6 +8102,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return saveGlobalTransilationIdAndName?.call(this);
   }
@@ -8013,6 +8150,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (saveGlobalTransilationIdAndName != null) {
@@ -8110,6 +8248,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchAllRecitors();
   }
@@ -8152,6 +8291,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchAllRecitors?.call();
   }
@@ -8194,6 +8334,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchAllRecitors != null) {
@@ -8253,6 +8394,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchAllRecitors(this);
   }
@@ -8300,6 +8442,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchAllRecitors?.call(this);
   }
@@ -8347,6 +8490,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchAllRecitors != null) {
@@ -8473,6 +8617,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return saveRecitorNameAndId(recitorId, recitorName);
   }
@@ -8515,6 +8660,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return saveRecitorNameAndId?.call(recitorId, recitorName);
   }
@@ -8557,6 +8703,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (saveRecitorNameAndId != null) {
@@ -8616,6 +8763,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return saveRecitorNameAndId(this);
   }
@@ -8663,6 +8811,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return saveRecitorNameAndId?.call(this);
   }
@@ -8710,6 +8859,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (saveRecitorNameAndId != null) {
@@ -8834,6 +8984,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return saveQuranTexttypeName(textName);
   }
@@ -8876,6 +9027,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return saveQuranTexttypeName?.call(textName);
   }
@@ -8918,6 +9070,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (saveQuranTexttypeName != null) {
@@ -8977,6 +9130,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return saveQuranTexttypeName(this);
   }
@@ -9024,6 +9178,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return saveQuranTexttypeName?.call(this);
   }
@@ -9071,6 +9226,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (saveQuranTexttypeName != null) {
@@ -9164,6 +9320,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return onTapofNextEvent();
   }
@@ -9206,6 +9363,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return onTapofNextEvent?.call();
   }
@@ -9248,6 +9406,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (onTapofNextEvent != null) {
@@ -9307,6 +9466,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return onTapofNextEvent(this);
   }
@@ -9354,6 +9514,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return onTapofNextEvent?.call(this);
   }
@@ -9401,6 +9562,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (onTapofNextEvent != null) {
@@ -9488,6 +9650,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return onTapofPrevEvent();
   }
@@ -9530,6 +9693,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return onTapofPrevEvent?.call();
   }
@@ -9572,6 +9736,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (onTapofPrevEvent != null) {
@@ -9631,6 +9796,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return onTapofPrevEvent(this);
   }
@@ -9678,6 +9844,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return onTapofPrevEvent?.call(this);
   }
@@ -9725,6 +9892,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (onTapofPrevEvent != null) {
@@ -9839,6 +10007,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return saveLastReadEvent(value);
   }
@@ -9881,6 +10050,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return saveLastReadEvent?.call(value);
   }
@@ -9923,6 +10093,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (saveLastReadEvent != null) {
@@ -9982,6 +10153,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return saveLastReadEvent(this);
   }
@@ -10029,6 +10201,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return saveLastReadEvent?.call(this);
   }
@@ -10076,6 +10249,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (saveLastReadEvent != null) {
@@ -10199,6 +10373,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return fetchSingleVerseTranslation(verseKey);
   }
@@ -10241,6 +10416,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return fetchSingleVerseTranslation?.call(verseKey);
   }
@@ -10283,6 +10459,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchSingleVerseTranslation != null) {
@@ -10342,6 +10519,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return fetchSingleVerseTranslation(this);
   }
@@ -10389,6 +10567,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return fetchSingleVerseTranslation?.call(this);
   }
@@ -10436,6 +10615,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (fetchSingleVerseTranslation != null) {
@@ -10529,6 +10709,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return playPlayListAudio();
   }
@@ -10571,6 +10752,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return playPlayListAudio?.call();
   }
@@ -10613,6 +10795,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (playPlayListAudio != null) {
@@ -10672,6 +10855,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return playPlayListAudio(this);
   }
@@ -10719,6 +10903,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return playPlayListAudio?.call(this);
   }
@@ -10766,6 +10951,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (playPlayListAudio != null) {
@@ -10855,6 +11041,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return emptyQuranVersesbyKey();
   }
@@ -10897,6 +11084,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return emptyQuranVersesbyKey?.call();
   }
@@ -10939,6 +11127,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (emptyQuranVersesbyKey != null) {
@@ -10998,6 +11187,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return emptyQuranVersesbyKey(this);
   }
@@ -11045,6 +11235,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return emptyQuranVersesbyKey?.call(this);
   }
@@ -11092,6 +11283,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (emptyQuranVersesbyKey != null) {
@@ -11213,6 +11405,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     required TResult Function() playPlayListAudio,
     required TResult Function() emptyQuranVersesbyKey,
     required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
   }) {
     return addVersesToPlayList(verseKey);
   }
@@ -11255,6 +11448,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     TResult? Function()? playPlayListAudio,
     TResult? Function()? emptyQuranVersesbyKey,
     TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
   }) {
     return addVersesToPlayList?.call(verseKey);
   }
@@ -11297,6 +11491,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     TResult Function()? playPlayListAudio,
     TResult Function()? emptyQuranVersesbyKey,
     TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
     required TResult orElse(),
   }) {
     if (addVersesToPlayList != null) {
@@ -11356,6 +11551,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     required TResult Function(EmptyQuranVersesbyKey value)
         emptyQuranVersesbyKey,
     required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
   }) {
     return addVersesToPlayList(this);
   }
@@ -11403,6 +11599,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
   }) {
     return addVersesToPlayList?.call(this);
   }
@@ -11450,6 +11647,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     TResult Function(PlayPlayListAudio value)? playPlayListAudio,
     TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
     TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
     required TResult orElse(),
   }) {
     if (addVersesToPlayList != null) {
@@ -11467,6 +11665,336 @@ abstract class AddVersesToPlayList implements QuranEvent {
   @JsonKey(ignore: true)
   _$$AddVersesToPlayListImplCopyWith<_$AddVersesToPlayListImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetShuffledAyaImplCopyWith<$Res> {
+  factory _$$GetShuffledAyaImplCopyWith(_$GetShuffledAyaImpl value,
+          $Res Function(_$GetShuffledAyaImpl) then) =
+      __$$GetShuffledAyaImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetShuffledAyaImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$GetShuffledAyaImpl>
+    implements _$$GetShuffledAyaImplCopyWith<$Res> {
+  __$$GetShuffledAyaImplCopyWithImpl(
+      _$GetShuffledAyaImpl _value, $Res Function(_$GetShuffledAyaImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetShuffledAyaImpl implements GetShuffledAya {
+  const _$GetShuffledAyaImpl();
+
+  @override
+  String toString() {
+    return 'QuranEvent.getShuffledAya()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetShuffledAyaImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchQuaranChaptersEvent,
+    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(int id) fetchChapterVersesbyTextName,
+    required TResult Function(int id) fetchParaVerses,
+    required TResult Function() fetchQuranPara,
+    required TResult Function() changeExpandOnSearchEvent,
+    required TResult Function(List<int> id) fechtChapterbyId,
+    required TResult Function(String query) searchChapterEvent,
+    required TResult Function(List<String> verseKey) fetchVersesByKey,
+    required TResult Function(int id, int recitorId) fetchParaAudios,
+    required TResult Function(int id, int recitorId) fetchChapterAudioFiles,
+    required TResult Function(int index) changeIndexBackGroundSetting,
+    required TResult Function() increaseFontsize,
+    required TResult Function() decreaseFontsize,
+    required TResult Function() fetchAllTranslationsEvent,
+    required TResult Function(int chapterId, int translationId)
+        fetchAllChapterTranslationTexts,
+    required TResult Function(int paraId, int translationId)
+        fetchAllParaTranslationTexts,
+    required TResult Function(int index) playAllParaAudiosAuto,
+    required TResult Function(int? index) playAllChapterAudiosAuto,
+    required TResult Function() showMusicbar,
+    required TResult Function(bool isExpand) isExpandonSearchEvent,
+    required TResult Function(int transilationId, String translationName)
+        saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
+    required TResult Function(int recitorId, String recitorName)
+        saveRecitorNameAndId,
+    required TResult Function(String textName) saveQuranTexttypeName,
+    required TResult Function() onTapofNextEvent,
+    required TResult Function() onTapofPrevEvent,
+    required TResult Function(String value) saveLastReadEvent,
+    required TResult Function(String verseKey) fetchSingleVerseTranslation,
+    required TResult Function() playPlayListAudio,
+    required TResult Function() emptyQuranVersesbyKey,
+    required TResult Function(List<String> verseKey) addVersesToPlayList,
+    required TResult Function() getShuffledAya,
+  }) {
+    return getShuffledAya();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchQuaranChaptersEvent,
+    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(int id)? fetchChapterVersesbyTextName,
+    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function()? fetchQuranPara,
+    TResult? Function()? changeExpandOnSearchEvent,
+    TResult? Function(List<int> id)? fechtChapterbyId,
+    TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(List<String> verseKey)? fetchVersesByKey,
+    TResult? Function(int id, int recitorId)? fetchParaAudios,
+    TResult? Function(int id, int recitorId)? fetchChapterAudioFiles,
+    TResult? Function(int index)? changeIndexBackGroundSetting,
+    TResult? Function()? increaseFontsize,
+    TResult? Function()? decreaseFontsize,
+    TResult? Function()? fetchAllTranslationsEvent,
+    TResult? Function(int chapterId, int translationId)?
+        fetchAllChapterTranslationTexts,
+    TResult? Function(int paraId, int translationId)?
+        fetchAllParaTranslationTexts,
+    TResult? Function(int index)? playAllParaAudiosAuto,
+    TResult? Function(int? index)? playAllChapterAudiosAuto,
+    TResult? Function()? showMusicbar,
+    TResult? Function(bool isExpand)? isExpandonSearchEvent,
+    TResult? Function(int transilationId, String translationName)?
+        saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
+    TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
+    TResult? Function(String textName)? saveQuranTexttypeName,
+    TResult? Function()? onTapofNextEvent,
+    TResult? Function()? onTapofPrevEvent,
+    TResult? Function(String value)? saveLastReadEvent,
+    TResult? Function(String verseKey)? fetchSingleVerseTranslation,
+    TResult? Function()? playPlayListAudio,
+    TResult? Function()? emptyQuranVersesbyKey,
+    TResult? Function(List<String> verseKey)? addVersesToPlayList,
+    TResult? Function()? getShuffledAya,
+  }) {
+    return getShuffledAya?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchQuaranChaptersEvent,
+    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(int id)? fetchChapterVersesbyTextName,
+    TResult Function(int id)? fetchParaVerses,
+    TResult Function()? fetchQuranPara,
+    TResult Function()? changeExpandOnSearchEvent,
+    TResult Function(List<int> id)? fechtChapterbyId,
+    TResult Function(String query)? searchChapterEvent,
+    TResult Function(List<String> verseKey)? fetchVersesByKey,
+    TResult Function(int id, int recitorId)? fetchParaAudios,
+    TResult Function(int id, int recitorId)? fetchChapterAudioFiles,
+    TResult Function(int index)? changeIndexBackGroundSetting,
+    TResult Function()? increaseFontsize,
+    TResult Function()? decreaseFontsize,
+    TResult Function()? fetchAllTranslationsEvent,
+    TResult Function(int chapterId, int translationId)?
+        fetchAllChapterTranslationTexts,
+    TResult Function(int paraId, int translationId)?
+        fetchAllParaTranslationTexts,
+    TResult Function(int index)? playAllParaAudiosAuto,
+    TResult Function(int? index)? playAllChapterAudiosAuto,
+    TResult Function()? showMusicbar,
+    TResult Function(bool isExpand)? isExpandonSearchEvent,
+    TResult Function(int transilationId, String translationName)?
+        saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
+    TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
+    TResult Function(String textName)? saveQuranTexttypeName,
+    TResult Function()? onTapofNextEvent,
+    TResult Function()? onTapofPrevEvent,
+    TResult Function(String value)? saveLastReadEvent,
+    TResult Function(String verseKey)? fetchSingleVerseTranslation,
+    TResult Function()? playPlayListAudio,
+    TResult Function()? emptyQuranVersesbyKey,
+    TResult Function(List<String> verseKey)? addVersesToPlayList,
+    TResult Function()? getShuffledAya,
+    required TResult orElse(),
+  }) {
+    if (getShuffledAya != null) {
+      return getShuffledAya();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchQuaranChaptersEvent value)
+        fetchQuaranChaptersEvent,
+    required TResult Function(FetchChaperVersesEvent value)
+        fetchChaperVersesEvent,
+    required TResult Function(FetchChapterVersesbyTextName value)
+        fetchChapterVersesbyTextName,
+    required TResult Function(FetchParaVerses value) fetchParaVerses,
+    required TResult Function(FetchQuranPara value) fetchQuranPara,
+    required TResult Function(ChangeExpandOnSearchEvent value)
+        changeExpandOnSearchEvent,
+    required TResult Function(FechtChapterbyId value) fechtChapterbyId,
+    required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
+    required TResult Function(FetchParaAudios value) fetchParaAudios,
+    required TResult Function(FetchChapterAudioFiles value)
+        fetchChapterAudioFiles,
+    required TResult Function(ChangeIndexBackGroundSetting value)
+        changeIndexBackGroundSetting,
+    required TResult Function(IncreaseFontsize value) increaseFontsize,
+    required TResult Function(DecreaseFontsize value) decreaseFontsize,
+    required TResult Function(FetchAllTranslationsEvent value)
+        fetchAllTranslationsEvent,
+    required TResult Function(FetchTranslationChapterTexts value)
+        fetchAllChapterTranslationTexts,
+    required TResult Function(FetchTranslationParaTexts value)
+        fetchAllParaTranslationTexts,
+    required TResult Function(PlayAllParaAudiosAuto value)
+        playAllParaAudiosAuto,
+    required TResult Function(PlayAllChapterAudiosAuto value)
+        playAllChapterAudiosAuto,
+    required TResult Function(ShowMusicbar value) showMusicbar,
+    required TResult Function(IsExpandonSearchEvent value)
+        isExpandonSearchEvent,
+    required TResult Function(SaveGlobalTransilationIdAndName value)
+        saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
+    required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
+    required TResult Function(SaveQuranTexttypeName value)
+        saveQuranTexttypeName,
+    required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
+    required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(SaveLastReadEvent value) saveLastReadEvent,
+    required TResult Function(FetchSingleVerseTranslation value)
+        fetchSingleVerseTranslation,
+    required TResult Function(PlayPlayListAudio value) playPlayListAudio,
+    required TResult Function(EmptyQuranVersesbyKey value)
+        emptyQuranVersesbyKey,
+    required TResult Function(AddVersesToPlayList value) addVersesToPlayList,
+    required TResult Function(GetShuffledAya value) getShuffledAya,
+  }) {
+    return getShuffledAya(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchQuaranChaptersEvent value)? fetchQuaranChaptersEvent,
+    TResult? Function(FetchChaperVersesEvent value)? fetchChaperVersesEvent,
+    TResult? Function(FetchChapterVersesbyTextName value)?
+        fetchChapterVersesbyTextName,
+    TResult? Function(FetchParaVerses value)? fetchParaVerses,
+    TResult? Function(FetchQuranPara value)? fetchQuranPara,
+    TResult? Function(ChangeExpandOnSearchEvent value)?
+        changeExpandOnSearchEvent,
+    TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
+    TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
+    TResult? Function(FetchParaAudios value)? fetchParaAudios,
+    TResult? Function(FetchChapterAudioFiles value)? fetchChapterAudioFiles,
+    TResult? Function(ChangeIndexBackGroundSetting value)?
+        changeIndexBackGroundSetting,
+    TResult? Function(IncreaseFontsize value)? increaseFontsize,
+    TResult? Function(DecreaseFontsize value)? decreaseFontsize,
+    TResult? Function(FetchAllTranslationsEvent value)?
+        fetchAllTranslationsEvent,
+    TResult? Function(FetchTranslationChapterTexts value)?
+        fetchAllChapterTranslationTexts,
+    TResult? Function(FetchTranslationParaTexts value)?
+        fetchAllParaTranslationTexts,
+    TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
+    TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
+    TResult? Function(ShowMusicbar value)? showMusicbar,
+    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(SaveGlobalTransilationIdAndName value)?
+        saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
+    TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
+    TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
+    TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
+    TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(SaveLastReadEvent value)? saveLastReadEvent,
+    TResult? Function(FetchSingleVerseTranslation value)?
+        fetchSingleVerseTranslation,
+    TResult? Function(PlayPlayListAudio value)? playPlayListAudio,
+    TResult? Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
+    TResult? Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult? Function(GetShuffledAya value)? getShuffledAya,
+  }) {
+    return getShuffledAya?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchQuaranChaptersEvent value)? fetchQuaranChaptersEvent,
+    TResult Function(FetchChaperVersesEvent value)? fetchChaperVersesEvent,
+    TResult Function(FetchChapterVersesbyTextName value)?
+        fetchChapterVersesbyTextName,
+    TResult Function(FetchParaVerses value)? fetchParaVerses,
+    TResult Function(FetchQuranPara value)? fetchQuranPara,
+    TResult Function(ChangeExpandOnSearchEvent value)?
+        changeExpandOnSearchEvent,
+    TResult Function(FechtChapterbyId value)? fechtChapterbyId,
+    TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
+    TResult Function(FetchParaAudios value)? fetchParaAudios,
+    TResult Function(FetchChapterAudioFiles value)? fetchChapterAudioFiles,
+    TResult Function(ChangeIndexBackGroundSetting value)?
+        changeIndexBackGroundSetting,
+    TResult Function(IncreaseFontsize value)? increaseFontsize,
+    TResult Function(DecreaseFontsize value)? decreaseFontsize,
+    TResult Function(FetchAllTranslationsEvent value)?
+        fetchAllTranslationsEvent,
+    TResult Function(FetchTranslationChapterTexts value)?
+        fetchAllChapterTranslationTexts,
+    TResult Function(FetchTranslationParaTexts value)?
+        fetchAllParaTranslationTexts,
+    TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
+    TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
+    TResult Function(ShowMusicbar value)? showMusicbar,
+    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(SaveGlobalTransilationIdAndName value)?
+        saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
+    TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
+    TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
+    TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
+    TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(SaveLastReadEvent value)? saveLastReadEvent,
+    TResult Function(FetchSingleVerseTranslation value)?
+        fetchSingleVerseTranslation,
+    TResult Function(PlayPlayListAudio value)? playPlayListAudio,
+    TResult Function(EmptyQuranVersesbyKey value)? emptyQuranVersesbyKey,
+    TResult Function(AddVersesToPlayList value)? addVersesToPlayList,
+    TResult Function(GetShuffledAya value)? getShuffledAya,
+    required TResult orElse(),
+  }) {
+    if (getShuffledAya != null) {
+      return getShuffledAya(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetShuffledAya implements QuranEvent {
+  const factory GetShuffledAya() = _$GetShuffledAyaImpl;
 }
 
 /// @nodoc
@@ -11520,6 +12048,7 @@ mixin _$QuranState {
   String get lastRead => throw _privateConstructorUsedError;
   String get singleTranslation => throw _privateConstructorUsedError;
   List<String> get bookmarkAudioPlaylist => throw _privateConstructorUsedError;
+  String get shuffleVersKey => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuranStateCopyWith<QuranState> get copyWith =>
@@ -11571,7 +12100,8 @@ abstract class $QuranStateCopyWith<$Res> {
       List<String> tempListAya,
       String lastRead,
       String singleTranslation,
-      List<String> bookmarkAudioPlaylist});
+      List<String> bookmarkAudioPlaylist,
+      String shuffleVersKey});
 
   $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
   $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel;
@@ -11638,6 +12168,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
     Object? lastRead = null,
     Object? singleTranslation = null,
     Object? bookmarkAudioPlaylist = null,
+    Object? shuffleVersKey = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -11796,6 +12327,10 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
           ? _value.bookmarkAudioPlaylist
           : bookmarkAudioPlaylist // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      shuffleVersKey: null == shuffleVersKey
+          ? _value.shuffleVersKey
+          : shuffleVersKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -11985,7 +12520,8 @@ abstract class _$$QuranStateImplCopyWith<$Res>
       List<String> tempListAya,
       String lastRead,
       String singleTranslation,
-      List<String> bookmarkAudioPlaylist});
+      List<String> bookmarkAudioPlaylist,
+      String shuffleVersKey});
 
   @override
   $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
@@ -12061,6 +12597,7 @@ class __$$QuranStateImplCopyWithImpl<$Res>
     Object? lastRead = null,
     Object? singleTranslation = null,
     Object? bookmarkAudioPlaylist = null,
+    Object? shuffleVersKey = null,
   }) {
     return _then(_$QuranStateImpl(
       isLoading: null == isLoading
@@ -12219,6 +12756,10 @@ class __$$QuranStateImplCopyWithImpl<$Res>
           ? _value._bookmarkAudioPlaylist
           : bookmarkAudioPlaylist // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      shuffleVersKey: null == shuffleVersKey
+          ? _value.shuffleVersKey
+          : shuffleVersKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -12265,7 +12806,8 @@ class _$QuranStateImpl implements _QuranState {
       required final List<String> tempListAya,
       required this.lastRead,
       required this.singleTranslation,
-      required final List<String> bookmarkAudioPlaylist})
+      required final List<String> bookmarkAudioPlaylist,
+      required this.shuffleVersKey})
       : _chapterByIdModel = chapterByIdModel,
         _searchChapters = searchChapters,
         _versesByKeyModel = versesByKeyModel,
@@ -12424,8 +12966,11 @@ class _$QuranStateImpl implements _QuranState {
   }
 
   @override
+  final String shuffleVersKey;
+
+  @override
   String toString() {
-    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue, tempListAya: $tempListAya, lastRead: $lastRead, singleTranslation: $singleTranslation, bookmarkAudioPlaylist: $bookmarkAudioPlaylist)';
+    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue, tempListAya: $tempListAya, lastRead: $lastRead, singleTranslation: $singleTranslation, bookmarkAudioPlaylist: $bookmarkAudioPlaylist, shuffleVersKey: $shuffleVersKey)';
   }
 
   @override
@@ -12510,7 +13055,9 @@ class _$QuranStateImpl implements _QuranState {
             (identical(other.singleTranslation, singleTranslation) ||
                 other.singleTranslation == singleTranslation) &&
             const DeepCollectionEquality()
-                .equals(other._bookmarkAudioPlaylist, _bookmarkAudioPlaylist));
+                .equals(other._bookmarkAudioPlaylist, _bookmarkAudioPlaylist) &&
+            (identical(other.shuffleVersKey, shuffleVersKey) ||
+                other.shuffleVersKey == shuffleVersKey));
   }
 
   @override
@@ -12554,7 +13101,8 @@ class _$QuranStateImpl implements _QuranState {
         const DeepCollectionEquality().hash(_tempListAya),
         lastRead,
         singleTranslation,
-        const DeepCollectionEquality().hash(_bookmarkAudioPlaylist)
+        const DeepCollectionEquality().hash(_bookmarkAudioPlaylist),
+        shuffleVersKey
       ]);
 
   @JsonKey(ignore: true)
@@ -12604,7 +13152,8 @@ abstract class _QuranState implements QuranState {
       required final List<String> tempListAya,
       required final String lastRead,
       required final String singleTranslation,
-      required final List<String> bookmarkAudioPlaylist}) = _$QuranStateImpl;
+      required final List<String> bookmarkAudioPlaylist,
+      required final String shuffleVersKey}) = _$QuranStateImpl;
 
   @override
   bool get isLoading;
@@ -12684,6 +13233,8 @@ abstract class _QuranState implements QuranState {
   String get singleTranslation;
   @override
   List<String> get bookmarkAudioPlaylist;
+  @override
+  String get shuffleVersKey;
   @override
   @JsonKey(ignore: true)
   _$$QuranStateImplCopyWith<_$QuranStateImpl> get copyWith =>

@@ -110,7 +110,7 @@ class ShimmerUtils {
     return Column(
       children: [
         ...List.generate(
-          9,
+          5,
           (index) => Padding(
             padding: const EdgeInsets.only(bottom: 14),
             child: ShimmerUtils.customRectangleShimmer(
@@ -201,6 +201,20 @@ class ShimmerUtils {
       ),
     );
   }
+
+//list of product shimmers
+  // static Widget listOfProductsShimmer(BuildContext context) {
+  //   return Column(
+  //     children: [
+  //       ...List.generate(
+  //           5,
+  //           (index) => Padding(
+  //                 padding: const EdgeInsets.only(bottom: 14),
+  //                 child: productsShimmers(context: context),
+  //               ))
+  //     ],
+  //   );
+  // }
 
 // product shimmers
   static Widget productsShimmers(

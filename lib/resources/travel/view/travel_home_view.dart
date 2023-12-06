@@ -320,6 +320,7 @@ class TravelProductWidget extends StatelessWidget {
           children: [
             SizedBox(
               height: 160,
+              width: SizeUtility(context).width / 2,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Utilities().buildCachedNetworkImage(

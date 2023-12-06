@@ -42,4 +42,7 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.changeHomeBannerIndex({
     required int index,
   }) = ChangeHomeBannerIndex;
+  const factory HomeEvent.changeEventOfTheMonthIndex({
+    required int index,
+  }) = ChangeEventOfTheMonthIndex;
 }

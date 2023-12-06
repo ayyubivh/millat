@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/utils/responsive.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../../../utils/assets_paths.dart';
@@ -105,6 +106,7 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
                     ),
                     Column(
                       children: [
+                        !Responsive.isMobile(context) ? kHeight25 : kHeight2,
                         kHeight50,
                         Text(
                           Appstrings.hadithOfTheDay,
@@ -182,9 +184,12 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
               ),
               Positioned(
                 bottom: 0,
-                child: CustomPaint(
-                  size: Size(SizeUtility(context).width, 0),
-                  painter: LinePainter2(),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: CustomPaint(
+                    size: Size(SizeUtility(context).width, 0),
+                    painter: LinePainter2(),
+                  ),
                 ),
               ),
             ],
@@ -192,10 +197,12 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
         ),
         Padding(
           padding: EdgeInsets.only(
-            left: SizeUtility(context).width / 2.66,
+            left: !Responsive.isMobile(context)
+                ? SizeUtility(context).width / 2.4
+                : SizeUtility(context).width / 2.66,
           ),
           child: CircleAvatar(
-            radius: 30,
+            radius: !Responsive.isMobile(context) ? 45 : 30,
             backgroundColor: ColorManager.primary,
             child: Image.asset(
               AppAssetsStrings.homeHaditQuranIcon,
@@ -262,7 +269,7 @@ class LinePainter2 extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..strokeWidth = 4
+      ..strokeWidth = 10
       ..color = ColorManager.whiteColor;
     canvas.drawLine(Offset(size.width * 2.131 / 6, size.height),
         Offset(size.width * 3 / 6, size.height), paint);

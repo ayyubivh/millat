@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
+import 'package:millat/utils/responsive.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
@@ -46,12 +47,12 @@ class DuaTabbarview extends StatelessWidget {
                       itemCount:
                           state.duaCategoryModel?.result.duaCategory.length ??
                               8,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 13,
-                        crossAxisSpacing: 13,
-                      ),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 13,
+                          crossAxisSpacing: 13,
+                          childAspectRatio:
+                              !Responsive.isMobile(context) ? 1.3 : 1.1),
                       itemBuilder: (context, index) {
                         final data = state.duaCategoryModel?.result.duaCategory;
                         if (data == null || state.isLoading) {
@@ -79,6 +80,8 @@ class DuaTabbarview extends StatelessWidget {
                                   color: ColorManager.primary,
                                   width: 1.5,
                                 )),
+                            margin: EdgeInsets.all(
+                                !Responsive.isMobile(context) ? 10 : 2),
                             padding: const EdgeInsets.all(10),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,

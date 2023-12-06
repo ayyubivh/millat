@@ -11,6 +11,8 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 
+import '../../../../utils/responsive.dart';
+
 class TasbihView extends StatefulWidget {
   const TasbihView({super.key});
 
@@ -180,61 +182,151 @@ class TasbihViewState extends State<TasbihView>
                             parent: _controller,
                             curve: Curves.easeIn,
                           ).value;
-                          return Positioned(
-                            top: state.tasbihThemes == TasbihThemes.orange
-                                ? 152 - curvedValue * 200
-                                : state.tasbihThemes == TasbihThemes.purple
-                                    ? 130 - curvedValue * 200
-                                    : state.tasbihThemes == TasbihThemes.green
-                                        ? 148 - curvedValue * 200
-                                        : state.tasbihThemes ==
-                                                TasbihThemes.darkBlue
-                                            ? 130 - curvedValue * 200
-                                            : state.tasbihThemes ==
-                                                    TasbihThemes.lightOrange
-                                                ? 125 - curvedValue * 200
-                                                : 129 - curvedValue * 200,
-                            left: state.tasbihThemes == TasbihThemes.orange
-                                ? 80 + curvedValue * SizeUtility(context).width
-                                : state.tasbihThemes == TasbihThemes.purple
-                                    ? 68 +
-                                        curvedValue * SizeUtility(context).width
-                                    : state.tasbihThemes == TasbihThemes.green
-                                        ? 78 +
-                                            curvedValue *
-                                                SizeUtility(context).width
-                                        : state.tasbihThemes ==
-                                                TasbihThemes.darkBlue
-                                            ? 77 +
-                                                curvedValue *
-                                                    SizeUtility(context).width
-                                            : state.tasbihThemes ==
-                                                    TasbihThemes.lightOrange
-                                                ? 68 +
-                                                    curvedValue *
-                                                        SizeUtility(context)
-                                                            .width
-                                                : 58 +
-                                                    curvedValue *
-                                                        SizeUtility(context)
-                                                            .width,
-                            child: Image.asset(
-                              tasbihThemeSingleBall[state.tasbihThemes]!,
-                              width: state.tasbihThemes == TasbihThemes.orange
-                                  ? 140
-                                  : state.tasbihThemes == TasbihThemes.green
-                                      ? 148
+                          return !Responsive.isMobile(context)
+                              ? Positioned(
+                                  top: state.tasbihThemes == TasbihThemes.orange
+                                      ? 300 - curvedValue * 200
                                       : state.tasbihThemes ==
-                                              TasbihThemes.darkBlue
-                                          ? 148
-                                          : 167,
-                              height: state.tasbihThemes == TasbihThemes.orange
-                                  ? 140
-                                  : state.tasbihThemes == TasbihThemes.green
-                                      ? 148
-                                      : 167,
-                            ),
-                          );
+                                              TasbihThemes.purple
+                                          ? 227 - curvedValue * 200
+                                          : state.tasbihThemes ==
+                                                  TasbihThemes.green
+                                              ? 265 - curvedValue * 200
+                                              : state.tasbihThemes ==
+                                                      TasbihThemes.darkBlue
+                                                  ? 220 - curvedValue * 200
+                                                  : state.tasbihThemes ==
+                                                          TasbihThemes
+                                                              .lightOrange
+                                                      ? 224 - curvedValue * 200
+                                                      : 225 - curvedValue * 200,
+                                  left: state.tasbihThemes ==
+                                          TasbihThemes.orange
+                                      ? 110 +
+                                          curvedValue *
+                                              SizeUtility(context).width
+                                      : state.tasbihThemes ==
+                                              TasbihThemes.purple
+                                          ? 116 +
+                                              curvedValue *
+                                                  SizeUtility(context).width
+                                          : state.tasbihThemes ==
+                                                  TasbihThemes.green
+                                              ? 135 +
+                                                  curvedValue *
+                                                      SizeUtility(context).width
+                                              : state.tasbihThemes ==
+                                                      TasbihThemes.darkBlue
+                                                  ? 114 +
+                                                      curvedValue *
+                                                          SizeUtility(context)
+                                                              .width
+                                                  : state.tasbihThemes ==
+                                                          TasbihThemes
+                                                              .lightOrange
+                                                      ? 110 +
+                                                          curvedValue *
+                                                              SizeUtility(
+                                                                      context)
+                                                                  .width
+                                                      : 100 +
+                                                          curvedValue *
+                                                              SizeUtility(
+                                                                      context)
+                                                                  .width,
+                                  child: Image.asset(
+                                    tasbihThemeSingleBall[state.tasbihThemes]!,
+                                    width: state.tasbihThemes ==
+                                            TasbihThemes.orange
+                                        ? 320
+                                        : state.tasbihThemes ==
+                                                TasbihThemes.green
+                                            ? 268
+                                            : state.tasbihThemes ==
+                                                    TasbihThemes.darkBlue
+                                                ? 288
+                                                : 300,
+                                    height: state.tasbihThemes ==
+                                            TasbihThemes.orange
+                                        ? 200
+                                        : state.tasbihThemes ==
+                                                TasbihThemes.green
+                                            ? 268
+                                            : 300,
+                                  ),
+                                )
+                              : Positioned(
+                                  top: state.tasbihThemes == TasbihThemes.orange
+                                      ? 152 - curvedValue * 200
+                                      : state.tasbihThemes ==
+                                              TasbihThemes.purple
+                                          ? 130 - curvedValue * 200
+                                          : state.tasbihThemes ==
+                                                  TasbihThemes.green
+                                              ? 148 - curvedValue * 200
+                                              : state.tasbihThemes ==
+                                                      TasbihThemes.darkBlue
+                                                  ? 130 - curvedValue * 200
+                                                  : state.tasbihThemes ==
+                                                          TasbihThemes
+                                                              .lightOrange
+                                                      ? 125 - curvedValue * 200
+                                                      : 129 - curvedValue * 200,
+                                  left: state.tasbihThemes ==
+                                          TasbihThemes.orange
+                                      ? 80 +
+                                          curvedValue *
+                                              SizeUtility(context).width
+                                      : state.tasbihThemes ==
+                                              TasbihThemes.purple
+                                          ? 68 +
+                                              curvedValue *
+                                                  SizeUtility(context).width
+                                          : state.tasbihThemes ==
+                                                  TasbihThemes.green
+                                              ? 78 +
+                                                  curvedValue *
+                                                      SizeUtility(context).width
+                                              : state.tasbihThemes ==
+                                                      TasbihThemes.darkBlue
+                                                  ? 77 +
+                                                      curvedValue *
+                                                          SizeUtility(context)
+                                                              .width
+                                                  : state.tasbihThemes ==
+                                                          TasbihThemes
+                                                              .lightOrange
+                                                      ? 68 +
+                                                          curvedValue *
+                                                              SizeUtility(
+                                                                      context)
+                                                                  .width
+                                                      : 58 +
+                                                          curvedValue *
+                                                              SizeUtility(
+                                                                      context)
+                                                                  .width,
+                                  child: Image.asset(
+                                    tasbihThemeSingleBall[state.tasbihThemes]!,
+                                    width: state.tasbihThemes ==
+                                            TasbihThemes.orange
+                                        ? 140
+                                        : state.tasbihThemes ==
+                                                TasbihThemes.green
+                                            ? 148
+                                            : state.tasbihThemes ==
+                                                    TasbihThemes.darkBlue
+                                                ? 148
+                                                : 167,
+                                    height: state.tasbihThemes ==
+                                            TasbihThemes.orange
+                                        ? 140
+                                        : state.tasbihThemes ==
+                                                TasbihThemes.green
+                                            ? 148
+                                            : 167,
+                                  ),
+                                );
                         },
                       ),
                     ],

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +16,7 @@ import 'package:millat/resources/shop/view/widgets/shop_home_subcategory_card_wi
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/responsive.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -290,7 +293,8 @@ class _ShopViewState extends State<ShopView> {
                 Container(
                   height: 100,
                   width: 100,
-                  margin: const EdgeInsets.only(right: 15),
+                  margin: EdgeInsets.only(
+                      right: !Responsive.isMobile(context) ? 40 : 18),
                   decoration: BoxDecoration(
                       color: color, borderRadius: BorderRadius.circular(12)),
                   child: ClipRRect(
@@ -327,6 +331,7 @@ class _ShopViewState extends State<ShopView> {
         return SizedBox(
           height: 100,
           child: ListView.builder(
+            itemExtent: !Responsive.isMobile(context) ? 150 : 100,
             scrollDirection: Axis.horizontal,
             itemCount: state.brandModels?.result?.data?.length ?? 6,
             itemBuilder: (BuildContext context, int index) {
@@ -570,7 +575,7 @@ class _ShopViewState extends State<ShopView> {
 
   Widget _categorySections(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 45, left: 20, right: 20),
+      padding: const EdgeInsets.only(top: 45, left: 25, right: 25),
       width: SizeUtility(context).width,
       height: 300,
       decoration: BoxDecoration(
@@ -583,7 +588,6 @@ class _ShopViewState extends State<ShopView> {
           Row(
             children: [
               Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Image.asset(
                     whiteLogo,
@@ -595,7 +599,7 @@ class _ShopViewState extends State<ShopView> {
               GestureDetector(
                 onTap: () {
                   context
-                      .goNamed(MyAppRouteConstants.categoriesFilterRouteName);
+                      .pushNamed(MyAppRouteConstants.categoriesFilterRouteName);
                 },
                 child: ImageIcon(
                   const AssetImage(
@@ -605,17 +609,18 @@ class _ShopViewState extends State<ShopView> {
                   color: ColorManager.whiteColor,
                 ),
               ),
-              kWidth8,
+              !Responsive.isMobile(context) ? kWidth30 : kWidth10,
               GestureDetector(
                 onTap: () {
                   context.pushNamed(MyAppRouteConstants.wishlistRouteName);
                 },
                 child: ImageIcon(
-                  AssetImage(AppAssetsStrings.wishList),
+                  const AssetImage(AppAssetsStrings.wishList),
                   color: ColorManager.whiteColor,
                   size: 22,
                 ),
               ),
+              !Responsive.isMobile(context) ? kWidth20 : const SizedBox(),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
                   return CartIconWidget(
@@ -672,7 +677,7 @@ class _ShopViewState extends State<ShopView> {
                 height: 95,
                 child: ListView.builder(
                   itemCount: state.category?.result?.category?.length,
-                  itemExtent: 100,
+                  itemExtent: !Responsive.isMobile(context) ? 150 : 100,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     if (state.category?.result?.category == null) {
@@ -687,9 +692,10 @@ class _ShopViewState extends State<ShopView> {
                     final data = state.category!.result!.category![index];
 
                     return BuildCategoryWidget(
-                        categoryId: data.id!,
-                        image: data.image!,
-                        text: data.title.toString());
+                      categoryId: data.id!,
+                      image: data.image!,
+                      text: data.title.toString(),
+                    );
                   },
                 ),
               );

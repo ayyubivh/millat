@@ -10,7 +10,6 @@ import 'package:millat/resources/travel/view/widget/category_list_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -36,7 +35,6 @@ class TravelHomeView extends StatelessWidget {
       const RecommendationWidget(),
       const PopularDestinationWidget(),
       const BestPlaceWidget(),
-      kHeight100,
     ];
 
     return Scaffold(
@@ -107,110 +105,146 @@ class BestPlaceWidget extends StatelessWidget {
                               borderRadius: 14),
                         );
                       }
-                      return GestureDetector(
-                        onTap: () {
-                          context.pushNamed(
-                              MyAppRouteConstants.travelSingleRoutename,
-                              pathParameters: {
-                                'id': data[index].id ?? "",
-                              });
-                        },
-                        child: Column(
-                          children: [
-                            Stack(
-                              children: [
-                                Container(
-                                  margin: const EdgeInsets.only(right: 10),
-                                  height: 180,
-                                  width: SizeUtility(context).width / 1.3,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(12),
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Container(
+                            height: 180,
+                            width: SizeUtility(context).width / 1.3,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: GestureDetector(
+                              onTap: () {
+                                context.pushNamed(
+                                    MyAppRouteConstants.travelSingleRoutename,
+                                    pathParameters: {
+                                      'id': data[index].id ?? "",
+                                    });
+                              },
+                              child: Stack(
+                                children: [
+                                  ShaderMask(
+                                    blendMode: BlendMode.darken,
+                                    shaderCallback: (bounds) => LinearGradient(
+                                      colors: [
+                                        Colors.black.withOpacity(0.5),
+                                        Colors.transparent
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter,
+                                    ).createShader(bounds),
                                     child: Utilities().buildCachedNetworkImage(
-                                        imageUrl: data[index].images?[0]),
+                                      imageUrl: data[index].images?[0],
+                                      boxFit: BoxFit.cover,
+                                      height: 180,
+                                      width: SizeUtility(context).width / 1.3,
+                                    ),
                                   ),
-                                ),
-                                Positioned(
-                                  bottom: 0,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(16),
-                                    child: Row(
-                                      children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            SizedBox(
-                                              width: 140,
-                                              child: Text(
-                                                data[index].name ?? "",
-                                                style: TextStyle(
-                                                  fontSize: 17,
-                                                  fontWeight: FontWeight.bold,
-                                                  color:
-                                                      ColorManager.whiteColor,
-                                                ),
-                                                maxLines: 2,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                            ),
-                                            kHeight5,
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                ImageIcon(
-                                                  const AssetImage(
-                                                    AppAssetsStrings.locations,
-                                                  ),
-                                                  size: 12,
-                                                  color:
-                                                      ColorManager.whiteColor,
-                                                ),
-                                                kWidth3,
-                                                Text(
-                                                  data[index].location ?? "",
+                                  Positioned.fill(
+                                    child: DecoratedBox(
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          begin: Alignment.bottomCenter,
+                                          end: Alignment.topCenter,
+                                          colors: [
+                                            Colors.black.withOpacity(0.5),
+                                            Colors.transparent,
+                                          ],
+                                          stops: const [0.0, 0.3],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16),
+                                      child: Row(
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              SizedBox(
+                                                width: 140,
+                                                child: Text(
+                                                  data[index].name ?? "",
                                                   style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 17,
+                                                    fontWeight: FontWeight.bold,
                                                     color:
                                                         ColorManager.whiteColor,
                                                   ),
-                                                )
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.only(
-                                              left: SizeUtility(context).width /
-                                                  5),
-                                          width: 80,
-                                          height: 29,
-                                          decoration: BoxDecoration(
-                                            color: ColorManager.primary,
-                                            borderRadius:
-                                                BorderRadius.circular(30),
-                                          ),
-                                          child: Center(
-                                            child: Text(
-                                              " Up to ₹${data[index].price}",
-                                              style: TextStyle(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w700,
-                                                color: ColorManager.whiteColor,
+                                                  maxLines: 2,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                ),
                                               ),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
+                                              kHeight5,
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  ImageIcon(
+                                                    const AssetImage(
+                                                      AppAssetsStrings
+                                                          .locations,
+                                                    ),
+                                                    size: 12,
+                                                    color:
+                                                        ColorManager.whiteColor,
+                                                  ),
+                                                  kWidth3,
+                                                  Text(
+                                                    data[index].location ?? "",
+                                                    style: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: ColorManager
+                                                          .whiteColor,
+                                                    ),
+                                                  )
+                                                ],
+                                              )
+                                            ],
                                           ),
-                                        )
-                                      ],
+                                          Container(
+                                            margin: EdgeInsets.only(
+                                                left:
+                                                    SizeUtility(context).width /
+                                                        5),
+                                            width: 80,
+                                            height: 29,
+                                            decoration: BoxDecoration(
+                                              color: ColorManager.primary,
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                " Up to ₹${data[index].price}",
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w700,
+                                                  color:
+                                                      ColorManager.whiteColor,
+                                                ),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                       );
                     },

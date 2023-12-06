@@ -23,7 +23,7 @@ class AppAssetsStrings {
   static const rewardsTab = "$iconsPath/rewards_tab.png";
   static const millatLogo = "$logosPath/Icon only.png";
   static const copyIcon = "$iconsPath/copy.png";
-
+  static const quranBgImage = "$backgroundsPath/quran_bg.png";
   //tasbih
 
   static const String tasbihBallPink = "$imagesPath/tasbih_balls_pink.png";

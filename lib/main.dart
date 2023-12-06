@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -72,33 +71,33 @@ void main() async {
   await Hive.openBox('userDetailsBox');
 
   runApp(MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => AuthBloc()),
-        BlocProvider(create: (context) => ShopProductsBloc()),
-        BlocProvider(create: (context) => CategoryBloc()),
-        BlocProvider(create: (context) => DatabaseBloc()),
-        BlocProvider(create: (context) => CartBloc()),
-        BlocProvider(create: (context) => AddressBloc()),
-        BlocProvider(create: (context) => LocationBloc()),
-        BlocProvider(create: (context) => NamazTimingBloc()),
-        BlocProvider(create: (context) => QuranBloc()),
-        BlocProvider(create: (context) => BookmarkBloc()),
-        BlocProvider(create: (context) => DuaBloc()),
-        BlocProvider(create: (context) => TasbihBloc()),
-        BlocProvider(create: (context) => HadithBloc()),
-        BlocProvider(create: (context) => HomeBloc()),
-        BlocProvider(create: (context) => TermsAndConditionsBloc()),
-        BlocProvider(create: (context) => RewardsBloc()),
-        BlocProvider(create: (context) => ReviewBloc()),
-        BlocProvider(create: (context) => TravelBloc()),
-        BlocProvider(create: (context) => RewardsCoinsCollectBloc())
-      ],
-      child: DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => MyApp(),
-      )
-      // child: MyApp(),
-      ));
+    providers: [
+      BlocProvider(create: (context) => AuthBloc()),
+      BlocProvider(create: (context) => ShopProductsBloc()),
+      BlocProvider(create: (context) => CategoryBloc()),
+      BlocProvider(create: (context) => DatabaseBloc()),
+      BlocProvider(create: (context) => CartBloc()),
+      BlocProvider(create: (context) => AddressBloc()),
+      BlocProvider(create: (context) => LocationBloc()),
+      BlocProvider(create: (context) => NamazTimingBloc()),
+      BlocProvider(create: (context) => QuranBloc()),
+      BlocProvider(create: (context) => BookmarkBloc()),
+      BlocProvider(create: (context) => DuaBloc()),
+      BlocProvider(create: (context) => TasbihBloc()),
+      BlocProvider(create: (context) => HadithBloc()),
+      BlocProvider(create: (context) => HomeBloc()),
+      BlocProvider(create: (context) => TermsAndConditionsBloc()),
+      BlocProvider(create: (context) => RewardsBloc()),
+      BlocProvider(create: (context) => ReviewBloc()),
+      BlocProvider(create: (context) => TravelBloc()),
+      BlocProvider(create: (context) => RewardsCoinsCollectBloc())
+    ],
+    // child: DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) => MyApp(),
+    // )
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

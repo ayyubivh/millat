@@ -10,6 +10,9 @@ class RewardsState with _$RewardsState {
     required int carouselImageIndex,
     required int tabIndex,
     required int rewardCoins,
+    required RewardRedeemItemModel? redeemItemModel,
+    required bool isRewardRedeemSuccess,
+    required RedeemedCouponModel? redeemedCouponModel,
   }) = _RewardsState;
   factory RewardsState.initial() => const RewardsState(
         isLoading: false,
@@ -19,5 +22,8 @@ class RewardsState with _$RewardsState {
         carouselImageIndex: 0,
         tabIndex: 0,
         rewardCoins: 0,
+        redeemItemModel: null,
+        isRewardRedeemSuccess: false,
+        redeemedCouponModel: null,
       );
 }

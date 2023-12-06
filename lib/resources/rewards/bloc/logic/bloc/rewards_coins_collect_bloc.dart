@@ -19,7 +19,5 @@ class RewardsCoinsCollectBloc
   _checkCoinsCollected(
       CheckCoinsCollected event, Emitter<RewardsCoinsCollectState> emit) {
     emit(state.copyWith(checkCoinsCollected: event.value));
-    print(
-        "value==============----------------------------======================== ${state.checkCoinsCollected}");
   }
 }

@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
+import 'package:millat/resources/rewards/bloc/service/reward_service.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -607,12 +608,12 @@ class _HomeViewState extends State<HomeView> {
                               });
                         },
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 12.0),
+                          padding: const EdgeInsets.only(right: 8.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: Utilities().buildCachedNetworkImage(
                               imageUrl: banner!.image,
-                              boxFit: BoxFit.cover,
+                              boxFit: BoxFit.fill,
                               height: 120,
                               width: 80,
                             ),

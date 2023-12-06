@@ -24,6 +24,9 @@ mixin _$RewardsEvent {
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
     required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +37,9 @@ mixin _$RewardsEvent {
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
     TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +50,9 @@ mixin _$RewardsEvent {
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
     TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +67,12 @@ mixin _$RewardsEvent {
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
     required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +84,10 @@ mixin _$RewardsEvent {
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +99,10 @@ mixin _$RewardsEvent {
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -173,6 +196,9 @@ class _$FetchRewardsImpl implements _FetchRewards {
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
     required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
   }) {
     return fetchRewards(context);
   }
@@ -186,6 +212,9 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
     TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
   }) {
     return fetchRewards?.call(context);
   }
@@ -199,6 +228,9 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
     TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (fetchRewards != null) {
@@ -219,6 +251,12 @@ class _$FetchRewardsImpl implements _FetchRewards {
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
     required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
   }) {
     return fetchRewards(this);
   }
@@ -233,6 +271,10 @@ class _$FetchRewardsImpl implements _FetchRewards {
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
   }) {
     return fetchRewards?.call(this);
   }
@@ -247,6 +289,10 @@ class _$FetchRewardsImpl implements _FetchRewards {
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (fetchRewards != null) {
@@ -311,6 +357,9 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
     required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
   }) {
     return fetchRewardProducts();
   }
@@ -324,6 +373,9 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
     TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
   }) {
     return fetchRewardProducts?.call();
   }
@@ -337,6 +389,9 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
     TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (fetchRewardProducts != null) {
@@ -357,6 +412,12 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
     required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
   }) {
     return fetchRewardProducts(this);
   }
@@ -371,6 +432,10 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
   }) {
     return fetchRewardProducts?.call(this);
   }
@@ -385,6 +450,10 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (fetchRewardProducts != null) {
@@ -471,6 +540,9 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
     required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
   }) {
     return fetchRewardProductsById(id);
   }
@@ -484,6 +556,9 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
     TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
   }) {
     return fetchRewardProductsById?.call(id);
   }
@@ -497,6 +572,9 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
     TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (fetchRewardProductsById != null) {
@@ -517,6 +595,12 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
     required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
   }) {
     return fetchRewardProductsById(this);
   }
@@ -531,6 +615,10 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
   }) {
     return fetchRewardProductsById?.call(this);
   }
@@ -545,6 +633,10 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (fetchRewardProductsById != null) {
@@ -637,6 +729,9 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
     required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
   }) {
     return changeCarousselImageIndex(index);
   }
@@ -650,6 +745,9 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
     TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
   }) {
     return changeCarousselImageIndex?.call(index);
   }
@@ -663,6 +761,9 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
     TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (changeCarousselImageIndex != null) {
@@ -683,6 +784,12 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
     required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
   }) {
     return changeCarousselImageIndex(this);
   }
@@ -697,6 +804,10 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
   }) {
     return changeCarousselImageIndex?.call(this);
   }
@@ -711,6 +822,10 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (changeCarousselImageIndex != null) {
@@ -802,6 +917,9 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
     required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
   }) {
     return changeRewardsTabIndex(index);
   }
@@ -815,6 +933,9 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
     TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
   }) {
     return changeRewardsTabIndex?.call(index);
   }
@@ -828,6 +949,9 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
     TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (changeRewardsTabIndex != null) {
@@ -848,6 +972,12 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
     required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
   }) {
     return changeRewardsTabIndex(this);
   }
@@ -862,6 +992,10 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
   }) {
     return changeRewardsTabIndex?.call(this);
   }
@@ -876,6 +1010,10 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (changeRewardsTabIndex != null) {
@@ -965,6 +1103,9 @@ class _$AddRewardsImpl implements AddRewards {
     required TResult Function(int index) changeCarousselImageIndex,
     required TResult Function(int index) changeRewardsTabIndex,
     required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
   }) {
     return addRewards(rewards);
   }
@@ -978,6 +1119,9 @@ class _$AddRewardsImpl implements AddRewards {
     TResult? Function(int index)? changeCarousselImageIndex,
     TResult? Function(int index)? changeRewardsTabIndex,
     TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
   }) {
     return addRewards?.call(rewards);
   }
@@ -991,6 +1135,9 @@ class _$AddRewardsImpl implements AddRewards {
     TResult Function(int index)? changeCarousselImageIndex,
     TResult Function(int index)? changeRewardsTabIndex,
     TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (addRewards != null) {
@@ -1011,6 +1158,12 @@ class _$AddRewardsImpl implements AddRewards {
     required TResult Function(ChangeRewardsTabIndex value)
         changeRewardsTabIndex,
     required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
   }) {
     return addRewards(this);
   }
@@ -1025,6 +1178,10 @@ class _$AddRewardsImpl implements AddRewards {
         changeCarousselImageIndex,
     TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
   }) {
     return addRewards?.call(this);
   }
@@ -1039,6 +1196,10 @@ class _$AddRewardsImpl implements AddRewards {
         changeCarousselImageIndex,
     TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
     TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
     required TResult orElse(),
   }) {
     if (addRewards != null) {
@@ -1058,6 +1219,508 @@ abstract class AddRewards implements RewardsEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchRewardsRedeemItemImplCopyWith<$Res> {
+  factory _$$FetchRewardsRedeemItemImplCopyWith(
+          _$FetchRewardsRedeemItemImpl value,
+          $Res Function(_$FetchRewardsRedeemItemImpl) then) =
+      __$$FetchRewardsRedeemItemImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchRewardsRedeemItemImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$FetchRewardsRedeemItemImpl>
+    implements _$$FetchRewardsRedeemItemImplCopyWith<$Res> {
+  __$$FetchRewardsRedeemItemImplCopyWithImpl(
+      _$FetchRewardsRedeemItemImpl _value,
+      $Res Function(_$FetchRewardsRedeemItemImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchRewardsRedeemItemImpl implements FetchRewardsRedeemItem {
+  const _$FetchRewardsRedeemItemImpl();
+
+  @override
+  String toString() {
+    return 'RewardsEvent.fetchRewardsRedeemItem()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchRewardsRedeemItemImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchRewards,
+    required TResult Function() fetchRewardProducts,
+    required TResult Function(String id) fetchRewardProductsById,
+    required TResult Function(int index) changeCarousselImageIndex,
+    required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
+  }) {
+    return fetchRewardsRedeemItem();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchRewards,
+    TResult? Function()? fetchRewardProducts,
+    TResult? Function(String id)? fetchRewardProductsById,
+    TResult? Function(int index)? changeCarousselImageIndex,
+    TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
+  }) {
+    return fetchRewardsRedeemItem?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchRewards,
+    TResult Function()? fetchRewardProducts,
+    TResult Function(String id)? fetchRewardProductsById,
+    TResult Function(int index)? changeCarousselImageIndex,
+    TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
+    required TResult orElse(),
+  }) {
+    if (fetchRewardsRedeemItem != null) {
+      return fetchRewardsRedeemItem();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchRewards value) fetchRewards,
+    required TResult Function(_FetchRewardProducts value) fetchRewardProducts,
+    required TResult Function(_FetchRewardProductsById value)
+        fetchRewardProductsById,
+    required TResult Function(ChangeCarousselImageIndex value)
+        changeCarousselImageIndex,
+    required TResult Function(ChangeRewardsTabIndex value)
+        changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
+  }) {
+    return fetchRewardsRedeemItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchRewards value)? fetchRewards,
+    TResult? Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult? Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult? Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+  }) {
+    return fetchRewardsRedeemItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchRewards value)? fetchRewards,
+    TResult Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+    required TResult orElse(),
+  }) {
+    if (fetchRewardsRedeemItem != null) {
+      return fetchRewardsRedeemItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchRewardsRedeemItem implements RewardsEvent {
+  const factory FetchRewardsRedeemItem() = _$FetchRewardsRedeemItemImpl;
+}
+
+/// @nodoc
+abstract class _$$AddRewardRedeemCouponImplCopyWith<$Res> {
+  factory _$$AddRewardRedeemCouponImplCopyWith(
+          _$AddRewardRedeemCouponImpl value,
+          $Res Function(_$AddRewardRedeemCouponImpl) then) =
+      __$$AddRewardRedeemCouponImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$AddRewardRedeemCouponImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$AddRewardRedeemCouponImpl>
+    implements _$$AddRewardRedeemCouponImplCopyWith<$Res> {
+  __$$AddRewardRedeemCouponImplCopyWithImpl(_$AddRewardRedeemCouponImpl _value,
+      $Res Function(_$AddRewardRedeemCouponImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$AddRewardRedeemCouponImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddRewardRedeemCouponImpl implements AddRewardRedeemCoupon {
+  const _$AddRewardRedeemCouponImpl({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'RewardsEvent.addRewardRedeemCoupon(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddRewardRedeemCouponImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddRewardRedeemCouponImplCopyWith<_$AddRewardRedeemCouponImpl>
+      get copyWith => __$$AddRewardRedeemCouponImplCopyWithImpl<
+          _$AddRewardRedeemCouponImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchRewards,
+    required TResult Function() fetchRewardProducts,
+    required TResult Function(String id) fetchRewardProductsById,
+    required TResult Function(int index) changeCarousselImageIndex,
+    required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
+  }) {
+    return addRewardRedeemCoupon(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchRewards,
+    TResult? Function()? fetchRewardProducts,
+    TResult? Function(String id)? fetchRewardProductsById,
+    TResult? Function(int index)? changeCarousselImageIndex,
+    TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
+  }) {
+    return addRewardRedeemCoupon?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchRewards,
+    TResult Function()? fetchRewardProducts,
+    TResult Function(String id)? fetchRewardProductsById,
+    TResult Function(int index)? changeCarousselImageIndex,
+    TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
+    required TResult orElse(),
+  }) {
+    if (addRewardRedeemCoupon != null) {
+      return addRewardRedeemCoupon(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchRewards value) fetchRewards,
+    required TResult Function(_FetchRewardProducts value) fetchRewardProducts,
+    required TResult Function(_FetchRewardProductsById value)
+        fetchRewardProductsById,
+    required TResult Function(ChangeCarousselImageIndex value)
+        changeCarousselImageIndex,
+    required TResult Function(ChangeRewardsTabIndex value)
+        changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
+  }) {
+    return addRewardRedeemCoupon(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchRewards value)? fetchRewards,
+    TResult? Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult? Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult? Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+  }) {
+    return addRewardRedeemCoupon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchRewards value)? fetchRewards,
+    TResult Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+    required TResult orElse(),
+  }) {
+    if (addRewardRedeemCoupon != null) {
+      return addRewardRedeemCoupon(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddRewardRedeemCoupon implements RewardsEvent {
+  const factory AddRewardRedeemCoupon({required final String id}) =
+      _$AddRewardRedeemCouponImpl;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$AddRewardRedeemCouponImplCopyWith<_$AddRewardRedeemCouponImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchRewardRedeemedCouponsImplCopyWith<$Res> {
+  factory _$$FetchRewardRedeemedCouponsImplCopyWith(
+          _$FetchRewardRedeemedCouponsImpl value,
+          $Res Function(_$FetchRewardRedeemedCouponsImpl) then) =
+      __$$FetchRewardRedeemedCouponsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchRewardRedeemedCouponsImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$FetchRewardRedeemedCouponsImpl>
+    implements _$$FetchRewardRedeemedCouponsImplCopyWith<$Res> {
+  __$$FetchRewardRedeemedCouponsImplCopyWithImpl(
+      _$FetchRewardRedeemedCouponsImpl _value,
+      $Res Function(_$FetchRewardRedeemedCouponsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchRewardRedeemedCouponsImpl implements FetchRewardRedeemedCoupons {
+  const _$FetchRewardRedeemedCouponsImpl();
+
+  @override
+  String toString() {
+    return 'RewardsEvent.fetchRewardRedeemedCoupons()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchRewardRedeemedCouponsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchRewards,
+    required TResult Function() fetchRewardProducts,
+    required TResult Function(String id) fetchRewardProductsById,
+    required TResult Function(int index) changeCarousselImageIndex,
+    required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
+  }) {
+    return fetchRewardRedeemedCoupons();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchRewards,
+    TResult? Function()? fetchRewardProducts,
+    TResult? Function(String id)? fetchRewardProductsById,
+    TResult? Function(int index)? changeCarousselImageIndex,
+    TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
+  }) {
+    return fetchRewardRedeemedCoupons?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchRewards,
+    TResult Function()? fetchRewardProducts,
+    TResult Function(String id)? fetchRewardProductsById,
+    TResult Function(int index)? changeCarousselImageIndex,
+    TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
+    required TResult orElse(),
+  }) {
+    if (fetchRewardRedeemedCoupons != null) {
+      return fetchRewardRedeemedCoupons();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchRewards value) fetchRewards,
+    required TResult Function(_FetchRewardProducts value) fetchRewardProducts,
+    required TResult Function(_FetchRewardProductsById value)
+        fetchRewardProductsById,
+    required TResult Function(ChangeCarousselImageIndex value)
+        changeCarousselImageIndex,
+    required TResult Function(ChangeRewardsTabIndex value)
+        changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
+  }) {
+    return fetchRewardRedeemedCoupons(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchRewards value)? fetchRewards,
+    TResult? Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult? Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult? Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+  }) {
+    return fetchRewardRedeemedCoupons?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchRewards value)? fetchRewards,
+    TResult Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+    required TResult orElse(),
+  }) {
+    if (fetchRewardRedeemedCoupons != null) {
+      return fetchRewardRedeemedCoupons(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchRewardRedeemedCoupons implements RewardsEvent {
+  const factory FetchRewardRedeemedCoupons() = _$FetchRewardRedeemedCouponsImpl;
+}
+
+/// @nodoc
 mixin _$RewardsState {
   bool get isLoading => throw _privateConstructorUsedError;
   RewardsModel? get rewardsModel => throw _privateConstructorUsedError;
@@ -1068,6 +1731,11 @@ mixin _$RewardsState {
   int get carouselImageIndex => throw _privateConstructorUsedError;
   int get tabIndex => throw _privateConstructorUsedError;
   int get rewardCoins => throw _privateConstructorUsedError;
+  RewardRedeemItemModel? get redeemItemModel =>
+      throw _privateConstructorUsedError;
+  bool get isRewardRedeemSuccess => throw _privateConstructorUsedError;
+  RedeemedCouponModel? get redeemedCouponModel =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RewardsStateCopyWith<RewardsState> get copyWith =>
@@ -1087,11 +1755,16 @@ abstract class $RewardsStateCopyWith<$Res> {
       RewardsProductsModel? rewardsProductsModel,
       int carouselImageIndex,
       int tabIndex,
-      int rewardCoins});
+      int rewardCoins,
+      RewardRedeemItemModel? redeemItemModel,
+      bool isRewardRedeemSuccess,
+      RedeemedCouponModel? redeemedCouponModel});
 
   $RewardsModelCopyWith<$Res>? get rewardsModel;
   $RewardsProductByIdModelCopyWith<$Res>? get rewardsProductByIdModel;
   $RewardsProductsModelCopyWith<$Res>? get rewardsProductsModel;
+  $RewardRedeemItemModelCopyWith<$Res>? get redeemItemModel;
+  $RedeemedCouponModelCopyWith<$Res>? get redeemedCouponModel;
 }
 
 /// @nodoc
@@ -1114,6 +1787,9 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
     Object? carouselImageIndex = null,
     Object? tabIndex = null,
     Object? rewardCoins = null,
+    Object? redeemItemModel = freezed,
+    Object? isRewardRedeemSuccess = null,
+    Object? redeemedCouponModel = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -1144,6 +1820,18 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
           ? _value.rewardCoins
           : rewardCoins // ignore: cast_nullable_to_non_nullable
               as int,
+      redeemItemModel: freezed == redeemItemModel
+          ? _value.redeemItemModel
+          : redeemItemModel // ignore: cast_nullable_to_non_nullable
+              as RewardRedeemItemModel?,
+      isRewardRedeemSuccess: null == isRewardRedeemSuccess
+          ? _value.isRewardRedeemSuccess
+          : isRewardRedeemSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      redeemedCouponModel: freezed == redeemedCouponModel
+          ? _value.redeemedCouponModel
+          : redeemedCouponModel // ignore: cast_nullable_to_non_nullable
+              as RedeemedCouponModel?,
     ) as $Val);
   }
 
@@ -1184,6 +1872,32 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
       return _then(_value.copyWith(rewardsProductsModel: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RewardRedeemItemModelCopyWith<$Res>? get redeemItemModel {
+    if (_value.redeemItemModel == null) {
+      return null;
+    }
+
+    return $RewardRedeemItemModelCopyWith<$Res>(_value.redeemItemModel!,
+        (value) {
+      return _then(_value.copyWith(redeemItemModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RedeemedCouponModelCopyWith<$Res>? get redeemedCouponModel {
+    if (_value.redeemedCouponModel == null) {
+      return null;
+    }
+
+    return $RedeemedCouponModelCopyWith<$Res>(_value.redeemedCouponModel!,
+        (value) {
+      return _then(_value.copyWith(redeemedCouponModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -1201,7 +1915,10 @@ abstract class _$$RewardsStateImplCopyWith<$Res>
       RewardsProductsModel? rewardsProductsModel,
       int carouselImageIndex,
       int tabIndex,
-      int rewardCoins});
+      int rewardCoins,
+      RewardRedeemItemModel? redeemItemModel,
+      bool isRewardRedeemSuccess,
+      RedeemedCouponModel? redeemedCouponModel});
 
   @override
   $RewardsModelCopyWith<$Res>? get rewardsModel;
@@ -1209,6 +1926,10 @@ abstract class _$$RewardsStateImplCopyWith<$Res>
   $RewardsProductByIdModelCopyWith<$Res>? get rewardsProductByIdModel;
   @override
   $RewardsProductsModelCopyWith<$Res>? get rewardsProductsModel;
+  @override
+  $RewardRedeemItemModelCopyWith<$Res>? get redeemItemModel;
+  @override
+  $RedeemedCouponModelCopyWith<$Res>? get redeemedCouponModel;
 }
 
 /// @nodoc
@@ -1229,6 +1950,9 @@ class __$$RewardsStateImplCopyWithImpl<$Res>
     Object? carouselImageIndex = null,
     Object? tabIndex = null,
     Object? rewardCoins = null,
+    Object? redeemItemModel = freezed,
+    Object? isRewardRedeemSuccess = null,
+    Object? redeemedCouponModel = freezed,
   }) {
     return _then(_$RewardsStateImpl(
       isLoading: null == isLoading
@@ -1259,6 +1983,18 @@ class __$$RewardsStateImplCopyWithImpl<$Res>
           ? _value.rewardCoins
           : rewardCoins // ignore: cast_nullable_to_non_nullable
               as int,
+      redeemItemModel: freezed == redeemItemModel
+          ? _value.redeemItemModel
+          : redeemItemModel // ignore: cast_nullable_to_non_nullable
+              as RewardRedeemItemModel?,
+      isRewardRedeemSuccess: null == isRewardRedeemSuccess
+          ? _value.isRewardRedeemSuccess
+          : isRewardRedeemSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      redeemedCouponModel: freezed == redeemedCouponModel
+          ? _value.redeemedCouponModel
+          : redeemedCouponModel // ignore: cast_nullable_to_non_nullable
+              as RedeemedCouponModel?,
     ));
   }
 }
@@ -1273,7 +2009,10 @@ class _$RewardsStateImpl implements _RewardsState {
       required this.rewardsProductsModel,
       required this.carouselImageIndex,
       required this.tabIndex,
-      required this.rewardCoins});
+      required this.rewardCoins,
+      required this.redeemItemModel,
+      required this.isRewardRedeemSuccess,
+      required this.redeemedCouponModel});
 
   @override
   final bool isLoading;
@@ -1289,10 +2028,16 @@ class _$RewardsStateImpl implements _RewardsState {
   final int tabIndex;
   @override
   final int rewardCoins;
+  @override
+  final RewardRedeemItemModel? redeemItemModel;
+  @override
+  final bool isRewardRedeemSuccess;
+  @override
+  final RedeemedCouponModel? redeemedCouponModel;
 
   @override
   String toString() {
-    return 'RewardsState(isLoading: $isLoading, rewardsModel: $rewardsModel, rewardsProductByIdModel: $rewardsProductByIdModel, rewardsProductsModel: $rewardsProductsModel, carouselImageIndex: $carouselImageIndex, tabIndex: $tabIndex, rewardCoins: $rewardCoins)';
+    return 'RewardsState(isLoading: $isLoading, rewardsModel: $rewardsModel, rewardsProductByIdModel: $rewardsProductByIdModel, rewardsProductsModel: $rewardsProductsModel, carouselImageIndex: $carouselImageIndex, tabIndex: $tabIndex, rewardCoins: $rewardCoins, redeemItemModel: $redeemItemModel, isRewardRedeemSuccess: $isRewardRedeemSuccess, redeemedCouponModel: $redeemedCouponModel)';
   }
 
   @override
@@ -1314,7 +2059,13 @@ class _$RewardsStateImpl implements _RewardsState {
             (identical(other.tabIndex, tabIndex) ||
                 other.tabIndex == tabIndex) &&
             (identical(other.rewardCoins, rewardCoins) ||
-                other.rewardCoins == rewardCoins));
+                other.rewardCoins == rewardCoins) &&
+            (identical(other.redeemItemModel, redeemItemModel) ||
+                other.redeemItemModel == redeemItemModel) &&
+            (identical(other.isRewardRedeemSuccess, isRewardRedeemSuccess) ||
+                other.isRewardRedeemSuccess == isRewardRedeemSuccess) &&
+            (identical(other.redeemedCouponModel, redeemedCouponModel) ||
+                other.redeemedCouponModel == redeemedCouponModel));
   }
 
   @override
@@ -1326,7 +2077,10 @@ class _$RewardsStateImpl implements _RewardsState {
       rewardsProductsModel,
       carouselImageIndex,
       tabIndex,
-      rewardCoins);
+      rewardCoins,
+      redeemItemModel,
+      isRewardRedeemSuccess,
+      redeemedCouponModel);
 
   @JsonKey(ignore: true)
   @override
@@ -1337,13 +2091,17 @@ class _$RewardsStateImpl implements _RewardsState {
 
 abstract class _RewardsState implements RewardsState {
   const factory _RewardsState(
-      {required final bool isLoading,
-      required final RewardsModel? rewardsModel,
-      required final RewardsProductByIdModel? rewardsProductByIdModel,
-      required final RewardsProductsModel? rewardsProductsModel,
-      required final int carouselImageIndex,
-      required final int tabIndex,
-      required final int rewardCoins}) = _$RewardsStateImpl;
+          {required final bool isLoading,
+          required final RewardsModel? rewardsModel,
+          required final RewardsProductByIdModel? rewardsProductByIdModel,
+          required final RewardsProductsModel? rewardsProductsModel,
+          required final int carouselImageIndex,
+          required final int tabIndex,
+          required final int rewardCoins,
+          required final RewardRedeemItemModel? redeemItemModel,
+          required final bool isRewardRedeemSuccess,
+          required final RedeemedCouponModel? redeemedCouponModel}) =
+      _$RewardsStateImpl;
 
   @override
   bool get isLoading;
@@ -1359,6 +2117,12 @@ abstract class _RewardsState implements RewardsState {
   int get tabIndex;
   @override
   int get rewardCoins;
+  @override
+  RewardRedeemItemModel? get redeemItemModel;
+  @override
+  bool get isRewardRedeemSuccess;
+  @override
+  RedeemedCouponModel? get redeemedCouponModel;
   @override
   @JsonKey(ignore: true)
   _$$RewardsStateImplCopyWith<_$RewardsStateImpl> get copyWith =>

@@ -13,4 +13,10 @@ class RewardsEvent with _$RewardsEvent {
   const factory RewardsEvent.changeRewardsTabIndex({required int index}) =
       ChangeRewardsTabIndex;
   const factory RewardsEvent.addRewards({required int rewards}) = AddRewards;
+  const factory RewardsEvent.fetchRewardsRedeemItem() = FetchRewardsRedeemItem;
+  const factory RewardsEvent.addRewardRedeemCoupon({
+    required String id,
+  }) = AddRewardRedeemCoupon;
+  const factory RewardsEvent.fetchRewardRedeemedCoupons() =
+      FetchRewardRedeemedCoupons;
 }

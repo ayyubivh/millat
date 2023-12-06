@@ -49,10 +49,8 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   calculateTimeLeft() {
     _checkCoinsCollected();
     final lastTimestamp = _loadLastTimestamp();
-    log("calc last time stamp === $lastTimestamp");
     final now = DateTime.now();
     final elapsedSeconds = now.difference(lastTimestamp).inSeconds;
-    log("elapsed one $elapsedSeconds");
 
     setState(() {
       duration = Duration(seconds: initialDuration.inSeconds - elapsedSeconds);
@@ -91,7 +89,6 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   DateTime _loadLastTimestamp() {
     final lastTimestamp = prefs.getInt(Appstrings.lastTimestampKey);
 
-    log('last time stamp = $lastTimestamp');
     if (lastTimestamp != null) {
       return DateTime.fromMillisecondsSinceEpoch(lastTimestamp);
     } else {

@@ -51,10 +51,10 @@ class ArticlesView extends StatelessWidget {
                       controller: searchController,
                       decoration: InputDecoration(
                         prefixIcon: Transform.scale(
-                          scale: 0.5, // Adjust the scale factor as needed
+                          scale: 0.5,
                           child: const ImageIcon(
                             AssetImage(AppAssetsStrings.searchIcon),
-                            size: 20, // Adjust the size as needed
+                            size: 20,
                             color: black132,
                           ),
                         ),
@@ -135,9 +135,11 @@ class ArticlesView extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: FilterChip(
+                          showCheckmark: false,
+                          selectedColor: ColorManager.primary,
                           labelStyle: TextStyle(
                             color: state.filterVal == data?.title
-                                ? ColorManager.blackColor
+                                ? ColorManager.whiteColor
                                 : ColorManager.blackColor.withOpacity(0.5),
                             fontWeight: FontWeight.bold,
                           ),

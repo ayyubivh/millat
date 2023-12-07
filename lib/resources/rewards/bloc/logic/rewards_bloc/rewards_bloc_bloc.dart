@@ -4,9 +4,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/rewards/bloc/models/get_rewards_model.dart';
+import 'package:millat/resources/rewards/bloc/models/redeem_rewards/reward_redeem_items_model.dart';
 import 'package:millat/resources/rewards/bloc/models/rewards_product/rewards_product_by_id_model.dart';
 import 'package:millat/resources/rewards/bloc/service/reward_service.dart';
 
+import '../../models/redeem_rewards/redeemed_coupons_model.dart';
 import '../../models/rewards_product/rewards_product_model.dart';
 
 part 'rewards_bloc_event.dart';
@@ -22,6 +24,9 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
     on<ChangeCarousselImageIndex>(_changeCarouselimageIndex);
     on<ChangeRewardsTabIndex>(_changeRewardsTabIndex);
     on<AddRewards>(_addRewards);
+    on<FetchRewardsRedeemItem>(_fetchRewardsRedeemItem);
+    on<AddRewardRedeemCoupon>(_addRewardRedeemCoupon);
+    on<FetchRewardRedeemedCoupons>(_fetchRewardRedeemedCoupons);
   }
 
   _fetchRewards(_FetchRewards event, Emitter<RewardsState> emit) async {
@@ -82,7 +87,43 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
 
       emit(state.copyWith(
           isLoading: false, rewardCoins: state.rewardCoins + event.rewards));
-      print(data);
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      throw Exception(e);
+    }
+  }
+
+  _fetchRewardsRedeemItem(event, Emitter<RewardsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+
+    try {
+      final data = await rewardServices.getRedeemRewardItems();
+      emit(state.copyWith(redeemItemModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _addRewardRedeemCoupon(
+      AddRewardRedeemCoupon event, Emitter<RewardsState> emit) async {
+    emit(state.copyWith(isLoading: true, isRewardRedeemSuccess: false));
+    try {
+      await rewardServices.addRewardRedeemCoupon(id: event.id);
+
+      emit(state.copyWith(isLoading: false, isRewardRedeemSuccess: true));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      throw Exception(e);
+    }
+  }
+
+  _fetchRewardRedeemedCoupons(
+      FetchRewardRedeemedCoupons event, Emitter<RewardsState> emit) async {
+    emit(state.copyWith(isLoading: true, isRewardRedeemSuccess: false));
+    try {
+      final data = await rewardServices.getRedeemedCoupons();
+
+      emit(state.copyWith(isLoading: false, redeemedCouponModel: data));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       throw Exception(e);

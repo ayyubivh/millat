@@ -39,24 +39,7 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         emit(state.copyWith(token: token));
       }
     });
-    // on<StoreUserDetails>((event, emit) {
-    //   final authBox = Hive.box(userBox);
-    //   final email = event.email;
-    //   final name = event.name;
-    //   authBox.put(emailKey, email);
-    //   authBox.put(nameKey, name);
-    //   // emit(state.copyWith(email: email, name: name));
-    //   // print('email ${email} and the $name');
-    //   // emit(state.copyWith(userDetails: userDetails));
-    // });
-    // on<FetchUserDetails>((event, emit) {
-    //   final authBox = Hive.box(userBox);
-    //   final email = authBox.get(emailKey);
-    //   final name = authBox.get(nameKey);
-    //   // emit(state.copyWith(email: email, name: name));
-    //   // print(
-    //   //     'email on the database bloc ${state.email} ane the username ${state.name}');
-    // });
+
     on<FetchAuthUser>(
       (event, emit) async {
         emit(state.copyWith(isLoading: true));
@@ -115,7 +98,8 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         if (await Permission.contacts.isGranted) {
           final contacts = await ContactsService.getContacts();
 
-          emit(state.copyWith(contacts: contacts, isLoading: false));
+          emit(state.copyWith(
+              contacts: contacts, searchContacts: contacts, isLoading: false));
         } else {
           await Permission.contacts.request();
         }
@@ -124,6 +108,24 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         throw Exception(e);
       }
     });
+    on<SearchContactEvent>((event, emit) {
+      if (event.query == "") {
+        final contacts = state.contacts;
+        emit(state.copyWith(searchContacts: contacts, isLoading: false));
+      } else {
+        final contacts = state.contacts;
+        final searchData = contacts?.where((contact) =>
+            contact.givenName
+                ?.toLowerCase()
+                .contains(event.query.toLowerCase()) ??
+            false);
+        print(searchData);
+
+        emit(state.copyWith(
+            searchContacts: searchData?.toList(), isLoading: false));
+      }
+    });
+
     on<SaveCoverImage>((event, emit) async {
       emit(state.copyWith(coverImage: event.image));
       await Utilities.saveStringToSharedPreferences(
@@ -147,6 +149,14 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         print("succes ${state.succesMessage} failure ${state.failedMessage}");
         emit(state.copyWith(succesMessage: data));
       }
+    });
+    on<FetchUserReferralCode>((event, emit) async {
+      final data = await authService.fetchUserReferralCode();
+      emit(state.copyWith(referralCode: data));
+    });
+    on<FetchReferralMessage>((event, emit) async {
+      final data = await authService.fetchReferralMessage();
+      emit(state.copyWith(referralMessage: data));
     });
   }
   Future<File?> pickImage(ImageSource source) async {

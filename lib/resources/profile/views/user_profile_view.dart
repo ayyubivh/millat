@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
@@ -18,6 +19,11 @@ class UserProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DatabaseBloc>(context)
+        ..add(const FetchUserReferralCode())
+        ..add(const FetchReferralMessage());
+    });
     return BlocConsumer<DatabaseBloc, DatabaseState>(
       listener: (context, state) {
         if (state.failedMessage != "") {
@@ -193,7 +199,6 @@ class UserProfileView extends StatelessWidget {
                           .pushNamed(MyAppRouteConstants.inviteFreindRouteName);
                     },
                     child: Container(
-                      height: 60,
                       width: SizeUtility(context).width / 1.18,
                       decoration: BoxDecoration(
                         color: ColorManager.whiteColor,
@@ -206,42 +211,102 @@ class UserProfileView extends StatelessWidget {
                           ),
                         ],
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            AppAssetsStrings.inviteFriend,
-                            height: 23,
-                            width: 24,
-                          ),
-                          kWidth8,
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
                             children: [
-                              const Text(
-                                Appstrings.inviteYourFriend,
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                              Image.asset(
+                                AppAssetsStrings.inviteFriend,
+                                height: 23,
+                                width: 24,
                               ),
-                              kHeight5,
-                              Text(
-                                Appstrings.get100Coins,
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: ColorManager.textGrey88),
+                              kWidth8,
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    Appstrings.inviteYourFriend,
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  kHeight5,
+                                  Text(
+                                    Appstrings.get100Coins,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorManager.textGrey88),
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              Icon(
+                                Icons.navigate_next_outlined,
+                                size: 28,
+                                color: ColorManager.black4F,
                               )
                             ],
                           ),
-                          const Spacer(),
-                          Icon(
-                            Icons.navigate_next_outlined,
-                            size: 28,
-                            color: ColorManager.black4F,
-                          )
+                          kHeight10,
+                          Text(
+                            Appstrings.yourReferralLink,
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              color: ColorManager.blackColor,
+                            ),
+                          ),
+                          kHeight10,
+                          Container(
+                              height: 35,
+                              decoration: BoxDecoration(
+                                color: ColorManager.black4A,
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                              padding:
+                                  const EdgeInsets.all(3).copyWith(left: 8),
+                              child: BlocBuilder<DatabaseBloc, DatabaseState>(
+                                builder: (context, state) => Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      state.referralCode,
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: ColorManager.whiteColor),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Clipboard.setData(ClipboardData(
+                                            text: state.referralCode));
+                                        showSnackBar(context, "Text Copied!");
+                                      },
+                                      child: Container(
+                                        height: 35,
+                                        width: 30,
+                                        decoration: BoxDecoration(
+                                          color: ColorManager.whiteColor,
+                                          borderRadius:
+                                              BorderRadius.circular(2),
+                                        ),
+                                        padding: const EdgeInsets.all(4),
+                                        child: ImageIcon(
+                                          const AssetImage(
+                                              AppAssetsStrings.copyIcon),
+                                          color: ColorManager.black4A,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ))
                         ],
                       ),
                     ),

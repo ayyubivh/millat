@@ -19,7 +19,7 @@ class RewardRedeemItemModel with _$RewardRedeemItemModel {
 @freezed
 class Result with _$Result {
   const factory Result({
-    required List<RedeemProducts>? products,
+    required List<RedeemProducts>? rewardItems,
   }) = _Result;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
@@ -31,7 +31,8 @@ class RedeemProducts with _$RedeemProducts {
     @JsonKey(name: "_id") String id,
     String? image,
     String? title,
-    double? quantity,
+    String? defaultStock,
+    double? stock,
     double? offerPrice,
     double? coins,
     String startDate,

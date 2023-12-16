@@ -12,6 +12,7 @@ class RewardsState with _$RewardsState {
     required int rewardCoins,
     required RewardRedeemItemModel? redeemItemModel,
     required bool isRewardRedeemSuccess,
+    required bool isRewardRedeemFailure,
     required RedeemedCouponModel? redeemedCouponModel,
   }) = _RewardsState;
   factory RewardsState.initial() => const RewardsState(
@@ -25,5 +26,6 @@ class RewardsState with _$RewardsState {
         redeemItemModel: null,
         isRewardRedeemSuccess: false,
         redeemedCouponModel: null,
+        isRewardRedeemFailure: false,
       );
 }

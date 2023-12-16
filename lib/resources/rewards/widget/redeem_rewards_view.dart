@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -45,6 +46,11 @@ class RewardsRedeemView extends StatelessWidget {
               const Loader();
             } else if (state.isRewardRedeemSuccess) {
               _successShowModelBottomSheet(context);
+              BlocProvider.of<RewardsBloc>(context)
+                ..add(const FetchRewardsRedeemItem())
+                ..add(const FetchRewardRedeemedCoupons());
+            } else if (state.isRewardRedeemFailure) {
+              showSnackBar(context, "coupon already redeemed");
             }
           },
           child: Padding(
@@ -52,17 +58,18 @@ class RewardsRedeemView extends StatelessWidget {
             child: BlocBuilder<RewardsBloc, RewardsState>(
               builder: (context, state) {
                 if (state.redeemItemModel == null) {
-                  return SizedBox();
+                  return const SizedBox();
                 }
 
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _couponWidget(context, state),
-                    state.redeemedCouponModel?.result.coupons != null
-                        ? _redeemedCouponWidget(state)
-                        : const SizedBox()
-                  ],
+                return SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _couponWidget(context, state),
+                      _redeemedCouponWidget(state,
+                          state.redeemedCouponModel?.result.coupons.length != 0)
+                    ],
+                  ),
                 );
               },
             ),
@@ -70,19 +77,21 @@ class RewardsRedeemView extends StatelessWidget {
         ));
   }
 
-  Widget _redeemedCouponWidget(RewardsState state) {
+  Widget _redeemedCouponWidget(RewardsState state, bool isNotEmpty) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         kHeight20,
-        Text(
-          "Redeemed Rewards",
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.bold,
-            color: ColorManager.blackColor,
-          ),
-        ),
+        isNotEmpty
+            ? Text(
+                "Redeemed Rewards",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  color: ColorManager.blackColor,
+                ),
+              )
+            : const SizedBox(),
         _redeemCouponListView(state)
       ],
     );
@@ -92,18 +101,20 @@ class RewardsRedeemView extends StatelessWidget {
     return ListView.builder(
       itemCount: state.redeemedCouponModel?.result.coupons.length ?? 1,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
-        if (state.redeemedCouponModel == null) {
-          return SizedBox();
+        log(state.redeemedCouponModel!.result.coupons.toString());
+        if (state.redeemedCouponModel == null || state.isLoading) {
+          return const SizedBox();
         }
         final product =
             state.redeemedCouponModel!.result.coupons[index].rewardItem;
-        return _reedemCouponListviewItem(context, product);
+        return _redeemCouponListviewItem(context, product);
       },
     );
   }
 
-  Widget _reedemCouponListviewItem(BuildContext context, RewardItem product) {
+  Widget _redeemCouponListviewItem(BuildContext context, RewardItem product) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: ClipPath(
@@ -203,9 +214,10 @@ class RewardsRedeemView extends StatelessWidget {
   Widget _couponWidget(BuildContext context, RewardsState state) {
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: state.redeemItemModel?.result?.products?.length ?? 3,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: state.redeemItemModel?.result?.rewardItems?.length ?? 3,
       itemBuilder: (context, index) {
-        final data = state.redeemItemModel?.result?.products;
+        final data = state.redeemItemModel?.result?.rewardItems;
         final product = data?[index];
         if (product == null || state.isLoading) {
           return Padding(
@@ -326,7 +338,7 @@ class RewardsRedeemView extends StatelessWidget {
                                 ),
                               ),
                               TextSpan(
-                                text: "${product.quantity?.toInt()}",
+                                text: "${product.stock?.toInt()}",
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
@@ -334,7 +346,7 @@ class RewardsRedeemView extends StatelessWidget {
                                 ),
                               ),
                               TextSpan(
-                                text: "/10",
+                                text: "/${product.defaultStock}",
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
@@ -513,6 +525,7 @@ class RewardsRedeemView extends StatelessWidget {
                                 return showSnackBar(
                                     context, "Coins not available!");
                               }
+                              context.pop();
                               BlocProvider.of<RewardsBloc>(context)
                                   .add(AddRewardRedeemCoupon(id: id));
                             },

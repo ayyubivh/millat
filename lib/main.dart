@@ -139,7 +139,9 @@ class MyApp extends StatelessWidget {
     final String? token = _tokenBox.get(authToken);
 
     if (token != null) {
-      print('on main token $token');
+      if (kDebugMode) {
+        debugPrint(token);
+      }
       return true;
     } else {
       return false;

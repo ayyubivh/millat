@@ -13,6 +13,7 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/validators.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+import '../../../utils/constants.dart';
 import '../../../utils/utils.dart';
 import '../class/google_signin.dart';
 
@@ -28,6 +29,7 @@ class _SignUpViewState extends State<SignUpView> {
   final _fullNameController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _referralCodeController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -67,49 +69,44 @@ class _SignUpViewState extends State<SignUpView> {
                         height: 70,
                       ),
                       Image.asset(millatMainLogo, height: 50, width: 200),
-                      const SizedBox(
-                        height: 40,
-                      ),
+                      kHeight40,
                       const Text(
                           'Please enter your e-mail address and create password ',
                           style: TextStyle(color: black133)),
-                      const SizedBox(
-                        height: 40,
-                      ),
+                      kHeight40,
                       CustomTextField(
                         icon: const Icon(Icons.person, color: iconsColor),
                         hint: 'Full name',
                         controller: _fullNameController,
                         validator: Validators(context).fullNameValidator,
                       ),
-                      const SizedBox(
-                        height: 30,
-                      ),
+                      kHeight30,
                       CustomTextField(
                           validator: Validators(context).emailValidator,
                           icon: const Icon(Icons.email, color: iconsColor),
                           hint: 'Enter your email',
                           controller: _emailController),
-                      const SizedBox(
-                        height: 30,
-                      ),
+                      kHeight30,
                       CustomTextField(
                           validator: Validators(context).passwordValidator,
                           icon: const Icon(Icons.lock, color: iconsColor),
                           hint: 'Enter your password',
                           controller: _passwordController),
-                      const SizedBox(
-                        height: 30,
-                      ),
+                      kHeight30,
                       CustomTextField(
                         validator: Validators(context).passwordValidator,
                         icon: const Icon(Icons.lock, color: iconsColor),
                         hint: 'Confirm password',
                         controller: _confirmPasswordController,
                       ),
-                      const SizedBox(
-                        height: 50,
+                      kHeight30,
+                      CustomTextField(
+                        validator: Validators(context).passwordValidator,
+                        icon: const Icon(Icons.cached, color: iconsColor),
+                        hint: 'Enter Referral code if you have ',
+                        controller: _referralCodeController,
                       ),
+                      kHeight50,
                       MainTextButton(
                         title: 'Skip',
                         onTap: () {
@@ -125,9 +122,11 @@ class _SignUpViewState extends State<SignUpView> {
                               if (_passwordController.text ==
                                   _confirmPasswordController.text) {
                                 BlocProvider.of<AuthBloc>(context).add(SignUp(
-                                    _fullNameController.text,
-                                    _emailController.text,
-                                    _passwordController.text));
+                                  _fullNameController.text,
+                                  _emailController.text,
+                                  _passwordController.text,
+                                  _referralCodeController.text,
+                                ));
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
@@ -138,9 +137,7 @@ class _SignUpViewState extends State<SignUpView> {
                               return "";
                             }
                           }),
-                      const SizedBox(
-                        height: 40,
-                      ),
+                      kHeight40,
                       GestureDetector(
                         onTap: () {
                           context.goNamed(MyAppRouteConstants.loginRouteName);
@@ -161,14 +158,10 @@ class _SignUpViewState extends State<SignUpView> {
                                   fontWeight: FontWeight.w500)),
                         ])),
                       ),
-                      const SizedBox(
-                        height: 40,
-                      ),
+                      kHeight40,
                       const Text('Sign Up in with ',
                           style: TextStyle(color: black133)),
-                      const SizedBox(
-                        height: 40,
-                      ),
+                      kHeight40,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

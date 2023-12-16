@@ -35,4 +35,9 @@ class DatabaseEvent with _$DatabaseEvent {
   const factory DatabaseEvent.deleteAccount({
     required BuildContext context,
   }) = DeleteAccount;
+  const factory DatabaseEvent.fetchUserReferralCode() = FetchUserReferralCode;
+  const factory DatabaseEvent.fetchReferralMessage() = FetchReferralMessage;
+  const factory DatabaseEvent.searchContactEvent({
+    required String query,
+  }) = SearchContactEvent;
 }

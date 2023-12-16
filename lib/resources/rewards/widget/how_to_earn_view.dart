@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 
 class HowToEarnView extends StatelessWidget {
   const HowToEarnView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DatabaseBloc>(context).add(const FetchUserReferralCode());
+    });
     final divider = Container(
       height: 10,
       width: double.infinity,
@@ -176,7 +183,7 @@ class HowToEarnView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    Appstrings.yourReferalLink,
+                    Appstrings.yourReferralLink,
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -198,24 +205,35 @@ class HowToEarnView extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "http://millat/fora.....",
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: ColorManager.whiteColor,
+                        BlocBuilder<DatabaseBloc, DatabaseState>(
+                          builder: (context, state) => Text(
+                            state.referralCode,
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: ColorManager.whiteColor,
+                            ),
                           ),
                         ),
-                        Container(
-                          height: 24,
-                          width: 24,
-                          decoration: BoxDecoration(
-                            color: ColorManager.whiteColor,
-                            borderRadius: BorderRadius.circular(2),
-                          ),
-                          padding: const EdgeInsets.all(2),
-                          child: Image.asset(
-                            AppAssetsStrings.copyIcon,
+                        BlocBuilder<DatabaseBloc, DatabaseState>(
+                          builder: (context, state) => GestureDetector(
+                            onTap: () {
+                              Clipboard.setData(
+                                  ClipboardData(text: state.referralCode));
+                              showSnackBar(context, "Text Copied!");
+                            },
+                            child: Container(
+                              height: 24,
+                              width: 24,
+                              decoration: BoxDecoration(
+                                color: ColorManager.whiteColor,
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                              padding: const EdgeInsets.all(2),
+                              child: Image.asset(
+                                AppAssetsStrings.copyIcon,
+                              ),
+                            ),
                           ),
                         ),
                       ],

@@ -116,56 +116,75 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                   return widget.type == FilterType.category
                       ? state.productLoading
                           ? ShimmerUtils.productsShimmers(context: context)
-                          : Expanded(
-                              child: GridView.builder(
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 20,
-                                  mainAxisSpacing: 20,
-                                  mainAxisExtent: !Responsive.isMobile(context)
-                                      ? SizeUtility(context).height / 3.6
-                                      : SizeUtility(context).height / 3,
-                                ),
-                                itemCount:
-                                    state.product?.result?.products?.length ??
+                          : state.product?.result?.products?.length == 0
+                              ? Padding(
+                                  padding: EdgeInsets.only(
+                                      top: SizeUtility(context).height / 2.4),
+                                  child: Center(
+                                    child: Text(
+                                      "products not available",
+                                      style: TextStyle(
+                                        color: ColorManager.textGrey,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : Expanded(
+                                  child: GridView.builder(
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 20,
+                                      mainAxisSpacing: 20,
+                                      mainAxisExtent:
+                                          !Responsive.isMobile(context)
+                                              ? SizeUtility(context).height /
+                                                  3.6
+                                              : SizeUtility(context).height / 3,
+                                    ),
+                                    itemCount: state.product?.result?.products
+                                            ?.length ??
                                         10,
-                                itemBuilder: (context, index) {
-                                  final data =
-                                      state.product?.result?.products?[index];
-                                  return data == null
-                                      ? ShimmerUtils.productsShimmers(
-                                          context: context)
-                                      : GestureDetector(
-                                          onTap: () {
-                                            // print(data.id);
+                                    itemBuilder: (context, index) {
+                                      final data = state
+                                          .product?.result?.products?[index];
+                                      return data == null
+                                          ? ShimmerUtils.productsShimmers(
+                                              context: context)
+                                          : GestureDetector(
+                                              onTap: () {
+                                                // print(data.id);
 
-                                            context.pushNamed(
-                                                MyAppRouteConstants
-                                                    .singleProductRouteName,
-                                                pathParameters: {
-                                                  "id": data.id ?? ""
-                                                });
-                                          },
-                                          child: ShopProductWidget(
-                                            color: data.color ?? "",
-                                            size: data.size?[0].size ?? "",
-                                            brandId: data.brand!.id,
-                                            isWishlisted: false,
-                                            brand: data.brand!.name.toString(),
-                                            productId: data.id,
-                                            title: data.title,
-                                            image: data.images![0],
-                                            discountPrice:
-                                                data.salePrice!.toInt(),
-                                            actualPrice:
-                                                data.regularPrice!.toInt(),
-                                            discount: data.discount!.toInt(),
-                                          ),
-                                        );
-                                },
-                              ),
-                            )
+                                                context.pushNamed(
+                                                    MyAppRouteConstants
+                                                        .singleProductRouteName,
+                                                    pathParameters: {
+                                                      "id": data.id ?? ""
+                                                    });
+                                              },
+                                              child: ShopProductWidget(
+                                                color: data.color ?? "",
+                                                size: data.size?[0].size ?? "",
+                                                brandId: data.brand!.id,
+                                                isWishlisted: false,
+                                                brand:
+                                                    data.brand!.name.toString(),
+                                                productId: data.id,
+                                                title: data.title,
+                                                image: data.images![0],
+                                                discountPrice:
+                                                    data.salePrice!.toInt(),
+                                                actualPrice:
+                                                    data.regularPrice!.toInt(),
+                                                discount:
+                                                    data.discount!.toInt(),
+                                              ),
+                                            );
+                                    },
+                                  ),
+                                )
                       : Expanded(
                           child: GridView.builder(
                             gridDelegate:
@@ -185,30 +204,47 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                               return datas == null
                                   ? ShimmerUtils.productsShimmers(
                                       context: context)
-                                  : GestureDetector(
-                                      onTap: () {
-                                        context.pushNamed(
-                                            MyAppRouteConstants
-                                                .singleProductRouteName,
-                                            pathParameters: {
-                                              "id": datas.id ?? ""
-                                            });
-                                      },
-                                      child: ShopProductWidget(
-                                        color: datas.color ?? "",
-                                        size: datas.size?[0].size ?? "",
-                                        brandId: datas.brand!.id,
-                                        isWishlisted: false,
-                                        brand: datas.brand!.name.toString(),
-                                        productId: datas.id,
-                                        title: datas.title,
-                                        image: datas.images![0],
-                                        discountPrice: datas.salePrice!.toInt(),
-                                        actualPrice:
-                                            datas.regularPrice!.toInt(),
-                                        discount: datas.discount!.toInt(),
-                                      ),
-                                    );
+                                  : state.product?.result?.products?.length == 0
+                                      ? Padding(
+                                          padding: EdgeInsets.only(
+                                              top: SizeUtility(context).height /
+                                                  2.4),
+                                          child: Center(
+                                            child: Text(
+                                              "products not available",
+                                              style: TextStyle(
+                                                color: ColorManager.textGrey,
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                      : GestureDetector(
+                                          onTap: () {
+                                            context.pushNamed(
+                                                MyAppRouteConstants
+                                                    .singleProductRouteName,
+                                                pathParameters: {
+                                                  "id": datas.id ?? ""
+                                                });
+                                          },
+                                          child: ShopProductWidget(
+                                            color: datas.color ?? "",
+                                            size: datas.size?[0].size ?? "",
+                                            brandId: datas.brand!.id,
+                                            isWishlisted: false,
+                                            brand: datas.brand!.name.toString(),
+                                            productId: datas.id,
+                                            title: datas.title,
+                                            image: datas.images![0],
+                                            discountPrice:
+                                                datas.salePrice!.toInt(),
+                                            actualPrice:
+                                                datas.regularPrice!.toInt(),
+                                            discount: datas.discount!.toInt(),
+                                          ),
+                                        );
                             },
                           ),
                         );

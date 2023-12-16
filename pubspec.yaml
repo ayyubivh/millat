@@ -32,6 +32,7 @@ dependencies:
   carousel_slider: ^4.2.1
   country_picker: ^2.0.22
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
   device_preview: ^1.1.0
   dotted_border: ^2.0.0+3
   dotted_line: ^3.2.2
@@ -60,6 +61,7 @@ dependencies:
   intl_phone_number_input: ^0.7.3+1
   json_annotation: ^4.8.1
   just_audio: ^0.9.32
+  mockito: ^5.4.3
   onesignal_flutter: ^5.0.3
   percent_indicator: ^4.2.3
   permission_handler: ^10.4.1

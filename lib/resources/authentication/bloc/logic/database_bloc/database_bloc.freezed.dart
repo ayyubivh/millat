@@ -37,6 +37,9 @@ mixin _$DatabaseEvent {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +63,9 @@ mixin _$DatabaseEvent {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +89,9 @@ mixin _$DatabaseEvent {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -98,6 +107,10 @@ mixin _$DatabaseEvent {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -112,6 +125,9 @@ mixin _$DatabaseEvent {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -126,6 +142,9 @@ mixin _$DatabaseEvent {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -233,6 +252,9 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return storeTokenEvent(token);
   }
@@ -259,6 +281,9 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return storeTokenEvent?.call(token);
   }
@@ -285,6 +310,9 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -306,6 +334,10 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return storeTokenEvent(this);
   }
@@ -323,6 +355,9 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return storeTokenEvent?.call(this);
   }
@@ -340,6 +375,9 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -416,6 +454,9 @@ class _$FetchTokenImpl implements FetchToken {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return fetchToken();
   }
@@ -442,6 +483,9 @@ class _$FetchTokenImpl implements FetchToken {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return fetchToken?.call();
   }
@@ -468,6 +512,9 @@ class _$FetchTokenImpl implements FetchToken {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -489,6 +536,10 @@ class _$FetchTokenImpl implements FetchToken {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return fetchToken(this);
   }
@@ -506,6 +557,9 @@ class _$FetchTokenImpl implements FetchToken {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return fetchToken?.call(this);
   }
@@ -523,6 +577,9 @@ class _$FetchTokenImpl implements FetchToken {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -619,6 +676,9 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return fetchAuthUser(context);
   }
@@ -645,6 +705,9 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return fetchAuthUser?.call(context);
   }
@@ -671,6 +734,9 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -692,6 +758,10 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return fetchAuthUser(this);
   }
@@ -709,6 +779,9 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return fetchAuthUser?.call(this);
   }
@@ -726,6 +799,9 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -904,6 +980,9 @@ class _$EditAuthUserImpl implements EditAuthUser {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return editAuthUser(
         name, email, userName, institution, dob, profession, image, context);
@@ -931,6 +1010,9 @@ class _$EditAuthUserImpl implements EditAuthUser {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return editAuthUser?.call(
         name, email, userName, institution, dob, profession, image, context);
@@ -958,6 +1040,9 @@ class _$EditAuthUserImpl implements EditAuthUser {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
@@ -980,6 +1065,10 @@ class _$EditAuthUserImpl implements EditAuthUser {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return editAuthUser(this);
   }
@@ -997,6 +1086,9 @@ class _$EditAuthUserImpl implements EditAuthUser {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return editAuthUser?.call(this);
   }
@@ -1014,6 +1106,9 @@ class _$EditAuthUserImpl implements EditAuthUser {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
@@ -1104,6 +1199,9 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return removeTokenEvent();
   }
@@ -1130,6 +1228,9 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return removeTokenEvent?.call();
   }
@@ -1156,6 +1257,9 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1177,6 +1281,10 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return removeTokenEvent(this);
   }
@@ -1194,6 +1302,9 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return removeTokenEvent?.call(this);
   }
@@ -1211,6 +1322,9 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1308,6 +1422,9 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return uploadImageEvent(source);
   }
@@ -1334,6 +1451,9 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return uploadImageEvent?.call(source);
   }
@@ -1360,6 +1480,9 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -1381,6 +1504,10 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return uploadImageEvent(this);
   }
@@ -1398,6 +1525,9 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return uploadImageEvent?.call(this);
   }
@@ -1415,6 +1545,9 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -1491,6 +1624,9 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return fetchContactEvent();
   }
@@ -1517,6 +1653,9 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return fetchContactEvent?.call();
   }
@@ -1543,6 +1682,9 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchContactEvent != null) {
@@ -1564,6 +1706,10 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return fetchContactEvent(this);
   }
@@ -1581,6 +1727,9 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return fetchContactEvent?.call(this);
   }
@@ -1598,6 +1747,9 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchContactEvent != null) {
@@ -1695,6 +1847,9 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return saveCoverImage(image);
   }
@@ -1721,6 +1876,9 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return saveCoverImage?.call(image);
   }
@@ -1747,6 +1905,9 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (saveCoverImage != null) {
@@ -1768,6 +1929,10 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return saveCoverImage(this);
   }
@@ -1785,6 +1950,9 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return saveCoverImage?.call(this);
   }
@@ -1802,6 +1970,9 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (saveCoverImage != null) {
@@ -1878,6 +2049,9 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return fetchCoverImage();
   }
@@ -1904,6 +2078,9 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return fetchCoverImage?.call();
   }
@@ -1930,6 +2107,9 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchCoverImage != null) {
@@ -1951,6 +2131,10 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return fetchCoverImage(this);
   }
@@ -1968,6 +2152,9 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return fetchCoverImage?.call(this);
   }
@@ -1985,6 +2172,9 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchCoverImage != null) {
@@ -2081,6 +2271,9 @@ class _$DeleteAccountImpl implements DeleteAccount {
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
     required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
   }) {
     return deleteAccount(context);
   }
@@ -2107,6 +2300,9 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
     TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
   }) {
     return deleteAccount?.call(context);
   }
@@ -2133,6 +2329,9 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
     TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (deleteAccount != null) {
@@ -2154,6 +2353,10 @@ class _$DeleteAccountImpl implements DeleteAccount {
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
     required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
   }) {
     return deleteAccount(this);
   }
@@ -2171,6 +2374,9 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
     TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
   }) {
     return deleteAccount?.call(this);
   }
@@ -2188,6 +2394,9 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
     TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
     required TResult orElse(),
   }) {
     if (deleteAccount != null) {
@@ -2208,6 +2417,630 @@ abstract class DeleteAccount implements DatabaseEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchUserReferralCodeImplCopyWith<$Res> {
+  factory _$$FetchUserReferralCodeImplCopyWith(
+          _$FetchUserReferralCodeImpl value,
+          $Res Function(_$FetchUserReferralCodeImpl) then) =
+      __$$FetchUserReferralCodeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchUserReferralCodeImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchUserReferralCodeImpl>
+    implements _$$FetchUserReferralCodeImplCopyWith<$Res> {
+  __$$FetchUserReferralCodeImplCopyWithImpl(_$FetchUserReferralCodeImpl _value,
+      $Res Function(_$FetchUserReferralCodeImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchUserReferralCodeImpl implements FetchUserReferralCode {
+  const _$FetchUserReferralCodeImpl();
+
+  @override
+  String toString() {
+    return 'DatabaseEvent.fetchUserReferralCode()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchUserReferralCodeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token) storeTokenEvent,
+    required TResult Function() fetchToken,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
+    required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
+    required TResult Function(String image) saveCoverImage,
+    required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
+  }) {
+    return fetchUserReferralCode();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token)? storeTokenEvent,
+    TResult? Function()? fetchToken,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
+    TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
+    TResult? Function(String image)? saveCoverImage,
+    TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
+  }) {
+    return fetchUserReferralCode?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token)? storeTokenEvent,
+    TResult Function()? fetchToken,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
+    TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
+    TResult Function(String image)? saveCoverImage,
+    TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchUserReferralCode != null) {
+      return fetchUserReferralCode();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StoreTokenEvent value) storeTokenEvent,
+    required TResult Function(FetchToken value) fetchToken,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
+    required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
+    required TResult Function(SaveCoverImage value) saveCoverImage,
+    required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
+  }) {
+    return fetchUserReferralCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult? Function(FetchToken value)? fetchToken,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
+    TResult? Function(SaveCoverImage value)? saveCoverImage,
+    TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
+  }) {
+    return fetchUserReferralCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult Function(FetchToken value)? fetchToken,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
+    TResult Function(SaveCoverImage value)? saveCoverImage,
+    TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchUserReferralCode != null) {
+      return fetchUserReferralCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchUserReferralCode implements DatabaseEvent {
+  const factory FetchUserReferralCode() = _$FetchUserReferralCodeImpl;
+}
+
+/// @nodoc
+abstract class _$$FetchReferralMessageImplCopyWith<$Res> {
+  factory _$$FetchReferralMessageImplCopyWith(_$FetchReferralMessageImpl value,
+          $Res Function(_$FetchReferralMessageImpl) then) =
+      __$$FetchReferralMessageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchReferralMessageImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchReferralMessageImpl>
+    implements _$$FetchReferralMessageImplCopyWith<$Res> {
+  __$$FetchReferralMessageImplCopyWithImpl(_$FetchReferralMessageImpl _value,
+      $Res Function(_$FetchReferralMessageImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchReferralMessageImpl implements FetchReferralMessage {
+  const _$FetchReferralMessageImpl();
+
+  @override
+  String toString() {
+    return 'DatabaseEvent.fetchReferralMessage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchReferralMessageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token) storeTokenEvent,
+    required TResult Function() fetchToken,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
+    required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
+    required TResult Function(String image) saveCoverImage,
+    required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
+  }) {
+    return fetchReferralMessage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token)? storeTokenEvent,
+    TResult? Function()? fetchToken,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
+    TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
+    TResult? Function(String image)? saveCoverImage,
+    TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
+  }) {
+    return fetchReferralMessage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token)? storeTokenEvent,
+    TResult Function()? fetchToken,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
+    TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
+    TResult Function(String image)? saveCoverImage,
+    TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchReferralMessage != null) {
+      return fetchReferralMessage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StoreTokenEvent value) storeTokenEvent,
+    required TResult Function(FetchToken value) fetchToken,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
+    required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
+    required TResult Function(SaveCoverImage value) saveCoverImage,
+    required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
+  }) {
+    return fetchReferralMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult? Function(FetchToken value)? fetchToken,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
+    TResult? Function(SaveCoverImage value)? saveCoverImage,
+    TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
+  }) {
+    return fetchReferralMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult Function(FetchToken value)? fetchToken,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
+    TResult Function(SaveCoverImage value)? saveCoverImage,
+    TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchReferralMessage != null) {
+      return fetchReferralMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchReferralMessage implements DatabaseEvent {
+  const factory FetchReferralMessage() = _$FetchReferralMessageImpl;
+}
+
+/// @nodoc
+abstract class _$$SearchContactEventImplCopyWith<$Res> {
+  factory _$$SearchContactEventImplCopyWith(_$SearchContactEventImpl value,
+          $Res Function(_$SearchContactEventImpl) then) =
+      __$$SearchContactEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$$SearchContactEventImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$SearchContactEventImpl>
+    implements _$$SearchContactEventImplCopyWith<$Res> {
+  __$$SearchContactEventImplCopyWithImpl(_$SearchContactEventImpl _value,
+      $Res Function(_$SearchContactEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = null,
+  }) {
+    return _then(_$SearchContactEventImpl(
+      query: null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SearchContactEventImpl implements SearchContactEvent {
+  const _$SearchContactEventImpl({required this.query});
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'DatabaseEvent.searchContactEvent(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchContactEventImpl &&
+            (identical(other.query, query) || other.query == query));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchContactEventImplCopyWith<_$SearchContactEventImpl> get copyWith =>
+      __$$SearchContactEventImplCopyWithImpl<_$SearchContactEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token) storeTokenEvent,
+    required TResult Function() fetchToken,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
+    required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
+    required TResult Function(String image) saveCoverImage,
+    required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
+  }) {
+    return searchContactEvent(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token)? storeTokenEvent,
+    TResult? Function()? fetchToken,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
+    TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
+    TResult? Function(String image)? saveCoverImage,
+    TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
+  }) {
+    return searchContactEvent?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token)? storeTokenEvent,
+    TResult Function()? fetchToken,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
+    TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
+    TResult Function(String image)? saveCoverImage,
+    TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
+    required TResult orElse(),
+  }) {
+    if (searchContactEvent != null) {
+      return searchContactEvent(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StoreTokenEvent value) storeTokenEvent,
+    required TResult Function(FetchToken value) fetchToken,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
+    required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
+    required TResult Function(SaveCoverImage value) saveCoverImage,
+    required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
+  }) {
+    return searchContactEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult? Function(FetchToken value)? fetchToken,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
+    TResult? Function(SaveCoverImage value)? saveCoverImage,
+    TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
+  }) {
+    return searchContactEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult Function(FetchToken value)? fetchToken,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
+    TResult Function(SaveCoverImage value)? saveCoverImage,
+    TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
+    required TResult orElse(),
+  }) {
+    if (searchContactEvent != null) {
+      return searchContactEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchContactEvent implements DatabaseEvent {
+  const factory SearchContactEvent({required final String query}) =
+      _$SearchContactEventImpl;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$$SearchContactEventImplCopyWith<_$SearchContactEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$DatabaseState {
   String get token =>
       throw _privateConstructorUsedError; // required String name,
@@ -2220,8 +3053,11 @@ mixin _$DatabaseState {
   String get failedMessage => throw _privateConstructorUsedError;
   String get editFailedMessage => throw _privateConstructorUsedError;
   List<Contact>? get contacts => throw _privateConstructorUsedError;
+  List<Contact>? get searchContacts => throw _privateConstructorUsedError;
   String get coverImage => throw _privateConstructorUsedError;
   String get editSuccesMessage => throw _privateConstructorUsedError;
+  String get referralCode => throw _privateConstructorUsedError;
+  String get referralMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DatabaseStateCopyWith<DatabaseState> get copyWith =>
@@ -2244,8 +3080,11 @@ abstract class $DatabaseStateCopyWith<$Res> {
       String failedMessage,
       String editFailedMessage,
       List<Contact>? contacts,
+      List<Contact>? searchContacts,
       String coverImage,
-      String editSuccesMessage});
+      String editSuccesMessage,
+      String referralCode,
+      String referralMessage});
 
   $AuthUserModelCopyWith<$Res>? get authUserModel;
 }
@@ -2272,8 +3111,11 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
     Object? failedMessage = null,
     Object? editFailedMessage = null,
     Object? contacts = freezed,
+    Object? searchContacts = freezed,
     Object? coverImage = null,
     Object? editSuccesMessage = null,
+    Object? referralCode = null,
+    Object? referralMessage = null,
   }) {
     return _then(_value.copyWith(
       token: null == token
@@ -2312,6 +3154,10 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
               as List<Contact>?,
+      searchContacts: freezed == searchContacts
+          ? _value.searchContacts
+          : searchContacts // ignore: cast_nullable_to_non_nullable
+              as List<Contact>?,
       coverImage: null == coverImage
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
@@ -2319,6 +3165,14 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
       editSuccesMessage: null == editSuccesMessage
           ? _value.editSuccesMessage
           : editSuccesMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      referralCode: null == referralCode
+          ? _value.referralCode
+          : referralCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      referralMessage: null == referralMessage
+          ? _value.referralMessage
+          : referralMessage // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -2354,8 +3208,11 @@ abstract class _$$InitialImplCopyWith<$Res>
       String failedMessage,
       String editFailedMessage,
       List<Contact>? contacts,
+      List<Contact>? searchContacts,
       String coverImage,
-      String editSuccesMessage});
+      String editSuccesMessage,
+      String referralCode,
+      String referralMessage});
 
   @override
   $AuthUserModelCopyWith<$Res>? get authUserModel;
@@ -2381,8 +3238,11 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? failedMessage = null,
     Object? editFailedMessage = null,
     Object? contacts = freezed,
+    Object? searchContacts = freezed,
     Object? coverImage = null,
     Object? editSuccesMessage = null,
+    Object? referralCode = null,
+    Object? referralMessage = null,
   }) {
     return _then(_$InitialImpl(
       token: null == token
@@ -2421,6 +3281,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value._contacts
           : contacts // ignore: cast_nullable_to_non_nullable
               as List<Contact>?,
+      searchContacts: freezed == searchContacts
+          ? _value._searchContacts
+          : searchContacts // ignore: cast_nullable_to_non_nullable
+              as List<Contact>?,
       coverImage: null == coverImage
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
@@ -2428,6 +3292,14 @@ class __$$InitialImplCopyWithImpl<$Res>
       editSuccesMessage: null == editSuccesMessage
           ? _value.editSuccesMessage
           : editSuccesMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      referralCode: null == referralCode
+          ? _value.referralCode
+          : referralCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      referralMessage: null == referralMessage
+          ? _value.referralMessage
+          : referralMessage // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -2446,9 +3318,13 @@ class _$InitialImpl implements _Initial {
       required this.failedMessage,
       required this.editFailedMessage,
       required final List<Contact>? contacts,
+      required final List<Contact>? searchContacts,
       required this.coverImage,
-      required this.editSuccesMessage})
-      : _contacts = contacts;
+      required this.editSuccesMessage,
+      required this.referralCode,
+      required this.referralMessage})
+      : _contacts = contacts,
+        _searchContacts = searchContacts;
 
   @override
   final String token;
@@ -2478,14 +3354,28 @@ class _$InitialImpl implements _Initial {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<Contact>? _searchContacts;
+  @override
+  List<Contact>? get searchContacts {
+    final value = _searchContacts;
+    if (value == null) return null;
+    if (_searchContacts is EqualUnmodifiableListView) return _searchContacts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String coverImage;
   @override
   final String editSuccesMessage;
+  @override
+  final String referralCode;
+  @override
+  final String referralMessage;
 
   @override
   String toString() {
-    return 'DatabaseState(token: $token, authUserModel: $authUserModel, isLoading: $isLoading, editIsloading: $editIsloading, succesMessage: $succesMessage, imagebytes: $imagebytes, failedMessage: $failedMessage, editFailedMessage: $editFailedMessage, contacts: $contacts, coverImage: $coverImage, editSuccesMessage: $editSuccesMessage)';
+    return 'DatabaseState(token: $token, authUserModel: $authUserModel, isLoading: $isLoading, editIsloading: $editIsloading, succesMessage: $succesMessage, imagebytes: $imagebytes, failedMessage: $failedMessage, editFailedMessage: $editFailedMessage, contacts: $contacts, searchContacts: $searchContacts, coverImage: $coverImage, editSuccesMessage: $editSuccesMessage, referralCode: $referralCode, referralMessage: $referralMessage)';
   }
 
   @override
@@ -2509,10 +3399,16 @@ class _$InitialImpl implements _Initial {
             (identical(other.editFailedMessage, editFailedMessage) ||
                 other.editFailedMessage == editFailedMessage) &&
             const DeepCollectionEquality().equals(other._contacts, _contacts) &&
+            const DeepCollectionEquality()
+                .equals(other._searchContacts, _searchContacts) &&
             (identical(other.coverImage, coverImage) ||
                 other.coverImage == coverImage) &&
             (identical(other.editSuccesMessage, editSuccesMessage) ||
-                other.editSuccesMessage == editSuccesMessage));
+                other.editSuccesMessage == editSuccesMessage) &&
+            (identical(other.referralCode, referralCode) ||
+                other.referralCode == referralCode) &&
+            (identical(other.referralMessage, referralMessage) ||
+                other.referralMessage == referralMessage));
   }
 
   @override
@@ -2527,8 +3423,11 @@ class _$InitialImpl implements _Initial {
       failedMessage,
       editFailedMessage,
       const DeepCollectionEquality().hash(_contacts),
+      const DeepCollectionEquality().hash(_searchContacts),
       coverImage,
-      editSuccesMessage);
+      editSuccesMessage,
+      referralCode,
+      referralMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -2548,8 +3447,11 @@ abstract class _Initial implements DatabaseState {
       required final String failedMessage,
       required final String editFailedMessage,
       required final List<Contact>? contacts,
+      required final List<Contact>? searchContacts,
       required final String coverImage,
-      required final String editSuccesMessage}) = _$InitialImpl;
+      required final String editSuccesMessage,
+      required final String referralCode,
+      required final String referralMessage}) = _$InitialImpl;
 
   @override
   String get token;
@@ -2571,9 +3473,15 @@ abstract class _Initial implements DatabaseState {
   @override
   List<Contact>? get contacts;
   @override
+  List<Contact>? get searchContacts;
+  @override
   String get coverImage;
   @override
   String get editSuccesMessage;
+  @override
+  String get referralCode;
+  @override
+  String get referralMessage;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

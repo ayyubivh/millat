@@ -1734,6 +1734,7 @@ mixin _$RewardsState {
   RewardRedeemItemModel? get redeemItemModel =>
       throw _privateConstructorUsedError;
   bool get isRewardRedeemSuccess => throw _privateConstructorUsedError;
+  bool get isRewardRedeemFailure => throw _privateConstructorUsedError;
   RedeemedCouponModel? get redeemedCouponModel =>
       throw _privateConstructorUsedError;
 
@@ -1758,6 +1759,7 @@ abstract class $RewardsStateCopyWith<$Res> {
       int rewardCoins,
       RewardRedeemItemModel? redeemItemModel,
       bool isRewardRedeemSuccess,
+      bool isRewardRedeemFailure,
       RedeemedCouponModel? redeemedCouponModel});
 
   $RewardsModelCopyWith<$Res>? get rewardsModel;
@@ -1789,6 +1791,7 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
     Object? rewardCoins = null,
     Object? redeemItemModel = freezed,
     Object? isRewardRedeemSuccess = null,
+    Object? isRewardRedeemFailure = null,
     Object? redeemedCouponModel = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1827,6 +1830,10 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
       isRewardRedeemSuccess: null == isRewardRedeemSuccess
           ? _value.isRewardRedeemSuccess
           : isRewardRedeemSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRewardRedeemFailure: null == isRewardRedeemFailure
+          ? _value.isRewardRedeemFailure
+          : isRewardRedeemFailure // ignore: cast_nullable_to_non_nullable
               as bool,
       redeemedCouponModel: freezed == redeemedCouponModel
           ? _value.redeemedCouponModel
@@ -1918,6 +1925,7 @@ abstract class _$$RewardsStateImplCopyWith<$Res>
       int rewardCoins,
       RewardRedeemItemModel? redeemItemModel,
       bool isRewardRedeemSuccess,
+      bool isRewardRedeemFailure,
       RedeemedCouponModel? redeemedCouponModel});
 
   @override
@@ -1952,6 +1960,7 @@ class __$$RewardsStateImplCopyWithImpl<$Res>
     Object? rewardCoins = null,
     Object? redeemItemModel = freezed,
     Object? isRewardRedeemSuccess = null,
+    Object? isRewardRedeemFailure = null,
     Object? redeemedCouponModel = freezed,
   }) {
     return _then(_$RewardsStateImpl(
@@ -1991,6 +2000,10 @@ class __$$RewardsStateImplCopyWithImpl<$Res>
           ? _value.isRewardRedeemSuccess
           : isRewardRedeemSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
+      isRewardRedeemFailure: null == isRewardRedeemFailure
+          ? _value.isRewardRedeemFailure
+          : isRewardRedeemFailure // ignore: cast_nullable_to_non_nullable
+              as bool,
       redeemedCouponModel: freezed == redeemedCouponModel
           ? _value.redeemedCouponModel
           : redeemedCouponModel // ignore: cast_nullable_to_non_nullable
@@ -2012,6 +2025,7 @@ class _$RewardsStateImpl implements _RewardsState {
       required this.rewardCoins,
       required this.redeemItemModel,
       required this.isRewardRedeemSuccess,
+      required this.isRewardRedeemFailure,
       required this.redeemedCouponModel});
 
   @override
@@ -2033,11 +2047,13 @@ class _$RewardsStateImpl implements _RewardsState {
   @override
   final bool isRewardRedeemSuccess;
   @override
+  final bool isRewardRedeemFailure;
+  @override
   final RedeemedCouponModel? redeemedCouponModel;
 
   @override
   String toString() {
-    return 'RewardsState(isLoading: $isLoading, rewardsModel: $rewardsModel, rewardsProductByIdModel: $rewardsProductByIdModel, rewardsProductsModel: $rewardsProductsModel, carouselImageIndex: $carouselImageIndex, tabIndex: $tabIndex, rewardCoins: $rewardCoins, redeemItemModel: $redeemItemModel, isRewardRedeemSuccess: $isRewardRedeemSuccess, redeemedCouponModel: $redeemedCouponModel)';
+    return 'RewardsState(isLoading: $isLoading, rewardsModel: $rewardsModel, rewardsProductByIdModel: $rewardsProductByIdModel, rewardsProductsModel: $rewardsProductsModel, carouselImageIndex: $carouselImageIndex, tabIndex: $tabIndex, rewardCoins: $rewardCoins, redeemItemModel: $redeemItemModel, isRewardRedeemSuccess: $isRewardRedeemSuccess, isRewardRedeemFailure: $isRewardRedeemFailure, redeemedCouponModel: $redeemedCouponModel)';
   }
 
   @override
@@ -2064,6 +2080,8 @@ class _$RewardsStateImpl implements _RewardsState {
                 other.redeemItemModel == redeemItemModel) &&
             (identical(other.isRewardRedeemSuccess, isRewardRedeemSuccess) ||
                 other.isRewardRedeemSuccess == isRewardRedeemSuccess) &&
+            (identical(other.isRewardRedeemFailure, isRewardRedeemFailure) ||
+                other.isRewardRedeemFailure == isRewardRedeemFailure) &&
             (identical(other.redeemedCouponModel, redeemedCouponModel) ||
                 other.redeemedCouponModel == redeemedCouponModel));
   }
@@ -2080,6 +2098,7 @@ class _$RewardsStateImpl implements _RewardsState {
       rewardCoins,
       redeemItemModel,
       isRewardRedeemSuccess,
+      isRewardRedeemFailure,
       redeemedCouponModel);
 
   @JsonKey(ignore: true)
@@ -2100,6 +2119,7 @@ abstract class _RewardsState implements RewardsState {
           required final int rewardCoins,
           required final RewardRedeemItemModel? redeemItemModel,
           required final bool isRewardRedeemSuccess,
+          required final bool isRewardRedeemFailure,
           required final RedeemedCouponModel? redeemedCouponModel}) =
       _$RewardsStateImpl;
 
@@ -2121,6 +2141,8 @@ abstract class _RewardsState implements RewardsState {
   RewardRedeemItemModel? get redeemItemModel;
   @override
   bool get isRewardRedeemSuccess;
+  @override
+  bool get isRewardRedeemFailure;
   @override
   RedeemedCouponModel? get redeemedCouponModel;
   @override

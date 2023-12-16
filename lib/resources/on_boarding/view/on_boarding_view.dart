@@ -143,6 +143,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   height: 30,
                 ),
                 MainButton(
+                    key: const Key('next_button'),
                     title: 'Next',
                     onPressed: () {
                       if (_pageController.page == 3) {
@@ -154,6 +155,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       }
                     }),
                 MainTextButton(
+                  key: const Key('skip_button'),
                   title: 'Skip',
                   onTap: () {
                     context.goNamed(MyAppRouteConstants.signUpRouteName);

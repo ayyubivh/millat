@@ -83,6 +83,7 @@ class Appstrings {
       "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.\n\nWe don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
   static const String inviteYourFriend = "Invite your Friends";
   static const String get100Coins = "Get 100 Coins";
+  static const String yourReferralLing = "Your Referral Link";
   static const String profileFooterText = "For regular updates follow us on";
   static const String share = "Share";
   static const String twitterUrl = "https://twitter.com/millatco?s=11";
@@ -267,7 +268,7 @@ class Appstrings {
   static const String howToRedeem = "How to Redeem";
   static const String referYourFriend = "Refer your friends";
   static const String earn1000Points = "Earn 1000 Points";
-  static const String yourReferalLink = "Your Referral Link";
+  static const String yourReferralLink = "Your Referral Code";
   static const String completeTask = "Complete the tasks and earn coins";
   static const String welcome = "Welcome";
   static const String birthday = "Birthday";

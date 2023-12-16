@@ -184,7 +184,6 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                               kWidth8,
                               Container(
                                 height: 24,
-                                width: 63,
                                 decoration: BoxDecoration(
                                   color: ColorManager.greyEB,
                                   borderRadius: BorderRadius.circular(50),

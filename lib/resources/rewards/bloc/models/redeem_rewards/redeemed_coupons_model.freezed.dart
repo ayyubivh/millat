@@ -398,8 +398,6 @@ mixin _$Coupon {
   RewardItem get rewardItem => throw _privateConstructorUsedError;
   @JsonKey(name: 'user')
   String get user => throw _privateConstructorUsedError;
-  @JsonKey(name: 'coupon')
-  CouponDetails get coupon => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
   String get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updatedAt')
@@ -419,12 +417,10 @@ abstract class $CouponCopyWith<$Res> {
       {@JsonKey(name: '_id') String id,
       @JsonKey(name: 'rewardItem') RewardItem rewardItem,
       @JsonKey(name: 'user') String user,
-      @JsonKey(name: 'coupon') CouponDetails coupon,
       @JsonKey(name: 'createdAt') String createdAt,
       @JsonKey(name: 'updatedAt') String updatedAt});
 
   $RewardItemCopyWith<$Res> get rewardItem;
-  $CouponDetailsCopyWith<$Res> get coupon;
 }
 
 /// @nodoc
@@ -443,7 +439,6 @@ class _$CouponCopyWithImpl<$Res, $Val extends Coupon>
     Object? id = null,
     Object? rewardItem = null,
     Object? user = null,
-    Object? coupon = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
@@ -460,10 +455,6 @@ class _$CouponCopyWithImpl<$Res, $Val extends Coupon>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as String,
-      coupon: null == coupon
-          ? _value.coupon
-          : coupon // ignore: cast_nullable_to_non_nullable
-              as CouponDetails,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -482,14 +473,6 @@ class _$CouponCopyWithImpl<$Res, $Val extends Coupon>
       return _then(_value.copyWith(rewardItem: value) as $Val);
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CouponDetailsCopyWith<$Res> get coupon {
-    return $CouponDetailsCopyWith<$Res>(_value.coupon, (value) {
-      return _then(_value.copyWith(coupon: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -503,14 +486,11 @@ abstract class _$$CouponImplCopyWith<$Res> implements $CouponCopyWith<$Res> {
       {@JsonKey(name: '_id') String id,
       @JsonKey(name: 'rewardItem') RewardItem rewardItem,
       @JsonKey(name: 'user') String user,
-      @JsonKey(name: 'coupon') CouponDetails coupon,
       @JsonKey(name: 'createdAt') String createdAt,
       @JsonKey(name: 'updatedAt') String updatedAt});
 
   @override
   $RewardItemCopyWith<$Res> get rewardItem;
-  @override
-  $CouponDetailsCopyWith<$Res> get coupon;
 }
 
 /// @nodoc
@@ -527,7 +507,6 @@ class __$$CouponImplCopyWithImpl<$Res>
     Object? id = null,
     Object? rewardItem = null,
     Object? user = null,
-    Object? coupon = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
@@ -544,10 +523,6 @@ class __$$CouponImplCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as String,
-      coupon: null == coupon
-          ? _value.coupon
-          : coupon // ignore: cast_nullable_to_non_nullable
-              as CouponDetails,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -567,7 +542,6 @@ class _$CouponImpl implements _Coupon {
       {@JsonKey(name: '_id') required this.id,
       @JsonKey(name: 'rewardItem') required this.rewardItem,
       @JsonKey(name: 'user') required this.user,
-      @JsonKey(name: 'coupon') required this.coupon,
       @JsonKey(name: 'createdAt') required this.createdAt,
       @JsonKey(name: 'updatedAt') required this.updatedAt});
 
@@ -584,9 +558,6 @@ class _$CouponImpl implements _Coupon {
   @JsonKey(name: 'user')
   final String user;
   @override
-  @JsonKey(name: 'coupon')
-  final CouponDetails coupon;
-  @override
   @JsonKey(name: 'createdAt')
   final String createdAt;
   @override
@@ -595,7 +566,7 @@ class _$CouponImpl implements _Coupon {
 
   @override
   String toString() {
-    return 'Coupon(id: $id, rewardItem: $rewardItem, user: $user, coupon: $coupon, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Coupon(id: $id, rewardItem: $rewardItem, user: $user, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -607,7 +578,6 @@ class _$CouponImpl implements _Coupon {
             (identical(other.rewardItem, rewardItem) ||
                 other.rewardItem == rewardItem) &&
             (identical(other.user, user) || other.user == user) &&
-            (identical(other.coupon, coupon) || other.coupon == coupon) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -616,8 +586,8 @@ class _$CouponImpl implements _Coupon {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, rewardItem, user, coupon, createdAt, updatedAt);
+  int get hashCode =>
+      Object.hash(runtimeType, id, rewardItem, user, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -638,7 +608,6 @@ abstract class _Coupon implements Coupon {
           {@JsonKey(name: '_id') required final String id,
           @JsonKey(name: 'rewardItem') required final RewardItem rewardItem,
           @JsonKey(name: 'user') required final String user,
-          @JsonKey(name: 'coupon') required final CouponDetails coupon,
           @JsonKey(name: 'createdAt') required final String createdAt,
           @JsonKey(name: 'updatedAt') required final String updatedAt}) =
       _$CouponImpl;
@@ -654,9 +623,6 @@ abstract class _Coupon implements Coupon {
   @override
   @JsonKey(name: 'user')
   String get user;
-  @override
-  @JsonKey(name: 'coupon')
-  CouponDetails get coupon;
   @override
   @JsonKey(name: 'createdAt')
   String get createdAt;
@@ -681,8 +647,10 @@ mixin _$RewardItem {
   String get image => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'quantity')
-  int get quantity => throw _privateConstructorUsedError;
+  @JsonKey(name: 'defaultStock')
+  String get defaultStock => throw _privateConstructorUsedError;
+  @JsonKey(name: 'stock')
+  int get stock => throw _privateConstructorUsedError;
   @JsonKey(name: 'offerPrice')
   int get offerPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'coins')
@@ -712,7 +680,8 @@ abstract class $RewardItemCopyWith<$Res> {
       {@JsonKey(name: '_id') String id,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'quantity') int quantity,
+      @JsonKey(name: 'defaultStock') String defaultStock,
+      @JsonKey(name: 'stock') int stock,
       @JsonKey(name: 'offerPrice') int offerPrice,
       @JsonKey(name: 'coins') int coins,
       @JsonKey(name: 'startDate') String startDate,
@@ -737,7 +706,8 @@ class _$RewardItemCopyWithImpl<$Res, $Val extends RewardItem>
     Object? id = null,
     Object? image = null,
     Object? title = null,
-    Object? quantity = null,
+    Object? defaultStock = null,
+    Object? stock = null,
     Object? offerPrice = null,
     Object? coins = null,
     Object? startDate = null,
@@ -758,9 +728,13 @@ class _$RewardItemCopyWithImpl<$Res, $Val extends RewardItem>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      quantity: null == quantity
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
+      defaultStock: null == defaultStock
+          ? _value.defaultStock
+          : defaultStock // ignore: cast_nullable_to_non_nullable
+              as String,
+      stock: null == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
               as int,
       offerPrice: null == offerPrice
           ? _value.offerPrice
@@ -802,7 +776,8 @@ abstract class _$$RewardItemImplCopyWith<$Res>
       {@JsonKey(name: '_id') String id,
       @JsonKey(name: 'image') String image,
       @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'quantity') int quantity,
+      @JsonKey(name: 'defaultStock') String defaultStock,
+      @JsonKey(name: 'stock') int stock,
       @JsonKey(name: 'offerPrice') int offerPrice,
       @JsonKey(name: 'coins') int coins,
       @JsonKey(name: 'startDate') String startDate,
@@ -825,7 +800,8 @@ class __$$RewardItemImplCopyWithImpl<$Res>
     Object? id = null,
     Object? image = null,
     Object? title = null,
-    Object? quantity = null,
+    Object? defaultStock = null,
+    Object? stock = null,
     Object? offerPrice = null,
     Object? coins = null,
     Object? startDate = null,
@@ -846,9 +822,13 @@ class __$$RewardItemImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      quantity: null == quantity
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
+      defaultStock: null == defaultStock
+          ? _value.defaultStock
+          : defaultStock // ignore: cast_nullable_to_non_nullable
+              as String,
+      stock: null == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
               as int,
       offerPrice: null == offerPrice
           ? _value.offerPrice
@@ -885,7 +865,8 @@ class _$RewardItemImpl implements _RewardItem {
       {@JsonKey(name: '_id') required this.id,
       @JsonKey(name: 'image') required this.image,
       @JsonKey(name: 'title') required this.title,
-      @JsonKey(name: 'quantity') required this.quantity,
+      @JsonKey(name: 'defaultStock') required this.defaultStock,
+      @JsonKey(name: 'stock') required this.stock,
       @JsonKey(name: 'offerPrice') required this.offerPrice,
       @JsonKey(name: 'coins') required this.coins,
       @JsonKey(name: 'startDate') required this.startDate,
@@ -906,8 +887,11 @@ class _$RewardItemImpl implements _RewardItem {
   @JsonKey(name: 'title')
   final String title;
   @override
-  @JsonKey(name: 'quantity')
-  final int quantity;
+  @JsonKey(name: 'defaultStock')
+  final String defaultStock;
+  @override
+  @JsonKey(name: 'stock')
+  final int stock;
   @override
   @JsonKey(name: 'offerPrice')
   final int offerPrice;
@@ -929,7 +913,7 @@ class _$RewardItemImpl implements _RewardItem {
 
   @override
   String toString() {
-    return 'RewardItem(id: $id, image: $image, title: $title, quantity: $quantity, offerPrice: $offerPrice, coins: $coins, startDate: $startDate, endDate: $endDate, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'RewardItem(id: $id, image: $image, title: $title, defaultStock: $defaultStock, stock: $stock, offerPrice: $offerPrice, coins: $coins, startDate: $startDate, endDate: $endDate, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -940,8 +924,9 @@ class _$RewardItemImpl implements _RewardItem {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.quantity, quantity) ||
-                other.quantity == quantity) &&
+            (identical(other.defaultStock, defaultStock) ||
+                other.defaultStock == defaultStock) &&
+            (identical(other.stock, stock) || other.stock == stock) &&
             (identical(other.offerPrice, offerPrice) ||
                 other.offerPrice == offerPrice) &&
             (identical(other.coins, coins) || other.coins == coins) &&
@@ -956,8 +941,8 @@ class _$RewardItemImpl implements _RewardItem {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, image, title, quantity,
-      offerPrice, coins, startDate, endDate, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, image, title, defaultStock,
+      stock, offerPrice, coins, startDate, endDate, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -978,7 +963,8 @@ abstract class _RewardItem implements RewardItem {
           {@JsonKey(name: '_id') required final String id,
           @JsonKey(name: 'image') required final String image,
           @JsonKey(name: 'title') required final String title,
-          @JsonKey(name: 'quantity') required final int quantity,
+          @JsonKey(name: 'defaultStock') required final String defaultStock,
+          @JsonKey(name: 'stock') required final int stock,
           @JsonKey(name: 'offerPrice') required final int offerPrice,
           @JsonKey(name: 'coins') required final int coins,
           @JsonKey(name: 'startDate') required final String startDate,
@@ -1000,8 +986,11 @@ abstract class _RewardItem implements RewardItem {
   @JsonKey(name: 'title')
   String get title;
   @override
-  @JsonKey(name: 'quantity')
-  int get quantity;
+  @JsonKey(name: 'defaultStock')
+  String get defaultStock;
+  @override
+  @JsonKey(name: 'stock')
+  int get stock;
   @override
   @JsonKey(name: 'offerPrice')
   int get offerPrice;
@@ -1023,294 +1012,5 @@ abstract class _RewardItem implements RewardItem {
   @override
   @JsonKey(ignore: true)
   _$$RewardItemImplCopyWith<_$RewardItemImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-CouponDetails _$CouponDetailsFromJson(Map<String, dynamic> json) {
-  return _CouponDetails.fromJson(json);
-}
-
-/// @nodoc
-mixin _$CouponDetails {
-  @JsonKey(name: '_id')
-  String get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'couponCode')
-  String get couponCode => throw _privateConstructorUsedError;
-  @JsonKey(name: 'startDate')
-  String get startDate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'expiryDate')
-  String get expiryDate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'minPrice')
-  int get minPrice => throw _privateConstructorUsedError;
-  @JsonKey(name: 'createdAt')
-  String get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'updatedAt')
-  String get updatedAt => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CouponDetailsCopyWith<CouponDetails> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CouponDetailsCopyWith<$Res> {
-  factory $CouponDetailsCopyWith(
-          CouponDetails value, $Res Function(CouponDetails) then) =
-      _$CouponDetailsCopyWithImpl<$Res, CouponDetails>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: '_id') String id,
-      @JsonKey(name: 'couponCode') String couponCode,
-      @JsonKey(name: 'startDate') String startDate,
-      @JsonKey(name: 'expiryDate') String expiryDate,
-      @JsonKey(name: 'minPrice') int minPrice,
-      @JsonKey(name: 'createdAt') String createdAt,
-      @JsonKey(name: 'updatedAt') String updatedAt});
-}
-
-/// @nodoc
-class _$CouponDetailsCopyWithImpl<$Res, $Val extends CouponDetails>
-    implements $CouponDetailsCopyWith<$Res> {
-  _$CouponDetailsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? couponCode = null,
-    Object? startDate = null,
-    Object? expiryDate = null,
-    Object? minPrice = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      couponCode: null == couponCode
-          ? _value.couponCode
-          : couponCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      expiryDate: null == expiryDate
-          ? _value.expiryDate
-          : expiryDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      minPrice: null == minPrice
-          ? _value.minPrice
-          : minPrice // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$CouponDetailsImplCopyWith<$Res>
-    implements $CouponDetailsCopyWith<$Res> {
-  factory _$$CouponDetailsImplCopyWith(
-          _$CouponDetailsImpl value, $Res Function(_$CouponDetailsImpl) then) =
-      __$$CouponDetailsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: '_id') String id,
-      @JsonKey(name: 'couponCode') String couponCode,
-      @JsonKey(name: 'startDate') String startDate,
-      @JsonKey(name: 'expiryDate') String expiryDate,
-      @JsonKey(name: 'minPrice') int minPrice,
-      @JsonKey(name: 'createdAt') String createdAt,
-      @JsonKey(name: 'updatedAt') String updatedAt});
-}
-
-/// @nodoc
-class __$$CouponDetailsImplCopyWithImpl<$Res>
-    extends _$CouponDetailsCopyWithImpl<$Res, _$CouponDetailsImpl>
-    implements _$$CouponDetailsImplCopyWith<$Res> {
-  __$$CouponDetailsImplCopyWithImpl(
-      _$CouponDetailsImpl _value, $Res Function(_$CouponDetailsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? couponCode = null,
-    Object? startDate = null,
-    Object? expiryDate = null,
-    Object? minPrice = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-  }) {
-    return _then(_$CouponDetailsImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      couponCode: null == couponCode
-          ? _value.couponCode
-          : couponCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      expiryDate: null == expiryDate
-          ? _value.expiryDate
-          : expiryDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      minPrice: null == minPrice
-          ? _value.minPrice
-          : minPrice // ignore: cast_nullable_to_non_nullable
-              as int,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$CouponDetailsImpl implements _CouponDetails {
-  const _$CouponDetailsImpl(
-      {@JsonKey(name: '_id') required this.id,
-      @JsonKey(name: 'couponCode') required this.couponCode,
-      @JsonKey(name: 'startDate') required this.startDate,
-      @JsonKey(name: 'expiryDate') required this.expiryDate,
-      @JsonKey(name: 'minPrice') required this.minPrice,
-      @JsonKey(name: 'createdAt') required this.createdAt,
-      @JsonKey(name: 'updatedAt') required this.updatedAt});
-
-  factory _$CouponDetailsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CouponDetailsImplFromJson(json);
-
-  @override
-  @JsonKey(name: '_id')
-  final String id;
-  @override
-  @JsonKey(name: 'couponCode')
-  final String couponCode;
-  @override
-  @JsonKey(name: 'startDate')
-  final String startDate;
-  @override
-  @JsonKey(name: 'expiryDate')
-  final String expiryDate;
-  @override
-  @JsonKey(name: 'minPrice')
-  final int minPrice;
-  @override
-  @JsonKey(name: 'createdAt')
-  final String createdAt;
-  @override
-  @JsonKey(name: 'updatedAt')
-  final String updatedAt;
-
-  @override
-  String toString() {
-    return 'CouponDetails(id: $id, couponCode: $couponCode, startDate: $startDate, expiryDate: $expiryDate, minPrice: $minPrice, createdAt: $createdAt, updatedAt: $updatedAt)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CouponDetailsImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.couponCode, couponCode) ||
-                other.couponCode == couponCode) &&
-            (identical(other.startDate, startDate) ||
-                other.startDate == startDate) &&
-            (identical(other.expiryDate, expiryDate) ||
-                other.expiryDate == expiryDate) &&
-            (identical(other.minPrice, minPrice) ||
-                other.minPrice == minPrice) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, couponCode, startDate,
-      expiryDate, minPrice, createdAt, updatedAt);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CouponDetailsImplCopyWith<_$CouponDetailsImpl> get copyWith =>
-      __$$CouponDetailsImplCopyWithImpl<_$CouponDetailsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CouponDetailsImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _CouponDetails implements CouponDetails {
-  const factory _CouponDetails(
-          {@JsonKey(name: '_id') required final String id,
-          @JsonKey(name: 'couponCode') required final String couponCode,
-          @JsonKey(name: 'startDate') required final String startDate,
-          @JsonKey(name: 'expiryDate') required final String expiryDate,
-          @JsonKey(name: 'minPrice') required final int minPrice,
-          @JsonKey(name: 'createdAt') required final String createdAt,
-          @JsonKey(name: 'updatedAt') required final String updatedAt}) =
-      _$CouponDetailsImpl;
-
-  factory _CouponDetails.fromJson(Map<String, dynamic> json) =
-      _$CouponDetailsImpl.fromJson;
-
-  @override
-  @JsonKey(name: '_id')
-  String get id;
-  @override
-  @JsonKey(name: 'couponCode')
-  String get couponCode;
-  @override
-  @JsonKey(name: 'startDate')
-  String get startDate;
-  @override
-  @JsonKey(name: 'expiryDate')
-  String get expiryDate;
-  @override
-  @JsonKey(name: 'minPrice')
-  int get minPrice;
-  @override
-  @JsonKey(name: 'createdAt')
-  String get createdAt;
-  @override
-  @JsonKey(name: 'updatedAt')
-  String get updatedAt;
-  @override
-  @JsonKey(ignore: true)
-  _$$CouponDetailsImplCopyWith<_$CouponDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

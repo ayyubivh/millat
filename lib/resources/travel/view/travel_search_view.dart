@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:millat/components/debounce/debounce.dart';
-import 'package:millat/components/textfields/custom_text_field.dart';
 import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/resources/travel/view/widget/travel_search_textfield.dart';
@@ -12,6 +11,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -141,7 +141,7 @@ class _AddDatesGuestState extends State<AddDatesGuest> {
   Widget build(BuildContext context) {
     return BlocBuilder<TravelBloc, TravelState>(
       builder: (context, state) => Container(
-        height: state.showCalendar == false ? 400 : 70,
+        height: state.showCalendar == false ? 440 : 70,
         width: SizeUtility(context).width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
@@ -354,7 +354,7 @@ class SearchWidget extends StatelessWidget {
                 BlocBuilder<TravelBloc, TravelState>(
                   builder: (context, state) {
                     final searchState = state.travelSearchLocationModels;
-                    print("Search state $searchState");
+
                     return Container(
                       height: searchState == null ? 200 : 400,
                       width: SizeUtility(context).width,
@@ -391,63 +391,73 @@ class SearchWidget extends StatelessWidget {
                             ),
                           ),
                           kHeight15,
-                          Expanded(
-                            child: ListView.builder(
-                              itemCount:
-                                  state.travelSearchLocationModels?.length,
-                              itemBuilder: (context, countryIndex) {
-                                final countryData = state
-                                    .travelSearchLocationModels?[countryIndex];
+                          state.isLoading
+                              ? const Loader()
+                              : Expanded(
+                                  child: ListView.builder(
+                                    itemCount: state.travelSearchLocationModels
+                                            ?.length ??
+                                        1,
+                                    itemBuilder: (context, countryIndex) {
+                                      final countryData =
+                                          state.travelSearchLocationModels?[
+                                              countryIndex];
 
-                                return GestureDetector(
-                                  onTap: () {
-                                    BlocProvider.of<TravelBloc>(context).add(
-                                        SaveSearchLocation(
-                                            location:
-                                                "${countryData?.city}, ${countryData?.country}"));
-                                  },
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 8.0),
-                                        child: Row(
+                                      return GestureDetector(
+                                        onTap: () {
+                                          BlocProvider.of<TravelBloc>(context)
+                                              .add(SaveSearchLocation(
+                                                  location:
+                                                      "${countryData?.city}, ${countryData?.country}"));
+                                        },
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Flexible(
-                                              child: Text(
-                                                countryData?.city != null
-                                                    ? "${countryData?.city}, "
-                                                    : "",
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 16,
-                                                ),
-                                                overflow: TextOverflow.ellipsis,
-                                                maxLines: 1,
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: Text(
-                                                countryData?.country ?? "",
-                                                style: const TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 16,
-                                                ),
-                                                overflow: TextOverflow.ellipsis,
-                                                maxLines: 1,
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 8.0),
+                                              child: Row(
+                                                children: [
+                                                  Flexible(
+                                                    child: Text(
+                                                      countryData?.city != null
+                                                          ? "${countryData?.city}, "
+                                                          : "No cities found",
+                                                      style: const TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 16,
+                                                      ),
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      maxLines: 1,
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    child: Text(
+                                                      countryData?.country ??
+                                                          "",
+                                                      style: const TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 16,
+                                                      ),
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      maxLines: 1,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ],
                                         ),
-                                      ),
-                                    ],
+                                      );
+                                    },
                                   ),
-                                );
-                              },
-                            ),
-                          )
+                                )
                         ],
                       ),
                     );

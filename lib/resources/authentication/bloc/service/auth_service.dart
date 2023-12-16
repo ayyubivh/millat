@@ -22,6 +22,9 @@ class AuthService extends HttpServices {
   final String resendOTPAPI = 'auth/resend_otp';
   final String forgotPasswordAPI = 'auth/forgot_password';
   final String authUserModel = "auth/user";
+  final String userReferralCode = "user/refcode";
+  final String referralMessage = "referral_message";
+
   login(
       {required String email,
       required String password,
@@ -81,14 +84,18 @@ class AuthService extends HttpServices {
     });
   }
 
-  signUp(
-      {required String name,
-      required String email,
-      required String password}) async {
-    return await posts(
-            endPoint: signUpAPI,
-            body: {"name": name, "email": email, "password": password})
-        .then((value) {
+  signUp({
+    required String name,
+    required String email,
+    required String password,
+    required String referralCode,
+  }) async {
+    return await posts(endPoint: signUpAPI, body: {
+      "name": name,
+      "email": email,
+      "password": password,
+      "referredCode": referralCode,
+    }).then((value) {
       if (value.statusCode == 200) {
         return {'status': true};
       } else {
@@ -126,11 +133,16 @@ class AuthService extends HttpServices {
     }
   }
 
-  Future signInWithPhone(
-      {required String phoneNumber, required BuildContext context}) async {
+  Future signInWithPhone({
+    required String phoneNumber,
+    required BuildContext context,
+    required String referralCode,
+  }) async {
     try {
-      final res = await posts(
-          endPoint: signInPhone, body: {"phone_number": phoneNumber});
+      final res = await posts(endPoint: signInPhone, body: {
+        "phone_number": phoneNumber,
+        "referredCode": referralCode,
+      });
       var value = json.decode(res.body);
 
       if (value['status'] == 200) {
@@ -258,6 +270,49 @@ class AuthService extends HttpServices {
         if (result.result?.user?.uuid != null) {
           OneSignal.login(result.result?.user?.uuid ?? '');
         }
+
+        return result;
+      } catch (e) {
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+// fetch user referral code
+  Future<String> fetchUserReferralCode() async {
+    final response = await get(endPoint: userReferralCode, isToken: true);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(
+          response.body,
+        );
+
+        final result = data['result']['data']['referralCode'];
+
+        return result;
+      } catch (e) {
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<String> fetchReferralMessage() async {
+    final response = await get(endPoint: referralMessage, isToken: true);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(
+          response.body,
+        );
+
+        final result = data['result']['referralContent'];
 
         return result;
       } catch (e) {

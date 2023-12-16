@@ -27,14 +27,14 @@ Map<String, dynamic> _$$RewardRedeemItemModelImplToJson(
     };
 
 _$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
-      products: (json['products'] as List<dynamic>?)
+      rewardItems: (json['rewardItems'] as List<dynamic>?)
           ?.map((e) => RedeemProducts.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
     <String, dynamic>{
-      'products': instance.products,
+      'rewardItems': instance.rewardItems,
     };
 
 _$RedeemProductsImpl _$$RedeemProductsImplFromJson(Map<String, dynamic> json) =>
@@ -42,7 +42,8 @@ _$RedeemProductsImpl _$$RedeemProductsImplFromJson(Map<String, dynamic> json) =>
       json['_id'] as String,
       json['image'] as String?,
       json['title'] as String?,
-      (json['quantity'] as num?)?.toDouble(),
+      json['defaultStock'] as String?,
+      (json['stock'] as num?)?.toDouble(),
       (json['offerPrice'] as num?)?.toDouble(),
       (json['coins'] as num?)?.toDouble(),
       json['startDate'] as String,
@@ -57,7 +58,8 @@ Map<String, dynamic> _$$RedeemProductsImplToJson(
       '_id': instance.id,
       'image': instance.image,
       'title': instance.title,
-      'quantity': instance.quantity,
+      'defaultStock': instance.defaultStock,
+      'stock': instance.stock,
       'offerPrice': instance.offerPrice,
       'coins': instance.coins,
       'startDate': instance.startDate,

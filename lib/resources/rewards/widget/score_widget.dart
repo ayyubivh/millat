@@ -15,7 +15,6 @@ class ScoreWidget extends StatelessWidget {
       children: [
         Container(
           height: 47,
-          width: 123,
           decoration: BoxDecoration(
             // color: ColorManager.primary,
             borderRadius: BorderRadius.circular(100),
@@ -28,10 +27,10 @@ class ScoreWidget extends StatelessWidget {
               end: Alignment.bottomCenter,
             ),
           ),
+          padding: const EdgeInsets.symmetric(horizontal: 4),
           child: Center(
             child: Container(
               height: 40,
-              width: 117,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
                 gradient: LinearGradient(
@@ -58,7 +57,7 @@ class ScoreWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Spacer(),
+                    kWidth50,
                   ],
                 ),
               ),
@@ -66,13 +65,13 @@ class ScoreWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: -5,
-          top: -2,
+          right: 2,
+          top: 2,
           child: Image.asset(
             AppAssetsStrings.score,
-            height: 58,
-            width: 58,
-            fit: BoxFit.contain,
+            height: 41,
+            width: 41,
+            fit: BoxFit.cover,
           ),
         )
       ],

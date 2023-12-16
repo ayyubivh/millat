@@ -158,12 +158,12 @@ class TravelServices {
 // Fetching Products By Id
   Future<List<TravelSearchLocationModels>> fetchTravelSearchLocations(
       {required String searchQuery}) async {
-    final String endPoint = "search-locations?query=$searchQuery";
+    final String endPoint = "get-cities?query=$searchQuery";
     try {
       final response = await http.get(Uri.parse(travelBaseUrl + endPoint));
       if (response.statusCode == 200 || response.statusCode == 201) {
         final Map<String, dynamic> data = json.decode(response.body);
-        final List<dynamic> results = data['results'];
+        final List<dynamic> results = data['cities'];
         final productList = results
             .map((result) => TravelSearchLocationModels.fromJson(result))
             .toList();

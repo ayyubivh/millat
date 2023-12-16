@@ -6,7 +6,6 @@ import 'package:millat/resources/rewards/widget/daily_coins_widget.dart';
 import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
 import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
 import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
-import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
 import 'package:millat/resources/rewards/widget/score_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -19,19 +18,26 @@ import 'package:millat/utils/utils.dart';
 
 import 'bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 
-class RewardsHomeView extends StatelessWidget {
+class RewardsHomeView extends StatefulWidget {
   const RewardsHomeView({super.key});
 
   @override
+  State<RewardsHomeView> createState() => _RewardsHomeViewState();
+}
+
+class _RewardsHomeViewState extends State<RewardsHomeView> {
+  @override
+  void initState() {
+    BlocProvider.of<RewardsBloc>(context)
+        .add(const RewardsEvent.fetchRewardProducts());
+
+    BlocProvider.of<RewardsBloc>(context)
+        .add(RewardsEvent.fetchRewards(context: context));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        BlocProvider.of<RewardsBloc>(context)
-            .add(const RewardsEvent.fetchRewardProducts());
-      });
-      BlocProvider.of<RewardsBloc>(context)
-          .add(RewardsEvent.fetchRewards(context: context));
-    });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       body: Padding(

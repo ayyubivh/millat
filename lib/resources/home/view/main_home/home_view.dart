@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
+import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
 import 'package:millat/resources/rewards/bloc/service/reward_service.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
@@ -53,7 +54,8 @@ class _HomeViewState extends State<HomeView> {
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
     BlocProvider.of<DatabaseBloc>(context)
       ..add(FetchAuthUser(context: context))
-      ..add(const FetchCoverImage());
+      ..add(const FetchCoverImage())
+      ..add(const FetchContactEvent());
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchHomeBanners());
     BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
@@ -1041,7 +1043,7 @@ class _HomeViewState extends State<HomeView> {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         if (state.homeBanner == null) {
-          return SizedBox();
+          return const SizedBox();
         }
 
         final banners = state.homeBanner?.result!.banners;

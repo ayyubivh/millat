@@ -37,7 +37,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         } else {
           emit(AuthLoading());
           final res = await _authService.signUp(
-              name: event.name, email: event.email, password: event.password);
+            name: event.name,
+            email: event.email,
+            password: event.password,
+            referralCode: event.referralCode,
+          );
           if (res['status'] == true) {
             emit(AuthLoaded(event.email));
           } else {
@@ -47,7 +51,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else if (event is SignInWithPhone) {
         if (event.phoneNumber != null) {
           final res = await _authService.signInWithPhone(
-              phoneNumber: event.phoneNumber!, context: event.context);
+              referralCode: event.referralCode,
+              phoneNumber: event.phoneNumber!,
+              context: event.context);
           if (res['status'] == true) {
             emit(AuthLoaded(event.phoneNumber!));
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber!));

@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_coins_collect_bloc.dart';
-import 'package:millat/utils/app_size.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -24,45 +23,35 @@ class DailyCoinsWidget extends StatefulWidget {
 class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   late Timer _timer;
   Duration duration = const Duration();
-  final _now = DateTime.now().millisecondsSinceEpoch;
+  final Duration interval = const Duration(hours: 6);
   late SharedPreferences prefs;
-  final Duration initialDuration = const Duration(hours: AppSize.s8);
 
   @override
   void initState() {
     super.initState();
-
-    _initSharedPreferences();
-  }
-
-  _initSharedPreferences() async {
-    prefs = await SharedPreferences.getInstance();
-    _loadLastTimestamp();
+    _checkCoinsCollected();
     _startTimer();
   }
 
   _startTimer() {
     _timer =
         Timer.periodic(const Duration(seconds: 1), (_) => calculateTimeLeft());
+
+    calculateTimeLeft();
   }
 
   calculateTimeLeft() {
-    _checkCoinsCollected();
-    final lastTimestamp = _loadLastTimestamp();
     final now = DateTime.now();
-    final elapsedSeconds = now.difference(lastTimestamp).inSeconds;
-
-    setState(() {
-      duration = Duration(seconds: initialDuration.inSeconds - elapsedSeconds);
-    });
-
-    if (elapsedSeconds >= initialDuration.inSeconds) {
-      _startTimer();
-      _saveCurrentTimestamp();
-      _timer.cancel();
-
+    final elapsedSeconds = now.second + now.minute * 60 + now.hour * 3600;
+    if (elapsedSeconds % interval.inSeconds == 0) {
       _resetCollectedValue();
     }
+
+    setState(() {
+      duration = Duration(
+        seconds: interval.inSeconds - elapsedSeconds % interval.inSeconds,
+      );
+    });
   }
 
   _resetCollectedValue() async {
@@ -81,24 +70,8 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
         .add(CheckCoinsCollected(value: value));
   }
 
-  _saveCurrentTimestamp() async {
-    await prefs.setInt(
-        Appstrings.lastTimestampKey, DateTime.now().millisecondsSinceEpoch);
-  }
-
-  DateTime _loadLastTimestamp() {
-    final lastTimestamp = prefs.getInt(Appstrings.lastTimestampKey);
-
-    if (lastTimestamp != null) {
-      return DateTime.fromMillisecondsSinceEpoch(lastTimestamp);
-    } else {
-      return DateTime.fromMillisecondsSinceEpoch(_now);
-    }
-  }
-
   @override
   void dispose() {
-    _saveCurrentTimestamp();
     _timer.cancel();
 
     super.dispose();
@@ -243,11 +216,15 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
               BlocBuilder<RewardsCoinsCollectBloc, RewardsCoinsCollectState>(
                 builder: (context, state) => GestureDetector(
                   onTap: () async {
-                    await Utilities.saveBoolToSharedPreferences(
-                        Appstrings.rewardsCoinsKey, true);
-                    BlocProvider.of<RewardsCoinsCollectBloc>(context).add(
-                        const RewardsCoinsCollectEvent.checkCoinsCollected(
-                            value: true));
+                    state.checkCoinsCollected == false
+                        ? await Utilities.saveBoolToSharedPreferences(
+                            Appstrings.rewardsCoinsKey, true)
+                        : null;
+                    state.checkCoinsCollected == false
+                        ? BlocProvider.of<RewardsCoinsCollectBloc>(context).add(
+                            const RewardsCoinsCollectEvent.checkCoinsCollected(
+                                value: true))
+                        : null;
                     state.checkCoinsCollected == false
                         ? BlocProvider.of<RewardsBloc>(context)
                             .add(const AddRewards(rewards: 500))

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:millat/resources/rewards/bloc/models/get_rewards_model.dart';
@@ -92,15 +93,16 @@ class RewardServices extends HttpServices {
 
 // get redeemed coupons
   Future<RedeemedCouponModel> getRedeemedCoupons() async {
-    const endPoint = "reward-redeem-coupon";
+    const endPoint = "order_redeem_item";
 
     final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
+          log(response.body);
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RedeemedCouponModel.fromJson(data);
-
+          log(result.toString());
           return result;
         } else {
           print('API request failed with status code: ${response.statusCode}');
@@ -118,10 +120,11 @@ class RewardServices extends HttpServices {
 
   // getting rewards redeem items
   Future<RewardRedeemItemModel> getRedeemRewardItems() async {
-    final endPoint = 'reward-redeem';
+    const endPoint = 'reward-redeem/user';
 
     final response = await get(
       endPoint: endPoint,
+      isToken: true,
     );
     if (response.statusCode == 200) {
       print("body ------------------- ${response.body}");
@@ -149,16 +152,18 @@ class RewardServices extends HttpServices {
   addRewardRedeemCoupon({
     required String id,
   }) async {
-    final endPoint = 'reward-redeem-coupon/create/$id';
+    const endPoint = 'order_redeem_item/order/';
 
-    final response = await posts(endPoint: endPoint, isToken: true, body: {});
+    final response = await posts(endPoint: endPoint, isToken: true, body: {
+      "rewardItemId": id,
+    });
 
     try {
       if (response.statusCode == 200 || response.statusCode == 201) {
         final data = json.decode(response.body);
 
         return data;
-      } else if (response.statusCode == 409) {
+      } else if (response.statusCode == 400) {
         final data = json.decode(response.body);
         return data;
       } else {

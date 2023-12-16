@@ -255,7 +255,7 @@ Result _$ResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Result {
-  List<RedeemProducts>? get products => throw _privateConstructorUsedError;
+  List<RedeemProducts>? get rewardItems => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -267,7 +267,7 @@ abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) =
       _$ResultCopyWithImpl<$Res, Result>;
   @useResult
-  $Res call({List<RedeemProducts>? products});
+  $Res call({List<RedeemProducts>? rewardItems});
 }
 
 /// @nodoc
@@ -283,12 +283,12 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? products = freezed,
+    Object? rewardItems = freezed,
   }) {
     return _then(_value.copyWith(
-      products: freezed == products
-          ? _value.products
-          : products // ignore: cast_nullable_to_non_nullable
+      rewardItems: freezed == rewardItems
+          ? _value.rewardItems
+          : rewardItems // ignore: cast_nullable_to_non_nullable
               as List<RedeemProducts>?,
     ) as $Val);
   }
@@ -301,7 +301,7 @@ abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
       __$$ResultImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<RedeemProducts>? products});
+  $Res call({List<RedeemProducts>? rewardItems});
 }
 
 /// @nodoc
@@ -315,12 +315,12 @@ class __$$ResultImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? products = freezed,
+    Object? rewardItems = freezed,
   }) {
     return _then(_$ResultImpl(
-      products: freezed == products
-          ? _value._products
-          : products // ignore: cast_nullable_to_non_nullable
+      rewardItems: freezed == rewardItems
+          ? _value._rewardItems
+          : rewardItems // ignore: cast_nullable_to_non_nullable
               as List<RedeemProducts>?,
     ));
   }
@@ -329,25 +329,25 @@ class __$$ResultImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ResultImpl implements _Result {
-  const _$ResultImpl({required final List<RedeemProducts>? products})
-      : _products = products;
+  const _$ResultImpl({required final List<RedeemProducts>? rewardItems})
+      : _rewardItems = rewardItems;
 
   factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
       _$$ResultImplFromJson(json);
 
-  final List<RedeemProducts>? _products;
+  final List<RedeemProducts>? _rewardItems;
   @override
-  List<RedeemProducts>? get products {
-    final value = _products;
+  List<RedeemProducts>? get rewardItems {
+    final value = _rewardItems;
     if (value == null) return null;
-    if (_products is EqualUnmodifiableListView) return _products;
+    if (_rewardItems is EqualUnmodifiableListView) return _rewardItems;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'Result(products: $products)';
+    return 'Result(rewardItems: $rewardItems)';
   }
 
   @override
@@ -355,13 +355,14 @@ class _$ResultImpl implements _Result {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResultImpl &&
-            const DeepCollectionEquality().equals(other._products, _products));
+            const DeepCollectionEquality()
+                .equals(other._rewardItems, _rewardItems));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_products));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_rewardItems));
 
   @JsonKey(ignore: true)
   @override
@@ -378,13 +379,13 @@ class _$ResultImpl implements _Result {
 }
 
 abstract class _Result implements Result {
-  const factory _Result({required final List<RedeemProducts>? products}) =
+  const factory _Result({required final List<RedeemProducts>? rewardItems}) =
       _$ResultImpl;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
   @override
-  List<RedeemProducts>? get products;
+  List<RedeemProducts>? get rewardItems;
   @override
   @JsonKey(ignore: true)
   _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
@@ -401,7 +402,8 @@ mixin _$RedeemProducts {
   String get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  double? get quantity => throw _privateConstructorUsedError;
+  String? get defaultStock => throw _privateConstructorUsedError;
+  double? get stock => throw _privateConstructorUsedError;
   double? get offerPrice => throw _privateConstructorUsedError;
   double? get coins => throw _privateConstructorUsedError;
   String get startDate => throw _privateConstructorUsedError;
@@ -425,7 +427,8 @@ abstract class $RedeemProductsCopyWith<$Res> {
       {@JsonKey(name: "_id") String id,
       String? image,
       String? title,
-      double? quantity,
+      String? defaultStock,
+      double? stock,
       double? offerPrice,
       double? coins,
       String startDate,
@@ -450,7 +453,8 @@ class _$RedeemProductsCopyWithImpl<$Res, $Val extends RedeemProducts>
     Object? id = null,
     Object? image = freezed,
     Object? title = freezed,
-    Object? quantity = freezed,
+    Object? defaultStock = freezed,
+    Object? stock = freezed,
     Object? offerPrice = freezed,
     Object? coins = freezed,
     Object? startDate = null,
@@ -471,9 +475,13 @@ class _$RedeemProductsCopyWithImpl<$Res, $Val extends RedeemProducts>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      quantity: freezed == quantity
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
+      defaultStock: freezed == defaultStock
+          ? _value.defaultStock
+          : defaultStock // ignore: cast_nullable_to_non_nullable
+              as String?,
+      stock: freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
               as double?,
       offerPrice: freezed == offerPrice
           ? _value.offerPrice
@@ -515,7 +523,8 @@ abstract class _$$RedeemProductsImplCopyWith<$Res>
       {@JsonKey(name: "_id") String id,
       String? image,
       String? title,
-      double? quantity,
+      String? defaultStock,
+      double? stock,
       double? offerPrice,
       double? coins,
       String startDate,
@@ -538,7 +547,8 @@ class __$$RedeemProductsImplCopyWithImpl<$Res>
     Object? id = null,
     Object? image = freezed,
     Object? title = freezed,
-    Object? quantity = freezed,
+    Object? defaultStock = freezed,
+    Object? stock = freezed,
     Object? offerPrice = freezed,
     Object? coins = freezed,
     Object? startDate = null,
@@ -559,9 +569,13 @@ class __$$RedeemProductsImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      freezed == quantity
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
+      freezed == defaultStock
+          ? _value.defaultStock
+          : defaultStock // ignore: cast_nullable_to_non_nullable
+              as String?,
+      freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
               as double?,
       freezed == offerPrice
           ? _value.offerPrice
@@ -598,7 +612,8 @@ class _$RedeemProductsImpl implements _RedeemProducts {
       @JsonKey(name: "_id") this.id,
       this.image,
       this.title,
-      this.quantity,
+      this.defaultStock,
+      this.stock,
       this.offerPrice,
       this.coins,
       this.startDate,
@@ -617,7 +632,9 @@ class _$RedeemProductsImpl implements _RedeemProducts {
   @override
   final String? title;
   @override
-  final double? quantity;
+  final String? defaultStock;
+  @override
+  final double? stock;
   @override
   final double? offerPrice;
   @override
@@ -633,7 +650,7 @@ class _$RedeemProductsImpl implements _RedeemProducts {
 
   @override
   String toString() {
-    return 'RedeemProducts(id: $id, image: $image, title: $title, quantity: $quantity, offerPrice: $offerPrice, coins: $coins, startDate: $startDate, endDate: $endDate, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'RedeemProducts(id: $id, image: $image, title: $title, defaultStock: $defaultStock, stock: $stock, offerPrice: $offerPrice, coins: $coins, startDate: $startDate, endDate: $endDate, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -644,8 +661,9 @@ class _$RedeemProductsImpl implements _RedeemProducts {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.quantity, quantity) ||
-                other.quantity == quantity) &&
+            (identical(other.defaultStock, defaultStock) ||
+                other.defaultStock == defaultStock) &&
+            (identical(other.stock, stock) || other.stock == stock) &&
             (identical(other.offerPrice, offerPrice) ||
                 other.offerPrice == offerPrice) &&
             (identical(other.coins, coins) || other.coins == coins) &&
@@ -660,8 +678,8 @@ class _$RedeemProductsImpl implements _RedeemProducts {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, image, title, quantity,
-      offerPrice, coins, startDate, endDate, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, image, title, defaultStock,
+      stock, offerPrice, coins, startDate, endDate, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -683,7 +701,8 @@ abstract class _RedeemProducts implements RedeemProducts {
       @JsonKey(name: "_id") final String id,
       final String? image,
       final String? title,
-      final double? quantity,
+      final String? defaultStock,
+      final double? stock,
       final double? offerPrice,
       final double? coins,
       final String startDate,
@@ -702,7 +721,9 @@ abstract class _RedeemProducts implements RedeemProducts {
   @override
   String? get title;
   @override
-  double? get quantity;
+  String? get defaultStock;
+  @override
+  double? get stock;
   @override
   double? get offerPrice;
   @override

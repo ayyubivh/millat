@@ -30,7 +30,6 @@ class Coupon with _$Coupon {
     @JsonKey(name: '_id') required String id,
     @JsonKey(name: 'rewardItem') required RewardItem rewardItem,
     @JsonKey(name: 'user') required String user,
-    @JsonKey(name: 'coupon') required CouponDetails coupon,
     @JsonKey(name: 'createdAt') required String createdAt,
     @JsonKey(name: 'updatedAt') required String updatedAt,
   }) = _Coupon;
@@ -44,7 +43,8 @@ class RewardItem with _$RewardItem {
     @JsonKey(name: '_id') required String id,
     @JsonKey(name: 'image') required String image,
     @JsonKey(name: 'title') required String title,
-    @JsonKey(name: 'quantity') required int quantity,
+    @JsonKey(name: 'defaultStock') required String defaultStock,
+    @JsonKey(name: 'stock') required int stock,
     @JsonKey(name: 'offerPrice') required int offerPrice,
     @JsonKey(name: 'coins') required int coins,
     @JsonKey(name: 'startDate') required String startDate,
@@ -55,20 +55,4 @@ class RewardItem with _$RewardItem {
 
   factory RewardItem.fromJson(Map<String, dynamic> json) =>
       _$RewardItemFromJson(json);
-}
-
-@freezed
-class CouponDetails with _$CouponDetails {
-  const factory CouponDetails({
-    @JsonKey(name: '_id') required String id,
-    @JsonKey(name: 'couponCode') required String couponCode,
-    @JsonKey(name: 'startDate') required String startDate,
-    @JsonKey(name: 'expiryDate') required String expiryDate,
-    @JsonKey(name: 'minPrice') required int minPrice,
-    @JsonKey(name: 'createdAt') required String createdAt,
-    @JsonKey(name: 'updatedAt') required String updatedAt,
-  }) = _CouponDetails;
-
-  factory CouponDetails.fromJson(Map<String, dynamic> json) =>
-      _$CouponDetailsFromJson(json);
 }

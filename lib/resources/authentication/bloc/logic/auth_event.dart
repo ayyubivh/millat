@@ -14,8 +14,9 @@ class SignUp extends AuthEvent {
   final String name;
   final String email;
   final String password;
+  final String referralCode;
 
-  SignUp(this.name, this.email, this.password);
+  SignUp(this.name, this.email, this.password, this.referralCode);
 }
 
 class SendOTP extends AuthEvent {
@@ -29,8 +30,8 @@ class ResendSendOTP extends AuthEvent {}
 class SignInWithPhone extends AuthEvent {
   final String? phoneNumber;
   final BuildContext context;
-
-  SignInWithPhone(this.context, {this.phoneNumber});
+  final String referralCode;
+  SignInWithPhone(this.context, {this.phoneNumber, required this.referralCode});
 }
 
 class VerifyOTP extends AuthEvent {

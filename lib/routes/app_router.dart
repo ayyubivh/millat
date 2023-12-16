@@ -55,7 +55,7 @@ import 'package:millat/resources/shop/view/orders/widgets/order_returned_succesf
 import 'package:millat/resources/shop/view/orders/widgets/return_detail_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
-import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/resources/shop/view/tabs/shop_tabs_view.dart';
 import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
 import 'package:millat/resources/shop/view/womens_care/shop_specific_category_banner_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
@@ -65,7 +65,6 @@ import 'package:millat/resources/travel/view/travel_packages_view.dart';
 import 'package:millat/resources/travel/view/travel_search_view.dart';
 import 'package:millat/resources/travel/view/travel_single_product_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
-import '../resources/home/view/al_quran/bookmark_view.dart';
 import '../resources/home/view/al_quran/widgets/add_sura_search_view.dart';
 import '../resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
 import '../resources/rewards/widget/rewards_single_shop_view.dart';
@@ -75,7 +74,6 @@ import '../resources/shop/view/search/shop_search_view.dart';
 class MyAppRouter {
   static GoRouter returnRouter(bool isAuth) {
     GoRouter router = GoRouter(
-      debugLogDiagnostics: true,
       initialLocation:
           isAuth ? "/" : "/${MyAppRouteConstants.onBoardingRouteName}",
       routes: [

@@ -7,7 +7,7 @@ import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/main_home/home_view.dart';
 import 'package:millat/resources/rewards/rewards_home_view.dart';
 import 'package:millat/resources/rewards/rewards_tab_view.dart';
-import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/resources/shop/view/tabs/shop_tabs_view.dart';
 import 'package:millat/resources/travel/view/travel_tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -96,10 +96,7 @@ class TabsView extends StatelessWidget {
                     ],
                   ),
                 ),
-          body: BlocProvider(
-            create: (context) => DatabaseBloc()..add(const FetchToken()),
-            child: screens[state.homeTabIndex],
-          ),
+          body: screens[state.homeTabIndex],
         ),
       ),
     );

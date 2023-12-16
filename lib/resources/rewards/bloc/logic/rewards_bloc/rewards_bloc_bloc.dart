@@ -108,9 +108,23 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
       AddRewardRedeemCoupon event, Emitter<RewardsState> emit) async {
     emit(state.copyWith(isLoading: true, isRewardRedeemSuccess: false));
     try {
-      await rewardServices.addRewardRedeemCoupon(id: event.id);
+      final data = await rewardServices.addRewardRedeemCoupon(id: event.id);
 
-      emit(state.copyWith(isLoading: false, isRewardRedeemSuccess: true));
+      if (data['status'] == 400) {
+        print("data on the add redeem ${data['message']}");
+        emit(state.copyWith(
+          isLoading: false,
+          isRewardRedeemFailure: true,
+        ));
+        await Future.delayed(
+          const Duration(seconds: 2),
+          () {
+            emit(state.copyWith(isRewardRedeemFailure: false));
+          },
+        );
+      } else {
+        emit(state.copyWith(isLoading: false, isRewardRedeemSuccess: true));
+      }
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       throw Exception(e);

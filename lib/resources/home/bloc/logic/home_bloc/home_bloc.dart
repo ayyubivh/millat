@@ -181,10 +181,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       DateTime now = DateTime.now();
 
       String formattedDate = DateFormat('dd-MM-yyyy').format(now);
-      await homeServices.addDailyPrayerTracker(
+      final data = await homeServices.addDailyPrayerTracker(
           context: event.context,
           date: formattedDate,
           namazName: event.namazName);
+      if (data['status'] == 200) {}
     } catch (e) {
       throw Exception(e);
     }

@@ -422,9 +422,13 @@ class SearchWidget extends StatelessWidget {
                                                 children: [
                                                   Flexible(
                                                     child: Text(
-                                                      countryData?.city != null
-                                                          ? "${countryData?.city}, "
-                                                          : "No cities found",
+                                                      state.travelSearchLocationModels
+                                                                      ?.length ==
+                                                                  0 ||
+                                                              state.travelSearchLocationModels ==
+                                                                  []
+                                                          ? "No cities found"
+                                                          : "${countryData?.city}, ",
                                                       style: const TextStyle(
                                                         fontWeight:
                                                             FontWeight.w500,

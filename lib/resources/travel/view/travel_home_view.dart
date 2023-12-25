@@ -905,7 +905,8 @@ class BookNowContainer extends StatelessWidget {
                     Container(
                       height: 56,
                       width: SizeUtility(context).width / 2,
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 15)
+                          .copyWith(left: 20),
                       child: Row(
                         children: [
                           Text(
@@ -984,7 +985,7 @@ class Carousel extends StatelessWidget {
             ).createShader(bounds),
             child: Utilities().buildCachedNetworkImage(
               imageUrl: banner,
-              boxFit: BoxFit.fill,
+              boxFit: BoxFit.cover,
               width: SizeUtility(context).width,
               // height: 262,
             ),

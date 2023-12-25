@@ -185,69 +185,91 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                     },
                                   ),
                                 )
-                      : Expanded(
-                          child: GridView.builder(
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 20,
-                              mainAxisSpacing: 20,
-                              mainAxisExtent: !Responsive.isMobile(context)
-                                  ? SizeUtility(context).height / 3.6
-                                  : SizeUtility(context).height / 3,
-                            ),
-                            itemCount:
-                                state.product?.result?.products?.length ?? 10,
-                            itemBuilder: (context, index) {
-                              final datas =
-                                  state.product?.result?.products?[index];
-                              return datas == null
-                                  ? ShimmerUtils.productsShimmers(
-                                      context: context)
-                                  : state.product?.result?.products?.length == 0
-                                      ? Padding(
-                                          padding: EdgeInsets.only(
-                                              top: SizeUtility(context).height /
-                                                  2.4),
-                                          child: Center(
-                                            child: Text(
-                                              "products not available",
-                                              style: TextStyle(
-                                                color: ColorManager.textGrey,
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.w500,
+                      : state.product?.result?.products?.length == 0
+                          ? Padding(
+                              padding: EdgeInsets.only(
+                                  top: SizeUtility(context).height / 2.4),
+                              child: Center(
+                                child: Text(
+                                  "products not available",
+                                  style: TextStyle(
+                                    color: ColorManager.textGrey,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            )
+                          : Expanded(
+                              child: GridView.builder(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 20,
+                                  mainAxisExtent: !Responsive.isMobile(context)
+                                      ? SizeUtility(context).height / 3.6
+                                      : SizeUtility(context).height / 3,
+                                ),
+                                itemCount:
+                                    state.product?.result?.products?.length ??
+                                        10,
+                                itemBuilder: (context, index) {
+                                  final datas =
+                                      state.product?.result?.products?[index];
+                                  return datas == null
+                                      ? ShimmerUtils.productsShimmers(
+                                          context: context)
+                                      : state.product?.result?.products
+                                                  ?.length ==
+                                              0
+                                          ? Padding(
+                                              padding: EdgeInsets.only(
+                                                  top: SizeUtility(context)
+                                                          .height /
+                                                      2.4),
+                                              child: Center(
+                                                child: Text(
+                                                  "products not available",
+                                                  style: TextStyle(
+                                                    color:
+                                                        ColorManager.textGrey,
+                                                    fontSize: 17,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
                                               ),
-                                            ),
-                                          ),
-                                        )
-                                      : GestureDetector(
-                                          onTap: () {
-                                            context.pushNamed(
-                                                MyAppRouteConstants
-                                                    .singleProductRouteName,
-                                                pathParameters: {
-                                                  "id": datas.id ?? ""
-                                                });
-                                          },
-                                          child: ShopProductWidget(
-                                            color: datas.color ?? "",
-                                            size: datas.size?[0].size ?? "",
-                                            brandId: datas.brand!.id,
-                                            isWishlisted: false,
-                                            brand: datas.brand!.name.toString(),
-                                            productId: datas.id,
-                                            title: datas.title,
-                                            image: datas.images![0],
-                                            discountPrice:
-                                                datas.salePrice!.toInt(),
-                                            actualPrice:
-                                                datas.regularPrice!.toInt(),
-                                            discount: datas.discount!.toInt(),
-                                          ),
-                                        );
-                            },
-                          ),
-                        );
+                                            )
+                                          : GestureDetector(
+                                              onTap: () {
+                                                context.pushNamed(
+                                                    MyAppRouteConstants
+                                                        .singleProductRouteName,
+                                                    pathParameters: {
+                                                      "id": datas.id ?? ""
+                                                    });
+                                              },
+                                              child: ShopProductWidget(
+                                                color: datas.color ?? "",
+                                                size: datas.size?[0].size ?? "",
+                                                brandId: datas.brand!.id,
+                                                isWishlisted: false,
+                                                brand: datas.brand!.name
+                                                    .toString(),
+                                                productId: datas.id,
+                                                title: datas.title,
+                                                image: datas.images![0],
+                                                discountPrice:
+                                                    datas.salePrice!.toInt(),
+                                                actualPrice:
+                                                    datas.regularPrice!.toInt(),
+                                                discount:
+                                                    datas.discount!.toInt(),
+                                              ),
+                                            );
+                                },
+                              ),
+                            );
                 },
               ),
             ],

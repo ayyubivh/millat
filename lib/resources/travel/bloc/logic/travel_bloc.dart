@@ -95,6 +95,7 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
       if (event.searchquery != "" || event.searchquery.isNotEmpty) {
         final data = await travelServices.fetchTravelSearchLocations(
             searchQuery: event.searchquery);
+        print("lkalkdlklas ${state.travelSearchLocationModels}");
         emit(
             state.copyWith(travelSearchLocationModels: data, isLoading: false));
         log(data.toString());

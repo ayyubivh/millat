@@ -6,7 +6,6 @@ import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
-import '../../../../../components/common_widgets/reusable_methods.dart';
 
 import '../../../bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 
@@ -23,7 +22,8 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
     BlocProvider.of<BookmarkBloc>(context)
       ..add(const ClearIndexEvent())
       ..add(const EmptyIndexEvent());
-    BlocProvider.of<QuranBloc>(context).add(SearchChapterEvent(query: ""));
+    BlocProvider.of<QuranBloc>(context)
+        .add(const SearchChapterEvent(query: ""));
     super.initState();
   }
 
@@ -62,7 +62,7 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                               const IsExpandonSearchEvent(isExpand: false));
                           context
                               .read<BookmarkBloc>()
-                              .add(ChangeIndexEvent(-1));
+                              .add(const ChangeIndexEvent(-1));
                         } else {
                           context
                               .read<BookmarkBloc>()
@@ -117,12 +117,12 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                                                   .read<QuranBloc>()
                                                   .add(FetchVersesByKey(
                                                     verseKey: [
-                                                      "${chapter!.id}:$ayah"
+                                                      "${chapter?.id}:$ayah"
                                                     ],
                                                   ));
                                               context.read<BookmarkBloc>().add(
                                                   SaveVerseKeyEvent(
-                                                      "${chapter.id}:$ayah"));
+                                                      "${chapter?.id}:$ayah"));
                                               context.read<BookmarkBloc>().add(
                                                   SaveVersesIndexEvent(
                                                       versesIndexList:
@@ -153,44 +153,62 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                                             ),
                                             title: Text(
                                               'Aya $ayah',
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
                                             subtitle: BlocBuilder<QuranBloc,
                                                 QuranState>(
-                                              builder: (context, state) => Text(
-                                                isSelected
-                                                    ? state
-                                                        .versesByKeyModel![
-                                                            index]
-                                                        .verses[0]
-                                                        .textIndopak
-                                                    : "",
-                                                style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                              ),
+                                              builder: (context, state) {
+                                                if (state.versesByKeyModel ==
+                                                        null ||
+                                                    state.versesByKeyModel
+                                                            ?.length ==
+                                                        0) {
+                                                  return const SizedBox();
+                                                }
+
+                                                return Text(
+                                                  isSelected
+                                                      ? state
+                                                          .versesByKeyModel![
+                                                              index]
+                                                          .verses[0]
+                                                          .textIndopak
+                                                      : "",
+                                                  style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                );
+                                              },
                                             ),
                                             trailing: IconButton(
-                                              onPressed: () {
-                                                print("${chapter!.id}:$ayah");
-                                                context
-                                                    .read<QuranBloc>()
-                                                    .add(FetchVersesByKey(
-                                                      verseKey: [
-                                                        "${chapter.id}:$ayah"
-                                                      ],
-                                                    ));
-                                              },
                                               icon: Icon(
                                                 isSelected
                                                     ? Icons.expand_more
                                                     : Icons.navigate_next,
                                                 size: 30,
                                               ),
+                                              onPressed: () {
+                                                context
+                                                    .read<QuranBloc>()
+                                                    .add(FetchVersesByKey(
+                                                      verseKey: [
+                                                        "${chapter?.id}:$ayah"
+                                                      ],
+                                                    ));
+                                                context
+                                                    .read<BookmarkBloc>()
+                                                    .add(SaveVerseKeyEvent(
+                                                        "${chapter?.id}:$ayah"));
+                                                context
+                                                    .read<BookmarkBloc>()
+                                                    .add(SaveVersesIndexEvent(
+                                                        versesIndexList:
+                                                            verseIndex));
+                                              },
                                               color: ColorManager.blackColor,
                                             ),
                                           ),

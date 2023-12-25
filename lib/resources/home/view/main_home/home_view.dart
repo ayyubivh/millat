@@ -715,9 +715,6 @@ class _HomeViewState extends State<HomeView> {
                                     namazName: Appstrings.fajr,
                                     context: context));
                           }
-
-                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
-                              date: DateTime.now(), context: context));
                         },
                       ),
                       dailyTrackerWidget(
@@ -737,9 +734,6 @@ class _HomeViewState extends State<HomeView> {
                                     namazName: Appstrings.dhuhr,
                                     context: context));
                           }
-
-                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
-                              date: DateTime.now(), context: context));
                         },
                       ),
                       dailyTrackerWidget(
@@ -759,9 +753,6 @@ class _HomeViewState extends State<HomeView> {
                                     namazName: Appstrings.asr,
                                     context: context));
                           }
-
-                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
-                              date: DateTime.now(), context: context));
                         },
                       ),
                       dailyTrackerWidget(
@@ -781,9 +772,6 @@ class _HomeViewState extends State<HomeView> {
                                     namazName: Appstrings.magrib,
                                     context: context));
                           }
-
-                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
-                              date: DateTime.now(), context: context));
                         },
                       ),
                       dailyTrackerWidget(
@@ -804,9 +792,6 @@ class _HomeViewState extends State<HomeView> {
                                     namazName: Appstrings.isha,
                                     context: context));
                           }
-
-                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
-                              date: DateTime.now(), context: context));
                         },
                       )
                     ],
@@ -827,13 +812,13 @@ class _HomeViewState extends State<HomeView> {
       required bool isCompleted,
       required VoidCallback onTap,
       required bool isUpcoming}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        GestureDetector(
-          onTap: onTap,
-          child: Row(
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               isUpcoming == true && isCompleted == false
@@ -865,16 +850,16 @@ class _HomeViewState extends State<HomeView> {
                   : const SizedBox()
             ],
           ),
-        ),
-        kHeight8,
-        Text(
-          namazName,
-          style: const TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.w600,
+          kHeight8,
+          Text(
+            namazName,
+            style: const TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -894,7 +879,7 @@ class _HomeViewState extends State<HomeView> {
               return BlocBuilder<QuranBloc, QuranState>(
                 builder: (context, state) {
                   final verskey = state.shuffleVersKey;
-                  if (state.versesByKeyModel!.isEmpty) {
+                  if (state.versesByKeyModel?.length == 0) {
                     return ShimmerUtils.customRectangleShimmer(
                       SizeUtility(context).width,
                       10,
@@ -929,7 +914,7 @@ class _HomeViewState extends State<HomeView> {
                             ),
                             kHeight16,
                             Text(
-                              data!.verses[0].textIndopak,
+                              data?.verses[0].textIndopak ?? '',
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,

@@ -190,7 +190,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                       return null;
                     },
                   ),
-                  kHeight20,
+                  kHeight25,
                   const Text(
                     'Discription',
                     style: TextStyle(

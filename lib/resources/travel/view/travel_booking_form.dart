@@ -325,8 +325,10 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
                                   ),
                                   kWidth15,
                                   _guestAddwidget(
-                                      ColorManager.lightGreyA3, Icons.remove,
-                                      () {
+                                      state.numberOfGuest == 0
+                                          ? ColorManager.lightGreyA3
+                                          : ColorManager.blackColor,
+                                      Icons.remove, () {
                                     if (state.numberOfGuest != 0) {
                                       context
                                           .read<TravelBloc>()

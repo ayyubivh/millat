@@ -374,23 +374,30 @@ class SearchWidget extends StatelessWidget {
                             ),
                           ),
                           kHeight8,
-                          BlocBuilder<LocationBloc, LocationState>(
-                            builder: (context, state) => TravelSearchTextField(
-                              onChanged: (value) {
-                                _debounce.run(() {
-                                  BlocProvider.of<TravelBloc>(context).add(
-                                      TravelEvent.fetchTravelSearchLocations(
-                                          searchquery: value));
-                                });
-                              },
-                              icon: Icon(
-                                Icons.search,
-                                color: ColorManager.blackColor,
-                              ),
-                              hint: Appstrings.searchYourDestination,
+                          TravelSearchTextField(
+                            onChanged: (value) {
+                              _debounce.run(() {
+                                BlocProvider.of<TravelBloc>(context).add(
+                                    TravelEvent.fetchTravelSearchLocations(
+                                        searchquery: value));
+                              });
+                            },
+                            icon: Icon(
+                              Icons.search,
+                              color: ColorManager.blackColor,
                             ),
+                            hint: Appstrings.searchYourDestination,
                           ),
                           kHeight15,
+                          Text(
+                            state.searchSuccess,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
                           state.isLoading
                               ? const Loader()
                               : Expanded(
@@ -422,13 +429,7 @@ class SearchWidget extends StatelessWidget {
                                                 children: [
                                                   Flexible(
                                                     child: Text(
-                                                      state.travelSearchLocationModels
-                                                                      ?.length ==
-                                                                  0 ||
-                                                              state.travelSearchLocationModels ==
-                                                                  []
-                                                          ? "No cities found"
-                                                          : "${countryData?.city}, ",
+                                                      "${countryData?.city}, ",
                                                       style: const TextStyle(
                                                         fontWeight:
                                                             FontWeight.w500,

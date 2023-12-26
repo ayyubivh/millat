@@ -167,7 +167,7 @@ class TravelServices {
         final productList = results
             .map((result) => TravelSearchLocationModels.fromJson(result))
             .toList();
-        print("travel searched product list $productList");
+
         return productList;
       } else {
         return [];

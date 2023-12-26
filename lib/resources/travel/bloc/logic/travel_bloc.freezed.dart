@@ -6658,6 +6658,7 @@ mixin _$TravelState {
   List<TravelPackageItems>? get travelHomeBannerPackages =>
       throw _privateConstructorUsedError;
   List<File> get formImages => throw _privateConstructorUsedError;
+  String get searchSuccess => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TravelStateCopyWith<TravelState> get copyWith =>
@@ -6693,7 +6694,8 @@ abstract class $TravelStateCopyWith<$Res> {
       Set<String>? travelWishlistItems,
       bool bookingSuccess,
       List<TravelPackageItems>? travelHomeBannerPackages,
-      List<File> formImages});
+      List<File> formImages,
+      String searchSuccess});
 
   $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel;
   $TravelCitiesModelCopyWith<$Res>? get travelCitiesModel;
@@ -6738,6 +6740,7 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
     Object? bookingSuccess = null,
     Object? travelHomeBannerPackages = freezed,
     Object? formImages = null,
+    Object? searchSuccess = null,
   }) {
     return _then(_value.copyWith(
       index: null == index
@@ -6832,6 +6835,10 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
           ? _value.formImages
           : formImages // ignore: cast_nullable_to_non_nullable
               as List<File>,
+      searchSuccess: null == searchSuccess
+          ? _value.searchSuccess
+          : searchSuccess // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -6931,7 +6938,8 @@ abstract class _$$TravelStateImplCopyWith<$Res>
       Set<String>? travelWishlistItems,
       bool bookingSuccess,
       List<TravelPackageItems>? travelHomeBannerPackages,
-      List<File> formImages});
+      List<File> formImages,
+      String searchSuccess});
 
   @override
   $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel;
@@ -6979,6 +6987,7 @@ class __$$TravelStateImplCopyWithImpl<$Res>
     Object? bookingSuccess = null,
     Object? travelHomeBannerPackages = freezed,
     Object? formImages = null,
+    Object? searchSuccess = null,
   }) {
     return _then(_$TravelStateImpl(
       index: null == index
@@ -7073,6 +7082,10 @@ class __$$TravelStateImplCopyWithImpl<$Res>
           ? _value._formImages
           : formImages // ignore: cast_nullable_to_non_nullable
               as List<File>,
+      searchSuccess: null == searchSuccess
+          ? _value.searchSuccess
+          : searchSuccess // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -7104,7 +7117,8 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
       required final Set<String>? travelWishlistItems,
       required this.bookingSuccess,
       required final List<TravelPackageItems>? travelHomeBannerPackages,
-      required final List<File> formImages})
+      required final List<File> formImages,
+      required this.searchSuccess})
       : _searchProducts = searchProducts,
         _travelSearchLocationModels = travelSearchLocationModels,
         _wishlistProducts = wishlistProducts,
@@ -7209,8 +7223,11 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
   }
 
   @override
+  final String searchSuccess;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TravelState(index: $index, isLoading: $isLoading, travelPopularProductsModel: $travelPopularProductsModel, travelCitiesModel: $travelCitiesModel, travelProductsModel: $travelProductsModel, searchProducts: $searchProducts, travelBestPlacesModel: $travelBestPlacesModel, productByLocationModel: $productByLocationModel, numberOfGuest: $numberOfGuest, country: $country, travelSearchLocationModels: $travelSearchLocationModels, searchedLocation: $searchedLocation, showCalendar: $showCalendar, tabIndex: $tabIndex, selectedStartDate: $selectedStartDate, selectedEndDate: $selectedEndDate, focusDay: $focusDay, formattedDateRang: $formattedDateRang, wishlistProducts: $wishlistProducts, travelWishlistItems: $travelWishlistItems, bookingSuccess: $bookingSuccess, travelHomeBannerPackages: $travelHomeBannerPackages, formImages: $formImages)';
+    return 'TravelState(index: $index, isLoading: $isLoading, travelPopularProductsModel: $travelPopularProductsModel, travelCitiesModel: $travelCitiesModel, travelProductsModel: $travelProductsModel, searchProducts: $searchProducts, travelBestPlacesModel: $travelBestPlacesModel, productByLocationModel: $productByLocationModel, numberOfGuest: $numberOfGuest, country: $country, travelSearchLocationModels: $travelSearchLocationModels, searchedLocation: $searchedLocation, showCalendar: $showCalendar, tabIndex: $tabIndex, selectedStartDate: $selectedStartDate, selectedEndDate: $selectedEndDate, focusDay: $focusDay, formattedDateRang: $formattedDateRang, wishlistProducts: $wishlistProducts, travelWishlistItems: $travelWishlistItems, bookingSuccess: $bookingSuccess, travelHomeBannerPackages: $travelHomeBannerPackages, formImages: $formImages, searchSuccess: $searchSuccess)';
   }
 
   @override
@@ -7244,7 +7261,8 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
       ..add(DiagnosticsProperty('bookingSuccess', bookingSuccess))
       ..add(DiagnosticsProperty(
           'travelHomeBannerPackages', travelHomeBannerPackages))
-      ..add(DiagnosticsProperty('formImages', formImages));
+      ..add(DiagnosticsProperty('formImages', formImages))
+      ..add(DiagnosticsProperty('searchSuccess', searchSuccess));
   }
 
   @override
@@ -7298,7 +7316,9 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
             const DeepCollectionEquality().equals(
                 other._travelHomeBannerPackages, _travelHomeBannerPackages) &&
             const DeepCollectionEquality()
-                .equals(other._formImages, _formImages));
+                .equals(other._formImages, _formImages) &&
+            (identical(other.searchSuccess, searchSuccess) ||
+                other.searchSuccess == searchSuccess));
   }
 
   @override
@@ -7326,7 +7346,8 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
         const DeepCollectionEquality().hash(_travelWishlistItems),
         bookingSuccess,
         const DeepCollectionEquality().hash(_travelHomeBannerPackages),
-        const DeepCollectionEquality().hash(_formImages)
+        const DeepCollectionEquality().hash(_formImages),
+        searchSuccess
       ]);
 
   @JsonKey(ignore: true)
@@ -7361,7 +7382,8 @@ abstract class _TravelState implements TravelState {
       required final Set<String>? travelWishlistItems,
       required final bool bookingSuccess,
       required final List<TravelPackageItems>? travelHomeBannerPackages,
-      required final List<File> formImages}) = _$TravelStateImpl;
+      required final List<File> formImages,
+      required final String searchSuccess}) = _$TravelStateImpl;
 
   @override
   int get index;
@@ -7409,6 +7431,8 @@ abstract class _TravelState implements TravelState {
   List<TravelPackageItems>? get travelHomeBannerPackages;
   @override
   List<File> get formImages;
+  @override
+  String get searchSuccess;
   @override
   @JsonKey(ignore: true)
   _$$TravelStateImplCopyWith<_$TravelStateImpl> get copyWith =>

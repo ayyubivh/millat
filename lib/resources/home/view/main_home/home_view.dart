@@ -58,7 +58,7 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchContactEvent());
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchHomeBanners());
-    BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
+    // BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
     BlocProvider.of<NamazTimingBloc>(context)
       ..add(const GetCalculationMethodFromStorage())
       ..add(const GetAsrCalculationMethodFromStorage())

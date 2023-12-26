@@ -18,7 +18,8 @@ class OrderHistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ShopProductsBloc().add(ShopProductsEvent.fetchOrders(context));
+  BlocProvider.of<ShopProductsBloc>(context)
+          .add(ShopProductsEvent.fetchOrders(context));
     });
     return Scaffold(
       appBar: AppBar(

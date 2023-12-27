@@ -103,3 +103,9 @@ enum TravelWishlist {
   add,
   remove,
 }
+
+enum SendOTPType {
+  signIn,
+  signUp,
+  socialSignIn,
+}

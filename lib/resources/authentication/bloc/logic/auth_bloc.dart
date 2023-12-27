@@ -42,23 +42,40 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             password: event.password,
             referralCode: event.referralCode,
           );
-          if (res['status'] == true) {
-            emit(AuthLoaded(event.email));
+          if (res['status'] == 200) {
+            final _userId = res['result']['userId'];
+            userId = _userId;
+            emit(AuthLoaded(_userId));
           } else {
             emit(AuthError(res['message']));
           }
         }
       } else if (event is SignInWithPhone) {
         if (event.phoneNumber != null) {
-          final res = await _authService.signInWithPhone(
-              referralCode: event.referralCode,
-              phoneNumber: event.phoneNumber!,
-              context: event.context);
-          if (res['status'] == true) {
-            emit(AuthLoaded(event.phoneNumber!));
-            emit(AuthPhoneNumber(phoneNumber: event.phoneNumber!));
+          if (event.isSignUp) {
+            final res = await _authService.signInWithPhone(
+                userId: userId,
+                referralCode: event.referralCode,
+                phoneNumber: event.phoneNumber!,
+                context: event.context);
+            if (res['status'] == true) {
+              emit(AuthLoaded(event.phoneNumber!));
+              emit(AuthPhoneNumber(phoneNumber: event.phoneNumber!));
+            } else {
+              emit(AuthError(res['message']));
+            }
           } else {
-            emit(AuthError(res['message']));
+            final res = await _authService.signInWithPhone(
+                userId: "",
+                referralCode: event.referralCode,
+                phoneNumber: event.phoneNumber!,
+                context: event.context);
+            if (res['status'] == true) {
+              emit(AuthLoaded(event.phoneNumber!));
+              emit(AuthPhoneNumber(phoneNumber: event.phoneNumber!));
+            } else {
+              emit(AuthError(res['message']));
+            }
           }
         }
       } else if (event is SendOTP) {
@@ -71,6 +88,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
             emit(AuthSocialLoginNewUser(
                 phoneNumber: event.phoneNumber, otp: res['result']));
+          } else {
+            emit(AuthError(res['message']));
+          }
+        } else {
+          final res =
+              await _authService.sendOTP(phoneNumber: event.phoneNumber);
+          if (res['status'] == true) {
+            debugPrint(res);
+            // emit(AuthLoaded(currentState.phoneNumber));
           } else {
             emit(AuthError(res['message']));
           }

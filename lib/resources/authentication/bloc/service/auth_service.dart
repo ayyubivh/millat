@@ -97,7 +97,8 @@ class AuthService extends HttpServices {
       "referredCode": referralCode,
     }).then((value) {
       if (value.statusCode == 200) {
-        return {'status': true};
+        final data = jsonDecode(value.body);
+        return data;
       } else {
         return {'status': false, 'message': jsonDecode(value.body)['message']};
       }
@@ -136,21 +137,24 @@ class AuthService extends HttpServices {
   Future signInWithPhone({
     required String phoneNumber,
     required BuildContext context,
+    required String? userId,
     required String referralCode,
   }) async {
     try {
       final res = await posts(endPoint: signInPhone, body: {
         "phone_number": phoneNumber,
         "referredCode": referralCode,
+        "userId": userId,
       });
-      var value = json.decode(res.body);
+
+      final value = json.decode(res.body);
 
       if (value['status'] == 200) {
         return {'status': true, 'result': value['result']};
-      } else {
+      } else if (value['status'] == 400) {
         return {
           'status': false,
-          'result': jsonDecode(value.body)['message'],
+          'message': "Phone number already registered",
         };
       }
     } catch (e) {

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -44,12 +45,13 @@ class _SignUpViewState extends State<SignUpView> {
           } else if (state is AuthLoaded) {
             clearDate();
 
-            context.goNamed(MyAppRouteConstants.loginRouteName);
+            context.goNamed(MyAppRouteConstants.sendOtpRouteName,
+                extra: {'type': SendOTPType.signUp});
           } else if (state is AuthLoadedSocialLogin) {
             context.pushReplacementNamed(MyAppRouteConstants.homeTabsRouteName);
           } else if (state is AuthSocialLoginNewUser) {
             context.goNamed(MyAppRouteConstants.sendOtpRouteName,
-                pathParameters: {'isSignIn': 'false'});
+                extra: {'type': SendOTPType.socialSignIn});
           }
         },
         builder: (context, state) {
@@ -99,19 +101,12 @@ class _SignUpViewState extends State<SignUpView> {
                         hint: 'Confirm password',
                         controller: _confirmPasswordController,
                       ),
-                      kHeight30,
-                      CustomTextField(
-                        validator: Validators(context).passwordValidator,
-                        icon: const Icon(Icons.cached, color: iconsColor),
-                        hint: 'Enter Referral code if you have ',
-                        controller: _referralCodeController,
-                      ),
                       kHeight50,
                       MainTextButton(
                         title: 'Skip',
                         onTap: () {
                           context.goNamed(MyAppRouteConstants.sendOtpRouteName,
-                              pathParameters: {'isSignIn': 'true'});
+                              extra: {'type': SendOTPType.signIn});
                         },
                         textStyle: TextStyle(color: ColorManager.blackColor),
                       ),

@@ -720,12 +720,11 @@ class MyAppRouter {
                 ]),
             GoRoute(
               name: MyAppRouteConstants.sendOtpRouteName,
-              path: 'send_otp/:isSignIn',
+              path: 'send_otp',
               pageBuilder: (BuildContext context, GoRouterState state) {
-                final bool isSignIn =
-                    state.pathParameters['isSignIn'] == "true";
+                Map data = state.extra as Map;
                 return MaterialPage(
-                  child: SendOTPView(signInPhone: isSignIn),
+                  child: SendOTPView(type: data['type']),
                 );
               },
             )

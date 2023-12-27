@@ -31,7 +31,10 @@ class SignInWithPhone extends AuthEvent {
   final String? phoneNumber;
   final BuildContext context;
   final String referralCode;
-  SignInWithPhone(this.context, {this.phoneNumber, required this.referralCode});
+  final bool isSignUp;
+
+  SignInWithPhone(this.context,
+      {this.phoneNumber, required this.isSignUp, required this.referralCode});
 }
 
 class VerifyOTP extends AuthEvent {

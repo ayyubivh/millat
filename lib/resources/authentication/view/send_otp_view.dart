@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/textfields/custom_text_field.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -13,8 +16,8 @@ import 'package:millat/utils/utils.dart';
 import 'package:millat/utils/validators.dart';
 
 class SendOTPView extends StatefulWidget {
-  final bool? signInPhone;
-  const SendOTPView({Key? key, this.signInPhone = false}) : super(key: key);
+  final SendOTPType type;
+  const SendOTPView({Key? key, required this.type}) : super(key: key);
 
   @override
   State<SendOTPView> createState() => _SendOTPViewState();
@@ -28,6 +31,7 @@ class _SendOTPViewState extends State<SendOTPView> {
   bool isReferral = false;
   @override
   Widget build(BuildContext context) {
+    log("sign in phone ${widget.type}");
     return Scaffold(
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
@@ -147,10 +151,17 @@ class _SendOTPViewState extends State<SendOTPView> {
                 }
               }
               if (isValidate) {
-                if (widget.signInPhone ?? false) {
+                if (widget.type == SendOTPType.signUp) {
+                  context.read<AuthBloc>().add(SignInWithPhone(
+                      phoneNumber: number!.phoneNumber!,
+                      isSignUp: true,
+                      context,
+                      referralCode: _referralCodeController.text));
+                } else if (widget.type == SendOTPType.signIn) {
                   context.read<AuthBloc>().add(SignInWithPhone(
                       phoneNumber: number!.phoneNumber!,
                       context,
+                      isSignUp: false,
                       referralCode: _referralCodeController.text));
                 } else {
                   context.read<AuthBloc>().add(SendOTP(number!.phoneNumber!));

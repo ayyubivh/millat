@@ -515,14 +515,13 @@ class _EditProfileViewState extends State<EditProfileView> {
                           MainButton(
                             title: "Save",
                             onPressed: () {
-                              print(_dateofBirthcontroller.text);
-                              String? img = context
-                                  .read<DatabaseBloc>()
-                                  .state
-                                  .authUserModel
-                                  ?.result
-                                  ?.user
-                                  ?.picture;
+                              // String? img = context
+                              //     .read<DatabaseBloc>()
+                              //     .state
+                              //     .authUserModel
+                              //     ?.result
+                              //     ?.user
+                              //     ?.picture;
 
                               final email = context
                                   .read<DatabaseBloc>()
@@ -531,26 +530,26 @@ class _EditProfileViewState extends State<EditProfileView> {
                                   ?.result
                                   ?.user
                                   ?.email;
-                              dynamic stateImage;
-                              if (img == null) {
-                                stateImage = context
-                                    .read<DatabaseBloc>()
-                                    .state
-                                    .imagebytes;
-                              }
-                              if (stateImage == null && img == null) {
-                                return showSnackBar(
-                                    context, "Please Select Image");
-                              }
-                              if (_dateofBirthcontroller.text == "") {
-                                return showSnackBar(
-                                    context, "Please Select Date of Birth");
-                              }
+                              // dynamic stateImage;
+                              // if (img == null) {
+                              //   stateImage = context
+                              //       .read<DatabaseBloc>()
+                              //       .state
+                              //       .imagebytes;
+                              // }
+                              // if (stateImage == null && img == null) {
+                              //   return showSnackBar(
+                              //       context, "Please Select Image");
+                              // }
+                              // if (_dateofBirthcontroller.text == "") {
+                              //   return showSnackBar(
+                              //       context, "Please Select Date of Birth");
+                              // }
 
-                              if (_professionController.text.isEmpty) {
-                                return showSnackBar(
-                                    context, "Please Select the Proffession");
-                              }
+                              // if (_professionController.text.isEmpty) {
+                              //   return showSnackBar(
+                              //       context, "Please Select the Proffession");
+                              // }
 
                               if (_formKey.currentState!.validate()) {
                                 context.read<DatabaseBloc>().add(EditAuthUser(

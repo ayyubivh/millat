@@ -14,6 +14,7 @@ import '../../../routes/app_router_constants.dart';
 import '../../../utils/color_manager.dart';
 import '../../../utils/utils.dart';
 import '../class/google_signin.dart';
+import 'package:millat/enums/enumertations.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -106,7 +107,7 @@ class _LoginViewState extends State<LoginView> {
                 title: 'Skip',
                 onTap: () {
                   context.goNamed(MyAppRouteConstants.sendOtpRouteName,
-                      pathParameters: {'isSignIn': 'true'});
+                      extra: {'type': SendOTPType.signIn});
                 },
                 textStyle: TextStyle(
                   color: ColorManager.blackColor,

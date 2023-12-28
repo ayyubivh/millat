@@ -96,7 +96,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               await _authService.sendOTP(phoneNumber: event.phoneNumber);
           if (res['status'] == true) {
             debugPrint(res);
-            // emit(AuthLoaded(currentState.phoneNumber));
+            emit(AuthLoaded(event.phoneNumber));
           } else {
             emit(AuthError(res['message']));
           }

@@ -503,7 +503,7 @@ class UserProfileView extends StatelessWidget {
                       kWidth10,
                     ],
                   ),
-                  kHeight80,
+                  kHeight30,
                 ],
               ),
             ),

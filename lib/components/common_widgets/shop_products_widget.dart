@@ -136,12 +136,8 @@ class ShopProductWidget extends StatelessWidget {
               const Spacer(),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
-                  final cartItems =
-                      state.cartModel?.result?.cartProducts?.cartItems;
-                  final isProductInCart = cartItems
-                          ?.map((item) => item.productId?.id)
-                          .contains(productId) ??
-                      false;
+                  final isProductInCart =
+                      state.cartItems?.contains(productId) ?? false;
 
                   return GestureDetector(
                     onTap: () {

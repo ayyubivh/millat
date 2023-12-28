@@ -1703,6 +1703,7 @@ mixin _$CartState {
   bool get showMore => throw _privateConstructorUsedError;
   int get cartLength => throw _privateConstructorUsedError;
   bool get showExapnd => throw _privateConstructorUsedError;
+  Set<String>? get cartItems => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CartStateCopyWith<CartState> get copyWith =>
@@ -1722,7 +1723,8 @@ abstract class $CartStateCopyWith<$Res> {
       int? statusCode,
       bool showMore,
       int cartLength,
-      bool showExapnd});
+      bool showExapnd,
+      Set<String>? cartItems});
 
   $CartModelCopyWith<$Res>? get cartModel;
 }
@@ -1748,6 +1750,7 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
     Object? showMore = null,
     Object? cartLength = null,
     Object? showExapnd = null,
+    Object? cartItems = freezed,
   }) {
     return _then(_value.copyWith(
       cartModel: freezed == cartModel
@@ -1782,6 +1785,10 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
           ? _value.showExapnd
           : showExapnd // ignore: cast_nullable_to_non_nullable
               as bool,
+      cartItems: freezed == cartItems
+          ? _value.cartItems
+          : cartItems // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
     ) as $Val);
   }
 
@@ -1814,7 +1821,8 @@ abstract class _$$CartStateImplCopyWith<$Res>
       int? statusCode,
       bool showMore,
       int cartLength,
-      bool showExapnd});
+      bool showExapnd,
+      Set<String>? cartItems});
 
   @override
   $CartModelCopyWith<$Res>? get cartModel;
@@ -1839,6 +1847,7 @@ class __$$CartStateImplCopyWithImpl<$Res>
     Object? showMore = null,
     Object? cartLength = null,
     Object? showExapnd = null,
+    Object? cartItems = freezed,
   }) {
     return _then(_$CartStateImpl(
       cartModel: freezed == cartModel
@@ -1873,6 +1882,10 @@ class __$$CartStateImplCopyWithImpl<$Res>
           ? _value.showExapnd
           : showExapnd // ignore: cast_nullable_to_non_nullable
               as bool,
+      cartItems: freezed == cartItems
+          ? _value._cartItems
+          : cartItems // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
     ));
   }
 }
@@ -1888,7 +1901,9 @@ class _$CartStateImpl implements _CartState {
       required this.statusCode,
       required this.showMore,
       required this.cartLength,
-      required this.showExapnd});
+      required this.showExapnd,
+      required final Set<String>? cartItems})
+      : _cartItems = cartItems;
 
   @override
   final CartModel? cartModel;
@@ -1906,10 +1921,19 @@ class _$CartStateImpl implements _CartState {
   final int cartLength;
   @override
   final bool showExapnd;
+  final Set<String>? _cartItems;
+  @override
+  Set<String>? get cartItems {
+    final value = _cartItems;
+    if (value == null) return null;
+    if (_cartItems is EqualUnmodifiableSetView) return _cartItems;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(value);
+  }
 
   @override
   String toString() {
-    return 'CartState(cartModel: $cartModel, cartLoading: $cartLoading, errorMessage: $errorMessage, cartSuccesmessage: $cartSuccesmessage, statusCode: $statusCode, showMore: $showMore, cartLength: $cartLength, showExapnd: $showExapnd)';
+    return 'CartState(cartModel: $cartModel, cartLoading: $cartLoading, errorMessage: $errorMessage, cartSuccesmessage: $cartSuccesmessage, statusCode: $statusCode, showMore: $showMore, cartLength: $cartLength, showExapnd: $showExapnd, cartItems: $cartItems)';
   }
 
   @override
@@ -1932,7 +1956,9 @@ class _$CartStateImpl implements _CartState {
             (identical(other.cartLength, cartLength) ||
                 other.cartLength == cartLength) &&
             (identical(other.showExapnd, showExapnd) ||
-                other.showExapnd == showExapnd));
+                other.showExapnd == showExapnd) &&
+            const DeepCollectionEquality()
+                .equals(other._cartItems, _cartItems));
   }
 
   @override
@@ -1945,7 +1971,8 @@ class _$CartStateImpl implements _CartState {
       statusCode,
       showMore,
       cartLength,
-      showExapnd);
+      showExapnd,
+      const DeepCollectionEquality().hash(_cartItems));
 
   @JsonKey(ignore: true)
   @override
@@ -1963,7 +1990,8 @@ abstract class _CartState implements CartState {
       required final int? statusCode,
       required final bool showMore,
       required final int cartLength,
-      required final bool showExapnd}) = _$CartStateImpl;
+      required final bool showExapnd,
+      required final Set<String>? cartItems}) = _$CartStateImpl;
 
   @override
   CartModel? get cartModel;
@@ -1981,6 +2009,8 @@ abstract class _CartState implements CartState {
   int get cartLength;
   @override
   bool get showExapnd;
+  @override
+  Set<String>? get cartItems;
   @override
   @JsonKey(ignore: true)
   _$$CartStateImplCopyWith<_$CartStateImpl> get copyWith =>

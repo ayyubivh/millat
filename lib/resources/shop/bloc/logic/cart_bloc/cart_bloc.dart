@@ -28,12 +28,16 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     try {
       final data = await _cartServices.fetchCart(event.context);
       final cartItemsCount = data.result?.cartProducts?.cartItems?.length;
-
+      final cartItems = data.result?.cartProducts?.cartItems
+          ?.map((e) => e.productId?.id)
+          .toList();
       emit(state.copyWith(
-        cartModel: data,
-        cartLoading: false,
-        cartLength: cartItemsCount ?? 0,
-      ));
+          cartModel: data,
+          cartLoading: false,
+          cartLength: cartItemsCount ?? 0,
+          cartItems: Set<String>.from(
+            cartItems ?? [],
+          )));
       print('cart item count on fetch $cartItemsCount');
     } catch (e) {
       emit(state.copyWith(
@@ -70,11 +74,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
             ),
           ),
         );
+        final cartItems = state.cartItems?.toSet() ?? {}
+          ..add(event.productId);
 
         emit(state.copyWith(
           cartSuccesmessage: data['message'],
           cartLength: state.cartLength + 1,
           cartModel: updatedCartModel,
+          cartItems: cartItems,
         ));
 
         print('Success: ${data['message']}');
@@ -113,7 +120,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         context: event.context,
         productId: event.productId,
       );
+      final cartItems = state.cartItems?.toSet() ?? {};
+      cartItems.remove(event.productId);
       emit(state.copyWith(
+        cartItems: cartItems,
         cartModel: updatedCartModel,
         cartLength: state.cartLength - 1,
       ));

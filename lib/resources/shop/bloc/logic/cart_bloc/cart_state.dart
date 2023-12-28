@@ -11,6 +11,7 @@ class CartState with _$CartState {
     required bool showMore,
     required int cartLength,
     required bool showExapnd,
+    required Set<String>? cartItems,
   }) = _CartState;
   factory CartState.initial() => const CartState(
         cartModel: null,
@@ -21,5 +22,6 @@ class CartState with _$CartState {
         cartLength: 0,
         statusCode: null,
         showExapnd: false,
+        cartItems: {},
       );
 }

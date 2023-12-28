@@ -42,7 +42,6 @@ class _ShopViewState extends State<ShopView> {
 
     categoryBloc.add(const CategoryEvent.fetchCategories());
     shopProductsBloc
-      // ..add(const ShopProductsEvent.fetchRecentProductProducts())
       ..add(const ShopProductsEvent.fetchShopByBrand())
       ..add(const ShopProductsEvent.fetchShopBanners())
       ..add(const ShopProductsEvent.fetchShopHomeBackgroundCard())

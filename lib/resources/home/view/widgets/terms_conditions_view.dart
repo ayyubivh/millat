@@ -30,7 +30,7 @@ class TermsConditionsView extends StatelessWidget {
       body: BlocProvider(
         create: (context) => TermsAndConditionsBloc()
           ..add(const FetchTermsAndConditionsEvent(slug: "terms_conditions")),
-        child: BlocBuilder<TermsAndConditionsBloc, TermsAndCondtionsState>(
+        child: BlocBuilder<TermsAndConditionsBloc, TermsAndConditionsState>(
           builder: (context, state) {
             final data = state.termsConditionsModel?.result.data.content;
             return state.isLoading

@@ -415,21 +415,21 @@ abstract class PostHelpAndSupport implements TermsAndCondtionsEvent {
 }
 
 /// @nodoc
-mixin _$TermsAndCondtionsState {
+mixin _$TermsAndConditionsState {
   TermsConditionsModel? get termsConditionsModel =>
       throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TermsAndCondtionsStateCopyWith<TermsAndCondtionsState> get copyWith =>
+  $TermsAndConditionsStateCopyWith<TermsAndConditionsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TermsAndCondtionsStateCopyWith<$Res> {
-  factory $TermsAndCondtionsStateCopyWith(TermsAndCondtionsState value,
-          $Res Function(TermsAndCondtionsState) then) =
-      _$TermsAndCondtionsStateCopyWithImpl<$Res, TermsAndCondtionsState>;
+abstract class $TermsAndConditionsStateCopyWith<$Res> {
+  factory $TermsAndConditionsStateCopyWith(TermsAndConditionsState value,
+          $Res Function(TermsAndConditionsState) then) =
+      _$TermsAndConditionsStateCopyWithImpl<$Res, TermsAndConditionsState>;
   @useResult
   $Res call({TermsConditionsModel? termsConditionsModel, bool isLoading});
 
@@ -437,10 +437,10 @@ abstract class $TermsAndCondtionsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TermsAndCondtionsStateCopyWithImpl<$Res,
-        $Val extends TermsAndCondtionsState>
-    implements $TermsAndCondtionsStateCopyWith<$Res> {
-  _$TermsAndCondtionsStateCopyWithImpl(this._value, this._then);
+class _$TermsAndConditionsStateCopyWithImpl<$Res,
+        $Val extends TermsAndConditionsState>
+    implements $TermsAndConditionsStateCopyWith<$Res> {
+  _$TermsAndConditionsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -481,7 +481,7 @@ class _$TermsAndCondtionsStateCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$TermsAndCondtionsStateImplCopyWith<$Res>
-    implements $TermsAndCondtionsStateCopyWith<$Res> {
+    implements $TermsAndConditionsStateCopyWith<$Res> {
   factory _$$TermsAndCondtionsStateImplCopyWith(
           _$TermsAndCondtionsStateImpl value,
           $Res Function(_$TermsAndCondtionsStateImpl) then) =
@@ -496,7 +496,7 @@ abstract class _$$TermsAndCondtionsStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$TermsAndCondtionsStateImplCopyWithImpl<$Res>
-    extends _$TermsAndCondtionsStateCopyWithImpl<$Res,
+    extends _$TermsAndConditionsStateCopyWithImpl<$Res,
         _$TermsAndCondtionsStateImpl>
     implements _$$TermsAndCondtionsStateImplCopyWith<$Res> {
   __$$TermsAndCondtionsStateImplCopyWithImpl(
@@ -525,7 +525,7 @@ class __$$TermsAndCondtionsStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TermsAndCondtionsStateImpl implements _TermsAndCondtionsState {
+class _$TermsAndCondtionsStateImpl implements _TermsAndConditionsState {
   const _$TermsAndCondtionsStateImpl(
       {required this.termsConditionsModel, required this.isLoading});
 
@@ -536,7 +536,7 @@ class _$TermsAndCondtionsStateImpl implements _TermsAndCondtionsState {
 
   @override
   String toString() {
-    return 'TermsAndCondtionsState(termsConditionsModel: $termsConditionsModel, isLoading: $isLoading)';
+    return 'TermsAndConditionsState(termsConditionsModel: $termsConditionsModel, isLoading: $isLoading)';
   }
 
   @override
@@ -561,8 +561,8 @@ class _$TermsAndCondtionsStateImpl implements _TermsAndCondtionsState {
           _$TermsAndCondtionsStateImpl>(this, _$identity);
 }
 
-abstract class _TermsAndCondtionsState implements TermsAndCondtionsState {
-  const factory _TermsAndCondtionsState(
+abstract class _TermsAndConditionsState implements TermsAndConditionsState {
+  const factory _TermsAndConditionsState(
       {required final TermsConditionsModel? termsConditionsModel,
       required final bool isLoading}) = _$TermsAndCondtionsStateImpl;
 

@@ -18,7 +18,6 @@ import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
 import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
-import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_coins_collect_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
@@ -90,7 +89,6 @@ void main() async {
       BlocProvider(create: (context) => RewardsBloc()),
       BlocProvider(create: (context) => ReviewBloc()),
       BlocProvider(create: (context) => TravelBloc()),
-      BlocProvider(create: (context) => RewardsCoinsCollectBloc())
     ],
     // child: DevicePreview(
     //   enabled: !kReleaseMode,

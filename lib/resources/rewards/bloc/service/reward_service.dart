@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_coins_collect_bloc.dart';
+import 'package:millat/resources/rewards/bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/rewards/bloc/models/coin_collection/coin_collection_model.dart';
 import 'package:millat/resources/rewards/bloc/models/get_rewards_model.dart';
 import 'package:millat/resources/rewards/bloc/models/rewards_product/rewards_product_model.dart';
@@ -98,9 +98,7 @@ class RewardServices extends HttpServices {
     try {
       if (response.statusCode == 200 || response.statusCode == 201) {
         final data = json.decode(response.body);
-        context
-            .read<RewardsCoinsCollectBloc>()
-            .add(const FetchCoinsCollectionEvent());
+        context.read<RewardsBloc>().add(const FetchCoinsCollectionEvent());
         return data;
       } else if (response.statusCode == 400) {
         final data = json.decode(response.body);

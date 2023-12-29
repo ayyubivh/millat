@@ -2,10 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_coins_collect_bloc.dart';
+import 'package:millat/resources/rewards/bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -29,7 +30,7 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   }
 
   _fetch() {
-    BlocProvider.of<RewardsCoinsCollectBloc>(context)
+    BlocProvider.of<RewardsBloc>(context)
         .add(const FetchCoinsCollectionEvent());
   }
 
@@ -115,8 +116,7 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                         ),
                       ),
                       kHeight16,
-                      BlocBuilder<RewardsCoinsCollectBloc,
-                          RewardsCoinsCollectState>(
+                      BlocBuilder<RewardsBloc, RewardsState>(
                         builder: (context, state) => Text(
                           state.coinCollectionModel?.result?.data.coins
                                   .toString() ??
@@ -200,13 +200,12 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                 ],
               ),
               kHeight20,
-              BlocBuilder<RewardsCoinsCollectBloc, RewardsCoinsCollectState>(
+              BlocBuilder<RewardsBloc, RewardsState>(
                 builder: (context, state) => GestureDetector(
                   onTap: () async {
                     state.checkCoinsCollected == false
-                        ? BlocProvider.of<RewardsCoinsCollectBloc>(context).add(
-                            RewardsCoinsCollectEvent.addCoinsCollectionEvent(
-                                context))
+                        ? BlocProvider.of<RewardsBloc>(context)
+                            .add(RewardsEvent.addCoinsCollectionEvent(context))
                         : null;
                   },
                   child: Container(
@@ -225,16 +224,21 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                           end: Alignment.bottomCenter,
                         )),
                     child: Center(
-                      child: Text(
-                        state.checkCoinsCollected == true
-                            ? Appstrings.collected
-                            : Appstrings.collect,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: ColorManager.whiteColor,
-                        ),
-                      ),
+                      child: state.isLoading
+                          ? const Padding(
+                              padding: EdgeInsets.all(6),
+                              child: Loader(),
+                            )
+                          : Text(
+                              state.checkCoinsCollected == true
+                                  ? Appstrings.collected
+                                  : Appstrings.collect,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                color: ColorManager.whiteColor,
+                              ),
+                            ),
                     ),
                   ),
                 ),

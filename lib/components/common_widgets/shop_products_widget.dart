@@ -38,6 +38,7 @@ class ShopProductWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       // height: 231,
+
       width: SizeUtility(context).width / 2.6,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

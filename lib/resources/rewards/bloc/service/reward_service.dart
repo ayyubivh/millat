@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_coins_collect_bloc.dart';
+import 'package:millat/resources/rewards/bloc/models/coin_collection/coin_collection_model.dart';
 import 'package:millat/resources/rewards/bloc/models/get_rewards_model.dart';
 import 'package:millat/resources/rewards/bloc/models/rewards_product/rewards_product_model.dart';
 import 'package:millat/services/http_services.dart';
@@ -60,6 +63,56 @@ class RewardServices extends HttpServices {
       }
     } else {
       throw Exception('Token not available');
+    }
+  }
+
+//coin collection api
+  Future<CoinCollectionModel> fetchCoinCollection() async {
+    const endPoint = 'coin/collection';
+
+    final response = await get(endPoint: endPoint, isToken: true);
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = CoinCollectionModel.fromJson(data);
+        print("Results of the reward products  $result");
+        return result;
+      } else {
+        print('API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('error on rewards products API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
+    }
+  }
+
+//add coins collection api
+  addCoinsCollection(BuildContext context) async {
+    const endPoint = 'coin/collection';
+
+    final response = await put(endPoint: endPoint, isToken: true, body: {});
+
+    try {
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        final data = json.decode(response.body);
+        context
+            .read<RewardsCoinsCollectBloc>()
+            .add(const FetchCoinsCollectionEvent());
+        return data;
+      } else if (response.statusCode == 400) {
+        final data = json.decode(response.body);
+        return data;
+      } else {
+        print('API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
     }
   }
 

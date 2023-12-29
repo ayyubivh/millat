@@ -18,48 +18,43 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RewardsCoinsCollectEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() rewardsCollectionInitialEvent,
-    required TResult Function(bool value) checkCoinsCollected,
-    required TResult Function() startTimerEvent,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? rewardsCollectionInitialEvent,
-    TResult? Function(bool value)? checkCoinsCollected,
-    TResult? Function()? startTimerEvent,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? rewardsCollectionInitialEvent,
-    TResult Function(bool value)? checkCoinsCollected,
-    TResult Function()? startTimerEvent,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RewardsCollectionInitialEvent value)
-        rewardsCollectionInitialEvent,
-    required TResult Function(CheckCoinsCollected value) checkCoinsCollected,
-    required TResult Function(StartTimerEvent value) startTimerEvent,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RewardsCollectionInitialEvent value)?
-        rewardsCollectionInitialEvent,
-    TResult? Function(CheckCoinsCollected value)? checkCoinsCollected,
-    TResult? Function(StartTimerEvent value)? startTimerEvent,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RewardsCollectionInitialEvent value)?
-        rewardsCollectionInitialEvent,
-    TResult Function(CheckCoinsCollected value)? checkCoinsCollected,
-    TResult Function(StartTimerEvent value)? startTimerEvent,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -85,40 +80,39 @@ class _$RewardsCoinsCollectEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$RewardsCollectionInitialEventImplCopyWith<$Res> {
-  factory _$$RewardsCollectionInitialEventImplCopyWith(
-          _$RewardsCollectionInitialEventImpl value,
-          $Res Function(_$RewardsCollectionInitialEventImpl) then) =
-      __$$RewardsCollectionInitialEventImplCopyWithImpl<$Res>;
+abstract class _$$FetchCoinsCollectionEventImplCopyWith<$Res> {
+  factory _$$FetchCoinsCollectionEventImplCopyWith(
+          _$FetchCoinsCollectionEventImpl value,
+          $Res Function(_$FetchCoinsCollectionEventImpl) then) =
+      __$$FetchCoinsCollectionEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$RewardsCollectionInitialEventImplCopyWithImpl<$Res>
+class __$$FetchCoinsCollectionEventImplCopyWithImpl<$Res>
     extends _$RewardsCoinsCollectEventCopyWithImpl<$Res,
-        _$RewardsCollectionInitialEventImpl>
-    implements _$$RewardsCollectionInitialEventImplCopyWith<$Res> {
-  __$$RewardsCollectionInitialEventImplCopyWithImpl(
-      _$RewardsCollectionInitialEventImpl _value,
-      $Res Function(_$RewardsCollectionInitialEventImpl) _then)
+        _$FetchCoinsCollectionEventImpl>
+    implements _$$FetchCoinsCollectionEventImplCopyWith<$Res> {
+  __$$FetchCoinsCollectionEventImplCopyWithImpl(
+      _$FetchCoinsCollectionEventImpl _value,
+      $Res Function(_$FetchCoinsCollectionEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$RewardsCollectionInitialEventImpl
-    implements RewardsCollectionInitialEvent {
-  const _$RewardsCollectionInitialEventImpl();
+class _$FetchCoinsCollectionEventImpl implements FetchCoinsCollectionEvent {
+  const _$FetchCoinsCollectionEventImpl();
 
   @override
   String toString() {
-    return 'RewardsCoinsCollectEvent.rewardsCollectionInitialEvent()';
+    return 'RewardsCoinsCollectEvent.fetchCoinsCollectionEvent()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RewardsCollectionInitialEventImpl);
+            other is _$FetchCoinsCollectionEventImpl);
   }
 
   @override
@@ -127,33 +121,30 @@ class _$RewardsCollectionInitialEventImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() rewardsCollectionInitialEvent,
-    required TResult Function(bool value) checkCoinsCollected,
-    required TResult Function() startTimerEvent,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
-    return rewardsCollectionInitialEvent();
+    return fetchCoinsCollectionEvent();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? rewardsCollectionInitialEvent,
-    TResult? Function(bool value)? checkCoinsCollected,
-    TResult? Function()? startTimerEvent,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
-    return rewardsCollectionInitialEvent?.call();
+    return fetchCoinsCollectionEvent?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? rewardsCollectionInitialEvent,
-    TResult Function(bool value)? checkCoinsCollected,
-    TResult Function()? startTimerEvent,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
-    if (rewardsCollectionInitialEvent != null) {
-      return rewardsCollectionInitialEvent();
+    if (fetchCoinsCollectionEvent != null) {
+      return fetchCoinsCollectionEvent();
     }
     return orElse();
   }
@@ -161,140 +152,135 @@ class _$RewardsCollectionInitialEventImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RewardsCollectionInitialEvent value)
-        rewardsCollectionInitialEvent,
-    required TResult Function(CheckCoinsCollected value) checkCoinsCollected,
-    required TResult Function(StartTimerEvent value) startTimerEvent,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
-    return rewardsCollectionInitialEvent(this);
+    return fetchCoinsCollectionEvent(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RewardsCollectionInitialEvent value)?
-        rewardsCollectionInitialEvent,
-    TResult? Function(CheckCoinsCollected value)? checkCoinsCollected,
-    TResult? Function(StartTimerEvent value)? startTimerEvent,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
-    return rewardsCollectionInitialEvent?.call(this);
+    return fetchCoinsCollectionEvent?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RewardsCollectionInitialEvent value)?
-        rewardsCollectionInitialEvent,
-    TResult Function(CheckCoinsCollected value)? checkCoinsCollected,
-    TResult Function(StartTimerEvent value)? startTimerEvent,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
-    if (rewardsCollectionInitialEvent != null) {
-      return rewardsCollectionInitialEvent(this);
+    if (fetchCoinsCollectionEvent != null) {
+      return fetchCoinsCollectionEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class RewardsCollectionInitialEvent
-    implements RewardsCoinsCollectEvent {
-  const factory RewardsCollectionInitialEvent() =
-      _$RewardsCollectionInitialEventImpl;
+abstract class FetchCoinsCollectionEvent implements RewardsCoinsCollectEvent {
+  const factory FetchCoinsCollectionEvent() = _$FetchCoinsCollectionEventImpl;
 }
 
 /// @nodoc
-abstract class _$$CheckCoinsCollectedImplCopyWith<$Res> {
-  factory _$$CheckCoinsCollectedImplCopyWith(_$CheckCoinsCollectedImpl value,
-          $Res Function(_$CheckCoinsCollectedImpl) then) =
-      __$$CheckCoinsCollectedImplCopyWithImpl<$Res>;
+abstract class _$$AddCoinsCollectionEventImplCopyWith<$Res> {
+  factory _$$AddCoinsCollectionEventImplCopyWith(
+          _$AddCoinsCollectionEventImpl value,
+          $Res Function(_$AddCoinsCollectionEventImpl) then) =
+      __$$AddCoinsCollectionEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool value});
+  $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$CheckCoinsCollectedImplCopyWithImpl<$Res>
+class __$$AddCoinsCollectionEventImplCopyWithImpl<$Res>
     extends _$RewardsCoinsCollectEventCopyWithImpl<$Res,
-        _$CheckCoinsCollectedImpl>
-    implements _$$CheckCoinsCollectedImplCopyWith<$Res> {
-  __$$CheckCoinsCollectedImplCopyWithImpl(_$CheckCoinsCollectedImpl _value,
-      $Res Function(_$CheckCoinsCollectedImpl) _then)
+        _$AddCoinsCollectionEventImpl>
+    implements _$$AddCoinsCollectionEventImplCopyWith<$Res> {
+  __$$AddCoinsCollectionEventImplCopyWithImpl(
+      _$AddCoinsCollectionEventImpl _value,
+      $Res Function(_$AddCoinsCollectionEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = null,
+    Object? context = null,
   }) {
-    return _then(_$CheckCoinsCollectedImpl(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as bool,
+    return _then(_$AddCoinsCollectionEventImpl(
+      null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 }
 
 /// @nodoc
 
-class _$CheckCoinsCollectedImpl implements CheckCoinsCollected {
-  const _$CheckCoinsCollectedImpl({required this.value});
+class _$AddCoinsCollectionEventImpl implements AddCoinsCollectionEvent {
+  const _$AddCoinsCollectionEventImpl(this.context);
 
   @override
-  final bool value;
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'RewardsCoinsCollectEvent.checkCoinsCollected(value: $value)';
+    return 'RewardsCoinsCollectEvent.addCoinsCollectionEvent(context: $context)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CheckCoinsCollectedImpl &&
-            (identical(other.value, value) || other.value == value));
+            other is _$AddCoinsCollectionEventImpl &&
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode => Object.hash(runtimeType, context);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CheckCoinsCollectedImplCopyWith<_$CheckCoinsCollectedImpl> get copyWith =>
-      __$$CheckCoinsCollectedImplCopyWithImpl<_$CheckCoinsCollectedImpl>(
-          this, _$identity);
+  _$$AddCoinsCollectionEventImplCopyWith<_$AddCoinsCollectionEventImpl>
+      get copyWith => __$$AddCoinsCollectionEventImplCopyWithImpl<
+          _$AddCoinsCollectionEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() rewardsCollectionInitialEvent,
-    required TResult Function(bool value) checkCoinsCollected,
-    required TResult Function() startTimerEvent,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
-    return checkCoinsCollected(value);
+    return addCoinsCollectionEvent(context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? rewardsCollectionInitialEvent,
-    TResult? Function(bool value)? checkCoinsCollected,
-    TResult? Function()? startTimerEvent,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
-    return checkCoinsCollected?.call(value);
+    return addCoinsCollectionEvent?.call(context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? rewardsCollectionInitialEvent,
-    TResult Function(bool value)? checkCoinsCollected,
-    TResult Function()? startTimerEvent,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
-    if (checkCoinsCollected != null) {
-      return checkCoinsCollected(value);
+    if (addCoinsCollectionEvent != null) {
+      return addCoinsCollectionEvent(context);
     }
     return orElse();
   }
@@ -302,166 +288,56 @@ class _$CheckCoinsCollectedImpl implements CheckCoinsCollected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RewardsCollectionInitialEvent value)
-        rewardsCollectionInitialEvent,
-    required TResult Function(CheckCoinsCollected value) checkCoinsCollected,
-    required TResult Function(StartTimerEvent value) startTimerEvent,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
-    return checkCoinsCollected(this);
+    return addCoinsCollectionEvent(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RewardsCollectionInitialEvent value)?
-        rewardsCollectionInitialEvent,
-    TResult? Function(CheckCoinsCollected value)? checkCoinsCollected,
-    TResult? Function(StartTimerEvent value)? startTimerEvent,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
-    return checkCoinsCollected?.call(this);
+    return addCoinsCollectionEvent?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RewardsCollectionInitialEvent value)?
-        rewardsCollectionInitialEvent,
-    TResult Function(CheckCoinsCollected value)? checkCoinsCollected,
-    TResult Function(StartTimerEvent value)? startTimerEvent,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
-    if (checkCoinsCollected != null) {
-      return checkCoinsCollected(this);
+    if (addCoinsCollectionEvent != null) {
+      return addCoinsCollectionEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class CheckCoinsCollected implements RewardsCoinsCollectEvent {
-  const factory CheckCoinsCollected({required final bool value}) =
-      _$CheckCoinsCollectedImpl;
+abstract class AddCoinsCollectionEvent implements RewardsCoinsCollectEvent {
+  const factory AddCoinsCollectionEvent(final BuildContext context) =
+      _$AddCoinsCollectionEventImpl;
 
-  bool get value;
+  BuildContext get context;
   @JsonKey(ignore: true)
-  _$$CheckCoinsCollectedImplCopyWith<_$CheckCoinsCollectedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$StartTimerEventImplCopyWith<$Res> {
-  factory _$$StartTimerEventImplCopyWith(_$StartTimerEventImpl value,
-          $Res Function(_$StartTimerEventImpl) then) =
-      __$$StartTimerEventImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$StartTimerEventImplCopyWithImpl<$Res>
-    extends _$RewardsCoinsCollectEventCopyWithImpl<$Res, _$StartTimerEventImpl>
-    implements _$$StartTimerEventImplCopyWith<$Res> {
-  __$$StartTimerEventImplCopyWithImpl(
-      _$StartTimerEventImpl _value, $Res Function(_$StartTimerEventImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$StartTimerEventImpl implements StartTimerEvent {
-  const _$StartTimerEventImpl();
-
-  @override
-  String toString() {
-    return 'RewardsCoinsCollectEvent.startTimerEvent()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartTimerEventImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() rewardsCollectionInitialEvent,
-    required TResult Function(bool value) checkCoinsCollected,
-    required TResult Function() startTimerEvent,
-  }) {
-    return startTimerEvent();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? rewardsCollectionInitialEvent,
-    TResult? Function(bool value)? checkCoinsCollected,
-    TResult? Function()? startTimerEvent,
-  }) {
-    return startTimerEvent?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? rewardsCollectionInitialEvent,
-    TResult Function(bool value)? checkCoinsCollected,
-    TResult Function()? startTimerEvent,
-    required TResult orElse(),
-  }) {
-    if (startTimerEvent != null) {
-      return startTimerEvent();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(RewardsCollectionInitialEvent value)
-        rewardsCollectionInitialEvent,
-    required TResult Function(CheckCoinsCollected value) checkCoinsCollected,
-    required TResult Function(StartTimerEvent value) startTimerEvent,
-  }) {
-    return startTimerEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(RewardsCollectionInitialEvent value)?
-        rewardsCollectionInitialEvent,
-    TResult? Function(CheckCoinsCollected value)? checkCoinsCollected,
-    TResult? Function(StartTimerEvent value)? startTimerEvent,
-  }) {
-    return startTimerEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(RewardsCollectionInitialEvent value)?
-        rewardsCollectionInitialEvent,
-    TResult Function(CheckCoinsCollected value)? checkCoinsCollected,
-    TResult Function(StartTimerEvent value)? startTimerEvent,
-    required TResult orElse(),
-  }) {
-    if (startTimerEvent != null) {
-      return startTimerEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class StartTimerEvent implements RewardsCoinsCollectEvent {
-  const factory StartTimerEvent() = _$StartTimerEventImpl;
+  _$$AddCoinsCollectionEventImplCopyWith<_$AddCoinsCollectionEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$RewardsCoinsCollectState {
   Duration get initialDuration => throw _privateConstructorUsedError;
   bool get checkCoinsCollected => throw _privateConstructorUsedError;
+  CoinCollectionModel? get coinCollectionModel =>
+      throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RewardsCoinsCollectStateCopyWith<RewardsCoinsCollectState> get copyWith =>
@@ -474,7 +350,13 @@ abstract class $RewardsCoinsCollectStateCopyWith<$Res> {
           $Res Function(RewardsCoinsCollectState) then) =
       _$RewardsCoinsCollectStateCopyWithImpl<$Res, RewardsCoinsCollectState>;
   @useResult
-  $Res call({Duration initialDuration, bool checkCoinsCollected});
+  $Res call(
+      {Duration initialDuration,
+      bool checkCoinsCollected,
+      CoinCollectionModel? coinCollectionModel,
+      bool isLoading});
+
+  $CoinCollectionModelCopyWith<$Res>? get coinCollectionModel;
 }
 
 /// @nodoc
@@ -493,6 +375,8 @@ class _$RewardsCoinsCollectStateCopyWithImpl<$Res,
   $Res call({
     Object? initialDuration = null,
     Object? checkCoinsCollected = null,
+    Object? coinCollectionModel = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       initialDuration: null == initialDuration
@@ -503,7 +387,28 @@ class _$RewardsCoinsCollectStateCopyWithImpl<$Res,
           ? _value.checkCoinsCollected
           : checkCoinsCollected // ignore: cast_nullable_to_non_nullable
               as bool,
+      coinCollectionModel: freezed == coinCollectionModel
+          ? _value.coinCollectionModel
+          : coinCollectionModel // ignore: cast_nullable_to_non_nullable
+              as CoinCollectionModel?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CoinCollectionModelCopyWith<$Res>? get coinCollectionModel {
+    if (_value.coinCollectionModel == null) {
+      return null;
+    }
+
+    return $CoinCollectionModelCopyWith<$Res>(_value.coinCollectionModel!,
+        (value) {
+      return _then(_value.copyWith(coinCollectionModel: value) as $Val);
+    });
   }
 }
 
@@ -516,7 +421,14 @@ abstract class _$$RewardsCoinsCollectStateImplCopyWith<$Res>
       __$$RewardsCoinsCollectStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Duration initialDuration, bool checkCoinsCollected});
+  $Res call(
+      {Duration initialDuration,
+      bool checkCoinsCollected,
+      CoinCollectionModel? coinCollectionModel,
+      bool isLoading});
+
+  @override
+  $CoinCollectionModelCopyWith<$Res>? get coinCollectionModel;
 }
 
 /// @nodoc
@@ -534,6 +446,8 @@ class __$$RewardsCoinsCollectStateImplCopyWithImpl<$Res>
   $Res call({
     Object? initialDuration = null,
     Object? checkCoinsCollected = null,
+    Object? coinCollectionModel = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_$RewardsCoinsCollectStateImpl(
       initialDuration: null == initialDuration
@@ -544,6 +458,14 @@ class __$$RewardsCoinsCollectStateImplCopyWithImpl<$Res>
           ? _value.checkCoinsCollected
           : checkCoinsCollected // ignore: cast_nullable_to_non_nullable
               as bool,
+      coinCollectionModel: freezed == coinCollectionModel
+          ? _value.coinCollectionModel
+          : coinCollectionModel // ignore: cast_nullable_to_non_nullable
+              as CoinCollectionModel?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -552,16 +474,23 @@ class __$$RewardsCoinsCollectStateImplCopyWithImpl<$Res>
 
 class _$RewardsCoinsCollectStateImpl implements _RewardsCoinsCollectState {
   const _$RewardsCoinsCollectStateImpl(
-      {required this.initialDuration, required this.checkCoinsCollected});
+      {required this.initialDuration,
+      required this.checkCoinsCollected,
+      required this.coinCollectionModel,
+      required this.isLoading});
 
   @override
   final Duration initialDuration;
   @override
   final bool checkCoinsCollected;
+  @override
+  final CoinCollectionModel? coinCollectionModel;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'RewardsCoinsCollectState(initialDuration: $initialDuration, checkCoinsCollected: $checkCoinsCollected)';
+    return 'RewardsCoinsCollectState(initialDuration: $initialDuration, checkCoinsCollected: $checkCoinsCollected, coinCollectionModel: $coinCollectionModel, isLoading: $isLoading)';
   }
 
   @override
@@ -572,12 +501,16 @@ class _$RewardsCoinsCollectStateImpl implements _RewardsCoinsCollectState {
             (identical(other.initialDuration, initialDuration) ||
                 other.initialDuration == initialDuration) &&
             (identical(other.checkCoinsCollected, checkCoinsCollected) ||
-                other.checkCoinsCollected == checkCoinsCollected));
+                other.checkCoinsCollected == checkCoinsCollected) &&
+            (identical(other.coinCollectionModel, coinCollectionModel) ||
+                other.coinCollectionModel == coinCollectionModel) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, initialDuration, checkCoinsCollected);
+  int get hashCode => Object.hash(runtimeType, initialDuration,
+      checkCoinsCollected, coinCollectionModel, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -589,14 +522,19 @@ class _$RewardsCoinsCollectStateImpl implements _RewardsCoinsCollectState {
 
 abstract class _RewardsCoinsCollectState implements RewardsCoinsCollectState {
   const factory _RewardsCoinsCollectState(
-          {required final Duration initialDuration,
-          required final bool checkCoinsCollected}) =
-      _$RewardsCoinsCollectStateImpl;
+      {required final Duration initialDuration,
+      required final bool checkCoinsCollected,
+      required final CoinCollectionModel? coinCollectionModel,
+      required final bool isLoading}) = _$RewardsCoinsCollectStateImpl;
 
   @override
   Duration get initialDuration;
   @override
   bool get checkCoinsCollected;
+  @override
+  CoinCollectionModel? get coinCollectionModel;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$RewardsCoinsCollectStateImplCopyWith<_$RewardsCoinsCollectStateImpl>

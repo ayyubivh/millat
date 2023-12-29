@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:millat/resources/rewards/bloc/models/coin_collection/coin_collection_model.dart';
 import 'package:millat/resources/rewards/bloc/models/get_rewards_model.dart';
 import 'package:millat/resources/rewards/bloc/models/redeem_rewards/reward_redeem_items_model.dart';
 import 'package:millat/resources/rewards/bloc/models/rewards_product/rewards_product_by_id_model.dart';

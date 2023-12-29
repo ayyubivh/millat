@@ -3,15 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_coins_collect_bloc.dart';
-import 'package:millat/utils/utils.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
-
-import '../bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 
 class DailyCoinsWidget extends StatefulWidget {
   const DailyCoinsWidget({Key? key}) : super(key: key);
@@ -24,13 +20,17 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   late Timer _timer;
   Duration duration = const Duration();
   final Duration interval = const Duration(hours: 6);
-  late SharedPreferences prefs;
 
   @override
   void initState() {
     super.initState();
-    _checkCoinsCollected();
+    _fetch();
     _startTimer();
+  }
+
+  _fetch() {
+    BlocProvider.of<RewardsCoinsCollectBloc>(context)
+        .add(const FetchCoinsCollectionEvent());
   }
 
   _startTimer() {
@@ -43,31 +43,13 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   calculateTimeLeft() {
     final now = DateTime.now();
     final elapsedSeconds = now.second + now.minute * 60 + now.hour * 3600;
-    if (elapsedSeconds % interval.inSeconds == 0) {
-      _resetCollectedValue();
-    }
+    if (elapsedSeconds % interval.inSeconds == 0) {}
 
     setState(() {
       duration = Duration(
         seconds: interval.inSeconds - elapsedSeconds % interval.inSeconds,
       );
     });
-  }
-
-  _resetCollectedValue() async {
-    await Utilities.saveBoolToSharedPreferences(
-        Appstrings.rewardsCoinsKey, false);
-
-    BlocProvider.of<RewardsCoinsCollectBloc>(context)
-        .add(const CheckCoinsCollected(value: false));
-  }
-
-  _checkCoinsCollected() async {
-    final value = await Utilities.getBoolFromSharedPreferences(
-        Appstrings.rewardsCoinsKey);
-
-    BlocProvider.of<RewardsCoinsCollectBloc>(context)
-        .add(CheckCoinsCollected(value: value));
   }
 
   @override
@@ -133,12 +115,17 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                         ),
                       ),
                       kHeight16,
-                      Text(
-                        Appstrings.text500,
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w900,
-                          color: ColorManager.whiteColor,
+                      BlocBuilder<RewardsCoinsCollectBloc,
+                          RewardsCoinsCollectState>(
+                        builder: (context, state) => Text(
+                          state.coinCollectionModel?.result?.data.coins
+                                  .toString() ??
+                              "0",
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.w900,
+                            color: ColorManager.whiteColor,
+                          ),
                         ),
                       ),
                       kHeight5,
@@ -217,17 +204,9 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                 builder: (context, state) => GestureDetector(
                   onTap: () async {
                     state.checkCoinsCollected == false
-                        ? await Utilities.saveBoolToSharedPreferences(
-                            Appstrings.rewardsCoinsKey, true)
-                        : null;
-                    state.checkCoinsCollected == false
                         ? BlocProvider.of<RewardsCoinsCollectBloc>(context).add(
-                            const RewardsCoinsCollectEvent.checkCoinsCollected(
-                                value: true))
-                        : null;
-                    state.checkCoinsCollected == false
-                        ? BlocProvider.of<RewardsBloc>(context)
-                            .add(const AddRewards(rewards: 500))
+                            RewardsCoinsCollectEvent.addCoinsCollectionEvent(
+                                context))
                         : null;
                   },
                   child: Container(

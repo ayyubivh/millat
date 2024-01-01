@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/profile/bloc/models/terms_and_conditions_model.dart';
@@ -9,16 +8,16 @@ part 'terms_and_condtions_state.dart';
 part 'terms_and_condtions_bloc.freezed.dart';
 
 class TermsAndConditionsBloc
-    extends Bloc<TermsAndCondtionsEvent, TermsAndCondtionsState> {
+    extends Bloc<TermsAndCondtionsEvent, TermsAndConditionsState> {
   TermsAndconditionsServces termsAndconditionsServces =
       TermsAndconditionsServces();
-  TermsAndConditionsBloc() : super(TermsAndCondtionsState.initial()) {
+  TermsAndConditionsBloc() : super(TermsAndConditionsState.initial()) {
     on<FetchTermsAndConditionsEvent>(_fetchTermsAndConditionsEvent);
     on<PostHelpAndSupport>(_postHelpAndSupport);
   }
 
   _fetchTermsAndConditionsEvent(FetchTermsAndConditionsEvent event,
-      Emitter<TermsAndCondtionsState> emit) async {
+      Emitter<TermsAndConditionsState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
       final result = await termsAndconditionsServces.fetchTermsAndConditions(
@@ -30,7 +29,7 @@ class TermsAndConditionsBloc
   }
 
   _postHelpAndSupport(
-      PostHelpAndSupport event, Emitter<TermsAndCondtionsState> emit) async {
+      PostHelpAndSupport event, Emitter<TermsAndConditionsState> emit) async {
     try {
       termsAndconditionsServces.postHelpAndSupport(
           phoneNumber: event.phoneNumber,

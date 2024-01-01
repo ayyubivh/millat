@@ -19,7 +19,7 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) => CategoryBloc()
-          ..add(FetchFilterProducts(category: "", subCategory: category)),
+          ..add(FetchFilterProducts(category: category, subCategory: category)),
         child: SingleChildScrollView(
           child: Stack(
             children: [
@@ -75,7 +75,7 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                                     brand: data?.brand!.name.toString(),
                                     productId: data?.id,
                                     title: data?.title,
-                                    image: data?.images![0],
+                                    image: data?.images?[0],
                                     discountPrice:
                                         data?.salePrice?.toInt() ?? 0,
                                     actualPrice:

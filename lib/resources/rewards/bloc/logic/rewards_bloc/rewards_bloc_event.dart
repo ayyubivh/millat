@@ -19,4 +19,8 @@ class RewardsEvent with _$RewardsEvent {
   }) = AddRewardRedeemCoupon;
   const factory RewardsEvent.fetchRewardRedeemedCoupons() =
       FetchRewardRedeemedCoupons;
+  const factory RewardsEvent.fetchCoinsCollectionEvent() =
+      FetchCoinsCollectionEvent;
+  const factory RewardsEvent.addCoinsCollectionEvent(BuildContext context) =
+      AddCoinsCollectionEvent;
 }

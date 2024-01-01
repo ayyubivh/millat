@@ -1,11 +1,11 @@
 part of 'terms_and_condtions_bloc.dart';
 
 @freezed
-class TermsAndCondtionsState with _$TermsAndCondtionsState {
-  const factory TermsAndCondtionsState({
+class TermsAndConditionsState with _$TermsAndConditionsState {
+  const factory TermsAndConditionsState({
     required TermsConditionsModel? termsConditionsModel,
     required bool isLoading,
-  }) = _TermsAndCondtionsState;
-  factory TermsAndCondtionsState.initial() => const TermsAndCondtionsState(
+  }) = _TermsAndConditionsState;
+  factory TermsAndConditionsState.initial() => const TermsAndConditionsState(
       termsConditionsModel: null, isLoading: false);
 }

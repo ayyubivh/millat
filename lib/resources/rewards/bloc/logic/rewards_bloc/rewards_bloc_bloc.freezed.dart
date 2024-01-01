@@ -27,6 +27,8 @@ mixin _$RewardsEvent {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +42,8 @@ mixin _$RewardsEvent {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +57,8 @@ mixin _$RewardsEvent {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,6 +79,10 @@ mixin _$RewardsEvent {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +98,9 @@ mixin _$RewardsEvent {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -103,6 +116,9 @@ mixin _$RewardsEvent {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -199,6 +215,8 @@ class _$FetchRewardsImpl implements _FetchRewards {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
     return fetchRewards(context);
   }
@@ -215,6 +233,8 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
     return fetchRewards?.call(context);
   }
@@ -231,6 +251,8 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewards != null) {
@@ -257,6 +279,10 @@ class _$FetchRewardsImpl implements _FetchRewards {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
     return fetchRewards(this);
   }
@@ -275,6 +301,9 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
     return fetchRewards?.call(this);
   }
@@ -293,6 +322,9 @@ class _$FetchRewardsImpl implements _FetchRewards {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewards != null) {
@@ -360,6 +392,8 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
     return fetchRewardProducts();
   }
@@ -376,6 +410,8 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
     return fetchRewardProducts?.call();
   }
@@ -392,6 +428,8 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewardProducts != null) {
@@ -418,6 +456,10 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
     return fetchRewardProducts(this);
   }
@@ -436,6 +478,9 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
     return fetchRewardProducts?.call(this);
   }
@@ -454,6 +499,9 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewardProducts != null) {
@@ -543,6 +591,8 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
     return fetchRewardProductsById(id);
   }
@@ -559,6 +609,8 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
     return fetchRewardProductsById?.call(id);
   }
@@ -575,6 +627,8 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewardProductsById != null) {
@@ -601,6 +655,10 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
     return fetchRewardProductsById(this);
   }
@@ -619,6 +677,9 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
     return fetchRewardProductsById?.call(this);
   }
@@ -637,6 +698,9 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewardProductsById != null) {
@@ -732,6 +796,8 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
     return changeCarousselImageIndex(index);
   }
@@ -748,6 +814,8 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
     return changeCarousselImageIndex?.call(index);
   }
@@ -764,6 +832,8 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (changeCarousselImageIndex != null) {
@@ -790,6 +860,10 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
     return changeCarousselImageIndex(this);
   }
@@ -808,6 +882,9 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
     return changeCarousselImageIndex?.call(this);
   }
@@ -826,6 +903,9 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (changeCarousselImageIndex != null) {
@@ -920,6 +1000,8 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
     return changeRewardsTabIndex(index);
   }
@@ -936,6 +1018,8 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
     return changeRewardsTabIndex?.call(index);
   }
@@ -952,6 +1036,8 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (changeRewardsTabIndex != null) {
@@ -978,6 +1064,10 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
     return changeRewardsTabIndex(this);
   }
@@ -996,6 +1086,9 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
     return changeRewardsTabIndex?.call(this);
   }
@@ -1014,6 +1107,9 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (changeRewardsTabIndex != null) {
@@ -1106,6 +1202,8 @@ class _$AddRewardsImpl implements AddRewards {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
     return addRewards(rewards);
   }
@@ -1122,6 +1220,8 @@ class _$AddRewardsImpl implements AddRewards {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
     return addRewards?.call(rewards);
   }
@@ -1138,6 +1238,8 @@ class _$AddRewardsImpl implements AddRewards {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (addRewards != null) {
@@ -1164,6 +1266,10 @@ class _$AddRewardsImpl implements AddRewards {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
     return addRewards(this);
   }
@@ -1182,6 +1288,9 @@ class _$AddRewardsImpl implements AddRewards {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
     return addRewards?.call(this);
   }
@@ -1200,6 +1309,9 @@ class _$AddRewardsImpl implements AddRewards {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (addRewards != null) {
@@ -1268,6 +1380,8 @@ class _$FetchRewardsRedeemItemImpl implements FetchRewardsRedeemItem {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
     return fetchRewardsRedeemItem();
   }
@@ -1284,6 +1398,8 @@ class _$FetchRewardsRedeemItemImpl implements FetchRewardsRedeemItem {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
     return fetchRewardsRedeemItem?.call();
   }
@@ -1300,6 +1416,8 @@ class _$FetchRewardsRedeemItemImpl implements FetchRewardsRedeemItem {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewardsRedeemItem != null) {
@@ -1326,6 +1444,10 @@ class _$FetchRewardsRedeemItemImpl implements FetchRewardsRedeemItem {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
     return fetchRewardsRedeemItem(this);
   }
@@ -1344,6 +1466,9 @@ class _$FetchRewardsRedeemItemImpl implements FetchRewardsRedeemItem {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
     return fetchRewardsRedeemItem?.call(this);
   }
@@ -1362,6 +1487,9 @@ class _$FetchRewardsRedeemItemImpl implements FetchRewardsRedeemItem {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewardsRedeemItem != null) {
@@ -1450,6 +1578,8 @@ class _$AddRewardRedeemCouponImpl implements AddRewardRedeemCoupon {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
     return addRewardRedeemCoupon(id);
   }
@@ -1466,6 +1596,8 @@ class _$AddRewardRedeemCouponImpl implements AddRewardRedeemCoupon {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
     return addRewardRedeemCoupon?.call(id);
   }
@@ -1482,6 +1614,8 @@ class _$AddRewardRedeemCouponImpl implements AddRewardRedeemCoupon {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (addRewardRedeemCoupon != null) {
@@ -1508,6 +1642,10 @@ class _$AddRewardRedeemCouponImpl implements AddRewardRedeemCoupon {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
     return addRewardRedeemCoupon(this);
   }
@@ -1526,6 +1664,9 @@ class _$AddRewardRedeemCouponImpl implements AddRewardRedeemCoupon {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
     return addRewardRedeemCoupon?.call(this);
   }
@@ -1544,6 +1685,9 @@ class _$AddRewardRedeemCouponImpl implements AddRewardRedeemCoupon {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (addRewardRedeemCoupon != null) {
@@ -1613,6 +1757,8 @@ class _$FetchRewardRedeemedCouponsImpl implements FetchRewardRedeemedCoupons {
     required TResult Function() fetchRewardsRedeemItem,
     required TResult Function(String id) addRewardRedeemCoupon,
     required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
   }) {
     return fetchRewardRedeemedCoupons();
   }
@@ -1629,6 +1775,8 @@ class _$FetchRewardRedeemedCouponsImpl implements FetchRewardRedeemedCoupons {
     TResult? Function()? fetchRewardsRedeemItem,
     TResult? Function(String id)? addRewardRedeemCoupon,
     TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
   }) {
     return fetchRewardRedeemedCoupons?.call();
   }
@@ -1645,6 +1793,8 @@ class _$FetchRewardRedeemedCouponsImpl implements FetchRewardRedeemedCoupons {
     TResult Function()? fetchRewardsRedeemItem,
     TResult Function(String id)? addRewardRedeemCoupon,
     TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewardRedeemedCoupons != null) {
@@ -1671,6 +1821,10 @@ class _$FetchRewardRedeemedCouponsImpl implements FetchRewardRedeemedCoupons {
         addRewardRedeemCoupon,
     required TResult Function(FetchRewardRedeemedCoupons value)
         fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
   }) {
     return fetchRewardRedeemedCoupons(this);
   }
@@ -1689,6 +1843,9 @@ class _$FetchRewardRedeemedCouponsImpl implements FetchRewardRedeemedCoupons {
     TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult? Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
   }) {
     return fetchRewardRedeemedCoupons?.call(this);
   }
@@ -1707,6 +1864,9 @@ class _$FetchRewardRedeemedCouponsImpl implements FetchRewardRedeemedCoupons {
     TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
     TResult Function(FetchRewardRedeemedCoupons value)?
         fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
     required TResult orElse(),
   }) {
     if (fetchRewardRedeemedCoupons != null) {
@@ -1718,6 +1878,384 @@ class _$FetchRewardRedeemedCouponsImpl implements FetchRewardRedeemedCoupons {
 
 abstract class FetchRewardRedeemedCoupons implements RewardsEvent {
   const factory FetchRewardRedeemedCoupons() = _$FetchRewardRedeemedCouponsImpl;
+}
+
+/// @nodoc
+abstract class _$$FetchCoinsCollectionEventImplCopyWith<$Res> {
+  factory _$$FetchCoinsCollectionEventImplCopyWith(
+          _$FetchCoinsCollectionEventImpl value,
+          $Res Function(_$FetchCoinsCollectionEventImpl) then) =
+      __$$FetchCoinsCollectionEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchCoinsCollectionEventImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$FetchCoinsCollectionEventImpl>
+    implements _$$FetchCoinsCollectionEventImplCopyWith<$Res> {
+  __$$FetchCoinsCollectionEventImplCopyWithImpl(
+      _$FetchCoinsCollectionEventImpl _value,
+      $Res Function(_$FetchCoinsCollectionEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchCoinsCollectionEventImpl implements FetchCoinsCollectionEvent {
+  const _$FetchCoinsCollectionEventImpl();
+
+  @override
+  String toString() {
+    return 'RewardsEvent.fetchCoinsCollectionEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchCoinsCollectionEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchRewards,
+    required TResult Function() fetchRewardProducts,
+    required TResult Function(String id) fetchRewardProductsById,
+    required TResult Function(int index) changeCarousselImageIndex,
+    required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
+  }) {
+    return fetchCoinsCollectionEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchRewards,
+    TResult? Function()? fetchRewardProducts,
+    TResult? Function(String id)? fetchRewardProductsById,
+    TResult? Function(int index)? changeCarousselImageIndex,
+    TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
+  }) {
+    return fetchCoinsCollectionEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchRewards,
+    TResult Function()? fetchRewardProducts,
+    TResult Function(String id)? fetchRewardProductsById,
+    TResult Function(int index)? changeCarousselImageIndex,
+    TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchCoinsCollectionEvent != null) {
+      return fetchCoinsCollectionEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchRewards value) fetchRewards,
+    required TResult Function(_FetchRewardProducts value) fetchRewardProducts,
+    required TResult Function(_FetchRewardProductsById value)
+        fetchRewardProductsById,
+    required TResult Function(ChangeCarousselImageIndex value)
+        changeCarousselImageIndex,
+    required TResult Function(ChangeRewardsTabIndex value)
+        changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
+  }) {
+    return fetchCoinsCollectionEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchRewards value)? fetchRewards,
+    TResult? Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult? Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult? Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
+  }) {
+    return fetchCoinsCollectionEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchRewards value)? fetchRewards,
+    TResult Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchCoinsCollectionEvent != null) {
+      return fetchCoinsCollectionEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchCoinsCollectionEvent implements RewardsEvent {
+  const factory FetchCoinsCollectionEvent() = _$FetchCoinsCollectionEventImpl;
+}
+
+/// @nodoc
+abstract class _$$AddCoinsCollectionEventImplCopyWith<$Res> {
+  factory _$$AddCoinsCollectionEventImplCopyWith(
+          _$AddCoinsCollectionEventImpl value,
+          $Res Function(_$AddCoinsCollectionEventImpl) then) =
+      __$$AddCoinsCollectionEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$AddCoinsCollectionEventImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$AddCoinsCollectionEventImpl>
+    implements _$$AddCoinsCollectionEventImplCopyWith<$Res> {
+  __$$AddCoinsCollectionEventImplCopyWithImpl(
+      _$AddCoinsCollectionEventImpl _value,
+      $Res Function(_$AddCoinsCollectionEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$AddCoinsCollectionEventImpl(
+      null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddCoinsCollectionEventImpl implements AddCoinsCollectionEvent {
+  const _$AddCoinsCollectionEventImpl(this.context);
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'RewardsEvent.addCoinsCollectionEvent(context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddCoinsCollectionEventImpl &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddCoinsCollectionEventImplCopyWith<_$AddCoinsCollectionEventImpl>
+      get copyWith => __$$AddCoinsCollectionEventImplCopyWithImpl<
+          _$AddCoinsCollectionEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchRewards,
+    required TResult Function() fetchRewardProducts,
+    required TResult Function(String id) fetchRewardProductsById,
+    required TResult Function(int index) changeCarousselImageIndex,
+    required TResult Function(int index) changeRewardsTabIndex,
+    required TResult Function(int rewards) addRewards,
+    required TResult Function() fetchRewardsRedeemItem,
+    required TResult Function(String id) addRewardRedeemCoupon,
+    required TResult Function() fetchRewardRedeemedCoupons,
+    required TResult Function() fetchCoinsCollectionEvent,
+    required TResult Function(BuildContext context) addCoinsCollectionEvent,
+  }) {
+    return addCoinsCollectionEvent(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchRewards,
+    TResult? Function()? fetchRewardProducts,
+    TResult? Function(String id)? fetchRewardProductsById,
+    TResult? Function(int index)? changeCarousselImageIndex,
+    TResult? Function(int index)? changeRewardsTabIndex,
+    TResult? Function(int rewards)? addRewards,
+    TResult? Function()? fetchRewardsRedeemItem,
+    TResult? Function(String id)? addRewardRedeemCoupon,
+    TResult? Function()? fetchRewardRedeemedCoupons,
+    TResult? Function()? fetchCoinsCollectionEvent,
+    TResult? Function(BuildContext context)? addCoinsCollectionEvent,
+  }) {
+    return addCoinsCollectionEvent?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchRewards,
+    TResult Function()? fetchRewardProducts,
+    TResult Function(String id)? fetchRewardProductsById,
+    TResult Function(int index)? changeCarousselImageIndex,
+    TResult Function(int index)? changeRewardsTabIndex,
+    TResult Function(int rewards)? addRewards,
+    TResult Function()? fetchRewardsRedeemItem,
+    TResult Function(String id)? addRewardRedeemCoupon,
+    TResult Function()? fetchRewardRedeemedCoupons,
+    TResult Function()? fetchCoinsCollectionEvent,
+    TResult Function(BuildContext context)? addCoinsCollectionEvent,
+    required TResult orElse(),
+  }) {
+    if (addCoinsCollectionEvent != null) {
+      return addCoinsCollectionEvent(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchRewards value) fetchRewards,
+    required TResult Function(_FetchRewardProducts value) fetchRewardProducts,
+    required TResult Function(_FetchRewardProductsById value)
+        fetchRewardProductsById,
+    required TResult Function(ChangeCarousselImageIndex value)
+        changeCarousselImageIndex,
+    required TResult Function(ChangeRewardsTabIndex value)
+        changeRewardsTabIndex,
+    required TResult Function(AddRewards value) addRewards,
+    required TResult Function(FetchRewardsRedeemItem value)
+        fetchRewardsRedeemItem,
+    required TResult Function(AddRewardRedeemCoupon value)
+        addRewardRedeemCoupon,
+    required TResult Function(FetchRewardRedeemedCoupons value)
+        fetchRewardRedeemedCoupons,
+    required TResult Function(FetchCoinsCollectionEvent value)
+        fetchCoinsCollectionEvent,
+    required TResult Function(AddCoinsCollectionEvent value)
+        addCoinsCollectionEvent,
+  }) {
+    return addCoinsCollectionEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchRewards value)? fetchRewards,
+    TResult? Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult? Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult? Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult? Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult? Function(AddRewards value)? addRewards,
+    TResult? Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult? Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult? Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+    TResult? Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult? Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
+  }) {
+    return addCoinsCollectionEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchRewards value)? fetchRewards,
+    TResult Function(_FetchRewardProducts value)? fetchRewardProducts,
+    TResult Function(_FetchRewardProductsById value)? fetchRewardProductsById,
+    TResult Function(ChangeCarousselImageIndex value)?
+        changeCarousselImageIndex,
+    TResult Function(ChangeRewardsTabIndex value)? changeRewardsTabIndex,
+    TResult Function(AddRewards value)? addRewards,
+    TResult Function(FetchRewardsRedeemItem value)? fetchRewardsRedeemItem,
+    TResult Function(AddRewardRedeemCoupon value)? addRewardRedeemCoupon,
+    TResult Function(FetchRewardRedeemedCoupons value)?
+        fetchRewardRedeemedCoupons,
+    TResult Function(FetchCoinsCollectionEvent value)?
+        fetchCoinsCollectionEvent,
+    TResult Function(AddCoinsCollectionEvent value)? addCoinsCollectionEvent,
+    required TResult orElse(),
+  }) {
+    if (addCoinsCollectionEvent != null) {
+      return addCoinsCollectionEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddCoinsCollectionEvent implements RewardsEvent {
+  const factory AddCoinsCollectionEvent(final BuildContext context) =
+      _$AddCoinsCollectionEventImpl;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$AddCoinsCollectionEventImplCopyWith<_$AddCoinsCollectionEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1736,6 +2274,9 @@ mixin _$RewardsState {
   bool get isRewardRedeemSuccess => throw _privateConstructorUsedError;
   bool get isRewardRedeemFailure => throw _privateConstructorUsedError;
   RedeemedCouponModel? get redeemedCouponModel =>
+      throw _privateConstructorUsedError;
+  bool get checkCoinsCollected => throw _privateConstructorUsedError;
+  CoinCollectionModel? get coinCollectionModel =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1760,13 +2301,16 @@ abstract class $RewardsStateCopyWith<$Res> {
       RewardRedeemItemModel? redeemItemModel,
       bool isRewardRedeemSuccess,
       bool isRewardRedeemFailure,
-      RedeemedCouponModel? redeemedCouponModel});
+      RedeemedCouponModel? redeemedCouponModel,
+      bool checkCoinsCollected,
+      CoinCollectionModel? coinCollectionModel});
 
   $RewardsModelCopyWith<$Res>? get rewardsModel;
   $RewardsProductByIdModelCopyWith<$Res>? get rewardsProductByIdModel;
   $RewardsProductsModelCopyWith<$Res>? get rewardsProductsModel;
   $RewardRedeemItemModelCopyWith<$Res>? get redeemItemModel;
   $RedeemedCouponModelCopyWith<$Res>? get redeemedCouponModel;
+  $CoinCollectionModelCopyWith<$Res>? get coinCollectionModel;
 }
 
 /// @nodoc
@@ -1793,6 +2337,8 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
     Object? isRewardRedeemSuccess = null,
     Object? isRewardRedeemFailure = null,
     Object? redeemedCouponModel = freezed,
+    Object? checkCoinsCollected = null,
+    Object? coinCollectionModel = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -1839,6 +2385,14 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
           ? _value.redeemedCouponModel
           : redeemedCouponModel // ignore: cast_nullable_to_non_nullable
               as RedeemedCouponModel?,
+      checkCoinsCollected: null == checkCoinsCollected
+          ? _value.checkCoinsCollected
+          : checkCoinsCollected // ignore: cast_nullable_to_non_nullable
+              as bool,
+      coinCollectionModel: freezed == coinCollectionModel
+          ? _value.coinCollectionModel
+          : coinCollectionModel // ignore: cast_nullable_to_non_nullable
+              as CoinCollectionModel?,
     ) as $Val);
   }
 
@@ -1905,6 +2459,19 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
       return _then(_value.copyWith(redeemedCouponModel: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CoinCollectionModelCopyWith<$Res>? get coinCollectionModel {
+    if (_value.coinCollectionModel == null) {
+      return null;
+    }
+
+    return $CoinCollectionModelCopyWith<$Res>(_value.coinCollectionModel!,
+        (value) {
+      return _then(_value.copyWith(coinCollectionModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -1926,7 +2493,9 @@ abstract class _$$RewardsStateImplCopyWith<$Res>
       RewardRedeemItemModel? redeemItemModel,
       bool isRewardRedeemSuccess,
       bool isRewardRedeemFailure,
-      RedeemedCouponModel? redeemedCouponModel});
+      RedeemedCouponModel? redeemedCouponModel,
+      bool checkCoinsCollected,
+      CoinCollectionModel? coinCollectionModel});
 
   @override
   $RewardsModelCopyWith<$Res>? get rewardsModel;
@@ -1938,6 +2507,8 @@ abstract class _$$RewardsStateImplCopyWith<$Res>
   $RewardRedeemItemModelCopyWith<$Res>? get redeemItemModel;
   @override
   $RedeemedCouponModelCopyWith<$Res>? get redeemedCouponModel;
+  @override
+  $CoinCollectionModelCopyWith<$Res>? get coinCollectionModel;
 }
 
 /// @nodoc
@@ -1962,6 +2533,8 @@ class __$$RewardsStateImplCopyWithImpl<$Res>
     Object? isRewardRedeemSuccess = null,
     Object? isRewardRedeemFailure = null,
     Object? redeemedCouponModel = freezed,
+    Object? checkCoinsCollected = null,
+    Object? coinCollectionModel = freezed,
   }) {
     return _then(_$RewardsStateImpl(
       isLoading: null == isLoading
@@ -2008,6 +2581,14 @@ class __$$RewardsStateImplCopyWithImpl<$Res>
           ? _value.redeemedCouponModel
           : redeemedCouponModel // ignore: cast_nullable_to_non_nullable
               as RedeemedCouponModel?,
+      checkCoinsCollected: null == checkCoinsCollected
+          ? _value.checkCoinsCollected
+          : checkCoinsCollected // ignore: cast_nullable_to_non_nullable
+              as bool,
+      coinCollectionModel: freezed == coinCollectionModel
+          ? _value.coinCollectionModel
+          : coinCollectionModel // ignore: cast_nullable_to_non_nullable
+              as CoinCollectionModel?,
     ));
   }
 }
@@ -2026,7 +2607,9 @@ class _$RewardsStateImpl implements _RewardsState {
       required this.redeemItemModel,
       required this.isRewardRedeemSuccess,
       required this.isRewardRedeemFailure,
-      required this.redeemedCouponModel});
+      required this.redeemedCouponModel,
+      required this.checkCoinsCollected,
+      required this.coinCollectionModel});
 
   @override
   final bool isLoading;
@@ -2050,10 +2633,14 @@ class _$RewardsStateImpl implements _RewardsState {
   final bool isRewardRedeemFailure;
   @override
   final RedeemedCouponModel? redeemedCouponModel;
+  @override
+  final bool checkCoinsCollected;
+  @override
+  final CoinCollectionModel? coinCollectionModel;
 
   @override
   String toString() {
-    return 'RewardsState(isLoading: $isLoading, rewardsModel: $rewardsModel, rewardsProductByIdModel: $rewardsProductByIdModel, rewardsProductsModel: $rewardsProductsModel, carouselImageIndex: $carouselImageIndex, tabIndex: $tabIndex, rewardCoins: $rewardCoins, redeemItemModel: $redeemItemModel, isRewardRedeemSuccess: $isRewardRedeemSuccess, isRewardRedeemFailure: $isRewardRedeemFailure, redeemedCouponModel: $redeemedCouponModel)';
+    return 'RewardsState(isLoading: $isLoading, rewardsModel: $rewardsModel, rewardsProductByIdModel: $rewardsProductByIdModel, rewardsProductsModel: $rewardsProductsModel, carouselImageIndex: $carouselImageIndex, tabIndex: $tabIndex, rewardCoins: $rewardCoins, redeemItemModel: $redeemItemModel, isRewardRedeemSuccess: $isRewardRedeemSuccess, isRewardRedeemFailure: $isRewardRedeemFailure, redeemedCouponModel: $redeemedCouponModel, checkCoinsCollected: $checkCoinsCollected, coinCollectionModel: $coinCollectionModel)';
   }
 
   @override
@@ -2083,7 +2670,11 @@ class _$RewardsStateImpl implements _RewardsState {
             (identical(other.isRewardRedeemFailure, isRewardRedeemFailure) ||
                 other.isRewardRedeemFailure == isRewardRedeemFailure) &&
             (identical(other.redeemedCouponModel, redeemedCouponModel) ||
-                other.redeemedCouponModel == redeemedCouponModel));
+                other.redeemedCouponModel == redeemedCouponModel) &&
+            (identical(other.checkCoinsCollected, checkCoinsCollected) ||
+                other.checkCoinsCollected == checkCoinsCollected) &&
+            (identical(other.coinCollectionModel, coinCollectionModel) ||
+                other.coinCollectionModel == coinCollectionModel));
   }
 
   @override
@@ -2099,7 +2690,9 @@ class _$RewardsStateImpl implements _RewardsState {
       redeemItemModel,
       isRewardRedeemSuccess,
       isRewardRedeemFailure,
-      redeemedCouponModel);
+      redeemedCouponModel,
+      checkCoinsCollected,
+      coinCollectionModel);
 
   @JsonKey(ignore: true)
   @override
@@ -2120,7 +2713,9 @@ abstract class _RewardsState implements RewardsState {
           required final RewardRedeemItemModel? redeemItemModel,
           required final bool isRewardRedeemSuccess,
           required final bool isRewardRedeemFailure,
-          required final RedeemedCouponModel? redeemedCouponModel}) =
+          required final RedeemedCouponModel? redeemedCouponModel,
+          required final bool checkCoinsCollected,
+          required final CoinCollectionModel? coinCollectionModel}) =
       _$RewardsStateImpl;
 
   @override
@@ -2145,6 +2740,10 @@ abstract class _RewardsState implements RewardsState {
   bool get isRewardRedeemFailure;
   @override
   RedeemedCouponModel? get redeemedCouponModel;
+  @override
+  bool get checkCoinsCollected;
+  @override
+  CoinCollectionModel? get coinCollectionModel;
   @override
   @JsonKey(ignore: true)
   _$$RewardsStateImplCopyWith<_$RewardsStateImpl> get copyWith =>

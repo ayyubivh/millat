@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:millat/resources/rewards/bloc/models/coin_collection/coin_collection_model.dart';
 import 'package:millat/resources/rewards/bloc/models/get_rewards_model.dart';
 import 'package:millat/resources/rewards/bloc/models/redeem_rewards/reward_redeem_items_model.dart';
 import 'package:millat/resources/rewards/bloc/models/rewards_product/rewards_product_by_id_model.dart';
@@ -27,6 +28,8 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
     on<FetchRewardsRedeemItem>(_fetchRewardsRedeemItem);
     on<AddRewardRedeemCoupon>(_addRewardRedeemCoupon);
     on<FetchRewardRedeemedCoupons>(_fetchRewardRedeemedCoupons);
+    on<FetchCoinsCollectionEvent>(_fetchCoinsCollectionEvent);
+    on<AddCoinsCollectionEvent>(_addCoinsCollectionEvent);
   }
 
   _fetchRewards(_FetchRewards event, Emitter<RewardsState> emit) async {
@@ -140,6 +143,37 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
       emit(state.copyWith(isLoading: false, redeemedCouponModel: data));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
+      throw Exception(e);
+    }
+  }
+
+  _fetchCoinsCollectionEvent(
+      FetchCoinsCollectionEvent event, Emitter<RewardsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await rewardServices.fetchCoinCollection();
+      final isCoinCollected = data.result?.data.isCollected;
+      emit(state.copyWith(
+          isLoading: false,
+          coinCollectionModel: data,
+          checkCoinsCollected: isCoinCollected ?? false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+
+      throw Exception(e);
+    }
+  }
+
+  _addCoinsCollectionEvent(
+      AddCoinsCollectionEvent event, Emitter<RewardsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      await rewardServices.addCoinsCollection(event.context);
+      final collectionCoin = state.coinCollectionModel?.result?.data.coins ?? 0;
+      emit(state.copyWith(rewardCoins: state.rewardCoins + collectionCoin));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+
       throw Exception(e);
     }
   }

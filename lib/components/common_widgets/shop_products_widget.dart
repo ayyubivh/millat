@@ -38,6 +38,7 @@ class ShopProductWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       // height: 231,
+
       width: SizeUtility(context).width / 2.6,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,12 +137,8 @@ class ShopProductWidget extends StatelessWidget {
               const Spacer(),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
-                  final cartItems =
-                      state.cartModel?.result?.cartProducts?.cartItems;
-                  final isProductInCart = cartItems
-                          ?.map((item) => item.productId?.id)
-                          .contains(productId) ??
-                      false;
+                  final isProductInCart =
+                      state.cartItems?.contains(productId) ?? false;
 
                   return GestureDetector(
                     onTap: () {

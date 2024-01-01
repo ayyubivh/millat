@@ -204,7 +204,7 @@ class _HomeViewState extends State<HomeView> {
                   _bannerWidget(),
                   kHeight15,
                   _quranAyaWidget(context),
-                  _dailyPrayerTracker(context),
+                  // _dailyPrayerTracker(context),
                   const SizedBox(
                     height: 340,
                     child: HaditTinkerCards(),
@@ -226,10 +226,10 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: _brandOftheDayWidget(),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 30),
+            //   child: _brandOftheDayWidget(),
+            // ),
             kHeight50,
             kHeight50,
           ],

@@ -29,7 +29,6 @@ import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:onesignal_flutter/onesignal_flutter.dart';
-
 import 'resources/rewards/bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 import 'resources/travel/bloc/logic/travel_bloc.dart';
 

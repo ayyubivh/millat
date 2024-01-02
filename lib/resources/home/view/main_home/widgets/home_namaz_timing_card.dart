@@ -505,7 +505,7 @@ Widget offlineText() {
         width: 0.7,
         color: dividerColor,
       ),
-      Column(
+      const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(

@@ -187,7 +187,7 @@ class InsideDuaView extends StatelessWidget {
                                   onPressed: () {
                                     context.pop();
                                   },
-                                  child: Text("OK"),
+                                  child: const Text("OK"),
                                 ),
                               ],
                             );
@@ -297,7 +297,7 @@ class InsideDuaView extends StatelessWidget {
                                     .add(FetchDuaBookMarksEvent(context));
                               },
                               child: ImageIcon(
-                                AssetImage('assets/icons/bookmark_filled.png'),
+                                const AssetImage('assets/icons/bookmark_filled.png'),
                                 size: 20,
                                 color: ColorManager.black4F,
                               ),

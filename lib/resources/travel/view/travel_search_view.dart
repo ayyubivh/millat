@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:millat/components/debounce/debounce.dart';
-import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/resources/travel/view/widget/travel_search_textfield.dart';
 import 'package:millat/routes/app_router_constants.dart';
@@ -310,7 +309,7 @@ class SearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _debounce = Debouncer(milliseconds: 1000);
+    final debounce = Debouncer(milliseconds: 1000);
 
     return BlocBuilder<TravelBloc, TravelState>(
       builder: (context, state) => state.searchedLocation != ""
@@ -376,7 +375,7 @@ class SearchWidget extends StatelessWidget {
                           kHeight8,
                           TravelSearchTextField(
                             onChanged: (value) {
-                              _debounce.run(() {
+                              debounce.run(() {
                                 BlocProvider.of<TravelBloc>(context).add(
                                     TravelEvent.fetchTravelSearchLocations(
                                         searchquery: value));

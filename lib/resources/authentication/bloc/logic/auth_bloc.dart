@@ -43,9 +43,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             referralCode: event.referralCode,
           );
           if (res['status'] == 200) {
-            final _userId = res['result']['userId'];
-            userId = _userId;
-            emit(AuthLoaded(_userId));
+            final userFromRes = res['result']['userId'];
+            userId = userId;
+            emit(AuthLoaded(userFromRes));
           } else {
             emit(AuthError(res['message']));
           }

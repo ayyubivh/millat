@@ -249,7 +249,7 @@ class BookmarkCollectionView extends StatelessWidget {
         child: CustomOutlinedButton(
           backGroundColor: ColorManager.primary,
           onTap: () {
-            BlocProvider.of<QuranBloc>(context).add(PlayPlayListAudio());
+            BlocProvider.of<QuranBloc>(context).add(const PlayPlayListAudio());
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

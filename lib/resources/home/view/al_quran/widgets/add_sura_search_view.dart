@@ -162,10 +162,7 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                                                 QuranState>(
                                               builder: (context, state) {
                                                 if (state.versesByKeyModel ==
-                                                        null ||
-                                                    state.versesByKeyModel
-                                                            ?.length ==
-                                                        0) {
+                                                    null) {
                                                   return const SizedBox();
                                                 }
 

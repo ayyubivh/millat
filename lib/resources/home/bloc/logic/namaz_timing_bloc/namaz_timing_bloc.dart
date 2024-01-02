@@ -100,7 +100,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
           highLatMethodVal: state.highLatMethodVal);
       emit(state.copyWith(prayerModel: data, school: event.school));
     } catch (e) {
-      print('error occured when fetch ${e.toString()}');
+      debugPrint('error occured when fetch ${e.toString()}');
       throw Exception(e);
     }
   }
@@ -123,10 +123,10 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
         prayerModel: data,
         highLatMethodVal: event.numValue,
       ));
-      // print(
+      // debugPrint(
       //     'high late method datas ${data.data.meta.latitudeAdjustmentMethod}');
     } catch (e) {
-      print('error occurred on the change high Latitude Method $e');
+      debugPrint('error occurred on the change high Latitude Method $e');
       throw Exception(e);
     }
   }
@@ -147,7 +147,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
           namazMethodsModel: sortedMethods,
           namazMethodName: data.data!.values.first.name!));
     } catch (e) {
-      print('error occured on the bloc of fetch namaz methods $e');
+      debugPrint('error occured on the bloc of fetch namaz methods $e');
       throw Exception(e);
     }
   }
@@ -167,7 +167,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
         namazMethodName: data.data.meta.method.name,
       ));
     } catch (e) {
-      print('error on the change methods on the bloc ${e.toString()}');
+      debugPrint('error on the change methods on the bloc ${e.toString()}');
       throw Exception(e);
     }
   }
@@ -374,7 +374,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     switch (event.index) {
       case 0:
         final updatedFajrNotify = !state.notifyFajr;
-        // print(updatedFajrNotify);
+        // debugPrint(updatedFajrNotify);
         emit(state.copyWith(notifyFajr: updatedFajrNotify));
         Utilities.saveBoolToSharedPreferences(
             Appstrings.fajr, updatedFajrNotify);

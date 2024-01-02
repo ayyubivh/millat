@@ -126,7 +126,7 @@ class CancelView extends StatelessWidget {
                                       ),
                                       kHeight8,
                                       Text(
-                                        "${data?.productId?.color ?? ""},${data?.productId?.size?[0].size ?? ""}",
+                                        "${data.productId?.color ?? ""},${data.productId?.size?[0].size ?? ""}",
                                         style: TextStyle(
                                           color: ColorManager.textGrey7A,
                                           fontSize: 13,
@@ -142,7 +142,7 @@ class CancelView extends StatelessWidget {
                                       ),
                                       kHeight8,
                                       Text(
-                                        data?.sellingPrice.toString() ?? "",
+                                        data.sellingPrice.toString() ?? "",
                                         style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold,

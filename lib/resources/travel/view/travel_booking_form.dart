@@ -429,7 +429,7 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
             child: BlocBuilder<TravelBloc, TravelState>(
               builder: (context, state) {
                 final country = state.country;
-                final _img = state.formImages;
+                final img = state.formImages;
                 return MainButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
@@ -440,7 +440,7 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
                         name: _nameController.text,
                         email: _emailController.text,
                         phoneNumber: _phoneController.text,
-                        passPortPhoto: _img[0],
+                        passPortPhoto: img[0],
                         country: country,
                         productId: widget.id,
                       ));

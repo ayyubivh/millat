@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -668,13 +667,13 @@ class _TimerWidgetState extends State<TimerWidget> {
 }
 
 class Timers extends StatefulWidget {
-  const Timers({Key? key});
+  const Timers({super.key});
 
   @override
-  _TimersState createState() => _TimersState();
+  TimersState createState() => TimersState();
 }
 
-class _TimersState extends State<Timers> {
+class TimersState extends State<Timers> {
   late Timer _timer;
   int hours = 8;
   int minutes = 23;

@@ -7,8 +7,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
-import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
-import 'package:millat/resources/rewards/bloc/service/reward_service.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -446,7 +444,7 @@ class _HomeViewState extends State<HomeView> {
           kHeight20,
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              final _currentIndex = state.eventOfMonthIndex;
+              final currentIndex = state.eventOfMonthIndex;
               if (state.isLoading ||
                   state.eventOfTheMonthModel?.result?.event == null) {
                 return ShimmerUtils.customRectangleShimmer(
@@ -499,7 +497,7 @@ class _HomeViewState extends State<HomeView> {
                         margin: const EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
-                          color: _currentIndex == index
+                          color: currentIndex == index
                               ? ColorManager.primary
                               : ColorManager.greyD1,
                         ),
@@ -510,7 +508,7 @@ class _HomeViewState extends State<HomeView> {
                   GestureDetector(
                     onTap: () async {
                       _downloadAndShareImage(state.eventOfTheMonthModel!.result!
-                          .event![_currentIndex].images![0]);
+                          .event![currentIndex].images![0]);
                     },
                     child: Row(
                       children: [
@@ -880,7 +878,7 @@ class _HomeViewState extends State<HomeView> {
               return BlocBuilder<QuranBloc, QuranState>(
                 builder: (context, state) {
                   final verskey = state.shuffleVersKey;
-                  if (state.versesByKeyModel?.length == 0) {
+                  if (state.versesByKeyModel?.isEmpty ?? true) {
                     return ShimmerUtils.customRectangleShimmer(
                       SizeUtility(context).width,
                       10,
@@ -955,7 +953,7 @@ class _HomeViewState extends State<HomeView> {
                                 final quranState =
                                     context.read<QuranBloc>().state;
 
-                                final _verskey = verskey;
+                                final verskey0 = verskey;
                                 final parts = verskey.split(":");
                                 final firstPart = parts[0];
                                 context.read<QuranBloc>().add(

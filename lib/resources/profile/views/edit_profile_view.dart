@@ -12,7 +12,6 @@ import 'package:millat/utils/string_constants.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/loader.dart';
-import '../../../utils/utils.dart';
 
 class EditProfileView extends StatefulWidget {
   const EditProfileView({Key? key}) : super(key: key);

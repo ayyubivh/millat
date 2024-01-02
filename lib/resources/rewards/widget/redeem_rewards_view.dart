@@ -66,8 +66,11 @@ class RewardsRedeemView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _couponWidget(context, state),
-                      _redeemedCouponWidget(state,
-                          state.redeemedCouponModel?.result.coupons.length != 0)
+                      _redeemedCouponWidget(
+                          state,
+                          state.redeemedCouponModel?.result.coupons
+                                  .isNotEmpty ??
+                              true)
                     ],
                   ),
                 );

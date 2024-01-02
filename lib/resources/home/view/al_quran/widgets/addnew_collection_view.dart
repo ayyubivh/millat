@@ -360,12 +360,12 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                       builder: (context, state) => TextButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            final _verseList = context
+                            final verseList = context
                                     .read<QuranBloc>()
                                     .state
                                     .bookmarkAudioPlaylist +
                                 state.verskey;
-                            print(_verseList);
+                            print(verseList);
                             widget.type == BookMarkCollectionType.add
                                 ? ctx.read<BookmarkBloc>().add(AddCollection(
                                     context: context,
@@ -386,7 +386,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                               description:
                                                   descriptionTextEditingController
                                                       .text,
-                                              verskey: _verseList,
+                                              verskey: verseList,
                                               image:
                                                   img == "" ? state.image : img,
                                               dbId: passValue!.id!),

@@ -131,17 +131,17 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
 
   _saveImageEvent(SaveImageEvent event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(image: event.img));
-    print('here is the image ${state.image}');
+    debugPrint('here is the image ${state.image}');
   }
 
   _saveQuranChapterId(SaveQuranChapterId event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(id: event.id));
-    print('here is the new id ${state.id}');
+    debugPrint('here is the new id ${state.id}');
   }
 
   _nameChanged(NameChanged event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(name: event.nameValue));
-    print('here is the val ${state.name}');
+    debugPrint('here is the val ${state.name}');
   }
 
   _descriptionChanged(DescriptionChanged event, Emitter<BookmarkState> emit) {
@@ -215,7 +215,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     }
 
     emit(state.copyWith(verskey: updatedIndexList));
-    print('here is the verskey list $updatedIndexList');
+    debugPrint('here is the verskey list $updatedIndexList');
   }
 
   _emptyIndexEvent(event, Emitter<BookmarkState> emit) {

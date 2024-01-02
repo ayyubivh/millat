@@ -119,7 +119,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                   return widget.type == FilterType.category
                       ? state.productLoading
                           ? ShimmerUtils.productsShimmers(context: context)
-                          : state.product?.result?.products?.length == 0
+                          : state.product?.result?.products?.isEmpty ?? true
                               ? Padding(
                                   padding: EdgeInsets.only(
                                       top: SizeUtility(context).height / 2.4),
@@ -190,7 +190,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                 )
                       : state.productLoading
                           ? ShimmerUtils.productsShimmers(context: context)
-                          : state.product?.result?.products?.length == 0
+                          : state.product?.result?.products?.isEmpty ?? true
                               ? Padding(
                                   padding: EdgeInsets.only(
                                       top: SizeUtility(context).height / 2.4),
@@ -228,8 +228,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                           ? ShimmerUtils.productsShimmers(
                                               context: context)
                                           : state.product?.result?.products
-                                                      ?.length ==
-                                                  0
+                                                      ?.isEmpty ??
+                                                  true
                                               ? Padding(
                                                   padding: EdgeInsets.only(
                                                       top: SizeUtility(context)

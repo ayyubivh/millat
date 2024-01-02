@@ -206,7 +206,7 @@ class _SignUpViewState extends State<SignUpView> {
             id: user.userIdentifier,
             context));
       } on Exception catch (e) {
-        print(e);
+        debugPrint(e.toString());
       }
     } else {
       showSnackBar(context, "Apple SignIn is not available for your device");

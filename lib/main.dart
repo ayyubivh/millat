@@ -34,14 +34,17 @@ import 'resources/travel/bloc/logic/travel_bloc.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
 
   OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
   OneSignal.initialize("f7a79b17-636c-4e33-ab11-b46d9c85470c");
   OneSignal.Notifications.requestPermission(true);
-  // OneSignal.Notifications.addPermissionObserver((state) {
-  //   print("Has permission $state");
-  // });
 
+  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  // PlatformDispatcher.instance.onError = (error, stack) {
+  //   FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+  //   return true;
+  // };
   bool splashRemoved = false;
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Future.delayed(const Duration(seconds: 2), () {

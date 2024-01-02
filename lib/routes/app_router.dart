@@ -33,7 +33,6 @@ import 'package:millat/resources/profile/views/edit_profile_view.dart';
 import 'package:millat/resources/profile/views/invite_friend_view.dart';
 import 'package:millat/resources/profile/views/order_history_view.dart';
 import 'package:millat/resources/profile/views/user_profile_view.dart';
-import 'package:millat/resources/rewards/rewards_tab_view.dart';
 import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';

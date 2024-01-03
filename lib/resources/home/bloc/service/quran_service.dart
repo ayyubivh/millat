@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_indoPak_model.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_of_noSymbol.dart';
@@ -26,7 +27,6 @@ class QuranServices {
         final Map<String, dynamic> data = json.decode(response.body);
 
         final result = QuranChapters.fromJson(data);
-        print("here is the results from models $result");
         return result;
       } else {
         throw Exception(
@@ -81,7 +81,7 @@ class QuranServices {
         final Map<String, dynamic> data = json.decode(response.body);
 
         final result = ChapterByIdModel.fromJson(data);
-        print("here is the results from models $result");
+        debugPrint("here is the results from models $result");
         return result;
       } else {
         throw Exception(
@@ -201,7 +201,7 @@ class QuranServices {
         final response = await http.get(Uri.parse("$url$id"));
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
-          print('here is the list of data $data');
+          debugPrint('here is the list of data $data');
           return ChapterByIdModel.fromJson(data);
         } else {
           throw Exception(
@@ -227,7 +227,7 @@ class QuranServices {
         final response = await http.get(Uri.parse("$url$verseKey"));
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
-          
+
           return VersesByKeyModel.fromJson(data);
         } else {
           throw Exception(
@@ -253,7 +253,7 @@ class QuranServices {
         final Map<String, dynamic> data = json.decode(response.body);
 
         final result = TranslationsModel.fromJson(data);
-        print('here is the results of translations $result');
+        debugPrint('here is the results of translations $result');
         return result;
       } else {
         throw Exception(
@@ -286,7 +286,7 @@ class QuranServices {
           return text;
         }).toList();
 
-        print('here are all the translated texts: $texts');
+        debugPrint('here are all the translated texts: $texts');
         return texts;
       }
 
@@ -342,7 +342,7 @@ class QuranServices {
           return text;
         }).toList();
 
-        print('here are all the translated texts: $texts');
+        debugPrint('here are all the translated texts: $texts');
         return texts;
       }
 
@@ -362,7 +362,7 @@ class QuranServices {
         final Map<String, dynamic> data = json.decode(response.body);
 
         final result = RecitationsModel.fromJson(data);
-        print('here is the results of recitors $result');
+        debugPrint('here is the results of recitors $result');
         return result;
       } else {
         throw Exception(

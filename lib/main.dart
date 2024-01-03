@@ -16,7 +16,6 @@ import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dar
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
-import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
@@ -30,6 +29,7 @@ import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'resources/rewards/bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 import 'resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -72,8 +72,8 @@ void main() async {
     DeviceOrientation.portraitDown
   ]);
 
-  if (!Hive.isAdapterRegistered(BookMarktCollectionModelAdapter().typeId)) {
-    Hive.registerAdapter(BookMarktCollectionModelAdapter());
+  if (!Hive.isAdapterRegistered(BookMarkCollectionModelAdapter().typeId)) {
+    Hive.registerAdapter(BookMarkCollectionModelAdapter());
   }
   await Hive.initFlutter();
   await Hive.openBox('userDetailsBox');

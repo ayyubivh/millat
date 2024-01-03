@@ -16,7 +16,7 @@ import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class AddNewBookMarkCollection extends StatefulWidget {
   final BookMarkCollectionType type;
-  final BookMarktCollectionModel? passvalue;
+  final BookMarkCollectionModel? passvalue;
   final List<String>? verseKeys;
 
   const AddNewBookMarkCollection({
@@ -313,7 +313,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
 
   PreferredSize customAppBarBookMark(
       {required BuildContext ctx,
-      required BookMarktCollectionModel? passValue}) {
+      required BookMarkCollectionModel? passValue}) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(54),
       child: Stack(
@@ -365,8 +365,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                     .state
                                     .bookmarkAudioPlaylist +
                                 state.verskey;
-                            print(verseList);
-                            widget.type == BookMarkCollectionType.add
+                             widget.type == BookMarkCollectionType.add
                                 ? ctx.read<BookmarkBloc>().add(AddCollection(
                                     context: context,
                                     name: nameTextEditingController.text,

@@ -165,9 +165,9 @@ class _PrayerTrackerCalendarViewState extends State<PrayerTrackerCalendarView> {
                             //     currentNamaz?['name'] ?? '';
                             final namazTime = state.prayerModel?.data.timings;
 
-                            String fajrTime = namazTime?.fajr ?? "";
+                            // String fajrTime = namazTime?.fajr ?? "";
                             String sunriseTime = namazTime?.sunrise ?? "";
-                            String dhuhrTime = namazTime?.dhuhr ?? "";
+                            // String dhuhrTime = namazTime?.dhuhr ?? "";
                             String asrTime = namazTime?.asr ?? "";
                             String magribTime = namazTime?.maghrib ?? "";
                             String ishaTime = namazTime?.isha ?? "";

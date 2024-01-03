@@ -189,8 +189,6 @@ class CategoryView extends StatelessWidget {
                                         productItems?[index];
                                     return GestureDetector(
                                       onTap: () {
-                                        print(" category id ==== $categoryId");
-
                                         context.pushNamed(
                                             MyAppRouteConstants
                                                 .categoriesProductsRouteName,
@@ -261,7 +259,6 @@ class CategoryView extends StatelessWidget {
 
                                     return GestureDetector(
                                       onTap: () {
-                                        print(" category id ==== $categoryId");
                                         context.pushNamed(
                                             MyAppRouteConstants
                                                 .categoriesProductsRouteName,
@@ -565,10 +562,10 @@ class TimerWidget extends StatefulWidget {
   });
 
   @override
-  _TimerWidgetState createState() => _TimerWidgetState();
+  TimerWidgetState createState() => TimerWidgetState();
 }
 
-class _TimerWidgetState extends State<TimerWidget> {
+class TimerWidgetState extends State<TimerWidget> {
   late Timer _timer;
   int hours = 8;
   int minutes = 0;

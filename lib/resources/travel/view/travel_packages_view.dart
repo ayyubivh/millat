@@ -20,7 +20,6 @@ class TravelPackagesView extends StatelessWidget {
   final TravelsPackagesType? type;
   @override
   Widget build(BuildContext context) {
-    print(type);
     return Scaffold(
         appBar: AppBar(
           backgroundColor: ColorManager.whiteColor,

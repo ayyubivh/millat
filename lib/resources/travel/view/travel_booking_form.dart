@@ -433,8 +433,6 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
                 return MainButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      print(
-                          "text editing controller values ${_nameController.text}\n${_emailController.text}\n${_phoneController.text}");
                       BlocProvider.of<TravelBloc>(context)
                           .add(TravelEvent.bookTravelEvent(
                         name: _nameController.text,

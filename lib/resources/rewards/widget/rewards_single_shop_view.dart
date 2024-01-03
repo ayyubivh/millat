@@ -590,8 +590,6 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                           onTap: () {
                             setState(() {
                               selectedSize = index;
-                              final selectedSizeValue = size[selectedSize];
-                              print(selectedSizeValue);
                             });
                           },
                           child: Container(
@@ -644,7 +642,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                                       setState(() {
                                         if (quantity > 1) {
                                           quantity -= 1;
-                                          print('quantity: $quantity');
+                                         
                                         }
                                       });
                                     },

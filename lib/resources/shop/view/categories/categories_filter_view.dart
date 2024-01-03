@@ -14,7 +14,6 @@ class CategoriesFilterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      print("categoryies filter view");
       BlocProvider.of<CategoryBloc>(context).add(FetchSubCategoriesByCategoryId(
           categoryId: context
               .read<CategoryBloc>()

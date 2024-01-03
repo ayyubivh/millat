@@ -6,18 +6,18 @@ part of 'book_mark_hive_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class BookMarktCollectionModelAdapter
-    extends TypeAdapter<BookMarktCollectionModel> {
+class BookMarkCollectionModelAdapter
+    extends TypeAdapter<BookMarkCollectionModel> {
   @override
   final int typeId = 1;
 
   @override
-  BookMarktCollectionModel read(BinaryReader reader) {
+  BookMarkCollectionModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return BookMarktCollectionModel(
+    return BookMarkCollectionModel(
       id: fields[0] as String?,
       verseKey: (fields[4] as List).cast<String>(),
       name: fields[1] as String,
@@ -27,7 +27,7 @@ class BookMarktCollectionModelAdapter
   }
 
   @override
-  void write(BinaryWriter writer, BookMarktCollectionModel obj) {
+  void write(BinaryWriter writer, BookMarkCollectionModel obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)
@@ -48,7 +48,7 @@ class BookMarktCollectionModelAdapter
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is BookMarktCollectionModelAdapter &&
+      other is BookMarkCollectionModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

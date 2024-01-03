@@ -171,8 +171,7 @@ mixin _$QuranEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -508,8 +507,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -867,8 +865,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -1234,8 +1231,7 @@ class _$FetchChapterVersesbyTextNameImpl
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -1598,8 +1594,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -1934,8 +1929,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -2267,8 +2261,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -2630,8 +2623,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -2993,8 +2985,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -3363,8 +3354,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -3735,8 +3725,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -4112,8 +4101,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -4481,8 +4469,7 @@ class _$ChangeIndexBackGroundSettingImpl
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -4818,8 +4805,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -5148,8 +5134,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -5481,8 +5466,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -5853,8 +5837,7 @@ class _$FetchTranslationChapterTextsImpl
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -6231,8 +6214,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -6597,8 +6579,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -6962,8 +6943,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -7298,8 +7278,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -7426,21 +7405,20 @@ abstract class ShowMusicbar implements QuranEvent {
 }
 
 /// @nodoc
-abstract class _$$IsExpandonSearchEventImplCopyWith<$Res> {
-  factory _$$IsExpandonSearchEventImplCopyWith(
-          _$IsExpandonSearchEventImpl value,
-          $Res Function(_$IsExpandonSearchEventImpl) then) =
-      __$$IsExpandonSearchEventImplCopyWithImpl<$Res>;
+abstract class _$$IsExpandSearchEventImplCopyWith<$Res> {
+  factory _$$IsExpandSearchEventImplCopyWith(_$IsExpandSearchEventImpl value,
+          $Res Function(_$IsExpandSearchEventImpl) then) =
+      __$$IsExpandSearchEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isExpand});
 }
 
 /// @nodoc
-class __$$IsExpandonSearchEventImplCopyWithImpl<$Res>
-    extends _$QuranEventCopyWithImpl<$Res, _$IsExpandonSearchEventImpl>
-    implements _$$IsExpandonSearchEventImplCopyWith<$Res> {
-  __$$IsExpandonSearchEventImplCopyWithImpl(_$IsExpandonSearchEventImpl _value,
-      $Res Function(_$IsExpandonSearchEventImpl) _then)
+class __$$IsExpandSearchEventImplCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$IsExpandSearchEventImpl>
+    implements _$$IsExpandSearchEventImplCopyWith<$Res> {
+  __$$IsExpandSearchEventImplCopyWithImpl(_$IsExpandSearchEventImpl _value,
+      $Res Function(_$IsExpandSearchEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -7448,7 +7426,7 @@ class __$$IsExpandonSearchEventImplCopyWithImpl<$Res>
   $Res call({
     Object? isExpand = null,
   }) {
-    return _then(_$IsExpandonSearchEventImpl(
+    return _then(_$IsExpandSearchEventImpl(
       isExpand: null == isExpand
           ? _value.isExpand
           : isExpand // ignore: cast_nullable_to_non_nullable
@@ -7459,8 +7437,8 @@ class __$$IsExpandonSearchEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IsExpandonSearchEventImpl implements IsExpandSearchEvent {
-  const _$IsExpandonSearchEventImpl({required this.isExpand});
+class _$IsExpandSearchEventImpl implements IsExpandSearchEvent {
+  const _$IsExpandSearchEventImpl({required this.isExpand});
 
   @override
   final bool isExpand;
@@ -7474,7 +7452,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandSearchEvent {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IsExpandonSearchEventImpl &&
+            other is _$IsExpandSearchEventImpl &&
             (identical(other.isExpand, isExpand) ||
                 other.isExpand == isExpand));
   }
@@ -7485,9 +7463,9 @@ class _$IsExpandonSearchEventImpl implements IsExpandSearchEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$IsExpandonSearchEventImplCopyWith<_$IsExpandonSearchEventImpl>
-      get copyWith => __$$IsExpandonSearchEventImplCopyWithImpl<
-          _$IsExpandonSearchEventImpl>(this, _$identity);
+  _$$IsExpandSearchEventImplCopyWith<_$IsExpandSearchEventImpl> get copyWith =>
+      __$$IsExpandSearchEventImplCopyWithImpl<_$IsExpandSearchEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7657,8 +7635,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandSearchEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -7782,12 +7759,12 @@ class _$IsExpandonSearchEventImpl implements IsExpandSearchEvent {
 
 abstract class IsExpandSearchEvent implements QuranEvent {
   const factory IsExpandSearchEvent({required final bool isExpand}) =
-      _$IsExpandonSearchEventImpl;
+      _$IsExpandSearchEventImpl;
 
   bool get isExpand;
   @JsonKey(ignore: true)
-  _$$IsExpandonSearchEventImplCopyWith<_$IsExpandonSearchEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$IsExpandSearchEventImplCopyWith<_$IsExpandSearchEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -8037,8 +8014,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -8377,8 +8353,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -8746,8 +8721,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -9113,8 +9087,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -9449,8 +9422,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -9779,8 +9751,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -10136,8 +10107,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -10502,8 +10472,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -10838,8 +10807,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -11170,8 +11138,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -11534,8 +11501,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,
@@ -11870,8 +11836,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandSearchEvent value)
-        isExpandonSearchEvent,
+    required TResult Function(IsExpandSearchEvent value) isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
     required TResult Function(FetchAllRecitors value) fetchAllRecitors,

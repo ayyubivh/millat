@@ -10,7 +10,7 @@ import '../../../bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class QuranFavBookmarkCollectionWidget extends StatelessWidget {
-  final BookMarktCollectionModel? passvalue;
+  final BookMarkCollectionModel? passvalue;
   final int? chapterId;
   final int? index;
   final QuranFavbookMarkType type;
@@ -111,7 +111,7 @@ class QuranFavBookmarkCollectionWidget extends StatelessWidget {
 
       context.read<BookmarkBloc>().add(const FetchCollectionItem());
     } else {
-      List<BookMarktCollectionModel> filteredList =
+      List<BookMarkCollectionModel> filteredList =
           collectionList.where((element) => element.id == '1').toList();
 
       if (filteredList.isNotEmpty) {

@@ -1,3 +1,5 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -46,7 +48,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     final desc = state.description;
     final dbId = state.dbId;
 
-    final model = BookMarktCollectionModel(
+    final model = BookMarkCollectionModel(
         id: dbId,
         verseKey: state.verskey,
         name: name,
@@ -63,7 +65,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     AddFavCollection event,
     Emitter<BookmarkState> emit,
   ) {
-    final model = BookMarktCollectionModel(
+    final model = BookMarkCollectionModel(
         id: '1',
         verseKey: event.verskey,
         name: Appstrings.myFavorite,
@@ -99,7 +101,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
   _removeBookmark(RemoveBookmark event, Emitter<BookmarkState> emit) {
     try {
       final updatedCollectionItems =
-          List<BookMarktCollectionModel>.from(state.dbCollectionItems);
+          List<BookMarkCollectionModel>.from(state.dbCollectionItems);
 
       final int itemIndex = updatedCollectionItems
           .indexWhere((item) => item.verseKey.contains(event.verseKey));
@@ -109,7 +111,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
             List<String>.from(updatedCollectionItems[itemIndex].verseKey);
         updatedVerseKeys.remove(event.verseKey);
 
-        final updatedItem = BookMarktCollectionModel(
+        final updatedItem = BookMarkCollectionModel(
           id: updatedCollectionItems[itemIndex].id,
           name: updatedCollectionItems[itemIndex].name,
           description: updatedCollectionItems[itemIndex].description,
@@ -160,7 +162,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     final desc = state.description;
     final dbId = event.dbId;
 
-    final model = BookMarktCollectionModel(
+    final model = BookMarkCollectionModel(
       id: dbId,
       verseKey: id,
       name: name,

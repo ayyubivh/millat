@@ -869,7 +869,7 @@ class _VersesViewState extends State<VersesView> {
 
                       return InkWell(
                         onTap: () {
-                          final model = BookMarktCollectionModel(
+                          final model = BookMarkCollectionModel(
                             id: data.id!,
                             verseKey: modifiedVerseKeys,
                             name: data.name,

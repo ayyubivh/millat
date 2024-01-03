@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/profile/bloc/models/terms_and_conditions_model.dart';
 import 'package:millat/resources/profile/bloc/service/terms_and_condition_services.dart';

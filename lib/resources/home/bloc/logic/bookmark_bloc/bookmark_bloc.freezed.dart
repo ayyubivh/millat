@@ -4079,7 +4079,7 @@ mixin _$BookmarkState {
   int get index => throw _privateConstructorUsedError;
   List<int> get versesIndexList => throw _privateConstructorUsedError;
   List<String> get verskey => throw _privateConstructorUsedError;
-  List<BookMarktCollectionModel> get dbCollectionItems =>
+  List<BookMarkCollectionModel> get dbCollectionItems =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -4105,7 +4105,7 @@ abstract class $BookmarkStateCopyWith<$Res> {
       int index,
       List<int> versesIndexList,
       List<String> verskey,
-      List<BookMarktCollectionModel> dbCollectionItems});
+      List<BookMarkCollectionModel> dbCollectionItems});
 }
 
 /// @nodoc
@@ -4182,7 +4182,7 @@ class _$BookmarkStateCopyWithImpl<$Res, $Val extends BookmarkState>
       dbCollectionItems: null == dbCollectionItems
           ? _value.dbCollectionItems
           : dbCollectionItems // ignore: cast_nullable_to_non_nullable
-              as List<BookMarktCollectionModel>,
+              as List<BookMarkCollectionModel>,
     ) as $Val);
   }
 }
@@ -4207,7 +4207,7 @@ abstract class _$$BookmarkStateImplCopyWith<$Res>
       int index,
       List<int> versesIndexList,
       List<String> verskey,
-      List<BookMarktCollectionModel> dbCollectionItems});
+      List<BookMarkCollectionModel> dbCollectionItems});
 }
 
 /// @nodoc
@@ -4282,7 +4282,7 @@ class __$$BookmarkStateImplCopyWithImpl<$Res>
       dbCollectionItems: null == dbCollectionItems
           ? _value._dbCollectionItems
           : dbCollectionItems // ignore: cast_nullable_to_non_nullable
-              as List<BookMarktCollectionModel>,
+              as List<BookMarkCollectionModel>,
     ));
   }
 }
@@ -4302,7 +4302,7 @@ class _$BookmarkStateImpl implements _BookmarkState {
       required this.index,
       required final List<int> versesIndexList,
       required final List<String> verskey,
-      required final List<BookMarktCollectionModel> dbCollectionItems})
+      required final List<BookMarkCollectionModel> dbCollectionItems})
       : _id = id,
         _indexList = indexList,
         _versesIndexList = versesIndexList,
@@ -4355,9 +4355,9 @@ class _$BookmarkStateImpl implements _BookmarkState {
     return EqualUnmodifiableListView(_verskey);
   }
 
-  final List<BookMarktCollectionModel> _dbCollectionItems;
+  final List<BookMarkCollectionModel> _dbCollectionItems;
   @override
-  List<BookMarktCollectionModel> get dbCollectionItems {
+  List<BookMarkCollectionModel> get dbCollectionItems {
     if (_dbCollectionItems is EqualUnmodifiableListView)
       return _dbCollectionItems;
     // ignore: implicit_dynamic_type
@@ -4430,7 +4430,7 @@ abstract class _BookmarkState implements BookmarkState {
           required final int index,
           required final List<int> versesIndexList,
           required final List<String> verskey,
-          required final List<BookMarktCollectionModel> dbCollectionItems}) =
+          required final List<BookMarkCollectionModel> dbCollectionItems}) =
       _$BookmarkStateImpl;
 
   @override
@@ -4456,7 +4456,7 @@ abstract class _BookmarkState implements BookmarkState {
   @override
   List<String> get verskey;
   @override
-  List<BookMarktCollectionModel> get dbCollectionItems;
+  List<BookMarkCollectionModel> get dbCollectionItems;
   @override
   @JsonKey(ignore: true)
   _$$BookmarkStateImplCopyWith<_$BookmarkStateImpl> get copyWith =>

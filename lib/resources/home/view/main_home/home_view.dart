@@ -71,8 +71,7 @@ class _HomeViewState extends State<HomeView> {
       ..add(const ChangeIndexofAllaysaysBg());
 
     OneSignal.Notifications.addClickListener((event) {
-      print(event.notification.additionalData?["route"]);
-      if (event.notification.additionalData?["route"] != null) {
+       if (event.notification.additionalData?["route"] != null) {
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
           context.pushNamed(event.notification.additionalData?["route"]);
         });
@@ -538,99 +537,99 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget _largeDiscountWidget(BuildContext context) {
-    return Container(
-      height: 212,
-      width: SizeUtility(context).width,
-      color: ColorManager.scaffoldBgColor,
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                Appstrings.largeDiscount,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              ImageIcon(
-                AssetImage(AppAssetsStrings.discountIcon),
-              )
-            ],
-          ),
-          Text(
-            Appstrings.onLargeDiscount,
-            style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w500,
-                color: ColorManager.blackColor),
-          ),
-          kHeight15,
-          BlocBuilder<HomeBloc, HomeState>(
-            builder: (context, state) {
-              // if (state.isLoading ||
-              //     state.largeDiscountModel?.result?.banners == null) {
+  // Widget _largeDiscountWidget(BuildContext context) {
+  //   return Container(
+  //     height: 212,
+  //     width: SizeUtility(context).width,
+  //     color: ColorManager.scaffoldBgColor,
+  //     padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         const Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           children: [
+  //             Text(
+  //               Appstrings.largeDiscount,
+  //               style: TextStyle(
+  //                 fontSize: 16,
+  //                 fontWeight: FontWeight.w700,
+  //               ),
+  //             ),
+  //             ImageIcon(
+  //               AssetImage(AppAssetsStrings.discountIcon),
+  //             )
+  //           ],
+  //         ),
+  //         Text(
+  //           Appstrings.onLargeDiscount,
+  //           style: TextStyle(
+  //               fontSize: 15,
+  //               fontWeight: FontWeight.w500,
+  //               color: ColorManager.blackColor),
+  //         ),
+  //         kHeight15,
+  //         BlocBuilder<HomeBloc, HomeState>(
+  //           builder: (context, state) {
+  //             // if (state.isLoading ||
+  //             //     state.largeDiscountModel?.result?.banners == null) {
 
-              // }
+  //             // }
 
-              return Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: !Responsive.isMobile(context) ? 120 : 0),
-                child: SizedBox(
-                  height: 90,
-                  child: ListView.builder(
-                    itemExtent: !Responsive.isMobile(context) ? 140 : 90,
-                    scrollDirection: Axis.horizontal,
-                    itemCount:
-                        state.largeDiscountModel?.result?.banners.length ?? 6,
-                    itemBuilder: (context, index) {
-                      if (state.largeDiscountModel?.result?.banners == null) {
-                        return Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: ShimmerUtils.categoriesShimmers());
-                      }
-                      final banner =
-                          state.largeDiscountModel?.result?.banners[index];
-                      final subCategoryIdTitle = banner?.subCategoryId?.title;
-                      final subCategoryName = banner?.subCategoryName;
-                      return GestureDetector(
-                        onTap: () {
-                          context.pushNamed(
-                              MyAppRouteConstants.categoriesProductsRouteName,
-                              extra: {
-                                'category': subCategoryIdTitle,
-                                'subCategory': subCategoryName,
-                                'type': FilterType.category
-                              });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Utilities().buildCachedNetworkImage(
-                              imageUrl: banner!.image,
-                              boxFit: BoxFit.fill,
-                              height: 120,
-                              width: 80,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              );
-            },
-          )
-        ],
-      ),
-    );
-  }
+  //             return Padding(
+  //               padding: EdgeInsets.symmetric(
+  //                   horizontal: !Responsive.isMobile(context) ? 120 : 0),
+  //               child: SizedBox(
+  //                 height: 90,
+  //                 child: ListView.builder(
+  //                   itemExtent: !Responsive.isMobile(context) ? 140 : 90,
+  //                   scrollDirection: Axis.horizontal,
+  //                   itemCount:
+  //                       state.largeDiscountModel?.result?.banners.length ?? 6,
+  //                   itemBuilder: (context, index) {
+  //                     if (state.largeDiscountModel?.result?.banners == null) {
+  //                       return Padding(
+  //                           padding:
+  //                               const EdgeInsets.symmetric(horizontal: 8.0),
+  //                           child: ShimmerUtils.categoriesShimmers());
+  //                     }
+  //                     final banner =
+  //                         state.largeDiscountModel?.result?.banners[index];
+  //                     final subCategoryIdTitle = banner?.subCategoryId?.title;
+  //                     final subCategoryName = banner?.subCategoryName;
+  //                     return GestureDetector(
+  //                       onTap: () {
+  //                         context.pushNamed(
+  //                             MyAppRouteConstants.categoriesProductsRouteName,
+  //                             extra: {
+  //                               'category': subCategoryIdTitle,
+  //                               'subCategory': subCategoryName,
+  //                               'type': FilterType.category
+  //                             });
+  //                       },
+  //                       child: Padding(
+  //                         padding: const EdgeInsets.only(right: 8.0),
+  //                         child: ClipRRect(
+  //                           borderRadius: BorderRadius.circular(12),
+  //                           child: Utilities().buildCachedNetworkImage(
+  //                             imageUrl: banner!.image,
+  //                             boxFit: BoxFit.fill,
+  //                             height: 120,
+  //                             width: 80,
+  //                           ),
+  //                         ),
+  //                       ),
+  //                     );
+  //                   },
+  //                 ),
+  //               ),
+  //             );
+  //           },
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _dailyPrayerTracker(BuildContext context) {
     return Column(

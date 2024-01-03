@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/home/bloc/service/hadith_service.dart';
 import '../../../models/hadith/hadit_book_chapter_model/hadit_book_chapter_model.dart';

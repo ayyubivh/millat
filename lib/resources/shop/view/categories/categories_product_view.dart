@@ -38,8 +38,6 @@ class CategoriesProductView extends StatefulWidget {
 class _CategoriesProductViewState extends State<CategoriesProductView> {
   @override
   void initState() {
-    print(
-        "category type--=-=-=-=-=-= ${widget.type} category name ${widget.category}");
     BlocProvider.of<CategoryBloc>(context).add(
         widget.type == FilterType.specificCategory
             ? FetchFilterProducts(
@@ -663,13 +661,13 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
     );
   }
 
-  Text _filterTitleText(String text) {
-    return Text(
-      text,
-      style: const TextStyle(
-        fontSize: 17,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
+  // Text _filterTitleText(String text) {
+  //   return Text(
+  //     text,
+  //     style: const TextStyle(
+  //       fontSize: 17,
+  //       fontWeight: FontWeight.bold,
+  //     ),
+  //   );
+  // }
 }

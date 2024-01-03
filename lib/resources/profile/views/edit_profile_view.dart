@@ -425,7 +425,6 @@ class _EditProfileViewState extends State<EditProfileView> {
                                     size: 10,
                                   ),
                                   // validator: (value) {
-                                  //   print("value of validator $value");
                                   //   final RegExp dateRegex = RegExp(
                                   //     r'^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$',
                                   //   );
@@ -433,7 +432,6 @@ class _EditProfileViewState extends State<EditProfileView> {
                                   //   if (value == null || value.isEmpty) {
                                   //     return 'Date of birth is required';
                                   //   } else if (!dateRegex.hasMatch(value)) {
-                                  //     print('Invalid date format eg:(01-12-1997)');
                                   //     return 'Invalid date format eg:(01-12-1997)';
                                   //   }
                                   //   return null;
@@ -459,7 +457,6 @@ class _EditProfileViewState extends State<EditProfileView> {
                                     hintName: Appstrings.email,
                                     textInputType: TextInputType.emailAddress,
                                     validator: (value) {
-                                      print(value);
                                       if (value == null || value.isEmpty) {
                                         return 'Email is required';
                                       }
@@ -567,9 +564,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                                     .read<DatabaseBloc>()
                                     .add(FetchAuthUser(context: context));
                                 context.pop();
-                              } else {
-                                print("not validated");
-                              }
+                              } else {}
                             },
                           ),
                           kHeight20,

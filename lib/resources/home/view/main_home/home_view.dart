@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
 import 'package:millat/resources/rewards/bloc/service/reward_service.dart';
+import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -71,7 +72,8 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchHadithOfTheDay())
       ..add(const FetchEventOfTheMonth())
       ..add(const ChangeIndexofAllaysaysBg());
-
+    BlocProvider.of<CategoryBloc>(context)
+        .add(const FetchFilterOptionEvent(category: "subcategory=Women"));
     OneSignal.Notifications.addClickListener((event) {
       print(event.notification.additionalData?["route"]);
       if (event.notification.additionalData?["route"] != null) {

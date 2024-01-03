@@ -117,7 +117,7 @@ class _$TravelCitiesModelImpl implements _TravelCitiesModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TravelCitiesModelImpl &&
@@ -355,7 +355,7 @@ class _$CityImpl implements _City {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CityImpl &&

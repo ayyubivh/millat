@@ -150,7 +150,7 @@ class HomeNamazTimingCard extends StatelessWidget {
           ],
         ),
         child: BlocBuilder<LocationBloc, LocationState>(
-          builder: (context, state) => state.currentLocaion.isEmpty
+          builder: (context, state) => state.currentLocation.isEmpty
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -271,7 +271,7 @@ class HomeNamazTimingCard extends StatelessWidget {
       child: SingleChildScrollView(
         child: BlocBuilder<LocationBloc, LocationState>(
           builder: (context, state) {
-            return state.currentLocaion.isEmpty
+            return state.currentLocation.isEmpty
                 ? offlineContainer(context)
                 : buildNamazTiming(context);
           },
@@ -426,7 +426,7 @@ Widget buildNamazTiming(BuildContext context) {
               ),
               kWidth8,
               BlocBuilder<LocationBloc, LocationState>(
-                builder: (context, state) => Text(state.currentLocaion,
+                builder: (context, state) => Text(state.currentLocation,
                     style: TextStyle(
                       color: ColorManager.textGrey,
                       fontSize: 12,

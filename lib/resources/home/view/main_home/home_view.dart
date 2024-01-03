@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, depend_on_referenced_packages
 
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -95,7 +95,7 @@ class _HomeViewState extends State<HomeView> {
         },
         child: BlocListener<LocationBloc, LocationState>(
           listener: (context, state) {
-            if (state.currentLocaion.isNotEmpty &&
+            if (state.currentLocation.isNotEmpty &&
                 state.weatherConditionName.isEmpty) {
               context
                   .read<NamazTimingBloc>()
@@ -170,7 +170,7 @@ class _HomeViewState extends State<HomeView> {
                           image: AppAssetsStrings.homeCompassIcon,
                           text: Appstrings.compass,
                           onTap: () {
-                            if (state.currentLocaion.isNotEmpty) {
+                            if (state.currentLocation.isNotEmpty) {
                               context.goNamed(
                                   MyAppRouteConstants.compassRouteName);
                             } else {

@@ -166,7 +166,6 @@ class ShopBrandView extends StatelessWidget {
           child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
             builder: (context, state) {
               if (state.topBrandsModel?.result?.data == null) {
-                print(state.topBrandsModel);
                 return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: List.generate(

@@ -122,7 +122,7 @@ class _$ChapterVersesIndoPakModelImpl implements _ChapterVersesIndoPakModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChapterVersesIndoPakModelImpl &&
@@ -297,7 +297,7 @@ class _$VersesImpl implements _Verses {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VersesImpl &&

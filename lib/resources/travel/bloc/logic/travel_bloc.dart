@@ -93,7 +93,6 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
       if (event.searchquery != "" || event.searchquery.isNotEmpty) {
         final data = await travelServices.fetchTravelSearchLocations(
             searchQuery: event.searchquery);
-        print(data);
         if (data.isEmpty) {
           emit(state.copyWith(
             travelSearchLocationModels: [],
@@ -155,7 +154,6 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
           productId: event.productId);
       if (data['status'] == true) {
         emit(state.copyWith(bookingSuccess: true, isLoading: false));
-        print(data['status']);
       }
     } catch (e) {
       emit(state.copyWith(bookingSuccess: false, isLoading: false));
@@ -166,7 +164,6 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
   _increaseGuestEvent(IncreaseGuestEvent event, Emitter<TravelState> emit) {
     final newState = state.copyWith(numberOfGuest: state.numberOfGuest + 1);
     emit(newState);
-    print(newState.numberOfGuest);
   }
 
   _decreaseGuestEvent(DecreaseGuestEvent event, Emitter<TravelState> emit) {
@@ -176,12 +173,10 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
 
   _selectCountryEvent(SelectCountryEvent event, Emitter<TravelState> emit) {
     emit(state.copyWith(country: event.country));
-    print("country in bloc ${state.country}");
   }
 
   _saveSearchLocation(SaveSearchLocation event, Emitter<TravelState> emit) {
     emit(state.copyWith(searchedLocation: event.location));
-    print(state.searchedLocation);
   }
 
   _resetSearchData(ResetSearchData event, Emitter<TravelState> emit) {
@@ -190,7 +185,6 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
 
   _showCalendarEvent(ShowCalendarEvent event, Emitter<TravelState> emit) {
     emit(state.copyWith(showCalendar: !state.showCalendar));
-    print(state.showCalendar);
   }
 
   _changeTravelTabIndex(ChangeTravelTabIndex event, Emitter<TravelState> emit) {
@@ -205,7 +199,6 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     if (state.selectedStartDate != null && state.selectedEndDate != null) {
       emit(state.copyWith(
           formattedDateRang: _formateDate(state.selectedStartDate!)));
-      print("formated date${state.formattedDateRang}");
     }
   }
 
@@ -247,7 +240,6 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
         final updatedWishlist = state.travelWishlistItems?.toSet() ?? {}
           ..add(event.productId);
         emit(state.copyWith(travelWishlistItems: updatedWishlist));
-        print("wishlist set ${state.travelWishlistItems}");
       } else {
         final updatedWishList = state.travelWishlistItems?.toSet() ?? {};
         updatedWishList.remove(event.productId);
@@ -257,7 +249,6 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
         emit(state.copyWith(
             travelWishlistItems: updatedWishList,
             wishlistProducts: newWishlist));
-        print("wishlist set ${state.travelWishlistItems}");
       }
     } catch (e) {
       throw Exception(e);
@@ -291,13 +282,11 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     final data = await travelServices.pickImages();
 
     emit(state.copyWith(formImages: data));
-    print(state.formImages);
   }
 }
 
 _formateDate(DateTime date) {
   DateFormat dateFormat = DateFormat('E MMM dd yyyy');
   String formattedDate = dateFormat.format(date);
-  print(formattedDate);
   return formattedDate;
 }

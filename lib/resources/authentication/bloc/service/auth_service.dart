@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -240,7 +242,9 @@ class AuthService extends HttpServices {
     });
   }
 
-  forgotPassword({required String phoneNumber, required String}) async {
+  forgotPassword({
+    required String phoneNumber,
+  }) async {
     return await posts(endPoint: forgotPasswordAPI, body: {
       "phone_number": phoneNumber,
       "otp": "7941",

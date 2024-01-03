@@ -117,7 +117,7 @@ class _$ParaVersesModelImpl implements _ParaVersesModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ParaVersesModelImpl &&
@@ -292,7 +292,7 @@ class _$VersesImpl implements _Verses {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VersesImpl &&

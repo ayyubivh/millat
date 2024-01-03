@@ -13,7 +13,7 @@ class NamazTimingService {
       required int method,
       required int highLatMethodVal,
       required BuildContext context}) async {
-    final address = context.read<LocationBloc>().state.currentLocaion;
+    final address = context.read<LocationBloc>().state.currentLocation;
 
     final response = await http.get(Uri.parse(
         'http://api.aladhan.com/v1/timingsByAddress/$date?address=$address&school=$school&method=$method&latitudeAdjustmentMethod=$highLatMethodVal'));

@@ -117,7 +117,7 @@ class _$RecitationsModelImpl implements _RecitationsModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecitationsModelImpl &&
@@ -325,7 +325,7 @@ class _$RecitationsImpl implements _Recitations {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecitationsImpl &&
@@ -497,7 +497,7 @@ class _$TranslatedNameImpl implements _TranslatedName {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TranslatedNameImpl &&

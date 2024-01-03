@@ -541,7 +541,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                             return state.autoDetectLocationDb == true
                                 ? BlocBuilder<LocationBloc, LocationState>(
                                     builder: (context, state) {
-                                      return Text(state.currentLocaion,
+                                      return Text(state.currentLocation,
                                           style:
                                               const TextStyle(color: black165));
                                     },
@@ -562,7 +562,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                           BlocBuilder<LocationBloc,
                                               LocationState>(
                                             builder: (context, state) => Text(
-                                                state.currentLocaion,
+                                                state.currentLocation,
                                                 style: const TextStyle(
                                                     color: black165)),
                                           ),
@@ -1548,7 +1548,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                     border: InputBorder.none,
                   ),
                   onFieldSubmitted: (value) {
-                    print('object test ahn monuse');
+                    debugPrint('object test ahn monuse');
                     context
                         .read<LocationBloc>()
                         .add(SearchCities(query: value));
@@ -1588,7 +1588,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
 
                               return InkWell(
                                 onTap: () {
-                                  print('here on the tap city name $city');
+                                  debugPrint('here on the tap city name $city');
                                   context.read<LocationBloc>().add(
                                       ChangeLocation(
                                           location:
@@ -1870,7 +1870,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
         return currentAddress;
       }
     } catch (e) {
-      print('Error: $e');
+      debugPrint('Error: $e');
     }
 
     return '';

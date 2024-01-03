@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -51,7 +50,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
         id: dbId,
         verseKey: state.verskey,
         name: name,
-        discription: desc,
+        description: desc,
         image: img);
 
     if (name.isEmpty || img.isEmpty || desc.isEmpty || versekey == []) {
@@ -68,7 +67,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
         id: '1',
         verseKey: event.verskey,
         name: Appstrings.myFavorite,
-        discription: "Favorite Item Collections",
+        description: "Favorite Item Collections",
         image: AppAssetsStrings.favoriteImg);
 
     BookMarkDB.instance.addCollection(model);
@@ -113,7 +112,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
         final updatedItem = BookMarktCollectionModel(
           id: updatedCollectionItems[itemIndex].id,
           name: updatedCollectionItems[itemIndex].name,
-          discription: updatedCollectionItems[itemIndex].discription,
+          description: updatedCollectionItems[itemIndex].description,
           image: updatedCollectionItems[itemIndex].image,
           verseKey: updatedVerseKeys,
         );
@@ -165,7 +164,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
       id: dbId,
       verseKey: id,
       name: name,
-      discription: desc,
+      description: desc,
       image: img,
     );
 

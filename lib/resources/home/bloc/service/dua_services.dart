@@ -93,12 +93,13 @@ class DuaServices extends HttpServices {
 
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }
@@ -128,12 +129,13 @@ class DuaServices extends HttpServices {
 
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }
@@ -151,7 +153,7 @@ class DuaServices extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on fetch bookmark API fetch: ${e.toString()}');
+        debugPrint('error on fetch bookmark API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -168,7 +170,7 @@ class DuaServices extends HttpServices {
         final response = await get(endPoint: "$url/$id");
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
-          print('here is the list of data $data');
+          debugPrint('here is the list of data $data');
           return DuaModelById.fromJson(data);
         } else {
           throw Exception(

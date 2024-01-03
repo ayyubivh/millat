@@ -45,7 +45,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ShopProducts.fromJson(data);
-        print("flash sale products $result");
+        debugPrint("flash sale products $result");
         return result;
       } catch (e) {
         debugPrint("error on fetching flash sale products $e");
@@ -64,11 +64,11 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ShopProducts.fromJson(data);
-        // print("popular product >>>>------------------->>>>>> $result");
+        // debugPrint("popular product >>>>------------------->>>>>> $result");
 
         return result;
       } catch (e) {
-        print('error on API Popular fetch: ${e.toString()}');
+        debugPrint('error on API Popular fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -87,7 +87,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on Recent API fetch: ${e.toString()}');
+        debugPrint('error on Recent API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -105,11 +105,11 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductModel.fromJson(data);
-        print('jsone here on products$result');
+        debugPrint('jsone here on products$result');
 
         return result;
       } catch (e) {
-        print('error on  product: ${e.toString()}');
+        debugPrint('error on  product: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -129,7 +129,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on Banner API fetch: ${e.toString()}');
+        debugPrint('error on Banner API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -147,10 +147,9 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductByIdModel.fromJson(data);
-        print(result);
         return result;
       } catch (e) {
-        print('error on produc API fetch: ${e.toString()}');
+        debugPrint('error on produc API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -167,10 +166,10 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = BannersModel.fromJson(data);
-        print('result');
+        debugPrint('result');
         return result;
       } catch (e) {
-        print('error on shopBanner API fetch: ${e.toString()}');
+        debugPrint('error on shopBanner API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -190,7 +189,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on Article API fetch: ${e.toString()}');
+        debugPrint('error on Article API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -210,7 +209,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on Article by id API fetch: ${e.toString()}');
+        debugPrint('error on Article by id API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -230,7 +229,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on Article API fetch: ${e.toString()}');
+        debugPrint('error on Article API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -252,7 +251,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on Article API fetch: ${e.toString()}');
+        debugPrint('error on Article API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -273,7 +272,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on fetchin all brands: ${e.toString()}');
+        debugPrint('error on fetchin all brands: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -291,10 +290,9 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = BrandItemsModel.fromJson(data);
-        print(result);
         return result;
       } catch (e) {
-        print('error on fetchin all brands: ${e.toString()}');
+        debugPrint('error on fetchin all brands: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -313,11 +311,11 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductModel.fromJson(data);
-        print(
+        debugPrint(
             "brand products results -----------------------------================= $result");
         return result;
       } catch (e) {
-        print('error on Article API fetch: ${e.toString()}');
+        debugPrint('error on Article API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -345,14 +343,15 @@ class ShopService extends HttpServices {
           if (productCount != null) {
             productCounts.add(productCount);
           } else {
-            print(
+            debugPrint(
                 'Invalid response format: totalProducts is missing or not a number.');
           }
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('An error occurred: $e');
+        debugPrint('An error occurred: $e');
       }
     }
 
@@ -389,7 +388,7 @@ class ShopService extends HttpServices {
         throw Exception('Failed to add item to wishlist');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }
@@ -413,13 +412,13 @@ class ShopService extends HttpServices {
       );
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        print('Removing wishlist item: $data');
+        debugPrint('Removing wishlist item: $data');
       } else {
-        print('Error on API fetch: ${response.statusCode}');
+        debugPrint('Error on API fetch: ${response.statusCode}');
         throw Exception('Failed to remove item from wishlist');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }
@@ -438,7 +437,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('Error on shop by wishlist API fetch: ${e.toString()}');
+        debugPrint('Error on shop by wishlist API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -456,11 +455,11 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductModel.fromJson(data);
-        print('jsone here on a mat cha$result');
+        debugPrint('jsone here on a mat cha$result');
 
         return result;
       } catch (e) {
-        print('error on search product: ${e.toString()}');
+        debugPrint('error on search product: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -497,14 +496,15 @@ class ShopService extends HttpServices {
           log('Filtered products: $filteredProducts');
           return filteredResult;
         } catch (e) {
-          print('Error decoding JSON: $e');
+          debugPrint('Error decoding JSON: $e');
           throw Exception('Failed to parse JSON');
         }
       } else {
         throw Exception('Empty response body');
       }
     } else {
-      print('HTTP request failed with status code: ${response.statusCode}');
+      debugPrint(
+          'HTTP request failed with status code: ${response.statusCode}');
       throw Exception('Failed to fetch products');
     }
   }
@@ -519,7 +519,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = SpecificCategoryModel.fromJson(data);
-        print("product banners $result");
+        debugPrint("product banners $result");
         return result;
       } catch (e) {
         throw Exception('Failed to parse response');
@@ -552,7 +552,7 @@ class ShopService extends HttpServices {
   }
 
   Future<ShopHomeBackgroundCardHealthyDietModel>
-      fetchShopHomeBackgroundCardHelthyDiet({required String slug}) async {
+      fetchShopHomeBackgroundCardHeathyDiet({required String slug}) async {
     final endPoint = "specific_category?slug=$slug";
     final response = await get(endPoint: endPoint);
 
@@ -563,7 +563,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on fetch home background: ${e.toString()}');
+        debugPrint('error on fetch home background: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -584,7 +584,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on shop home background: ${e.toString()}');
+        debugPrint('error on shop home background: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -604,7 +604,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on shop by brand API fetch: ${e.toString()}');
+        debugPrint('error on shop by brand API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -616,15 +616,15 @@ class ShopService extends HttpServices {
   Future<ShopAdBrandsById> fetchAdShopBrandsbyId({required String id}) async {
     final endPoint = "ad_brand/$id";
     final response = await get(endPoint: endPoint);
-    // print(id);
+    // debugPrint(id);
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ShopAdBrandsById.fromJson(data);
-        print('here shop by id $result');
+        debugPrint('here shop by id $result');
         return result;
       } catch (e) {
-        print('error on shop by brand API fetch: ${e.toString()}');
+        debugPrint('error on shop by brand API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -644,7 +644,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on shop Top brands api: ${e.toString()}');
+        debugPrint('error on shop Top brands api: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -661,10 +661,9 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = BrandModels.fromJson(data);
-        print(result);
         return result;
       } catch (e) {
-        print('error on shop Top brands api: ${e.toString()}');
+        debugPrint('error on shop Top brands api: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -684,7 +683,7 @@ class ShopService extends HttpServices {
         final result = ProductItemsSubCategoryWomenModel.fromJson(data);
         return result;
       } catch (e) {
-        print('item subcategory women: ${e.toString()}');
+        debugPrint('item subcategory women: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -705,7 +704,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('item subcategory women: ${e.toString()}');
+        debugPrint('item subcategory women: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -726,7 +725,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('item subcategory women: ${e.toString()}');
+        debugPrint('item subcategory women: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -747,7 +746,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on item subcategory sunnah: ${e.toString()}');
+        debugPrint('error on item subcategory sunnah: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -768,7 +767,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on item subcategory health: ${e.toString()}');
+        debugPrint('error on item subcategory health: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -788,7 +787,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on item subcategory health: ${e.toString()}');
+        debugPrint('error on item subcategory health: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

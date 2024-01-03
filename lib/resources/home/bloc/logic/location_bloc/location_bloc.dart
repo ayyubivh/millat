@@ -64,7 +64,6 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           .toList();
 
       emit(state.copyWith(searchCities: searchResults));
-      print(searchResults);
     }
   }
 
@@ -106,10 +105,10 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     try {
       final currentLocationFromPrefs =
           await Utilities.getStringFromSharedPreferences(
-              Appstrings.currenLocationKey);
+              Appstrings.currentLocationKey);
       if (currentLocationFromPrefs.isNotEmpty) {
         emit(state.copyWith(
-          currentLocaion: currentLocationFromPrefs,
+          currentLocation: currentLocationFromPrefs,
         ));
         debugPrint("Location from the local storage $currentLocationFromPrefs");
       }
@@ -125,9 +124,9 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           position.longitude,
         );
         Utilities.saveStringToSharedPreferences(
-            Appstrings.currenLocationKey, currentAddress);
+            Appstrings.currentLocationKey, currentAddress);
         emit(state.copyWith(
-          currentLocaion: currentAddress,
+          currentLocation: currentAddress,
           location: currentAddress,
         ));
       }).catchError((e) {
@@ -164,7 +163,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       //     Utilities.saveStringToSharedPreferences(
       //         Appstrings.currenLocationKey, currentAddress);
       //     emit(state.copyWith(
-      //       currentLocaion: currentAddress,
+      //       currentLocation: currentAddress,
       //       location: currentAddress,
       //     ));
       //   }
@@ -206,7 +205,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   FutureOr<void> _changeLocation(
       ChangeLocation event, Emitter<LocationState> emit) {
     try {
-      emit(state.copyWith(currentLocaion: event.location));
+      emit(state.copyWith(currentLocation: event.location));
     } catch (e) {
       throw Exception(e);
     }
@@ -214,7 +213,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
   FutureOr<void> _changeLocationOnToggle(
       ChangeLocationOnToggle event, Emitter<LocationState> emit) {
-    emit(state.copyWith(currentLocaion: state.location));
+    emit(state.copyWith(currentLocation: state.location));
   }
 
   _fetchWeatherEvent(

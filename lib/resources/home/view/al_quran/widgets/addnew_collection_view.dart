@@ -63,7 +63,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
 
   addField() {
     nameTextEditingController.text = widget.passvalue!.name;
-    descriptionTextEditingController.text = widget.passvalue!.discription;
+    descriptionTextEditingController.text = widget.passvalue!.description;
     img = widget.passvalue!.image;
     BlocProvider.of<BookmarkBloc>(context)
         .add(SaveVerseKeyEvent((widget.passvalue!.verseKey.join(" "))));

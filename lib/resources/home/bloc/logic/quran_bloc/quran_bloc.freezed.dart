@@ -171,7 +171,7 @@ mixin _$QuranEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -219,7 +219,7 @@ mixin _$QuranEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -264,7 +264,7 @@ mixin _$QuranEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -331,7 +331,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchQuaranChaptersEventImpl);
@@ -508,7 +508,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -559,7 +559,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -607,7 +607,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -682,7 +682,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchChaperVersesEventImpl &&
@@ -867,7 +867,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -918,7 +918,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -966,7 +966,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -1048,7 +1048,7 @@ class _$FetchChapterVersesbyTextNameImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchChapterVersesbyTextNameImpl &&
@@ -1234,7 +1234,7 @@ class _$FetchChapterVersesbyTextNameImpl
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -1285,7 +1285,7 @@ class _$FetchChapterVersesbyTextNameImpl
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -1333,7 +1333,7 @@ class _$FetchChapterVersesbyTextNameImpl
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -1413,7 +1413,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchParaVersesImpl &&
@@ -1598,7 +1598,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -1649,7 +1649,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -1697,7 +1697,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -1758,7 +1758,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchQuranParaImpl);
   }
@@ -1934,7 +1934,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -1985,7 +1985,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -2033,7 +2033,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -2090,7 +2090,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeExpandOnSearchEventImpl);
@@ -2267,7 +2267,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -2318,7 +2318,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -2366,7 +2366,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -2444,7 +2444,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FechtChapterbyIdImpl &&
@@ -2630,7 +2630,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -2681,7 +2681,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -2729,7 +2729,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -2808,7 +2808,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchChapterEventImpl &&
@@ -2993,7 +2993,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -3044,7 +3044,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -3092,7 +3092,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -3177,7 +3177,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchVersesByKeyImpl &&
@@ -3363,7 +3363,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -3414,7 +3414,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -3462,7 +3462,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -3548,7 +3548,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchParaAudiosImpl &&
@@ -3735,7 +3735,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -3786,7 +3786,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -3834,7 +3834,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -3925,7 +3925,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchChapterAudioFilesImpl &&
@@ -4112,7 +4112,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -4163,7 +4163,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -4211,7 +4211,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -4295,7 +4295,7 @@ class _$ChangeIndexBackGroundSettingImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeIndexBackGroundSettingImpl &&
@@ -4481,7 +4481,7 @@ class _$ChangeIndexBackGroundSettingImpl
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -4532,7 +4532,7 @@ class _$ChangeIndexBackGroundSettingImpl
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -4580,7 +4580,7 @@ class _$ChangeIndexBackGroundSettingImpl
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -4642,7 +4642,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$IncreaseFontsizeImpl);
   }
@@ -4818,7 +4818,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -4869,7 +4869,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -4917,7 +4917,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -4972,7 +4972,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$DecreaseFontsizeImpl);
   }
@@ -5148,7 +5148,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -5199,7 +5199,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -5247,7 +5247,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -5304,7 +5304,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchAllTranslationsEventImpl);
@@ -5481,7 +5481,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -5532,7 +5532,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -5580,7 +5580,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -5664,7 +5664,7 @@ class _$FetchTranslationChapterTextsImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTranslationChapterTextsImpl &&
@@ -5853,7 +5853,7 @@ class _$FetchTranslationChapterTextsImpl
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -5904,7 +5904,7 @@ class _$FetchTranslationChapterTextsImpl
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -5952,7 +5952,7 @@ class _$FetchTranslationChapterTextsImpl
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -6044,7 +6044,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTranslationParaTextsImpl &&
@@ -6231,7 +6231,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -6282,7 +6282,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -6330,7 +6330,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -6412,7 +6412,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlayAllParaAudiosAutoImpl &&
@@ -6597,7 +6597,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -6648,7 +6648,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -6696,7 +6696,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -6777,7 +6777,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlayAllChapterAudiosAutoImpl &&
@@ -6962,7 +6962,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -7013,7 +7013,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -7061,7 +7061,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -7122,7 +7122,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ShowMusicbarImpl);
   }
@@ -7298,7 +7298,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -7349,7 +7349,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -7397,7 +7397,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -7459,7 +7459,7 @@ class __$$IsExpandonSearchEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
+class _$IsExpandonSearchEventImpl implements IsExpandSearchEvent {
   const _$IsExpandonSearchEventImpl({required this.isExpand});
 
   @override
@@ -7471,7 +7471,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IsExpandonSearchEventImpl &&
@@ -7657,7 +7657,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -7708,7 +7708,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -7756,7 +7756,7 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -7780,8 +7780,8 @@ class _$IsExpandonSearchEventImpl implements IsExpandonSearchEvent {
   }
 }
 
-abstract class IsExpandonSearchEvent implements QuranEvent {
-  const factory IsExpandonSearchEvent({required final bool isExpand}) =
+abstract class IsExpandSearchEvent implements QuranEvent {
+  const factory IsExpandSearchEvent({required final bool isExpand}) =
       _$IsExpandonSearchEventImpl;
 
   bool get isExpand;
@@ -7847,7 +7847,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveGlobalTransilationIdAndNameImpl &&
@@ -8037,7 +8037,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -8088,7 +8088,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -8136,7 +8136,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -8201,7 +8201,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchAllRecitorsImpl);
   }
@@ -8377,7 +8377,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -8428,7 +8428,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -8476,7 +8476,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -8557,7 +8557,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveRecitorNameAndIdImpl &&
@@ -8746,7 +8746,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -8797,7 +8797,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -8845,7 +8845,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -8927,7 +8927,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveQuranTexttypeNameImpl &&
@@ -9113,7 +9113,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -9164,7 +9164,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -9212,7 +9212,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -9273,7 +9273,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$OnTapofNextEventImpl);
   }
@@ -9449,7 +9449,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -9500,7 +9500,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -9548,7 +9548,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -9603,7 +9603,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$OnTapofPrevEventImpl);
   }
@@ -9779,7 +9779,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -9830,7 +9830,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -9878,7 +9878,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -9951,7 +9951,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveLastReadEventImpl &&
@@ -10136,7 +10136,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -10187,7 +10187,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -10235,7 +10235,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -10316,7 +10316,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchSingleVerseTranslationImpl &&
@@ -10502,7 +10502,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -10553,7 +10553,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -10601,7 +10601,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -10662,7 +10662,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$PlayPlayListAudioImpl);
   }
@@ -10838,7 +10838,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -10889,7 +10889,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -10937,7 +10937,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -10993,7 +10993,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmptyQuranVersesbyKeyImpl);
@@ -11170,7 +11170,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -11221,7 +11221,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -11269,7 +11269,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -11348,7 +11348,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddVersesToPlayListImpl &&
@@ -11534,7 +11534,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -11585,7 +11585,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -11633,7 +11633,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -11694,7 +11694,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$GetShuffledAyaImpl);
   }
@@ -11870,7 +11870,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
     required TResult Function(PlayAllChapterAudiosAuto value)
         playAllChapterAudiosAuto,
     required TResult Function(ShowMusicbar value) showMusicbar,
-    required TResult Function(IsExpandonSearchEvent value)
+    required TResult Function(IsExpandSearchEvent value)
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
@@ -11921,7 +11921,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
     TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult? Function(ShowMusicbar value)? showMusicbar,
-    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -11969,7 +11969,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
     TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
     TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
     TResult Function(ShowMusicbar value)? showMusicbar,
-    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(IsExpandSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
     TResult Function(FetchAllRecitors value)? fetchAllRecitors,
@@ -12974,7 +12974,7 @@ class _$QuranStateImpl implements _QuranState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuranStateImpl &&

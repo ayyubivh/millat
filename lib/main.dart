@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -31,20 +32,27 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'resources/rewards/bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 import 'resources/travel/bloc/logic/travel_bloc.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
 
   OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
   OneSignal.initialize("f7a79b17-636c-4e33-ab11-b46d9c85470c");
-  OneSignal.Notifications.requestPermission(true);
+  OneSignal.Notifications.requestPermission(
+    true,
+  );
 
-  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-  // PlatformDispatcher.instance.onError = (error, stack) {
-  //   FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-  //   return true;
-  // };
   bool splashRemoved = false;
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Future.delayed(const Duration(seconds: 2), () {
@@ -57,9 +65,8 @@ void main() async {
   NotificationService().initNotification();
   tz.initializeTimeZones();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark,
-  ));
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark));
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown

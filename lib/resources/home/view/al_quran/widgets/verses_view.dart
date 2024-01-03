@@ -873,7 +873,7 @@ class _VersesViewState extends State<VersesView> {
                             id: data.id!,
                             verseKey: modifiedVerseKeys,
                             name: data.name,
-                            discription: data.discription,
+                            description: data.description,
                             image: data.image,
                           );
                           BookMarkDB.instance.editCollection(model, model.id);
@@ -887,7 +887,7 @@ class _VersesViewState extends State<VersesView> {
                           context: context,
                           img: data.image,
                           collectionName: data.name,
-                          userName: data.discription,
+                          userName: data.description,
                         ),
                       );
                     },

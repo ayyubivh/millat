@@ -279,7 +279,7 @@ class _$AddCollectionImpl implements AddCollection {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddCollectionImpl &&
@@ -537,7 +537,7 @@ class _$SaveImageEventImpl implements SaveImageEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveImageEventImpl &&
@@ -783,7 +783,7 @@ class _$SaveQuranChapterIdImpl implements SaveQuranChapterId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveQuranChapterIdImpl &&
@@ -1025,7 +1025,7 @@ class _$NameChangedImpl implements NameChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NameChangedImpl &&
@@ -1266,7 +1266,7 @@ class _$DescriptionChangedImpl implements DescriptionChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DescriptionChangedImpl &&
@@ -1562,7 +1562,7 @@ class _$EditCollectionImpl implements EditCollection {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EditCollectionImpl &&
@@ -1827,7 +1827,7 @@ class _$AddFavCollectionImpl implements AddFavCollection {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddFavCollectionImpl &&
@@ -2069,7 +2069,7 @@ class _$SaveIndexEventImpl implements SaveIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveIndexEventImpl &&
@@ -2311,7 +2311,7 @@ class _$SaveVersesIndexEventImpl implements SaveVersesIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveVersesIndexEventImpl &&
@@ -2536,7 +2536,7 @@ class _$ClearIndexEventImpl implements ClearIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ClearIndexEventImpl);
   }
@@ -2762,7 +2762,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeIndexEventImpl &&
@@ -2984,7 +2984,7 @@ class _$EmptyIndexEventImpl implements EmptyIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$EmptyIndexEventImpl);
   }
@@ -3210,7 +3210,7 @@ class _$SaveVerseKeyEventImpl implements SaveVerseKeyEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveVerseKeyEventImpl &&
@@ -3434,7 +3434,7 @@ class _$EmptyVerseKeyEventImpl implements EmptyVerseKeyEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$EmptyVerseKeyEventImpl);
   }
@@ -3642,7 +3642,7 @@ class _$FetchCollectionItemImpl implements FetchCollectionItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchCollectionItemImpl);
@@ -3869,7 +3869,7 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveBookmarkImpl &&
@@ -4370,7 +4370,7 @@ class _$BookmarkStateImpl implements _BookmarkState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookmarkStateImpl &&

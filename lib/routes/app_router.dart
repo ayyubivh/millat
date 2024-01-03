@@ -329,14 +329,14 @@ class MyAppRouter {
                                     .orderReturnDetailRouteName,
                                 pageBuilder: (context, state) {
                                   return const MaterialPage(
-                                      child: OrderRetunDetailView());
+                                      child: OrderReturnDetailView());
                                 },
                               ),
                               GoRoute(
                                 name: MyAppRouteConstants
-                                    .orderReturnSuccesRouteName,
+                                    .orderReturnSuccessRouteName,
                                 path: MyAppRouteConstants
-                                    .orderReturnSuccesRouteName,
+                                    .orderReturnSuccessRouteName,
                                 pageBuilder: (context, state) {
                                   Map data = state.extra as Map;
                                   return MaterialPage(

@@ -58,8 +58,9 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
 
                         if (state.isExpand &&
                             context.read<BookmarkBloc>().state.index == index) {
-                          context.read<QuranBloc>().add(
-                              const IsExpandonSearchEvent(isExpand: false));
+                          context
+                              .read<QuranBloc>()
+                              .add(const IsExpandSearchEvent(isExpand: false));
                           context
                               .read<BookmarkBloc>()
                               .add(const ChangeIndexEvent(-1));
@@ -72,7 +73,7 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                               .add(FechtChapterbyId(id: [index + 1]));
                           context
                               .read<QuranBloc>()
-                              .add(const IsExpandonSearchEvent(isExpand: true));
+                              .add(const IsExpandSearchEvent(isExpand: true));
                           context
                               .read<BookmarkBloc>()
                               .add(SaveQuranChapterId(id: [index + 1]));

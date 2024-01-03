@@ -73,7 +73,7 @@ class Brand with _$Brand {
     required int? revenueOfLastThreeMonths,
     required String? category,
     required List<String>? subCategory,
-    required String? GST,
+    required String? gst,
     required DateTime? createdAt,
     required DateTime? updatedAt,
     required String? role,

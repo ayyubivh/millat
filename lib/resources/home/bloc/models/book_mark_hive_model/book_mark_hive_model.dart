@@ -8,7 +8,7 @@ class BookMarktCollectionModel {
   @HiveField(1)
   final String name;
   @HiveField(2)
-  final String discription;
+  final String description;
   @HiveField(3)
   final String image;
   @HiveField(4)
@@ -18,7 +18,7 @@ class BookMarktCollectionModel {
     required this.id,
     required this.verseKey,
     required this.name,
-    required this.discription,
+    required this.description,
     required this.image,
   });
 }

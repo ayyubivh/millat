@@ -317,7 +317,7 @@ class _$AddAddressImpl implements AddAddress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddAddressImpl &&
@@ -600,7 +600,7 @@ class _$FetchAddressEventImpl implements FetchAddressEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchAddressEventImpl &&
@@ -850,7 +850,7 @@ class _$SelectAddressEventImpl implements SelectAddressEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelectAddressEventImpl &&
@@ -1101,7 +1101,7 @@ class _$SaveAddressIdImpl implements SaveAddressId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveAddressIdImpl &&
@@ -1359,7 +1359,7 @@ class _$FetchAddressByIdEventImpl implements FetchAddressByIdEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchAddressByIdEventImpl &&
@@ -1612,7 +1612,7 @@ class _$FetchPincodeAddresImpl implements FetchPincodeAddres {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchPincodeAddresImpl &&
@@ -1869,7 +1869,7 @@ class _$DeleteAddressEventImpl implements DeleteAddressEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeleteAddressEventImpl &&
@@ -2106,7 +2106,7 @@ class _$FetchAddressDefaultIndexImpl implements FetchAddressDefaultIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchAddressDefaultIndexImpl);
@@ -2434,7 +2434,7 @@ class _$UpdateAddressImpl implements UpdateAddress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateAddressImpl &&
@@ -2928,7 +2928,7 @@ class _$InitialImpl implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&

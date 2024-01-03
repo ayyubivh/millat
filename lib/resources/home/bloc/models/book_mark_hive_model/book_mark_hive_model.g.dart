@@ -21,7 +21,7 @@ class BookMarktCollectionModelAdapter
       id: fields[0] as String?,
       verseKey: (fields[4] as List).cast<String>(),
       name: fields[1] as String,
-      discription: fields[2] as String,
+      description: fields[2] as String,
       image: fields[3] as String,
     );
   }
@@ -35,7 +35,7 @@ class BookMarktCollectionModelAdapter
       ..writeByte(1)
       ..write(obj.name)
       ..writeByte(2)
-      ..write(obj.discription)
+      ..write(obj.description)
       ..writeByte(3)
       ..write(obj.image)
       ..writeByte(4)

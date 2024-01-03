@@ -151,7 +151,7 @@ class _$HadithBooksChapterModelImpl implements _HadithBooksChapterModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HadithBooksChapterModelImpl &&
@@ -390,7 +390,7 @@ class _$ChaptersImpl implements _Chapters {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChaptersImpl &&

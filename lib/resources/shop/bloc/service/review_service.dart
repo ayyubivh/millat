@@ -15,15 +15,15 @@ class ReviewServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = ReviewModel.fromJson(data);
-          print(result.result?.data?.averageRating);
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        debugPrint('error on order API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -42,15 +42,15 @@ class ReviewServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = ReviewCommentsModel.fromJson(data);
-          print(result.result?.data);
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        debugPrint('error on order API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -78,7 +78,7 @@ class ReviewServices extends HttpServices {
             isToken: true)
         .then((value) {
       if (value.statusCode == 200) {
-        print(value.body);
+        debugPrint(value.body);
       }
     }).catchError((error) {
       debugPrint("error on adding review $error");
@@ -103,18 +103,19 @@ class ReviewServices extends HttpServices {
     final response = await patch(endPoint: endPoint, body: body, isToken: true);
     try {
       if (response.statusCode == 200) {
-        print(response.body);
+        debugPrint(response.body);
       } else if (response.statusCode == 409) {
         final Map<String, dynamic> data = json.decode(response.body);
 
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }

@@ -158,7 +158,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             picture: event.picture ?? "",
             id: event.id ?? "",
           );
-          print("result of social login $result");
+          debugPrint("result of social login $result");
           if (result.status == 200) {
             final token = result.result?.token;
             if (token == "" || token == null) {

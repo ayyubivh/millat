@@ -123,7 +123,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                                     context: context,
                                     img: data.image,
                                     collectionName: data.name,
-                                    userName: data.discription),
+                                    userName: data.description),
                               );
                             },
                           );

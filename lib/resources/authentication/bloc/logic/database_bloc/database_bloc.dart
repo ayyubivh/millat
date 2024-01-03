@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
@@ -47,7 +47,7 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
           final data = await authService.fetchAuthUser(context: event.context);
 
           emit(state.copyWith(authUserModel: data, isLoading: false));
-          print("user states ${state.authUserModel}");
+          debugPrint("user states ${state.authUserModel}");
         } catch (e) {
           emit(state.copyWith(isLoading: false));
 
@@ -69,9 +69,9 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         institution: event.institution,
         profession: event.profession,
       );
-      print('image ${state.imagebytes}');
+      debugPrint('image ${state.imagebytes}');
       if (data['status'] == true) {
-        print('data $data');
+        debugPrint('data $data');
         emit(state.copyWith(
             editIsloading: false,
             editSuccesMessage: data['message'].toString()));
@@ -87,7 +87,6 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         emit(state.copyWith(
           imagebytes: image,
         ));
-        print(state.imagebytes);
       } catch (e) {
         throw Exception(e);
       }
@@ -119,7 +118,6 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
                 ?.toLowerCase()
                 .contains(event.query.toLowerCase()) ??
             false);
-        print(searchData);
 
         emit(state.copyWith(
             searchContacts: searchData?.toList(), isLoading: false));
@@ -144,9 +142,11 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       );
       if (data == "Please remove your order") {
         emit(state.copyWith(failedMessage: data));
-        print("succes ${state.succesMessage} failure ${state.failedMessage}");
+        debugPrint(
+            "succes ${state.succesMessage} failure ${state.failedMessage}");
       } else {
-        print("succes ${state.succesMessage} failure ${state.failedMessage}");
+        debugPrint(
+            "succes ${state.succesMessage} failure ${state.failedMessage}");
         emit(state.copyWith(succesMessage: data));
       }
     });

@@ -56,7 +56,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
       FetchFilterOptionEvent(
         category: widget.type == FilterType.specificCategory
             ? (widget.category == "women"
-                ? "subcategory=Hijab"
+                ? "subcategory=Women"
                 : "subcategory=Honey")
             : "category=${widget.category}",
       ),

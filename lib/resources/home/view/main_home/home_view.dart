@@ -72,8 +72,7 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchHadithOfTheDay())
       ..add(const FetchEventOfTheMonth())
       ..add(const ChangeIndexofAllaysaysBg());
-    BlocProvider.of<CategoryBloc>(context)
-        .add(const FetchFilterOptionEvent(category: "subcategory=Women"));
+     
     OneSignal.Notifications.addClickListener((event) {
       print(event.notification.additionalData?["route"]);
       if (event.notification.additionalData?["route"] != null) {

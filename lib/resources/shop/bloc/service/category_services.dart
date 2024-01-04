@@ -156,15 +156,21 @@ class CategoryService extends HttpServices {
     required String minPrice,
     required String maxPrice,
     required String category,
-    required String subCategory,
-    required String brand,
-    required String color,
-    required String? itemId,
+    required List<String> subCategory,
+    required List<String> brand,
+    required List<String> color,
+    required List<String>? itemId,
   }) async {
-    final endpoint =
-        "product/filter?priceRange=$minPrice-$maxPrice&category=$category&subcate=$subCategory&itemId=${itemId ?? ''}&brand=$brand&color=$color";
+    const  endpoint = "product/multi-filter";
 
-    final response = await get(endPoint: endpoint);
+    final response = await posts(endPoint: endpoint, body: {
+      "brand": [],
+      "category": "",
+      "subcategory": [],
+      "color": ["red", "white"],
+      "itemType": [],
+      "regularPrice": {"min": 0, "max": 2000}
+    });
 
     if (response.statusCode == 200) {
       try {
@@ -186,7 +192,7 @@ class CategoryService extends HttpServices {
   Future<FilterOptionModel> fetchFilterOptions({
     required String category,
   }) async {
-    final endpoint = "filter_option?$category";
+    final endpoint = "filter_option/multi?$category";
     final response = await get(endPoint: endpoint);
 
     if (response.statusCode == 200) {

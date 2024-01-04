@@ -46,10 +46,10 @@ class CategoryEvent with _$CategoryEvent {
     required String minPrice,
     required String maxPrice,
     required String category,
-    required String subCategory,
-    required String brand,
-    required String color,
-    String? itemId,
+    required List<String> subCategory,
+    required List<String> brand,
+    required List<String> color,
+    List<String>? itemId,
   }) = FetchProductsByFilter;
   const factory CategoryEvent.changeFilterIndex({
     required int index,

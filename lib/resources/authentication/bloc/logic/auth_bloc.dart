@@ -86,8 +86,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           if (res['status'] == true) {
             emit(AuthLoaded(event.phoneNumber));
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
-            emit(AuthSocialLoginNewUser(
-                phoneNumber: event.phoneNumber, otp: res['result']));
+            await Future.delayed(
+              const Duration(seconds: 2),
+              () {
+                emit(AuthSocialLoginNewUser(
+                    phoneNumber: event.phoneNumber, otp: res['result']));
+              },
+            );
           } else {
             emit(AuthError(res['message']));
           }

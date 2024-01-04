@@ -60,3 +60,5 @@ class SocialLogin extends AuthEvent {
   SocialLogin(this.context,
       {this.picture, required this.email, required this.name, this.id});
 }
+
+class AuthloadingEvent extends AuthEvent {}

@@ -43,9 +43,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             referralCode: event.referralCode,
           );
           if (res['status'] == 200) {
-            final userFromRes = res['result']['userId'];
-            userId = userId;
-            emit(AuthLoaded(userFromRes));
+            final _userId = res['result']['userId'];
+            userId = _userId;
+            emit(AuthLoaded(_userId));
           } else {
             emit(AuthError(res['message']));
           }
@@ -86,13 +86,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           if (res['status'] == true) {
             emit(AuthLoaded(event.phoneNumber));
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
-            await Future.delayed(
-              const Duration(seconds: 2),
-              () {
-                emit(AuthSocialLoginNewUser(
-                    phoneNumber: event.phoneNumber, otp: res['result']));
-              },
-            );
+
+            emit(AuthSocialLoginNewUserLoaded(
+                phoneNumber: event.phoneNumber, otp: res['result']));
           } else {
             emit(AuthError(res['message']));
           }
@@ -119,7 +115,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } else if (event is VerifyOTP) {
         final currentState = state;
-        if (currentState is AuthSocialLoginNewUser) {
+        if (currentState is AuthSocialLoginNewUserLoaded) {
           if (event.code.isEmpty) {
             emit(AuthError('Please fill in all the fields'));
           } else {
@@ -163,7 +159,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             picture: event.picture ?? "",
             id: event.id ?? "",
           );
-          debugPrint("result of social login $result");
+          print("result of social login $result");
           if (result.status == 200) {
             final token = result.result?.token;
             if (token == "" || token == null) {

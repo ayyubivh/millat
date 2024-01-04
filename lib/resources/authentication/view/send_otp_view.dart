@@ -40,6 +40,9 @@ class _SendOTPViewState extends State<SendOTPView> {
           } else if (state is AuthLoaded) {
             clearDate();
             context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
+          } else if (state is AuthSocialLoginNewUserLoaded) {
+            clearDate();
+            context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
           }
         },
         builder: (context, state) {

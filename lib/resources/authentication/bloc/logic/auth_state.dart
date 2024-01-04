@@ -19,6 +19,14 @@ class AuthSocialLoginNewUser extends AuthState {
   AuthSocialLoginNewUser({this.otp, this.userId, this.phoneNumber});
 }
 
+class AuthSocialLoginNewUserLoaded extends AuthState {
+  final String? userId;
+  final String? phoneNumber;
+  final String? otp;
+
+  AuthSocialLoginNewUserLoaded({this.otp, this.userId, this.phoneNumber});
+}
+
 class AuthLoaded extends AuthState {
   final String email;
 

@@ -116,7 +116,7 @@ class _$QuranParaModelImpl implements _QuranParaModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuranParaModelImpl &&
@@ -353,7 +353,7 @@ class _$JuzsImpl implements _Juzs {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$JuzsImpl &&

@@ -3,7 +3,7 @@ part of 'location_bloc.dart';
 @freezed
 class LocationState with _$LocationState {
   const factory LocationState({
-    required String currentLocaion,
+    required String currentLocation,
     required String errorMessage,
     required String shortAddress,
     required CitiesModel? citiesModel,
@@ -22,7 +22,7 @@ class LocationState with _$LocationState {
     // required String? changedLocation,
   }) = _LocationState;
   factory LocationState.initial() => const LocationState(
-        currentLocaion: "",
+        currentLocation: "",
         errorMessage: "",
         shortAddress: "",
         citiesModel: null,

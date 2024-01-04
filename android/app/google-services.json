@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "507578207229",
+    "project_id": "millat-76f31",
+    "storage_bucket": "millat-76f31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507578207229:android:552dc1b9d7e56eb822e794",
+        "android_client_info": {
+          "package_name": "com.app.linger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "507578207229-k6vqkm27itr96macdr9ih6k92m76cn8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_E_J8nhq5I9iRJ03YUEYlZBZOw258Sto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "507578207229-k6vqkm27itr96macdr9ih6k92m76cn8t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "507578207229-jcafor95j4h19trajhehuoithhqi6ub9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.millat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

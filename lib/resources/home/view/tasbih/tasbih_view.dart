@@ -351,8 +351,7 @@ class TasbihViewState extends State<TasbihView>
               kHeight10,
               BlocBuilder<TasbihBloc, TasbihState>(
                 builder: (context, state) {
-                  print('Rebuilding UI with tasbihDhikr: ${state.tasbihDhikr}');
-                  return state.tasbihDhikr.isEmpty
+                   return state.tasbihDhikr.isEmpty
                       ? _chooseDikrButton(context, state)
                       : _dikhrContainer(state);
                 },

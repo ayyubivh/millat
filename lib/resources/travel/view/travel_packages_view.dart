@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/loader.dart';
 import '../../../utils/shimmer_utils.dart';
 import '../../../utils/size_utility.dart';
 import 'travel_home_view.dart';
@@ -21,7 +20,6 @@ class TravelPackagesView extends StatelessWidget {
   final TravelsPackagesType? type;
   @override
   Widget build(BuildContext context) {
-    print(type);
     return Scaffold(
         appBar: AppBar(
           backgroundColor: ColorManager.whiteColor,

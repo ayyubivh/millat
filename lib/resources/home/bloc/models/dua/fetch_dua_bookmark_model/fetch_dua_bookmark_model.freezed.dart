@@ -171,7 +171,7 @@ class _$DuaBookMarkModelImpl implements _DuaBookMarkModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DuaBookMarkModelImpl &&
@@ -327,7 +327,7 @@ class _$BookmarksDataImpl implements _BookmarksData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookmarksDataImpl &&
@@ -541,7 +541,7 @@ class _$BookmarksImpl implements _Bookmarks {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookmarksImpl &&
@@ -729,7 +729,7 @@ class _$BookmarkImpl implements _Bookmark {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookmarkImpl &&

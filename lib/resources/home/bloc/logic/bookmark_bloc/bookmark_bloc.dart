@@ -1,4 +1,5 @@
-import 'package:bloc/bloc.dart';
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -47,11 +48,11 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     final desc = state.description;
     final dbId = state.dbId;
 
-    final model = BookMarktCollectionModel(
+    final model = BookMarkCollectionModel(
         id: dbId,
         verseKey: state.verskey,
         name: name,
-        discription: desc,
+        description: desc,
         image: img);
 
     if (name.isEmpty || img.isEmpty || desc.isEmpty || versekey == []) {
@@ -64,11 +65,11 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     AddFavCollection event,
     Emitter<BookmarkState> emit,
   ) {
-    final model = BookMarktCollectionModel(
+    final model = BookMarkCollectionModel(
         id: '1',
         verseKey: event.verskey,
         name: Appstrings.myFavorite,
-        discription: "Favorite Item Collections",
+        description: "Favorite Item Collections",
         image: AppAssetsStrings.favoriteImg);
 
     BookMarkDB.instance.addCollection(model);
@@ -100,7 +101,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
   _removeBookmark(RemoveBookmark event, Emitter<BookmarkState> emit) {
     try {
       final updatedCollectionItems =
-          List<BookMarktCollectionModel>.from(state.dbCollectionItems);
+          List<BookMarkCollectionModel>.from(state.dbCollectionItems);
 
       final int itemIndex = updatedCollectionItems
           .indexWhere((item) => item.verseKey.contains(event.verseKey));
@@ -110,10 +111,10 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
             List<String>.from(updatedCollectionItems[itemIndex].verseKey);
         updatedVerseKeys.remove(event.verseKey);
 
-        final updatedItem = BookMarktCollectionModel(
+        final updatedItem = BookMarkCollectionModel(
           id: updatedCollectionItems[itemIndex].id,
           name: updatedCollectionItems[itemIndex].name,
-          discription: updatedCollectionItems[itemIndex].discription,
+          description: updatedCollectionItems[itemIndex].description,
           image: updatedCollectionItems[itemIndex].image,
           verseKey: updatedVerseKeys,
         );
@@ -131,17 +132,17 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
 
   _saveImageEvent(SaveImageEvent event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(image: event.img));
-    print('here is the image ${state.image}');
+    debugPrint('here is the image ${state.image}');
   }
 
   _saveQuranChapterId(SaveQuranChapterId event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(id: event.id));
-    print('here is the new id ${state.id}');
+    debugPrint('here is the new id ${state.id}');
   }
 
   _nameChanged(NameChanged event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(name: event.nameValue));
-    print('here is the val ${state.name}');
+    debugPrint('here is the val ${state.name}');
   }
 
   _descriptionChanged(DescriptionChanged event, Emitter<BookmarkState> emit) {
@@ -161,11 +162,11 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     final desc = state.description;
     final dbId = event.dbId;
 
-    final model = BookMarktCollectionModel(
+    final model = BookMarkCollectionModel(
       id: dbId,
       verseKey: id,
       name: name,
-      discription: desc,
+      description: desc,
       image: img,
     );
 
@@ -215,7 +216,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     }
 
     emit(state.copyWith(verskey: updatedIndexList));
-    print('here is the verskey list $updatedIndexList');
+    debugPrint('here is the verskey list $updatedIndexList');
   }
 
   _emptyIndexEvent(event, Emitter<BookmarkState> emit) {

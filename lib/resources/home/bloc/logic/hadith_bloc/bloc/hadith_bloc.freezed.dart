@@ -111,7 +111,7 @@ class _$FetchHadithBookEventImpl implements FetchHadithBookEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchHadithBookEventImpl);
@@ -245,7 +245,7 @@ class _$FetchHadithBooksChapterEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchHadithBooksChapterEventImpl &&
@@ -393,7 +393,7 @@ class _$SearchHadithBookeventImpl implements SearchHadithBookevent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchHadithBookeventImpl &&
@@ -660,7 +660,7 @@ class _$HadithStateImpl implements _HadithState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HadithStateImpl &&

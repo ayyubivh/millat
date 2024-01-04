@@ -119,7 +119,7 @@ class _$TravelBannerModelImpl implements _TravelBannerModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TravelBannerModelImpl &&
@@ -404,7 +404,7 @@ class _$BannersImpl implements _Banners {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BannersImpl &&

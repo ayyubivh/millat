@@ -17,12 +17,13 @@ class CartServices extends HttpServices {
 
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on cart API fetch: ${e.toString()}');
+        debugPrint('error on cart API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -68,12 +69,13 @@ class CartServices extends HttpServices {
 
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }
@@ -104,12 +106,13 @@ class CartServices extends HttpServices {
 
           return data;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        debugPrint('error on API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -137,15 +140,16 @@ class CartServices extends HttpServices {
       try {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
-          print("removing cart $data");
+          debugPrint("removing cart $data");
           return data;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        debugPrint('error on API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

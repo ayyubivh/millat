@@ -16,7 +16,7 @@ import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class AddNewBookMarkCollection extends StatefulWidget {
   final BookMarkCollectionType type;
-  final BookMarktCollectionModel? passvalue;
+  final BookMarkCollectionModel? passvalue;
   final List<String>? verseKeys;
 
   const AddNewBookMarkCollection({
@@ -63,7 +63,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
 
   addField() {
     nameTextEditingController.text = widget.passvalue!.name;
-    descriptionTextEditingController.text = widget.passvalue!.discription;
+    descriptionTextEditingController.text = widget.passvalue!.description;
     img = widget.passvalue!.image;
     BlocProvider.of<BookmarkBloc>(context)
         .add(SaveVerseKeyEvent((widget.passvalue!.verseKey.join(" "))));
@@ -313,7 +313,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
 
   PreferredSize customAppBarBookMark(
       {required BuildContext ctx,
-      required BookMarktCollectionModel? passValue}) {
+      required BookMarkCollectionModel? passValue}) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(54),
       child: Stack(
@@ -360,13 +360,12 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                       builder: (context, state) => TextButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            final _verseList = context
+                            final verseList = context
                                     .read<QuranBloc>()
                                     .state
                                     .bookmarkAudioPlaylist +
                                 state.verskey;
-                            print(_verseList);
-                            widget.type == BookMarkCollectionType.add
+                             widget.type == BookMarkCollectionType.add
                                 ? ctx.read<BookmarkBloc>().add(AddCollection(
                                     context: context,
                                     name: nameTextEditingController.text,
@@ -386,7 +385,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                               description:
                                                   descriptionTextEditingController
                                                       .text,
-                                              verskey: _verseList,
+                                              verskey: verseList,
                                               image:
                                                   img == "" ? state.image : img,
                                               dbId: passValue!.id!),

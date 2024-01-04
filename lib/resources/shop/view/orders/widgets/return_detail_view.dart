@@ -12,8 +12,8 @@ import '../../../../../utils/string_constants.dart';
 import '../../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'orders_card_widget.dart';
 
-class OrderRetunDetailView extends StatelessWidget {
-  const OrderRetunDetailView({super.key});
+class OrderReturnDetailView extends StatelessWidget {
+  const OrderReturnDetailView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -309,7 +309,7 @@ class OrderRetunDetailView extends StatelessWidget {
               context.read<ShopProductsBloc>().add(
                   ReturnOrder(context: context, shiprockeId: int.parse(id!)));
 
-              context.pushNamed(MyAppRouteConstants.orderReturnSuccesRouteName,
+              context.pushNamed(MyAppRouteConstants.orderReturnSuccessRouteName,
                   extra: {'orderType': OrderType.returnOrder});
             },
           ),

@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'products_model.g.dart';
@@ -73,7 +75,7 @@ class Brand with _$Brand {
     required int? revenueOfLastThreeMonths,
     required String? category,
     required List<String>? subCategory,
-    required String? GST,
+    required String? gst,
     required DateTime? createdAt,
     required DateTime? updatedAt,
     required String? role,

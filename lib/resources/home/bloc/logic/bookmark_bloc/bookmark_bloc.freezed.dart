@@ -279,7 +279,7 @@ class _$AddCollectionImpl implements AddCollection {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddCollectionImpl &&
@@ -537,7 +537,7 @@ class _$SaveImageEventImpl implements SaveImageEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveImageEventImpl &&
@@ -783,7 +783,7 @@ class _$SaveQuranChapterIdImpl implements SaveQuranChapterId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveQuranChapterIdImpl &&
@@ -1025,7 +1025,7 @@ class _$NameChangedImpl implements NameChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NameChangedImpl &&
@@ -1266,7 +1266,7 @@ class _$DescriptionChangedImpl implements DescriptionChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DescriptionChangedImpl &&
@@ -1562,7 +1562,7 @@ class _$EditCollectionImpl implements EditCollection {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EditCollectionImpl &&
@@ -1827,7 +1827,7 @@ class _$AddFavCollectionImpl implements AddFavCollection {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddFavCollectionImpl &&
@@ -2069,7 +2069,7 @@ class _$SaveIndexEventImpl implements SaveIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveIndexEventImpl &&
@@ -2311,7 +2311,7 @@ class _$SaveVersesIndexEventImpl implements SaveVersesIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveVersesIndexEventImpl &&
@@ -2536,7 +2536,7 @@ class _$ClearIndexEventImpl implements ClearIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ClearIndexEventImpl);
   }
@@ -2762,7 +2762,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeIndexEventImpl &&
@@ -2984,7 +2984,7 @@ class _$EmptyIndexEventImpl implements EmptyIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$EmptyIndexEventImpl);
   }
@@ -3210,7 +3210,7 @@ class _$SaveVerseKeyEventImpl implements SaveVerseKeyEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveVerseKeyEventImpl &&
@@ -3434,7 +3434,7 @@ class _$EmptyVerseKeyEventImpl implements EmptyVerseKeyEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$EmptyVerseKeyEventImpl);
   }
@@ -3642,7 +3642,7 @@ class _$FetchCollectionItemImpl implements FetchCollectionItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchCollectionItemImpl);
@@ -3869,7 +3869,7 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveBookmarkImpl &&
@@ -4079,7 +4079,7 @@ mixin _$BookmarkState {
   int get index => throw _privateConstructorUsedError;
   List<int> get versesIndexList => throw _privateConstructorUsedError;
   List<String> get verskey => throw _privateConstructorUsedError;
-  List<BookMarktCollectionModel> get dbCollectionItems =>
+  List<BookMarkCollectionModel> get dbCollectionItems =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -4105,7 +4105,7 @@ abstract class $BookmarkStateCopyWith<$Res> {
       int index,
       List<int> versesIndexList,
       List<String> verskey,
-      List<BookMarktCollectionModel> dbCollectionItems});
+      List<BookMarkCollectionModel> dbCollectionItems});
 }
 
 /// @nodoc
@@ -4182,7 +4182,7 @@ class _$BookmarkStateCopyWithImpl<$Res, $Val extends BookmarkState>
       dbCollectionItems: null == dbCollectionItems
           ? _value.dbCollectionItems
           : dbCollectionItems // ignore: cast_nullable_to_non_nullable
-              as List<BookMarktCollectionModel>,
+              as List<BookMarkCollectionModel>,
     ) as $Val);
   }
 }
@@ -4207,7 +4207,7 @@ abstract class _$$BookmarkStateImplCopyWith<$Res>
       int index,
       List<int> versesIndexList,
       List<String> verskey,
-      List<BookMarktCollectionModel> dbCollectionItems});
+      List<BookMarkCollectionModel> dbCollectionItems});
 }
 
 /// @nodoc
@@ -4282,7 +4282,7 @@ class __$$BookmarkStateImplCopyWithImpl<$Res>
       dbCollectionItems: null == dbCollectionItems
           ? _value._dbCollectionItems
           : dbCollectionItems // ignore: cast_nullable_to_non_nullable
-              as List<BookMarktCollectionModel>,
+              as List<BookMarkCollectionModel>,
     ));
   }
 }
@@ -4302,7 +4302,7 @@ class _$BookmarkStateImpl implements _BookmarkState {
       required this.index,
       required final List<int> versesIndexList,
       required final List<String> verskey,
-      required final List<BookMarktCollectionModel> dbCollectionItems})
+      required final List<BookMarkCollectionModel> dbCollectionItems})
       : _id = id,
         _indexList = indexList,
         _versesIndexList = versesIndexList,
@@ -4355,9 +4355,9 @@ class _$BookmarkStateImpl implements _BookmarkState {
     return EqualUnmodifiableListView(_verskey);
   }
 
-  final List<BookMarktCollectionModel> _dbCollectionItems;
+  final List<BookMarkCollectionModel> _dbCollectionItems;
   @override
-  List<BookMarktCollectionModel> get dbCollectionItems {
+  List<BookMarkCollectionModel> get dbCollectionItems {
     if (_dbCollectionItems is EqualUnmodifiableListView)
       return _dbCollectionItems;
     // ignore: implicit_dynamic_type
@@ -4370,7 +4370,7 @@ class _$BookmarkStateImpl implements _BookmarkState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookmarkStateImpl &&
@@ -4430,7 +4430,7 @@ abstract class _BookmarkState implements BookmarkState {
           required final int index,
           required final List<int> versesIndexList,
           required final List<String> verskey,
-          required final List<BookMarktCollectionModel> dbCollectionItems}) =
+          required final List<BookMarkCollectionModel> dbCollectionItems}) =
       _$BookmarkStateImpl;
 
   @override
@@ -4456,7 +4456,7 @@ abstract class _BookmarkState implements BookmarkState {
   @override
   List<String> get verskey;
   @override
-  List<BookMarktCollectionModel> get dbCollectionItems;
+  List<BookMarkCollectionModel> get dbCollectionItems;
   @override
   @JsonKey(ignore: true)
   _$$BookmarkStateImplCopyWith<_$BookmarkStateImpl> get copyWith =>

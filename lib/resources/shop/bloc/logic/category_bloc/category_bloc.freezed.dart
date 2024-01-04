@@ -262,9 +262,7 @@ class __$$FetchFilterProductsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchFilterProductsImpl
-    with DiagnosticableTreeMixin
-    implements FetchFilterProducts {
+class _$FetchFilterProductsImpl implements FetchFilterProducts {
   const _$FetchFilterProductsImpl(
       {required this.category, required this.subCategory, this.itemId});
 
@@ -276,22 +274,12 @@ class _$FetchFilterProductsImpl
   final String? itemId;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.fetchFilterProducts(category: $category, subCategory: $subCategory, itemId: $itemId)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.fetchFilterProducts'))
-      ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('subCategory', subCategory))
-      ..add(DiagnosticsProperty('itemId', itemId));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchFilterProductsImpl &&
@@ -552,25 +540,16 @@ class __$$FetchCategoriesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchCategoriesImpl
-    with DiagnosticableTreeMixin
-    implements FetchCategories {
+class _$FetchCategoriesImpl implements FetchCategories {
   const _$FetchCategoriesImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.fetchCategories()';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'CategoryEvent.fetchCategories'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchCategoriesImpl);
   }
@@ -808,25 +787,16 @@ class __$$FetchSubcategoriesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchSubcategoriesImpl
-    with DiagnosticableTreeMixin
-    implements FetchSubcategories {
+class _$FetchSubcategoriesImpl implements FetchSubcategories {
   const _$FetchSubcategoriesImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.fetchSubcategories()';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'CategoryEvent.fetchSubcategories'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchSubcategoriesImpl);
   }
@@ -1079,29 +1049,19 @@ class __$$OnSelectFilterImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnSelectFilterImpl
-    with DiagnosticableTreeMixin
-    implements OnSelectFilter {
+class _$OnSelectFilterImpl implements OnSelectFilter {
   const _$OnSelectFilterImpl({required this.value});
 
   @override
   final String value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.onSelectFilter(value: $value)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.onSelectFilter'))
-      ..add(DiagnosticsProperty('value', value));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OnSelectFilterImpl &&
@@ -1369,29 +1329,19 @@ class __$$FetchItemsByCategoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchItemsByCategoryImpl
-    with DiagnosticableTreeMixin
-    implements FetchItemsByCategory {
+class _$FetchItemsByCategoryImpl implements FetchItemsByCategory {
   const _$FetchItemsByCategoryImpl({required this.category});
 
   @override
   final String category;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.fetchItemsByCategory(category: $category)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.fetchItemsByCategory'))
-      ..add(DiagnosticsProperty('category', category));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchItemsByCategoryImpl &&
@@ -1663,30 +1613,19 @@ class __$$ChangeCategoryIndexEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeCategoryIndexEventImpl
-    with DiagnosticableTreeMixin
-    implements ChangeCategoryIndexEvent {
+class _$ChangeCategoryIndexEventImpl implements ChangeCategoryIndexEvent {
   const _$ChangeCategoryIndexEventImpl({required this.index});
 
   @override
   final int index;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.changeCategoryIndexEvent(index: $index)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'CategoryEvent.changeCategoryIndexEvent'))
-      ..add(DiagnosticsProperty('index', index));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeCategoryIndexEventImpl &&
@@ -1959,7 +1898,7 @@ class __$$FilterEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
+class _$FilterEventImpl implements FilterEvent {
   const _$FilterEventImpl({required this.category, required this.subCategory});
 
   @override
@@ -1968,21 +1907,12 @@ class _$FilterEventImpl with DiagnosticableTreeMixin implements FilterEvent {
   final String? subCategory;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.filterEvent(category: $category, subCategory: $subCategory)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.filterEvent'))
-      ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('subCategory', subCategory));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterEventImpl &&
@@ -2254,29 +2184,19 @@ class __$$FilterBrandPickEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterBrandPickEventImpl
-    with DiagnosticableTreeMixin
-    implements FilterBrandPickEvent {
+class _$FilterBrandPickEventImpl implements FilterBrandPickEvent {
   const _$FilterBrandPickEventImpl({required this.brand});
 
   @override
   final String brand;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.filterBrandPickEvent(brand: $brand)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.filterBrandPickEvent'))
-      ..add(DiagnosticsProperty('brand', brand));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterBrandPickEventImpl &&
@@ -2545,29 +2465,19 @@ class __$$PriceRangeEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PriceRangeEventImpl
-    with DiagnosticableTreeMixin
-    implements PriceRangeEvent {
+class _$PriceRangeEventImpl implements PriceRangeEvent {
   const _$PriceRangeEventImpl({required this.index});
 
   @override
   final int index;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.priceRangeEvent(index: $index)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.priceRangeEvent'))
-      ..add(DiagnosticsProperty('index', index));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PriceRangeEventImpl &&
@@ -2839,7 +2749,6 @@ class __$$FetchSubCategoriesByCategoryIdImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FetchSubCategoriesByCategoryIdImpl
-    with DiagnosticableTreeMixin
     implements FetchSubCategoriesByCategoryId {
   const _$FetchSubCategoriesByCategoryIdImpl({required this.categoryId});
 
@@ -2847,21 +2756,12 @@ class _$FetchSubCategoriesByCategoryIdImpl
   final String categoryId;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.fetchSubCategoriesByCategoryId(categoryId: $categoryId)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'CategoryEvent.fetchSubCategoriesByCategoryId'))
-      ..add(DiagnosticsProperty('categoryId', categoryId));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchSubCategoriesByCategoryIdImpl &&
@@ -3134,29 +3034,19 @@ class __$$SaveCategoryFilterValImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveCategoryFilterValImpl
-    with DiagnosticableTreeMixin
-    implements SaveCategoryFilterVal {
+class _$SaveCategoryFilterValImpl implements SaveCategoryFilterVal {
   const _$SaveCategoryFilterValImpl({required this.filterVal});
 
   @override
   final String filterVal;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.saveCategoryFilterVal(filterVal: $filterVal)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.saveCategoryFilterVal'))
-      ..add(DiagnosticsProperty('filterVal', filterVal));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveCategoryFilterValImpl &&
@@ -3435,9 +3325,7 @@ class __$$SavePriceRangeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SavePriceRangeImpl
-    with DiagnosticableTreeMixin
-    implements SavePriceRange {
+class _$SavePriceRangeImpl implements SavePriceRange {
   const _$SavePriceRangeImpl(
       {required this.minPrice,
       required this.maxPrice,
@@ -3451,22 +3339,12 @@ class _$SavePriceRangeImpl
   final RangeValues rangeValues;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.savePriceRange(minPrice: $minPrice, maxPrice: $maxPrice, rangeValues: $rangeValues)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.savePriceRange'))
-      ..add(DiagnosticsProperty('minPrice', minPrice))
-      ..add(DiagnosticsProperty('maxPrice', maxPrice))
-      ..add(DiagnosticsProperty('rangeValues', rangeValues));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SavePriceRangeImpl &&
@@ -3755,9 +3633,7 @@ class __$$FetchProductSortByPriceImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchProductSortByPriceImpl
-    with DiagnosticableTreeMixin
-    implements FetchProductSortByPrice {
+class _$FetchProductSortByPriceImpl implements FetchProductSortByPrice {
   const _$FetchProductSortByPriceImpl(
       {required this.order, required this.category, required this.subCategory});
 
@@ -3769,23 +3645,12 @@ class _$FetchProductSortByPriceImpl
   final String? subCategory;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.fetchProductSortByPrice(order: $order, category: $category, subCategory: $subCategory)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'CategoryEvent.fetchProductSortByPrice'))
-      ..add(DiagnosticsProperty('order', order))
-      ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('subCategory', subCategory));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchProductSortByPriceImpl &&
@@ -4061,29 +3926,19 @@ class __$$ChangeSortListIndexImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeSortListIndexImpl
-    with DiagnosticableTreeMixin
-    implements ChangeSortListIndex {
+class _$ChangeSortListIndexImpl implements ChangeSortListIndex {
   const _$ChangeSortListIndexImpl({required this.index});
 
   @override
   final int index;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.changeSortListIndex(index: $index)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.changeSortListIndex'))
-      ..add(DiagnosticsProperty('index', index));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeSortListIndexImpl &&
@@ -4389,9 +4244,7 @@ class __$$FetchProductsByFilterImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchProductsByFilterImpl
-    with DiagnosticableTreeMixin
-    implements FetchProductsByFilter {
+class _$FetchProductsByFilterImpl implements FetchProductsByFilter {
   const _$FetchProductsByFilterImpl(
       {required this.minPrice,
       required this.maxPrice,
@@ -4417,26 +4270,12 @@ class _$FetchProductsByFilterImpl
   final String? itemId;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.fetchProductsByFilter(minPrice: $minPrice, maxPrice: $maxPrice, category: $category, subCategory: $subCategory, brand: $brand, color: $color, itemId: $itemId)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.fetchProductsByFilter'))
-      ..add(DiagnosticsProperty('minPrice', minPrice))
-      ..add(DiagnosticsProperty('maxPrice', maxPrice))
-      ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('subCategory', subCategory))
-      ..add(DiagnosticsProperty('brand', brand))
-      ..add(DiagnosticsProperty('color', color))
-      ..add(DiagnosticsProperty('itemId', itemId));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchProductsByFilterImpl &&
@@ -4730,29 +4569,19 @@ class __$$ChangeFilterIndexImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeFilterIndexImpl
-    with DiagnosticableTreeMixin
-    implements ChangeFilterIndex {
+class _$ChangeFilterIndexImpl implements ChangeFilterIndex {
   const _$ChangeFilterIndexImpl({required this.index});
 
   @override
   final int index;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.changeFilterIndex(index: $index)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.changeFilterIndex'))
-      ..add(DiagnosticsProperty('index', index));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeFilterIndexImpl &&
@@ -5024,7 +4853,6 @@ class __$$FilterSubCategoryCheckboxChangingEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterSubCategoryCheckboxChangingEventImpl
-    with DiagnosticableTreeMixin
     implements FilterSubCategoryCheckboxChangingEvent {
   const _$FilterSubCategoryCheckboxChangingEventImpl({required this.index});
 
@@ -5032,21 +4860,12 @@ class _$FilterSubCategoryCheckboxChangingEventImpl
   final int index;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.filterSubCategoryCheckboxChangingEvent(index: $index)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'CategoryEvent.filterSubCategoryCheckboxChangingEvent'))
-      ..add(DiagnosticsProperty('index', index));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterSubCategoryCheckboxChangingEventImpl &&
@@ -5322,7 +5141,6 @@ class __$$FilterBrandCheckboxChangingEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterBrandCheckboxChangingEventImpl
-    with DiagnosticableTreeMixin
     implements FilterBrandCheckboxChangingEvent {
   const _$FilterBrandCheckboxChangingEventImpl({required this.index});
 
@@ -5330,21 +5148,12 @@ class _$FilterBrandCheckboxChangingEventImpl
   final int index;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.filterBrandCheckboxChangingEvent(index: $index)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'CategoryEvent.filterBrandCheckboxChangingEvent'))
-      ..add(DiagnosticsProperty('index', index));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterBrandCheckboxChangingEventImpl &&
@@ -5618,7 +5427,6 @@ class __$$FilterColorCheckboxChangingEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FilterColorCheckboxChangingEventImpl
-    with DiagnosticableTreeMixin
     implements FilterColorCheckboxChangingEvent {
   const _$FilterColorCheckboxChangingEventImpl({required this.index});
 
@@ -5626,21 +5434,12 @@ class _$FilterColorCheckboxChangingEventImpl
   final int index;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.filterColorCheckboxChangingEvent(index: $index)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'CategoryEvent.filterColorCheckboxChangingEvent'))
-      ..add(DiagnosticsProperty('index', index));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterColorCheckboxChangingEventImpl &&
@@ -5912,29 +5711,19 @@ class __$$FetchFilterOptionEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchFilterOptionEventImpl
-    with DiagnosticableTreeMixin
-    implements FetchFilterOptionEvent {
+class _$FetchFilterOptionEventImpl implements FetchFilterOptionEvent {
   const _$FetchFilterOptionEventImpl({required this.category});
 
   @override
   final String category;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryEvent.fetchFilterOptionEvent(category: $category)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryEvent.fetchFilterOptionEvent'))
-      ..add(DiagnosticsProperty('category', category));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchFilterOptionEventImpl &&
@@ -6659,9 +6448,7 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CategoryStateImpl
-    with DiagnosticableTreeMixin
-    implements _CategoryState {
+class _$CategoryStateImpl implements _CategoryState {
   const _$CategoryStateImpl(
       {required this.product,
       required this.productLoading,
@@ -6741,48 +6528,12 @@ class _$CategoryStateImpl
   final FilterOptionModel? filterOptionModel;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'CategoryState(product: $product, productLoading: $productLoading, errorMessage: $errorMessage, category: $category, categoryLoading: $categoryLoading, subCategory: $subCategory, subCategoryLoading: $subCategoryLoading, selectedFilter: $selectedFilter, filterCategory: $filterCategory, filterSubCategory: $filterSubCategory, filterBrand: $filterBrand, priceRangeIndex: $priceRangeIndex, subcategoryByCategoryIdModel: $subcategoryByCategoryIdModel, filterVal: $filterVal, minPrice: $minPrice, maxPrice: $maxPrice, sortListIndex: $sortListIndex, rangeValues: $rangeValues, categoryItemModel: $categoryItemModel, categoryIndex: $categoryIndex, filterIndex: $filterIndex, filterSubcategoryCheckboxIndex: $filterSubcategoryCheckboxIndex, filterBrandCheckboxIndex: $filterBrandCheckboxIndex, filterColorCheckboxIndex: $filterColorCheckboxIndex, filterOptionModel: $filterOptionModel)';
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'CategoryState'))
-      ..add(DiagnosticsProperty('product', product))
-      ..add(DiagnosticsProperty('productLoading', productLoading))
-      ..add(DiagnosticsProperty('errorMessage', errorMessage))
-      ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('categoryLoading', categoryLoading))
-      ..add(DiagnosticsProperty('subCategory', subCategory))
-      ..add(DiagnosticsProperty('subCategoryLoading', subCategoryLoading))
-      ..add(DiagnosticsProperty('selectedFilter', selectedFilter))
-      ..add(DiagnosticsProperty('filterCategory', filterCategory))
-      ..add(DiagnosticsProperty('filterSubCategory', filterSubCategory))
-      ..add(DiagnosticsProperty('filterBrand', filterBrand))
-      ..add(DiagnosticsProperty('priceRangeIndex', priceRangeIndex))
-      ..add(DiagnosticsProperty(
-          'subcategoryByCategoryIdModel', subcategoryByCategoryIdModel))
-      ..add(DiagnosticsProperty('filterVal', filterVal))
-      ..add(DiagnosticsProperty('minPrice', minPrice))
-      ..add(DiagnosticsProperty('maxPrice', maxPrice))
-      ..add(DiagnosticsProperty('sortListIndex', sortListIndex))
-      ..add(DiagnosticsProperty('rangeValues', rangeValues))
-      ..add(DiagnosticsProperty('categoryItemModel', categoryItemModel))
-      ..add(DiagnosticsProperty('categoryIndex', categoryIndex))
-      ..add(DiagnosticsProperty('filterIndex', filterIndex))
-      ..add(DiagnosticsProperty(
-          'filterSubcategoryCheckboxIndex', filterSubcategoryCheckboxIndex))
-      ..add(DiagnosticsProperty(
-          'filterBrandCheckboxIndex', filterBrandCheckboxIndex))
-      ..add(DiagnosticsProperty(
-          'filterColorCheckboxIndex', filterColorCheckboxIndex))
-      ..add(DiagnosticsProperty('filterOptionModel', filterOptionModel));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CategoryStateImpl &&

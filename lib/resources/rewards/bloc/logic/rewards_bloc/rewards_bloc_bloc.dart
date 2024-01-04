@@ -65,7 +65,6 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
 
     try {
       final data = await rewardServices.fetchRewardProductsById(event.id);
-      print(data);
 
       emit(state.copyWith(rewardsProductByIdModel: data, isLoading: false));
     } catch (e) {
@@ -86,8 +85,6 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
   _addRewards(AddRewards event, Emitter<RewardsState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final data = await rewardServices.addReward(rewards: event.rewards);
-
       emit(state.copyWith(
           isLoading: false, rewardCoins: state.rewardCoins + event.rewards));
     } catch (e) {
@@ -114,7 +111,6 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
       final data = await rewardServices.addRewardRedeemCoupon(id: event.id);
 
       if (data['status'] == 400) {
-        print("data on the add redeem ${data['message']}");
         emit(state.copyWith(
           isLoading: false,
           isRewardRedeemFailure: true,

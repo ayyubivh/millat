@@ -11,12 +11,12 @@ class Appstrings {
   static const String asrCalculationMethodKey = "Asr-calculation-Method";
   static const String highLatitudeMethodsKey = "HighLatitude-Methods";
   static const String addressDefaultIndex = "AdrressIndex";
-  static const String currenLocationKey = "Current-Location-key";
+  static const String currentLocationKey = "Current-Location-key";
   static const String coverImageKey = "Cover-image-key";
   //enpoints
-  static const String cancelReasonEnpoint = "reason_of_cancel";
+  static const String cancelReasonEndpoint = "reason_of_cancel";
   static const String returnReasonEnpoint = "reason_of_return";
-  static const String addCancelReasonEnpoint = "reason_of_cancel/add";
+  static const String addCancelReasonEndpoint = "reason_of_cancel/add";
   static const String addReturnReasonEnpoint = "reason_of_return/add";
   //Home
   static const String quran = "Quran";

@@ -124,7 +124,7 @@ class _$ChapterByIdModelImpl implements _ChapterByIdModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChapterByIdModelImpl &&
@@ -446,7 +446,7 @@ class _$ChapterImpl implements _Chapter {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChapterImpl &&
@@ -663,7 +663,7 @@ class _$TranslatedNameImpl implements _TranslatedName {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TranslatedNameImpl &&

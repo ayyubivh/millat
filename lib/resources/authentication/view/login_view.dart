@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -192,7 +194,7 @@ class _LoginViewState extends State<LoginView> {
         context.read<AuthBloc>().add(
             SocialLogin(email: user.email!, name: user.givenName!, context));
       } on Exception catch (e) {
-        print(e);
+        debugPrint(e.toString());
       }
     } else {
       showSnackBar(context, "Apple SignIn is not available for your device");
@@ -210,7 +212,7 @@ class _LoginViewState extends State<LoginView> {
           SocialLogin(email: user!.email, name: user.displayName!, context));
       // await GoogleSignInService.logout();
     } catch (exception) {
-      print(exception);
+      debugPrint(exception.toString());
       showSnackBar(context, exception.toString());
     }
   }

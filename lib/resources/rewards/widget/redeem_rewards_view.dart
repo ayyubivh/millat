@@ -66,8 +66,11 @@ class RewardsRedeemView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _couponWidget(context, state),
-                      _redeemedCouponWidget(state,
-                          state.redeemedCouponModel?.result.coupons.length != 0)
+                      _redeemedCouponWidget(
+                          state,
+                          state.redeemedCouponModel?.result.coupons
+                                  .isNotEmpty ??
+                              true)
                     ],
                   ),
                 );
@@ -639,30 +642,30 @@ class RewardsRedeemView extends StatelessWidget {
     );
   }
 
-  Widget _filterWidget({
-    required String text,
-  }) {
-    return Container(
-      height: 38,
-      decoration: BoxDecoration(
-          color: ColorManager.whiteColor,
-          borderRadius: BorderRadius.circular(50),
-          border: Border.all(
-            color: ColorManager.lightBlackColor.withOpacity(0.3),
-          )),
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w500,
-            color: ColorManager.blackColor,
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget _filterWidget({
+  //   required String text,
+  // }) {
+  //   return Container(
+  //     height: 38,
+  //     decoration: BoxDecoration(
+  //         color: ColorManager.whiteColor,
+  //         borderRadius: BorderRadius.circular(50),
+  //         border: Border.all(
+  //           color: ColorManager.lightBlackColor.withOpacity(0.3),
+  //         )),
+  //     padding: const EdgeInsets.symmetric(horizontal: 20),
+  //     child: Center(
+  //       child: Text(
+  //         text,
+  //         style: TextStyle(
+  //           fontSize: 17,
+  //           fontWeight: FontWeight.w500,
+  //           color: ColorManager.blackColor,
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
 
 class RewardClipper extends CustomClipper<Path> {

@@ -166,7 +166,6 @@ class ShopBrandView extends StatelessWidget {
           child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
             builder: (context, state) {
               if (state.topBrandsModel?.result?.data == null) {
-                print(state.topBrandsModel);
                 return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: List.generate(
@@ -372,72 +371,7 @@ class ShopBrandView extends StatelessWidget {
     );
   }
 
-  Widget _filterRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        _filterContainer(
-            icon: AppAssetsStrings.filterIcon, text: Appstrings.filters),
-        _filterContainer(
-            icon: AppAssetsStrings.starIcon, text: Appstrings.byReview),
-        Container(
-          height: 42,
-          decoration: BoxDecoration(
-            color: ColorManager.dotGrey.withOpacity(0.6),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          padding: const EdgeInsets.all(10),
-          child: const Row(
-            children: [
-              Icon(
-                Icons.expand_more,
-                size: 26,
-              ),
-              kWidth5,
-              Text(
-                Appstrings.sortBy,
-                style: TextStyle(
-                    fontSize: 14, fontWeight: FontWeight.w600, height: 1.5),
-              ),
-            ],
-          ),
-        )
-      ],
-    );
-  }
 
-  Container _filterContainer({
-    required String icon,
-    required String text,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: ColorManager.greyD1,
-        ),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      padding: const EdgeInsets.all(10),
-      height: 42,
-      child: Row(
-        children: [
-          ImageIcon(
-            AssetImage(
-              icon,
-            ),
-          ),
-          kWidth8,
-          Text(
-            text,
-            style: const TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w500,
-            ),
-          )
-        ],
-      ),
-    );
-  }
 }
 
 class BrandImages extends StatelessWidget {

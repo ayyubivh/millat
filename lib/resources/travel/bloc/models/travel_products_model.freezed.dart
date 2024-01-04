@@ -124,7 +124,7 @@ class _$TravelProductsModelImpl implements _TravelProductsModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TravelProductsModelImpl &&
@@ -539,7 +539,7 @@ class _$TravelProductImpl implements _TravelProduct {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TravelProductImpl &&
@@ -1023,7 +1023,7 @@ class _$TravelPackageItemsImpl implements _TravelPackageItems {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TravelPackageItemsImpl &&

@@ -413,15 +413,15 @@ class _ShopSearchViewState extends State<ShopSearchView> {
     );
   }
 
-  Text _filterTitleText(String text) {
-    return Text(
-      text,
-      style: const TextStyle(
-        fontSize: 17,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
+  // Text _filterTitleText(String text) {
+  //   return Text(
+  //     text,
+  //     style: const TextStyle(
+  //       fontSize: 17,
+  //       fontWeight: FontWeight.bold,
+  //     ),
+  //   );
+  // }
 
   Widget sortByWidget() {
     return GestureDetector(

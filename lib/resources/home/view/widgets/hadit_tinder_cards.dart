@@ -68,15 +68,9 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
   SwipeItem _buildSwipeItem(Data card) {
     return SwipeItem(
       content: card,
-      likeAction: () {
-        print('like action');
-      },
-      nopeAction: () {
-        print('nope action');
-      },
-      superlikeAction: () {
-        print('super like action');
-      },
+      likeAction: () {},
+      nopeAction: () {},
+      superlikeAction: () {},
     );
   }
 

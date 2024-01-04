@@ -176,7 +176,7 @@ class _$TermsConditionsModelImpl implements _TermsConditionsModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TermsConditionsModelImpl &&
@@ -345,7 +345,7 @@ class _$TermsConditionsResultImpl implements _TermsConditionsResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TermsConditionsResultImpl &&
@@ -587,7 +587,7 @@ class _$DataImpl implements _Data {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DataImpl &&
@@ -795,7 +795,7 @@ class _$TermsConditionImpl implements _TermsCondition {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TermsConditionImpl &&

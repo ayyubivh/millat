@@ -187,7 +187,7 @@ class _$DuaModelByIdImpl implements _DuaModelById {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DuaModelByIdImpl &&
@@ -354,7 +354,7 @@ class _$ResultImpl implements _Result {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResultImpl &&
@@ -633,7 +633,7 @@ class _$DuaImpl implements _Dua {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DuaImpl &&
@@ -929,7 +929,7 @@ class _$SubCategoryIdImpl implements _SubCategoryId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubCategoryIdImpl &&
@@ -1175,7 +1175,7 @@ class _$CategoryIdImpl implements _CategoryId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CategoryIdImpl &&
@@ -1379,7 +1379,7 @@ class _$TranslationImpl implements _Translation {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TranslationImpl &&

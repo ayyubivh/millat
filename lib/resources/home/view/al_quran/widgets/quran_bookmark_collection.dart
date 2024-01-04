@@ -15,7 +15,7 @@ class QuranBookmarkCollectionWidget extends StatelessWidget {
   final String img;
   final String collectionName;
   final String userName;
-  final BookMarktCollectionModel passvalue;
+  final BookMarkCollectionModel passvalue;
   const QuranBookmarkCollectionWidget({
     Key? key,
     required this.context,

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -54,7 +53,7 @@ class TravelWishlistView extends StatelessWidget {
                 ],
               );
             } else {
-              if (state.wishlistProducts?.length == 0) {
+              if (state.wishlistProducts?.isEmpty ?? true) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Column(

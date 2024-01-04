@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'dua_categories_model.g.dart';
 part 'dua_categories_model.freezed.dart';

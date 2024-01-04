@@ -29,7 +29,6 @@ class TravelServices {
             results.map((e) => TravelPackageItems.fromJson(e)).toList();
         return productList;
       } catch (e) {
-        print('Error on Banner package API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -47,10 +46,11 @@ class TravelServices {
       try {
         final data = json.decode(response.body);
         final result = TravelPopularProductsModel.fromJson(data);
-        print("travel products: $result");
+        debugPrint("travel products: $result");
         return result;
       } catch (e) {
-        print('Error on Travel popular products API fetch: ${e.toString()}');
+        debugPrint(
+            'Error on Travel popular products API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -70,10 +70,10 @@ class TravelServices {
       try {
         final data = json.decode(response.body);
         final result = TravelPopularProductsModel.fromJson(data);
-        print("travel products: $result");
+        debugPrint("travel products: $result");
         return result;
       } catch (e) {
-        print(
+        debugPrint(
             'Error on Travel products by location API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
@@ -92,10 +92,10 @@ class TravelServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = TravelProductsModel.fromJson(data);
-        print("travel products by id: $result");
+        debugPrint("travel products by id: $result");
         return result;
       } catch (e) {
-        print('Error on Travel products by id API fetch: ${e.toString()}');
+        debugPrint('Error on Travel products by id API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -122,7 +122,8 @@ class TravelServices {
 
         return productList;
       } catch (e) {
-        print('Error on Travel Searched products API fetch: ${e.toString()}');
+        debugPrint(
+            'Error on Travel Searched products API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -140,7 +141,7 @@ class TravelServices {
       try {
         final data = json.decode(response.body);
         final result = TravelBestPlacesModel.fromJson(data);
-        print("travel best places products: $result");
+        debugPrint("travel best places products: $result");
         return result;
       } catch (e) {
         if (kDebugMode) {
@@ -189,10 +190,10 @@ class TravelServices {
       try {
         final data = json.decode(response.body);
         final result = TravelCitiesModel.fromJson(data);
-        print("travel cities: $result");
+        debugPrint("travel cities: $result");
         return result;
       } catch (e) {
-        print('Error on Travel cities API fetch: ${e.toString()}');
+        debugPrint('Error on Travel cities API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -347,7 +348,7 @@ class TravelServices {
         throw Exception('Failed to add item to wishlist');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }

@@ -525,9 +525,9 @@ class UserProfileView extends StatelessWidget {
   }
 
   Future<void> _launchUrl(String url) async {
-    final Uri _url = Uri.parse(url);
-    if (!await launch(_url.toString())) {
-      throw Exception('Could not launch $_url');
+    final Uri url0 = Uri.parse(url);
+    if (!await launch(url0.toString())) {
+      throw Exception('Could not launch $url0');
     }
   }
 

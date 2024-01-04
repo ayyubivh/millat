@@ -190,7 +190,7 @@ class _$FetchDuaCategoryEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchDuaCategoryEventImpl);
@@ -404,7 +404,7 @@ class _$FetchDuaSubCategorybyCategoryImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchDuaSubCategorybyCategoryImpl &&
@@ -634,7 +634,7 @@ class _$FetchDuaBySubcategoryEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchDuaBySubcategoryEventImpl &&
@@ -868,7 +868,7 @@ class _$AddBookmarkEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddBookmarkEventImpl &&
@@ -1098,7 +1098,7 @@ class _$FetchDuaBookMarksEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchDuaBookMarksEventImpl &&
@@ -1332,7 +1332,7 @@ class _$RemoveBookmarkImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveBookmarkImpl &&
@@ -1560,7 +1560,7 @@ class _$ChangeSliderEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeSliderEventImpl &&
@@ -1764,7 +1764,7 @@ class _$FetchDuaByIdImpl with DiagnosticableTreeMixin implements FetchDuaById {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchDuaByIdImpl);
   }
@@ -1976,7 +1976,7 @@ class _$ChangeSubcategoryNameEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeSubcategoryNameEventImpl &&
@@ -2202,7 +2202,7 @@ class _$SelectTranslationTextImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelectTranslationTextImpl &&
@@ -2430,7 +2430,7 @@ class _$SwitchDisplayArabicTextEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SwitchDisplayArabicTextEventImpl &&
@@ -2662,7 +2662,7 @@ class _$SwitchDisplayTranslationTextEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SwitchDisplayTranslationTextEventImpl &&
@@ -3255,7 +3255,7 @@ class _$DuaStateImpl with DiagnosticableTreeMixin implements _DuaState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DuaStateImpl &&

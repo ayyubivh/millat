@@ -21,7 +21,7 @@ class CancelView extends StatelessWidget {
       final orderId = context.read<ShopProductsBloc>().state.orderId;
       BlocProvider.of<ShopProductsBloc>(context)
         ..add(const ShopProductsEvent.fetchOrderReasons(
-            endpoint: Appstrings.cancelReasonEnpoint))
+            endpoint: Appstrings.cancelReasonEndpoint))
         ..add(ShopProductsEvent.fetchOrdersById(context, orderId!));
     });
 
@@ -126,7 +126,7 @@ class CancelView extends StatelessWidget {
                                       ),
                                       kHeight8,
                                       Text(
-                                        "${data?.productId?.color ?? ""},${data?.productId?.size?[0].size ?? ""}",
+                                        "${data.productId?.color ?? ""},${data.productId?.size?[0].size ?? ""}",
                                         style: TextStyle(
                                           color: ColorManager.textGrey7A,
                                           fontSize: 13,
@@ -142,7 +142,7 @@ class CancelView extends StatelessWidget {
                                       ),
                                       kHeight8,
                                       Text(
-                                        data?.sellingPrice.toString() ?? "",
+                                        data.sellingPrice.toString(),
                                         style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.bold,
@@ -202,7 +202,7 @@ class CancelView extends StatelessWidget {
             //       height: 128,
             //       width: SizeUtility(context).width,
             //       decoration: BoxDecoration(
-            //         color: ColorManager.scaffolBgColor,
+            //         color: ColorManager.scaffoldBgColor,
             //         borderRadius: BorderRadius.circular(12),
             //       ),
             //       padding: const EdgeInsets.all(12),
@@ -253,12 +253,12 @@ class CancelView extends StatelessWidget {
                 ..add(
                     CancelOrder(context: context, shiprockeId: int.parse(id!)))
                 ..add(AddReasons(
-                    endpoint: Appstrings.addCancelReasonEnpoint,
+                    endpoint: Appstrings.addCancelReasonEndpoint,
                     text: state
                         .reasonModel!.result!.data!.reasons![state.indexVal]
                         .toString()));
 
-              context.pushNamed(MyAppRouteConstants.orderReturnSuccesRouteName,
+              context.pushNamed(MyAppRouteConstants.orderReturnSuccessRouteName,
                   extra: {'orderType': OrderType.cancelOrder});
             },
           ),

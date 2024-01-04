@@ -14,11 +14,11 @@ class TermsAndconditionsServces extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = TermsConditionsModel.fromJson(data);
-        print("terms and conditions resuls $result");
+        debugPrint("terms and conditions resuls $result");
 
         return result;
       } catch (e) {
-        print('error on the terms and conditions  : ${e.toString()}');
+        debugPrint('error on the terms and conditions  : ${e.toString()}');
         throw Exception(e);
       }
     } else {

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +34,7 @@ class AuthService extends HttpServices {
     return await posts(
         endPoint: loginAPI,
         body: {"email": email, "password": password}).then((value) {
-      print(value.body);
+      debugPrint(value.body);
 
       if (value.statusCode == 200) {
         final result = UserModel.fromJson(jsonDecode(value.body));
@@ -201,7 +203,7 @@ class AuthService extends HttpServices {
         endPoint: verifyOTPAPI,
         body: {"phone_number": phoneNumber, "otp": otp}).then((value) {
       if (value.statusCode == 200) {
-        print(value.body);
+        debugPrint(value.body);
         final token = jsonDecode(value.body)['result']['token'];
         context
             .read<DatabaseBloc>()
@@ -240,7 +242,9 @@ class AuthService extends HttpServices {
     });
   }
 
-  forgotPassword({required String phoneNumber, required String}) async {
+  forgotPassword({
+    required String phoneNumber,
+  }) async {
     return await posts(endPoint: forgotPasswordAPI, body: {
       "phone_number": phoneNumber,
       "otp": "7941",
@@ -409,11 +413,11 @@ class AuthService extends HttpServices {
 
         return message;
       } catch (e) {
-        print('Error parsing response: ${e.toString()}');
+        debugPrint('Error parsing response: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
-      print('API request failed with status code: ${response.statusCode}');
+      debugPrint('API request failed with status code: ${response.statusCode}');
       throw Exception(
           'API request failed with status code: ${response.statusCode}');
     }

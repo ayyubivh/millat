@@ -168,7 +168,7 @@ class InviteFriendView extends StatelessWidget {
                                 if (await canLaunchUrl(smsLaunchUri)) {
                                   await launchUrl(smsLaunchUri);
                                 } else {
-                                  print("error on uri launcher");
+                                  debugPrint("error on uri launcher");
                                 }
                               },
                             );

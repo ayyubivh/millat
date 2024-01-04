@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/utils/responsive.dart';
-import 'package:millat/utils/size_utility.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';

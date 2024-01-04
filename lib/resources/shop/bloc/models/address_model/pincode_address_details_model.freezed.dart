@@ -160,7 +160,7 @@ class _$PincodeAddressModelImpl implements _PincodeAddressModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PincodeAddressModelImpl &&
@@ -497,7 +497,7 @@ class _$PostOfficeImpl implements _PostOffice {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostOfficeImpl &&

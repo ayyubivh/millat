@@ -123,7 +123,7 @@ class _$VersesTranslationModelImpl implements _VersesTranslationModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VersesTranslationModelImpl &&
@@ -280,7 +280,7 @@ class _$TranslationsImpl implements _Translations {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TranslationsImpl &&

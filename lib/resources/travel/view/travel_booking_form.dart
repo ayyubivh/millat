@@ -429,18 +429,16 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
             child: BlocBuilder<TravelBloc, TravelState>(
               builder: (context, state) {
                 final country = state.country;
-                final _img = state.formImages;
+                final img = state.formImages;
                 return MainButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      print(
-                          "text editing controller values ${_nameController.text}\n${_emailController.text}\n${_phoneController.text}");
                       BlocProvider.of<TravelBloc>(context)
                           .add(TravelEvent.bookTravelEvent(
                         name: _nameController.text,
                         email: _emailController.text,
                         phoneNumber: _phoneController.text,
-                        passPortPhoto: _img[0],
+                        passPortPhoto: img[0],
                         country: country,
                         productId: widget.id,
                       ));

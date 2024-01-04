@@ -151,7 +151,7 @@ class _$ChapterVersesModelImpl implements _ChapterVersesModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChapterVersesModelImpl &&
@@ -297,7 +297,7 @@ class _$VersesDataImpl implements _VersesData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VersesDataImpl &&

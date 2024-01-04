@@ -14,7 +14,7 @@ class BookmarkState with _$BookmarkState {
     required int index,
     required List<int> versesIndexList,
     required List<String> verskey,
-    required List<BookMarktCollectionModel> dbCollectionItems,
+    required List<BookMarkCollectionModel> dbCollectionItems,
   }) = _BookmarkState;
   factory BookmarkState.initial() => const BookmarkState(
         indexList: [],

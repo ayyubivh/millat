@@ -120,7 +120,7 @@ class _$NamazMethodsModelImpl implements _NamazMethodsModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NamazMethodsModelImpl &&
@@ -343,7 +343,7 @@ class _$NamazTimeDataImpl implements _NamazTimeData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NamazTimeDataImpl &&
@@ -564,7 +564,7 @@ class _$NamazTimeParamsImpl implements _NamazTimeParams {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NamazTimeParamsImpl &&
@@ -740,7 +740,7 @@ class _$NamazTimeLocationImpl implements _NamazTimeLocation {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NamazTimeLocationImpl &&

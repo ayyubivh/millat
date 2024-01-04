@@ -6,7 +6,6 @@ import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 
@@ -36,7 +35,7 @@ class WishListView extends StatelessWidget {
         create: (context) => ShopProductsBloc()..add(FetchWishList(context)),
         child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
           builder: (context, state) {
-            return state.wishList?.result?.wishlist!.products?.length == 0
+            return state.wishList?.result?.wishlist?.products?.isEmpty ?? true
                 ? Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Column(

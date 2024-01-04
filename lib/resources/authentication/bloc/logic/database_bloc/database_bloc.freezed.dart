@@ -213,7 +213,7 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StoreTokenEventImpl &&
@@ -424,7 +424,7 @@ class _$FetchTokenImpl implements FetchToken {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchTokenImpl);
   }
@@ -638,7 +638,7 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchAuthUserImpl &&
@@ -931,7 +931,7 @@ class _$EditAuthUserImpl implements EditAuthUser {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EditAuthUserImpl &&
@@ -1169,7 +1169,7 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$RemoveTokenEventImpl);
   }
@@ -1383,7 +1383,7 @@ class _$UploadImageEventImpl implements UploadImageEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UploadImageEventImpl &&
@@ -1594,7 +1594,7 @@ class _$FetchContactEventImpl implements FetchContactEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchContactEventImpl);
   }
@@ -1808,7 +1808,7 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveCoverImageImpl &&
@@ -2019,7 +2019,7 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchCoverImageImpl);
   }
@@ -2233,7 +2233,7 @@ class _$DeleteAccountImpl implements DeleteAccount {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeleteAccountImpl &&
@@ -2444,7 +2444,7 @@ class _$FetchUserReferralCodeImpl implements FetchUserReferralCode {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchUserReferralCodeImpl);
@@ -2641,7 +2641,7 @@ class _$FetchReferralMessageImpl implements FetchReferralMessage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchReferralMessageImpl);
@@ -2856,7 +2856,7 @@ class _$SearchContactEventImpl implements SearchContactEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchContactEventImpl &&
@@ -3379,7 +3379,7 @@ class _$InitialImpl implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&

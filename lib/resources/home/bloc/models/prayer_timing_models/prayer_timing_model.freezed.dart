@@ -151,7 +151,7 @@ class _$PrayerModelImpl implements _PrayerModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PrayerModelImpl &&
@@ -358,7 +358,7 @@ class _$PrayerDataImpl implements _PrayerData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PrayerDataImpl &&
@@ -688,7 +688,7 @@ class _$PrayerTimingsImpl implements _PrayerTimings {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PrayerTimingsImpl &&
@@ -956,7 +956,7 @@ class _$PrayerDateImpl implements _PrayerDate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PrayerDateImpl &&
@@ -1264,7 +1264,7 @@ class _$HijriDateImpl implements _HijriDate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HijriDateImpl &&
@@ -1565,7 +1565,7 @@ class _$GregorianDateImpl implements _GregorianDate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GregorianDateImpl &&
@@ -1741,7 +1741,7 @@ class _$HijriWeekdayImpl implements _HijriWeekday {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HijriWeekdayImpl &&
@@ -1882,7 +1882,7 @@ class _$GregorianWeekdayImpl implements _GregorianWeekday {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GregorianWeekdayImpl &&
@@ -2046,7 +2046,7 @@ class _$HijriMonthImpl implements _HijriMonth {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HijriMonthImpl &&
@@ -2218,7 +2218,7 @@ class _$GregorianMonthImpl implements _GregorianMonth {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GregorianMonthImpl &&
@@ -2377,7 +2377,7 @@ class _$DesignationImpl implements _Designation {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DesignationImpl &&
@@ -2666,7 +2666,7 @@ class _$PrayerMetaImpl implements _PrayerMeta {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PrayerMetaImpl &&
@@ -2907,7 +2907,7 @@ class _$MethodImpl implements _Method {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MethodImpl &&
@@ -3097,7 +3097,7 @@ class _$MethodParamsImpl implements _MethodParams {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MethodParamsImpl &&
@@ -3262,7 +3262,7 @@ class _$MethodLocationImpl implements _MethodLocation {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MethodLocationImpl &&
@@ -3552,7 +3552,7 @@ class _$OffsetImpl implements _Offset {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OffsetImpl &&

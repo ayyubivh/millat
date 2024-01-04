@@ -36,14 +36,14 @@ class OrdersService extends HttpServices {
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        print('Response data in the postOrder function: $data');
+        debugPrint('Response data in the postOrder function: $data');
         return data;
       } else {
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
     }
   }
 
@@ -73,14 +73,15 @@ class OrdersService extends HttpServices {
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        print('Response data in the post Online Order function: ${data['id']}');
+        debugPrint(
+            'Response data in the post Online Order function: ${data['id']}');
         return data;
       } else {
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
     }
   }
 
@@ -104,7 +105,7 @@ class OrdersService extends HttpServices {
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        print(
+        debugPrint(
             'Response data in the postOrder id online function: ${data['data']['id']}');
         return data['data']['id'];
       } else {
@@ -112,7 +113,7 @@ class OrdersService extends HttpServices {
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
     }
   }
 
@@ -155,15 +156,15 @@ class OrdersService extends HttpServices {
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        print('Response data in the postOrder function: $data');
+        debugPrint('Response data in the postOrder function: $data');
         return data;
       } else {
-        print("error on the reward order api");
+        debugPrint("error on the reward order api");
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
       rethrow; // Re-throw the exception to propagate it to the caller.
     }
   }
@@ -177,11 +178,11 @@ class OrdersService extends HttpServices {
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
-        print(response.body);
+        debugPrint(response.body);
         final result = OrderModel.fromJson(data);
         return result;
       } catch (e) {
-        print('error on orders  API fetch: ${e.toString()}');
+        debugPrint('error on orders  API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -201,10 +202,10 @@ class OrdersService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = OrderModelbyIdModel.fromJson(data);
-        print('jsone here by resul $result}');
+        debugPrint('jsone here by resul $result}');
         return result;
       } catch (e) {
-        print('error on orders  API fetch: ${e.toString()}');
+        debugPrint('error on orders  API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -222,12 +223,12 @@ class OrdersService extends HttpServices {
 
     if (response.statusCode == 200) {
       try {
-        print("filtered orders ${response.body}");
+        debugPrint("filtered orders ${response.body}");
         final Map<String, dynamic> data = json.decode(response.body);
         final result = OrderModel.fromJson(data);
         return result;
       } catch (e) {
-        print('error on orders  API fetch: ${e.toString()}');
+        debugPrint('error on orders  API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -255,14 +256,14 @@ class OrdersService extends HttpServices {
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        print('Response data in the postOrder function: $data');
+        debugPrint('Response data in the postOrder function: $data');
         return data;
       } else {
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
     }
   }
 
@@ -286,14 +287,14 @@ class OrdersService extends HttpServices {
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        print('Response data in the postOrder function: $data');
+        debugPrint('Response data in the postOrder function: $data');
         return data;
       } else {
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
     }
   }
 
@@ -304,10 +305,9 @@ class OrdersService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ReasonModel.fromJson(data);
-        print(result);
-        return result;
+         return result;
       } catch (e) {
-        print('error on shop Top brands api: ${e.toString()}');
+        debugPrint('error on shop Top brands api: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -330,14 +330,14 @@ class OrdersService extends HttpServices {
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        print('Response data in the postOrder function: $data');
+        debugPrint('Response data in the postOrder function: $data');
         return data;
       } else {
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
+      debugPrint('Error on API fetch: ${e.toString()}');
     }
   }
 

@@ -303,8 +303,6 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               }
               if (formkey.currentState!.validate() &&
                   widget.type != AddressNavType.editAddress) {
-                print('no the edit type');
-
                 context.read<AddressBloc>().add(AddressEvent.addAddress(
                     context: context,
                     addressType: addressType,

@@ -38,8 +38,6 @@ class CategoriesProductView extends StatefulWidget {
 class _CategoriesProductViewState extends State<CategoriesProductView> {
   @override
   void initState() {
-    print(
-        "category type--=-=-=-=-=-= ${widget.type} category name ${widget.category}");
     BlocProvider.of<CategoryBloc>(context).add(
         widget.type == FilterType.specificCategory
             ? FetchFilterProducts(
@@ -119,7 +117,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                   return widget.type == FilterType.category
                       ? state.productLoading
                           ? ShimmerUtils.productsShimmers(context: context)
-                          : state.product?.result?.products?.length == 0
+                          : state.product?.result?.products?.isEmpty ?? true
                               ? Padding(
                                   padding: EdgeInsets.only(
                                       top: SizeUtility(context).height / 2.4),
@@ -190,7 +188,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                 )
                       : state.productLoading
                           ? ShimmerUtils.productsShimmers(context: context)
-                          : state.product?.result?.products?.length == 0
+                          : state.product?.result?.products?.isEmpty ?? true
                               ? Padding(
                                   padding: EdgeInsets.only(
                                       top: SizeUtility(context).height / 2.4),
@@ -228,8 +226,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                           ? ShimmerUtils.productsShimmers(
                                               context: context)
                                           : state.product?.result?.products
-                                                      ?.length ==
-                                                  0
+                                                      ?.isEmpty ??
+                                                  true
                                               ? Padding(
                                                   padding: EdgeInsets.only(
                                                       top: SizeUtility(context)
@@ -663,13 +661,13 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
     );
   }
 
-  Text _filterTitleText(String text) {
-    return Text(
-      text,
-      style: const TextStyle(
-        fontSize: 17,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
+  // Text _filterTitleText(String text) {
+  //   return Text(
+  //     text,
+  //     style: const TextStyle(
+  //       fontSize: 17,
+  //       fontWeight: FontWeight.bold,
+  //     ),
+  //   );
+  // }
 }

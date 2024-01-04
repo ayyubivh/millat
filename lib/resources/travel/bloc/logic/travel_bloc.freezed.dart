@@ -284,7 +284,7 @@ class _$ChangeBannerIndexImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeBannerIndexImpl &&
@@ -584,7 +584,7 @@ class _$ChangeTravelTabIndexImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeTravelTabIndexImpl &&
@@ -868,7 +868,7 @@ class _$FetchTravelPopularProductsImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTravelPopularProductsImpl);
@@ -1137,7 +1137,7 @@ class _$FetchBestPlacesProductsImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchBestPlacesProductsImpl);
@@ -1404,7 +1404,7 @@ class _$FetchTravelCitiesImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchTravelCitiesImpl);
   }
@@ -1691,7 +1691,7 @@ class _$FetchTravelProductsByIdImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTravelProductsByIdImpl &&
@@ -1994,7 +1994,7 @@ class _$FetchTravelSearchLocationsImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTravelSearchLocationsImpl &&
@@ -2297,7 +2297,7 @@ class _$FetchProductByLocationImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchProductByLocationImpl &&
@@ -2650,7 +2650,7 @@ class _$BookTravelEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookTravelEventImpl &&
@@ -2953,7 +2953,7 @@ class _$IncreaseGuestEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$IncreaseGuestEventImpl);
   }
@@ -3219,7 +3219,7 @@ class _$DecreaseGuestEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$DecreaseGuestEventImpl);
   }
@@ -3504,7 +3504,7 @@ class _$SelectCountryEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelectCountryEventImpl &&
@@ -3804,7 +3804,7 @@ class _$SaveSearchLocationImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveSearchLocationImpl &&
@@ -4085,7 +4085,7 @@ class _$ResetSearchDataImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ResetSearchDataImpl);
   }
@@ -4351,7 +4351,7 @@ class _$ShowCalendarEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ShowCalendarEventImpl);
   }
@@ -4653,7 +4653,7 @@ class _$SelectDateRangeEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelectDateRangeEventImpl &&
@@ -4981,7 +4981,7 @@ class _$FetchTravelSearchedProductsImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTravelSearchedProductsImpl &&
@@ -5271,7 +5271,7 @@ class _$FetchTravelWishlistProductsImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTravelWishlistProductsImpl);
@@ -5567,7 +5567,7 @@ class _$AddTravelWishlistImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddTravelWishlistImpl &&
@@ -5855,7 +5855,7 @@ class _$TravelBookingCompletedImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TravelBookingCompletedImpl);
@@ -6124,7 +6124,7 @@ class _$FetchTravelHomeBannerPackagesImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTravelHomeBannerPackagesImpl);
@@ -6394,7 +6394,7 @@ class _$PickMultipleImageEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PickMultipleImageEventImpl);
@@ -7266,7 +7266,7 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TravelStateImpl &&

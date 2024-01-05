@@ -95,7 +95,7 @@ class TravelSingleProductView extends StatelessWidget {
             child: BlocBuilder<TravelBloc, TravelState>(
               builder: (context, state) {
                 final data = state.travelProductsModel?.product;
-                if (data == null) {
+                if (data == null || state.isLoading) {
                   return ShimmerUtils.travelSingleProductShimmer(context);
                 }
                 return Padding(
@@ -302,7 +302,7 @@ class HeaderImageWidget extends StatelessWidget {
     return BlocBuilder<TravelBloc, TravelState>(
       builder: (context, state) {
         final img = state.travelProductsModel?.product.images?[0];
-        return img == null
+        return img == null || state.isLoading
             ? ShimmerUtils.customRectangleShimmer(
                 SizeUtility(context).width,
                 200,

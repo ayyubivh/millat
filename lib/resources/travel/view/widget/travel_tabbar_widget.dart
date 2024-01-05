@@ -167,6 +167,7 @@ class TravelTabBarWidget extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: Utilities().buildCachedNetworkImage(
+        boxFit: BoxFit.cover,
         imageUrl: image,
         height: 156,
       ),

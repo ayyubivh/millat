@@ -1,11 +1,14 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories_by_category_id.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
+import 'package:millat/utils/string_constants.dart';
 import '../../../../services/http_services.dart';
 import '../models/category/categories._model.dart';
 import '../models/category/category_items_model.dart';
 import '../models/category/filter_option_model.dart';
+import 'package:http/http.dart' as http;
 
 class CategoryService extends HttpServices {
   //Fetching Categories
@@ -21,7 +24,7 @@ class CategoryService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on Category API fetch: ${e.toString()}');
+        debugPrint('error on Category API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -41,10 +44,10 @@ class CategoryService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = SubcategoryByCategoryIdModel.fromJson(data);
-        print(result);
+        debugPrint(result.toString());
         return result;
       } catch (e) {
-        print('error on Category API fetch: ${e.toString()}');
+        debugPrint('error on Category API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -73,7 +76,7 @@ class CategoryService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on Filter API fetch: ${e.toString()}');
+        debugPrint('error on Filter API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -94,7 +97,7 @@ class CategoryService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on SubCategory API fetch: ${e.toString()}');
+        debugPrint('error on SubCategory API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -114,10 +117,10 @@ class CategoryService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = CategoryItemModel.fromJson(data);
-        print("results of the category items $result");
+        debugPrint("results of the category items $result");
         return result;
       } catch (e) {
-        print('error on SubCategory API fetch: ${e.toString()}');
+        debugPrint('error on SubCategory API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -139,10 +142,10 @@ class CategoryService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductModel.fromJson(data);
-        print(result);
+        debugPrint(result.toString());
         return result;
       } catch (e) {
-        print('error on Category API fetch: ${e.toString()}');
+        debugPrint('error on Category API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -153,38 +156,45 @@ class CategoryService extends HttpServices {
   //fetch products by filter price range
 
   Future<ProductModel> fetchProductsByFilter({
-    required String minPrice,
-    required String maxPrice,
+    required int minPrice,
+    required int maxPrice,
     required String category,
     required List<String> subCategory,
     required List<String> brand,
     required List<String> color,
-    required List<String>? itemId,
+    required List<String>? itemType,
   }) async {
-    const  endpoint = "product/multi-filter";
+    const endpoint = "product/multi-filter";
+    final body = {
+      "brand": brand,
+      "category": category,
+      "subcategory": subCategory,
+      "color": color,
+      "itemType": itemType ?? [],
+      "regularPrice": {
+        "min": minPrice,
+        "max": maxPrice,
+      },
+    };
 
-    final response = await posts(endPoint: endpoint, body: {
-      "brand": [],
-      "category": "",
-      "subcategory": [],
-      "color": ["red", "white"],
-      "itemType": [],
-      "regularPrice": {"min": 0, "max": 2000}
-    });
+    try {
+      final response = await http.post(
+        (Uri.parse(kBaseUrl + endpoint)),
+        body: json.encode(body),
+      );
 
-    if (response.statusCode == 200) {
-      try {
+      if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductModel.fromJson(data);
         print(result);
         return result;
-      } catch (e) {
-        print('error on Category API fetch: ${e.toString()}');
-        throw Exception('Failed to parse response');
+      } else {
+        print('Failed to load products, status code: ${response.statusCode}');
+        throw Exception('Failed to load products');
       }
-    } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+    } catch (e) {
+      print('Error on fetching products: ${e.toString()}');
+      throw Exception('Failed to fetch products');
     }
   }
 
@@ -199,10 +209,10 @@ class CategoryService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = FilterOptionModel.fromJson(data);
-        print(result);
+        debugPrint(result.toString());
         return result;
       } catch (e) {
-        print('error on filter option API fetch: ${e.toString()}');
+        debugPrint('error on filter option API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

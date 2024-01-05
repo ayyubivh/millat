@@ -36,7 +36,7 @@ class WishListView extends StatelessWidget {
         create: (context) => ShopProductsBloc()..add(FetchWishList(context)),
         child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
           builder: (context, state) {
-            return state.wishList?.result?.wishlist!.products?.length == 0
+            return state.wishList?.result?.wishlist?.products?.isEmpty ?? true
                 ? Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Column(

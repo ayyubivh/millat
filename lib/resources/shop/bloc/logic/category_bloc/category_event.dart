@@ -43,8 +43,8 @@ class CategoryEvent with _$CategoryEvent {
     required int index,
   }) = ChangeSortListIndex;
   const factory CategoryEvent.fetchProductsByFilter({
-    required String minPrice,
-    required String maxPrice,
+    required int minPrice,
+    required int maxPrice,
     required String category,
     required List<String> subCategory,
     required List<String> brand,
@@ -57,13 +57,17 @@ class CategoryEvent with _$CategoryEvent {
   const factory CategoryEvent.filterSubCategoryCheckboxChangingEvent({
     required int index,
   }) = FilterSubCategoryCheckboxChangingEvent;
-  const factory CategoryEvent.filterBrandCheckboxChangingEvent({
-    required int index,
-  }) = FilterBrandCheckboxChangingEvent;
+
   const factory CategoryEvent.filterColorCheckboxChangingEvent({
     required int index,
   }) = FilterColorCheckboxChangingEvent;
   const factory CategoryEvent.fetchFilterOptionEvent({
     required String category,
   }) = FetchFilterOptionEvent;
+  const factory CategoryEvent.saveSubcategoryFilters({required String value}) =
+      SaveSubcategoryFilters;
+  const factory CategoryEvent.saveBrandsFilters({required String value}) =
+      SaveBrandsFilters;
+  const factory CategoryEvent.saveColorsFilters({required String value}) =
+      SaveColorsFilters;
 }

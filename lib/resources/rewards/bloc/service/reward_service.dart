@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:developer';
 
@@ -26,7 +28,6 @@ class RewardServices extends HttpServices {
 
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
@@ -50,7 +51,6 @@ class RewardServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardsProductsModel.fromJson(data);
-          print("Results of the reward products  $result");
           return result;
         } else {
           print('API request failed with status code: ${response.statusCode}');
@@ -76,7 +76,6 @@ class RewardServices extends HttpServices {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = CoinCollectionModel.fromJson(data);
-        print("Results of the reward products  $result");
         return result;
       } else {
         print('API request failed with status code: ${response.statusCode}');
@@ -126,7 +125,6 @@ class RewardServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardsProductByIdModel.fromJson(data);
-          print("result on the service $result");
           return result;
         } else {
           print('API request failed with status code: ${response.statusCode}');
@@ -153,7 +151,6 @@ class RewardServices extends HttpServices {
           log(response.body);
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RedeemedCouponModel.fromJson(data);
-          log(result.toString());
           return result;
         } else {
           print('API request failed with status code: ${response.statusCode}');
@@ -183,7 +180,6 @@ class RewardServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardRedeemItemModel.fromJson(data);
-          print("result on the rewards redeem $result");
           return result;
         } else {
           print('API request failed with status code: ${response.statusCode}');

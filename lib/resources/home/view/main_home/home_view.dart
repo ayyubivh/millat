@@ -72,7 +72,7 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchHadithOfTheDay())
       ..add(const FetchEventOfTheMonth())
       ..add(const ChangeIndexofAllaysaysBg());
-     
+
     OneSignal.Notifications.addClickListener((event) {
       print(event.notification.additionalData?["route"]);
       if (event.notification.additionalData?["route"] != null) {
@@ -222,16 +222,14 @@ class _HomeViewState extends State<HomeView> {
               padding: EdgeInsets.symmetric(
                   horizontal: !Responsive.isMobile(context) ? 110 : 30),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _topOffersWidget(),
                   kHeight25,
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: _brandOftheDayWidget(),
-            ),
+            _brandOftheDayWidget(),
             kHeight50,
             kHeight50,
           ],
@@ -399,6 +397,7 @@ class _HomeViewState extends State<HomeView> {
                           });
                     },
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),

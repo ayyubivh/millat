@@ -38,9 +38,11 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<ChangeFilterIndex>(_changeFilterIndex);
     on<FilterSubCategoryCheckboxChangingEvent>(
         _filterSubCategoryCheckboxChangingEvent);
-    on<FilterBrandCheckboxChangingEvent>(_filterBrandCheckboxChangingEvent);
     on<FilterColorCheckboxChangingEvent>(_filterColorCheckboxChangingEvent);
     on<FetchFilterOptionEvent>(_fetchFilterOptionEvent);
+    on<SaveSubcategoryFilters>(_saveSubCategoryFilters);
+    on<SaveBrandsFilters>(_saveBrandsFilter);
+    on<SaveColorsFilters>(_saveColorsFilter);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -175,7 +177,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         subCategory: event.subCategory,
         brand: event.brand,
         color: event.color,
-        itemId: event.itemId,
+        itemType: event.itemId,
       );
       print("filtered products $data");
       emit(state.copyWith(
@@ -221,13 +223,6 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
                 : event.index));
   }
 
-  _filterBrandCheckboxChangingEvent(
-      FilterBrandCheckboxChangingEvent event, Emitter<CategoryState> emit) {
-    emit(state.copyWith(
-        filterBrandCheckboxIndex:
-            state.filterBrandCheckboxIndex == event.index ? -1 : event.index));
-  }
-
   _filterColorCheckboxChangingEvent(
       FilterColorCheckboxChangingEvent event, Emitter<CategoryState> emit) {
     emit(state.copyWith(
@@ -244,5 +239,27 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  _saveSubCategoryFilters(
+      SaveSubcategoryFilters event, Emitter<CategoryState> emit) {
+    final List<String> currentList = List.from(state.subcategoryFiltersList);
+    currentList.add(event.value);
+    debugPrint("here current list $currentList");
+    emit(state.copyWith(subcategoryFiltersList: currentList));
+  }
+
+  _saveBrandsFilter(SaveBrandsFilters event, Emitter<CategoryState> emit) {
+    final List<String> currentList = List.from(state.brandsFiltersList);
+    currentList.add(event.value);
+    debugPrint("here current list $currentList");
+    emit(state.copyWith(brandsFiltersList: currentList));
+  }
+
+  _saveColorsFilter(SaveColorsFilters event, Emitter<CategoryState> emit) {
+    final List<String> currentList = List.from(state.colorsFiltersList);
+    currentList.add(event.value);
+    debugPrint("here current list $currentList");
+    emit(state.copyWith(colorsFiltersList: currentList));
   }
 }

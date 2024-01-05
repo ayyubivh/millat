@@ -65,7 +65,6 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
 
     try {
       final data = await rewardServices.fetchRewardProductsById(event.id);
-      print(data);
 
       emit(state.copyWith(rewardsProductByIdModel: data, isLoading: false));
     } catch (e) {

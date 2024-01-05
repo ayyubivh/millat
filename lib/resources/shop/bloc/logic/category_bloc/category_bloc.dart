@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/category/categories._model.dart';
 import 'package:millat/resources/shop/bloc/models/category/category_items_model.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories_by_category_id.dart';
+import 'package:millat/resources/shop/bloc/models/products/product_filter_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/bloc/service/category_services.dart';
 
@@ -28,7 +29,6 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<FilterBrandPickEvent>(_filterBrandPickEvent);
     on<PriceRangeEvent>(_priceRangeEvent);
     on<FetchSubCategoriesByCategoryId>(_fetchSubCategoriesByCategoryId);
-    on<SaveCategoryFilterVal>(_saveCategoryFilterVal);
     on<SavePriceRange>(_savePriceRagne);
     on<FetchProductSortByPrice>(_fetchProductSortByEvent);
     on<ChangeSortListIndex>(_changeSortListIndex);
@@ -36,14 +36,12 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<FetchItemsByCategory>(_fetchItemsByCategory);
     on<ChangeCategoryIndexEvent>(_changeCategoryIndexEvent);
     on<ChangeFilterIndex>(_changeFilterIndex);
-    on<FilterSubCategoryCheckboxChangingEvent>(
-        _filterSubCategoryCheckboxChangingEvent);
-    on<FilterColorCheckboxChangingEvent>(_filterColorCheckboxChangingEvent);
     on<FetchFilterOptionEvent>(_fetchFilterOptionEvent);
     on<SaveSubcategoryFilters>(_saveSubCategoryFilters);
     on<SaveBrandsFilters>(_saveBrandsFilter);
     on<SaveColorsFilters>(_saveColorsFilter);
     on<ClearAllFilterEvent>(_clearAllFilterEvent);
+    on<SaveItemTypeFilters>(_saveItemTypeFilterEvent);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -128,12 +126,6 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     }
   }
 
-  _saveCategoryFilterVal(
-      SaveCategoryFilterVal event, Emitter<CategoryState> emit) {
-    emit(state.copyWith(filterVal: event.filterVal));
-    print(state.filterVal);
-  }
-
   _savePriceRagne(SavePriceRange event, Emitter<CategoryState> emit) {
     emit(state.copyWith(
         minPrice: event.minPrice,
@@ -180,9 +172,9 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         color: event.color,
         itemType: event.itemId,
       );
-      print("filtered products $data");
+
       emit(state.copyWith(
-        product: data,
+        multiFilterProduct: data,
         productLoading: false,
       ));
     } catch (e) {
@@ -214,23 +206,6 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     emit(state.copyWith(filterIndex: event.index));
   }
 
-  _filterSubCategoryCheckboxChangingEvent(
-      FilterSubCategoryCheckboxChangingEvent event,
-      Emitter<CategoryState> emit) {
-    emit(state.copyWith(
-        filterSubcategoryCheckboxIndex:
-            state.filterSubcategoryCheckboxIndex == event.index
-                ? -1
-                : event.index));
-  }
-
-  _filterColorCheckboxChangingEvent(
-      FilterColorCheckboxChangingEvent event, Emitter<CategoryState> emit) {
-    emit(state.copyWith(
-        filterColorCheckboxIndex:
-            state.filterColorCheckboxIndex == event.index ? -1 : event.index));
-  }
-
   _fetchFilterOptionEvent(
       FetchFilterOptionEvent event, Emitter<CategoryState> emit) async {
     try {
@@ -245,21 +220,33 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   _saveSubCategoryFilters(
       SaveSubcategoryFilters event, Emitter<CategoryState> emit) {
     final List<String> currentList = List.from(state.subcategoryFiltersList);
-    currentList.add(event.value);
+    if (currentList.contains(event.value)) {
+      currentList.remove(event.value);
+    } else {
+      currentList.add(event.value);
+    }
     debugPrint("here current list $currentList");
     emit(state.copyWith(subcategoryFiltersList: currentList));
   }
 
   _saveBrandsFilter(SaveBrandsFilters event, Emitter<CategoryState> emit) {
     final List<String> currentList = List.from(state.brandsFiltersList);
-    currentList.add(event.value);
+    if (currentList.contains(event.value)) {
+      currentList.remove(event.value);
+    } else {
+      currentList.add(event.value);
+    }
     debugPrint("here current list $currentList");
     emit(state.copyWith(brandsFiltersList: currentList));
   }
 
   _saveColorsFilter(SaveColorsFilters event, Emitter<CategoryState> emit) {
     final List<String> currentList = List.from(state.colorsFiltersList);
-    currentList.add(event.value);
+    if (currentList.contains(event.value)) {
+      currentList.remove(event.value);
+    } else {
+      currentList.add(event.value);
+    }
     debugPrint("here current list $currentList");
     emit(state.copyWith(colorsFiltersList: currentList));
   }
@@ -269,9 +256,22 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
       brandsFiltersList: [],
       colorsFiltersList: [],
       subcategoryFiltersList: [],
+      itemTypeFiltersList: [],
       minPrice: "5000",
       maxPrice: "1",
       rangeValues: const RangeValues(1, 5000),
     ));
+  }
+
+  _saveItemTypeFilterEvent(
+      SaveItemTypeFilters event, Emitter<CategoryState> emit) {
+    final List<String> currentList = List.from(state.itemTypeFiltersList);
+    if (currentList.contains(event.value)) {
+      currentList.remove(event.value);
+    } else {
+      currentList.add(event.value);
+    }
+    debugPrint("here current list $currentList");
+    emit(state.copyWith(itemTypeFiltersList: currentList));
   }
 }

@@ -30,6 +30,8 @@ class ProductResult with _$ProductResult {
 class Product with _$Product {
   factory Product({
     @JsonKey(name: "_id") required String? id,
+    double? tax,
+    List<dynamic>? tags,
     required String? title,
     required Brand? brand,
     required Category? category,

@@ -149,9 +149,7 @@ class CategoriesFilterView extends StatelessWidget {
                             .category!
                             .first
                             .id!;
-                        BlocProvider.of<CategoryBloc>(context).add(
-                            SaveCategoryFilterVal(
-                                filterVal: data[index].title.toString()));
+
                         context.pushNamed(
                             MyAppRouteConstants.categoriesProductsRouteName,
                             extra: {

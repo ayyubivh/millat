@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/utils/string_constants.dart';
@@ -27,7 +25,7 @@ class HttpServices {
   }) async {
     try {
       final response = await http.post(Uri.parse(kBaseUrl + endPoint),
-          body: json.encode(body),
+          body: body,
           headers: isToken
               ? {
                   // 'Content-Type': 'application/json; charset=utf-8',

@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -22,15 +23,6 @@ class CategoryProductsFilterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = context.read<CategoryBloc>().state;
-    log('filter type ${type == FilterType.specificCategory ? 'specific category' : 'default category'}');
-    log('category $category');
-    log('subcategory: ${state.filterOptionModel?.result?.subcategory}');
-
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   BlocProvider.of<CategoryBloc>(context)
-    //       .add(FetchSubCategoriesByCategoryId(categoryId: categoryId));
-    // });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorManager.whiteColor,
@@ -90,38 +82,39 @@ class CategoryProductsFilterView extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: items.length,
                       itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            BlocProvider.of<CategoryBloc>(context).add(
-                                CategoryEvent.changeFilterIndex(index: index));
-                          },
-                          child: Padding(
+                        return Padding(
                             padding: const EdgeInsets.symmetric(vertical: 14),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  items[index],
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: state.filterIndex == index
-                                        ? FontWeight.bold
-                                        : FontWeight.w500,
+                            child: TextButton(
+                              onPressed: () {
+                                BlocProvider.of<CategoryBloc>(context).add(
+                                    CategoryEvent.changeFilterIndex(
+                                        index: index));
+                              },
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    items[index],
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: state.filterIndex == index
+                                          ? FontWeight.bold
+                                          : FontWeight.w500,
+                                      color: state.filterIndex == index
+                                          ? ColorManager.primary
+                                          : ColorManager.textGrey68,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.navigate_next,
                                     color: state.filterIndex == index
                                         ? ColorManager.primary
-                                        : ColorManager.textGrey68,
+                                        : ColorManager.scaffoldBgColor,
                                   ),
-                                ),
-                                Icon(
-                                  Icons.navigate_next,
-                                  color: state.filterIndex == index
-                                      ? ColorManager.primary
-                                      : ColorManager.scaffoldBgColor,
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
+                                ],
+                              ),
+                            ));
                       },
                     ),
                   );
@@ -168,36 +161,42 @@ class CategoryProductsFilterView extends StatelessWidget {
                   text: Appstrings.apply,
                   textColor: ColorManager.whiteColor,
                   onTap: () {
-                    print(state.subcategoryFiltersList);
-                    type == FilterType.specificCategory
-                        ? context
-                            .read<CategoryBloc>()
-                            .add(FetchProductsByFilter(
-                              maxPrice: int.parse(state.maxPrice),
-                              minPrice: int.parse(state.minPrice),
-                              category: '',
-                              subCategory: state.subcategoryFiltersList,
-                              itemId: [],
-                              brand: state.brandsFiltersList,
-                              color: state.colorsFiltersList,
-                            ))
-                        : context.read<CategoryBloc>().add(
-                            FetchProductsByFilter(
+                    if (state.subcategoryFiltersList.isEmpty &&
+                        state.itemTypeFiltersList.isEmpty &&
+                        state.brandsFiltersList.isEmpty &&
+                        state.colorsFiltersList.isEmpty) {
+                      return context.pop();
+                    } else {
+                      type == FilterType.specificCategory
+                          ? context
+                              .read<CategoryBloc>()
+                              .add(FetchProductsByFilter(
                                 maxPrice: int.parse(state.maxPrice),
                                 minPrice: int.parse(state.minPrice),
-                                category: category,
+                                category: '',
                                 subCategory: state.subcategoryFiltersList,
+                                itemId: state.itemTypeFiltersList,
                                 brand: state.brandsFiltersList,
-                                color: state.colorsFiltersList));
-                    context.pop();
+                                color: state.colorsFiltersList,
+                              ))
+                          : context.read<CategoryBloc>().add(
+                              FetchProductsByFilter(
+                                  maxPrice: int.parse(state.maxPrice),
+                                  minPrice: int.parse(state.minPrice),
+                                  category: category,
+                                  subCategory: state.subcategoryFiltersList,
+                                  brand: state.brandsFiltersList,
+                                  color: state.colorsFiltersList));
+                      // context.pop();
 
-                    // context.pushReplacementNamed(
-                    //     MyAppRouteConstants.categoriesProductsRouteName,
-                    //     extra: {
-                    //       'type': FilterType.category,
-                    //       'subCategory': data?.title,
-                    //       'category': category
-                    //     });
+                      context.pushReplacementNamed(
+                          MyAppRouteConstants.categoriesProductsRouteName,
+                          extra: {
+                            'type': FilterType.fromFilter,
+                            'subCategory': '',
+                            'category': category
+                          });
+                    }
                   },
                 )),
               ],
@@ -244,8 +243,6 @@ class CategoryProductsFilterView extends StatelessWidget {
                 onChanged: (p0) {
                   BlocProvider.of<CategoryBloc>(context)
                       .add(SaveColorsFilters(value: colors?[index] ?? ""));
-                  // BlocProvider.of<CategoryBloc>(context)
-                  //     .add(FilterColorCheckboxChangingEvent(index: index));
                 },
               );
             }));
@@ -326,23 +323,24 @@ class CategoryProductsFilterView extends StatelessWidget {
                   : subCategory?.length ?? 0,
               itemBuilder: (context, index) {
                 return _listItemWidget(
-                  isSelected: state.subcategoryFiltersList
-                      .contains(subCategory?[index].title),
+                  isSelected: type == FilterType.specificCategory
+                      ? state.itemTypeFiltersList
+                          .contains(itemList?[index].title)
+                      : state.subcategoryFiltersList
+                          .contains(subCategory?[index].title),
                   context: context,
                   name: type == FilterType.specificCategory
                       ? itemList![index].title ?? ""
                       : subCategory?[index].title ?? "",
                   index: index,
                   onChanged: (value) {
-                    BlocProvider.of<CategoryBloc>(context).add(
-                        SaveSubcategoryFilters(
-                            value: subCategory?[index].title ?? ''));
-                    BlocProvider.of<CategoryBloc>(context).add(
-                      SaveCategoryFilterVal(
-                          filterVal: type == FilterType.specificCategory
-                              ? itemList![index].title ?? ""
-                              : subCategory![index].title ?? ""),
-                    );
+                    type == FilterType.specificCategory
+                        ? BlocProvider.of<CategoryBloc>(context).add(
+                            SaveItemTypeFilters(
+                                value: itemList?[index].title ?? ''))
+                        : BlocProvider.of<CategoryBloc>(context).add(
+                            SaveSubcategoryFilters(
+                                value: subCategory?[index].title ?? ''));
                   },
                 );
               },

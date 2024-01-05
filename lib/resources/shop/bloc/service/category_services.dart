@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories_by_category_id.dart';
+import 'package:millat/resources/shop/bloc/models/products/product_filter_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../../services/http_services.dart';
@@ -155,7 +156,7 @@ class CategoryService extends HttpServices {
   }
   //fetch products by filter price range
 
-  Future<ProductModel> fetchProductsByFilter({
+  Future<ProductResponse> fetchProductsByFilter({
     required int minPrice,
     required int maxPrice,
     required String category,
@@ -176,16 +177,15 @@ class CategoryService extends HttpServices {
         "max": maxPrice,
       },
     };
-
-    try {
-      final response = await http.post(
-        (Uri.parse(kBaseUrl + endpoint)),
+    final response = await http.post((Uri.parse(kBaseUrl + endpoint)),
         body: json.encode(body),
-      );
-
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        });
+    try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        final result = ProductModel.fromJson(data);
+        final result = ProductResponse.fromJson(data);
         print(result);
         return result;
       } else {

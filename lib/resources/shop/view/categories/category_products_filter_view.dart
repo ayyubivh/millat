@@ -156,7 +156,10 @@ class CategoryProductsFilterView extends StatelessWidget {
                     color: ColorManager.whiteColor,
                     text: Appstrings.clearAll,
                     textColor: ColorManager.blackColor,
-                    onTap: () {},
+                    onTap: () {
+                      BlocProvider.of<CategoryBloc>(context)
+                          .add(const ClearAllFilterEvent());
+                    },
                   ),
                 ),
                 Expanded(

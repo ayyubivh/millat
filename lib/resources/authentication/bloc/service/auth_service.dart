@@ -154,7 +154,7 @@ class AuthService extends HttpServices {
       } else if (value['status'] == 400) {
         return {
           'status': false,
-          'message': "Phone number already registered",
+          'message': value['message'],
         };
       }
     } catch (e) {

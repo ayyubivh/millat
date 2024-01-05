@@ -43,6 +43,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<SaveSubcategoryFilters>(_saveSubCategoryFilters);
     on<SaveBrandsFilters>(_saveBrandsFilter);
     on<SaveColorsFilters>(_saveColorsFilter);
+    on<ClearAllFilterEvent>(_clearAllFilterEvent);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -261,5 +262,16 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     currentList.add(event.value);
     debugPrint("here current list $currentList");
     emit(state.copyWith(colorsFiltersList: currentList));
+  }
+
+  _clearAllFilterEvent(event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(
+      brandsFiltersList: [],
+      colorsFiltersList: [],
+      subcategoryFiltersList: [],
+      minPrice: "5000",
+      maxPrice: "1",
+      rangeValues: const RangeValues(1, 5000),
+    ));
   }
 }

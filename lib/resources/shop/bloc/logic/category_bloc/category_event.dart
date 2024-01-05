@@ -70,4 +70,5 @@ class CategoryEvent with _$CategoryEvent {
       SaveBrandsFilters;
   const factory CategoryEvent.saveColorsFilters({required String value}) =
       SaveColorsFilters;
+  const factory CategoryEvent.clearAllFilterEvent() = ClearAllFilterEvent;
 }

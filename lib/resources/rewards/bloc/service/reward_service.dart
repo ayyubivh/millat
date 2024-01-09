@@ -52,7 +52,7 @@ class RewardServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardsProductsModel.fromJson(data);
-          print("Results of the reward products  $result");
+
           return result;
         } else {
           debugPrint(
@@ -79,7 +79,7 @@ class RewardServices extends HttpServices {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = CoinCollectionModel.fromJson(data);
-        print("Results of the reward products  $result");
+        debugPrint("Results of the collect coin  $result");
         return result;
       } else {
         debugPrint(
@@ -103,9 +103,11 @@ class RewardServices extends HttpServices {
       if (response.statusCode == 200 || response.statusCode == 201) {
         final data = json.decode(response.body);
         context.read<RewardsBloc>().add(const FetchCoinsCollectionEvent());
+
         return data;
       } else if (response.statusCode == 400) {
         final data = json.decode(response.body);
+
         return data;
       } else {
         debugPrint(

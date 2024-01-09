@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
+ 
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -218,16 +219,14 @@ class _HomeViewState extends State<HomeView> {
               padding: EdgeInsets.symmetric(
                   horizontal: !Responsive.isMobile(context) ? 110 : 30),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _topOffersWidget(),
                   kHeight25,
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: _brandOftheDayWidget(),
-            ),
+            _brandOftheDayWidget(),
             kHeight50,
             kHeight50,
           ],
@@ -395,6 +394,7 @@ class _HomeViewState extends State<HomeView> {
                           });
                     },
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),

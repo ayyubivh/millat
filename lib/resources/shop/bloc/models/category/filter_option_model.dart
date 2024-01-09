@@ -1,6 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'filter_option_model.freezed.dart';
 part 'filter_option_model.g.dart';
 
@@ -20,42 +21,70 @@ class FilterOptionModel with _$FilterOptionModel {
 @freezed
 class Result with _$Result {
   const factory Result({
-    required Data data,
+    required Category category,
+    required List<Subcategory> subcategory,
+    required List<Item> itemList,
+    List<Brand>? brands,
+    required List<String> colors,
+    required int maxPrice,
+    required int minPrice,
   }) = _Result;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }
 
 @freezed
-class Data with _$Data {
-  const factory Data(
-    List<Brand>? brand,
-    List<Subcategory>? subcategory,
-    List<Subcategory>? itemList,
-    List<String>? colors,
-    int? maxPrice,
-  ) = _Data;
+class Category with _$Category {
+  const factory Category({
+    @JsonKey(name: '_id') String? id,
+    String? title,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
+  }) = _Category;
 
-  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+  factory Category.fromJson(Map<String, dynamic> json) =>
+      _$CategoryFromJson(json);
+}
+
+@freezed
+class Subcategory with _$Subcategory {
+  const factory Subcategory({
+    @JsonKey(name: '_id') String? id,
+    @JsonKey(name: 'categoryId') String? categoryId,
+    String? title,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
+    int? tax,
+  }) = _Subcategory;
+
+  factory Subcategory.fromJson(Map<String, dynamic> json) =>
+      _$SubcategoryFromJson(json);
+}
+
+@freezed
+class Item with _$Item {
+  const factory Item({
+    @JsonKey(name: '_id') String? id,
+    @JsonKey(name: 'categoryId') String? categoryId,
+    @JsonKey(name: 'subCategoryId') Subcategory? subCategoryId,
+    String? title,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
+    @JsonKey(name: 'brandId') String? brandId,
+  }) = _Item;
+
+  factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
 }
 
 @freezed
 class Brand with _$Brand {
   const factory Brand({
     String? brandName,
-    @JsonKey(name: "_id") String? id,
+    @JsonKey(name: '_id') String? id,
   }) = _Brand;
 
   factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
-}
-
-@freezed
-class Subcategory with _$Subcategory {
-  const factory Subcategory(
-    @JsonKey(name: "_id") String? id,
-    String? title,
-  ) = _Subcategory;
-
-  factory Subcategory.fromJson(Map<String, dynamic> json) =>
-      _$SubcategoryFromJson(json);
 }

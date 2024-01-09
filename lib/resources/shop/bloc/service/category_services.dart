@@ -2,11 +2,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories_by_category_id.dart';
+import 'package:millat/resources/shop/bloc/models/products/product_filter_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
+import 'package:millat/utils/string_constants.dart';
 import '../../../../services/http_services.dart';
 import '../models/category/categories._model.dart';
 import '../models/category/category_items_model.dart';
 import '../models/category/filter_option_model.dart';
+import 'package:http/http.dart' as http;
 
 class CategoryService extends HttpServices {
   //Fetching Categories
@@ -42,7 +45,6 @@ class CategoryService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = SubcategoryByCategoryIdModel.fromJson(data);
-
         return result;
       } catch (e) {
         debugPrint('error on Category API fetch: ${e.toString()}');
@@ -140,7 +142,6 @@ class CategoryService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductModel.fromJson(data);
-
         return result;
       } catch (e) {
         debugPrint('error on Category API fetch: ${e.toString()}');
@@ -153,33 +154,49 @@ class CategoryService extends HttpServices {
   }
   //fetch products by filter price range
 
-  Future<ProductModel> fetchProductsByFilter({
-    required String minPrice,
-    required String maxPrice,
+  Future<ProductResponse> fetchProductsByFilter({
+    required int minPrice,
+    required int maxPrice,
     required String category,
-    required String subCategory,
-    required String brand,
-    required String color,
-    required String? itemId,
+    required List<String> subCategory,
+    required List<String> brand,
+    required List<String> color,
+    required List<String>? itemType,
   }) async {
-    final endpoint =
-        "product/filter?priceRange=$minPrice-$maxPrice&category=$category&subcate=$subCategory&itemId=${itemId ?? ''}&brand=$brand&color=$color";
+    const endpoint = "product/multi-filter";
+    final body = {
+      "brand": brand,
+      "category": category,
+      "subcategory": subCategory,
+      "color": color,
+      "itemType": itemType ?? [],
+      "regularPrice": {
+        "min": minPrice,
+        "max": maxPrice,
+      },
+    };
 
-    final response = await get(endPoint: endpoint);
+    try {
+      final response = await http.post(
+        Uri.parse(kBaseUrl + endpoint),
+        body: json.encode(body),
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+      );
 
-    if (response.statusCode == 200) {
-      try {
+      if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
-        final result = ProductModel.fromJson(data);
-
+        final result = ProductResponse.fromJson(data);
+        debugPrint(result.toString());
         return result;
-      } catch (e) {
-        debugPrint('error on Category API fetch: ${e.toString()}');
-        throw Exception('Failed to parse response');
+      } else {
+        debugPrint('Error on fetching products: ${response.statusCode}');
+        throw Exception('Failed to fetch products');
       }
-    } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+    } catch (e) {
+      debugPrint('Error on fetching products: ${e.toString()}');
+      throw Exception('Failed to fetch products');
     }
   }
 
@@ -187,14 +204,14 @@ class CategoryService extends HttpServices {
   Future<FilterOptionModel> fetchFilterOptions({
     required String category,
   }) async {
-    final endpoint = "filter_option?$category";
+    final endpoint = "filter_option/multi?$category";
     final response = await get(endPoint: endpoint);
 
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = FilterOptionModel.fromJson(data);
-
+        debugPrint(result.toString());
         return result;
       } catch (e) {
         debugPrint('error on filter option API fetch: ${e.toString()}');

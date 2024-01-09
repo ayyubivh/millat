@@ -24,10 +24,12 @@ class CategoryState with _$CategoryState {
     required CategoryItemModel? categoryItemModel,
     required int categoryIndex,
     required int filterIndex,
-    required int filterSubcategoryCheckboxIndex,
-    required int filterBrandCheckboxIndex,
-    required int filterColorCheckboxIndex,
     required FilterOptionModel? filterOptionModel,
+    required List<String> subcategoryFiltersList,
+    required List<String> brandsFiltersList,
+    required List<String> colorsFiltersList,
+    required List<String> itemTypeFiltersList,
+    required ProductResponse? multiFilterProduct,
   }) = _CategoryState;
   factory CategoryState.initial() => const CategoryState(
         product: null,
@@ -51,9 +53,11 @@ class CategoryState with _$CategoryState {
         categoryItemModel: null,
         categoryIndex: 0,
         filterIndex: 0,
-        filterSubcategoryCheckboxIndex: -1,
         filterOptionModel: null,
-        filterBrandCheckboxIndex: -1,
-        filterColorCheckboxIndex: -1,
+        subcategoryFiltersList: [],
+        brandsFiltersList: [],
+        colorsFiltersList: [],
+        itemTypeFiltersList: [],
+        multiFilterProduct: null,
       );
 }

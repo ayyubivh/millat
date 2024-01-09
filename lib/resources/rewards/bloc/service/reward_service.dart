@@ -28,8 +28,7 @@ class RewardServices extends HttpServices {
 
           return result;
         } else {
-          debugPrint(
-              'API request failed with status code: ${response.statusCode}');
+          print('API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
@@ -53,7 +52,7 @@ class RewardServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardsProductsModel.fromJson(data);
-          debugPrint("Results of the reward products  $result");
+          print("Results of the reward products  $result");
           return result;
         } else {
           debugPrint(
@@ -80,7 +79,7 @@ class RewardServices extends HttpServices {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = CoinCollectionModel.fromJson(data);
-        debugPrint("Results of the reward products  $result");
+        print("Results of the reward products  $result");
         return result;
       } else {
         debugPrint(
@@ -132,7 +131,7 @@ class RewardServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardsProductByIdModel.fromJson(data);
-          debugPrint("result on the service $result");
+          print("result on the service $result");
           return result;
         } else {
           debugPrint(
@@ -191,7 +190,7 @@ class RewardServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardRedeemItemModel.fromJson(data);
-          debugPrint("result on the rewards redeem $result");
+          print("result on the rewards redeem $result");
           return result;
         } else {
           debugPrint(

@@ -54,7 +54,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
       FetchFilterOptionEvent(
         category: widget.type == FilterType.specificCategory
             ? (widget.category == "women"
-                ? "subcategory=Hijab"
+                ? "subcategory=Women"
                 : "subcategory=Honey")
             : "category=${widget.category}",
       ),
@@ -114,10 +114,12 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
               kHeight10,
               BlocBuilder<CategoryBloc, CategoryState>(
                 builder: (context, state) {
-                  return widget.type == FilterType.category
-                      ? state.productLoading
+                  return widget.type == FilterType.fromFilter
+                      ? state.productLoading || state.multiFilterProduct == null
                           ? ShimmerUtils.productsShimmers(context: context)
-                          : state.product?.result?.products?.isEmpty ?? true
+                          : state.multiFilterProduct?.result?.products
+                                      ?.isEmpty ??
+                                  true
                               ? Padding(
                                   padding: EdgeInsets.only(
                                       top: SizeUtility(context).height / 2.4),
@@ -145,12 +147,12 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                   3.6
                                               : SizeUtility(context).height / 3,
                                     ),
-                                    itemCount: state.product?.result?.products
-                                            ?.length ??
+                                    itemCount: state.multiFilterProduct?.result
+                                            ?.products?.length ??
                                         10,
                                     itemBuilder: (context, index) {
-                                      final data = state
-                                          .product?.result?.products?[index];
+                                      final data = state.multiFilterProduct
+                                          ?.result?.products?[index];
                                       return data == null
                                           ? ShimmerUtils.productsShimmers(
                                               context: context)
@@ -176,109 +178,162 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                 title: data.title,
                                                 image: data.images![0],
                                                 discountPrice:
-                                                    data.salePrice!.toInt(),
-                                                actualPrice:
-                                                    data.regularPrice!.toInt(),
+                                                    data.salePrice?.toInt() ??
+                                                        0,
+                                                actualPrice: data.regularPrice
+                                                        ?.toInt() ??
+                                                    0,
                                                 discount:
-                                                    data.discount!.toInt(),
+                                                    data.discount?.toInt() ?? 0,
                                               ),
                                             );
                                     },
                                   ),
                                 )
-                      : state.productLoading
-                          ? ShimmerUtils.productsShimmers(context: context)
-                          : state.product?.result?.products?.isEmpty ?? true
-                              ? Padding(
-                                  padding: EdgeInsets.only(
-                                      top: SizeUtility(context).height / 2.4),
-                                  child: Center(
-                                    child: Text(
-                                      "products not available",
-                                      style: TextStyle(
-                                        color: ColorManager.textGrey,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w500,
+                      : widget.type == FilterType.category
+                          ? state.productLoading
+                              ? ShimmerUtils.productsShimmers(context: context)
+                              : state.product?.result?.products?.length == 0
+                                  ? Padding(
+                                      padding: EdgeInsets.only(
+                                          top: SizeUtility(context).height /
+                                              2.4),
+                                      child: Center(
+                                        child: Text(
+                                          "products not available",
+                                          style: TextStyle(
+                                            color: ColorManager.textGrey,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                )
-                              : Expanded(
-                                  child: GridView.builder(
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                      crossAxisSpacing: 20,
-                                      mainAxisSpacing: 20,
-                                      mainAxisExtent:
-                                          !Responsive.isMobile(context)
+                                    )
+                                  : Expanded(
+                                      child: GridView.builder(
+                                        gridDelegate:
+                                            SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2,
+                                          crossAxisSpacing: 20,
+                                          mainAxisSpacing: 20,
+                                          mainAxisExtent: !Responsive.isMobile(
+                                                  context)
                                               ? SizeUtility(context).height /
                                                   3.6
                                               : SizeUtility(context).height / 3,
-                                    ),
-                                    itemCount: state.product?.result?.products
-                                            ?.length ??
-                                        10,
-                                    itemBuilder: (context, index) {
-                                      final datas = state
-                                          .product?.result?.products?[index];
-                                      return datas == null
-                                          ? ShimmerUtils.productsShimmers(
-                                              context: context)
-                                          : state.product?.result?.products
-                                                      ?.isEmpty ??
-                                                  true
-                                              ? Padding(
-                                                  padding: EdgeInsets.only(
-                                                      top: SizeUtility(context)
-                                                              .height /
-                                                          2.4),
-                                                  child: Center(
-                                                    child: Text(
-                                                      "products not available",
-                                                      style: TextStyle(
-                                                        color: ColorManager
-                                                            .textGrey,
-                                                        fontSize: 17,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                )
+                                        ),
+                                        itemCount: state.product?.result
+                                                ?.products?.length ??
+                                            10,
+                                        itemBuilder: (context, index) {
+                                          final data = state.product?.result
+                                              ?.products?[index];
+                                          return data == null
+                                              ? ShimmerUtils.productsShimmers(
+                                                  context: context)
                                               : GestureDetector(
                                                   onTap: () {
+                                                    // print(data.id);
+
                                                     context.pushNamed(
                                                         MyAppRouteConstants
                                                             .singleProductRouteName,
                                                         pathParameters: {
-                                                          "id": datas.id ?? ""
+                                                          "id": data.id ?? ""
                                                         });
                                                   },
                                                   child: ShopProductWidget(
-                                                    color: datas.color ?? "",
-                                                    size: datas.size?[0].size ??
+                                                    color: data.color ?? "",
+                                                    size: data.size?[0].size ??
                                                         "",
-                                                    brandId: datas.brand!.id,
+                                                    brandId: data.brand!.id,
                                                     isWishlisted: false,
-                                                    brand: datas.brand!.name
+                                                    brand: data.brand!.name
                                                         .toString(),
-                                                    productId: datas.id,
-                                                    title: datas.title,
-                                                    image: datas.images![0],
-                                                    discountPrice: datas
-                                                        .salePrice!
-                                                        .toInt(),
-                                                    actualPrice: datas
+                                                    productId: data.id,
+                                                    title: data.title,
+                                                    image: data.images![0],
+                                                    discountPrice:
+                                                        data.salePrice!.toInt(),
+                                                    actualPrice: data
                                                         .regularPrice!
                                                         .toInt(),
                                                     discount:
-                                                        datas.discount!.toInt(),
+                                                        data.discount!.toInt(),
                                                   ),
                                                 );
-                                    },
-                                  ),
-                                );
+                                        },
+                                      ),
+                                    )
+                          : state.productLoading
+                              ? ShimmerUtils.productsShimmers(context: context)
+                              : state.product?.result?.products?.length == 0
+                                  ? Padding(
+                                      padding: EdgeInsets.only(
+                                          top: SizeUtility(context).height /
+                                              2.4),
+                                      child: Center(
+                                        child: Text(
+                                          "products not available",
+                                          style: TextStyle(
+                                            color: ColorManager.textGrey,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : Expanded(
+                                      child: GridView.builder(
+                                        gridDelegate:
+                                            SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2,
+                                          crossAxisSpacing: 20,
+                                          mainAxisSpacing: 20,
+                                          mainAxisExtent: !Responsive.isMobile(
+                                                  context)
+                                              ? SizeUtility(context).height /
+                                                  3.6
+                                              : SizeUtility(context).height / 3,
+                                        ),
+                                        itemCount: state.product?.result
+                                                ?.products?.length ??
+                                            10,
+                                        itemBuilder: (context, index) {
+                                          final datas = state.product?.result
+                                              ?.products?[index];
+                                          if (datas == null) {
+                                            return const SizedBox();
+                                          }
+                                          return GestureDetector(
+                                            onTap: () {
+                                              context.pushNamed(
+                                                  MyAppRouteConstants
+                                                      .singleProductRouteName,
+                                                  pathParameters: {
+                                                    "id": datas.id ?? ""
+                                                  });
+                                            },
+                                            child: ShopProductWidget(
+                                              color: datas.color ?? "",
+                                              size: datas.size?[0].size ?? "",
+                                              brandId: datas.brand!.id,
+                                              isWishlisted: false,
+                                              brand:
+                                                  datas.brand!.name.toString(),
+                                              productId: datas.id,
+                                              title: datas.title,
+                                              image: datas.images![0],
+                                              discountPrice:
+                                                  datas.salePrice!.toInt(),
+                                              actualPrice:
+                                                  datas.regularPrice!.toInt(),
+                                              discount: datas.discount!.toInt(),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    );
                 },
               ),
             ],
@@ -297,205 +352,6 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                   ? FilterType.specificCategory
                   : FilterType.category
             });
-        // showModalBottomSheet(
-        //   context: context,
-        //   isScrollControlled: true,
-        //   backgroundColor: Colors.transparent,
-        //   builder: (context) {
-        //     return StatefulBuilder(
-        //       builder: (context, setState) {
-        //         return SingleChildScrollView(
-        //           child: Container(
-        //             // height: SizeUtility(context).height / 1.2,
-        //             width: SizeUtility(context).width,
-        //             padding:
-        //                 const EdgeInsets.all(15).copyWith(left: 30, right: 30),
-        //             decoration: BoxDecoration(
-        //               borderRadius: const BorderRadius.vertical(
-        //                 top: Radius.circular(20),
-        //               ),
-        //               color: ColorManager.whiteColor,
-        //             ),
-        //             child: Column(
-        //               crossAxisAlignment: CrossAxisAlignment.start,
-        //               children: [
-        //                 kHeight25,
-        //                 Align(
-        //                   alignment: Alignment.center,
-        //                   child: _filterTitleText(Appstrings.filters),
-        //                 ),
-        //                 kHeight20,
-        //                 const Divider(),
-        //                 kHeight16,
-        //                 _filterTitleText(
-        //                   Appstrings.priceRange,
-        //                 ),
-        //                 SliderTheme(
-        //                   data: SliderThemeData(
-        //                     thumbColor: ColorManager.primary,
-        //                     activeTrackColor: ColorManager.yellowTanClr,
-        //                     inactiveTrackColor: ColorManager.lightGrey,
-        //                     trackHeight: 1,
-        //                   ),
-        //                   child: BlocBuilder<CategoryBloc, CategoryState>(
-        //                     builder: (context, state) => RangeSlider(
-        //                       values: state.rangeValues,
-        //                       min: 1,
-        //                       max: 5000,
-        //                       onChanged: (newRange) {
-        //                         print(newRange);
-        //                         context.read<CategoryBloc>().add(SavePriceRange(
-        //                             rangeValues: newRange,
-        //                             minPrice: newRange.start.toInt().toString(),
-        //                             maxPrice: newRange.end.toInt().toString()));
-        //                       },
-        //                     ),
-        //                   ),
-        //                 ),
-        //                 kHeight16,
-        //                 BlocBuilder<CategoryBloc, CategoryState>(
-        //                   builder: (context, state) => Row(
-        //                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //                     children: [
-        //                       Text(
-        //                         "₹${state.minPrice}",
-        //                         style: TextStyle(
-        //                           fontSize: 14,
-        //                           fontWeight: FontWeight.w600,
-        //                           color: ColorManager.textGrey,
-        //                         ),
-        //                       ),
-        //                       Text("₹${state.maxPrice}",
-        //                           style: TextStyle(
-        //                             fontSize: 14,
-        //                             fontWeight: FontWeight.w600,
-        //                             color: ColorManager.textGrey,
-        //                           )),
-        //                     ],
-        //                   ),
-        //                 ),
-        //                 kHeight20,
-        //                 _filterTitleText(Appstrings.sizes),
-        //                 kHeight20,
-        //                 SizedBox(
-        //                   height: 48,
-        //                   child: ListView.builder(
-        //                     itemCount: 5,
-        //                     scrollDirection: Axis.horizontal,
-        //                     itemExtent: 70,
-        //                     itemBuilder: (context, index) {
-        //                       final text = [
-        //                         Appstrings.xs,
-        //                         Appstrings.s,
-        //                         Appstrings.l,
-        //                         Appstrings.xl,
-        //                         Appstrings.xxl,
-        //                       ];
-        //                       return Container(
-        //                         margin: const EdgeInsets.only(right: 15),
-        //                         padding: const EdgeInsets.symmetric(
-        //                             horizontal: 14, vertical: 16),
-        //                         height: 48,
-        //                         width: 48,
-        //                         decoration: BoxDecoration(
-        //                           color: ColorManager.lightYellow,
-        //                           borderRadius: BorderRadius.circular(12),
-        //                         ),
-        //                         child: Center(
-        //                             child: Text(
-        //                           text[index],
-        //                           style: const TextStyle(
-        //                             fontSize: 15,
-        //                             fontWeight: FontWeight.w500,
-        //                           ),
-        //                         )),
-        //                       );
-        //                     },
-        //                   ),
-        //                 ),
-        //                 kHeight16,
-        //                 const Divider(),
-        //                 BlocBuilder<CategoryBloc, CategoryState>(
-        //                   builder: (context, state) => GridView.builder(
-        //                     shrinkWrap: true,
-        //                     physics: const NeverScrollableScrollPhysics(),
-        //                     gridDelegate:
-        //                         const SliverGridDelegateWithFixedCrossAxisCount(
-        //                             crossAxisCount: 3, mainAxisExtent: 40),
-        //                     itemCount: state.subcategoryByCategoryIdModel
-        //                         ?.result?.subCategory?.length,
-        //                     itemBuilder: (context, index) {
-        //                       final data = state.subcategoryByCategoryIdModel
-        //                           ?.result?.subCategory;
-        //                       return Padding(
-        //                           padding: const EdgeInsets.symmetric(
-        //                               horizontal: 10),
-        //                           child: FilterChip(
-        //                             labelStyle: TextStyle(
-        //                               color:
-        //                                   state.filterVal == data?[index].title
-        //                                       ? ColorManager.whiteColor
-        //                                       : ColorManager.blackColor,
-        //                             ),
-        //                             disabledColor: ColorManager.pinkButtonColor,
-        //                             backgroundColor: ColorManager.lightYellow,
-        //                             selectedColor: ColorManager.primary,
-        //                             // padding: const EdgeInsets.symmetric(
-        //                             //     horizontal: 6, vertical: 10),
-        //                             selected:
-        //                                 state.filterVal == data?[index].title,
-        //                             label: Text(data?[index].title ?? ""),
-        //                             onSelected: (isSelected) {
-        //                               context.read<CategoryBloc>().add(
-        //                                   SaveCategoryFilterVal(
-        //                                       filterVal: isSelected
-        //                                           ? data![index]
-        //                                               .title
-        //                                               .toString()
-        //                                           : ""));
-        //                             },
-        //                           ));
-        //                     },
-        //                   ),
-        //                 ),
-        //                 const Divider(),
-        //                 kHeight25,
-        //                 BlocBuilder<CategoryBloc, CategoryState>(
-        //                   builder: (context, state) {
-        //                     print(
-        //                         "min price ${state.minPrice} max price${state.maxPrice}");
-        //                     return MainButton(
-        //                       title: Appstrings.apply,
-        //                       onPressed: () {
-        //                         // context.read<CategoryBloc>().add(
-        //                         //     FetchFilteredByPriceProducts(
-        //                         //         minPrice: state.minPrice.toInt(),
-        //                         //         maxPrice: state.maxPrice.toInt(),
-        //                         //         category: widget.category,
-        //                         //         subCategory: state.filterVal == ""
-        //                         //             ? widget.subCategory
-        //                         //             : state.filterVal));
-        //                         context.read<CategoryBloc>().add(
-        //                             FetchProductsByFilterPricerange(
-        //                                 maxPrice: state.maxPrice.toString(),
-        //                                 minPrice: state.minPrice.toString(),
-        //                                 category: category ?? "",
-        //                                 subCategory: state.filterVal == ""
-        //                                     ? subCategory ?? ""
-        //                                     : state.filterVal));
-        //                         context.pop();
-        //                       },
-        //                     );
-        //                   },
-        //                 )
-        //               ],
-        //             ),
-        //           ),
-        //         );
-        //       },
-        //     );
-        //   },
-        // );
       },
       child: Container(
         height: 38,
@@ -605,7 +461,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                         builder: (context, state) => MainButton(
                           title: "Apply",
                           onPressed: () {
-                            state.sortListIndex == 3
+                            print(state.sortListIndex);
+                            state.sortListIndex == 0
                                 ? context.read<CategoryBloc>().add(
                                     FetchProductSortByPrice(
                                         order: "asec",
@@ -613,7 +470,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                         subCategory: state.filterVal == ""
                                             ? widget.subCategory
                                             : state.filterVal))
-                                : state.sortListIndex == 4
+                                : state.sortListIndex == 1
                                     ? context.read<CategoryBloc>().add(
                                         FetchProductSortByPrice(
                                             order: "desc",

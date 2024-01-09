@@ -170,7 +170,7 @@ class _$CartModelImpl implements _CartModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CartModelImpl &&
@@ -365,7 +365,7 @@ class _$CartResultImpl implements _CartResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CartResultImpl &&
@@ -586,7 +586,7 @@ class _$CartProductsImpl implements _CartProducts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CartProductsImpl &&
@@ -861,7 +861,7 @@ class _$CartItemImpl implements _CartItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CartItemImpl &&
@@ -1428,7 +1428,7 @@ class _$ProductInfoImpl implements _ProductInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductInfoImpl &&
@@ -1999,7 +1999,7 @@ class _$ProductBrandImpl implements _ProductBrand {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductBrandImpl &&
@@ -2320,7 +2320,7 @@ class _$ProductCategoryImpl implements _ProductCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductCategoryImpl &&
@@ -2563,7 +2563,7 @@ class _$ProductSubCategoryImpl implements _ProductSubCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductSubCategoryImpl &&
@@ -2823,7 +2823,7 @@ class _$SizeImpl implements _Size {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SizeImpl &&
@@ -3028,7 +3028,7 @@ class _$AmountDetailsImpl implements _AmountDetails {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AmountDetailsImpl &&

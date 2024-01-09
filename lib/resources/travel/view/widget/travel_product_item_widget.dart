@@ -21,7 +21,6 @@ class TravelProductItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(data.id);
     return GestureDetector(
       onTap: () {
         context.pushNamed(MyAppRouteConstants.travelSingleRoutename,

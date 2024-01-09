@@ -2,10 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/main_home/home_view.dart';
-import 'package:millat/resources/rewards/rewards_home_view.dart';
 import 'package:millat/resources/rewards/rewards_tab_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_view.dart';
 import 'package:millat/resources/travel/view/travel_tabs_view.dart';

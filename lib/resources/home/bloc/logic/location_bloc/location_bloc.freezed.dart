@@ -141,7 +141,7 @@ class _$FetchCurrentLocationImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchCurrentLocationImpl);
@@ -303,7 +303,7 @@ class _$ChangeLocationImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeLocationImpl &&
@@ -458,7 +458,7 @@ class _$FetchCitiesImpl with DiagnosticableTreeMixin implements FetchCities {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchCitiesImpl);
   }
@@ -599,7 +599,7 @@ class _$LoadMoreCitiesImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$LoadMoreCitiesImpl);
   }
@@ -758,7 +758,7 @@ class _$SearchCitiesImpl with DiagnosticableTreeMixin implements SearchCities {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchCitiesImpl &&
@@ -916,7 +916,7 @@ class _$ChangeLocationOnToggleImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeLocationOnToggleImpl);
@@ -1059,7 +1059,7 @@ class _$FetchWeatherEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchWeatherEventImpl);
   }
@@ -1167,7 +1167,7 @@ abstract class FetchWeatherEvent implements LocationEvent {
 
 /// @nodoc
 mixin _$LocationState {
-  String get currentLocaion => throw _privateConstructorUsedError;
+  String get currentLocation => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   String get shortAddress => throw _privateConstructorUsedError;
   CitiesModel? get citiesModel => throw _privateConstructorUsedError;
@@ -1196,7 +1196,7 @@ abstract class $LocationStateCopyWith<$Res> {
       _$LocationStateCopyWithImpl<$Res, LocationState>;
   @useResult
   $Res call(
-      {String currentLocaion,
+      {String currentLocation,
       String errorMessage,
       String shortAddress,
       CitiesModel? citiesModel,
@@ -1229,7 +1229,7 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentLocaion = null,
+    Object? currentLocation = null,
     Object? errorMessage = null,
     Object? shortAddress = null,
     Object? citiesModel = freezed,
@@ -1247,9 +1247,9 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
     Object? weatherConditionName = null,
   }) {
     return _then(_value.copyWith(
-      currentLocaion: null == currentLocaion
-          ? _value.currentLocaion
-          : currentLocaion // ignore: cast_nullable_to_non_nullable
+      currentLocation: null == currentLocation
+          ? _value.currentLocation
+          : currentLocation // ignore: cast_nullable_to_non_nullable
               as String,
       errorMessage: null == errorMessage
           ? _value.errorMessage
@@ -1336,7 +1336,7 @@ abstract class _$$LocationStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String currentLocaion,
+      {String currentLocation,
       String errorMessage,
       String shortAddress,
       CitiesModel? citiesModel,
@@ -1368,7 +1368,7 @@ class __$$LocationStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentLocaion = null,
+    Object? currentLocation = null,
     Object? errorMessage = null,
     Object? shortAddress = null,
     Object? citiesModel = freezed,
@@ -1386,9 +1386,9 @@ class __$$LocationStateImplCopyWithImpl<$Res>
     Object? weatherConditionName = null,
   }) {
     return _then(_$LocationStateImpl(
-      currentLocaion: null == currentLocaion
-          ? _value.currentLocaion
-          : currentLocaion // ignore: cast_nullable_to_non_nullable
+      currentLocation: null == currentLocation
+          ? _value.currentLocation
+          : currentLocation // ignore: cast_nullable_to_non_nullable
               as String,
       errorMessage: null == errorMessage
           ? _value.errorMessage
@@ -1460,7 +1460,7 @@ class _$LocationStateImpl
     with DiagnosticableTreeMixin
     implements _LocationState {
   const _$LocationStateImpl(
-      {required this.currentLocaion,
+      {required this.currentLocation,
       required this.errorMessage,
       required this.shortAddress,
       required this.citiesModel,
@@ -1481,7 +1481,7 @@ class _$LocationStateImpl
         _loadedCities = loadedCities;
 
   @override
-  final String currentLocaion;
+  final String currentLocation;
   @override
   final String errorMessage;
   @override
@@ -1533,7 +1533,7 @@ class _$LocationStateImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LocationState(currentLocaion: $currentLocaion, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities, searchCities: $searchCities, currentPage: $currentPage, itemsPerPage: $itemsPerPage, location: $location, isLoadingMore: $isLoadingMore, loadedCities: $loadedCities, hasReachedEnd: $hasReachedEnd, isPermissionDenied: $isPermissionDenied, lanAndLong: $lanAndLong, weatherTemperature: $weatherTemperature, weatherConditionName: $weatherConditionName)';
+    return 'LocationState(currentLocation: $currentLocation, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities, searchCities: $searchCities, currentPage: $currentPage, itemsPerPage: $itemsPerPage, location: $location, isLoadingMore: $isLoadingMore, loadedCities: $loadedCities, hasReachedEnd: $hasReachedEnd, isPermissionDenied: $isPermissionDenied, lanAndLong: $lanAndLong, weatherTemperature: $weatherTemperature, weatherConditionName: $weatherConditionName)';
   }
 
   @override
@@ -1541,7 +1541,7 @@ class _$LocationStateImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'LocationState'))
-      ..add(DiagnosticsProperty('currentLocaion', currentLocaion))
+      ..add(DiagnosticsProperty('currentLocation', currentLocation))
       ..add(DiagnosticsProperty('errorMessage', errorMessage))
       ..add(DiagnosticsProperty('shortAddress', shortAddress))
       ..add(DiagnosticsProperty('citiesModel', citiesModel))
@@ -1560,12 +1560,12 @@ class _$LocationStateImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LocationStateImpl &&
-            (identical(other.currentLocaion, currentLocaion) ||
-                other.currentLocaion == currentLocaion) &&
+            (identical(other.currentLocation, currentLocation) ||
+                other.currentLocation == currentLocation) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
             (identical(other.shortAddress, shortAddress) ||
@@ -1600,7 +1600,7 @@ class _$LocationStateImpl
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      currentLocaion,
+      currentLocation,
       errorMessage,
       shortAddress,
       citiesModel,
@@ -1626,7 +1626,7 @@ class _$LocationStateImpl
 
 abstract class _LocationState implements LocationState {
   const factory _LocationState(
-      {required final String currentLocaion,
+      {required final String currentLocation,
       required final String errorMessage,
       required final String shortAddress,
       required final CitiesModel? citiesModel,
@@ -1644,7 +1644,7 @@ abstract class _LocationState implements LocationState {
       required final String weatherConditionName}) = _$LocationStateImpl;
 
   @override
-  String get currentLocaion;
+  String get currentLocation;
   @override
   String get errorMessage;
   @override

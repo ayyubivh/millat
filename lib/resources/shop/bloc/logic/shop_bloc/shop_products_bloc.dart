@@ -102,7 +102,6 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
     try {
       final data = await shopService.fetchFlashSaleProducts(event.endPointSlug);
-      print(data);
       emit(state.copyWith(flashSaleproducts: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(errorMessage: "An error occurred", isLoading: false));
@@ -116,7 +115,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await shopService.fetchPopularProducts(event.endPointSlug);
       emit(state.copyWith(popularProducts: data, popularProductLoading: false));
-      print("popular products data ========================= $data");
+      debugPrint("popular products data ========================= $data");
     } catch (e) {
       emit(state.copyWith(
           errorMessage: "An error occurred", popularProductLoading: false));
@@ -242,7 +241,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
         emit(state.copyWith(
           searchProducts: data,
         ));
-        print('serch result product on the data $data');
+        debugPrint('serch result product on the data $data');
       } catch (e) {
         emit(state.copyWith(
           errorMessage: "An error occurred",
@@ -270,7 +269,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
             wishListMessage: '${data['message']}',
             wishListItems: updatedWishList),
       );
-      print('${data['message']}');
+      debugPrint('${data['message']}');
     } catch (e) {
       emit(state.copyWith(errorMessage: "An error occurred", isLoading: false));
     }
@@ -303,7 +302,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
           wishList: newWishLists,
         ),
       );
-      print('${data['message']}');
+      debugPrint('${data['message']}');
     } catch (e) {
       emit(state.copyWith(errorMessage: "An error occurred"));
     }
@@ -315,7 +314,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await shopService.fetchProductsByBrand(event.brandName);
       emit(state.copyWith(brandProduct: data, isLoading: false));
-      print('on bloc here of the shop by brand $data');
+      debugPrint('on bloc here of the shop by brand $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }
@@ -352,7 +351,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       );
 
       final orderIds = data["result"]["orderIds"][0];
-      print('here before $orderIds');
+      debugPrint('here before $orderIds');
 
       emit(state.copyWith(
         isLoading: false,
@@ -360,7 +359,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
         orderSucces: true,
         totalAmount: event.totalPrice,
       ));
-      print('here is the order id in the bloc ${state.orderId}');
+      debugPrint('here is the order id in the bloc ${state.orderId}');
     } catch (e) {
       emit(state.copyWith(
         errorMessage: e.toString(),
@@ -380,7 +379,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
           context: event.context, amount: event.amount);
       emit(state.copyWith(
           orderIdRazorPay: data, totalAmount: event.amount, orderSucces: true));
-      print("order id   ${state.orderIdRazorPay}");
+      debugPrint("order id   ${state.orderIdRazorPay}");
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), orderSucces: false));
     }
@@ -396,16 +395,16 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
           razorpayPaymentId: event.razorpayPaymentId,
           razorpaySignature: event.razorpaySignature,
           addressId: event.addressId);
-      print("online orders data $data");
+      debugPrint("online orders data $data");
       final orderIds = data["result"]["orderIds"][0];
-      print('here before $orderIds');
+      debugPrint('here before $orderIds');
 
       emit(state.copyWith(
           isLoading: false,
           orderId: orderIds,
           orderIdRazorPay: "",
           orderSucces: true));
-      print('here is the order id in the bloc ${state.orderId}');
+      debugPrint('here is the order id in the bloc ${state.orderId}');
     } catch (e) {
       emit(state.copyWith(
           errorMessage: e.toString(),
@@ -424,7 +423,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     ));
     try {
       final data = await ordersService.fetchOrdersById(event.context, event.id);
-      print('here ares the results of ordersy by id in the bloc $data');
+      debugPrint('here ares the results of ordersy by id in the bloc $data');
       emit(state.copyWith(
         ordersByIdModel: data,
         isLoading: false,
@@ -442,7 +441,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       final data = await ordersService.fetchFilterOrders(
           event.context, event.filterName);
       emit(state.copyWith(orderModel: data, isLoading: false));
-      print('jsone here on a orders the result of filteres bloc $data');
+      debugPrint('jsone here on a orders the result of filteres bloc $data');
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
     }
@@ -488,7 +487,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       Emitter<ShopProductsState> emit) async {
     emit(state.copyWith(isLoading: true, errorMessage: ""));
     try {
-      final data = await shopService.fetchShopHomeBackgroundCardHelthyDiet(
+      final data = await shopService.fetchShopHomeBackgroundCardHeathyDiet(
           slug: "healthy_diet_product_home_card");
 
       emit(state.copyWith(
@@ -602,7 +601,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await shopService.fetchAdShopBrandsbyId(id: event.id);
       emit(state.copyWith(isLoading: false, shopAdBrandsById: data));
-      print("ad brands bloc ${state.shopAdBrandsById}");
+      debugPrint("ad brands bloc ${state.shopAdBrandsById}");
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: "$e"));
     }
@@ -706,7 +705,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await ordersService.addReason(
           text: event.text, endPoint: event.endpoint);
-      print(data);
+      debugPrint(data);
       emit(state.copyWith(isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
@@ -754,11 +753,11 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       );
 
       final orderIds = data["result"]["orderIds"][0];
-      print('here orderid $orderIds');
+      debugPrint('here orderid $orderIds');
 
       emit(state.copyWith(
           isLoading: false, orderId: orderIds, orderSucces: true));
-      print('here is the order id in the bloc ${state.orderId}');
+      debugPrint('here is the order id in the bloc ${state.orderId}');
     } catch (e) {
       emit(state.copyWith(
           errorMessage: e.toString(), isLoading: false, orderSucces: false));

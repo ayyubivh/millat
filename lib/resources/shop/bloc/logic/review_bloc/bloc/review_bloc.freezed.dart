@@ -168,7 +168,7 @@ class _$FetchRatingEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchRatingEventImpl &&
@@ -355,7 +355,7 @@ class _$FetchReviewCommentsImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchReviewCommentsImpl &&
@@ -574,7 +574,7 @@ class _$AddReviewImpl with DiagnosticableTreeMixin implements AddReview {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddReviewImpl &&
@@ -790,7 +790,7 @@ class _$UpdateReviewImpl with DiagnosticableTreeMixin implements UpdateReview {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateReviewImpl &&
@@ -956,7 +956,7 @@ class _$ExpandReviewListImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ExpandReviewListImpl);
   }
@@ -1247,7 +1247,7 @@ class _$ReviewStateImpl with DiagnosticableTreeMixin implements _ReviewState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReviewStateImpl &&

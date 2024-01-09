@@ -16,7 +16,6 @@ import '../../../../../utils/constants.dart';
 import '../../../bloc/db/db_functions.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import '../bookmark_view.dart';
 import 'new_collection_widget.dart';
 import 'quran_bookmark_collection.dart';
 
@@ -129,7 +128,7 @@ class _VersesViewState extends State<VersesView> {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
           image: AssetImage(AppAssetsStrings.quranBgImage),
           fit: BoxFit.cover,
@@ -870,11 +869,11 @@ class _VersesViewState extends State<VersesView> {
 
                       return InkWell(
                         onTap: () {
-                          final model = BookMarktCollectionModel(
+                          final model = BookMarkCollectionModel(
                             id: data.id!,
                             verseKey: modifiedVerseKeys,
                             name: data.name,
-                            discription: data.discription,
+                            description: data.description,
                             image: data.image,
                           );
                           BookMarkDB.instance.editCollection(model, model.id);
@@ -888,7 +887,7 @@ class _VersesViewState extends State<VersesView> {
                           context: context,
                           img: data.image,
                           collectionName: data.name,
-                          userName: data.discription,
+                          userName: data.description,
                         ),
                       );
                     },

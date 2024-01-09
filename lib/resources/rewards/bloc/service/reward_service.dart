@@ -28,11 +28,12 @@ class RewardServices extends HttpServices {
 
           return result;
         } else {
+          print('API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on fetching rewards API fetch: ${e.toString()}');
+        debugPrint('error on fetching rewards API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -51,14 +52,16 @@ class RewardServices extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardsProductsModel.fromJson(data);
+          print("Results of the reward products  $result");
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on rewards products API fetch: ${e.toString()}');
+        debugPrint('error on rewards products API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -76,14 +79,16 @@ class RewardServices extends HttpServices {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = CoinCollectionModel.fromJson(data);
+        print("Results of the reward products  $result");
         return result;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on rewards products API fetch: ${e.toString()}');
+      debugPrint('error on rewards products API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }
@@ -103,12 +108,13 @@ class RewardServices extends HttpServices {
         final data = json.decode(response.body);
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }
@@ -120,19 +126,21 @@ class RewardServices extends HttpServices {
       endPoint: endPoint,
     );
     if (response.statusCode == 200) {
-      print("body ------------------- ${response.body}");
+      debugPrint("body ------------------- ${response.body}");
       try {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardsProductByIdModel.fromJson(data);
+          print("result on the service $result");
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        debugPrint('error on order API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -151,14 +159,16 @@ class RewardServices extends HttpServices {
           log(response.body);
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RedeemedCouponModel.fromJson(data);
+          log(result.toString());
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        debugPrint('error on order API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -175,19 +185,21 @@ class RewardServices extends HttpServices {
       isToken: true,
     );
     if (response.statusCode == 200) {
-      print("body ------------------- ${response.body}");
+      debugPrint("body ------------------- ${response.body}");
       try {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = RewardRedeemItemModel.fromJson(data);
+          print("result on the rewards redeem $result");
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        debugPrint('error on order API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -214,12 +226,13 @@ class RewardServices extends HttpServices {
         final data = json.decode(response.body);
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }
@@ -249,12 +262,13 @@ class RewardServices extends HttpServices {
         final data = json.decode(response.body);
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }

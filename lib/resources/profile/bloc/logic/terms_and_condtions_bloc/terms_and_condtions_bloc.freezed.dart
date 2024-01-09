@@ -133,7 +133,7 @@ class _$FetchTermsAndConditionsEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTermsAndConditionsEventImpl &&
@@ -304,7 +304,7 @@ class _$PostHelpAndSupportImpl implements PostHelpAndSupport {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostHelpAndSupportImpl &&
@@ -540,7 +540,7 @@ class _$TermsAndConditionsStateImpl implements _TermsAndConditionsState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TermsAndConditionsStateImpl &&

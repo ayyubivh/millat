@@ -168,7 +168,7 @@ class _$FilterOptionModelImpl implements _FilterOptionModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterOptionModelImpl &&
@@ -457,7 +457,7 @@ class _$ResultImpl implements _Result {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResultImpl &&
@@ -697,7 +697,7 @@ class _$CategoryImpl implements _Category {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CategoryImpl &&
@@ -957,7 +957,7 @@ class _$SubcategoryImpl implements _Subcategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubcategoryImpl &&
@@ -1260,7 +1260,7 @@ class _$ItemImpl implements _Item {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ItemImpl &&
@@ -1445,7 +1445,7 @@ class _$BrandImpl implements _Brand {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BrandImpl &&

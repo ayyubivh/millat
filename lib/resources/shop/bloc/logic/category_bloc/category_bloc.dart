@@ -1,8 +1,6 @@
 import 'dart:async';
-
-import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/category/categories._model.dart';
 import 'package:millat/resources/shop/bloc/models/category/category_items_model.dart';
@@ -51,7 +49,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     try {
       final data = await _categoryService.filterProduct(
           event.category, event.subCategory, event.itemId);
-      print("filtered products $data");
+      debugPrint("filtered products $data");
       emit(state.copyWith(
         product: data,
         productLoading: false,
@@ -72,7 +70,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         category: data,
         categoryLoading: false,
       ));
-      print(state.category!.result!.category!.first.id);
+      debugPrint(state.category!.result!.category!.first.id);
     } catch (e) {
       emit(state.copyWith(
           errorMessage: "An error occurred", categoryLoading: false));
@@ -131,7 +129,6 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         minPrice: event.minPrice,
         maxPrice: event.maxPrice,
         rangeValues: event.rangeValues));
-    print(state.rangeValues);
   }
 
   _fetchProductSortByEvent(
@@ -143,7 +140,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
           order: event.order,
           category: event.category ?? "",
           subCategory: event.subCategory ?? "");
-      print("filtered products $data");
+      debugPrint("filtered products $data");
       emit(state.copyWith(
         product: data,
         productLoading: false,
@@ -172,7 +169,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         color: event.color,
         itemType: event.itemId,
       );
-
+      print("filtered products $data");
       emit(state.copyWith(
         multiFilterProduct: data,
         productLoading: false,

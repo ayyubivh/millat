@@ -168,7 +168,7 @@ class _$BrandOftheDayModelImpl implements _BrandOftheDayModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BrandOftheDayModelImpl &&
@@ -326,7 +326,7 @@ class _$BrandResultImpl implements _BrandResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BrandResultImpl &&
@@ -565,7 +565,7 @@ class _$BrandItemImpl implements _BrandItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BrandItemImpl &&
@@ -1060,7 +1060,7 @@ class _$BrandIdImpl implements _BrandId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BrandIdImpl &&

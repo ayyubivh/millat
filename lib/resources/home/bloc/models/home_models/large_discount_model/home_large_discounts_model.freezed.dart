@@ -168,7 +168,7 @@ class _$LargeDiscountModelImpl implements _LargeDiscountModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LargeDiscountModelImpl &&
@@ -321,7 +321,7 @@ class _$ResultImpl implements _Result {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResultImpl &&
@@ -576,7 +576,7 @@ class _$BannerItemImpl implements _BannerItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BannerItemImpl &&
@@ -845,7 +845,7 @@ class _$SubCategoryImpl implements _SubCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubCategoryImpl &&
@@ -1075,7 +1075,7 @@ class _$CategoryImpl implements _Category {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CategoryImpl &&

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -70,7 +72,7 @@ class HomeServices extends HttpServices {
         final result = BrandOftheDayModel.fromJson(data);
         return result;
       } catch (e) {
-        print("error on $e");
+        debugPrint("error on $e");
         throw Exception('Failed to parse response');
       }
     } else {
@@ -142,12 +144,13 @@ class HomeServices extends HttpServices {
         showSnackBar(context, data['message']);
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }
@@ -176,12 +179,13 @@ class HomeServices extends HttpServices {
         showSnackBar(context, data['message']);
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }

@@ -187,7 +187,7 @@ class _$NotificationModelImpl implements _NotificationModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotificationModelImpl &&
@@ -352,7 +352,7 @@ class _$MessageResultImpl implements _MessageResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MessageResultImpl &&
@@ -623,7 +623,7 @@ class _$MessageDataImpl implements _MessageData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MessageDataImpl &&

@@ -167,7 +167,7 @@ class _$DuaSubcategoryModelImpl implements _DuaSubcategoryModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DuaSubcategoryModelImpl &&
@@ -323,7 +323,7 @@ class _$ResultImpl implements _Result {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResultImpl &&
@@ -556,7 +556,7 @@ class _$DuaSubCategoryImpl implements _DuaSubCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DuaSubCategoryImpl &&

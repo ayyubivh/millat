@@ -191,7 +191,7 @@ class _$RewardRedeemItemModelImpl implements _RewardRedeemItemModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RewardRedeemItemModelImpl &&
@@ -351,7 +351,7 @@ class _$ResultImpl implements _Result {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResultImpl &&
@@ -654,7 +654,7 @@ class _$RedeemProductsImpl implements _RedeemProducts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RedeemProductsImpl &&

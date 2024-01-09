@@ -33,7 +33,7 @@ class NotificationService extends HttpServices {
   }
 
   Future<void> scheduleNotification({
-   required int id ,
+    required int id,
     String? title,
     String? body,
     String? payload,
@@ -94,15 +94,15 @@ class NotificationService extends HttpServices {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
           final result = NotificationModel.fromJson(data);
-          print(result);
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        debugPrint('error on order API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -119,12 +119,13 @@ class NotificationService extends HttpServices {
       if (response.statusCode == 200) {
         debugPrint(response.body);
       } else {
-        print('API request failed with status code: ${response.statusCode}');
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
     } catch (e) {
-      print('error on API fetch: ${e.toString()}');
+      debugPrint('error on API fetch: ${e.toString()}');
       throw Exception('Failed to parse response');
     }
   }

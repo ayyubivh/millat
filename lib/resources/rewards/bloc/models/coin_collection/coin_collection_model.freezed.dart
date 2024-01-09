@@ -176,7 +176,7 @@ class _$CoinCollectionModelImpl implements _CoinCollectionModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CoinCollectionModelImpl &&
@@ -340,7 +340,7 @@ class _$CoinCollectionResultImpl implements _CoinCollectionResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CoinCollectionResultImpl &&
@@ -492,7 +492,7 @@ class _$CoinCollectionDataImpl implements _CoinCollectionData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CoinCollectionDataImpl &&

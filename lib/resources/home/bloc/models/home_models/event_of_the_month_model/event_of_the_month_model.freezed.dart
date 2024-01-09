@@ -169,7 +169,7 @@ class _$EventOfTheMonthModelImpl implements _EventOfTheMonthModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EventOfTheMonthModelImpl &&
@@ -327,7 +327,7 @@ class _$EventResultImpl implements _EventResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EventResultImpl &&
@@ -526,7 +526,7 @@ class _$EventItemImpl implements _EventItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EventItemImpl &&

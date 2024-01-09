@@ -117,7 +117,7 @@ class _$QuranChaptersImpl implements _QuranChapters {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuranChaptersImpl &&
@@ -436,7 +436,7 @@ class _$ChaptersImpl implements _Chapters {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChaptersImpl &&
@@ -597,7 +597,7 @@ class _$TranslatedNameImpl implements _TranslatedName {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$TranslatedNameImpl);
   }

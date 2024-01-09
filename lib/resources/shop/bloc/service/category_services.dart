@@ -45,7 +45,6 @@ class CategoryService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = SubcategoryByCategoryIdModel.fromJson(data);
-        debugPrint(result.toString());
         return result;
       } catch (e) {
         debugPrint('error on Category API fetch: ${e.toString()}');
@@ -143,7 +142,6 @@ class CategoryService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductModel.fromJson(data);
-        debugPrint(result.toString());
         return result;
       } catch (e) {
         debugPrint('error on Category API fetch: ${e.toString()}');
@@ -177,23 +175,27 @@ class CategoryService extends HttpServices {
         "max": maxPrice,
       },
     };
-    final response = await http.post((Uri.parse(kBaseUrl + endpoint)),
+
+    try {
+      final response = await http.post(
+        Uri.parse(kBaseUrl + endpoint),
         body: json.encode(body),
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
-        });
-    try {
+        },
+      );
+
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductResponse.fromJson(data);
-        print(result);
+        debugPrint(result.toString());
         return result;
       } else {
-        print('Failed to load products, status code: ${response.statusCode}');
-        throw Exception('Failed to load products');
+        debugPrint('Error on fetching products: ${response.statusCode}');
+        throw Exception('Failed to fetch products');
       }
     } catch (e) {
-      print('Error on fetching products: ${e.toString()}');
+      debugPrint('Error on fetching products: ${e.toString()}');
       throw Exception('Failed to fetch products');
     }
   }

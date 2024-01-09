@@ -175,7 +175,7 @@ class _$SpecificCategoryModelImpl implements _SpecificCategoryModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SpecificCategoryModelImpl &&
@@ -339,7 +339,7 @@ class _$ResultImpl implements _Result {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResultImpl &&
@@ -606,7 +606,7 @@ class _$DataImpl implements _Data {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DataImpl &&
@@ -806,7 +806,7 @@ class _$BigBannerImageImpl implements _BigBannerImage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BigBannerImageImpl &&
@@ -997,7 +997,7 @@ class _$SmallBannerImageImpl implements _SmallBannerImage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SmallBannerImageImpl &&

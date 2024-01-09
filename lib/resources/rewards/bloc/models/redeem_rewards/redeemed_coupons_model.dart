@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'redeemed_coupons_model.g.dart';
 part 'redeemed_coupons_model.freezed.dart';

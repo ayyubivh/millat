@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'cart_models.g.dart';
 part 'cart_models.freezed.dart';

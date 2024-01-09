@@ -173,7 +173,7 @@ class _$ProductResponseImpl implements _ProductResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductResponseImpl &&
@@ -346,7 +346,7 @@ class _$ProductResultImpl implements _ProductResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductResultImpl &&
@@ -925,7 +925,7 @@ class _$ProductImpl implements _Product {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductImpl &&
@@ -1196,7 +1196,7 @@ class _$BrandImpl implements _Brand {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BrandImpl &&
@@ -1352,7 +1352,7 @@ class _$CategoryImpl implements _Category {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CategoryImpl &&
@@ -1510,7 +1510,7 @@ class _$SubcategoryImpl implements _Subcategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubcategoryImpl &&
@@ -1667,7 +1667,7 @@ class _$ItemTypeImpl implements _ItemType {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ItemTypeImpl &&
@@ -1924,7 +1924,7 @@ class _$ProductSizeImpl implements _ProductSize {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductSizeImpl &&

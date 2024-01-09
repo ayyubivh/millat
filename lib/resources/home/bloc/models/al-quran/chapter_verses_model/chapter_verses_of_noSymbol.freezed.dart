@@ -122,7 +122,7 @@ class _$ChapterVersesOfNosymbolImpl implements _ChapterVersesOfNosymbol {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChapterVersesOfNosymbolImpl &&
@@ -297,7 +297,7 @@ class _$VersesImpl implements _Verses {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VersesImpl &&

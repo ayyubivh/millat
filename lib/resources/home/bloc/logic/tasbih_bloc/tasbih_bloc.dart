@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:millat/resources/home/bloc/service/tasbih_services.dart';
@@ -37,7 +37,6 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
         tasbihDhikr: event.dikr,
         tasbihDikrTranslate: event.translate,
         tasbihId: event.id));
-    print(state.tasbihDhikr);
   }
 
   _fetchDhikr(FetchDhikr event, Emitter<TasbihState> emit) async {

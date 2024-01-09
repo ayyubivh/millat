@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -190,8 +189,6 @@ class CategoryView extends StatelessWidget {
                                         productItems?[index];
                                     return GestureDetector(
                                       onTap: () {
-                                        print(" category id ==== $categoryId");
-
                                         context.pushNamed(
                                             MyAppRouteConstants
                                                 .categoriesProductsRouteName,
@@ -262,7 +259,6 @@ class CategoryView extends StatelessWidget {
 
                                     return GestureDetector(
                                       onTap: () {
-                                        print(" category id ==== $categoryId");
                                         context.pushNamed(
                                             MyAppRouteConstants
                                                 .categoriesProductsRouteName,
@@ -566,10 +562,10 @@ class TimerWidget extends StatefulWidget {
   });
 
   @override
-  _TimerWidgetState createState() => _TimerWidgetState();
+  TimerWidgetState createState() => TimerWidgetState();
 }
 
-class _TimerWidgetState extends State<TimerWidget> {
+class TimerWidgetState extends State<TimerWidget> {
   late Timer _timer;
   int hours = 8;
   int minutes = 0;
@@ -668,13 +664,13 @@ class _TimerWidgetState extends State<TimerWidget> {
 }
 
 class Timers extends StatefulWidget {
-  const Timers({Key? key});
+  const Timers({super.key});
 
   @override
-  _TimersState createState() => _TimersState();
+  TimersState createState() => TimersState();
 }
 
-class _TimersState extends State<Timers> {
+class TimersState extends State<Timers> {
   late Timer _timer;
   int hours = 8;
   int minutes = 23;

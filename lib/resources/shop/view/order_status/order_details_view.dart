@@ -26,7 +26,7 @@ class OrdetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<CategoryBloc>(context)
-          .add(FetchFilterProducts(category: 'women', subCategory: 'women'));
+          .add(const FetchFilterProducts(category: 'women', subCategory: 'women'));
     });
     var containerHeight10 = Container(
       height: 8,

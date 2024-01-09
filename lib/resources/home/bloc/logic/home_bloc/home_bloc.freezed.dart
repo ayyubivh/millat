@@ -226,7 +226,7 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchLargeDiscountsBannerImpl);
@@ -453,7 +453,7 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchTopOffersBannerImpl);
@@ -680,7 +680,7 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchBrandofTheDayImpl);
   }
@@ -906,7 +906,7 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchHadithOfTheDayImpl);
@@ -1133,7 +1133,7 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchEventOfTheMonthImpl);
@@ -1388,7 +1388,7 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchPrayerTrackerEventImpl &&
@@ -1660,7 +1660,7 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddPrayerToPrayerTrackerImpl &&
@@ -1907,7 +1907,7 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeIndexofAllaysaysBgImpl);
@@ -2154,7 +2154,7 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeHomeTabIndexEventImpl &&
@@ -2425,7 +2425,7 @@ class _$RemoveDailyPrayerTrackerNamazImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveDailyPrayerTrackerNamazImpl &&
@@ -2693,7 +2693,7 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeTinterCardSwipeOptionImpl &&
@@ -2954,7 +2954,7 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeCompassThemeEventImpl &&
@@ -3217,7 +3217,7 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeCompassThemeIndexImpl &&
@@ -3476,7 +3476,7 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchNotificationApiImpl &&
@@ -3747,7 +3747,7 @@ class _$AddMarkReadNotificationEventImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddMarkReadNotificationEventImpl &&
@@ -4012,7 +4012,7 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeHomeBannerIndexImpl &&
@@ -4273,7 +4273,7 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeEventOfTheMonthIndexImpl &&
@@ -5030,7 +5030,7 @@ class _$HomeStateImpl implements _HomeState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomeStateImpl &&

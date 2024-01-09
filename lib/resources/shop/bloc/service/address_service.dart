@@ -41,11 +41,11 @@ class AddressService extends HttpServices {
     );
 
     if (response.statusCode == 200) {
-      print('on the add address ${response.body}');
+      debugPrint('on the add address ${response.body}');
       final Map<String, dynamic> data = json.decode(response.body);
       return data;
     } else {
-      print('API request failed with status code: ${response.statusCode}');
+      debugPrint('API request failed with status code: ${response.statusCode}');
       throw Exception(
           'API request failed with status code: ${response.statusCode}');
     }
@@ -84,11 +84,11 @@ class AddressService extends HttpServices {
       body: body,
     );
     if (response.statusCode == 200) {
-      print('on the add address ${response.body}');
+      debugPrint('on the add address ${response.body}');
       final Map<String, dynamic> data = json.decode(response.body);
       return data;
     } else {
-      print('API request failed with status code: ${response.statusCode}');
+      debugPrint('API request failed with status code: ${response.statusCode}');
       throw Exception(
           'API request failed with status code: ${response.statusCode}');
     }
@@ -107,12 +107,13 @@ class AddressService extends HttpServices {
 
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on address API fetch: ${e.toString()}');
+        debugPrint('error on address API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -129,18 +130,19 @@ class AddressService extends HttpServices {
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
-          print('address here fetxh ${response.body}');
+          debugPrint('address here fetxh ${response.body}');
           final Map<String, dynamic> data = json.decode(response.body);
           final result = AddressIdModel.fromJson(data);
-          print('api address by id  $result');
+          debugPrint('api address by id  $result');
           return result;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on address API fetch: ${e.toString()}');
+        debugPrint('error on address API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -163,12 +165,13 @@ class AddressService extends HttpServices {
 
           return data;
         } else {
-          print('API request failed with status code: ${response.statusCode}');
+          debugPrint(
+              'API request failed with status code: ${response.statusCode}');
           throw Exception(
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on address API fetch: ${e.toString()}');
+        debugPrint('error on address API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -190,19 +193,19 @@ class AddressService extends HttpServices {
           final Map<String, dynamic> json = data.first;
 
           final result = PincodeAddressModel.fromJson(json);
-          print('API address by id  $result');
+          debugPrint('API address by id  $result');
           return result;
         } else {
           // Handle the case when the response is an empty array
-          print('API response is empty.');
+          debugPrint('API response is empty.');
           return null;
         }
       } catch (e) {
-        print('Error on address API fetch: ${e.toString()}');
+        debugPrint('Error on address API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
-      print('API request failed with status code: ${response.statusCode}');
+      debugPrint('API request failed with status code: ${response.statusCode}');
       throw Exception(
           'API request failed with status code: ${response.statusCode}');
     }

@@ -122,7 +122,7 @@ _$BrandImpl _$$BrandImplFromJson(Map<String, dynamic> json) => _$BrandImpl(
       subCategory: (json['subCategory'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      GST: json['GST'] as String?,
+      gst: json['gst'] as String?,
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -150,7 +150,7 @@ Map<String, dynamic> _$$BrandImplToJson(_$BrandImpl instance) =>
       'revenueOfLastThreeMonths': instance.revenueOfLastThreeMonths,
       'category': instance.category,
       'subCategory': instance.subCategory,
-      'GST': instance.GST,
+      'gst': instance.gst,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
       'role': instance.role,

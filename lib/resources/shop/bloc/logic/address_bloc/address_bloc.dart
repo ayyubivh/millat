@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/address_model/pincode_address_details_model.dart';
 import 'package:millat/resources/shop/bloc/service/address_service.dart';
@@ -43,7 +43,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
           state: event.state,
           country: event.country);
       if (data['status'] == 200) {
-        print('on add address ${data['message']}');
+        debugPrint('on add address ${data['message']}');
         emit(state.copyWith(successMessage: data['message']));
       } else {
         emit(state.copyWith(failMessage: data['message']));
@@ -68,7 +68,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
           state: event.state,
           country: event.country);
       if (data['status'] == 200) {
-        print('on update address address ${data['message']}');
+        debugPrint('on update address address ${data['message']}');
         emit(state.copyWith(successMessage: data['message']));
       } else {
         // emit(state.copyWith(failMessage: data['message']));
@@ -96,14 +96,14 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final value = prefs.getInt(Appstrings.addressDefaultIndex);
     if (state.addressModel?.result.addresses == null) {
-      print("addres is null ${state.addressModel?.result.addresses}");
+      debugPrint("addres is null ${state.addressModel?.result.addresses}");
       emit(
         state.copyWith(
           selectedIndex: -1,
         ),
       );
     } else {
-      print("addres not null ${state.addressModel?.result.addresses}");
+      debugPrint("addres not null ${state.addressModel?.result.addresses}");
 
       emit(
         state.copyWith(
@@ -117,14 +117,14 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     emit(state.copyWith(selectedIndex: event.selectedIndex));
     _saveIndexToSharedPreferences(
         Appstrings.addressDefaultIndex, event.selectedIndex);
-    print('index in the blco ${state.selectedIndex}');
+    debugPrint('index in the blco ${state.selectedIndex}');
   }
 
   _saveAddressId(SaveAddressId event, Emitter<AddressState> emit) {
     emit(state.copyWith(
       addressId: event.addressId,
     ));
-    print('address id in the bloc ${state.addressId}');
+    debugPrint('address id in the bloc ${state.addressId}');
   }
 
   _fetchAddressByIdEvent(
@@ -135,7 +135,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
       final data =
           await _addressService.fetchAddressById(event.context, event.id);
       emit(state.copyWith(addressIdModel: data, isLoading: false));
-      print('on addess $data');
+      debugPrint('on addess $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
 
@@ -154,7 +154,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
       final data =
           await _addressService.deleteAddressbyId(event.context, event.id);
       emit(state.copyWith(addressModel: updatedAddressModel));
-      print('data on bloc $data');
+      debugPrint('data on bloc $data');
     } catch (e) {
       throw Exception();
     }

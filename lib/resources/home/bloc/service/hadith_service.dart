@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/utils/string_constants.dart';
 
@@ -26,12 +27,12 @@ class HadithService {
 
         return books;
       } else {
-        print('Request failed with status: ${response.statusCode}');
+        debugPrint('Request failed with status: ${response.statusCode}');
 
         return [];
       }
     } catch (e) {
-      print('Error: $e');
+      debugPrint('Error: $e');
 
       return [];
     }
@@ -48,7 +49,7 @@ class HadithService {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = jsonDecode(response.body);
         final result = HadithBooksChapterModel.fromJson(data);
-        print('here is the result $result');
+        debugPrint('here is the result $result');
         return result;
       } else {
         throw Exception();

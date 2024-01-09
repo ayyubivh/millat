@@ -86,7 +86,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           if (res['status'] == true) {
             emit(AuthLoaded(event.phoneNumber));
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
-            emit(AuthSocialLoginNewUser(
+
+            emit(AuthSocialLoginNewUserLoaded(
                 phoneNumber: event.phoneNumber, otp: res['result']));
           } else {
             emit(AuthError(res['message']));
@@ -114,7 +115,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } else if (event is VerifyOTP) {
         final currentState = state;
-        if (currentState is AuthSocialLoginNewUser) {
+        if (currentState is AuthSocialLoginNewUserLoaded) {
           if (event.code.isEmpty) {
             emit(AuthError('Please fill in all the fields'));
           } else {

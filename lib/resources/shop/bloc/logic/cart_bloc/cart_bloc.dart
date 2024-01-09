@@ -38,7 +38,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           cartItems: Set<String>.from(
             cartItems ?? [],
           )));
-      print('cart item count on fetch $cartItemsCount');
+      debugPrint('cart item count on fetch $cartItemsCount');
     } catch (e) {
       emit(state.copyWith(
           errorMessage: "An error occurred", cartLoading: false));
@@ -84,7 +84,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           cartItems: cartItems,
         ));
 
-        print('Success: ${data['message']}');
+        debugPrint('Success: ${data['message']}');
       } else if (data['status'] == 409) {
         emit(state.copyWith(
           cartSuccesmessage: data['message'],
@@ -160,7 +160,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         context: event.context,
         quantity: event.quantity,
       );
-      print('cart update model data $data');
+      debugPrint('cart update model data $data');
     } catch (e) {
       emit(state.copyWith(
         errorMessage: "An error occurred",
@@ -180,7 +180,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
                 if (item.productId?.id == event.productId) {
                   final newQuantity = item.quantity! - 1;
 
-                  print('new one  $newQuantity');
+                  debugPrint('new one  $newQuantity');
                   return item.copyWith(quantity: newQuantity);
                 }
                 return item;
@@ -197,7 +197,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         context: event.context,
         quantity: event.quantity,
       );
-      print('cart update model data $data');
+      debugPrint('cart update model data $data');
     } catch (e) {
       emit(state.copyWith(
         errorMessage: "An error occurred",
@@ -226,6 +226,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   _showExpandEvent(ShowExpandEvent event, Emitter<CartState> emit) {
     emit(state.copyWith(showExapnd: !state.showExapnd));
-    print("here is the show expand state ${state.showExapnd}");
+    debugPrint("here is the show expand state ${state.showExapnd}");
   }
 }

@@ -14,7 +14,7 @@ import '../../../../../utils/color_manager.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class BookmarkCollectionView extends StatelessWidget {
-  final BookMarktCollectionModel passvalue;
+  final BookMarkCollectionModel passvalue;
   const BookmarkCollectionView({super.key, required this.passvalue});
 
   @override
@@ -249,7 +249,7 @@ class BookmarkCollectionView extends StatelessWidget {
         child: CustomOutlinedButton(
           backGroundColor: ColorManager.primary,
           onTap: () {
-            BlocProvider.of<QuranBloc>(context).add(PlayPlayListAudio());
+            BlocProvider.of<QuranBloc>(context).add(const PlayPlayListAudio());
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -118,7 +118,7 @@ class _$TranslationsModelImpl implements _TranslationsModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TranslationsModelImpl &&
@@ -365,7 +365,7 @@ class _$TranslationsImpl implements _Translations {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TranslationsImpl &&
@@ -549,7 +549,7 @@ class _$TranslatedNameImpl implements _TranslatedName {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TranslatedNameImpl &&

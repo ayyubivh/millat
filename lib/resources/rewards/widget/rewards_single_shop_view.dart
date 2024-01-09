@@ -9,12 +9,10 @@ import 'package:millat/resources/rewards/widget/score_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
-import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -592,8 +590,6 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                           onTap: () {
                             setState(() {
                               selectedSize = index;
-                              final selectedSizeValue = size[selectedSize];
-                              print(selectedSizeValue);
                             });
                           },
                           child: Container(
@@ -646,7 +642,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                                       setState(() {
                                         if (quantity > 1) {
                                           quantity -= 1;
-                                          print('quantity: $quantity');
+                                         
                                         }
                                       });
                                     },

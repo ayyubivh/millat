@@ -187,7 +187,7 @@ class _$FetchRewardsImpl implements _FetchRewards {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchRewardsImpl &&
@@ -371,7 +371,7 @@ class _$FetchRewardProductsImpl implements _FetchRewardProducts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchRewardProductsImpl);
@@ -562,7 +562,7 @@ class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchRewardProductsByIdImpl &&
@@ -767,7 +767,7 @@ class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeCarousselImageIndexImpl &&
@@ -971,7 +971,7 @@ class _$ChangeRewardsTabIndexImpl implements ChangeRewardsTabIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeRewardsTabIndexImpl &&
@@ -1174,7 +1174,7 @@ class _$AddRewardsImpl implements AddRewards {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddRewardsImpl &&
@@ -1359,7 +1359,7 @@ class _$FetchRewardsRedeemItemImpl implements FetchRewardsRedeemItem {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchRewardsRedeemItemImpl);
@@ -1549,7 +1549,7 @@ class _$AddRewardRedeemCouponImpl implements AddRewardRedeemCoupon {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddRewardRedeemCouponImpl &&
@@ -1736,7 +1736,7 @@ class _$FetchRewardRedeemedCouponsImpl implements FetchRewardRedeemedCoupons {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchRewardRedeemedCouponsImpl);
@@ -1909,7 +1909,7 @@ class _$FetchCoinsCollectionEventImpl implements FetchCoinsCollectionEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchCoinsCollectionEventImpl);
@@ -2100,7 +2100,7 @@ class _$AddCoinsCollectionEventImpl implements AddCoinsCollectionEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddCoinsCollectionEventImpl &&
@@ -2644,7 +2644,7 @@ class _$RewardsStateImpl implements _RewardsState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RewardsStateImpl &&

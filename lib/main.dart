@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +16,6 @@ import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dar
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
-import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
@@ -29,18 +29,29 @@ import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'resources/rewards/bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 import 'resources/travel/bloc/logic/travel_bloc.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
 
   OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
   OneSignal.initialize("f7a79b17-636c-4e33-ab11-b46d9c85470c");
-  OneSignal.Notifications.requestPermission(true);
-  // OneSignal.Notifications.addPermissionObserver((state) {
-  //   print("Has permission $state");
-  // });
+  OneSignal.Notifications.requestPermission(
+    true,
+  );
 
   bool splashRemoved = false;
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -54,16 +65,15 @@ void main() async {
   NotificationService().initNotification();
   tz.initializeTimeZones();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark,
-  ));
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark));
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
   ]);
 
-  if (!Hive.isAdapterRegistered(BookMarktCollectionModelAdapter().typeId)) {
-    Hive.registerAdapter(BookMarktCollectionModelAdapter());
+  if (!Hive.isAdapterRegistered(BookMarkCollectionModelAdapter().typeId)) {
+    Hive.registerAdapter(BookMarkCollectionModelAdapter());
   }
   await Hive.initFlutter();
   await Hive.openBox('userDetailsBox');

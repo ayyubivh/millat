@@ -292,7 +292,7 @@ class _$FetchPrayerTimingImpl implements FetchPrayerTiming {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchPrayerTimingImpl &&
@@ -582,7 +582,7 @@ class _$PrayerTimingEventImpl implements PrayerTimingEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$PrayerTimingEventImpl);
   }
@@ -857,7 +857,7 @@ class _$ChangeArtCalcMethodImpl implements ChangeArtCalcMethod {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeArtCalcMethodImpl);
@@ -1133,7 +1133,7 @@ class _$FetchNamazMethodsImpl implements FetchNamazMethods {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchNamazMethodsImpl);
   }
@@ -1433,7 +1433,7 @@ class _$ChangeNamazMethodsImpl implements ChangeNamazMethods {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeNamazMethodsImpl &&
@@ -1751,7 +1751,7 @@ class _$ChangeSchoolEventImpl implements ChangeSchoolEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeSchoolEventImpl &&
@@ -2072,7 +2072,7 @@ class _$ChangeHighLatitudeMethodImpl implements ChangeHighLatitudeMethod {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeHighLatitudeMethodImpl &&
@@ -2368,7 +2368,7 @@ class _$ChangeLangLongtoAddressImpl implements ChangeLangLongtoAddress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeLangLongtoAddressImpl);
@@ -2662,7 +2662,7 @@ class _$OnNotiyOnOffEventImpl implements OnNotiyOnOffEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OnNotiyOnOffEventImpl &&
@@ -2970,7 +2970,7 @@ class _$ChangeIndexImpl implements ChangeIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeIndexImpl &&
@@ -3280,7 +3280,7 @@ class _$AddAutoDetectValToLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddAutoDetectValToLocalStorageImpl &&
@@ -3576,7 +3576,7 @@ class _$GetAutoDetetectLocationFromLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetAutoDetetectLocationFromLocalStorageImpl);
@@ -3876,7 +3876,7 @@ class _$AddAutomaticSettingToLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddAutomaticSettingToLocalStorageImpl &&
@@ -4172,7 +4172,7 @@ class _$GetAutomaticSettingsFromLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetAutomaticSettingsFromLocalStorageImpl);
@@ -4472,7 +4472,7 @@ class _$AddShowimsakValToLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddShowimsakValToLocalStorageImpl &&
@@ -4768,7 +4768,7 @@ class _$GetShowimskValFromLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetShowimskValFromLocalStorageImpl);
@@ -5067,7 +5067,7 @@ class _$AddCalculationMethodToLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddCalculationMethodToLocalStorageImpl &&
@@ -5363,7 +5363,7 @@ class _$GetCalculationMethodFromStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetCalculationMethodFromStorageImpl);
@@ -5662,7 +5662,7 @@ class _$AddAsrCalculationMethodToLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddAsrCalculationMethodToLocalStorageImpl &&
@@ -5959,7 +5959,7 @@ class _$GetAsrCalculationMethodFromStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetAsrCalculationMethodFromStorageImpl);
@@ -6258,7 +6258,7 @@ class _$AddHighLatitudeMethodsToLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddHighLatitudeMethodsToLocalStorageImpl &&
@@ -6555,7 +6555,7 @@ class _$GetHighLatitudeMethodsToLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetHighLatitudeMethodsToLocalStorageImpl);
@@ -6840,7 +6840,7 @@ class _$FetchNamazTimingNotificationsFromLocalStorageImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchNamazTimingNotificationsFromLocalStorageImpl);
@@ -7693,7 +7693,7 @@ class _$InitialImpl implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&

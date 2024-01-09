@@ -1,6 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/home/bloc/models/dua/dua_model/dua_model_byId.dart';
 import 'package:millat/resources/home/bloc/service/dua_services.dart';
@@ -49,7 +49,7 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
       final data = await duaServices.fetchDuaSubCategorybyCategory(
           categoryId: event.categoryId);
       emit(state.copyWith(duaSubcategoryModel: data, isLoading: false));
-      print(
+      debugPrint(
           'here is the text of bloc sub categories data ${state.duaSubcategoryModel}');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
@@ -76,7 +76,7 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
       final data = await duaServices.fetchDuaBookMark(event.buildcontext);
       final upadatedbookMarklist =
           data.result?.bookmarks[0].bookmarks.map((e) => e.duaId).toSet();
-      print('here is the ids of duas $upadatedbookMarklist');
+      debugPrint('here is the ids of duas $upadatedbookMarklist');
 
       emit(state.copyWith(
           duaBookMarkModel: data,
@@ -99,7 +99,7 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
       emit(state.copyWith(
           bookmarkItems: updatedBookmark,
           bookMarkLength: state.bookMarkLength + 1));
-      print('here is the length of the book mark ${state.bookMarkLength}');
+      debugPrint('here is the length of the book mark ${state.bookMarkLength}');
       if (data['status'] == 200) {
         emit(state.copyWith(bookmarkSuccess: data['message']));
       } else {
@@ -134,7 +134,7 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
           final updatedListid = state.bookmarkItems?.toSet() ?? {}
             ..remove(event.duaId);
 
-          print('here is the removed is list $updatedListid');
+          debugPrint('here is the removed is list $updatedListid');
           emit(state.copyWith(
             bookmarkItems: updatedListid,
             duaBookMarkModel:
@@ -160,7 +160,7 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
       final data =
           await duaServices.fetchDuasByIds(state.bookmarkItems!.toList());
       emit(state.copyWith(duaModelbyId: data, isLoading: false));
-      print('here is the list of duas by id in the bloc $data');
+      debugPrint('here is the list of duas by id in the bloc $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       throw Exception(e.toString());

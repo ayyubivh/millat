@@ -271,7 +271,6 @@ class CategoryProductsFilterView extends StatelessWidget {
                 min: 1,
                 max: 5000,
                 onChanged: (newRange) {
-                  print(newRange);
                   context.read<CategoryBloc>().add(SavePriceRange(
                       rangeValues: newRange,
                       minPrice: newRange.start.toInt().toString(),

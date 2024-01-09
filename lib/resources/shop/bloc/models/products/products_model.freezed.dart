@@ -173,7 +173,7 @@ class _$ProductModelImpl implements _ProductModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductModelImpl &&
@@ -330,7 +330,7 @@ class _$ProductResultImpl implements _ProductResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductResultImpl &&
@@ -873,7 +873,7 @@ class _$ProductImpl implements _Product {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductImpl &&
@@ -1051,7 +1051,7 @@ mixin _$Brand {
   int? get revenueOfLastThreeMonths => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   List<String>? get subCategory => throw _privateConstructorUsedError;
-  String? get GST => throw _privateConstructorUsedError;
+  String? get gst => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   String? get role => throw _privateConstructorUsedError;
@@ -1083,7 +1083,7 @@ abstract class $BrandCopyWith<$Res> {
       int? revenueOfLastThreeMonths,
       String? category,
       List<String>? subCategory,
-      String? GST,
+      String? gst,
       DateTime? createdAt,
       DateTime? updatedAt,
       String? role});
@@ -1118,7 +1118,7 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
     Object? revenueOfLastThreeMonths = freezed,
     Object? category = freezed,
     Object? subCategory = freezed,
-    Object? GST = freezed,
+    Object? gst = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? role = freezed,
@@ -1188,9 +1188,9 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
           ? _value.subCategory
           : subCategory // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      GST: freezed == GST
-          ? _value.GST
-          : GST // ignore: cast_nullable_to_non_nullable
+      gst: freezed == gst
+          ? _value.gst
+          : gst // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
@@ -1232,7 +1232,7 @@ abstract class _$$BrandImplCopyWith<$Res> implements $BrandCopyWith<$Res> {
       int? revenueOfLastThreeMonths,
       String? category,
       List<String>? subCategory,
-      String? GST,
+      String? gst,
       DateTime? createdAt,
       DateTime? updatedAt,
       String? role});
@@ -1265,7 +1265,7 @@ class __$$BrandImplCopyWithImpl<$Res>
     Object? revenueOfLastThreeMonths = freezed,
     Object? category = freezed,
     Object? subCategory = freezed,
-    Object? GST = freezed,
+    Object? gst = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? role = freezed,
@@ -1335,9 +1335,9 @@ class __$$BrandImplCopyWithImpl<$Res>
           ? _value._subCategory
           : subCategory // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      GST: freezed == GST
-          ? _value.GST
-          : GST // ignore: cast_nullable_to_non_nullable
+      gst: freezed == gst
+          ? _value.gst
+          : gst // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
@@ -1375,7 +1375,7 @@ class _$BrandImpl implements _Brand {
       required this.revenueOfLastThreeMonths,
       required this.category,
       required final List<String>? subCategory,
-      required this.GST,
+      required this.gst,
       required this.createdAt,
       required this.updatedAt,
       required this.role})
@@ -1426,7 +1426,7 @@ class _$BrandImpl implements _Brand {
   }
 
   @override
-  final String? GST;
+  final String? gst;
   @override
   final DateTime? createdAt;
   @override
@@ -1436,11 +1436,11 @@ class _$BrandImpl implements _Brand {
 
   @override
   String toString() {
-    return 'Brand(id: $id, name: $name, email: $email, password: $password, isActive: $isActive, phoneNumber: $phoneNumber, logo: $logo, coverImage: $coverImage, description: $description, cityName: $cityName, brandName: $brandName, companyName: $companyName, companyRegYear: $companyRegYear, revenueOfLastThreeMonths: $revenueOfLastThreeMonths, category: $category, subCategory: $subCategory, GST: $GST, createdAt: $createdAt, updatedAt: $updatedAt, role: $role)';
+    return 'Brand(id: $id, name: $name, email: $email, password: $password, isActive: $isActive, phoneNumber: $phoneNumber, logo: $logo, coverImage: $coverImage, description: $description, cityName: $cityName, brandName: $brandName, companyName: $companyName, companyRegYear: $companyRegYear, revenueOfLastThreeMonths: $revenueOfLastThreeMonths, category: $category, subCategory: $subCategory, gst: $gst, createdAt: $createdAt, updatedAt: $updatedAt, role: $role)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BrandImpl &&
@@ -1473,7 +1473,7 @@ class _$BrandImpl implements _Brand {
                 other.category == category) &&
             const DeepCollectionEquality()
                 .equals(other._subCategory, _subCategory) &&
-            (identical(other.GST, GST) || other.GST == GST) &&
+            (identical(other.gst, gst) || other.gst == gst) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -1501,7 +1501,7 @@ class _$BrandImpl implements _Brand {
         revenueOfLastThreeMonths,
         category,
         const DeepCollectionEquality().hash(_subCategory),
-        GST,
+        gst,
         createdAt,
         updatedAt,
         role
@@ -1539,7 +1539,7 @@ abstract class _Brand implements Brand {
       required final int? revenueOfLastThreeMonths,
       required final String? category,
       required final List<String>? subCategory,
-      required final String? GST,
+      required final String? gst,
       required final DateTime? createdAt,
       required final DateTime? updatedAt,
       required final String? role}) = _$BrandImpl;
@@ -1580,7 +1580,7 @@ abstract class _Brand implements Brand {
   @override
   List<String>? get subCategory;
   @override
-  String? get GST;
+  String? get gst;
   @override
   DateTime? get createdAt;
   @override
@@ -1758,7 +1758,7 @@ class _$CategoryImpl implements _Category {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CategoryImpl &&
@@ -1984,7 +1984,7 @@ class _$SubCategoryImpl implements _SubCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubCategoryImpl &&
@@ -2236,7 +2236,7 @@ class _$SizeImpl implements _Size {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SizeImpl &&

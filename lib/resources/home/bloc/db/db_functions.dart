@@ -5,10 +5,10 @@ import 'package:millat/utils/string_constants.dart';
 import '../models/book_mark_hive_model/book_mark_hive_model.dart';
 
 abstract class BookMarkDbFunctions {
-  Future<void> addCollection(BookMarktCollectionModel obj);
-  Future<void> editCollection(BookMarktCollectionModel obj, index);
+  Future<void> addCollection(BookMarkCollectionModel obj);
+  Future<void> editCollection(BookMarkCollectionModel obj, index);
 
-  Future<List<BookMarktCollectionModel>> getAllBookmarkCollection();
+  Future<List<BookMarkCollectionModel>> getAllBookmarkCollection();
 
   Future<void> removeCollection(String id);
 }
@@ -21,26 +21,26 @@ class BookMarkDB implements BookMarkDbFunctions {
   }
 
   @override
-  Future<void> addCollection(BookMarktCollectionModel obj) async {
-    final db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
+  Future<void> addCollection(BookMarkCollectionModel obj) async {
+    final db = await Hive.openBox<BookMarkCollectionModel>(bookmarkDb);
     await db.put(obj.id, obj);
   }
 
   @override
-  Future<List<BookMarktCollectionModel>> getAllBookmarkCollection() async {
-    final db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
+  Future<List<BookMarkCollectionModel>> getAllBookmarkCollection() async {
+    final db = await Hive.openBox<BookMarkCollectionModel>(bookmarkDb);
     return db.values.toList();
   }
 
   @override
   Future<void> removeCollection(String id) async {
-    final db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
+    final db = await Hive.openBox<BookMarkCollectionModel>(bookmarkDb);
     await db.delete(id);
   }
 
   @override
-  Future<void> editCollection(BookMarktCollectionModel obj, index) async {
-    final db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
+  Future<void> editCollection(BookMarkCollectionModel obj, index) async {
+    final db = await Hive.openBox<BookMarkCollectionModel>(bookmarkDb);
     final Map dbMap = db.toMap();
     dynamic desiredKey;
     dbMap.forEach((key, value) {

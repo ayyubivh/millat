@@ -196,7 +196,7 @@ class _$SelectDhikerEventImpl implements SelectDhikerEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelectDhikerEventImpl &&
@@ -382,7 +382,7 @@ class _$FetchDhikrImpl implements FetchDhikr {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchDhikrImpl);
   }
@@ -548,7 +548,7 @@ class _$DikhrIncreaseCountEventImpl implements DikhrIncreaseCountEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DikhrIncreaseCountEventImpl);
@@ -732,7 +732,7 @@ class _$ChangeTasbihGoalEventImpl implements ChangeTasbihGoalEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeTasbihGoalEventImpl &&
@@ -914,7 +914,7 @@ class _$ResetTashbihCounterEventImpl implements ResetTashbihCounterEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResetTashbihCounterEventImpl);
@@ -1104,7 +1104,7 @@ class _$AddTasbihEventImpl implements AddTasbihEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddTasbihEventImpl &&
@@ -1287,7 +1287,7 @@ class _$CheckLoopEventImpl implements CheckLoopEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$CheckLoopEventImpl);
   }
@@ -1453,7 +1453,7 @@ class _$DecreaseTasbhiCountEventImpl implements DecreaseTasbhiCountEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DecreaseTasbhiCountEventImpl);
@@ -1636,7 +1636,7 @@ class _$ChangeThemeEventImpl implements ChangeThemeEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeThemeEventImpl &&
@@ -1834,7 +1834,7 @@ class _$ChangeThemeIndexImpl implements ChangeThemeIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeThemeIndexImpl &&
@@ -2014,7 +2014,7 @@ class _$MuteAudioEventImpl implements MuteAudioEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$MuteAudioEventImpl);
   }
@@ -2420,7 +2420,7 @@ class _$TasbihStateImpl implements _TasbihState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TasbihStateImpl &&

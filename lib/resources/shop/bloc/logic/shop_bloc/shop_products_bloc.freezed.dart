@@ -570,7 +570,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchFlashSaleProductsImpl &&
@@ -1155,7 +1155,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchPopularProductsImpl &&
@@ -1726,7 +1726,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchRecentProductProductsImpl);
@@ -2278,7 +2278,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchHomeBannersImpl);
   }
@@ -2829,7 +2829,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchShopBannersImpl);
   }
@@ -3398,7 +3398,7 @@ class _$FetchArticlesImpl implements FetchArticles {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchArticlesImpl &&
@@ -3964,7 +3964,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchShopByBrandImpl);
   }
@@ -4533,7 +4533,7 @@ class _$FetchWishListImpl implements FetchWishList {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchWishListImpl &&
@@ -5115,7 +5115,7 @@ class _$SearchProductImpl implements SearchProduct {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchProductImpl &&
@@ -5705,7 +5705,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddWishListEventImpl &&
@@ -6301,7 +6301,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveWishlistEventImpl &&
@@ -6892,7 +6892,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchShopByBrandProductsImpl &&
@@ -7477,7 +7477,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TabIndexChangeEventImpl &&
@@ -8126,7 +8126,7 @@ class _$PostOrdersImpl implements PostOrders {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostOrdersImpl &&
@@ -8777,7 +8777,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostOnlieOrdersImpl &&
@@ -9392,7 +9392,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostOrderIdOnlinePaymentImpl &&
@@ -10053,7 +10053,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostOrdersRewardsImpl &&
@@ -10668,7 +10668,7 @@ class _$FetchOrdersImpl implements FetchOrders {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchOrdersImpl &&
@@ -11257,7 +11257,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchOrdersByIdImpl &&
@@ -11854,7 +11854,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchOrdersbyFilterEventImpl &&
@@ -12449,7 +12449,7 @@ class _$CancelOrderImpl implements CancelOrder {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CancelOrderImpl &&
@@ -13043,7 +13043,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReturnOrderImpl &&
@@ -13615,7 +13615,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchShopHomeBackgroundCardImpl);
@@ -14172,7 +14172,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchShopHomeBackgroundCardHelthyDietImpl);
@@ -14730,7 +14730,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchShopHomeBackgroundCardSunnahImpl);
@@ -15283,7 +15283,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchShopAdBrandsImpl);
   }
@@ -15834,7 +15834,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchTopBrandsImpl);
   }
@@ -16389,7 +16389,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchProductItemsSubcategorySunnahImpl);
@@ -16946,7 +16946,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchProductItemsSubcategoryHealthImpl);
@@ -17503,7 +17503,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchProductItemsSubcategoryWomenImpl);
@@ -18075,7 +18075,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeShopBannerIndexImpl &&
@@ -18661,7 +18661,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeBrandBannerIndexImpl &&
@@ -19229,7 +19229,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ShowOrderProgressEventImpl);
@@ -19802,7 +19802,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IndexChangeOnOrderProgressImpl &&
@@ -20390,7 +20390,7 @@ class _$IndexChangeOnWomensCareBannerImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IndexChangeOnWomensCareBannerImpl &&
@@ -20977,7 +20977,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchShopAdBrandsByIdImpl &&
@@ -21562,7 +21562,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SavePaymentMethodTypeImpl &&
@@ -22131,7 +22131,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchProductItemsbyCategoryImpl);
@@ -22705,7 +22705,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchSpecificCategeryItemsImpl &&
@@ -23289,7 +23289,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchProductsByIdImpl &&
@@ -23873,7 +23873,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchBrandProductsImpl &&
@@ -24439,7 +24439,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchCouponsImpl);
   }
@@ -25008,7 +25008,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IsPromoCodeAvailableImpl &&
@@ -25593,7 +25593,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChangeIndexEventImpl &&
@@ -26177,7 +26177,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchBrandItemsbyIdImpl &&
@@ -26743,7 +26743,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchAllBrandsEventImpl);
@@ -27313,7 +27313,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchOrderReasonsImpl &&
@@ -27905,7 +27905,7 @@ class _$AddReasonsImpl implements AddReasons {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddReasonsImpl &&
@@ -28492,7 +28492,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchArticlesIdImpl &&
@@ -29058,7 +29058,7 @@ class _$FetchProductsImpl implements FetchProducts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$FetchProductsImpl);
   }
@@ -29610,7 +29610,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchArticlesCategoryImpl);
@@ -30184,7 +30184,7 @@ class _$SaveArticleCategoryFilterValImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveArticleCategoryFilterValImpl &&
@@ -30773,7 +30773,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchArticlesByCategoryImpl &&
@@ -31369,7 +31369,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchBrandProductsItemCountImpl &&
@@ -33433,7 +33433,7 @@ class _$InitialImpl implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&

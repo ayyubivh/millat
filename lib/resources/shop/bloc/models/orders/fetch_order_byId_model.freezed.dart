@@ -187,7 +187,7 @@ class _$OrderModelbyIdModelImpl implements _OrderModelbyIdModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OrderModelbyIdModelImpl &&
@@ -361,7 +361,7 @@ class _$OrderResultImpl implements _OrderResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OrderResultImpl &&
@@ -927,7 +927,7 @@ class _$OrderImpl implements _Order {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OrderImpl &&
@@ -1563,7 +1563,7 @@ class _$BrandImpl implements _Brand {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BrandImpl &&
@@ -2186,7 +2186,7 @@ class _$ProductImpl implements _Product {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductImpl &&
@@ -2556,7 +2556,7 @@ class _$SizeImpl implements _Size {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SizeImpl &&
@@ -2942,7 +2942,7 @@ class _$AddressImpl implements _Address {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddressImpl &&

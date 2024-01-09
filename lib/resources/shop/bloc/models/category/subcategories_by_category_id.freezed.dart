@@ -177,7 +177,7 @@ class _$SubcategoryByCategoryIdModelImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubcategoryByCategoryIdModelImpl &&
@@ -338,7 +338,7 @@ class _$ResultModelImpl implements _ResultModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResultModelImpl &&
@@ -560,7 +560,7 @@ class _$SubCategoryImpl implements _SubCategory {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubCategoryImpl &&

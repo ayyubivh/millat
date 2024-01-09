@@ -173,7 +173,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchCartEventImpl &&
@@ -380,7 +380,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateCartEventWithAddImpl &&
@@ -595,7 +595,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateCartEventWithSubImpl &&
@@ -849,7 +849,7 @@ class _$AddCartEventImpl implements AddCartEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddCartEventImpl &&
@@ -1071,7 +1071,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveCartItemEventImpl &&
@@ -1247,7 +1247,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ToggleShowMoreEventImpl);
@@ -1405,7 +1405,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSuccessEventImpl);
@@ -1563,7 +1563,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$ShowExpandEventImpl);
   }
@@ -1937,7 +1937,7 @@ class _$CartStateImpl implements _CartState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CartStateImpl &&

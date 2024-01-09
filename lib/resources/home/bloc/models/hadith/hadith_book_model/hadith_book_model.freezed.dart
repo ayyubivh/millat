@@ -226,7 +226,7 @@ class _$HadithBookModelImpl implements _HadithBookModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HadithBookModelImpl &&

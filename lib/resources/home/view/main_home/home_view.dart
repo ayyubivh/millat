@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, depend_on_referenced_packages
 
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -7,9 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
-import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
-import 'package:millat/resources/rewards/bloc/service/reward_service.dart';
-import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
+ 
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -74,8 +72,7 @@ class _HomeViewState extends State<HomeView> {
       ..add(const ChangeIndexofAllaysaysBg());
 
     OneSignal.Notifications.addClickListener((event) {
-      print(event.notification.additionalData?["route"]);
-      if (event.notification.additionalData?["route"] != null) {
+       if (event.notification.additionalData?["route"] != null) {
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
           context.pushNamed(event.notification.additionalData?["route"]);
         });
@@ -98,7 +95,7 @@ class _HomeViewState extends State<HomeView> {
         },
         child: BlocListener<LocationBloc, LocationState>(
           listener: (context, state) {
-            if (state.currentLocaion.isNotEmpty &&
+            if (state.currentLocation.isNotEmpty &&
                 state.weatherConditionName.isEmpty) {
               context
                   .read<NamazTimingBloc>()
@@ -173,7 +170,7 @@ class _HomeViewState extends State<HomeView> {
                           image: AppAssetsStrings.homeCompassIcon,
                           text: Appstrings.compass,
                           onTap: () {
-                            if (state.currentLocaion.isNotEmpty) {
+                            if (state.currentLocation.isNotEmpty) {
                               context.goNamed(
                                   MyAppRouteConstants.compassRouteName);
                             } else {
@@ -446,7 +443,7 @@ class _HomeViewState extends State<HomeView> {
           kHeight20,
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              final _currentIndex = state.eventOfMonthIndex;
+              final currentIndex = state.eventOfMonthIndex;
               if (state.isLoading ||
                   state.eventOfTheMonthModel?.result?.event == null) {
                 return ShimmerUtils.customRectangleShimmer(
@@ -499,7 +496,7 @@ class _HomeViewState extends State<HomeView> {
                         margin: const EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
-                          color: _currentIndex == index
+                          color: currentIndex == index
                               ? ColorManager.primary
                               : ColorManager.greyD1,
                         ),
@@ -510,7 +507,7 @@ class _HomeViewState extends State<HomeView> {
                   GestureDetector(
                     onTap: () async {
                       _downloadAndShareImage(state.eventOfTheMonthModel!.result!
-                          .event![_currentIndex].images![0]);
+                          .event![currentIndex].images![0]);
                     },
                     child: Row(
                       children: [
@@ -540,99 +537,99 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget _largeDiscountWidget(BuildContext context) {
-    return Container(
-      height: 212,
-      width: SizeUtility(context).width,
-      color: ColorManager.scaffoldBgColor,
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                Appstrings.largeDiscount,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              ImageIcon(
-                AssetImage(AppAssetsStrings.discountIcon),
-              )
-            ],
-          ),
-          Text(
-            Appstrings.onLargeDiscount,
-            style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w500,
-                color: ColorManager.blackColor),
-          ),
-          kHeight15,
-          BlocBuilder<HomeBloc, HomeState>(
-            builder: (context, state) {
-              // if (state.isLoading ||
-              //     state.largeDiscountModel?.result?.banners == null) {
+  // Widget _largeDiscountWidget(BuildContext context) {
+  //   return Container(
+  //     height: 212,
+  //     width: SizeUtility(context).width,
+  //     color: ColorManager.scaffoldBgColor,
+  //     padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         const Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           children: [
+  //             Text(
+  //               Appstrings.largeDiscount,
+  //               style: TextStyle(
+  //                 fontSize: 16,
+  //                 fontWeight: FontWeight.w700,
+  //               ),
+  //             ),
+  //             ImageIcon(
+  //               AssetImage(AppAssetsStrings.discountIcon),
+  //             )
+  //           ],
+  //         ),
+  //         Text(
+  //           Appstrings.onLargeDiscount,
+  //           style: TextStyle(
+  //               fontSize: 15,
+  //               fontWeight: FontWeight.w500,
+  //               color: ColorManager.blackColor),
+  //         ),
+  //         kHeight15,
+  //         BlocBuilder<HomeBloc, HomeState>(
+  //           builder: (context, state) {
+  //             // if (state.isLoading ||
+  //             //     state.largeDiscountModel?.result?.banners == null) {
 
-              // }
+  //             // }
 
-              return Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: !Responsive.isMobile(context) ? 120 : 0),
-                child: SizedBox(
-                  height: 90,
-                  child: ListView.builder(
-                    itemExtent: !Responsive.isMobile(context) ? 140 : 90,
-                    scrollDirection: Axis.horizontal,
-                    itemCount:
-                        state.largeDiscountModel?.result?.banners.length ?? 6,
-                    itemBuilder: (context, index) {
-                      if (state.largeDiscountModel?.result?.banners == null) {
-                        return Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: ShimmerUtils.categoriesShimmers());
-                      }
-                      final banner =
-                          state.largeDiscountModel?.result?.banners[index];
-                      final subCategoryIdTitle = banner?.subCategoryId?.title;
-                      final subCategoryName = banner?.subCategoryName;
-                      return GestureDetector(
-                        onTap: () {
-                          context.pushNamed(
-                              MyAppRouteConstants.categoriesProductsRouteName,
-                              extra: {
-                                'category': subCategoryIdTitle,
-                                'subCategory': subCategoryName,
-                                'type': FilterType.category
-                              });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Utilities().buildCachedNetworkImage(
-                              imageUrl: banner!.image,
-                              boxFit: BoxFit.fill,
-                              height: 120,
-                              width: 80,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              );
-            },
-          )
-        ],
-      ),
-    );
-  }
+  //             return Padding(
+  //               padding: EdgeInsets.symmetric(
+  //                   horizontal: !Responsive.isMobile(context) ? 120 : 0),
+  //               child: SizedBox(
+  //                 height: 90,
+  //                 child: ListView.builder(
+  //                   itemExtent: !Responsive.isMobile(context) ? 140 : 90,
+  //                   scrollDirection: Axis.horizontal,
+  //                   itemCount:
+  //                       state.largeDiscountModel?.result?.banners.length ?? 6,
+  //                   itemBuilder: (context, index) {
+  //                     if (state.largeDiscountModel?.result?.banners == null) {
+  //                       return Padding(
+  //                           padding:
+  //                               const EdgeInsets.symmetric(horizontal: 8.0),
+  //                           child: ShimmerUtils.categoriesShimmers());
+  //                     }
+  //                     final banner =
+  //                         state.largeDiscountModel?.result?.banners[index];
+  //                     final subCategoryIdTitle = banner?.subCategoryId?.title;
+  //                     final subCategoryName = banner?.subCategoryName;
+  //                     return GestureDetector(
+  //                       onTap: () {
+  //                         context.pushNamed(
+  //                             MyAppRouteConstants.categoriesProductsRouteName,
+  //                             extra: {
+  //                               'category': subCategoryIdTitle,
+  //                               'subCategory': subCategoryName,
+  //                               'type': FilterType.category
+  //                             });
+  //                       },
+  //                       child: Padding(
+  //                         padding: const EdgeInsets.only(right: 8.0),
+  //                         child: ClipRRect(
+  //                           borderRadius: BorderRadius.circular(12),
+  //                           child: Utilities().buildCachedNetworkImage(
+  //                             imageUrl: banner!.image,
+  //                             boxFit: BoxFit.fill,
+  //                             height: 120,
+  //                             width: 80,
+  //                           ),
+  //                         ),
+  //                       ),
+  //                     );
+  //                   },
+  //                 ),
+  //               ),
+  //             );
+  //           },
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _dailyPrayerTracker(BuildContext context) {
     return Column(
@@ -880,7 +877,7 @@ class _HomeViewState extends State<HomeView> {
               return BlocBuilder<QuranBloc, QuranState>(
                 builder: (context, state) {
                   final verskey = state.shuffleVersKey;
-                  if (state.versesByKeyModel?.length == 0) {
+                  if (state.versesByKeyModel?.isEmpty ?? true) {
                     return ShimmerUtils.customRectangleShimmer(
                       SizeUtility(context).width,
                       10,
@@ -955,7 +952,7 @@ class _HomeViewState extends State<HomeView> {
                                 final quranState =
                                     context.read<QuranBloc>().state;
 
-                                final _verskey = verskey;
+                                final verskey0 = verskey;
                                 final parts = verskey.split(":");
                                 final firstPart = parts[0];
                                 context.read<QuranBloc>().add(

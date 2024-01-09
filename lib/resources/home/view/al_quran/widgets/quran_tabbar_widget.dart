@@ -6,13 +6,11 @@ import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dar
 import 'package:millat/resources/home/view/al_quran/widgets/creat_new_bookmark_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_bookmark_collection.dart';
 import 'package:millat/routes/app_router_constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
 import '../../../bloc/models/al-quran/quran_chapter_models/quran_chapter_models.dart';
-import '../bookmark_view.dart';
 import 'new_collection_widget.dart';
 
 class QuranTabBarWidget extends StatefulWidget {
@@ -125,7 +123,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                                     context: context,
                                     img: data.image,
                                     collectionName: data.name,
-                                    userName: data.discription),
+                                    userName: data.description),
                               );
                             },
                           );

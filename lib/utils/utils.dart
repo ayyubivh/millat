@@ -41,7 +41,7 @@ class Utilities {
         return 'just now';
       }
     } catch (e) {
-      print('Error formatting time ago: $e');
+      debugPrint('Error formatting time ago: $e');
       return 'N/A'; // or any default value you prefer
     }
   }

@@ -52,7 +52,7 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.showMusicbar() = ShowMusicbar;
   const factory QuranEvent.isExpandonSearchEvent({
     required bool isExpand,
-  }) = IsExpandonSearchEvent;
+  }) = IsExpandSearchEvent;
   const factory QuranEvent.saveGlobalTransilationIdAndName({
     required int transilationId,
     required String translationName,
@@ -80,5 +80,5 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.emptyQuranVersesbyKey() = EmptyQuranVersesbyKey;
   const factory QuranEvent.addVersesToPlayList(
       {required List<String> verseKey}) = AddVersesToPlayList;
-      const factory QuranEvent.getShuffledAya()  = GetShuffledAya;
+  const factory QuranEvent.getShuffledAya() = GetShuffledAya;
 }

@@ -34,7 +34,6 @@ class SingleProductView extends StatelessWidget {
         ..add(ReviewEvent.fetchReviewComments(id: id, context: context));
     });
     int selectedSize = 0;
-    print(id);
 
     int quantity = 1;
     int selectedColor = 0;
@@ -569,8 +568,6 @@ class SingleProductView extends StatelessWidget {
                           onTap: () {
                             setState(() {
                               selectedSize = index;
-                              final selectedSizeValue = size[selectedSize];
-                              print(selectedSizeValue);
                             });
                           },
                           child: Container(
@@ -623,7 +620,6 @@ class SingleProductView extends StatelessWidget {
                                       setState(() {
                                         if (quantity > 1) {
                                           quantity -= 1;
-                                          print('quantity: $quantity');
                                         }
                                       });
                                     },

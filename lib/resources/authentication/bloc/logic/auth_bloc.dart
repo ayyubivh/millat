@@ -88,7 +88,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
 
             emit(AuthSocialLoginNewUserLoaded(
-                phoneNumber: event.phoneNumber, otp: res['result']));
+                phoneNumber: event.phoneNumber, otp: res['result'].toString()));
           } else {
             emit(AuthError(res['message']));
           }
@@ -96,7 +96,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           final res =
               await _authService.sendOTP(phoneNumber: event.phoneNumber);
           if (res['status'] == true) {
-            debugPrint(res);
             emit(AuthLoaded(event.phoneNumber));
           } else {
             emit(AuthError(res['message']));

@@ -47,6 +47,10 @@ class TravelEvent with _$TravelEvent {
     required String location,
     required String date,
   }) = FetchTravelSearchedProducts;
+  const factory TravelEvent.fetchTravelProductsByCities({
+    required String country,
+    required String city,
+  }) = FetchTravelProductsByCities;
   const factory TravelEvent.fetchTravelWishlistProducts() =
       FetchTravelWishlistProducts;
   const factory TravelEvent.addTravelWishlist({

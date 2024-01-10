@@ -84,7 +84,7 @@ class ShopTabsView extends StatelessWidget {
                 BottomNavigationBarItem(
                   label: '',
                   icon: ImageIcon(
-                    AssetImage('assets/icons/home.png'),
+                    AssetImage(AppAssetsStrings.homeTab),
                     size: 22,
                   ),
                 ),

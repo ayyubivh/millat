@@ -137,6 +137,8 @@ class AppAssetsStrings {
   static const String guests = "$iconsPath/travel_guest.png";
   static const String imageUpload = "$iconsPath/image_upload.png";
   static const String call = "$iconsPath/call.png";
+  static const String travelSearchTab = "$iconsPath/travel_search_tab.png";
+  static const String travelWishlistTab = "$iconsPath/travel_wishlist.png";
   //rewards
   static const String travelHomeIcon = "$iconsPath/travel_home_tabs.png";
   static const String redeemYoucoinBg = "$imagesPath/redeem_your_coin_img.png";

@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
+import 'package:millat/resources/travel/view/widget/travel_product_by_city_widget.dart';
 import 'package:millat/utils/color_manager.dart';
+
 import '../../../utils/shimmer_utils.dart';
 import '../../../utils/size_utility.dart';
 import 'travel_home_view.dart';
@@ -14,12 +16,26 @@ class TravelPackagesView extends StatelessWidget {
   const TravelPackagesView({
     Key? key,
     required this.title,
+    this.country,
+    this.city,
     this.type,
   }) : super(key: key);
   final String title;
+  final String? country;
+  final String? city;
   final TravelsPackagesType? type;
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      type == TravelsPackagesType.browseByCountries
+          ? BlocProvider.of<TravelBloc>(context).add(
+              FetchTravelProductsByCities(
+                  country: country ?? "", city: city ?? ""))
+          : type == TravelsPackagesType.popularProducts
+              ? BlocProvider.of<TravelBloc>(context)
+                  .add(const TravelEvent.fetchTravelPopularProducts())
+              : null;
+    });
     return Scaffold(
         appBar: AppBar(
           backgroundColor: ColorManager.whiteColor,
@@ -31,59 +47,27 @@ class TravelPackagesView extends StatelessWidget {
           ),
           foregroundColor: ColorManager.blackColor,
         ),
-        body: BlocProvider(
-          create: (context) =>
-              TravelBloc()..add(const TravelEvent.fetchTravelPopularProducts()),
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 25).copyWith(top: 15),
-            child: type == TravelsPackagesType.popularProducts
-                ? BlocBuilder<TravelBloc, TravelState>(
-                    builder: (context, state) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: GridView.builder(
-                          itemCount: state.travelPopularProductsModel?.products
-                                  .length ??
-                              8,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  // crossAxisSpacing: 14,
-                                  mainAxisExtent: 260,
-                                  mainAxisSpacing: 20),
-                          itemBuilder: (context, index) {
-                            final travelProducts =
-                                state.travelPopularProductsModel?.products;
-                            if (travelProducts == null || state.isLoading) {
-                              return Padding(
-                                padding: const EdgeInsets.only(right: 17.0),
-                                child: ShimmerUtils.productsShimmers(
-                                  context: context,
-                                  height: 160,
-                                  width: SizeUtility(context).width / 2.5,
-                                ),
-                              );
-                            }
-                            return TravelProductWidget(
-                                data: travelProducts[index]);
-                          },
-                        ),
-                      );
-                    },
-                  )
-                : BlocBuilder<TravelBloc, TravelState>(
-                    builder: (context, state) {
-                      return GridView.builder(
-                        itemCount: state.searchProducts?.length ?? 8,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25).copyWith(top: 15),
+          child: type == TravelsPackagesType.popularProducts
+              ? BlocBuilder<TravelBloc, TravelState>(
+                  builder: (context, state) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: GridView.builder(
+                        itemCount:
+                            state.travelPopularProductsModel?.products.length ??
+                                8,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 14,
-                          mainAxisExtent: 230,
-                        ),
+                                crossAxisCount: 2,
+                                // crossAxisSpacing: 14,
+                                mainAxisExtent: 260,
+                                mainAxisSpacing: 20),
                         itemBuilder: (context, index) {
-                          if (state.searchProducts == null || state.isLoading) {
+                          final travelProducts =
+                              state.travelPopularProductsModel?.products;
+                          if (travelProducts == null || state.isLoading) {
                             return Padding(
                               padding: const EdgeInsets.only(right: 17.0),
                               child: ShimmerUtils.productsShimmers(
@@ -93,15 +77,80 @@ class TravelPackagesView extends StatelessWidget {
                               ),
                             );
                           }
-                          //   return _buildItems(
-                          //       context, state.searchProducts![index]);
-                          final data = state.searchProducts![index];
-                          return TravelProductItemWidget(data: data);
+                          return TravelProductWidget(
+                              data: travelProducts[index]);
                         },
-                      );
-                    },
-                  ),
-          ),
+                      ),
+                    );
+                  },
+                )
+              : type == TravelsPackagesType.browseByCountries
+                  ? BlocBuilder<TravelBloc, TravelState>(
+                      builder: (context, state) {
+                        return GridView.builder(
+                          itemCount: state.travelProductsByCitiesModel?.products
+                                  .length ??
+                              8,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 14,
+                            mainAxisExtent: 260,
+                          ),
+                          itemBuilder: (context, index) {
+                            if (state.travelProductsByCitiesModel == null ||
+                                state.isLoading) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 17.0),
+                                child: ShimmerUtils.productsShimmers(
+                                  context: context,
+                                  height: 160,
+                                  width: SizeUtility(context).width / 2.5,
+                                ),
+                              );
+                            }
+                            //   return _buildItems(
+                            //       context, state.searchProducts![index]);
+                            final data = state
+                                .travelProductsByCitiesModel?.products[index];
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: TravelProductByCityWidget(data: data!),
+                            );
+                          },
+                        );
+                      },
+                    )
+                  : BlocBuilder<TravelBloc, TravelState>(
+                      builder: (context, state) {
+                        return GridView.builder(
+                          itemCount: state.searchProducts?.length ?? 8,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 14,
+                            mainAxisExtent: 230,
+                          ),
+                          itemBuilder: (context, index) {
+                            if (state.searchProducts == null ||
+                                state.isLoading) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 17.0),
+                                child: ShimmerUtils.productsShimmers(
+                                  context: context,
+                                  height: 160,
+                                  width: SizeUtility(context).width / 2.5,
+                                ),
+                              );
+                            }
+                            //   return _buildItems(
+                            //       context, state.searchProducts![index]);
+                            final data = state.searchProducts![index];
+                            return TravelProductItemWidget(data: data);
+                          },
+                        );
+                      },
+                    ),
         ));
   }
 }

@@ -44,7 +44,7 @@ class TravelHomeView extends StatelessWidget {
           SliverAppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
-            expandedHeight: SizeUtility(context).height / 3.1,
+            expandedHeight: SizeUtility(context).height / 3.5,
             flexibleSpace: const FlexibleSpaceBar(
               background: BannerCarousel(),
             ),
@@ -442,12 +442,15 @@ class TravelProductWidget extends StatelessWidget {
                     color: ColorManager.primary,
                   ),
                 ),
-                Text(
-                  "Person",
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: ColorManager.textGrey,
+                Expanded(
+                  child: Text(
+                    "Person",
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: ColorManager.textGrey,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ),
               ],
@@ -774,11 +777,15 @@ class CategoryList extends StatelessWidget {
                             "title": Appstrings.products,
                           },
                           extra: {
-                            "type": TravelsPackagesType.popularProducts
+                            "type": TravelsPackagesType.browseByCountries,
+                            "city": data.city,
+                            "country": data.country,
                           });
                     },
                     child: CategoryProductWidget(
-                        image: data.image, country: data.city),
+                      image: data.image,
+                      country: data.city,
+                    ),
                   );
                 },
               );
@@ -815,7 +822,7 @@ class BannerCarousel extends StatelessWidget {
                       );
                     }).toList(),
                     options: CarouselOptions(
-                      height: 262,
+                      height: SizeUtility(context).height / 3.5,
                       viewportFraction: 1,
                       enlargeCenterPage: true,
                       autoPlay: true,
@@ -872,7 +879,7 @@ class BookNowContainer extends StatelessWidget {
     return Positioned(
       left: 20,
       right: 20,
-      bottom: 10,
+      bottom: 8,
       child: Container(
           decoration: BoxDecoration(
             color: ColorManager.whiteColor,

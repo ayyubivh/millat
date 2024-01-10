@@ -64,7 +64,7 @@ class TravelTabsView extends StatelessWidget {
                 BottomNavigationBarItem(
                   label: '',
                   icon: ImageIcon(
-                    AssetImage(AppAssetsStrings.travelHomeIcon),
+                    AssetImage(AppAssetsStrings.homeTab),
                     size: 22,
                   ),
                 ),
@@ -72,14 +72,14 @@ class TravelTabsView extends StatelessWidget {
                   label: '',
                   icon: ImageIcon(
                     size: 22,
-                    AssetImage(AppAssetsStrings.searchIcon),
+                    AssetImage(AppAssetsStrings.travelSearchTab),
                   ),
                 ),
                 BottomNavigationBarItem(
                   label: '',
                   icon: ImageIcon(
                     size: 22,
-                    AssetImage(AppAssetsStrings.wishList),
+                    AssetImage(AppAssetsStrings.travelWishlistTab),
                   ),
                 ),
                 BottomNavigationBarItem(

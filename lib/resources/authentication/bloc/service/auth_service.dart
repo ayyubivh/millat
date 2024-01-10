@@ -111,7 +111,7 @@ class AuthService extends HttpServices {
     });
   }
 
-  Future sendOTP({required String phoneNumber}) async {
+  Future<Map<String, dynamic>> sendOTP({required String phoneNumber}) async {
     try {
       final res =
           await posts(endPoint: sentOtpApi, body: {"phoneNumber": phoneNumber});
@@ -120,7 +120,7 @@ class AuthService extends HttpServices {
       if (value['status'] == 200) {
         return {
           'status': true,
-          'result': value['result']['otp'].toString(),
+          'result': value['result']['otp']['otp'],
         };
       } else {
         return {

@@ -68,7 +68,7 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
     return Column(
       children: [
         Container(
-          height: 175,
+          // height: 175,
           width: SizeUtility(context).width,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.vertical(
@@ -157,7 +157,7 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
           ),
         ),
         Container(
-          height: 135,
+          // height: 135,
           width: SizeUtility(context).width,
           decoration: BoxDecoration(
               color: ColorManager.whiteColor,
@@ -169,6 +169,7 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
               )),
           padding: const EdgeInsets.symmetric(
             horizontal: 20,
+            vertical: 10,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

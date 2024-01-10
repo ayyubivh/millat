@@ -398,18 +398,18 @@ class _EditProfileViewState extends State<EditProfileView> {
                                     return null;
                                   },
                                 ),
-                                _textFieldWidget(
-                                  controller: _userNameController,
-                                  textFieldName: Appstrings.userName,
-                                  hintName: Appstrings.userName,
-                                  textInputType: TextInputType.name,
-                                  validator: (val) {
-                                    if (val == null || val.isEmpty) {
-                                      return "UserName is required";
-                                    }
-                                    return null;
-                                  },
-                                ),
+                                // _textFieldWidget(
+                                //   controller: _userNameController,
+                                //   textFieldName: Appstrings.userName,
+                                //   hintName: Appstrings.userName,
+                                //   textInputType: TextInputType.name,
+                                //   validator: (val) {
+                                //     if (val == null || val.isEmpty) {
+                                //       return "UserName is required";
+                                //     }
+                                //     return null;
+                                //   },
+                                // ),
                                 _textFieldWidget(
                                   enabled: true,
                                   controller: _dateofBirthcontroller,

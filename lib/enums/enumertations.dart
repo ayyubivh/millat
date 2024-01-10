@@ -97,6 +97,7 @@ enum CategoryType {
 enum TravelsPackagesType {
   search,
   popularProducts,
+  browseByCountries,
 }
 
 enum TravelWishlist {

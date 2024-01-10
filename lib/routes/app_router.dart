@@ -167,8 +167,11 @@ class MyAppRouter {
                         Map data = state.extra as Map;
                         return MaterialPage(
                           child: TravelPackagesView(
-                              title: state.pathParameters['title']!,
-                              type: data['type']),
+                            title: state.pathParameters['title']!,
+                            type: data['type'],
+                            city: data['city'],
+                            country: data['country'],
+                          ),
                         );
                       },
                     ),

@@ -111,7 +111,7 @@ class AuthService extends HttpServices {
     });
   }
 
-  Future sendOTP({required String phoneNumber}) async {
+  Future<Map<String, dynamic>> sendOTP({required String phoneNumber}) async {
     try {
       final res =
           await posts(endPoint: sentOtpApi, body: {"phoneNumber": phoneNumber});
@@ -120,7 +120,7 @@ class AuthService extends HttpServices {
       if (value['status'] == 200) {
         return {
           'status': true,
-          'result': value['result']['otp'].toString(),
+          'result': value['result']['otp']['otp'],
         };
       } else {
         return {
@@ -293,21 +293,23 @@ class AuthService extends HttpServices {
   Future<String> fetchUserReferralCode() async {
     final response = await get(endPoint: userReferralCode, isToken: true);
 
-    if (response.statusCode == 200) {
-      try {
-        final Map<String, dynamic> data = json.decode(
-          response.body,
-        );
+    try {
+      if (response.statusCode == 200) {}
+      final Map<String, dynamic> data = json.decode(response.body);
+      print(data);
 
-        final result = data['result']['data']['referralCode'];
+      final Map<String, dynamic>? resultData = data['result']['data'];
+      if (resultData != null) {
+        String? result = resultData['referralCode'];
 
-        return result;
-      } catch (e) {
-        throw Exception('Failed to parse response');
+        return result ?? 'null';
+      } else {
+        return 'null';
       }
-    } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+    } catch (e) {
+      // Print the response body for debugging purposes
+      print('Response body: ${response.body}');
+      throw Exception('Failed to parse response');
     }
   }
 

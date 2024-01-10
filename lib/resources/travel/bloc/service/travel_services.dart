@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:millat/resources/travel/bloc/models/travel_best_places_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_popular_products_model.dart';
+import 'package:millat/resources/travel/bloc/models/travel_product_by_cities_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_search_model.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -51,6 +52,30 @@ class TravelServices {
       } catch (e) {
         debugPrint(
             'Error on Travel popular products API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+// Fetching Popular Products
+  Future<TravelProductsByCitiesModel> fetchProductsByCities({
+    required String country,
+    required String city,
+  }) async {
+    String endPoint = "get-products-by-city?city=$city&country=$country";
+    final response = await http.get(Uri.parse(travelBaseUrl + endPoint));
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      try {
+        final data = json.decode(response.body);
+        final result = TravelProductsByCitiesModel.fromJson(data);
+        return result;
+      } catch (e) {
+        debugPrint(
+            'Error on Travel products by cities API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -288,12 +313,11 @@ class TravelServices {
     const String endPoint = "get-wishlist";
     final response =
         await http.get(Uri.parse(travelBaseUrl + endPoint), headers: {
-      'Content-Type': 'application/json; charset=utf-8',
       'Authorization': 'Bearer ${_getToken()}',
     });
 
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      try {
+    try {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         final data = json.decode(response.body);
         final List<dynamic> result = data['wishlist'];
 
@@ -310,16 +334,19 @@ class TravelServices {
         }
 
         return productList;
-      } catch (e) {
+      } else {
         if (kDebugMode) {
           debugPrint(
-              'Error on Travel best places products API fetch: ${e.toString()}');
+              'Error on fetch travel  wishlist API fetch: ${response.statusCode}');
         }
         throw Exception('Failed to parse response');
       }
-    } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+    } catch (e) {
+      if (kDebugMode) {
+        debugPrint(
+            'Error on Travel best places products API fetch: ${e.toString()}');
+      }
+      throw Exception(e);
     }
   }
 

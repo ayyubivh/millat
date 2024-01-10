@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 import 'package:millat/resources/travel/bloc/models/travel_best_places_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_popular_products_model.dart';
+import 'package:millat/resources/travel/bloc/models/travel_product_by_cities_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_search_model.dart';
 import 'package:millat/resources/travel/bloc/service/travel_services.dart';
@@ -42,6 +43,7 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     on<FetchTravelSearchLocations>(_fetchTravelSearchLocations);
     on<FetchTravelProductsById>(_fetchTravelProductsById);
     on<PickMultipleImageEvent>(_pickMultipleImageEvent);
+    on<FetchTravelProductsByCities>(_fetchTravelProductByCities);
   }
 
   _changeBannerIndex(ChangeBannerIndex event, Emitter<TravelState> emit) {
@@ -282,6 +284,20 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     final data = await travelServices.pickImages();
 
     emit(state.copyWith(formImages: data));
+  }
+
+  _fetchTravelProductByCities(event, Emitter<TravelState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await travelServices.fetchProductsByCities(
+          country: event.country, city: event.city);
+      debugPrint("travel cities product in bloc: $data");
+
+      emit(state.copyWith(travelProductsByCitiesModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      throw Exception(e);
+    }
   }
 }
 

@@ -165,7 +165,10 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
     emit(state.copyWith(isLoading: true));
     try {
       await rewardServices.addCoinsCollection(event.context);
+
       final collectionCoin = state.coinCollectionModel?.result?.data.coins ?? 0;
+      print(
+          "collection coin $collectionCoin current state coint ${state.rewardCoins} after added ${state.rewardCoins + collectionCoin}");
       emit(state.copyWith(rewardCoins: state.rewardCoins + collectionCoin));
     } catch (e) {
       emit(state.copyWith(isLoading: false));

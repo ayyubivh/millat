@@ -141,11 +141,10 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                       crossAxisCount: 2,
                                       crossAxisSpacing: 20,
                                       mainAxisSpacing: 20,
-                                      mainAxisExtent:
-                                          !Responsive.isMobile(context)
-                                              ? SizeUtility(context).height /
-                                                  3.6
-                                              : SizeUtility(context).height / 3,
+                                      mainAxisExtent: !Responsive.isMobile(
+                                              context)
+                                          ? SizeUtility(context).height / 3.6
+                                          : SizeUtility(context).height / 3.2,
                                     ),
                                     itemCount: state.multiFilterProduct?.result
                                             ?.products?.length ??
@@ -220,7 +219,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                   context)
                                               ? SizeUtility(context).height /
                                                   3.6
-                                              : SizeUtility(context).height / 3,
+                                              : SizeUtility(context).height /
+                                                  3.2,
                                         ),
                                         itemCount: state.product?.result
                                                 ?.products?.length ??
@@ -298,7 +298,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                   context)
                                               ? SizeUtility(context).height /
                                                   3.6
-                                              : SizeUtility(context).height / 3,
+                                              : SizeUtility(context).height /
+                                                  3.2,
                                         ),
                                         itemCount: state.product?.result
                                                 ?.products?.length ??

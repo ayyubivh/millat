@@ -193,7 +193,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                       : widget.type == FilterType.category
                           ? state.productLoading
                               ? ShimmerUtils.productsShimmers(context: context)
-                              : state.product?.result?.products?.length == 0
+                              : state.product?.result?.products?.isEmpty ?? true
                                   ? Padding(
                                       padding: EdgeInsets.only(
                                           top: SizeUtility(context).height /
@@ -244,8 +244,12 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                   },
                                                   child: ShopProductWidget(
                                                     color: data.color ?? "",
-                                                    size: data.size?[0].size ??
-                                                        "",
+                                                    size: (data.size != null &&
+                                                            data.size!
+                                                                .isNotEmpty)
+                                                        ? data.size![0].size ??
+                                                            ""
+                                                        : "",
                                                     brandId: data.brand!.id,
                                                     isWishlisted: false,
                                                     brand: data.brand!.name

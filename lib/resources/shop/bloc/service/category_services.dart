@@ -56,7 +56,7 @@ class CategoryService extends HttpServices {
     }
   }
 
-  //Fiter products
+  //Filter products
   Future<ProductModel> filterProduct(
       String? category, String? subCategory, String? itemId) async {
     final itemFilter = "product/filter?itemId=$itemId";

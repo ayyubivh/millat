@@ -73,7 +73,7 @@ class Brand with _$Brand {
     required String? cityName,
     required String? brandName,
     required String? companyName,
-    required DateTime? companyRegYear,
+    required String? companyRegYear,
     required int? revenueOfLastThreeMonths,
     required String? category,
     required List<String>? subCategory,

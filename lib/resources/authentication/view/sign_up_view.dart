@@ -13,6 +13,7 @@ import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/validators.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
@@ -58,8 +59,8 @@ class _SignUpViewState extends State<SignUpView> {
         },
         builder: (context, state) {
           if (state is AuthLoading || state is AuthloadingSocialLogin) {
-            return Center(
-              child: CircularProgressIndicator(color: ColorManager.greenColor1),
+            return const Center(
+              child: Loader(),
             );
           } else {
             return Padding(

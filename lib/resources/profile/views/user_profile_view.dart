@@ -14,24 +14,36 @@ import '../../../utils/assets_paths.dart';
 import '../../../utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
-class UserProfileView extends StatelessWidget {
+class UserProfileView extends StatefulWidget {
   const UserProfileView({super.key});
 
   @override
+  State<UserProfileView> createState() => _UserProfileViewState();
+}
+
+class _UserProfileViewState extends State<UserProfileView> {
+  @override
+  void initState() {
+    BlocProvider.of<DatabaseBloc>(context)
+      ..add(const FetchUserReferralCode())
+      ..add(const FetchReferralMessage());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<DatabaseBloc>(context)
-        ..add(const FetchUserReferralCode())
-        ..add(const FetchReferralMessage());
-    });
     return BlocConsumer<DatabaseBloc, DatabaseState>(
       listener: (context, state) {
         if (state.failedMessage != "") {
           showSnackBar(context, state.failedMessage);
         } else if (state.succesMessage != "") {
           context.read<DatabaseBloc>().add(const RemoveTokenEvent());
-          showSnackBar(context, state.failedMessage);
+          showSnackBar(context, state.succesMessage);
           context.pushReplacementNamed(MyAppRouteConstants.signUpRouteName);
+          context
+              .read<HomeBloc>()
+              .add(const ChangeHomeTabIndexEvent(newIndex: 0));
+          context.read<DatabaseBloc>().add(const DatabaseEvent.emptyStates());
         }
       },
       builder: (context, state) {
@@ -469,6 +481,7 @@ class UserProfileView extends StatelessWidget {
                           context
                               .read<DatabaseBloc>()
                               .add(DeleteAccount(context: context));
+
                           context.pop();
                         },
                       );
@@ -476,7 +489,7 @@ class UserProfileView extends StatelessWidget {
                     child: logAndDelWidget(
                         context: context,
                         image: AppAssetsStrings.delete,
-                        text: Appstrings.deleteAcccount),
+                        text: Appstrings.deleteAccount),
                   ),
                   kHeight20,
                   Text(

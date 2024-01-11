@@ -50,6 +50,7 @@ class HomeServices extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = TopOffersModel.fromJson(data);
+        // print(result);
         return result;
       } catch (e) {
         debugPrint("error while fetching on home top Offers discouts $e");

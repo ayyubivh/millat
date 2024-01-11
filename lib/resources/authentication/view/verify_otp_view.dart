@@ -9,6 +9,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:pinput/pinput.dart';
 
 class VerifyOTPView extends StatefulWidget {
@@ -93,9 +94,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
         },
         builder: (context, state) {
           if (state is AuthLoading) {
-            return Center(
-              child: CircularProgressIndicator(color: ColorManager.greenColor1),
-            );
+            return const Center(child: Loader());
           } else {
             return Padding(
               padding: const EdgeInsets.all(30.0),

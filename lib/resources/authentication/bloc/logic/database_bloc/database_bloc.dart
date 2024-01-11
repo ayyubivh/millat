@@ -153,6 +153,9 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         emit(state.copyWith(succesMessage: data));
       }
     });
+    on<EmptyStates>((event, emit) async {
+      emit(state.copyWith(succesMessage: "", failedMessage: ""));
+    });
     on<FetchUserReferralCode>((event, emit) async {
       final data = await authService.fetchUserReferralCode();
       emit(state.copyWith(referralCode: data));

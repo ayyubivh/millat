@@ -272,30 +272,33 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                       ],
                     ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      BlocBuilder<NamazTimingBloc, NamazTimingState>(
-                        builder: (context, state) => Text(
-                          state.arabicDate,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                          builder: (context, state) => Text(
+                            state.arabicDate,
+                            style: TextStyle(
+                              fontFamily: 'ArabicFont',
+                              color: ColorManager.primary,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
+                        kHeight10,
+                        Text(
+                          Utilities.formatDate(DateTime.now().toString()),
                           style: TextStyle(
-                            fontFamily: 'ArabicFont',
-                            color: ColorManager.primary,
-                            fontSize: 20,
+                            color: ColorManager.darkGrey68,
+                            fontSize: 15,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                      ),
-                      kHeight10,
-                      Text(
-                        Utilities.formatDate(DateTime.now().toString()),
-                        style: TextStyle(
-                          color: ColorManager.darkGrey68,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),

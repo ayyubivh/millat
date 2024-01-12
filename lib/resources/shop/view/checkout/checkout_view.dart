@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -112,13 +111,14 @@ class CheckoutView extends StatelessWidget {
                         : ListView.separated(
                             shrinkWrap: true,
                             itemCount:
-                                state.addressModel!.result.addresses.length,
+                                state.addressModel?.result.addresses.length ??
+                                    0,
                             itemBuilder: (context, index) {
                               final data =
                                   state.addressModel?.result.addresses[index];
                               final phoneNumber = '${data?.mobile.toString()}';
                               final String address =
-                                  ' ${data!.addressLine} ${data.city} ${data.state} ${data.pincode}';
+                                  ' ${data?.addressLine} ${data?.city} ${data?.state} ${data?.pincode}';
                               return buildAddresses(
                                 email: context
                                         .read<DatabaseBloc>()
@@ -128,18 +128,17 @@ class CheckoutView extends StatelessWidget {
                                         ?.user
                                         ?.email ??
                                     "",
-                                name: data.name,
+                                name: data?.name,
                                 address: address,
                                 phoneNumber: phoneNumber,
-                                type: data.addressType,
+                                type: data?.addressType ?? '',
                                 isSelected: index == state.selectedIndex,
                                 context: context,
                                 onTap: () {
                                   context.read<AddressBloc>().add(
                                       SelectAddressEvent(selectedIndex: index));
-                                  context
-                                      .read<AddressBloc>()
-                                      .add(SaveAddressId(addressId: data.id));
+                                  context.read<AddressBloc>().add(
+                                      SaveAddressId(addressId: data?.id ?? ''));
                                 },
                                 // onTap: () => BlocProvider(
                                 //     create: (context) => AddressBloc()

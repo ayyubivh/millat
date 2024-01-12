@@ -277,7 +277,7 @@ class __$$AddAddressImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddAddressImpl implements AddAddress {
+class _$AddAddressImpl with DiagnosticableTreeMixin implements AddAddress {
   const _$AddAddressImpl(
       {required this.context,
       required this.addressType,
@@ -312,8 +312,25 @@ class _$AddAddressImpl implements AddAddress {
   final String country;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AddressEvent.addAddress(context: $context, addressType: $addressType, name: $name, mobile: $mobile, pincode: $pincode, landmark: $landmark, addressLine: $addressLine, city: $city, state: $state, country: $country)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AddressEvent.addAddress'))
+      ..add(DiagnosticsProperty('context', context))
+      ..add(DiagnosticsProperty('addressType', addressType))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('mobile', mobile))
+      ..add(DiagnosticsProperty('pincode', pincode))
+      ..add(DiagnosticsProperty('landmark', landmark))
+      ..add(DiagnosticsProperty('addressLine', addressLine))
+      ..add(DiagnosticsProperty('city', city))
+      ..add(DiagnosticsProperty('state', state))
+      ..add(DiagnosticsProperty('country', country));
   }
 
   @override
@@ -588,15 +605,25 @@ class __$$FetchAddressEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchAddressEventImpl implements FetchAddressEvent {
+class _$FetchAddressEventImpl
+    with DiagnosticableTreeMixin
+    implements FetchAddressEvent {
   const _$FetchAddressEventImpl({required this.context});
 
   @override
   final BuildContext context;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AddressEvent.fetchAddressEvent(context: $context)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AddressEvent.fetchAddressEvent'))
+      ..add(DiagnosticsProperty('context', context));
   }
 
   @override
@@ -838,15 +865,25 @@ class __$$SelectAddressEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SelectAddressEventImpl implements SelectAddressEvent {
+class _$SelectAddressEventImpl
+    with DiagnosticableTreeMixin
+    implements SelectAddressEvent {
   _$SelectAddressEventImpl({required this.selectedIndex});
 
   @override
   final int selectedIndex;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AddressEvent.selectAddressEvent(selectedIndex: $selectedIndex)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AddressEvent.selectAddressEvent'))
+      ..add(DiagnosticsProperty('selectedIndex', selectedIndex));
   }
 
   @override
@@ -1089,15 +1126,25 @@ class __$$SaveAddressIdImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveAddressIdImpl implements SaveAddressId {
+class _$SaveAddressIdImpl
+    with DiagnosticableTreeMixin
+    implements SaveAddressId {
   _$SaveAddressIdImpl({required this.addressId});
 
   @override
   final String addressId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AddressEvent.saveAddressId(addressId: $addressId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AddressEvent.saveAddressId'))
+      ..add(DiagnosticsProperty('addressId', addressId));
   }
 
   @override
@@ -1345,7 +1392,9 @@ class __$$FetchAddressByIdEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchAddressByIdEventImpl implements FetchAddressByIdEvent {
+class _$FetchAddressByIdEventImpl
+    with DiagnosticableTreeMixin
+    implements FetchAddressByIdEvent {
   const _$FetchAddressByIdEventImpl({required this.context, required this.id});
 
   @override
@@ -1354,8 +1403,17 @@ class _$FetchAddressByIdEventImpl implements FetchAddressByIdEvent {
   final String id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AddressEvent.fetchAddressByIdEvent(context: $context, id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AddressEvent.fetchAddressByIdEvent'))
+      ..add(DiagnosticsProperty('context', context))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -1600,15 +1658,25 @@ class __$$FetchPincodeAddresImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchPincodeAddresImpl implements FetchPincodeAddres {
+class _$FetchPincodeAddresImpl
+    with DiagnosticableTreeMixin
+    implements FetchPincodeAddres {
   const _$FetchPincodeAddresImpl({required this.pincode});
 
   @override
   final String pincode;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AddressEvent.fetchPincodeAddres(pincode: $pincode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AddressEvent.fetchPincodeAddres'))
+      ..add(DiagnosticsProperty('pincode', pincode));
   }
 
   @override
@@ -1855,7 +1923,9 @@ class __$$DeleteAddressEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteAddressEventImpl implements DeleteAddressEvent {
+class _$DeleteAddressEventImpl
+    with DiagnosticableTreeMixin
+    implements DeleteAddressEvent {
   const _$DeleteAddressEventImpl({required this.context, required this.id});
 
   @override
@@ -1864,8 +1934,17 @@ class _$DeleteAddressEventImpl implements DeleteAddressEvent {
   final String id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AddressEvent.deleteAddressEvent(context: $context, id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AddressEvent.deleteAddressEvent'))
+      ..add(DiagnosticsProperty('context', context))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -2097,12 +2176,21 @@ class __$$FetchAddressDefaultIndexImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchAddressDefaultIndexImpl implements FetchAddressDefaultIndex {
+class _$FetchAddressDefaultIndexImpl
+    with DiagnosticableTreeMixin
+    implements FetchAddressDefaultIndex {
   const _$FetchAddressDefaultIndexImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AddressEvent.fetchAddressDefaultIndex()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'AddressEvent.fetchAddressDefaultIndex'));
   }
 
   @override
@@ -2391,7 +2479,9 @@ class __$$UpdateAddressImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UpdateAddressImpl implements UpdateAddress {
+class _$UpdateAddressImpl
+    with DiagnosticableTreeMixin
+    implements UpdateAddress {
   const _$UpdateAddressImpl(
       {required this.context,
       required this.addressType,
@@ -2429,8 +2519,26 @@ class _$UpdateAddressImpl implements UpdateAddress {
   final String id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AddressEvent.updateAddress(context: $context, addressType: $addressType, name: $name, mobile: $mobile, pincode: $pincode, landmark: $landmark, addressLine: $addressLine, city: $city, state: $state, country: $country, id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AddressEvent.updateAddress'))
+      ..add(DiagnosticsProperty('context', context))
+      ..add(DiagnosticsProperty('addressType', addressType))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('mobile', mobile))
+      ..add(DiagnosticsProperty('pincode', pincode))
+      ..add(DiagnosticsProperty('landmark', landmark))
+      ..add(DiagnosticsProperty('addressLine', addressLine))
+      ..add(DiagnosticsProperty('city', city))
+      ..add(DiagnosticsProperty('state', state))
+      ..add(DiagnosticsProperty('country', country))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -2678,6 +2786,7 @@ abstract class UpdateAddress implements AddressEvent {
 /// @nodoc
 mixin _$AddressState {
   String? get successMessage => throw _privateConstructorUsedError;
+  bool? get successMessageInShop => throw _privateConstructorUsedError;
   String? get failMessage => throw _privateConstructorUsedError;
   AddressModel? get addressModel => throw _privateConstructorUsedError;
   int? get selectedIndex => throw _privateConstructorUsedError;
@@ -2700,6 +2809,7 @@ abstract class $AddressStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String? successMessage,
+      bool? successMessageInShop,
       String? failMessage,
       AddressModel? addressModel,
       int? selectedIndex,
@@ -2727,6 +2837,7 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
   @override
   $Res call({
     Object? successMessage = freezed,
+    Object? successMessageInShop = freezed,
     Object? failMessage = freezed,
     Object? addressModel = freezed,
     Object? selectedIndex = freezed,
@@ -2740,6 +2851,10 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
           ? _value.successMessage
           : successMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      successMessageInShop: freezed == successMessageInShop
+          ? _value.successMessageInShop
+          : successMessageInShop // ignore: cast_nullable_to_non_nullable
+              as bool?,
       failMessage: freezed == failMessage
           ? _value.failMessage
           : failMessage // ignore: cast_nullable_to_non_nullable
@@ -2819,6 +2934,7 @@ abstract class _$$InitialImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? successMessage,
+      bool? successMessageInShop,
       String? failMessage,
       AddressModel? addressModel,
       int? selectedIndex,
@@ -2847,6 +2963,7 @@ class __$$InitialImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? successMessage = freezed,
+    Object? successMessageInShop = freezed,
     Object? failMessage = freezed,
     Object? addressModel = freezed,
     Object? selectedIndex = freezed,
@@ -2860,6 +2977,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.successMessage
           : successMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      successMessageInShop: freezed == successMessageInShop
+          ? _value.successMessageInShop
+          : successMessageInShop // ignore: cast_nullable_to_non_nullable
+              as bool?,
       failMessage: freezed == failMessage
           ? _value.failMessage
           : failMessage // ignore: cast_nullable_to_non_nullable
@@ -2894,9 +3015,10 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   const _$InitialImpl(
       {required this.successMessage,
+      required this.successMessageInShop,
       required this.failMessage,
       required this.addressModel,
       required this.selectedIndex,
@@ -2907,6 +3029,8 @@ class _$InitialImpl implements _Initial {
 
   @override
   final String? successMessage;
+  @override
+  final bool? successMessageInShop;
   @override
   final String? failMessage;
   @override
@@ -2923,8 +3047,24 @@ class _$InitialImpl implements _Initial {
   final PincodeAddressModel? pincodeAddressModel;
 
   @override
-  String toString() {
-    return 'AddressState(successMessage: $successMessage, failMessage: $failMessage, addressModel: $addressModel, selectedIndex: $selectedIndex, addressId: $addressId, addressIdModel: $addressIdModel, isLoading: $isLoading, pincodeAddressModel: $pincodeAddressModel)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AddressState(successMessage: $successMessage, successMessageInShop: $successMessageInShop, failMessage: $failMessage, addressModel: $addressModel, selectedIndex: $selectedIndex, addressId: $addressId, addressIdModel: $addressIdModel, isLoading: $isLoading, pincodeAddressModel: $pincodeAddressModel)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AddressState'))
+      ..add(DiagnosticsProperty('successMessage', successMessage))
+      ..add(DiagnosticsProperty('successMessageInShop', successMessageInShop))
+      ..add(DiagnosticsProperty('failMessage', failMessage))
+      ..add(DiagnosticsProperty('addressModel', addressModel))
+      ..add(DiagnosticsProperty('selectedIndex', selectedIndex))
+      ..add(DiagnosticsProperty('addressId', addressId))
+      ..add(DiagnosticsProperty('addressIdModel', addressIdModel))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('pincodeAddressModel', pincodeAddressModel));
   }
 
   @override
@@ -2934,6 +3074,8 @@ class _$InitialImpl implements _Initial {
             other is _$InitialImpl &&
             (identical(other.successMessage, successMessage) ||
                 other.successMessage == successMessage) &&
+            (identical(other.successMessageInShop, successMessageInShop) ||
+                other.successMessageInShop == successMessageInShop) &&
             (identical(other.failMessage, failMessage) ||
                 other.failMessage == failMessage) &&
             (identical(other.addressModel, addressModel) ||
@@ -2954,6 +3096,7 @@ class _$InitialImpl implements _Initial {
   int get hashCode => Object.hash(
       runtimeType,
       successMessage,
+      successMessageInShop,
       failMessage,
       addressModel,
       selectedIndex,
@@ -2972,6 +3115,7 @@ class _$InitialImpl implements _Initial {
 abstract class _Initial implements AddressState {
   const factory _Initial(
       {required final String? successMessage,
+      required final bool? successMessageInShop,
       required final String? failMessage,
       required final AddressModel? addressModel,
       required final int? selectedIndex,
@@ -2982,6 +3126,8 @@ abstract class _Initial implements AddressState {
 
   @override
   String? get successMessage;
+  @override
+  bool? get successMessageInShop;
   @override
   String? get failMessage;
   @override

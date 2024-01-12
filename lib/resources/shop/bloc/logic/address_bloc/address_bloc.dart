@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -30,6 +31,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
   }
 
   _addAddress(AddAddress event, Emitter<AddressState> emit) async {
+    emit(state.copyWith(isLoading: true));
     try {
       final data = await _addressService.addAddress(
           context: event.context,
@@ -44,9 +46,12 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
           country: event.country);
       if (data['status'] == 200) {
         debugPrint('on add address ${data['message']}');
-        emit(state.copyWith(successMessage: data['message']));
+        emit(state.copyWith(
+          successMessageInShop: true,
+          isLoading: false,
+        ));
       } else {
-        emit(state.copyWith(failMessage: data['message']));
+        emit(state.copyWith(failMessage: data['message'], isLoading: false));
       }
     } catch (e) {
       throw Exception();
@@ -83,9 +88,16 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await _addressService.fetchAddress(event.context);
-      emit(state.copyWith(addressModel: data, isLoading: false));
+      emit(state.copyWith(
+        addressModel: data,
+        isLoading: false,
+        successMessageInShop: false,
+      ));
     } catch (e) {
-      emit(state.copyWith(isLoading: false));
+      emit(state.copyWith(
+        isLoading: false,
+        successMessageInShop: false,
+      ));
 
       throw Exception();
     }
@@ -94,22 +106,30 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
   _fetchAddressDefaultIndex(
       FetchAddressDefaultIndex event, Emitter<AddressState> emit) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    final value = prefs.getInt(Appstrings.addressDefaultIndex);
-    if (state.addressModel?.result.addresses == null) {
-      debugPrint("addres is null ${state.addressModel?.result.addresses}");
-      emit(
-        state.copyWith(
-          selectedIndex: -1,
-        ),
-      );
-    } else {
-      debugPrint("addres not null ${state.addressModel?.result.addresses}");
+    try {
+      final value = prefs.getInt(Appstrings.addressDefaultIndex);
+      print(value);
+      if (state.addressModel?.result.addresses == null) {
+        debugPrint("addres is null ${state.addressModel?.result.addresses}");
+        emit(
+          state.copyWith(
+            selectedIndex: -1,
+          ),
+        );
+      } else {
+        debugPrint("addres not null ${state.addressModel?.result.addresses}");
 
-      emit(
-        state.copyWith(
+        emit(
+          state.copyWith(
             selectedIndex: value,
-            addressId: state.addressModel?.result.addresses[value ?? 0].id),
-      );
+          ),
+        );
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        debugPrint(e.toString());
+      }
+      throw Exception(e);
     }
   }
 
@@ -167,7 +187,6 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
 
   _fetchPincodeAddress(
       FetchPincodeAddres event, Emitter<AddressState> emit) async {
-    emit(state.copyWith(isLoading: true));
     if (event.pincode != "") {
       try {
         final data = await _addressService.fetchPincodeAddres(event.pincode);

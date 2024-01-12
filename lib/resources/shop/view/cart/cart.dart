@@ -240,8 +240,9 @@ class CartView extends StatelessWidget {
                 onPressed: () {
                   if (state.addressModel!.result.addresses.isEmpty) {
                     context.pushNamed(
-                        MyAppRouteConstants.checkoutDetailRoutename,
-                        extra: {'type': AddressNavType.checkout});
+                      MyAppRouteConstants.checkoutDetailRoutename,
+                      extra: {'type': AddressNavType.checkout},
+                    );
                   } else {
                     context.pushNamed(MyAppRouteConstants.checkoutRouteName,
                         extra: {'checkoutType': CheckoutType.shop});

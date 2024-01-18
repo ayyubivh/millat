@@ -59,7 +59,7 @@ class Appstrings {
   static const String tasbihLastRead = "Tasbhi last read";
   static const String subhanallah = "Subhan'Allah";
   static const String logout = "Logout?";
-  static const String deleteAcccount = "Delete Account";
+  static const String deleteAccount = "Delete Account";
   static const String cancel = "Cancel";
   static const String logoutdialoge = "Are you sure want to logout?";
   static const String fullName = "Full Name";

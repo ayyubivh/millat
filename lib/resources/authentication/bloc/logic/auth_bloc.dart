@@ -53,6 +53,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else if (event is SignInWithPhone) {
         if (event.phoneNumber != null) {
           if (event.isSignUp) {
+            emit(AuthLoading());
             final res = await _authService.signInWithPhone(
                 userId: userId,
                 referralCode: event.referralCode,
@@ -65,6 +66,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               emit(AuthError(res['message']));
             }
           } else {
+            emit(AuthLoading());
             final res = await _authService.signInWithPhone(
                 userId: "",
                 referralCode: event.referralCode,

@@ -55,7 +55,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       regularPrice: (json['regularPrice'] as num?)?.toDouble(),
       salePrice: (json['salePrice'] as num?)?.toDouble(),
-      discount: json['discount'] as int?,
+      discount: (json['discount'] as num?)?.toDouble(),
       color: json['color'] as String?,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -108,7 +108,8 @@ _$BrandImpl _$$BrandImplFromJson(Map<String, dynamic> json) => _$BrandImpl(
       brandName: json['brandName'] as String?,
       companyName: json['companyName'] as String?,
       companyRegYear: json['companyRegYear'] as String?,
-      revenueOfLastThreeMonths: json['revenueOfLastThreeMonths'] as int?,
+      revenueOfLastThreeMonths:
+          (json['revenueOfLastThreeMonths'] as num?)?.toDouble(),
       category: json['category'] as String?,
       subCategory: (json['subCategory'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -184,7 +185,7 @@ Map<String, dynamic> _$$SubcategoryImplToJson(_$SubcategoryImpl instance) =>
 _$SizeImpl _$$SizeImplFromJson(Map<String, dynamic> json) => _$SizeImpl(
       size: json['size'] as String?,
       stock: json['stock'] as int?,
-      price: json['price'] as int?,
+      price: (json['price'] as num?)?.toDouble(),
       sku: json['sku'] as String?,
       width: json['width'] as String?,
       height: json['height'] as String?,

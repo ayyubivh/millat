@@ -1047,7 +1047,7 @@ mixin _$Brand {
   String? get cityName => throw _privateConstructorUsedError;
   String? get brandName => throw _privateConstructorUsedError;
   String? get companyName => throw _privateConstructorUsedError;
-  DateTime? get companyRegYear => throw _privateConstructorUsedError;
+  String? get companyRegYear => throw _privateConstructorUsedError;
   int? get revenueOfLastThreeMonths => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   List<String>? get subCategory => throw _privateConstructorUsedError;
@@ -1079,7 +1079,7 @@ abstract class $BrandCopyWith<$Res> {
       String? cityName,
       String? brandName,
       String? companyName,
-      DateTime? companyRegYear,
+      String? companyRegYear,
       int? revenueOfLastThreeMonths,
       String? category,
       List<String>? subCategory,
@@ -1175,7 +1175,7 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
       companyRegYear: freezed == companyRegYear
           ? _value.companyRegYear
           : companyRegYear // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
           ? _value.revenueOfLastThreeMonths
           : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
@@ -1228,7 +1228,7 @@ abstract class _$$BrandImplCopyWith<$Res> implements $BrandCopyWith<$Res> {
       String? cityName,
       String? brandName,
       String? companyName,
-      DateTime? companyRegYear,
+      String? companyRegYear,
       int? revenueOfLastThreeMonths,
       String? category,
       List<String>? subCategory,
@@ -1322,7 +1322,7 @@ class __$$BrandImplCopyWithImpl<$Res>
       companyRegYear: freezed == companyRegYear
           ? _value.companyRegYear
           : companyRegYear // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
           ? _value.revenueOfLastThreeMonths
           : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
@@ -1410,7 +1410,7 @@ class _$BrandImpl implements _Brand {
   @override
   final String? companyName;
   @override
-  final DateTime? companyRegYear;
+  final String? companyRegYear;
   @override
   final int? revenueOfLastThreeMonths;
   @override
@@ -1535,7 +1535,7 @@ abstract class _Brand implements Brand {
       required final String? cityName,
       required final String? brandName,
       required final String? companyName,
-      required final DateTime? companyRegYear,
+      required final String? companyRegYear,
       required final int? revenueOfLastThreeMonths,
       required final String? category,
       required final List<String>? subCategory,
@@ -1572,7 +1572,7 @@ abstract class _Brand implements Brand {
   @override
   String? get companyName;
   @override
-  DateTime? get companyRegYear;
+  String? get companyRegYear;
   @override
   int? get revenueOfLastThreeMonths;
   @override

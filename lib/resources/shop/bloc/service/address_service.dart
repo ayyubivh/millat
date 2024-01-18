@@ -1,5 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/address_model/addres_byid_model.dart';
 import 'package:millat/resources/shop/bloc/models/address_model/address_model.dart';
 import 'package:millat/services/http_services.dart';
@@ -40,14 +44,19 @@ class AddressService extends HttpServices {
       body: body,
     );
 
-    if (response.statusCode == 200) {
-      debugPrint('on the add address ${response.body}');
-      final Map<String, dynamic> data = json.decode(response.body);
-      return data;
-    } else {
-      debugPrint('API request failed with status code: ${response.statusCode}');
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+    try {
+      if (response.statusCode == 200) {
+        debugPrint('on the add address ${response.body}');
+        final Map<String, dynamic> data = json.decode(response.body);
+        return data;
+      } else {
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception(e);
     }
   }
 
@@ -84,8 +93,11 @@ class AddressService extends HttpServices {
       body: body,
     );
     if (response.statusCode == 200) {
-      debugPrint('on the add address ${response.body}');
+      context
+          .read<AddressBloc>()
+          .add(AddressEvent.fetchAddressEvent(context: context));
       final Map<String, dynamic> data = json.decode(response.body);
+      debugPrint(data.toString());
       return data;
     } else {
       debugPrint('API request failed with status code: ${response.statusCode}');
@@ -158,24 +170,21 @@ class AddressService extends HttpServices {
       endPoint: endPoint,
       isToken: true,
     );
-    if (response.statusCode == 200) {
-      try {
-        if (response.statusCode == 200) {
-          final Map<String, dynamic> data = json.decode(response.body);
 
-          return data;
-        } else {
-          debugPrint(
-              'API request failed with status code: ${response.statusCode}');
-          throw Exception(
-              'API request failed with status code: ${response.statusCode}');
-        }
-      } catch (e) {
-        debugPrint('error on address API fetch: ${e.toString()}');
-        throw Exception('Failed to parse response');
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        return data;
+      } else {
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
       }
-    } else {
-      throw Exception('Token not available');
+    } catch (e) {
+      debugPrint('error on address API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
     }
   }
 
@@ -190,13 +199,13 @@ class AddressService extends HttpServices {
         final List<dynamic> data = json.decode(response.body);
 
         if (data.isNotEmpty) {
+          print(data);
           final Map<String, dynamic> json = data.first;
 
           final result = PincodeAddressModel.fromJson(json);
           debugPrint('API address by id  $result');
           return result;
         } else {
-          // Handle the case when the response is an empty array
           debugPrint('API response is empty.');
           return null;
         }

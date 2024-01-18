@@ -40,4 +40,5 @@ class DatabaseEvent with _$DatabaseEvent {
   const factory DatabaseEvent.searchContactEvent({
     required String query,
   }) = SearchContactEvent;
+  const factory DatabaseEvent.emptyStates() = EmptyStates;
 }

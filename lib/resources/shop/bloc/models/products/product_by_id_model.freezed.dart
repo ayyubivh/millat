@@ -390,7 +390,7 @@ mixin _$Product {
   String? get description => throw _privateConstructorUsedError;
   double? get regularPrice => throw _privateConstructorUsedError;
   double? get salePrice => throw _privateConstructorUsedError;
-  int? get discount => throw _privateConstructorUsedError;
+  double? get discount => throw _privateConstructorUsedError;
   String? get color => throw _privateConstructorUsedError;
   List<String>? get images => throw _privateConstructorUsedError;
   List<Size>? get size => throw _privateConstructorUsedError;
@@ -421,7 +421,7 @@ abstract class $ProductCopyWith<$Res> {
       String? description,
       double? regularPrice,
       double? salePrice,
-      int? discount,
+      double? discount,
       String? color,
       List<String>? images,
       List<Size>? size,
@@ -513,7 +513,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -604,7 +604,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String? description,
       double? regularPrice,
       double? salePrice,
-      int? discount,
+      double? discount,
       String? color,
       List<String>? images,
       List<Size>? size,
@@ -697,7 +697,7 @@ class __$$ProductImplCopyWithImpl<$Res>
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -786,7 +786,7 @@ class _$ProductImpl implements _Product {
   @override
   final double? salePrice;
   @override
-  final int? discount;
+  final double? discount;
   @override
   final String? color;
   final List<String>? _images;
@@ -922,7 +922,7 @@ abstract class _Product implements Product {
       required final String? description,
       required final double? regularPrice,
       required final double? salePrice,
-      required final int? discount,
+      required final double? discount,
       required final String? color,
       required final List<String>? images,
       required final List<Size>? size,
@@ -956,7 +956,7 @@ abstract class _Product implements Product {
   @override
   double? get salePrice;
   @override
-  int? get discount;
+  double? get discount;
   @override
   String? get color;
   @override
@@ -999,7 +999,7 @@ mixin _$Brand {
   String? get brandName => throw _privateConstructorUsedError;
   String? get companyName => throw _privateConstructorUsedError;
   String? get companyRegYear => throw _privateConstructorUsedError;
-  int? get revenueOfLastThreeMonths => throw _privateConstructorUsedError;
+  double? get revenueOfLastThreeMonths => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   List<String>? get subCategory => throw _privateConstructorUsedError;
   String? get GST => throw _privateConstructorUsedError;
@@ -1031,7 +1031,7 @@ abstract class $BrandCopyWith<$Res> {
       String? brandName,
       String? companyName,
       String? companyRegYear,
-      int? revenueOfLastThreeMonths,
+      double? revenueOfLastThreeMonths,
       String? category,
       List<String>? subCategory,
       String? GST,
@@ -1130,7 +1130,7 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
       revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
           ? _value.revenueOfLastThreeMonths
           : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -1180,7 +1180,7 @@ abstract class _$$BrandImplCopyWith<$Res> implements $BrandCopyWith<$Res> {
       String? brandName,
       String? companyName,
       String? companyRegYear,
-      int? revenueOfLastThreeMonths,
+      double? revenueOfLastThreeMonths,
       String? category,
       List<String>? subCategory,
       String? GST,
@@ -1277,7 +1277,7 @@ class __$$BrandImplCopyWithImpl<$Res>
       revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
           ? _value.revenueOfLastThreeMonths
           : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -1363,7 +1363,7 @@ class _$BrandImpl implements _Brand {
   @override
   final String? companyRegYear;
   @override
-  final int? revenueOfLastThreeMonths;
+  final double? revenueOfLastThreeMonths;
   @override
   final String? category;
   final List<String>? _subCategory;
@@ -1487,7 +1487,7 @@ abstract class _Brand implements Brand {
       required final String? brandName,
       required final String? companyName,
       required final String? companyRegYear,
-      required final int? revenueOfLastThreeMonths,
+      required final double? revenueOfLastThreeMonths,
       required final String? category,
       required final List<String>? subCategory,
       required final String? GST,
@@ -1525,7 +1525,7 @@ abstract class _Brand implements Brand {
   @override
   String? get companyRegYear;
   @override
-  int? get revenueOfLastThreeMonths;
+  double? get revenueOfLastThreeMonths;
   @override
   String? get category;
   @override
@@ -2024,7 +2024,7 @@ Size _$SizeFromJson(Map<String, dynamic> json) {
 mixin _$Size {
   String? get size => throw _privateConstructorUsedError;
   int? get stock => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
   String? get sku => throw _privateConstructorUsedError;
   String? get width => throw _privateConstructorUsedError;
   String? get height => throw _privateConstructorUsedError;
@@ -2043,7 +2043,7 @@ abstract class $SizeCopyWith<$Res> {
   $Res call(
       {String? size,
       int? stock,
-      int? price,
+      double? price,
       String? sku,
       String? width,
       String? height,
@@ -2083,7 +2083,7 @@ class _$SizeCopyWithImpl<$Res, $Val extends Size>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       sku: freezed == sku
           ? _value.sku
           : sku // ignore: cast_nullable_to_non_nullable
@@ -2114,7 +2114,7 @@ abstract class _$$SizeImplCopyWith<$Res> implements $SizeCopyWith<$Res> {
   $Res call(
       {String? size,
       int? stock,
-      int? price,
+      double? price,
       String? sku,
       String? width,
       String? height,
@@ -2151,7 +2151,7 @@ class __$$SizeImplCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       sku: freezed == sku
           ? _value.sku
           : sku // ignore: cast_nullable_to_non_nullable
@@ -2192,7 +2192,7 @@ class _$SizeImpl implements _Size {
   @override
   final int? stock;
   @override
-  final int? price;
+  final double? price;
   @override
   final String? sku;
   @override
@@ -2244,7 +2244,7 @@ abstract class _Size implements Size {
   const factory _Size(
       {required final String? size,
       required final int? stock,
-      required final int? price,
+      required final double? price,
       required final String? sku,
       required final String? width,
       required final String? height,
@@ -2257,7 +2257,7 @@ abstract class _Size implements Size {
   @override
   int? get stock;
   @override
-  int? get price;
+  double? get price;
   @override
   String? get sku;
   @override

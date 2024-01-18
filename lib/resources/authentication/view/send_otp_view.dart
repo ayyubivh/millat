@@ -31,7 +31,6 @@ class _SendOTPViewState extends State<SendOTPView> {
   bool isReferral = false;
   @override
   Widget build(BuildContext context) {
-    log("sign in phone ${widget.type}");
     return Scaffold(
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {

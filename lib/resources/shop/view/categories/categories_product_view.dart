@@ -141,11 +141,10 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                       crossAxisCount: 2,
                                       crossAxisSpacing: 20,
                                       mainAxisSpacing: 20,
-                                      mainAxisExtent:
-                                          !Responsive.isMobile(context)
-                                              ? SizeUtility(context).height /
-                                                  3.6
-                                              : SizeUtility(context).height / 3,
+                                      mainAxisExtent: !Responsive.isMobile(
+                                              context)
+                                          ? SizeUtility(context).height / 3.6
+                                          : SizeUtility(context).height / 3.2,
                                     ),
                                     itemCount: state.multiFilterProduct?.result
                                             ?.products?.length ??
@@ -193,7 +192,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                       : widget.type == FilterType.category
                           ? state.productLoading
                               ? ShimmerUtils.productsShimmers(context: context)
-                              : state.product?.result?.products?.length == 0
+                              : state.product?.result?.products?.isEmpty ?? true
                                   ? Padding(
                                       padding: EdgeInsets.only(
                                           top: SizeUtility(context).height /
@@ -220,7 +219,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                   context)
                                               ? SizeUtility(context).height /
                                                   3.6
-                                              : SizeUtility(context).height / 3,
+                                              : SizeUtility(context).height /
+                                                  3.2,
                                         ),
                                         itemCount: state.product?.result
                                                 ?.products?.length ??
@@ -244,8 +244,12 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                   },
                                                   child: ShopProductWidget(
                                                     color: data.color ?? "",
-                                                    size: data.size?[0].size ??
-                                                        "",
+                                                    size: (data.size != null &&
+                                                            data.size!
+                                                                .isNotEmpty)
+                                                        ? data.size![0].size ??
+                                                            ""
+                                                        : "",
                                                     brandId: data.brand!.id,
                                                     isWishlisted: false,
                                                     brand: data.brand!.name
@@ -294,7 +298,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                   context)
                                               ? SizeUtility(context).height /
                                                   3.6
-                                              : SizeUtility(context).height / 3,
+                                              : SizeUtility(context).height /
+                                                  3.2,
                                         ),
                                         itemCount: state.product?.result
                                                 ?.products?.length ??

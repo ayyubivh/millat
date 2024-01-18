@@ -114,9 +114,7 @@ _$BrandImpl _$$BrandImplFromJson(Map<String, dynamic> json) => _$BrandImpl(
       cityName: json['cityName'] as String?,
       brandName: json['brandName'] as String?,
       companyName: json['companyName'] as String?,
-      companyRegYear: json['companyRegYear'] == null
-          ? null
-          : DateTime.parse(json['companyRegYear'] as String),
+      companyRegYear: json['companyRegYear'] as String?,
       revenueOfLastThreeMonths: json['revenueOfLastThreeMonths'] as int?,
       category: json['category'] as String?,
       subCategory: (json['subCategory'] as List<dynamic>?)
@@ -146,7 +144,7 @@ Map<String, dynamic> _$$BrandImplToJson(_$BrandImpl instance) =>
       'cityName': instance.cityName,
       'brandName': instance.brandName,
       'companyName': instance.companyName,
-      'companyRegYear': instance.companyRegYear?.toIso8601String(),
+      'companyRegYear': instance.companyRegYear,
       'revenueOfLastThreeMonths': instance.revenueOfLastThreeMonths,
       'category': instance.category,
       'subCategory': instance.subCategory,

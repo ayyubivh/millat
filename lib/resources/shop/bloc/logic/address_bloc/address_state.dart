@@ -4,6 +4,7 @@ part of 'address_bloc.dart';
 class AddressState with _$AddressState {
   const factory AddressState({
     required String? successMessage,
+    required bool? successMessageInShop,
     required String? failMessage,
     required AddressModel? addressModel,
     required int? selectedIndex,
@@ -13,12 +14,14 @@ class AddressState with _$AddressState {
     required PincodeAddressModel? pincodeAddressModel,
   }) = _Initial;
   factory AddressState.initial() => const AddressState(
-      successMessage: "",
-      failMessage: "",
-      addressModel: null,
-      selectedIndex: 0,
-      addressId: null,
-      addressIdModel: null,
-      isLoading: false,
-      pincodeAddressModel: null);
+        successMessage: "",
+        failMessage: "",
+        addressModel: null,
+        selectedIndex: 0,
+        addressId: null,
+        addressIdModel: null,
+        isLoading: false,
+        pincodeAddressModel: null,
+        successMessageInShop: false,
+      );
 }

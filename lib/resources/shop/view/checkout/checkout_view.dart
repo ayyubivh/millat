@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +22,7 @@ class CheckoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log("screen caolled");
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final addressBloc = BlocProvider.of<AddressBloc>(context);
       addressBloc.add(FetchAddressEvent(context: context));
@@ -37,125 +39,132 @@ class CheckoutView extends StatelessWidget {
           elevation: 0,
           backgroundColor: ColorManager.whiteColor,
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                // Slider(
-                //   activeColor: ColorManager.greenColor1,
-                //   inactiveColor: black195,
-                //   max: 10,
-                //   min: 0,
-                //   divisions: 2,
-                //   value: 0,
-                //   onChanged: (value) {},
-                // ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Text(
-                //       Appstrings.personalInfo,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w700,
-                //           color: ColorManager.blackColor),
-                //     ),
-                //     Text(
-                //       Appstrings.payment,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w600,
-                //           color: ColorManager.blackColor),
-                //     ),
-                //     Text(
-                //       Appstrings.confirmation,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w600,
-                //           color: ColorManager.blackColor),
-                //     ),
-                //   ],
-                // ),
-                // const SizedBox(
-                //   height: 50,
-                // ),
-                // kHeight20,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+        body: BlocConsumer<AddressBloc, AddressState>(
+          listener: (context, state) {},
+          builder: (context, state) => state.isLoading
+              ? Column(
                   children: [
-                    Icon(
-                      Icons.add,
-                      color: ColorManager.primary,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        context.pushNamed(
-                            MyAppRouteConstants.checkoutDetailRoutename,
-                            extra: {'type': AddressNavType.checkout});
-                      },
-                      child: Text(
-                        Appstrings.addaddress,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: ColorManager.primary,
-                          fontSize: 16,
-                        ),
+                    ...List.generate(
+                      3,
+                      (index) => Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 10),
+                        child: ShimmerUtils.customRectangleShimmer(
+                            SizeUtility(context).width, 200,
+                            borderRadius: 14),
                       ),
-                    ),
+                    )
                   ],
+                )
+              : Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        TextButton.icon(
+                          onPressed: () {
+                            context.pushNamed(
+                                MyAppRouteConstants.checkoutDetailRoutename,
+                                extra: {'type': AddressNavType.checkout});
+                          },
+                          icon: Icon(
+                            Icons.add,
+                            color: ColorManager.primary,
+                          ),
+                          label: Text(
+                            Appstrings.addaddress,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: ColorManager.primary,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     Icon(
+                        //       Icons.add,
+                        //       color: ColorManager.primary,
+                        //     ),
+                        //     InkWell(
+                        //       onTap: () {
+                        //         context.pushNamed(
+                        //             MyAppRouteConstants.checkoutDetailRoutename,
+                        //             extra: {'type': AddressNavType.checkout});
+                        //       },
+                        //       child: Text(
+                        //         Appstrings.addaddress,
+                        //         style: TextStyle(
+                        //           fontWeight: FontWeight.bold,
+                        //           color: ColorManager.primary,
+                        //           fontSize: 16,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
+                        kHeight20,
+                        // buildAddresses(),
+                        BlocBuilder<AddressBloc, AddressState>(
+                          builder: (context, state) {
+                            return state.addressModel == null
+                                ? ShimmerUtils.customRectangleShimmer(
+                                    SizeUtility(context).width, 140)
+                                : ListView.separated(
+                                    shrinkWrap: true,
+                                    itemCount: state.addressModel?.result
+                                            .addresses.length ??
+                                        0,
+                                    itemBuilder: (context, index) {
+                                      final data = state.addressModel?.result
+                                          .addresses[index];
+                                      final phoneNumber =
+                                          '${data?.mobile.toString()}';
+                                      final String address =
+                                          ' ${data?.addressLine} ${data?.city} ${data?.state} ${data?.pincode}';
+                                      return buildAddresses(
+                                        email: context
+                                                .read<DatabaseBloc>()
+                                                .state
+                                                .authUserModel
+                                                ?.result
+                                                ?.user
+                                                ?.email ??
+                                            "",
+                                        name: data?.name,
+                                        address: address,
+                                        phoneNumber: phoneNumber,
+                                        type: data?.addressType ?? '',
+                                        isSelected:
+                                            index == state.selectedIndex,
+                                        context: context,
+                                        onTap: () {
+                                          context.read<AddressBloc>().add(
+                                              SelectAddressEvent(
+                                                  selectedIndex: index));
+                                          context.read<AddressBloc>().add(
+                                              SaveAddressId(
+                                                  addressId: data?.id ?? ''));
+                                        },
+                                        // onTap: () => BlocProvider(
+                                        //     create: (context) => AddressBloc()
+                                        //       ..add(SelectAddressEvent(
+                                        //           selectedIndex: index))
+                                        //       ..add(
+                                        //           SaveAddressId(addressId: data.id))),
+                                      );
+                                    },
+                                    separatorBuilder: (context, index) =>
+                                        kHeight15);
+                          },
+                        ),
+                        kHeight30,
+                      ],
+                    ),
+                  ),
                 ),
-                kHeight20,
-                // buildAddresses(),
-                BlocBuilder<AddressBloc, AddressState>(
-                  builder: (context, state) {
-                    return state.addressModel == null
-                        ? ShimmerUtils.customRectangleShimmer(
-                            SizeUtility(context).width, 140)
-                        : ListView.separated(
-                            shrinkWrap: true,
-                            itemCount:
-                                state.addressModel!.result.addresses.length,
-                            itemBuilder: (context, index) {
-                              final data =
-                                  state.addressModel?.result.addresses[index];
-                              final phoneNumber = '${data?.mobile.toString()}';
-                              final String address =
-                                  ' ${data!.addressLine} ${data.city} ${data.state} ${data.pincode}';
-                              return buildAddresses(
-                                email: context
-                                        .read<DatabaseBloc>()
-                                        .state
-                                        .authUserModel
-                                        ?.result
-                                        ?.user
-                                        ?.email ??
-                                    "",
-                                name: data.name,
-                                address: address,
-                                phoneNumber: phoneNumber,
-                                type: data.addressType,
-                                isSelected: index == state.selectedIndex,
-                                context: context,
-                                onTap: () {
-                                  context.read<AddressBloc>().add(
-                                      SelectAddressEvent(selectedIndex: index));
-                                  context
-                                      .read<AddressBloc>()
-                                      .add(SaveAddressId(addressId: data.id));
-                                },
-                                // onTap: () => BlocProvider(
-                                //     create: (context) => AddressBloc()
-                                //       ..add(SelectAddressEvent(
-                                //           selectedIndex: index))
-                                //       ..add(
-                                //           SaveAddressId(addressId: data.id))),
-                              );
-                            },
-                            separatorBuilder: (context, index) => kHeight15);
-                  },
-                ),
-                kHeight30,
-              ],
-            ),
-          ),
         ),
         bottomSheet: BlocBuilder<AddressBloc, AddressState>(
           builder: (context, state) {
@@ -168,6 +177,11 @@ class CheckoutView extends StatelessWidget {
                     // String? id = context.read<AddressBloc>().state.addressId;
                     // print(context.read<AddressBloc>().state.addressModel);
                     if (state.addressId == null) {
+                      showSnackBar(context, 'select the address');
+                      return;
+                    }
+                    if (state.selectedIndex == null ||
+                        state.selectedIndex == -1) {
                       showSnackBar(context, 'select the address');
                       return;
                     }

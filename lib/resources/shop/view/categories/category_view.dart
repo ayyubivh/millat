@@ -31,7 +31,8 @@ class CategoryView extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<ShopProductsBloc>(context)
         ..add(ShopProductsEvent.fetchFlashSaleProducts(
-            endPointSlug: "shop_product_category?slug=${category}_flash_sales"))
+            endPointSlug:
+                "shop_product_category?slug=${category.toString().replaceAll(" ", "_")}_flash_sales"))
         ..add(ShopProductsEvent.fetchPopularProducts(
             endPointSlug:
                 "shop_product_category?slug=${category}_popular_products"))

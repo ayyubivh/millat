@@ -18,14 +18,18 @@ class NamazTimingService {
     final response = await http.get(Uri.parse(
         'http://api.aladhan.com/v1/timingsByAddress/$date?address=$address&school=$school&method=$method&latitudeAdjustmentMethod=$highLatMethodVal'));
 
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> data = json.decode(response.body);
-      final result = PrayerModel.fromJson(data);
-      // print('new url${result}');
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = PrayerModel.fromJson(data);
+        // print('new url${result}');
 
-      return result;
-    } else {
-      throw Exception('Failed to fetch prayer time');
+        return result;
+      } else {
+        throw Exception('Failed to fetch prayer time');
+      }
+    } catch (e) {
+      throw Exception(e);
     }
   }
 
@@ -33,13 +37,17 @@ class NamazTimingService {
     final response =
         await http.get(Uri.parse('http://api.aladhan.com/v1/methods'));
 
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> data = json.decode(response.body);
-      final result = NamazMethodsModel.fromJson(data);
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = NamazMethodsModel.fromJson(data);
 
-      return result;
-    } else {
-      throw Exception('Failed to fetch prayer time');
+        return result;
+      } else {
+        throw Exception('Failed to parse');
+      }
+    } catch (e) {
+      throw Exception(e);
     }
   }
 }

@@ -40,6 +40,7 @@ mixin _$DatabaseEvent {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +67,7 @@ mixin _$DatabaseEvent {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,6 +94,7 @@ mixin _$DatabaseEvent {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -111,6 +114,7 @@ mixin _$DatabaseEvent {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -128,6 +132,7 @@ mixin _$DatabaseEvent {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -145,6 +150,7 @@ mixin _$DatabaseEvent {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -255,6 +261,7 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return storeTokenEvent(token);
   }
@@ -284,6 +291,7 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return storeTokenEvent?.call(token);
   }
@@ -313,6 +321,7 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -338,6 +347,7 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return storeTokenEvent(this);
   }
@@ -358,6 +368,7 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return storeTokenEvent?.call(this);
   }
@@ -378,6 +389,7 @@ class _$StoreTokenEventImpl implements StoreTokenEvent {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -457,6 +469,7 @@ class _$FetchTokenImpl implements FetchToken {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return fetchToken();
   }
@@ -486,6 +499,7 @@ class _$FetchTokenImpl implements FetchToken {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return fetchToken?.call();
   }
@@ -515,6 +529,7 @@ class _$FetchTokenImpl implements FetchToken {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -540,6 +555,7 @@ class _$FetchTokenImpl implements FetchToken {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return fetchToken(this);
   }
@@ -560,6 +576,7 @@ class _$FetchTokenImpl implements FetchToken {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return fetchToken?.call(this);
   }
@@ -580,6 +597,7 @@ class _$FetchTokenImpl implements FetchToken {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -679,6 +697,7 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return fetchAuthUser(context);
   }
@@ -708,6 +727,7 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return fetchAuthUser?.call(context);
   }
@@ -737,6 +757,7 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -762,6 +783,7 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return fetchAuthUser(this);
   }
@@ -782,6 +804,7 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return fetchAuthUser?.call(this);
   }
@@ -802,6 +825,7 @@ class _$FetchAuthUserImpl implements FetchAuthUser {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -983,6 +1007,7 @@ class _$EditAuthUserImpl implements EditAuthUser {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return editAuthUser(
         name, email, userName, institution, dob, profession, image, context);
@@ -1013,6 +1038,7 @@ class _$EditAuthUserImpl implements EditAuthUser {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return editAuthUser?.call(
         name, email, userName, institution, dob, profession, image, context);
@@ -1043,6 +1069,7 @@ class _$EditAuthUserImpl implements EditAuthUser {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
@@ -1069,6 +1096,7 @@ class _$EditAuthUserImpl implements EditAuthUser {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return editAuthUser(this);
   }
@@ -1089,6 +1117,7 @@ class _$EditAuthUserImpl implements EditAuthUser {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return editAuthUser?.call(this);
   }
@@ -1109,6 +1138,7 @@ class _$EditAuthUserImpl implements EditAuthUser {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
@@ -1202,6 +1232,7 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return removeTokenEvent();
   }
@@ -1231,6 +1262,7 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return removeTokenEvent?.call();
   }
@@ -1260,6 +1292,7 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1285,6 +1318,7 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return removeTokenEvent(this);
   }
@@ -1305,6 +1339,7 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return removeTokenEvent?.call(this);
   }
@@ -1325,6 +1360,7 @@ class _$RemoveTokenEventImpl implements RemoveTokenEvent {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1425,6 +1461,7 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return uploadImageEvent(source);
   }
@@ -1454,6 +1491,7 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return uploadImageEvent?.call(source);
   }
@@ -1483,6 +1521,7 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -1508,6 +1547,7 @@ class _$UploadImageEventImpl implements UploadImageEvent {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return uploadImageEvent(this);
   }
@@ -1528,6 +1568,7 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return uploadImageEvent?.call(this);
   }
@@ -1548,6 +1589,7 @@ class _$UploadImageEventImpl implements UploadImageEvent {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -1627,6 +1669,7 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return fetchContactEvent();
   }
@@ -1656,6 +1699,7 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return fetchContactEvent?.call();
   }
@@ -1685,6 +1729,7 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchContactEvent != null) {
@@ -1710,6 +1755,7 @@ class _$FetchContactEventImpl implements FetchContactEvent {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return fetchContactEvent(this);
   }
@@ -1730,6 +1776,7 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return fetchContactEvent?.call(this);
   }
@@ -1750,6 +1797,7 @@ class _$FetchContactEventImpl implements FetchContactEvent {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchContactEvent != null) {
@@ -1850,6 +1898,7 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return saveCoverImage(image);
   }
@@ -1879,6 +1928,7 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return saveCoverImage?.call(image);
   }
@@ -1908,6 +1958,7 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (saveCoverImage != null) {
@@ -1933,6 +1984,7 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return saveCoverImage(this);
   }
@@ -1953,6 +2005,7 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return saveCoverImage?.call(this);
   }
@@ -1973,6 +2026,7 @@ class _$SaveCoverImageImpl implements SaveCoverImage {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (saveCoverImage != null) {
@@ -2052,6 +2106,7 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return fetchCoverImage();
   }
@@ -2081,6 +2136,7 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return fetchCoverImage?.call();
   }
@@ -2110,6 +2166,7 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchCoverImage != null) {
@@ -2135,6 +2192,7 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return fetchCoverImage(this);
   }
@@ -2155,6 +2213,7 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return fetchCoverImage?.call(this);
   }
@@ -2175,6 +2234,7 @@ class _$FetchCoverImageImpl implements FetchCoverImage {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchCoverImage != null) {
@@ -2274,6 +2334,7 @@ class _$DeleteAccountImpl implements DeleteAccount {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return deleteAccount(context);
   }
@@ -2303,6 +2364,7 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return deleteAccount?.call(context);
   }
@@ -2332,6 +2394,7 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (deleteAccount != null) {
@@ -2357,6 +2420,7 @@ class _$DeleteAccountImpl implements DeleteAccount {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return deleteAccount(this);
   }
@@ -2377,6 +2441,7 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return deleteAccount?.call(this);
   }
@@ -2397,6 +2462,7 @@ class _$DeleteAccountImpl implements DeleteAccount {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (deleteAccount != null) {
@@ -2478,6 +2544,7 @@ class _$FetchUserReferralCodeImpl implements FetchUserReferralCode {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return fetchUserReferralCode();
   }
@@ -2507,6 +2574,7 @@ class _$FetchUserReferralCodeImpl implements FetchUserReferralCode {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return fetchUserReferralCode?.call();
   }
@@ -2536,6 +2604,7 @@ class _$FetchUserReferralCodeImpl implements FetchUserReferralCode {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchUserReferralCode != null) {
@@ -2561,6 +2630,7 @@ class _$FetchUserReferralCodeImpl implements FetchUserReferralCode {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return fetchUserReferralCode(this);
   }
@@ -2581,6 +2651,7 @@ class _$FetchUserReferralCodeImpl implements FetchUserReferralCode {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return fetchUserReferralCode?.call(this);
   }
@@ -2601,6 +2672,7 @@ class _$FetchUserReferralCodeImpl implements FetchUserReferralCode {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchUserReferralCode != null) {
@@ -2675,6 +2747,7 @@ class _$FetchReferralMessageImpl implements FetchReferralMessage {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return fetchReferralMessage();
   }
@@ -2704,6 +2777,7 @@ class _$FetchReferralMessageImpl implements FetchReferralMessage {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return fetchReferralMessage?.call();
   }
@@ -2733,6 +2807,7 @@ class _$FetchReferralMessageImpl implements FetchReferralMessage {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchReferralMessage != null) {
@@ -2758,6 +2833,7 @@ class _$FetchReferralMessageImpl implements FetchReferralMessage {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return fetchReferralMessage(this);
   }
@@ -2778,6 +2854,7 @@ class _$FetchReferralMessageImpl implements FetchReferralMessage {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return fetchReferralMessage?.call(this);
   }
@@ -2798,6 +2875,7 @@ class _$FetchReferralMessageImpl implements FetchReferralMessage {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (fetchReferralMessage != null) {
@@ -2898,6 +2976,7 @@ class _$SearchContactEventImpl implements SearchContactEvent {
     required TResult Function() fetchUserReferralCode,
     required TResult Function() fetchReferralMessage,
     required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
   }) {
     return searchContactEvent(query);
   }
@@ -2927,6 +3006,7 @@ class _$SearchContactEventImpl implements SearchContactEvent {
     TResult? Function()? fetchUserReferralCode,
     TResult? Function()? fetchReferralMessage,
     TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
   }) {
     return searchContactEvent?.call(query);
   }
@@ -2956,6 +3036,7 @@ class _$SearchContactEventImpl implements SearchContactEvent {
     TResult Function()? fetchUserReferralCode,
     TResult Function()? fetchReferralMessage,
     TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
     required TResult orElse(),
   }) {
     if (searchContactEvent != null) {
@@ -2981,6 +3062,7 @@ class _$SearchContactEventImpl implements SearchContactEvent {
         fetchUserReferralCode,
     required TResult Function(FetchReferralMessage value) fetchReferralMessage,
     required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
   }) {
     return searchContactEvent(this);
   }
@@ -3001,6 +3083,7 @@ class _$SearchContactEventImpl implements SearchContactEvent {
     TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
   }) {
     return searchContactEvent?.call(this);
   }
@@ -3021,6 +3104,7 @@ class _$SearchContactEventImpl implements SearchContactEvent {
     TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
     TResult Function(FetchReferralMessage value)? fetchReferralMessage,
     TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
     required TResult orElse(),
   }) {
     if (searchContactEvent != null) {
@@ -3038,6 +3122,208 @@ abstract class SearchContactEvent implements DatabaseEvent {
   @JsonKey(ignore: true)
   _$$SearchContactEventImplCopyWith<_$SearchContactEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyStatesImplCopyWith<$Res> {
+  factory _$$EmptyStatesImplCopyWith(
+          _$EmptyStatesImpl value, $Res Function(_$EmptyStatesImpl) then) =
+      __$$EmptyStatesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyStatesImplCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$EmptyStatesImpl>
+    implements _$$EmptyStatesImplCopyWith<$Res> {
+  __$$EmptyStatesImplCopyWithImpl(
+      _$EmptyStatesImpl _value, $Res Function(_$EmptyStatesImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmptyStatesImpl implements EmptyStates {
+  const _$EmptyStatesImpl();
+
+  @override
+  String toString() {
+    return 'DatabaseEvent.emptyStates()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyStatesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token) storeTokenEvent,
+    required TResult Function() fetchToken,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
+    required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
+    required TResult Function(String image) saveCoverImage,
+    required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
+    required TResult Function() fetchUserReferralCode,
+    required TResult Function() fetchReferralMessage,
+    required TResult Function(String query) searchContactEvent,
+    required TResult Function() emptyStates,
+  }) {
+    return emptyStates();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token)? storeTokenEvent,
+    TResult? Function()? fetchToken,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
+    TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
+    TResult? Function(String image)? saveCoverImage,
+    TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
+    TResult? Function()? fetchUserReferralCode,
+    TResult? Function()? fetchReferralMessage,
+    TResult? Function(String query)? searchContactEvent,
+    TResult? Function()? emptyStates,
+  }) {
+    return emptyStates?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token)? storeTokenEvent,
+    TResult Function()? fetchToken,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
+    TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
+    TResult Function(String image)? saveCoverImage,
+    TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
+    TResult Function()? fetchUserReferralCode,
+    TResult Function()? fetchReferralMessage,
+    TResult Function(String query)? searchContactEvent,
+    TResult Function()? emptyStates,
+    required TResult orElse(),
+  }) {
+    if (emptyStates != null) {
+      return emptyStates();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StoreTokenEvent value) storeTokenEvent,
+    required TResult Function(FetchToken value) fetchToken,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
+    required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
+    required TResult Function(SaveCoverImage value) saveCoverImage,
+    required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
+    required TResult Function(FetchUserReferralCode value)
+        fetchUserReferralCode,
+    required TResult Function(FetchReferralMessage value) fetchReferralMessage,
+    required TResult Function(SearchContactEvent value) searchContactEvent,
+    required TResult Function(EmptyStates value) emptyStates,
+  }) {
+    return emptyStates(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult? Function(FetchToken value)? fetchToken,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
+    TResult? Function(SaveCoverImage value)? saveCoverImage,
+    TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+    TResult? Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult? Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult? Function(SearchContactEvent value)? searchContactEvent,
+    TResult? Function(EmptyStates value)? emptyStates,
+  }) {
+    return emptyStates?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult Function(FetchToken value)? fetchToken,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
+    TResult Function(SaveCoverImage value)? saveCoverImage,
+    TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    TResult Function(FetchUserReferralCode value)? fetchUserReferralCode,
+    TResult Function(FetchReferralMessage value)? fetchReferralMessage,
+    TResult Function(SearchContactEvent value)? searchContactEvent,
+    TResult Function(EmptyStates value)? emptyStates,
+    required TResult orElse(),
+  }) {
+    if (emptyStates != null) {
+      return emptyStates(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmptyStates implements DatabaseEvent {
+  const factory EmptyStates() = _$EmptyStatesImpl;
 }
 
 /// @nodoc

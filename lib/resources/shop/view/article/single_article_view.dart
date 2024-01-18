@@ -7,6 +7,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../../utils/utils.dart';
@@ -43,8 +44,8 @@ class SingleArticleView extends StatelessWidget {
         child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
           builder: (context, state) {
             final data = state.articleModelById?.result?.article;
-            if (data == null) {
-              return const Loader();
+            if (data == null || state.isLoading) {
+              return ShimmerUtils.singleProductShimmer(context);
             }
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,13 +145,13 @@ class SingleArticleView extends StatelessWidget {
       bottomSheet: BlocBuilder<ShopProductsBloc, ShopProductsState>(
         builder: (context, state) {
           final data = state.articleModelById?.result?.article;
-          // if (data == null) {
-          //   return const Loader();
-          // }
+          if (data == null) {
+            return const SizedBox();
+          }
           return GestureDetector(
             onTap: () {
               context.pushNamed(MyAppRouteConstants.singleProductRouteName,
-                  pathParameters: {'id': data?.product?.id ?? ""});
+                  pathParameters: {'id': data.product?.id ?? ""});
             },
             child: Container(
               height: 70,

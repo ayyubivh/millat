@@ -601,7 +601,6 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await shopService.fetchAdShopBrandsbyId(id: event.id);
       emit(state.copyWith(isLoading: false, shopAdBrandsById: data));
-      debugPrint("ad brands bloc ${state.shopAdBrandsById}");
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: "$e"));
     }

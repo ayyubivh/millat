@@ -49,6 +49,7 @@ class Product with _$Product {
     required List<Size>? size,
     required List<String>? keywords,
     required String? madeFrom,
+    required String? thumbnail,
     required String? productCareInfo,
     required DateTime? createdAt,
     required DateTime? updatedAt,

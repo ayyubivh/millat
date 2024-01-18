@@ -35,6 +35,7 @@ class MessageData with _$MessageData {
     @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'sendAt') String? sendAt,
     @JsonKey(name: 'userIds') List<String>? userIds,
+    @JsonKey(name: 'description') String? description,
     @JsonKey(name: 'isReadByUser') List<String>? isReadByUser,
     @JsonKey(name: 'createdAt') String? createdAt,
     @JsonKey(name: 'updatedAt') String? updatedAt,

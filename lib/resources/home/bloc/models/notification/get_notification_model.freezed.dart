@@ -409,6 +409,8 @@ mixin _$MessageData {
   String? get sendAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'userIds')
   List<String>? get userIds => throw _privateConstructorUsedError;
+  @JsonKey(name: 'description')
+  String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'isReadByUser')
   List<String>? get isReadByUser => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
@@ -435,6 +437,7 @@ abstract class $MessageDataCopyWith<$Res> {
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'sendAt') String? sendAt,
       @JsonKey(name: 'userIds') List<String>? userIds,
+      @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'isReadByUser') List<String>? isReadByUser,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt,
@@ -458,6 +461,7 @@ class _$MessageDataCopyWithImpl<$Res, $Val extends MessageData>
     Object? title = freezed,
     Object? sendAt = freezed,
     Object? userIds = freezed,
+    Object? description = freezed,
     Object? isReadByUser = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -480,6 +484,10 @@ class _$MessageDataCopyWithImpl<$Res, $Val extends MessageData>
           ? _value.userIds
           : userIds // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       isReadByUser: freezed == isReadByUser
           ? _value.isReadByUser
           : isReadByUser // ignore: cast_nullable_to_non_nullable
@@ -513,6 +521,7 @@ abstract class _$$MessageDataImplCopyWith<$Res>
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'sendAt') String? sendAt,
       @JsonKey(name: 'userIds') List<String>? userIds,
+      @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'isReadByUser') List<String>? isReadByUser,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt,
@@ -534,6 +543,7 @@ class __$$MessageDataImplCopyWithImpl<$Res>
     Object? title = freezed,
     Object? sendAt = freezed,
     Object? userIds = freezed,
+    Object? description = freezed,
     Object? isReadByUser = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -556,6 +566,10 @@ class __$$MessageDataImplCopyWithImpl<$Res>
           ? _value._userIds
           : userIds // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       isReadByUser: freezed == isReadByUser
           ? _value._isReadByUser
           : isReadByUser // ignore: cast_nullable_to_non_nullable
@@ -584,6 +598,7 @@ class _$MessageDataImpl implements _MessageData {
       @JsonKey(name: 'title') this.title,
       @JsonKey(name: 'sendAt') this.sendAt,
       @JsonKey(name: 'userIds') final List<String>? userIds,
+      @JsonKey(name: 'description') this.description,
       @JsonKey(name: 'isReadByUser') final List<String>? isReadByUser,
       @JsonKey(name: 'createdAt') this.createdAt,
       @JsonKey(name: 'updatedAt') this.updatedAt,
@@ -614,6 +629,9 @@ class _$MessageDataImpl implements _MessageData {
     return EqualUnmodifiableListView(value);
   }
 
+  @override
+  @JsonKey(name: 'description')
+  final String? description;
   final List<String>? _isReadByUser;
   @override
   @JsonKey(name: 'isReadByUser')
@@ -637,7 +655,7 @@ class _$MessageDataImpl implements _MessageData {
 
   @override
   String toString() {
-    return 'MessageData(id: $id, title: $title, sendAt: $sendAt, userIds: $userIds, isReadByUser: $isReadByUser, createdAt: $createdAt, updatedAt: $updatedAt, url: $url)';
+    return 'MessageData(id: $id, title: $title, sendAt: $sendAt, userIds: $userIds, description: $description, isReadByUser: $isReadByUser, createdAt: $createdAt, updatedAt: $updatedAt, url: $url)';
   }
 
   @override
@@ -649,6 +667,8 @@ class _$MessageDataImpl implements _MessageData {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.sendAt, sendAt) || other.sendAt == sendAt) &&
             const DeepCollectionEquality().equals(other._userIds, _userIds) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality()
                 .equals(other._isReadByUser, _isReadByUser) &&
             (identical(other.createdAt, createdAt) ||
@@ -666,6 +686,7 @@ class _$MessageDataImpl implements _MessageData {
       title,
       sendAt,
       const DeepCollectionEquality().hash(_userIds),
+      description,
       const DeepCollectionEquality().hash(_isReadByUser),
       createdAt,
       updatedAt,
@@ -691,6 +712,7 @@ abstract class _MessageData implements MessageData {
       @JsonKey(name: 'title') final String? title,
       @JsonKey(name: 'sendAt') final String? sendAt,
       @JsonKey(name: 'userIds') final List<String>? userIds,
+      @JsonKey(name: 'description') final String? description,
       @JsonKey(name: 'isReadByUser') final List<String>? isReadByUser,
       @JsonKey(name: 'createdAt') final String? createdAt,
       @JsonKey(name: 'updatedAt') final String? updatedAt,
@@ -711,6 +733,9 @@ abstract class _MessageData implements MessageData {
   @override
   @JsonKey(name: 'userIds')
   List<String>? get userIds;
+  @override
+  @JsonKey(name: 'description')
+  String? get description;
   @override
   @JsonKey(name: 'isReadByUser')
   List<String>? get isReadByUser;

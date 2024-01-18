@@ -67,6 +67,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
           ?.map((e) => e as String)
           .toList(),
       madeFrom: json['madeFrom'] as String?,
+      thumbnail: json['thumbnail'] as String?,
       productCareInfo: json['productCareInfo'] as String?,
       createdAt: json['createdAt'] == null
           ? null
@@ -96,6 +97,7 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'size': instance.size,
       'keywords': instance.keywords,
       'madeFrom': instance.madeFrom,
+      'thumbnail': instance.thumbnail,
       'productCareInfo': instance.productCareInfo,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),

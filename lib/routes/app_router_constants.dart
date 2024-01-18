@@ -73,7 +73,7 @@ class MyAppRouteConstants {
   static const String travelPackagesView = "travel_packages";
 
   //rewards
-  // static const String rewardsTabRouteName = "rewards_tab";
+  static const String rewardsTabRouteName = "rewards_tab";
   static const String rewardsShopRouteName = "rewards_shop";
   static const String rewardsShopProductRoutename = "rewards_shop_product";
 }

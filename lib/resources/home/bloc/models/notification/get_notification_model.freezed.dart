@@ -415,6 +415,8 @@ mixin _$MessageData {
   String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updatedAt')
   String? get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'url')
+  String? get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -435,7 +437,8 @@ abstract class $MessageDataCopyWith<$Res> {
       @JsonKey(name: 'userIds') List<String>? userIds,
       @JsonKey(name: 'isReadByUser') List<String>? isReadByUser,
       @JsonKey(name: 'createdAt') String? createdAt,
-      @JsonKey(name: 'updatedAt') String? updatedAt});
+      @JsonKey(name: 'updatedAt') String? updatedAt,
+      @JsonKey(name: 'url') String? url});
 }
 
 /// @nodoc
@@ -458,6 +461,7 @@ class _$MessageDataCopyWithImpl<$Res, $Val extends MessageData>
     Object? isReadByUser = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? url = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -488,6 +492,10 @@ class _$MessageDataCopyWithImpl<$Res, $Val extends MessageData>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -507,7 +515,8 @@ abstract class _$$MessageDataImplCopyWith<$Res>
       @JsonKey(name: 'userIds') List<String>? userIds,
       @JsonKey(name: 'isReadByUser') List<String>? isReadByUser,
       @JsonKey(name: 'createdAt') String? createdAt,
-      @JsonKey(name: 'updatedAt') String? updatedAt});
+      @JsonKey(name: 'updatedAt') String? updatedAt,
+      @JsonKey(name: 'url') String? url});
 }
 
 /// @nodoc
@@ -528,6 +537,7 @@ class __$$MessageDataImplCopyWithImpl<$Res>
     Object? isReadByUser = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? url = freezed,
   }) {
     return _then(_$MessageDataImpl(
       id: freezed == id
@@ -558,6 +568,10 @@ class __$$MessageDataImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      url: freezed == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -572,7 +586,8 @@ class _$MessageDataImpl implements _MessageData {
       @JsonKey(name: 'userIds') final List<String>? userIds,
       @JsonKey(name: 'isReadByUser') final List<String>? isReadByUser,
       @JsonKey(name: 'createdAt') this.createdAt,
-      @JsonKey(name: 'updatedAt') this.updatedAt})
+      @JsonKey(name: 'updatedAt') this.updatedAt,
+      @JsonKey(name: 'url') this.url})
       : _userIds = userIds,
         _isReadByUser = isReadByUser;
 
@@ -616,10 +631,13 @@ class _$MessageDataImpl implements _MessageData {
   @override
   @JsonKey(name: 'updatedAt')
   final String? updatedAt;
+  @override
+  @JsonKey(name: 'url')
+  final String? url;
 
   @override
   String toString() {
-    return 'MessageData(id: $id, title: $title, sendAt: $sendAt, userIds: $userIds, isReadByUser: $isReadByUser, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'MessageData(id: $id, title: $title, sendAt: $sendAt, userIds: $userIds, isReadByUser: $isReadByUser, createdAt: $createdAt, updatedAt: $updatedAt, url: $url)';
   }
 
   @override
@@ -636,7 +654,8 @@ class _$MessageDataImpl implements _MessageData {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
@@ -649,7 +668,8 @@ class _$MessageDataImpl implements _MessageData {
       const DeepCollectionEquality().hash(_userIds),
       const DeepCollectionEquality().hash(_isReadByUser),
       createdAt,
-      updatedAt);
+      updatedAt,
+      url);
 
   @JsonKey(ignore: true)
   @override
@@ -673,7 +693,8 @@ abstract class _MessageData implements MessageData {
       @JsonKey(name: 'userIds') final List<String>? userIds,
       @JsonKey(name: 'isReadByUser') final List<String>? isReadByUser,
       @JsonKey(name: 'createdAt') final String? createdAt,
-      @JsonKey(name: 'updatedAt') final String? updatedAt}) = _$MessageDataImpl;
+      @JsonKey(name: 'updatedAt') final String? updatedAt,
+      @JsonKey(name: 'url') final String? url}) = _$MessageDataImpl;
 
   factory _MessageData.fromJson(Map<String, dynamic> json) =
       _$MessageDataImpl.fromJson;
@@ -699,6 +720,9 @@ abstract class _MessageData implements MessageData {
   @override
   @JsonKey(name: 'updatedAt')
   String? get updatedAt;
+  @override
+  @JsonKey(name: 'url')
+  String? get url;
   @override
   @JsonKey(ignore: true)
   _$$MessageDataImplCopyWith<_$MessageDataImpl> get copyWith =>

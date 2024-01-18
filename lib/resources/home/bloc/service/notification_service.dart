@@ -113,7 +113,7 @@ class NotificationService extends HttpServices {
   addReadMark({required BuildContext context, required String id}) async {
     final endPoint = 'notification_in_app/read_mark/$id';
 
-    final response = await get(endPoint: endPoint, isToken: true);
+    final response = await patch(endPoint: endPoint, isToken: true, body: {});
 
     try {
       if (response.statusCode == 200) {

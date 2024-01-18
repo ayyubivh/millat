@@ -50,6 +50,7 @@ _$MessageDataImpl _$$MessageDataImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic> _$$MessageDataImplToJson(_$MessageDataImpl instance) =>
@@ -61,4 +62,5 @@ Map<String, dynamic> _$$MessageDataImplToJson(_$MessageDataImpl instance) =>
       'isReadByUser': instance.isReadByUser,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'url': instance.url,
     };

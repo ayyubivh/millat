@@ -169,7 +169,8 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
       final collectionCoin = state.coinCollectionModel?.result?.data.coins ?? 0;
       print(
           "collection coin $collectionCoin current state coint ${state.rewardCoins} after added ${state.rewardCoins + collectionCoin}");
-      emit(state.copyWith(rewardCoins: state.rewardCoins + collectionCoin));
+      emit(state.copyWith(
+          rewardCoins: state.rewardCoins + collectionCoin, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
 

@@ -165,6 +165,7 @@ class _SendOTPViewState extends State<SendOTPView> {
                       context,
                       isSignUp: false,
                       referralCode: _referralCodeController.text));
+                  // context.read<AuthBloc>().add(SendOTP(number!.phoneNumber!));
                 } else {
                   context.read<AuthBloc>().add(SendOTP(number!.phoneNumber!));
                 }

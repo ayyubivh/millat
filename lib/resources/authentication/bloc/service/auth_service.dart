@@ -15,6 +15,7 @@ import '../model/auth_user_model/social_user_model.dart';
 
 class AuthService extends HttpServices {
   final String loginAPI = 'auth/signin_with_email';
+  final String newSignInApi = "auth/new_signin";
   final String loginWithGoogleApi = "social_auth/signin";
   final String signIN = 'social_auth/complete_signin';
   final String signInPhone = 'auth/signin';
@@ -42,6 +43,30 @@ class AuthService extends HttpServices {
         context
             .read<DatabaseBloc>()
             .add(StoreTokenEvent(token: result.result!.token.toString()));
+        // context.read<DatabaseBloc>().add(StoreUserDetails(
+        //     email: result.result!.user!.email.toString(),
+        //     name: result.result!.user!.name.toString()));
+
+        return {
+          'status': true,
+        };
+      } else {
+        return {'status': false, 'message': jsonDecode(value.body)['message']};
+      }
+    }).catchError((error) {
+      return {'status': false};
+    });
+  }
+
+  newSignIn({
+    required String phoneNumber,
+  }) async {
+    return await posts(endPoint: newSignInApi, body: {
+      "phone_number": phoneNumber,
+    }).then((value) {
+      debugPrint(value.body);
+
+      if (value.statusCode == 200) {
         // context.read<DatabaseBloc>().add(StoreUserDetails(
         //     email: result.result!.user!.email.toString(),
         //     name: result.result!.user!.name.toString()));

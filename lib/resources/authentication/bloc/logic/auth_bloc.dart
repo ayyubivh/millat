@@ -124,9 +124,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 userId != null &&
                 currentState.phoneNumber!.isNotEmpty) {
               final result = await _authService.signIn(
-                  context: event.context,
-                  phoneNumber: currentState.phoneNumber!,
-                  userId: userId!);
+                context: event.context,
+                phoneNumber: currentState.phoneNumber!,
+                userId: userId!,
+              );
 
               if (result['status'] == true) {
                 emit(AuthLoaded(currentState.phoneNumber!));

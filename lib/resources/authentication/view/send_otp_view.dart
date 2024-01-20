@@ -39,6 +39,9 @@ class _SendOTPViewState extends State<SendOTPView> {
           } else if (state is AuthLoaded) {
             clearDate();
             context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
+          } else if (state is AuthLoadedOTPonly) {
+            clearDate();
+            context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
           } else if (state is AuthSocialLoginNewUserLoaded) {
             clearDate();
             context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
@@ -160,12 +163,14 @@ class _SendOTPViewState extends State<SendOTPView> {
                       context,
                       referralCode: _referralCodeController.text));
                 } else if (widget.type == SendOTPType.signIn) {
-                  context.read<AuthBloc>().add(SignInWithPhone(
-                      phoneNumber: number!.phoneNumber!,
-                      context,
-                      isSignUp: false,
-                      referralCode: _referralCodeController.text));
-                  // context.read<AuthBloc>().add(SendOTP(number!.phoneNumber!));
+                  // context.read<AuthBloc>().add(SignInWithPhone(
+                  //     phoneNumber: number!.phoneNumber!,
+                  //     context,
+                  //     isSignUp: false,
+                  //     referralCode: _referralCodeController.text));
+                  context
+                      .read<AuthBloc>()
+                      .add(SendOTPonly(number!.phoneNumber!));
                 } else {
                   context.read<AuthBloc>().add(SendOTP(number!.phoneNumber!));
                 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -93,17 +92,17 @@ class CheckoutPayment extends StatelessWidget {
                   child: paymentOnlineWidget(),
                 ),
                 kHeight10,
-                // checkoutType == CheckoutType.rewards
-                //     ? const SizedBox()
-                //     : Container(
-                //         height: 96,
-                //         width: SizeUtility(context).width,
-                //         decoration: BoxDecoration(
-                //           color: ColorManager.darkWhite,
-                //           borderRadius: BorderRadius.circular(6),
-                //         ),
-                //         child: paymenCODwidget(context),
-                //       )
+                checkoutType == CheckoutType.rewards
+                    ? const SizedBox()
+                    : Container(
+                        height: 96,
+                        width: SizeUtility(context).width,
+                        decoration: BoxDecoration(
+                          color: ColorManager.darkWhite,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: paymentCODwidget(context),
+                      )
               ],
             ),
           ),
@@ -134,7 +133,7 @@ class CheckoutPayment extends StatelessWidget {
         ));
   }
 
-  Widget paymenCODwidget(BuildContext context) {
+  Widget paymentCODwidget(BuildContext context) {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) => Row(
         children: [

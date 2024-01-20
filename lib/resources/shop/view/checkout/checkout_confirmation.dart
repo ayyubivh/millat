@@ -69,6 +69,20 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
       ),
       body: BlocConsumer<ShopProductsBloc, ShopProductsState>(
         listener: (context, state) {
+          final cartItems = context
+              .read<CartBloc>()
+              .state
+              .cartModel
+              ?.result
+              ?.cartProducts
+              ?.cartItems;
+          final quantity = cartItems?.map((e) => e.quantity).toList();
+          final shippingCharge = widget.paymentType == 0 ? 45 : 90;
+          final shippingFee = cartItems!.length > 1
+              ? shippingCharge * 2
+              : quantity![0]! > 1
+                  ? shippingCharge * 2
+                  : shippingCharge;
           if (state.orderIdRazorPay != "") {
             final userData =
                 context.read<DatabaseBloc>().state.authUserModel?.result?.user;
@@ -99,20 +113,13 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               };
               _razorpay.open(options);
             }
-            final cartItems = context
-                .read<CartBloc>()
-                .state
-                .cartModel
-                ?.result
-                ?.cartProducts
-                ?.cartItems;
 
             var options = {
               'order_id': state.orderIdRazorPay,
               'key': 'rzp_live_CPvXnR4zHHC8cD',
               'amount': state.totalAmount * 100,
               'name': 'Millat',
-              'description': cartItems![0].productId?.title,
+              'description': cartItems[0].productId?.title,
               'retry': {'enabled': true, 'max_count': 1},
               'send_sms_hash': true,
               'timeout': 120,
@@ -137,11 +144,14 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                   ?.salePrice;
               context.pushReplacementNamed(
                   MyAppRouteConstants.paymentSuccessfullRouteName,
-                  extra: {'subTotal': subtotal, 'delivery': 90});
+                  extra: {'subTotal': subtotal, 'delivery': shippingFee});
             } else {
               context.pushReplacementNamed(
                   MyAppRouteConstants.paymentSuccessfullRouteName,
-                  extra: {'subTotal': state.totalAmount, 'delivery': 90});
+                  extra: {
+                    'subTotal': state.totalAmount,
+                    'delivery': shippingFee
+                  });
             }
           }
         },
@@ -379,7 +389,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 // final giftPrice = isGift ? 89 : 0;
                 final averageTax = (taxRate / cartItems.length);
                 final estimatingTax = (averageTax / 100) * subTotal;
-                final total = subTotal + shippingFee + estimatingTax;
+                final total = subTotal + shippingFee;
                 final isShow = state.showExapnd;
                 return Container(
                   color: ColorManager.whiteColor,
@@ -567,8 +577,11 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                   ));
                             } else {
                               context.read<ShopProductsBloc>().add(
-                                  ShopProductsEvent.postOrderIdOnlinePayment(
-                                      context: context, amount: total));
+                                      ShopProductsEvent
+                                          .postOrderIdOnlinePayment(
+                                    context: context,
+                                    amount: total.toDouble(),
+                                  ));
                             }
                           }),
                     ],

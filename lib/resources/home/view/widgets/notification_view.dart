@@ -3,11 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
-import 'package:millat/routes/app_router_constants.dart';
-import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
-import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -63,7 +60,7 @@ class NotificationView extends StatelessWidget {
                           ?.user
                           ?.id;
 
-                      final isRead = data[index].userIds?.contains(userId);
+                      final isRead = data[index].isReadByUser?.contains(userId);
 
                       return GestureDetector(
                         onTap: () {

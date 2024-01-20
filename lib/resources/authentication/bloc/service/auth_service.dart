@@ -20,6 +20,7 @@ class AuthService extends HttpServices {
   final String signIN = 'social_auth/complete_signin';
   final String signInPhone = 'auth/signin';
   final String sentOtpApi = "auth/send_otp";
+  final String sentOtpOnlyApi = "auth/send_otp_only";
   final String signUpAPI = 'auth/signup';
   final String verifyOTPAPI = 'auth/verify';
   final String resendOTPAPI = 'auth/resend_otp';
@@ -60,6 +61,7 @@ class AuthService extends HttpServices {
 
   newSignIn({
     required String phoneNumber,
+    required BuildContext context,
   }) async {
     return await posts(endPoint: newSignInApi, body: {
       "phone_number": phoneNumber,
@@ -67,6 +69,11 @@ class AuthService extends HttpServices {
       debugPrint(value.body);
 
       if (value.statusCode == 200) {
+        final result = UserModel.fromJson(jsonDecode(value.body));
+        print(result.result!.token.toString());
+        context
+            .read<DatabaseBloc>()
+            .add(StoreTokenEvent(token: result.result!.token.toString()));
         // context.read<DatabaseBloc>().add(StoreUserDetails(
         //     email: result.result!.user!.email.toString(),
         //     name: result.result!.user!.name.toString()));
@@ -146,6 +153,32 @@ class AuthService extends HttpServices {
         return {
           'status': true,
           'result': value['result']['otp']['otp'],
+        };
+      } else {
+        return {
+          'status': false,
+          'message': value['message'],
+        };
+      }
+    } catch (e) {
+      return {
+        'status': false,
+        'message': 'Something went wrong, Please try again later',
+      };
+    }
+  }
+
+  Future<Map<String, dynamic>> sendOTPonly(
+      {required String phoneNumber}) async {
+    try {
+      final res = await posts(
+          endPoint: sentOtpOnlyApi, body: {"phone_number": phoneNumber});
+      var value = json.decode(res.body);
+
+      if (value['status'] == 200) {
+        return {
+          'status': true,
+          'result': value['result']['otp']['otp'].toString(),
         };
       } else {
         return {

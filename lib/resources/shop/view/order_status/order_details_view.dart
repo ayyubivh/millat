@@ -25,8 +25,8 @@ class OrdetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<CategoryBloc>(context)
-          .add(const FetchFilterProducts(category: 'women', subCategory: 'women'));
+      BlocProvider.of<CategoryBloc>(context).add(
+          const FetchFilterProducts(category: 'women', subCategory: 'women'));
     });
     var containerHeight10 = Container(
       height: 8,
@@ -428,6 +428,14 @@ class OrdetailsView extends StatelessWidget {
       builder: (context, state) {
         final data = state.ordersByIdModel?.result?.order;
 
+        // Format the order date
+
+        // Calculate the estimated delivery date (order date + 7 days)
+        DateTime orderDate = DateTime.parse(data?.orderDate ?? "");
+        DateTime estimatedDeliveryDate = orderDate.add(Duration(days: 7));
+        String formattedEstimatedDeliveryDate = Utilities.formatDate(
+          estimatedDeliveryDate.toLocal().toString(),
+        );
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Column(
@@ -477,7 +485,7 @@ class OrdetailsView extends StatelessWidget {
                     ),
                     kHeight10,
                     Text(
-                      Utilities.formatDate(data?.orderDate ?? ""),
+                      formattedEstimatedDeliveryDate,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,

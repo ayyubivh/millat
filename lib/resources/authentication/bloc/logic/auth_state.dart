@@ -33,6 +33,13 @@ class AuthLoaded extends AuthState {
   AuthLoaded(this.email);
 }
 
+class AuthLoadedOTPonly extends AuthState {
+  final String? phoneNumber;
+  final String? otp;
+
+  AuthLoadedOTPonly(this.phoneNumber, this.otp);
+}
+
 class AuthPhoneNumber extends AuthState {
   final String phoneNumber;
 

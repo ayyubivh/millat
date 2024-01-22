@@ -89,6 +89,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       productCareInfo: json['productCareInfo'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
+      thumbnail: json['thumbnail'] as String?,
     );
 
 Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
@@ -111,6 +112,7 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'productCareInfo': instance.productCareInfo,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'thumbnail': instance.thumbnail,
     };
 
 _$BrandImpl _$$BrandImplFromJson(Map<String, dynamic> json) => _$BrandImpl(

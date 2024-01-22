@@ -659,6 +659,7 @@ mixin _$Product {
   String? get productCareInfo => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
+  String? get thumbnail => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -688,7 +689,8 @@ abstract class $ProductCopyWith<$Res> {
       String? madeFrom,
       String? productCareInfo,
       String? createdAt,
-      String? updatedAt});
+      String? updatedAt,
+      String? thumbnail});
 
   $BrandCopyWith<$Res>? get brand;
   $CategoryCopyWith<$Res>? get category;
@@ -725,6 +727,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? productCareInfo = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? thumbnail = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -799,6 +802,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -852,7 +859,8 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String? madeFrom,
       String? productCareInfo,
       String? createdAt,
-      String? updatedAt});
+      String? updatedAt,
+      String? thumbnail});
 
   @override
   $BrandCopyWith<$Res>? get brand;
@@ -889,6 +897,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? productCareInfo = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? thumbnail = freezed,
   }) {
     return _then(_$ProductImpl(
       id: freezed == id
@@ -963,6 +972,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -988,7 +1001,8 @@ class _$ProductImpl implements _Product {
       required this.madeFrom,
       required this.productCareInfo,
       required this.createdAt,
-      required this.updatedAt})
+      required this.updatedAt,
+      required this.thumbnail})
       : _images = images,
         _size = size,
         _keywords = keywords;
@@ -1059,10 +1073,12 @@ class _$ProductImpl implements _Product {
   final String? createdAt;
   @override
   final String? updatedAt;
+  @override
+  final String? thumbnail;
 
   @override
   String toString() {
-    return 'Product(id: $id, title: $title, brand: $brand, category: $category, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Product(id: $id, title: $title, brand: $brand, category: $category, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt, thumbnail: $thumbnail)';
   }
 
   @override
@@ -1098,31 +1114,35 @@ class _$ProductImpl implements _Product {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      brand,
-      category,
-      itemType,
-      pickupAddress,
-      description,
-      regularPrice,
-      salePrice,
-      discount,
-      color,
-      const DeepCollectionEquality().hash(_images),
-      const DeepCollectionEquality().hash(_size),
-      const DeepCollectionEquality().hash(_keywords),
-      madeFrom,
-      productCareInfo,
-      createdAt,
-      updatedAt);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        title,
+        brand,
+        category,
+        itemType,
+        pickupAddress,
+        description,
+        regularPrice,
+        salePrice,
+        discount,
+        color,
+        const DeepCollectionEquality().hash(_images),
+        const DeepCollectionEquality().hash(_size),
+        const DeepCollectionEquality().hash(_keywords),
+        madeFrom,
+        productCareInfo,
+        createdAt,
+        updatedAt,
+        thumbnail
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1157,7 +1177,8 @@ abstract class _Product implements Product {
       required final String? madeFrom,
       required final String? productCareInfo,
       required final String? createdAt,
-      required final String? updatedAt}) = _$ProductImpl;
+      required final String? updatedAt,
+      required final String? thumbnail}) = _$ProductImpl;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
 
@@ -1200,6 +1221,8 @@ abstract class _Product implements Product {
   String? get createdAt;
   @override
   String? get updatedAt;
+  @override
+  String? get thumbnail;
   @override
   @JsonKey(ignore: true)
   _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>

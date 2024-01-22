@@ -365,7 +365,7 @@ class CategoryView extends StatelessWidget {
                                               isWishlisted: state.isWishListed,
                                               brand: data.brand?.name ?? "",
                                               productId: data.id,
-                                              image: data.images?[0] ?? "",
+                                              image: data.thumbnail,
                                               title: data.title ?? "",
                                               actualPrice:
                                                   data.regularPrice?.toInt() ??
@@ -474,7 +474,7 @@ class CategoryView extends StatelessWidget {
                                               isWishlisted: state.isWishListed,
                                               brand: data.brand?.name ?? "",
                                               productId: data.id,
-                                              image: data.images?[0] ?? "",
+                                              image: data.thumbnail,
                                               title: data.title ?? "",
                                               actualPrice:
                                                   data.regularPrice?.toInt() ??

@@ -379,7 +379,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 // final giftPrice = isGift ? 89 : 0;
                 final averageTax = (taxRate / cartItems.length);
                 final estimatingTax = (averageTax / 100) * subTotal;
-                final total = subTotal + shippingFee + estimatingTax;
+                final total = subTotal + shippingFee;
+                // + estimatingTax;
                 final isShow = state.showExapnd;
                 return Container(
                   color: ColorManager.whiteColor,
@@ -470,7 +471,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                             color: ColorManager.blackColor,
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold)),
-                                    Text(estimatingTax.toStringAsFixed(2),
+                                    Text("${estimatingTax.toInt()}",
                                         style: TextStyle(
                                             color: ColorManager.blackColor,
                                             fontSize: 17,
@@ -488,7 +489,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                             fontSize: 19,
                                             fontWeight: FontWeight.w700)),
                                     Text(
-                                      '₹$total',
+                                      '₹${total.toInt()}',
                                       style: TextStyle(
                                           color: ColorManager.black4A,
                                           fontSize: 19,
@@ -518,7 +519,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                       ),
                                     ),
                                     Text(
-                                      '₹$total',
+                                      '₹${total.toInt()}',
                                       style: TextStyle(
                                           color: ColorManager.black4A,
                                           fontSize: 19,
@@ -568,7 +569,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             } else {
                               context.read<ShopProductsBloc>().add(
                                   ShopProductsEvent.postOrderIdOnlinePayment(
-                                      context: context, amount: total));
+                                      context: context,
+                                      amount: total.toDouble()));
                             }
                           }),
                     ],

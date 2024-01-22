@@ -113,7 +113,7 @@ class CartView extends StatelessWidget {
             return _notEmptyContainer(
               context,
               subTotal.round(),
-              total,
+              total.toInt(),
               state.showExapnd,
               totalTax,
             );
@@ -121,8 +121,8 @@ class CartView extends StatelessWidget {
         ));
   }
 
-  Widget _notEmptyContainer(BuildContext context, int subTotal, double total,
-      bool isShow, double tax) {
+  Widget _notEmptyContainer(
+      BuildContext context, int subTotal, int total, bool isShow, double tax) {
     return Container(
         color: ColorManager.whiteColor,
         padding:

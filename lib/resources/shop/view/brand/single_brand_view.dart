@@ -85,8 +85,10 @@ class SingleBrandView extends StatelessWidget {
                               final banners =
                                   state.shopAdBrandsById!.result?.data;
 
-                              return CarouselView(
-                                  banners: banners, passValue: passValue);
+                              return banners?.isEmpty ?? true
+                                  ? kHeight16
+                                  : CarouselView(
+                                      banners: banners, passValue: passValue);
                             },
                           ),
                     kHeight30,
@@ -160,7 +162,7 @@ class SingleBrandView extends StatelessWidget {
                                       brand: data.brand?.name,
                                       productId: data.id ?? 'null',
                                       title: data.title,
-                                      image: data.images?[0] ?? 'null',
+                                      image: data.thumbnail,
                                       discountPrice:
                                           data.salePrice?.toInt() ?? 0,
                                       actualPrice:

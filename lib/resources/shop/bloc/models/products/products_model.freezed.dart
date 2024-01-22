@@ -396,6 +396,7 @@ mixin _$Product {
   List<Size>? get size => throw _privateConstructorUsedError;
   List<String>? get keywords => throw _privateConstructorUsedError;
   String? get madeFrom => throw _privateConstructorUsedError;
+  String? get thumbnail => throw _privateConstructorUsedError;
   String? get productCareInfo => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
@@ -429,6 +430,7 @@ abstract class $ProductCopyWith<$Res> {
       List<Size>? size,
       List<String>? keywords,
       String? madeFrom,
+      String? thumbnail,
       String? productCareInfo,
       DateTime? createdAt,
       DateTime? updatedAt});
@@ -469,6 +471,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? size = freezed,
     Object? keywords = freezed,
     Object? madeFrom = freezed,
+    Object? thumbnail = freezed,
     Object? productCareInfo = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -545,6 +548,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       madeFrom: freezed == madeFrom
           ? _value.madeFrom
           : madeFrom // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
       productCareInfo: freezed == productCareInfo
           ? _value.productCareInfo
@@ -624,6 +631,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       List<Size>? size,
       List<String>? keywords,
       String? madeFrom,
+      String? thumbnail,
       String? productCareInfo,
       DateTime? createdAt,
       DateTime? updatedAt});
@@ -665,6 +673,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? size = freezed,
     Object? keywords = freezed,
     Object? madeFrom = freezed,
+    Object? thumbnail = freezed,
     Object? productCareInfo = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -742,6 +751,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.madeFrom
           : madeFrom // ignore: cast_nullable_to_non_nullable
               as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
       productCareInfo: freezed == productCareInfo
           ? _value.productCareInfo
           : productCareInfo // ignore: cast_nullable_to_non_nullable
@@ -780,6 +793,7 @@ class _$ProductImpl implements _Product {
       required final List<Size>? size,
       required final List<String>? keywords,
       required this.madeFrom,
+      required this.thumbnail,
       required this.productCareInfo,
       required this.createdAt,
       required this.updatedAt})
@@ -861,6 +875,8 @@ class _$ProductImpl implements _Product {
   @override
   final String? madeFrom;
   @override
+  final String? thumbnail;
+  @override
   final String? productCareInfo;
   @override
   final DateTime? createdAt;
@@ -869,7 +885,7 @@ class _$ProductImpl implements _Product {
 
   @override
   String toString() {
-    return 'Product(id: $id, tax: $tax, tags: $tags, title: $title, brand: $brand, category: $category, subcategory: $subcategory, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Product(id: $id, tax: $tax, tags: $tags, title: $title, brand: $brand, category: $category, subcategory: $subcategory, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, thumbnail: $thumbnail, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -904,6 +920,8 @@ class _$ProductImpl implements _Product {
             const DeepCollectionEquality().equals(other._keywords, _keywords) &&
             (identical(other.madeFrom, madeFrom) ||
                 other.madeFrom == madeFrom) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail) &&
             (identical(other.productCareInfo, productCareInfo) ||
                 other.productCareInfo == productCareInfo) &&
             (identical(other.createdAt, createdAt) ||
@@ -934,6 +952,7 @@ class _$ProductImpl implements _Product {
         const DeepCollectionEquality().hash(_size),
         const DeepCollectionEquality().hash(_keywords),
         madeFrom,
+        thumbnail,
         productCareInfo,
         createdAt,
         updatedAt
@@ -973,6 +992,7 @@ abstract class _Product implements Product {
       required final List<Size>? size,
       required final List<String>? keywords,
       required final String? madeFrom,
+      required final String? thumbnail,
       required final String? productCareInfo,
       required final DateTime? createdAt,
       required final DateTime? updatedAt}) = _$ProductImpl;
@@ -1016,6 +1036,8 @@ abstract class _Product implements Product {
   List<String>? get keywords;
   @override
   String? get madeFrom;
+  @override
+  String? get thumbnail;
   @override
   String? get productCareInfo;
   @override

@@ -7,7 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
- 
+
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -44,6 +44,26 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   void initState() {
+    _fetchApi();
+
+    WidgetsBinding.instance.addObserver(AppLifecycleListener(onResume: () {
+      _fetchApi();
+    }));
+    OneSignal.Notifications.addClickListener((event) {
+      if (event.notification.additionalData?["route"] != null) {
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+          context.pushNamed(event.notification.additionalData?["route"]);
+        });
+      }
+    });
+
+    super.initState();
+  }
+
+  _fetchApi() {
+    if (!mounted) {
+      return;
+    }
     final verskey = context.read<QuranBloc>().state.shuffleVersKey;
     BlocProvider.of<QuranBloc>(context).add(const GetShuffledAya());
     BlocProvider.of<QuranBloc>(context)
@@ -70,71 +90,71 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchHadithOfTheDay())
       ..add(const FetchEventOfTheMonth())
       ..add(const ChangeIndexofAllaysaysBg());
+  }
 
-    OneSignal.Notifications.addClickListener((event) {
-       if (event.notification.additionalData?["route"] != null) {
-        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-          context.pushNamed(event.notification.additionalData?["route"]);
-        });
-      }
-    });
-
-    super.initState();
+  Future<void> _handleRefresh() async {
+    _fetchApi();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorManager.whiteColor,
-      body: BlocListener<DatabaseBloc, DatabaseState>(
-        listener: (context, state) {
-          if (state.token.isNotEmpty) {
-            BlocProvider.of<HomeBloc>(context).add(FetchPrayerTrackerEvent(
-                context: context, date: DateTime.now()));
-          }
-        },
-        child: BlocListener<LocationBloc, LocationState>(
+    return RefreshIndicator(
+      color: ColorManager.primary,
+      onRefresh: _handleRefresh,
+      child: Scaffold(
+        backgroundColor: ColorManager.whiteColor,
+        body: BlocListener<DatabaseBloc, DatabaseState>(
           listener: (context, state) {
-            if (state.currentLocation.isNotEmpty &&
-                state.weatherConditionName.isEmpty) {
-              context
-                  .read<NamazTimingBloc>()
-                  .add(FetchPrayerTiming(context: context));
-              context.read<LocationBloc>().add(const FetchWeatherEvent());
+            if (state.token.isNotEmpty) {
+              BlocProvider.of<HomeBloc>(context).add(FetchPrayerTrackerEvent(
+                  context: context, date: DateTime.now()));
             }
           },
-          child: BlocListener<NamazTimingBloc, NamazTimingState>(
+          child: BlocListener<LocationBloc, LocationState>(
             listener: (context, state) {
-              if (state.prayerModel != null) {
-                context.read<NamazTimingBloc>().add(const PrayerTimingEvent());
+              if (state.currentLocation.isNotEmpty &&
+                  state.weatherConditionName.isEmpty) {
+                context
+                    .read<NamazTimingBloc>()
+                    .add(FetchPrayerTiming(context: context));
+                context.read<LocationBloc>().add(const FetchWeatherEvent());
               }
             },
-            child: ValueListenableBuilder(
-              valueListenable: scrollNotifier,
-              builder: (context, value, child) {
-                return NotificationListener<UserScrollNotification>(
-                  onNotification: (notification) {
-                    final ScrollDirection direction = notification.direction;
-                    final double scrollPosition = notification.metrics.pixels;
-                    const double epsilon = 25.0;
-
-                    if (direction == ScrollDirection.reverse) {
-                      scrollNotifier.value = false;
-                    } else if (scrollPosition <= 10) {
-                      scrollNotifier.value = true;
-                    }
-                    return true;
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      HomeNamazTimingCard(
-                          scrollNotifierValue: scrollNotifier.value),
-                      _remainingWidgets(context),
-                    ],
-                  ),
-                );
+            child: BlocListener<NamazTimingBloc, NamazTimingState>(
+              listener: (context, state) {
+                if (state.prayerModel != null) {
+                  context
+                      .read<NamazTimingBloc>()
+                      .add(const PrayerTimingEvent());
+                }
               },
+              child: ValueListenableBuilder(
+                valueListenable: scrollNotifier,
+                builder: (context, value, child) {
+                  return NotificationListener<UserScrollNotification>(
+                    onNotification: (notification) {
+                      final ScrollDirection direction = notification.direction;
+                      final double scrollPosition = notification.metrics.pixels;
+                      const double epsilon = 25.0;
+
+                      if (direction == ScrollDirection.reverse) {
+                        scrollNotifier.value = false;
+                      } else if (scrollPosition <= 10) {
+                        scrollNotifier.value = true;
+                      }
+                      return true;
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        HomeNamazTimingCard(
+                            scrollNotifierValue: scrollNotifier.value),
+                        _remainingWidgets(context),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ),
@@ -884,6 +904,13 @@ class _HomeViewState extends State<HomeView> {
                       borderRadius: 12,
                     );
                   }
+                  if (state.isLoading) {
+                    return ShimmerUtils.customRectangleShimmer(
+                      SizeUtility(context).width,
+                      10,
+                      borderRadius: 12,
+                    );
+                  }
                   final data = state.versesByKeyModel?[0];
                   return Container(
                     height: 290,
@@ -1025,8 +1052,9 @@ class _HomeViewState extends State<HomeView> {
   Widget _bannerWidget() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        if (state.homeBanner == null) {
-          return const SizedBox();
+        if (state.homeBanner == null || state.isLoading) {
+          return ShimmerUtilWidget.borderRectangle(
+              width: SizeUtility(context).width, height: 150);
         }
 
         final banners = state.homeBanner?.result!.banners;

@@ -15,10 +15,12 @@ import '../model/auth_user_model/social_user_model.dart';
 
 class AuthService extends HttpServices {
   final String loginAPI = 'auth/signin_with_email';
+  final String newSignInApi = "auth/new_signin";
   final String loginWithGoogleApi = "social_auth/signin";
   final String signIN = 'social_auth/complete_signin';
   final String signInPhone = 'auth/signin';
   final String sentOtpApi = "auth/send_otp";
+  final String sentOtpOnlyApi = "auth/send_otp_only";
   final String signUpAPI = 'auth/signup';
   final String verifyOTPAPI = 'auth/verify';
   final String resendOTPAPI = 'auth/resend_otp';
@@ -39,6 +41,36 @@ class AuthService extends HttpServices {
       if (value.statusCode == 200) {
         final result = UserModel.fromJson(jsonDecode(value.body));
 
+        context
+            .read<DatabaseBloc>()
+            .add(StoreTokenEvent(token: result.result!.token.toString()));
+        // context.read<DatabaseBloc>().add(StoreUserDetails(
+        //     email: result.result!.user!.email.toString(),
+        //     name: result.result!.user!.name.toString()));
+
+        return {
+          'status': true,
+        };
+      } else {
+        return {'status': false, 'message': jsonDecode(value.body)['message']};
+      }
+    }).catchError((error) {
+      return {'status': false};
+    });
+  }
+
+  newSignIn({
+    required String phoneNumber,
+    required BuildContext context,
+  }) async {
+    return await posts(endPoint: newSignInApi, body: {
+      "phone_number": phoneNumber,
+    }).then((value) {
+      debugPrint(value.body);
+
+      if (value.statusCode == 200) {
+        final result = UserModel.fromJson(jsonDecode(value.body));
+        print(result.result!.token.toString());
         context
             .read<DatabaseBloc>()
             .add(StoreTokenEvent(token: result.result!.token.toString()));
@@ -121,6 +153,32 @@ class AuthService extends HttpServices {
         return {
           'status': true,
           'result': value['result']['otp']['otp'],
+        };
+      } else {
+        return {
+          'status': false,
+          'message': value['message'],
+        };
+      }
+    } catch (e) {
+      return {
+        'status': false,
+        'message': 'Something went wrong, Please try again later',
+      };
+    }
+  }
+
+  Future<Map<String, dynamic>> sendOTPonly(
+      {required String phoneNumber}) async {
+    try {
+      final res = await posts(
+          endPoint: sentOtpOnlyApi, body: {"phone_number": phoneNumber});
+      var value = json.decode(res.body);
+
+      if (value['status'] == 200) {
+        return {
+          'status': true,
+          'result': value['result']['otp']['otp'].toString(),
         };
       } else {
         return {

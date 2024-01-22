@@ -28,69 +28,81 @@ class RewardsHomeView extends StatefulWidget {
 class _RewardsHomeViewState extends State<RewardsHomeView> {
   @override
   void initState() {
+    _fetchApi();
+    super.initState();
+  }
+
+  _fetchApi() {
     BlocProvider.of<RewardsBloc>(context)
         .add(const RewardsEvent.fetchRewardProducts());
 
     BlocProvider.of<RewardsBloc>(context)
         .add(RewardsEvent.fetchRewards(context: context));
-    super.initState();
+  }
+
+  Future<void> _handleRefresh() async {
+    _fetchApi();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorManager.whiteColor,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 30,
-          vertical: 30,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              kHeight20,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _profileImageWidget(),
-                  const ScoreWidget(),
-                ],
-              ),
-              kHeight15,
-              _redeemYourCoinsWidget(context),
-              kHeight15,
-              _shopWithCoinsWidget(context),
-              kHeight15,
-              const DailyCoinsWidget(),
-              kHeight20,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  lastContainerWidget(
-                    context: context,
-                    text: Appstrings.howEarn,
-                    imageAsset: AppAssetsStrings.howToEarn,
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const HowToEarnView(),
-                      ));
-                    },
-                  ),
-                  lastContainerWidget(
-                    context: context,
-                    text: Appstrings.howRedeem,
-                    imageAsset: AppAssetsStrings.howToRedeem,
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const HowToRedeemView(),
-                      ));
-                    },
-                  ),
-                ],
-              ),
-              kHeight50,
-            ],
+    return RefreshIndicator(
+      color: ColorManager.primary,
+      onRefresh: _handleRefresh,
+      child: Scaffold(
+        backgroundColor: ColorManager.whiteColor,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 30,
+            vertical: 30,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                kHeight20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _profileImageWidget(),
+                    const ScoreWidget(),
+                  ],
+                ),
+                kHeight15,
+                _redeemYourCoinsWidget(context),
+                kHeight15,
+                _shopWithCoinsWidget(context),
+                kHeight15,
+                const DailyCoinsWidget(),
+                kHeight20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    lastContainerWidget(
+                      context: context,
+                      text: Appstrings.howEarn,
+                      imageAsset: AppAssetsStrings.howToEarn,
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HowToEarnView(),
+                        ));
+                      },
+                    ),
+                    lastContainerWidget(
+                      context: context,
+                      text: Appstrings.howRedeem,
+                      imageAsset: AppAssetsStrings.howToRedeem,
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HowToRedeemView(),
+                        ));
+                      },
+                    ),
+                  ],
+                ),
+                kHeight50,
+              ],
+            ),
           ),
         ),
       ),

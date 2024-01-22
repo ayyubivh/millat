@@ -204,10 +204,13 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
               BlocBuilder<RewardsBloc, RewardsState>(
                 builder: (context, state) => GestureDetector(
                   onTap: () async {
-                    state.checkCoinsCollected == false
-                        ? BlocProvider.of<RewardsBloc>(context)
-                            .add(RewardsEvent.addCoinsCollectionEvent(context))
-                        : null;
+                    if (state.checkCoinsCollected == false &&
+                        !state.isLoading) {
+                      print("yes");
+                      BlocProvider.of<RewardsBloc>(context)
+                          .add(RewardsEvent.addCoinsCollectionEvent(context));
+                    }
+                    print("not");
                   },
                   child: Container(
                     height: 38,
@@ -217,7 +220,10 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                         gradient: LinearGradient(
                           colors: [
                             ColorManager.primary.withOpacity(
-                                state.checkCoinsCollected == true ? 0.4 : 0.6),
+                                state.checkCoinsCollected == true ||
+                                        state.isLoading
+                                    ? 0.4
+                                    : 0.6),
                             ColorManager.primary.withOpacity(
                                 state.checkCoinsCollected == false ? 1 : 0.4),
                           ],

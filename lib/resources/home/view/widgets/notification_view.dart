@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -14,12 +15,17 @@ class NotificationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      BlocProvider.of<HomeBloc>(context)
+          .add(FetchNotificationApi(context: context));
+    });
     return WillPopScope(
       onWillPop: () {
         final id =
-            context.read<HomeBloc>().state.notificationModel?.result?.data;
-        context.read<HomeBloc>().add(AddMarkReadNotificationEvent(
-            id: id?[0].id ?? "", context: context));
+            context.read<DatabaseBloc>().state.authUserModel?.result?.user?.id;
+        context
+            .read<HomeBloc>()
+            .add(AddMarkReadNotificationEvent(id: id ?? "", context: context));
         return Future.value(true);
       },
       child: Scaffold(
@@ -37,28 +43,36 @@ class NotificationView extends StatelessWidget {
             ),
           ),
         ),
-        body: BlocProvider(
-          create: (context) =>
-              HomeBloc()..add(FetchNotificationApi(context: context)),
-          child: BlocBuilder<HomeBloc, HomeState>(
-            builder: (context, state) {
-              final data = state.notificationModel?.result?.data;
-              return ListView.builder(
-                  itemCount: data?.length,
-                  itemBuilder: (context, index) {
-                    final userId = context
-                        .read<DatabaseBloc>()
-                        .state
-                        .authUserModel
-                        ?.result
-                        ?.user
-                        ?.id;
+        body: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            final data = state.notificationModel?.result?.data;
+            return data == null
+                ? const Loader()
+                : ListView.separated(
+                    separatorBuilder: (context, index) => kHeight5,
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      final userId = context
+                          .read<DatabaseBloc>()
+                          .state
+                          .authUserModel
+                          ?.result
+                          ?.user
+                          ?.id;
 
-                    final isRead = data?[index].isReadByUser?.contains(userId);
+                      final isRead = data[index].isReadByUser?.contains(userId);
 
-                    return Column(
-                      children: [
-                        Container(
+                      return GestureDetector(
+                        onTap: () {
+                          if (data[index].url == null ||
+                              data[index].url == "") {
+                            context.pop();
+                          } else {
+                            context.pushReplacementNamed(
+                                data[index].url.toString().replaceAll("/", ""));
+                          }
+                        },
+                        child: Container(
                           color: isRead == true
                               ? ColorManager.whiteColor
                               : ColorManager.lightGreenD6,
@@ -67,34 +81,32 @@ class NotificationView extends StatelessWidget {
                             horizontal: 20,
                           ),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  isRead == false
-                                      ? CircleAvatar(
-                                          radius: 3,
-                                          backgroundColor: ColorManager.primary,
-                                        )
-                                      : const SizedBox(),
-                                  kWidth10,
-                                  SizedBox(
-                                    height: 40,
-                                    width: SizeUtility(context).width / 2,
-                                    child: Text(
-                                      data?[index].title ?? "",
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        height: 1.2,
+                                  Row(
+                                    children: [
+                                      isRead == false
+                                          ? CircleAvatar(
+                                              radius: 3,
+                                              backgroundColor:
+                                                  ColorManager.primary,
+                                            )
+                                          : const SizedBox(),
+                                      Text(
+                                        data[index].title ?? "",
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ),
                                   const Spacer(),
                                   Text(
                                     Utilities.formatTimeAgo(
-                                        data?[index].sendAt ?? ""),
+                                        data[index].sendAt ?? ""),
                                     style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
@@ -103,19 +115,14 @@ class NotificationView extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                              kHeight10,
+                              Text(data[index].description ?? '')
                             ],
                           ),
                         ),
-                        Container(
-                          color: ColorManager.greyD1,
-                          height: 2,
-                          width: double.infinity,
-                        )
-                      ],
-                    );
-                  });
-            },
-          ),
+                      );
+                    });
+          },
         ),
       ),
     );

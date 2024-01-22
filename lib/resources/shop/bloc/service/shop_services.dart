@@ -621,7 +621,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ShopAdBrandsById.fromJson(data);
-        debugPrint('here shop by id $result');
+
         return result;
       } catch (e) {
         debugPrint('error on shop by brand API fetch: ${e.toString()}');

@@ -103,6 +103,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthError(res['message']));
           }
         }
+      } else if (event is SendOTPonly) {
+        emit(AuthLoading());
+        final res =
+            await _authService.sendOTPonly(phoneNumber: event.phoneNumber);
+
+        if (res['status'] == true) {
+          print(res['result'].toString);
+          emit(AuthLoadedOTPonly(event.phoneNumber, res['result'].toString()));
+        } else {
+          emit(AuthError(res['message']));
+        }
       } else if (event is ResendSendOTP) {
         final currentState = state as AuthPhoneNumber;
 
@@ -116,6 +127,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } else if (event is VerifyOTP) {
         final currentState = state;
+        print(currentState.toString());
         if (currentState is AuthSocialLoginNewUserLoaded) {
           if (event.code.isEmpty) {
             emit(AuthError('Please fill in all the fields'));
@@ -124,9 +136,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 userId != null &&
                 currentState.phoneNumber!.isNotEmpty) {
               final result = await _authService.signIn(
-                  context: event.context,
-                  phoneNumber: currentState.phoneNumber!,
-                  userId: userId!);
+                context: event.context,
+                phoneNumber: currentState.phoneNumber!,
+                userId: userId!,
+              );
 
               if (result['status'] == true) {
                 emit(AuthLoaded(currentState.phoneNumber!));
@@ -147,6 +160,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           } else {
             emit(AuthError(result['message']));
             emit(AuthPhoneNumber(phoneNumber: currentState.phoneNumber));
+          }
+        } else if (currentState is AuthLoadedOTPonly) {
+          print(currentState.otp == event.code);
+          if (currentState.otp == event.code) {
+            print("yes");
+
+            final result = await _authService.newSignIn(
+              context: event.context,
+              phoneNumber: currentState.phoneNumber!,
+            );
+            if (result['status'] == true) {
+              emit(AuthLoaded(currentState.phoneNumber!));
+            } else {
+              emit(AuthError(result['message']));
+            }
           }
         }
       } else if (event is SocialLogin) {

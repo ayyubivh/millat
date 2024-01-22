@@ -25,6 +25,12 @@ class SendOTP extends AuthEvent {
   SendOTP(this.phoneNumber);
 }
 
+class SendOTPonly extends AuthEvent {
+  final String phoneNumber;
+
+  SendOTPonly(this.phoneNumber);
+}
+
 class ResendSendOTP extends AuthEvent {}
 
 class SignInWithPhone extends AuthEvent {

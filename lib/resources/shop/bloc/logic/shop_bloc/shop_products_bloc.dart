@@ -601,7 +601,6 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await shopService.fetchAdShopBrandsbyId(id: event.id);
       emit(state.copyWith(isLoading: false, shopAdBrandsById: data));
-      debugPrint("ad brands bloc ${state.shopAdBrandsById}");
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: "$e"));
     }
@@ -715,7 +714,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   _fetchArticlesById(
       FetchArticlesId event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(isLoading: true));
+    emit(state.copyWith(isLoading: true, articleModelById: null));
     try {
       final data = await shopService.fetchArticleById(event.id);
 

@@ -101,7 +101,7 @@ class CheckoutPayment extends StatelessWidget {
                           color: ColorManager.darkWhite,
                           borderRadius: BorderRadius.circular(6),
                         ),
-                        child: paymenCODwidget(context),
+                        child: paymentCODwidget(context),
                       )
               ],
             ),
@@ -133,7 +133,7 @@ class CheckoutPayment extends StatelessWidget {
         ));
   }
 
-  Widget paymenCODwidget(BuildContext context) {
+  Widget paymentCODwidget(BuildContext context) {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) => Row(
         children: [

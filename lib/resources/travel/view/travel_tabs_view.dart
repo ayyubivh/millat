@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -37,6 +38,8 @@ class TravelTabsView extends StatelessWidget {
                 : (8.0 / 100.0) * SizeUtility(context).height,
             child: BottomNavigationBar(
               onTap: (newIndex) {
+                log("new index $newIndex and bloc index ${state.index}");
+
                 if (newIndex == 0 && state.tabIndex == newIndex) {
                   // Navigator.push(
                   //   context,

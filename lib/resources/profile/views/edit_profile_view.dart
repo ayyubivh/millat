@@ -564,7 +564,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                                     .read<DatabaseBloc>()
                                     .add(FetchAuthUser(context: context));
                                 context.pop();
-                              } else {}
+                              }
                             },
                           ),
                           kHeight20,

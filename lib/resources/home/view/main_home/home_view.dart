@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable, depend_on_referenced_packages
 
+import 'dart:developer';
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -45,10 +46,6 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     _fetchApi();
-
-    WidgetsBinding.instance.addObserver(AppLifecycleListener(onResume: () {
-      _fetchApi();
-    }));
     OneSignal.Notifications.addClickListener((event) {
       if (event.notification.additionalData?["route"] != null) {
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -56,6 +53,12 @@ class _HomeViewState extends State<HomeView> {
         });
       }
     });
+    // WidgetsBinding.instance.addObserver(AppLifecycleListener(
+    //   onResume: _handleRefresh,
+    //   onStateChange: (value) {
+    //     log("state changed value ${value.name}");
+    //   },
+    // ));
 
     super.initState();
   }

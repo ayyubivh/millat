@@ -1,4 +1,3 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -234,7 +233,9 @@ class _ShopViewState extends State<ShopView> {
                                         sunnahSubCategoryData[index].title ??
                                         "",
                                     getImageUrl: (index) =>
-                                        sunnahSubCategoryData[index].image!,
+                                        sunnahSubCategoryData[index]
+                                            .thumbnail ??
+                                        "",
                                     isSunnah: true),
                           ),
                         ],
@@ -245,7 +246,6 @@ class _ShopViewState extends State<ShopView> {
                 ],
               ),
             ),
-            kHeight100,
           ],
         ),
       ),
@@ -390,9 +390,8 @@ class _ShopViewState extends State<ShopView> {
                               borderRadius: const BorderRadius.vertical(
                                 top: Radius.circular(12),
                               ),
-                              child: Image.asset(
-                                AppAssetsStrings.brandBackgroundImg,
-                                fit: BoxFit.fill,
+                              child: Utilities().buildCachedNetworkImage(
+                                imageUrl: banner.brandId?.coverImage ?? "",
                                 width: SizeUtility(context).width,
                                 height: 173,
                               ),
@@ -671,9 +670,9 @@ class _ShopViewState extends State<ShopView> {
           kHeight20,
           BlocBuilder<CategoryBloc, CategoryState>(
             builder: (context, state) {
-              return SizedBox(
-                height: 95,
+              return Expanded(
                 child: ListView.builder(
+                  shrinkWrap: true,
                   itemCount: state.category?.result?.category?.length,
                   itemExtent: !Responsive.isMobile(context) ? 150 : 100,
                   scrollDirection: Axis.horizontal,

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class ShopTabsView extends StatelessWidget {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) => WillPopScope(
         onWillPop: () {
+          log("tab index ${state.index}");
           if (state.index == 0) {
             // DateTime now = DateTime.now();
             // if (currentBackPressTime == null ||
@@ -61,6 +63,7 @@ class ShopTabsView extends StatelessWidget {
                 : (8.0 / 100.0) * SizeUtility(context).height,
             child: BottomNavigationBar(
               onTap: (newIndex) {
+                log("new index $newIndex and bloc index ${state.index}");
                 if (newIndex == 0 && state.index == newIndex) {
                   context
                       .read<HomeBloc>()

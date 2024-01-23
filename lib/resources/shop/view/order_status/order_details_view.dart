@@ -428,9 +428,6 @@ class OrdetailsView extends StatelessWidget {
       builder: (context, state) {
         final data = state.ordersByIdModel?.result?.order;
 
-        // Format the order date
-
-        // Calculate the estimated delivery date (order date + 7 days)
         DateTime orderDate = DateTime.parse(data?.orderDate ?? "");
         DateTime estimatedDeliveryDate = orderDate.add(Duration(days: 7));
         String formattedEstimatedDeliveryDate = Utilities.formatDate(

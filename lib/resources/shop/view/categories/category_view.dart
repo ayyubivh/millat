@@ -80,7 +80,7 @@ class CategoryView extends StatelessWidget {
                   final sliderImage =
                       state.specificCategoryModel?.result?.data?.sliderImage;
 
-                  return sliderImage == null
+                  return sliderImage == null || state.isLoading
                       ? ShimmerUtils.customRectangleShimmer(
                           SizeUtility(context).width, 200)
                       : Stack(
@@ -151,9 +151,10 @@ class CategoryView extends StatelessWidget {
                             builder: (context, state) {
                               List<dynamic>? productItems;
                               if (state.productItemsSubCategoryWomenModel ==
-                                      null &&
-                                  state.productItemsSubCategoryHealthModel ==
-                                      null) {
+                                          null &&
+                                      state.productItemsSubCategoryHealthModel ==
+                                          null ||
+                                  state.isLoading) {
                                 return Row(
                                   children: List.generate(
                                       5,
@@ -246,6 +247,19 @@ class CategoryView extends StatelessWidget {
                           )
                         : BlocBuilder<CategoryBloc, CategoryState>(
                             builder: (context, state) {
+                              if (state.categoryItemModel == null ||
+                                  state.categoryLoading) {
+                                return Row(
+                                  children: List.generate(
+                                      5,
+                                      (index) => Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 15),
+                                            child: ShimmerUtils
+                                                .categoriesShimmers(),
+                                          )),
+                                );
+                              }
                               return SizedBox(
                                 height: 110,
                                 child: ListView.builder(
@@ -318,7 +332,7 @@ class CategoryView extends StatelessWidget {
                       builder: (context, state) {
                         final products = state.flashSaleproducts?.result
                             ?.shopProductCategory?.products;
-                        if (products == null) {
+                        if (products == null || state.isLoading) {
                           return Row(
                               children: List.generate(
                             2,
@@ -392,7 +406,9 @@ class CategoryView extends StatelessWidget {
                                 ?.map((image) => image.imageUrl)
                                 .toList() ??
                             [];
-                        return state.specificCategoryModel?.result?.data == null
+                        return state.specificCategoryModel?.result?.data ==
+                                    null ||
+                                state.isLoading
                             ? ShimmerUtils.customRectangleShimmer(
                                 SizeUtility(context).width, 120)
                             : Column(
@@ -498,7 +514,7 @@ class CategoryView extends StatelessWidget {
                       builder: (context, state) {
                         final bigBannerImageUrl = state.specificCategoryModel
                             ?.result?.data?.bigBannerImage?.imageUrl;
-                        return bigBannerImageUrl == null
+                        return bigBannerImageUrl == null || state.isLoading
                             ? ShimmerUtils.customRectangleShimmer(
                                 SizeUtility(context).width, 100)
                             : GestureDetector(

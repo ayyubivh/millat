@@ -202,6 +202,7 @@ class CarouselView extends StatelessWidget {
         CarouselSlider(
           items: banners?.map((banner) {
             return Container(
+              margin: const EdgeInsets.only(right: 10),
               height: 226,
               width: SizeUtility(context).width,
               decoration: BoxDecoration(
@@ -217,9 +218,8 @@ class CarouselView extends StatelessWidget {
                         borderRadius: const BorderRadius.vertical(
                           top: Radius.circular(12),
                         ),
-                        child: Image.asset(
-                          AppAssetsStrings.brandBackgroundImg,
-                          fit: BoxFit.fill,
+                        child: Utilities().buildCachedNetworkImage(
+                          imageUrl: passValue.coverImage,
                           width: SizeUtility(context).width,
                           height: 173,
                         ),

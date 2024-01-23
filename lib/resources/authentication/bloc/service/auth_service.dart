@@ -445,7 +445,7 @@ class AuthService extends HttpServices {
       } else {
         return {
           'status': false,
-          'message': 'Failed to update profile',
+          'message': 'Email is already registered',
         };
       }
     } catch (error) {

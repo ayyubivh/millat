@@ -117,13 +117,13 @@ class MyAppRouter {
                   return const MaterialPage(child: PrayerTrackerCalendarView());
                 },
               ),
-              GoRoute(
-                path: MyAppRouteConstants.rewardsTabRouteName,
-                name: MyAppRouteConstants.rewardsTabRouteName,
-                pageBuilder: (context, state) {
-                  return const MaterialPage(child: RewardsTabView());
-                },
-              ),
+              // GoRoute(
+              //   path: MyAppRouteConstants.rewardsTabRouteName,
+              //   name: MyAppRouteConstants.rewardsTabRouteName,
+              //   pageBuilder: (context, state) {
+              //     return const MaterialPage(child: RewardsTabView());
+              //   },
+              // ),
               GoRoute(
                   name: MyAppRouteConstants.rewardsShopRouteName,
                   path: MyAppRouteConstants.rewardsShopRouteName,

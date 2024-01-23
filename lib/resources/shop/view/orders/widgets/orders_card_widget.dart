@@ -45,7 +45,11 @@ class OrdersProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final backgroundColor = _getColorFromJson(jsonColor);
+    DateTime orderDate = DateTime.parse(date);
+    DateTime estimatedDeliveryDate = orderDate.add(Duration(days: 7));
+    String formattedEstimatedDeliveryDate = Utilities.formatDate(
+      estimatedDeliveryDate.toLocal().toString(),
+    );
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
@@ -311,7 +315,7 @@ class OrdersProfileWidget extends StatelessWidget {
                             ),
                             child: Text(
                               orderStatus != Appstrings.cancelled
-                                  ? "Exchange/Return closed by 31st July"
+                                  ? "Exchange/Return closed by $formattedEstimatedDeliveryDate"
                                   : Appstrings.orderCancelled,
                               style: const TextStyle(
                                 fontSize: 13,

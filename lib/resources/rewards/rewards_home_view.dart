@@ -195,9 +195,9 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
                                 width: 106,
                                 boxFit: BoxFit.fill,
                               ),
-                              kHeight3,
+                              kHeight5,
                               Text(
-                                data[index]?.productId?.salePrice.toString() ??
+                                data[index]?.offerPrice?.toInt().toString() ??
                                     "",
                                 style: TextStyle(
                                   fontSize: 13,

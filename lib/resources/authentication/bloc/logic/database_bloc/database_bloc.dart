@@ -72,16 +72,25 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         institution: event.institution,
         profession: event.profession,
       );
-      debugPrint('image ${state.imagebytes}');
+      debugPrint('data $data');
       if (data['status'] == true) {
         debugPrint('data $data');
-        emit(state.copyWith(
-            editIsloading: false,
-            editSuccesMessage: data['message'].toString()));
+        emit(
+          state.copyWith(
+              editIsloading: false,
+              editSuccesMessage: data['message'].toString()),
+        );
       } else {
-        emit(state.copyWith(
-            editIsloading: false,
-            editFailedMessage: data['message'].toString()));
+        emit(
+          state.copyWith(
+              editIsloading: false,
+              editFailedMessage: data['message'].toString()),
+        );
+
+        emit(state.copyWith(editFailedMessage: ""));
+
+        print(
+            "state in the bloc of edit failed message ${state.editFailedMessage}");
       }
     });
     on<UploadImageEvent>((event, emit) async {
@@ -157,8 +166,14 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       emit(state.copyWith(succesMessage: "", failedMessage: ""));
     });
     on<FetchUserReferralCode>((event, emit) async {
-      final data = await authService.fetchUserReferralCode();
-      emit(state.copyWith(referralCode: data));
+      emit(state.copyWith(isLoading: true));
+      try {
+        final data = await authService.fetchUserReferralCode();
+        emit(state.copyWith(referralCode: data, isLoading: false));
+      } catch (e) {
+        emit(state.copyWith(isLoading: false));
+        throw Exception(e);
+      }
     });
     on<FetchReferralMessage>((event, emit) async {
       final data = await authService.fetchReferralMessage();

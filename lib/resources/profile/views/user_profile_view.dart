@@ -7,6 +7,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -34,6 +35,9 @@ class _UserProfileViewState extends State<UserProfileView> {
   Widget build(BuildContext context) {
     return BlocConsumer<DatabaseBloc, DatabaseState>(
       listener: (context, state) {
+        if (state.editFailedMessage != "") {
+          showSnackBar(context, state.editFailedMessage);
+        }
         if (state.failedMessage != "") {
           showSnackBar(context, state.failedMessage);
         } else if (state.succesMessage != "") {
@@ -72,7 +76,7 @@ class _UserProfileViewState extends State<UserProfileView> {
                   AssetImage(AppAssetsStrings.editIcon),
                 ),
               ),
-              kWidth20,
+              kWidth30,
             ],
             title: Text(
               Appstrings.profile,
@@ -145,12 +149,14 @@ class _UserProfileViewState extends State<UserProfileView> {
                   Align(
                     alignment: Alignment.center,
                     child: BlocBuilder<DatabaseBloc, DatabaseState>(
-                      builder: (context, state) =>
-                          Text(state.authUserModel?.result?.user?.name ?? "",
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              )),
+                      builder: (context, state) {
+                        return Text(
+                            state.authUserModel?.result?.user?.name ?? "",
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ));
+                      },
                     ),
                   ),
                   kHeight20,
@@ -182,13 +188,28 @@ class _UserProfileViewState extends State<UserProfileView> {
                           textAlign: TextAlign.center,
                         ),
                         kHeight10,
+                        state.authUserModel?.result?.user?.institution == "" ||
+                                state.authUserModel?.result?.user
+                                        ?.institution ==
+                                    null
+                            ? const SizedBox()
+                            : Text(
+                                "Works at ${state.authUserModel?.result?.user?.institution}",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.3,
+                                    color: ColorManager.blue7A),
+                                textAlign: TextAlign.center,
+                              ),
+                        kHeight5,
                         Text(
-                          "Works at ${state.authUserModel?.result?.user?.institution ?? "Empty"}",
+                          " ${state.authUserModel?.result?.user?.profession ?? ""}",
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                               height: 1.3,
-                              color: ColorManager.blue7A),
+                              color: ColorManager.blackColor),
                           textAlign: TextAlign.center,
                         ),
                         kHeight10,
@@ -259,8 +280,8 @@ class _UserProfileViewState extends State<UserProfileView> {
                               ),
                               const Spacer(),
                               Icon(
-                                Icons.navigate_next_outlined,
-                                size: 28,
+                                Icons.share_outlined,
+                                size: 24,
                                 color: ColorManager.black4F,
                               )
                             ],
@@ -278,46 +299,53 @@ class _UserProfileViewState extends State<UserProfileView> {
                           Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                color: ColorManager.black4A,
+                                color: ColorManager.primary,
                                 borderRadius: BorderRadius.circular(2),
                               ),
                               padding:
                                   const EdgeInsets.all(3).copyWith(left: 8),
                               child: BlocBuilder<DatabaseBloc, DatabaseState>(
-                                builder: (context, state) => Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      state.referralCode,
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: ColorManager.whiteColor),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Clipboard.setData(ClipboardData(
-                                            text: state.referralCode));
-                                        showSnackBar(context, "Text Copied!");
-                                      },
-                                      child: Container(
+                                builder: (context, state) => state.isLoading
+                                    ? const ShimmerUtilWidget.borderRectangle(
+                                        width: double.infinity,
                                         height: 35,
-                                        width: 30,
-                                        decoration: BoxDecoration(
-                                          color: ColorManager.whiteColor,
-                                          borderRadius:
-                                              BorderRadius.circular(2),
-                                        ),
-                                        padding: const EdgeInsets.all(4),
-                                        child: ImageIcon(
-                                          const AssetImage(
-                                              AppAssetsStrings.copyIcon),
-                                          color: ColorManager.black4A,
-                                        ),
+                                        borderRadius: 2,
+                                      )
+                                    : Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            state.referralCode,
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: ColorManager.whiteColor),
+                                          ),
+                                          GestureDetector(
+                                            onTap: () {
+                                              Clipboard.setData(ClipboardData(
+                                                  text: state.referralCode));
+                                              showSnackBar(
+                                                  context, "Text Copied!");
+                                            },
+                                            child: Container(
+                                              height: 35,
+                                              width: 30,
+                                              decoration: BoxDecoration(
+                                                color: ColorManager.whiteColor,
+                                                borderRadius:
+                                                    BorderRadius.circular(2),
+                                              ),
+                                              padding: const EdgeInsets.all(4),
+                                              child: ImageIcon(
+                                                const AssetImage(
+                                                    AppAssetsStrings.copyIcon),
+                                                color: ColorManager.primary,
+                                              ),
+                                            ),
+                                          )
+                                        ],
                                       ),
-                                    )
-                                  ],
-                                ),
                               ))
                         ],
                       ),

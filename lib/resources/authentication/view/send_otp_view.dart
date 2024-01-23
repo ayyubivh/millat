@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -188,5 +186,8 @@ class _SendOTPViewState extends State<SendOTPView> {
         .showSnackBar(SnackBar(content: Text(message)));
   }
 
-  clearDate() => number = null;
+  clearDate() {
+    _referralCodeController.clear();
+    number = null;
+  }
 }

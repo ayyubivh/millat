@@ -290,6 +290,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = BrandItemsModel.fromJson(data);
+
         return result;
       } catch (e) {
         debugPrint('error on fetchin all brands: ${e.toString()}');

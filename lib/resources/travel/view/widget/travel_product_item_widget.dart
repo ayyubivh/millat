@@ -17,7 +17,7 @@ class TravelProductItemWidget extends StatelessWidget {
     required this.data,
   });
 
-  final TravelProduct data;
+  final ProductId data;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class TravelProductItemWidget extends StatelessWidget {
             });
       },
       child: Container(
-        height: 215,
+        height: 220,
         width: SizeUtility(context).width / 2,
         decoration: BoxDecoration(
             border: Border.all(
@@ -44,11 +44,11 @@ class TravelProductItemWidget extends StatelessWidget {
             Stack(
               children: [
                 SizedBox(
-                  height: 144,
+                  height: 140,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: Utilities().buildCachedNetworkImage(
-                      imageUrl: data.mainImage,
+                      imageUrl: data.main_image,
                     ),
                   ),
                 ),
@@ -65,12 +65,17 @@ class TravelProductItemWidget extends StatelessWidget {
             kHeight10,
             Row(
               children: [
-                Text(
-                  data.name ?? "",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: ColorManager.blackColor,
+                SizedBox(
+                  width: SizeUtility(context).width / 3,
+                  child: Text(
+                    data.name ?? "",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: ColorManager.blackColor,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 const Spacer(),

@@ -669,6 +669,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await shopService.fetchBrandItemsById(id: event.id);
+    
       emit(state.copyWith(brandItemsModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));

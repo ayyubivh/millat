@@ -28,6 +28,13 @@ class _SendOTPViewState extends State<SendOTPView> {
   bool isValidate = false;
   bool isReferral = false;
   @override
+  void dispose() {
+    clearDate();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocConsumer<AuthBloc, AuthState>(
@@ -176,6 +183,10 @@ class _SendOTPViewState extends State<SendOTPView> {
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text("Please enter phone number")));
               }
+              setState(() {
+                isReferral = false;
+              });
+              clearDate();
             }),
       ),
     );

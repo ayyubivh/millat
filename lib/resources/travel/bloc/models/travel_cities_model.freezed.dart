@@ -20,7 +20,7 @@ TravelCitiesModel _$TravelCitiesModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TravelCitiesModel {
-  List<City> get cities => throw _privateConstructorUsedError;
+  List<City>? get cities => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $TravelCitiesModelCopyWith<$Res> {
           TravelCitiesModel value, $Res Function(TravelCitiesModel) then) =
       _$TravelCitiesModelCopyWithImpl<$Res, TravelCitiesModel>;
   @useResult
-  $Res call({List<City> cities});
+  $Res call({List<City>? cities});
 }
 
 /// @nodoc
@@ -50,13 +50,13 @@ class _$TravelCitiesModelCopyWithImpl<$Res, $Val extends TravelCitiesModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cities = null,
+    Object? cities = freezed,
   }) {
     return _then(_value.copyWith(
-      cities: null == cities
+      cities: freezed == cities
           ? _value.cities
           : cities // ignore: cast_nullable_to_non_nullable
-              as List<City>,
+              as List<City>?,
     ) as $Val);
   }
 }
@@ -69,7 +69,7 @@ abstract class _$$TravelCitiesModelImplCopyWith<$Res>
       __$$TravelCitiesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<City> cities});
+  $Res call({List<City>? cities});
 }
 
 /// @nodoc
@@ -83,13 +83,13 @@ class __$$TravelCitiesModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cities = null,
+    Object? cities = freezed,
   }) {
     return _then(_$TravelCitiesModelImpl(
-      cities: null == cities
+      cities: freezed == cities
           ? _value._cities
           : cities // ignore: cast_nullable_to_non_nullable
-              as List<City>,
+              as List<City>?,
     ));
   }
 }
@@ -97,18 +97,20 @@ class __$$TravelCitiesModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$TravelCitiesModelImpl implements _TravelCitiesModel {
-  const _$TravelCitiesModelImpl({required final List<City> cities})
+  const _$TravelCitiesModelImpl({required final List<City>? cities})
       : _cities = cities;
 
   factory _$TravelCitiesModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$TravelCitiesModelImplFromJson(json);
 
-  final List<City> _cities;
+  final List<City>? _cities;
   @override
-  List<City> get cities {
+  List<City>? get cities {
+    final value = _cities;
+    if (value == null) return null;
     if (_cities is EqualUnmodifiableListView) return _cities;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_cities);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -145,14 +147,14 @@ class _$TravelCitiesModelImpl implements _TravelCitiesModel {
 }
 
 abstract class _TravelCitiesModel implements TravelCitiesModel {
-  const factory _TravelCitiesModel({required final List<City> cities}) =
+  const factory _TravelCitiesModel({required final List<City>? cities}) =
       _$TravelCitiesModelImpl;
 
   factory _TravelCitiesModel.fromJson(Map<String, dynamic> json) =
       _$TravelCitiesModelImpl.fromJson;
 
   @override
-  List<City> get cities;
+  List<City>? get cities;
   @override
   @JsonKey(ignore: true)
   _$$TravelCitiesModelImplCopyWith<_$TravelCitiesModelImpl> get copyWith =>
@@ -166,14 +168,15 @@ City _$CityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$City {
   @JsonKey(name: "_id")
-  String get id => throw _privateConstructorUsedError;
-  String get image => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: "__v")
-  int get v => throw _privateConstructorUsedError;
+  int? get v => throw _privateConstructorUsedError;
+  String? get thumbnail => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -186,13 +189,14 @@ abstract class $CityCopyWith<$Res> {
       _$CityCopyWithImpl<$Res, City>;
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
-      String image,
-      String city,
-      String country,
-      String createdAt,
-      String updatedAt,
-      @JsonKey(name: "__v") int v});
+      {@JsonKey(name: "_id") String? id,
+      String? image,
+      String? city,
+      String? country,
+      String? createdAt,
+      String? updatedAt,
+      @JsonKey(name: "__v") int? v,
+      String? thumbnail});
 }
 
 /// @nodoc
@@ -208,43 +212,48 @@ class _$CityCopyWithImpl<$Res, $Val extends City>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? image = null,
-    Object? city = null,
-    Object? country = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? v = null,
+    Object? id = freezed,
+    Object? image = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? v = freezed,
+    Object? thumbnail = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: null == image
+              as String?,
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      v: null == v
+              as String?,
+      v: freezed == v
           ? _value.v
           : v // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -257,13 +266,14 @@ abstract class _$$CityImplCopyWith<$Res> implements $CityCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
-      String image,
-      String city,
-      String country,
-      String createdAt,
-      String updatedAt,
-      @JsonKey(name: "__v") int v});
+      {@JsonKey(name: "_id") String? id,
+      String? image,
+      String? city,
+      String? country,
+      String? createdAt,
+      String? updatedAt,
+      @JsonKey(name: "__v") int? v,
+      String? thumbnail});
 }
 
 /// @nodoc
@@ -276,43 +286,48 @@ class __$$CityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? image = null,
-    Object? city = null,
-    Object? country = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? v = null,
+    Object? id = freezed,
+    Object? image = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? v = freezed,
+    Object? thumbnail = freezed,
   }) {
     return _then(_$CityImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: null == image
+              as String?,
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      v: null == v
+              as String?,
+      v: freezed == v
           ? _value.v
           : v // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -327,31 +342,34 @@ class _$CityImpl implements _City {
       required this.country,
       required this.createdAt,
       required this.updatedAt,
-      @JsonKey(name: "__v") required this.v});
+      @JsonKey(name: "__v") required this.v,
+      required this.thumbnail});
 
   factory _$CityImpl.fromJson(Map<String, dynamic> json) =>
       _$$CityImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
-  final String id;
+  final String? id;
   @override
-  final String image;
+  final String? image;
   @override
-  final String city;
+  final String? city;
   @override
-  final String country;
+  final String? country;
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
-  final String updatedAt;
+  final String? updatedAt;
   @override
   @JsonKey(name: "__v")
-  final int v;
+  final int? v;
+  @override
+  final String? thumbnail;
 
   @override
   String toString() {
-    return 'City(id: $id, image: $image, city: $city, country: $country, createdAt: $createdAt, updatedAt: $updatedAt, v: $v)';
+    return 'City(id: $id, image: $image, city: $city, country: $country, createdAt: $createdAt, updatedAt: $updatedAt, v: $v, thumbnail: $thumbnail)';
   }
 
   @override
@@ -367,13 +385,15 @@ class _$CityImpl implements _City {
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
-            (identical(other.v, v) || other.v == v));
+            (identical(other.v, v) || other.v == v) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, image, city, country, createdAt, updatedAt, v);
+  int get hashCode => Object.hash(runtimeType, id, image, city, country,
+      createdAt, updatedAt, v, thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -391,32 +411,35 @@ class _$CityImpl implements _City {
 
 abstract class _City implements City {
   const factory _City(
-      {@JsonKey(name: "_id") required final String id,
-      required final String image,
-      required final String city,
-      required final String country,
-      required final String createdAt,
-      required final String updatedAt,
-      @JsonKey(name: "__v") required final int v}) = _$CityImpl;
+      {@JsonKey(name: "_id") required final String? id,
+      required final String? image,
+      required final String? city,
+      required final String? country,
+      required final String? createdAt,
+      required final String? updatedAt,
+      @JsonKey(name: "__v") required final int? v,
+      required final String? thumbnail}) = _$CityImpl;
 
   factory _City.fromJson(Map<String, dynamic> json) = _$CityImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
-  String get id;
+  String? get id;
   @override
-  String get image;
+  String? get image;
   @override
-  String get city;
+  String? get city;
   @override
-  String get country;
+  String? get country;
   @override
-  String get createdAt;
+  String? get createdAt;
   @override
-  String get updatedAt;
+  String? get updatedAt;
   @override
   @JsonKey(name: "__v")
-  int get v;
+  int? get v;
+  @override
+  String? get thumbnail;
   @override
   @JsonKey(ignore: true)
   _$$CityImplCopyWith<_$CityImpl> get copyWith =>

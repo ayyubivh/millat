@@ -31,24 +31,11 @@ class TravelSingleProductView extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0,
             expandedHeight: SizeUtility(context).height / 3,
-            // centerTitle: true,
             stretch: true,
             flexibleSpace: const FlexibleSpaceBar(
-              centerTitle: true,
               background: HeaderImageWidget(),
-              // title: BrandLogoName(passValue: passValue),
             ),
             actions: [
-              // BlocBuilder<TravelBloc, TravelState>(
-              //   builder: (context, state) {
-              //     return Padding(
-              //       padding: const EdgeInsets.symmetric(vertical: 10),
-              //       child: RatingWidget(
-              //         rating: state.travelProductsModel?.product.rating ?? 0,
-              //       ),
-              //     );
-              //   },
-              // ),
               kWidth10,
               BlocBuilder<TravelBloc, TravelState>(
                 builder: (context, state) {
@@ -93,7 +80,7 @@ class TravelSingleProductView extends StatelessWidget {
           SliverToBoxAdapter(
             child: BlocBuilder<TravelBloc, TravelState>(
               builder: (context, state) {
-                final data = state.travelProductsModel?.product;
+                final data = state.singleProductModel;
                 if (data == null || state.isLoading) {
                   return ShimmerUtils.travelSingleProductShimmer(context);
                 }
@@ -104,7 +91,7 @@ class TravelSingleProductView extends StatelessWidget {
                     children: [
                       kHeight25,
                       Text(
-                        data.name!,
+                        data.name ?? "",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
@@ -137,7 +124,7 @@ class TravelSingleProductView extends StatelessWidget {
                           ),
                           kWidth3,
                           Text(
-                            Utilities.formatDate(DateTime.now().toString()),
+                            data.travelDate.first.toString(),
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -152,8 +139,9 @@ class TravelSingleProductView extends StatelessWidget {
                       SizedBox(
                         height: 600,
                         child: TravelTabBarWidget(
-                            overview: data.overview ?? "",
-                            imageUrl: data.images!),
+                          overview: data.over_view ?? "",
+                          imageUrl: data.images ?? [],
+                        ),
                       ),
                     ],
                   ),
@@ -300,15 +288,34 @@ class HeaderImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TravelBloc, TravelState>(
       builder: (context, state) {
-        final img = state.travelProductsModel?.product.images?[0];
-        return img == null || state.isLoading
-            ? ShimmerUtils.customRectangleShimmer(
-                SizeUtility(context).width,
-                200,
-                borderRadius: 16,
-              )
-            : Utilities().buildCachedNetworkImage(
-                imageUrl: state.travelProductsModel!.product.images![0]);
+        return BlocBuilder<TravelBloc, TravelState>(
+          builder: (context, state) {
+            final img = state.singleProductModel?.main_image;
+            return img == null || state.isLoading
+                ? ShimmerUtils.customRectangleShimmer(
+                    SizeUtility(context).width,
+                    200,
+                    borderRadius: 16,
+                  )
+                : ClipRRect(
+                    borderRadius: const BorderRadius.vertical(
+                        bottom: Radius.circular(20)),
+                    child: ShaderMask(
+                      blendMode: BlendMode.darken,
+                      shaderCallback: (bounds) => LinearGradient(
+                        colors: [
+                          Colors.black.withOpacity(0.4),
+                          Colors.black.withOpacity(0.4)
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ).createShader(bounds),
+                      child: Utilities().buildCachedNetworkImage(
+                          imageUrl: state.singleProductModel?.images?[0]),
+                    ),
+                  );
+          },
+        );
       },
     );
   }

@@ -7,9 +7,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
+import 'package:millat/components/buttons/social_login_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
+import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/validators.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import '../../../routes/app_router_constants.dart';
@@ -39,6 +41,11 @@ class _LoginViewState extends State<LoginView> {
         } else if (state is AuthLoaded) {
           clearDate();
           context.pushReplacementNamed(MyAppRouteConstants.homeTabsRouteName);
+        } else if (state is AuthLoadedSocialLogin) {
+          context.pushReplacementNamed(MyAppRouteConstants.homeTabsRouteName);
+        } else if (state is AuthSocialLoginNewUser) {
+          context.pushNamed(MyAppRouteConstants.sendOtpRouteName,
+              extra: {'type': SendOTPType.socialSignIn});
         }
       },
       builder: (context, state) {
@@ -65,14 +72,10 @@ class _LoginViewState extends State<LoginView> {
                 height: 70,
               ),
               Image.asset(millatMainLogo, height: 50, width: 200),
-              const SizedBox(
-                height: 40,
-              ),
+              kHeight40,
               const Text('Please enter your e-mail address and enter password ',
                   style: TextStyle(color: black133)),
-              const SizedBox(
-                height: 40,
-              ),
+              kHeight40,
               CustomTextField(
                 controller: _emailController,
                 icon: const Icon(Icons.email, color: iconsColor),
@@ -108,7 +111,7 @@ class _LoginViewState extends State<LoginView> {
               MainTextButton(
                 title: 'Skip',
                 onTap: () {
-                  context.goNamed(MyAppRouteConstants.sendOtpRouteName,
+                  context.pushNamed(MyAppRouteConstants.sendOtpRouteName,
                       extra: {'type': SendOTPType.signIn});
                 },
                 textStyle: TextStyle(
@@ -127,9 +130,7 @@ class _LoginViewState extends State<LoginView> {
                       return;
                     }
                   }),
-              const SizedBox(
-                height: 40,
-              ),
+              kHeight40,
               GestureDetector(
                 onTap: () {
                   context.pop();
@@ -150,32 +151,20 @@ class _LoginViewState extends State<LoginView> {
                           fontWeight: FontWeight.w500)),
                 ])),
               ),
-              const SizedBox(
-                height: 40,
-              ),
+              kHeight40,
               const Text('Login in with', style: TextStyle(color: black133)),
-              const SizedBox(
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  InkWell(
-                    onTap: () => googleSignIn(),
-                    child:
-                        Image.asset('assets/logos/google_logo.png', width: 40),
-                  ),
-                  const SizedBox(width: 40),
-                  Platform.isIOS
-                      ? InkWell(
-                          onTap: () => appleSignIn(),
-                          child: Image.asset(
-                            'assets/logos/apple_logo.png',
-                            width: 60,
-                          ))
-                      : const SizedBox(),
-                ],
-              )
+              kHeight40,
+              SocialLoginButton(
+                  onPressed: () => googleSignIn(),
+                  text: "Sign Up With Google",
+                  icon: 'assets/logos/google_logo.png'),
+              kHeight15,
+              Platform.isIOS
+                  ? SocialLoginButton(
+                      onPressed: () => appleSignIn(),
+                      text: "Sign Up With Apple",
+                      icon: 'assets/logos/apple_logo.png')
+                  : const SizedBox(),
             ],
           ),
         ),

@@ -72,7 +72,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -158,7 +158,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -244,7 +244,7 @@ mixin _$ShopProductsEvent {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -310,7 +310,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -388,7 +388,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -459,7 +459,7 @@ mixin _$ShopProductsEvent {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -645,7 +645,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -734,7 +734,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -823,7 +823,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -895,7 +895,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -976,7 +976,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -1050,7 +1050,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -1231,7 +1231,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -1320,7 +1320,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -1409,7 +1409,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -1481,7 +1481,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -1562,7 +1562,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -1636,7 +1636,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -1792,7 +1792,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -1881,7 +1881,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -1970,7 +1970,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -2042,7 +2042,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -2123,7 +2123,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -2197,7 +2197,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -2343,7 +2343,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -2432,7 +2432,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -2521,7 +2521,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -2593,7 +2593,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -2674,7 +2674,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -2748,7 +2748,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -2894,7 +2894,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -2983,7 +2983,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -3072,7 +3072,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -3144,7 +3144,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -3225,7 +3225,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -3299,7 +3299,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -3472,7 +3472,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -3561,7 +3561,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -3650,7 +3650,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -3722,7 +3722,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -3803,7 +3803,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -3877,7 +3877,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -4029,7 +4029,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -4118,7 +4118,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -4207,7 +4207,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -4279,7 +4279,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -4360,7 +4360,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -4434,7 +4434,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -4606,7 +4606,7 @@ class _$FetchWishListImpl implements FetchWishList {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -4695,7 +4695,7 @@ class _$FetchWishListImpl implements FetchWishList {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -4784,7 +4784,7 @@ class _$FetchWishListImpl implements FetchWishList {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -4856,7 +4856,7 @@ class _$FetchWishListImpl implements FetchWishList {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -4937,7 +4937,7 @@ class _$FetchWishListImpl implements FetchWishList {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -5011,7 +5011,7 @@ class _$FetchWishListImpl implements FetchWishList {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -5188,7 +5188,7 @@ class _$SearchProductImpl implements SearchProduct {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -5277,7 +5277,7 @@ class _$SearchProductImpl implements SearchProduct {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -5366,7 +5366,7 @@ class _$SearchProductImpl implements SearchProduct {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -5438,7 +5438,7 @@ class _$SearchProductImpl implements SearchProduct {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -5519,7 +5519,7 @@ class _$SearchProductImpl implements SearchProduct {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -5593,7 +5593,7 @@ class _$SearchProductImpl implements SearchProduct {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -5781,7 +5781,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -5870,7 +5870,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -5959,7 +5959,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -6031,7 +6031,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -6112,7 +6112,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -6186,7 +6186,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -6377,7 +6377,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -6466,7 +6466,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -6555,7 +6555,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -6627,7 +6627,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -6708,7 +6708,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -6782,7 +6782,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -6967,7 +6967,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -7056,7 +7056,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -7145,7 +7145,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -7217,7 +7217,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -7298,7 +7298,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -7372,7 +7372,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -7551,7 +7551,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -7640,7 +7640,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -7729,7 +7729,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -7801,7 +7801,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -7882,7 +7882,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -7956,7 +7956,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -8212,7 +8212,7 @@ class _$PostOrdersImpl implements PostOrders {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -8302,7 +8302,7 @@ class _$PostOrdersImpl implements PostOrders {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -8392,7 +8392,7 @@ class _$PostOrdersImpl implements PostOrders {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -8465,7 +8465,7 @@ class _$PostOrdersImpl implements PostOrders {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -8546,7 +8546,7 @@ class _$PostOrdersImpl implements PostOrders {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -8620,7 +8620,7 @@ class _$PostOrdersImpl implements PostOrders {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -8860,7 +8860,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -8950,7 +8950,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -9040,7 +9040,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -9113,7 +9113,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -9194,7 +9194,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -9268,7 +9268,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -9467,7 +9467,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -9556,7 +9556,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -9645,7 +9645,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -9717,7 +9717,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -9798,7 +9798,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -9872,7 +9872,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -10139,7 +10139,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -10229,7 +10229,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -10319,7 +10319,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -10392,7 +10392,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -10473,7 +10473,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -10547,7 +10547,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -10741,7 +10741,7 @@ class _$FetchOrdersImpl implements FetchOrders {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -10830,7 +10830,7 @@ class _$FetchOrdersImpl implements FetchOrders {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -10919,7 +10919,7 @@ class _$FetchOrdersImpl implements FetchOrders {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -10991,7 +10991,7 @@ class _$FetchOrdersImpl implements FetchOrders {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -11072,7 +11072,7 @@ class _$FetchOrdersImpl implements FetchOrders {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -11146,7 +11146,7 @@ class _$FetchOrdersImpl implements FetchOrders {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -11332,7 +11332,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -11421,7 +11421,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -11510,7 +11510,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -11582,7 +11582,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -11663,7 +11663,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -11737,7 +11737,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -11930,7 +11930,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -12019,7 +12019,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -12108,7 +12108,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -12180,7 +12180,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -12261,7 +12261,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -12335,7 +12335,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -12524,7 +12524,7 @@ class _$CancelOrderImpl implements CancelOrder {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -12613,7 +12613,7 @@ class _$CancelOrderImpl implements CancelOrder {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -12702,7 +12702,7 @@ class _$CancelOrderImpl implements CancelOrder {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -12774,7 +12774,7 @@ class _$CancelOrderImpl implements CancelOrder {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -12855,7 +12855,7 @@ class _$CancelOrderImpl implements CancelOrder {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -12929,7 +12929,7 @@ class _$CancelOrderImpl implements CancelOrder {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -13118,7 +13118,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -13207,7 +13207,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -13296,7 +13296,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -13368,7 +13368,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -13449,7 +13449,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -13523,7 +13523,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -13681,7 +13681,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -13770,7 +13770,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -13859,7 +13859,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -13931,7 +13931,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -14012,7 +14012,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -14086,7 +14086,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -14168,7 +14168,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
 
   @override
   String toString() {
-    return 'ShopProductsEvent.fetchShopHomeBackgroundCardHeathyDiet()';
+    return 'ShopProductsEvent.fetchShopHomeBackgroundCardHelthyDiet()';
   }
 
   @override
@@ -14238,7 +14238,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -14270,7 +14270,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     required TResult Function(String category) fetchArticlesByCategory,
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
-    return fetchShopHomeBackgroundCardHeathyDiet();
+    return fetchShopHomeBackgroundCardHelthyDiet();
   }
 
   @override
@@ -14327,7 +14327,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -14359,7 +14359,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     TResult? Function(String category)? fetchArticlesByCategory,
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
-    return fetchShopHomeBackgroundCardHeathyDiet?.call();
+    return fetchShopHomeBackgroundCardHelthyDiet?.call();
   }
 
   @override
@@ -14416,7 +14416,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -14449,8 +14449,8 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
-    if (fetchShopHomeBackgroundCardHeathyDiet != null) {
-      return fetchShopHomeBackgroundCardHeathyDiet();
+    if (fetchShopHomeBackgroundCardHelthyDiet != null) {
+      return fetchShopHomeBackgroundCardHelthyDiet();
     }
     return orElse();
   }
@@ -14488,7 +14488,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -14537,7 +14537,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     required TResult Function(FetchBrandProductsItemCount value)
         fetchBrandProductsItemCount,
   }) {
-    return fetchShopHomeBackgroundCardHeathyDiet(this);
+    return fetchShopHomeBackgroundCardHelthyDiet(this);
   }
 
   @override
@@ -14569,7 +14569,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -14611,7 +14611,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     TResult? Function(FetchBrandProductsItemCount value)?
         fetchBrandProductsItemCount,
   }) {
-    return fetchShopHomeBackgroundCardHeathyDiet?.call(this);
+    return fetchShopHomeBackgroundCardHelthyDiet?.call(this);
   }
 
   @override
@@ -14643,7 +14643,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -14686,8 +14686,8 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
         fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
-    if (fetchShopHomeBackgroundCardHeathyDiet != null) {
-      return fetchShopHomeBackgroundCardHeathyDiet(this);
+    if (fetchShopHomeBackgroundCardHelthyDiet != null) {
+      return fetchShopHomeBackgroundCardHelthyDiet(this);
     }
     return orElse();
   }
@@ -14796,7 +14796,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -14885,7 +14885,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -14974,7 +14974,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -15046,7 +15046,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -15127,7 +15127,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -15201,7 +15201,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -15348,7 +15348,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -15437,7 +15437,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -15526,7 +15526,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -15598,7 +15598,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -15679,7 +15679,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -15753,7 +15753,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -15899,7 +15899,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -15988,7 +15988,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -16077,7 +16077,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -16149,7 +16149,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -16230,7 +16230,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -16304,7 +16304,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -16455,7 +16455,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -16544,7 +16544,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -16633,7 +16633,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -16705,7 +16705,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -16786,7 +16786,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -16860,7 +16860,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -17012,7 +17012,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -17101,7 +17101,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -17190,7 +17190,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -17262,7 +17262,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -17343,7 +17343,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -17417,7 +17417,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -17569,7 +17569,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -17658,7 +17658,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -17747,7 +17747,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -17819,7 +17819,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -17900,7 +17900,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -17974,7 +17974,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -18149,7 +18149,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -18238,7 +18238,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -18327,7 +18327,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -18399,7 +18399,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -18480,7 +18480,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -18554,7 +18554,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -18735,7 +18735,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -18824,7 +18824,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -18913,7 +18913,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -18985,7 +18985,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -19066,7 +19066,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -19140,7 +19140,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -19295,7 +19295,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -19384,7 +19384,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -19473,7 +19473,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -19545,7 +19545,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -19626,7 +19626,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -19700,7 +19700,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -19876,7 +19876,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -19965,7 +19965,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -20054,7 +20054,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -20126,7 +20126,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -20207,7 +20207,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -20281,7 +20281,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -20465,7 +20465,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -20554,7 +20554,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -20643,7 +20643,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -20715,7 +20715,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -20796,7 +20796,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -20870,7 +20870,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -21051,7 +21051,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -21140,7 +21140,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -21229,7 +21229,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -21301,7 +21301,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -21382,7 +21382,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -21456,7 +21456,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -21636,7 +21636,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -21725,7 +21725,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -21814,7 +21814,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -21886,7 +21886,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -21967,7 +21967,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -22041,7 +22041,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -22197,7 +22197,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -22286,7 +22286,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -22375,7 +22375,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -22447,7 +22447,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -22528,7 +22528,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -22602,7 +22602,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -22779,7 +22779,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -22868,7 +22868,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -22957,7 +22957,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -23029,7 +23029,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -23110,7 +23110,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -23184,7 +23184,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -23363,7 +23363,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -23452,7 +23452,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -23541,7 +23541,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -23613,7 +23613,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -23694,7 +23694,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -23768,7 +23768,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -23947,7 +23947,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -24036,7 +24036,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -24125,7 +24125,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -24197,7 +24197,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -24278,7 +24278,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -24352,7 +24352,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -24504,7 +24504,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -24593,7 +24593,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -24682,7 +24682,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -24754,7 +24754,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -24835,7 +24835,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -24909,7 +24909,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -25083,7 +25083,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -25172,7 +25172,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -25261,7 +25261,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -25333,7 +25333,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -25414,7 +25414,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -25488,7 +25488,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -25667,7 +25667,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -25756,7 +25756,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -25845,7 +25845,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -25917,7 +25917,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -25998,7 +25998,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -26072,7 +26072,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -26251,7 +26251,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -26340,7 +26340,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -26429,7 +26429,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -26501,7 +26501,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -26582,7 +26582,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -26656,7 +26656,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -26809,7 +26809,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -26898,7 +26898,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -26987,7 +26987,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -27059,7 +27059,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -27140,7 +27140,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -27214,7 +27214,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -27388,7 +27388,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -27477,7 +27477,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -27566,7 +27566,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -27638,7 +27638,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -27719,7 +27719,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -27793,7 +27793,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -27980,7 +27980,7 @@ class _$AddReasonsImpl implements AddReasons {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -28069,7 +28069,7 @@ class _$AddReasonsImpl implements AddReasons {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -28158,7 +28158,7 @@ class _$AddReasonsImpl implements AddReasons {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -28230,7 +28230,7 @@ class _$AddReasonsImpl implements AddReasons {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -28311,7 +28311,7 @@ class _$AddReasonsImpl implements AddReasons {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -28385,7 +28385,7 @@ class _$AddReasonsImpl implements AddReasons {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -28566,7 +28566,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -28655,7 +28655,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -28744,7 +28744,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -28816,7 +28816,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -28897,7 +28897,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -28971,7 +28971,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -29123,7 +29123,7 @@ class _$FetchProductsImpl implements FetchProducts {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -29212,7 +29212,7 @@ class _$FetchProductsImpl implements FetchProducts {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -29301,7 +29301,7 @@ class _$FetchProductsImpl implements FetchProducts {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -29373,7 +29373,7 @@ class _$FetchProductsImpl implements FetchProducts {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -29454,7 +29454,7 @@ class _$FetchProductsImpl implements FetchProducts {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -29528,7 +29528,7 @@ class _$FetchProductsImpl implements FetchProducts {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -29676,7 +29676,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -29765,7 +29765,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -29854,7 +29854,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -29926,7 +29926,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -30007,7 +30007,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -30081,7 +30081,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -30260,7 +30260,7 @@ class _$SaveArticleCategoryFilterValImpl
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -30349,7 +30349,7 @@ class _$SaveArticleCategoryFilterValImpl
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -30438,7 +30438,7 @@ class _$SaveArticleCategoryFilterValImpl
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -30510,7 +30510,7 @@ class _$SaveArticleCategoryFilterValImpl
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -30591,7 +30591,7 @@ class _$SaveArticleCategoryFilterValImpl
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -30665,7 +30665,7 @@ class _$SaveArticleCategoryFilterValImpl
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -30848,7 +30848,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -30937,7 +30937,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -31026,7 +31026,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -31098,7 +31098,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -31179,7 +31179,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -31253,7 +31253,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -31444,7 +31444,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     required TResult Function(BuildContext context, int shiprockeId)
         returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHeathyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
     required TResult Function() fetchShopAdBrands,
     required TResult Function() fetchTopBrands,
@@ -31533,7 +31533,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
     TResult? Function()? fetchShopAdBrands,
     TResult? Function()? fetchTopBrands,
@@ -31622,7 +31622,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHeathyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
     TResult Function()? fetchShopAdBrands,
     TResult Function()? fetchTopBrands,
@@ -31694,7 +31694,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function(FetchShopHomeBackgroundCardSunnah value)
         fetchShopHomeBackgroundCardSunnah,
     required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
@@ -31775,7 +31775,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
@@ -31849,7 +31849,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHeathyDiet,
+        fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function(FetchShopHomeBackgroundCardSunnah value)?
         fetchShopHomeBackgroundCardSunnah,
     TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,

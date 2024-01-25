@@ -35,7 +35,8 @@ mixin _$HomeEvent {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -60,7 +61,7 @@ mixin _$HomeEvent {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -85,7 +86,7 @@ mixin _$HomeEvent {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -255,7 +256,8 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -283,7 +285,7 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -311,7 +313,7 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -482,7 +484,8 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -510,7 +513,7 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -538,7 +541,7 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -708,7 +711,8 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -736,7 +740,7 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -764,7 +768,7 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -935,7 +939,8 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -963,7 +968,7 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -991,7 +996,7 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -1162,7 +1167,8 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -1190,7 +1196,7 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -1218,7 +1224,7 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -1426,7 +1432,8 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -1454,7 +1461,7 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -1482,7 +1489,7 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -1699,7 +1706,8 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -1727,7 +1735,7 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -1755,7 +1763,7 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -1936,7 +1944,8 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -1964,7 +1973,7 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -1992,7 +2001,7 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -2192,7 +2201,8 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -2220,7 +2230,7 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -2248,7 +2258,7 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -2465,7 +2475,8 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -2493,7 +2504,7 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -2521,7 +2532,7 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -2730,7 +2741,8 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -2758,7 +2770,7 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -2786,7 +2798,7 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -2992,7 +3004,8 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -3020,7 +3033,7 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -3048,7 +3061,7 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -3254,7 +3267,8 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -3282,7 +3296,7 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -3310,7 +3324,7 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -3437,7 +3451,7 @@ abstract class _$$FetchNotificationApiImplCopyWith<$Res> {
           $Res Function(_$FetchNotificationApiImpl) then) =
       __$$FetchNotificationApiImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({BuildContext context});
+  $Res call({BuildContext context, String id});
 }
 
 /// @nodoc
@@ -3452,12 +3466,17 @@ class __$$FetchNotificationApiImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? context = null,
+    Object? id = null,
   }) {
     return _then(_$FetchNotificationApiImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
               as BuildContext,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -3465,14 +3484,16 @@ class __$$FetchNotificationApiImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FetchNotificationApiImpl implements FetchNotificationApi {
-  const _$FetchNotificationApiImpl({required this.context});
+  const _$FetchNotificationApiImpl({required this.context, required this.id});
 
   @override
   final BuildContext context;
+  @override
+  final String id;
 
   @override
   String toString() {
-    return 'HomeEvent.fetchNotificationApi(context: $context)';
+    return 'HomeEvent.fetchNotificationApi(context: $context, id: $id)';
   }
 
   @override
@@ -3480,11 +3501,12 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchNotificationApiImpl &&
-            (identical(other.context, context) || other.context == context));
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, context);
+  int get hashCode => Object.hash(runtimeType, context, id);
 
   @JsonKey(ignore: true)
   @override
@@ -3514,13 +3536,14 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
   }) {
-    return fetchNotificationApi(context);
+    return fetchNotificationApi(context, id);
   }
 
   @override
@@ -3542,13 +3565,13 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
   }) {
-    return fetchNotificationApi?.call(context);
+    return fetchNotificationApi?.call(context, id);
   }
 
   @override
@@ -3570,7 +3593,7 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -3578,7 +3601,7 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
     required TResult orElse(),
   }) {
     if (fetchNotificationApi != null) {
-      return fetchNotificationApi(context);
+      return fetchNotificationApi(context, id);
     }
     return orElse();
   }
@@ -3682,10 +3705,12 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
 }
 
 abstract class FetchNotificationApi implements HomeEvent {
-  const factory FetchNotificationApi({required final BuildContext context}) =
-      _$FetchNotificationApiImpl;
+  const factory FetchNotificationApi(
+      {required final BuildContext context,
+      required final String id}) = _$FetchNotificationApiImpl;
 
   BuildContext get context;
+  String get id;
   @JsonKey(ignore: true)
   _$$FetchNotificationApiImplCopyWith<_$FetchNotificationApiImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -3786,7 +3811,8 @@ class _$AddMarkReadNotificationEventImpl
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -3814,7 +3840,7 @@ class _$AddMarkReadNotificationEventImpl
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -3842,7 +3868,7 @@ class _$AddMarkReadNotificationEventImpl
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -4049,7 +4075,8 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -4077,7 +4104,7 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -4105,7 +4132,7 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
@@ -4310,7 +4337,8 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
-    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(BuildContext context, String id)
+        fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
@@ -4338,7 +4366,7 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
-    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(BuildContext context, String id)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
@@ -4366,7 +4394,7 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
-    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(BuildContext context, String id)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,

@@ -16,8 +16,17 @@ class NotificationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      BlocProvider.of<HomeBloc>(context)
-          .add(FetchNotificationApi(context: context));
+      BlocProvider.of<HomeBloc>(context).add(FetchNotificationApi(
+          context: context,
+          id: context
+                  .read<DatabaseBloc>()
+                  .state
+                  .authUserModel
+                  ?.result
+                  ?.user
+                  ?.id
+                  .toString() ??
+              ""));
     });
     return WillPopScope(
       onWillPop: () {

@@ -340,7 +340,7 @@ class _ShopViewState extends State<ShopView> {
                       child: ShimmerUtilWidgetRounded(width: 56, height: 56))
                   : GestureDetector(
                       onTap: () {
-                        context.goNamed(
+                        context.pushNamed(
                             MyAppRouteConstants.singleBrandRouteName,
                             extra: {'passValue': data});
                       },
@@ -370,7 +370,7 @@ class _ShopViewState extends State<ShopView> {
               items: banners?.map((banner) {
                 return GestureDetector(
                   onTap: () {
-                    context.goNamed(MyAppRouteConstants.singleBrandRouteName,
+                    context.pushNamed(MyAppRouteConstants.singleBrandRouteName,
                         extra: {'passValue': banner.brandId});
                   },
                   child: Container(

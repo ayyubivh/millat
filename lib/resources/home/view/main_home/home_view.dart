@@ -76,8 +76,7 @@ class _HomeViewState extends State<HomeView> {
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
     BlocProvider.of<DatabaseBloc>(context)
       ..add(FetchAuthUser(context: context))
-      ..add(const FetchCoverImage())
-      ..add(const FetchContactEvent());
+      ..add(const FetchCoverImage());
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchHomeBanners());
     // BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));

@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -32,7 +33,6 @@ class ShopTabsView extends StatelessWidget {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) => WillPopScope(
         onWillPop: () {
-          log("tab index ${state.index}");
           if (state.index == 0) {
             // DateTime now = DateTime.now();
             // if (currentBackPressTime == null ||

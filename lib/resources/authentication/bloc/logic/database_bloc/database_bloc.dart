@@ -161,6 +161,7 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
             "succes ${state.succesMessage} failure ${state.failedMessage}");
         emit(state.copyWith(succesMessage: data));
       }
+      emit(state.copyWith(succesMessage: "", failedMessage: ""));
     });
     on<EmptyStates>((event, emit) async {
       emit(state.copyWith(succesMessage: "", failedMessage: ""));

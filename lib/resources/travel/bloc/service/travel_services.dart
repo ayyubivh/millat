@@ -17,18 +17,20 @@ import 'package:file_picker/file_picker.dart';
 
 class TravelServices {
 //Fetching Travel Home-Banner-Package
-  Future<List<TravelPackageItems>> fetchTravelHomeBannerPackages() async {
+  Future<List<TravelSpecificProductModel>>
+      fetchTravelHomeBannerPackages() async {
     const String endPoint = "get-specific-products?slug=home-banner-packages";
     final response = await http.get(Uri.parse(travelBaseUrl + endPoint));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       try {
-        final Map<String, dynamic> data = json.decode(response.body);
-        final List<dynamic> results = data['products']['products'];
+        final data = jsonDecode(response.body);
+        final list = (data['products'] as List)
+            .map((e) => TravelSpecificProductModel.fromJson(e))
+            .toList();
 
-        final productList =
-            results.map((e) => TravelPackageItems.fromJson(e)).toList();
-        return productList;
+        print(list);
+        return list;
       } catch (e) {
         throw Exception('Failed to parse response');
       }
@@ -39,16 +41,21 @@ class TravelServices {
   }
 
 // Fetching Popular Products
-  Future<TravelPopularProductsModel> fetchPopularProducts() async {
-    const String endPoint = "get-popular-products";
+  Future<List<TravelSpecificProductModel>> fetchPopularProducts() async {
+    const String endPoint = "get-specific-products?slug=popular-product";
     final response = await http.get(Uri.parse(travelBaseUrl + endPoint));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       try {
-        final data = json.decode(response.body);
-        final result = TravelPopularProductsModel.fromJson(data);
-        debugPrint("travel products: $result");
-        return result;
+        // final result = TravelPopularProductsModel.fromJson(data);
+        // debugPrint("travel products: $result");
+        final data = jsonDecode(response.body);
+        final list = (data['products'] as List)
+            .map((e) => TravelSpecificProductModel.fromJson(e))
+            .toList();
+
+        print(list);
+        return list;
       } catch (e) {
         debugPrint(
             'Error on Travel popular products API fetch: ${e.toString()}');
@@ -109,14 +116,15 @@ class TravelServices {
   }
 
 // Fetching Products By Id
-  Future<TravelProductsModel> fetchProductsById({required String id}) async {
+  Future<ProductId> fetchProductsById({required String id}) async {
     final String endPoint = "get-product/$id";
     final response = await http.get(Uri.parse(travelBaseUrl + endPoint));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
-        final result = TravelProductsModel.fromJson(data);
+        final result = ProductId.fromJson(data['product']);
+
         debugPrint("travel products by id: $result");
         return result;
       } catch (e) {
@@ -130,7 +138,7 @@ class TravelServices {
   }
 
 // Fetching Products By Id
-  Future<List<TravelProduct>> fetchTravelSearchedProducts(
+  Future<List<ProductId>> fetchTravelSearchedProducts(
       {required String country,
       required String location,
       required String date}) async {
@@ -142,8 +150,7 @@ class TravelServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final List<dynamic> results = data['results'];
-        final productList =
-            results.map((e) => TravelProduct.fromJson(e)).toList();
+        final productList = results.map((e) => ProductId.fromJson(e)).toList();
 
         return productList;
       } catch (e) {
@@ -158,16 +165,19 @@ class TravelServices {
   }
 
 // Fetching Products By Id
-  Future<TravelBestPlacesModel> fetchBestPlaces() async {
+  Future<List<TravelSpecificProductModel>> fetchBestPlaces() async {
     const String endPoint = "get-specific-products?slug=best-places";
     final response = await http.get(Uri.parse(travelBaseUrl + endPoint));
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       try {
-        final data = json.decode(response.body);
-        final result = TravelBestPlacesModel.fromJson(data);
-        debugPrint("travel best places products: $result");
-        return result;
+        final data = jsonDecode(response.body);
+        final list = (data['products'] as List)
+            .map((e) => TravelSpecificProductModel.fromJson(e))
+            .toList();
+
+        print(list);
+        return list;
       } catch (e) {
         if (kDebugMode) {
           debugPrint(
@@ -309,7 +319,7 @@ class TravelServices {
   }
 
   // Fetching Travel Wishlist Products
-  Future<List<TravelProductsModel>> fetchTravelWishlist() async {
+  Future<List<ProductId>> fetchTravelWishlist() async {
     const String endPoint = "get-wishlist";
     final response =
         await http.get(Uri.parse(travelBaseUrl + endPoint), headers: {
@@ -321,7 +331,7 @@ class TravelServices {
         final data = json.decode(response.body);
         final List<dynamic> result = data['wishlist'];
 
-        final List<TravelProductsModel> productList = [];
+        final List<ProductId> productList = [];
 
         for (var wishlistItem in result) {
           final List<String> productIds =

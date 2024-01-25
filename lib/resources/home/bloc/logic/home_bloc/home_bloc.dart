@@ -232,8 +232,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   _fetchNotificationApi(
       FetchNotificationApi event, Emitter<HomeState> emit) async {
     try {
-      final data =
-          await NotificationService().fetchNotficationApi(event.context);
+      final data = await NotificationService()
+          .fetchNotficationApi(context: event.context, id: event.id);
       emit(state.copyWith(notificationModel: data));
     } catch (e) {
       throw Exception(e);

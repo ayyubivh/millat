@@ -36,7 +36,6 @@ class SingleBrandView extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               expandedHeight: SizeUtility(context).height / 3,
-              // centerTitle: true,
               stretch: true,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
@@ -56,7 +55,7 @@ class SingleBrandView extends StatelessWidget {
                       builder: (context, state) {
                         final data =
                             state.brandItemsModel?.result?.data?.itemList;
-                        if (data == null) {
+                        if (state.brandItemsModel == null) {
                           return Row(
                             children: List.generate(
                                 5,
@@ -67,6 +66,9 @@ class SingleBrandView extends StatelessWidget {
                                       child: ShimmerUtils.categoriesShimmers(),
                                     )),
                           );
+                        }
+                        if (data == null) {
+                          return const SizedBox();
                         }
                         return ItemsList(data: data);
                       },
@@ -203,74 +205,21 @@ class CarouselView extends StatelessWidget {
           items: banners?.map((banner) {
             return Container(
               margin: const EdgeInsets.only(right: 10),
-              height: 226,
+              height: 150,
               width: SizeUtility(context).width,
               decoration: BoxDecoration(
-                color: Colors.orange.withOpacity(0.65),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(12),
-                        ),
-                        child: Utilities().buildCachedNetworkImage(
-                          imageUrl: passValue.coverImage,
-                          width: SizeUtility(context).width,
-                          height: 173,
-                        ),
-                      ),
-                      Positioned(
-                        top: 20,
-                        left: 20,
-                        child: CircleAvatar(
-                          radius: 32,
-                          backgroundColor: ColorManager.whiteColor,
-                          child: ClipOval(
-                            child: passValue.logo == null
-                                ? const Icon(Icons.image_not_supported_outlined)
-                                : Utilities().buildCachedNetworkImage(
-                                    imageUrl: passValue.logo!),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  Container(
-                    height: 52,
-                    width: SizeUtility(context).width,
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
-                    child: Row(
-                      children: [
-                        const Text(
-                          "Discount Alerts",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        kWidth8,
-                        ImageIcon(
-                          const AssetImage(
-                            AppAssetsStrings.discountStar,
-                          ),
-                          color: ColorManager.whiteColor,
-                        ),
-                        kWidth8,
-                        Expanded(
-                          child: Text(
-                            banner.text ?? "",
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Utilities().buildCachedNetworkImage(
+                      imageUrl: passValue.coverImage,
+                      // boxFit: BoxFit.cover,
+                      width: SizeUtility(context).width,
+                      height: 150,
                     ),
                   ),
                 ],
@@ -278,10 +227,13 @@ class CarouselView extends StatelessWidget {
             );
           }).toList(),
           options: CarouselOptions(
-            height: 226,
+            scrollPhysics: banners?.length == 1
+                ? const NeverScrollableScrollPhysics()
+                : null,
+            height: 150,
             viewportFraction: 1,
             enlargeCenterPage: false,
-            autoPlay: true,
+            autoPlay: banners?.length != 1 ? true : false,
             autoPlayCurve: Curves.fastOutSlowIn,
             enableInfiniteScroll: true,
             enlargeFactor: 0.3,

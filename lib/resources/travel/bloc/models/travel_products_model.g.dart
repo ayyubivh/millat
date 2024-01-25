@@ -6,44 +6,55 @@ part of 'travel_products_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TravelProductsModelImpl _$$TravelProductsModelImplFromJson(
+TravelSpecificProductModel _$TravelSpecificProductModelFromJson(
         Map<String, dynamic> json) =>
-    _$TravelProductsModelImpl(
-      product: TravelProduct.fromJson(json['product'] as Map<String, dynamic>),
+    TravelSpecificProductModel(
+      id: json['_id'] as String?,
+      slug: json['slug'] as String?,
+      productId: json['productId'] == null
+          ? null
+          : ProductId.fromJson(json['productId'] as Map<String, dynamic>),
+      image: json['image'] as String?,
+      thumbnail: json['thumbnail'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$TravelProductsModelImplToJson(
-        _$TravelProductsModelImpl instance) =>
+Map<String, dynamic> _$TravelSpecificProductModelToJson(
+        TravelSpecificProductModel instance) =>
     <String, dynamic>{
-      'product': instance.product,
+      '_id': instance.id,
+      'slug': instance.slug,
+      'productId': instance.productId,
+      'image': instance.image,
+      'thumbnail': instance.thumbnail,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
     };
 
-_$TravelProductImpl _$$TravelProductImplFromJson(Map<String, dynamic> json) =>
-    _$TravelProductImpl(
+ProductId _$ProductIdFromJson(Map<String, dynamic> json) => ProductId(
       id: json['_id'] as String?,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      rating: json['rating'],
+      rating: (json['rating'] as num?)?.toDouble(),
       name: json['name'] as String?,
       location: json['location'] as String?,
-      amenities: (json['amenities'] as List<dynamic>?)
-          ?.map((e) => e as String)
+      amenities: (json['amenities'] as List<dynamic>)
+          .map((e) => e as String?)
           .toList(),
       price: (json['price'] as num?)?.toDouble(),
-      mainImage: json['main_image'] as String?,
-      overview: json['over_view'] as String?,
+      offer_price: (json['offer_price'] as num?)?.toDouble(),
+      main_image: json['main_image'] as String?,
+      over_view: json['over_view'] as String?,
+      country: json['country'] as String?,
+      travelDate: (json['travelDate'] as List<dynamic>)
+          .map((e) => e as String?)
+          .toList(),
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
-      v: json['v'] as int?,
-      country: json['country'] as String?,
-      from: json['from'] as String?,
-      to: json['to'] as String?,
-      reviews:
-          (json['reviews'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$TravelProductImplToJson(_$TravelProductImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ProductIdToJson(ProductId instance) => <String, dynamic>{
       '_id': instance.id,
       'images': instance.images,
       'rating': instance.rating,
@@ -51,56 +62,11 @@ Map<String, dynamic> _$$TravelProductImplToJson(_$TravelProductImpl instance) =>
       'location': instance.location,
       'amenities': instance.amenities,
       'price': instance.price,
-      'main_image': instance.mainImage,
-      'over_view': instance.overview,
+      'offer_price': instance.offer_price,
+      'main_image': instance.main_image,
+      'over_view': instance.over_view,
+      'country': instance.country,
+      'travelDate': instance.travelDate,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
-      'v': instance.v,
-      'country': instance.country,
-      'from': instance.from,
-      'to': instance.to,
-      'reviews': instance.reviews,
-    };
-
-_$TravelPackageItemsImpl _$$TravelPackageItemsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$TravelPackageItemsImpl(
-      id: json['_id'] as String?,
-      images:
-          (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      rating: json['rating'] as int?,
-      name: json['name'] as String?,
-      location: json['location'] as String?,
-      amenities: (json['amenities'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      price: (json['price'] as num?)?.toDouble(),
-      mainImage: json['main_image'] as String?,
-      overview: json['over_view'] as String?,
-      country: json['country'] as String?,
-      from: json['from'] as String?,
-      to: json['to'] as String?,
-      createdAt: json['createdAt'] as String?,
-      updatedAt: json['updatedAt'] as String?,
-      v: json['v'] as int?,
-    );
-
-Map<String, dynamic> _$$TravelPackageItemsImplToJson(
-        _$TravelPackageItemsImpl instance) =>
-    <String, dynamic>{
-      '_id': instance.id,
-      'images': instance.images,
-      'rating': instance.rating,
-      'name': instance.name,
-      'location': instance.location,
-      'amenities': instance.amenities,
-      'price': instance.price,
-      'main_image': instance.mainImage,
-      'over_view': instance.overview,
-      'country': instance.country,
-      'from': instance.from,
-      'to': instance.to,
-      'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
-      'v': instance.v,
     };

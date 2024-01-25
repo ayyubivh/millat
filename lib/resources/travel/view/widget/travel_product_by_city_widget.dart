@@ -65,12 +65,16 @@ class TravelProductByCityWidget extends StatelessWidget {
             kHeight10,
             Row(
               children: [
-                Text(
-                  data.name,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: ColorManager.blackColor,
+                SizedBox(
+                  width: SizeUtility(context).width / 3,
+                  child: Text(
+                    data.name,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: ColorManager.blackColor,
+                    ),
+                    maxLines: 2,
                   ),
                 ),
                 const Spacer(),

@@ -58,16 +58,6 @@ class AboutUsView extends StatelessWidget {
           ],
         ),
       ),
-      bottomSheet: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 30,
-          vertical: 20,
-        ),
-        child: MainButton(
-          title: Appstrings.agree,
-          onPressed: () {},
-        ),
-      ),
     );
   }
 }

@@ -80,7 +80,7 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await travelServices.fetchProductsById(id: event.id);
-      emit(state.copyWith(travelProductsModel: data, isLoading: false));
+      emit(state.copyWith(singleProductModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
 
@@ -211,6 +211,7 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
       final data = await travelServices.fetchTravelSearchedProducts(
           country: event.country, location: event.location, date: event.date);
       emit(state.copyWith(searchProducts: data, isLoading: false));
+      print("State of bloc ${state.searchProducts}");
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       throw Exception(e);
@@ -222,7 +223,7 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await travelServices.fetchTravelWishlist();
-      final wishListItems = data.map((e) => e.product.id).toList();
+      final wishListItems = data.map((e) => e.id).toList();
 
       emit(state.copyWith(
           wishlistProducts: data,
@@ -246,7 +247,7 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
         final updatedWishList = state.travelWishlistItems?.toSet() ?? {};
         updatedWishList.remove(event.productId);
         final newWishlist = state.wishlistProducts
-            ?.where((element) => element.product.id != event.productId)
+            ?.where((element) => element.id != event.productId)
             .toList();
         emit(state.copyWith(
             travelWishlistItems: updatedWishList,

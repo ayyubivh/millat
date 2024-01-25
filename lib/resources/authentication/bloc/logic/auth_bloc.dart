@@ -83,10 +83,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else if (event is SendOTP) {
         final currentState = state;
         if (currentState is AuthSocialLoginNewUser) {
+          emit(AuthLoading());
           final res =
               await _authService.sendOTP(phoneNumber: event.phoneNumber);
           if (res['status'] == true) {
-            emit(AuthLoaded(event.phoneNumber));
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
 
             emit(AuthSocialLoginNewUserLoaded(

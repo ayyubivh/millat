@@ -78,12 +78,60 @@ class MyAppRouter {
           isAuth ? "/" : "/${MyAppRouteConstants.onBoardingRouteName}",
       routes: [
         GoRoute(
-          name: MyAppRouteConstants.onBoardingRouteName,
-          path: '/onboarding',
-          pageBuilder: (context, state) {
-            return const MaterialPage(child: OnBoardingView());
-          },
-        ),
+            name: MyAppRouteConstants.onBoardingRouteName,
+            path: '/onboarding',
+            pageBuilder: (context, state) {
+              return const MaterialPage(child: OnBoardingView());
+            },
+            routes: [
+              GoRoute(
+                name: MyAppRouteConstants.verifyOtpRouteName,
+                path: 'verify_otp',
+                pageBuilder: (context, state) {
+                  return const MaterialPage(
+                    child: VerifyOTPView(),
+                  );
+                },
+              ),
+              GoRoute(
+                name: MyAppRouteConstants.sendOtpRouteName,
+                path: 'send_otp',
+                pageBuilder: (BuildContext context, GoRouterState state) {
+                  Map data = state.extra as Map;
+                  return MaterialPage(
+                    child: SendOTPView(type: data['type']),
+                  );
+                },
+              ),
+              GoRoute(
+                name: MyAppRouteConstants.signUpRouteName,
+                path: 'signup',
+                pageBuilder: (context, state) {
+                  return const MaterialPage(
+                    child: SignUpView(),
+                  );
+                },
+              ),
+              GoRoute(
+                  name: MyAppRouteConstants.loginRouteName,
+                  path: 'login',
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(
+                      child: LoginView(),
+                    );
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.forgotPassWordRouteName,
+                      path: 'forgot_password',
+                      pageBuilder: (BuildContext context, GoRouterState state) {
+                        return const MaterialPage(
+                          child: ForgotPasswordView(),
+                        );
+                      },
+                    )
+                  ]),
+            ]),
         GoRoute(
             name: MyAppRouteConstants.homeTabsRouteName,
             path: '/',
@@ -175,7 +223,7 @@ class MyAppRouter {
                         Map data = state.extra as Map;
                         return MaterialPage(
                           child: TravelPackagesView(
-                            title: state.pathParameters['title']!,
+                            title: state.pathParameters['title'] ?? "",
                             type: data['type'],
                             city: data['city'],
                             country: data['country'],
@@ -690,55 +738,6 @@ class MyAppRouter {
               child: HomeView(),
             );
           },
-        ),
-        GoRoute(
-          name: MyAppRouteConstants.verifyOtpRouteName,
-          path: '/verify_otp',
-          pageBuilder: (context, state) {
-            return const MaterialPage(
-              child: VerifyOTPView(),
-            );
-          },
-        ),
-        GoRoute(
-          name: MyAppRouteConstants.signUpRouteName,
-          path: '/signup',
-          pageBuilder: (context, state) {
-            return const MaterialPage(
-              child: SignUpView(),
-            );
-          },
-          routes: [
-            GoRoute(
-                name: MyAppRouteConstants.loginRouteName,
-                path: 'login',
-                pageBuilder: (context, state) {
-                  return const MaterialPage(
-                    child: LoginView(),
-                  );
-                },
-                routes: [
-                  GoRoute(
-                    name: MyAppRouteConstants.forgotPassWordRouteName,
-                    path: 'forgot_password',
-                    pageBuilder: (BuildContext context, GoRouterState state) {
-                      return const MaterialPage(
-                        child: ForgotPasswordView(),
-                      );
-                    },
-                  )
-                ]),
-            GoRoute(
-              name: MyAppRouteConstants.sendOtpRouteName,
-              path: 'send_otp',
-              pageBuilder: (BuildContext context, GoRouterState state) {
-                Map data = state.extra as Map;
-                return MaterialPage(
-                  child: SendOTPView(type: data['type']),
-                );
-              },
-            )
-          ],
         ),
       ],
     );

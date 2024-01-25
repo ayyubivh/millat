@@ -78,7 +78,7 @@ class Appstrings {
   static const String notifications = "Notifications";
   static const String millatCo = "Millat.co";
   static const String aboutUsDescription =
-      "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may cedfrom you acedross our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.We don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
+      "Welcome to Millat, a unique platform dedicated to the global Muslim audience. Our journey began with the aim of integrating faith with a shared sense of purpose to create an extraordinary marketplace. Millat is more than a collection of products and services; it's a hub for those who embrace Islamic traditions and values. We offer a beautiful selection of attire, including traditional thobes, abayas, and elegant kaftans, each piece reflecting the vibrancy and richness of Islamic culture. Rooted in India, a land with a significant Islamic heritage, our approach is informed by this cultural depth, fostering an environment of compassion and understanding for everyone.At Millat, we symbolize kindness and goodness, embodying the core values of our faith in all that we offer. Whether it's through comprehensive travel assistance or our wide range of products, our goal is to enhance and enrich your experiences. Join us at Millat, where every step with us is towards embracing Islamic traditions and values, marked by kindness, compassion, and inclusivity.";
   static const String privacyPolicyDescription =
       "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.\n\nWe don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
   static const String inviteYourFriend = "Invite your Friends";
@@ -147,7 +147,7 @@ class Appstrings {
   static const String cancelled = "CANCELLED";
   static const String ordered = "ORDERED";
   static const String orderCancelled = "Order Cancelled";
-  static const String delivered = "Delivered";
+  static const String delivered = "DELIVERED";
   static const String keepShopping = "Keep Shopping";
   static const String viewOrderDetails = "View Order Details";
   static const String orderDate = "Order date";

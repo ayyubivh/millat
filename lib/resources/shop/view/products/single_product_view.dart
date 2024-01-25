@@ -48,6 +48,7 @@ class SingleProductView extends StatelessWidget {
         return state.isLoading || data == null
             ? ShimmerUtils.singleProductShimmer(context)
             : Scaffold(
+                extendBodyBehindAppBar: true,
                 appBar: AppBar(
                   backgroundColor: Colors.transparent,
                   elevation: 0,

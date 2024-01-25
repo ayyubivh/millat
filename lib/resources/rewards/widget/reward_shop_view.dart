@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:millat/resources/rewards/widget/price_coin_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -105,15 +106,8 @@ class RewardShopView extends StatelessWidget {
                         kHeight10,
                         Row(
                           children: [
-                            Text(
-                              data[index]?.productId!.salePrice.toString() ??
-                                  "",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                                color: ColorManager.blackColor,
-                              ),
-                            ),
+                            PriceCoinWidget(
+                                coin: data[index]?.coins.toString() ?? ''),
                             kWidth5,
                             Text(
                               data[index]?.productId?.regularPrice.toString() ??

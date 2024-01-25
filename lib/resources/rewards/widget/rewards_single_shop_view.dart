@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/rewards/widget/price_coin_widget.dart';
 import 'package:millat/resources/rewards/widget/reward_cart_view.dart';
 import 'package:millat/resources/rewards/widget/score_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
@@ -180,34 +181,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                                 ),
                               ),
                               kWidth8,
-                              Container(
-                                height: 24,
-                                decoration: BoxDecoration(
-                                  color: ColorManager.greyEB,
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                                padding: const EdgeInsets.only(right: 4),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Image.asset(
-                                      AppAssetsStrings.score,
-                                      height: 24,
-                                      width: 24,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    Text(
-                                      data.coins.toString(),
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: ColorManager.black4F,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
+                              PriceCoinWidget(coin: data.coins.toString()),
                               kWidth3,
                               const Icon(
                                 Icons.info_outline,
@@ -642,7 +616,6 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                                       setState(() {
                                         if (quantity > 1) {
                                           quantity -= 1;
-                                         
                                         }
                                       });
                                     },

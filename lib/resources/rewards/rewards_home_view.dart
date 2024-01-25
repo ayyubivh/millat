@@ -5,6 +5,7 @@ import 'package:millat/resources/authentication/bloc/logic/database_bloc/databas
 import 'package:millat/resources/rewards/widget/daily_coins_widget.dart';
 import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
 import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
+import 'package:millat/resources/rewards/widget/price_coin_widget.dart';
 import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
 import 'package:millat/resources/rewards/widget/score_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
@@ -155,7 +156,7 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
               ),
               kHeight10,
               SizedBox(
-                height: 106,
+                height: 116,
                 child: BlocBuilder<RewardsBloc, RewardsState>(
                   builder: (context, state) {
                     return ListView.builder(
@@ -174,8 +175,8 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
                           );
                         }
                         return Container(
-                          height: 106,
-                          width: 93,
+                          height: 116,
+                          width: 96,
                           decoration: BoxDecoration(
                             color: ColorManager.whiteColor,
                             borderRadius: BorderRadius.circular(6),
@@ -196,15 +197,10 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
                                 boxFit: BoxFit.fill,
                               ),
                               kHeight5,
-                              Text(
-                                data[index]?.offerPrice?.toInt().toString() ??
-                                    "",
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w600,
-                                  color: ColorManager.primary,
-                                ),
-                              )
+                              PriceCoinWidget(
+                                  coin:
+                                      data[index]?.coins?.toInt().toString() ??
+                                          "")
                             ],
                           ),
                         );

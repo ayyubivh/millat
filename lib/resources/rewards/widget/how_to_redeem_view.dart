@@ -74,43 +74,15 @@ class HowToRedeemView extends StatelessWidget {
                 ),
               ),
               kHeight20,
-              ListView.separated(
-                separatorBuilder: (context, index) {
-                  return const Divider(thickness: 1);
-                },
+              ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: 7,
+                itemCount: mapValue.length,
                 itemBuilder: (context, index) {
-                  final texts = [
-                    Appstrings.frequentlyAskedQuestions1,
-                    Appstrings.frequentlyAskedQuestions2,
-                    Appstrings.frequentlyAskedQuestions3,
-                    Appstrings.frequentlyAskedQuestions4,
-                    Appstrings.frequentlyAskedQuestions5,
-                    Appstrings.frequentlyAskedQuestions6,
-                    Appstrings.frequentlyAskedQuestions7,
-                  ];
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 14.0),
-                        child: Text(
-                          texts[index],
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: ColorManager.black4F,
-                          ),
-                        ),
-                      ),
-                      const Icon(
-                        Icons.navigate_next,
-                        size: 30,
-                      )
-                    ],
-                  );
+                  List<String> titles = mapValue.keys.toList();
+                  String title = titles[index];
+                  String description = mapValue[title] ?? '';
+                  return TileWidget(title: title, description: description);
                 },
               )
             ],
@@ -160,6 +132,48 @@ class HowToRedeemView extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ],
+    );
+  }
+}
+
+final Map<String, String> mapValue = {
+  Appstrings.frequentlyAskedQuestions3: Appstrings.whatIsReferAndEarnD,
+  Appstrings.frequentlyAskedQuestions6: Appstrings.howToReferFreindD,
+  Appstrings.frequentlyAskedQuestions5: Appstrings.canIuseMillatCoinsD,
+};
+
+class TileWidget extends StatelessWidget {
+  final String title;
+  final String description;
+
+  const TileWidget({super.key, required this.title, required this.description});
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      iconColor: ColorManager.black4F,
+      collapsedTextColor: ColorManager.redColor,
+      title: Text(
+        title,
+        style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w600,
+            color: ColorManager.blackColor,
+            height: 1.2),
+      ),
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+            description,
+            style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+                color: ColorManager.blackColor,
+                height: 1.2),
+          ),
         ),
       ],
     );

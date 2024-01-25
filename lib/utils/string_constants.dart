@@ -353,6 +353,34 @@ class Appstrings {
   static const String backToHome = "Back to home";
   static const String aminities = "Aminities";
   static const String browseBycountries = "Browse By Countries";
+
+//===============================================//
+//refer and earn---
+  static const String whatIsReferAndEarnD =
+      '''Introducing the Millat Coins Referral Program – Your Path to Rewards!
+Unlock a world of benefits with the Millat app's exciting Refer and Earn program! It's time to share the love and earn big – every referral brings you a whopping 100 Millat Coins, enriching your experience and adding extra value to your journey with us.
+Why Refer and Earn with Millat Coins?
+Instant Rewards: The moment your referral signs up using your link, you earn 100 Millat Coins. No waiting – instant gratification!
+Unlimited Earning Potential: There's no cap on how many friends you can refer. The more, the merrier – and the richer you become in Millat Coins!
+Diverse Redemption Options: Use your Millat Coins to redeem rewards that suit your preferences – from exclusive discounts and vouchers to amazing merchandise.''';
+  static const String howToReferFreindD = '''How It Works:
+Refer Friends: Invite your friends, family, and colleagues to join the Millat app using your unique referral link.
+Earn Millat Coins: For every successful referral, you earn 100 Millat Coins instantly! It's that simple.
+Collect Rewards: Accumulate Millat Coins and redeem them for a variety of exciting rewards available on our app.
+Tips for Successful Referrals:
+Personalize Your Invites: Add a personal touch to your invitations. Share your positive experiences with the Millat app to encourage others to join.
+Leverage Social Media: Share your referral link on your social media platforms and let your network know about the incredible benefits they can enjoy by joining Millat.
+Engage in Conversations: Discuss the app's features and advantages with your friends. A direct conversation can be a powerful way to convince them to sign up.
+Timing is Key: Choose the right moments to talk about the Millat app – perhaps when discussing career growth, networking, or exploring new opportunities.
+Terms and Conditions:
+Referrals must sign up using your unique referral link to qualify.
+Successful referrals will be credited with 100 Millat Coins.
+Millat Coins can be redeemed within the app for a variety of rewards.
+The Refer and Earn program is subject to change, and additional terms may apply.
+Don't miss out on the chance to maximize your Millat experience. Start referring today, and let the Millat Coins roll in, turning your connections into rewards! Join us in building a stronger, more rewarding Millat community – one referral at a time. ''';
+  static const String canIuseMillatCoinsD =
+      '''While Millat Coins offer you a fantastic way to earn rewards and enhance your experience within the Millat app, the availability of their use on all products may vary. It's essential to check the terms and conditions within the app or contact Millat's customer support for specific details on which products or services are eligible for redemption using Millat Coins.
+Typically, companies design reward programs to be versatile, allowing users to redeem their earned credits across a range of offerings. However, to ensure you have accurate and up-to-date information about the products or services that accept Millat Coins, it's advisable to refer to the app's guidelines or reach out to customer support for clarification.''';
 }
 
 String authToken = 'authToken';

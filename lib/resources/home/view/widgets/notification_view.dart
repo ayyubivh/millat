@@ -56,7 +56,7 @@ class NotificationView extends StatelessWidget {
           builder: (context, state) {
             final data = state.notificationModel?.result?.data;
             return data == null
-                ? const Loader()
+                ? const SizedBox()
                 : ListView.separated(
                     separatorBuilder: (context, index) => kHeight5,
                     itemCount: data.length,

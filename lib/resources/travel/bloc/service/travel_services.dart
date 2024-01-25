@@ -3,9 +3,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
-
-import 'package:millat/resources/travel/bloc/models/travel_best_places_model.dart';
-import 'package:millat/resources/travel/bloc/models/travel_popular_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_product_by_cities_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_search_model.dart';
@@ -92,7 +89,7 @@ class TravelServices {
   }
 
 // Fetching Popular Products
-  Future<TravelPopularProductsModel> fetchProductsByLocation({
+  Future<List<ProductId>> fetchProductsByLocation({
     required String location,
   }) async {
     final String endPoint = "get-product-by-location/$location";
@@ -101,9 +98,11 @@ class TravelServices {
     if (response.statusCode == 200 || response.statusCode == 201) {
       try {
         final data = json.decode(response.body);
-        final result = TravelPopularProductsModel.fromJson(data);
+        final result = (data['products'] as List)
+            .map((e) => ProductId.fromJson(e))
+            .toList();
         debugPrint("travel products: $result");
-        return result;
+        return [];
       } catch (e) {
         debugPrint(
             'Error on Travel products by location API fetch: ${e.toString()}');

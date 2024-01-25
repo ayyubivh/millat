@@ -11,7 +11,7 @@ class TravelState with _$TravelState {
     required ProductId? travelProductsModel,
     required List<ProductId>? searchProducts,
     required List<TravelSpecificProductModel>? travelBestPlacesModel,
-    required TravelPopularProductsModel? productByLocationModel,
+    required List<ProductId>? productByLocationModel,
     required int numberOfGuest,
     required String country,
     required List<TravelSearchLocationModels>? travelSearchLocationModels,

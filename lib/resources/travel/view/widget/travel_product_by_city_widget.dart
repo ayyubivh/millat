@@ -13,6 +13,7 @@ import 'package:millat/utils/utils.dart';
 
 class TravelProductByCityWidget extends StatelessWidget {
   const TravelProductByCityWidget({
+    
     super.key,
     required this.data,
   });

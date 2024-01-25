@@ -790,8 +790,8 @@ class CategoryList extends StatelessWidget {
                   final data = cities[index];
                   return GestureDetector(
                     onTap: () {
-                      BlocProvider.of<TravelBloc>(context).add(
-                          FetchProductByLocation(location: data.city ?? ""));
+                      // BlocProvider.of<TravelBloc>(context).add(
+                      //     FetchProductByLocation(location: data.city ?? ""));
                       context.pushNamed(MyAppRouteConstants.travelPackagesView,
                           pathParameters: {
                             "title": Appstrings.products,

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +17,8 @@ import 'package:millat/utils/utils.dart';
 import '../../../../utils/shimmer_utils.dart';
 
 class ShopBrandView extends StatelessWidget {
-  const ShopBrandView({super.key});
+  final List<String?> images;
+  const ShopBrandView({super.key, required this.images});
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +38,7 @@ class ShopBrandView extends StatelessWidget {
                     [])
                 .cast<String>()));
     });
-    List brandsImages = [
-      'assets/dummy/huda.png',
-      'assets/dummy/kazima.png',
-      'assets/dummy/two_brothers.png',
-      'assets/dummy/isak.png',
-      'assets/dummy/farsali_2.png',
-      'assets/dummy/kazima.png',
-    ];
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -77,7 +73,7 @@ class ShopBrandView extends StatelessWidget {
                     ),
                   ),
                   kHeight20,
-                  BrandImages(brandsImages: brandsImages),
+                  BrandImages(brandsImages: images),
                 ],
               ),
             ),
@@ -384,7 +380,7 @@ class BrandImages extends StatelessWidget {
     required this.brandsImages,
   });
 
-  final List brandsImages;
+  final List<String?> brandsImages;
 
   @override
   Widget build(BuildContext context) {
@@ -399,10 +395,14 @@ class BrandImages extends StatelessWidget {
             for (int i = 0; i < 2; i++)
               for (int i = 0; i < brandsImages.length; i++)
                 Align(
-                  widthFactor: 0.8,
-                  child: CircleAvatar(
-                    radius: 40,
-                    child: Image.asset(brandsImages[i]),
+                  widthFactor: 0.6,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircleAvatar(
+                      radius: 40,
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: NetworkImage(brandsImages[i]!),
+                    ),
                   ),
                 )
           ],

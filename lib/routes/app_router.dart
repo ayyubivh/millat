@@ -500,7 +500,11 @@ class MyAppRouter {
                       name: MyAppRouteConstants.shopBrandsRouteName,
                       path: MyAppRouteConstants.shopBrandsRouteName,
                       pageBuilder: (context, state) {
-                        return const MaterialPage(child: ShopBrandView());
+                        Map data = state.extra as Map;
+                        return MaterialPage(
+                            child: ShopBrandView(
+                          images: data['images'],
+                        ));
                       },
                     ),
                     GoRoute(

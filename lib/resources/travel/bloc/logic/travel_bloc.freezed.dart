@@ -7193,7 +7193,7 @@ mixin _$TravelState {
   List<ProductId>? get searchProducts => throw _privateConstructorUsedError;
   List<TravelSpecificProductModel>? get travelBestPlacesModel =>
       throw _privateConstructorUsedError;
-  TravelPopularProductsModel? get productByLocationModel =>
+  List<ProductId>? get productByLocationModel =>
       throw _privateConstructorUsedError;
   int get numberOfGuest => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
@@ -7236,7 +7236,7 @@ abstract class $TravelStateCopyWith<$Res> {
       ProductId? travelProductsModel,
       List<ProductId>? searchProducts,
       List<TravelSpecificProductModel>? travelBestPlacesModel,
-      TravelPopularProductsModel? productByLocationModel,
+      List<ProductId>? productByLocationModel,
       int numberOfGuest,
       String country,
       List<TravelSearchLocationModels>? travelSearchLocationModels,
@@ -7256,7 +7256,6 @@ abstract class $TravelStateCopyWith<$Res> {
       TravelProductsByCitiesModel? travelProductsByCitiesModel});
 
   $TravelCitiesModelCopyWith<$Res>? get travelCitiesModel;
-  $TravelPopularProductsModelCopyWith<$Res>? get productByLocationModel;
   $TravelProductsByCitiesModelCopyWith<$Res>? get travelProductsByCitiesModel;
 }
 
@@ -7336,7 +7335,7 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
       productByLocationModel: freezed == productByLocationModel
           ? _value.productByLocationModel
           : productByLocationModel // ignore: cast_nullable_to_non_nullable
-              as TravelPopularProductsModel?,
+              as List<ProductId>?,
       numberOfGuest: null == numberOfGuest
           ? _value.numberOfGuest
           : numberOfGuest // ignore: cast_nullable_to_non_nullable
@@ -7422,19 +7421,6 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
 
   @override
   @pragma('vm:prefer-inline')
-  $TravelPopularProductsModelCopyWith<$Res>? get productByLocationModel {
-    if (_value.productByLocationModel == null) {
-      return null;
-    }
-
-    return $TravelPopularProductsModelCopyWith<$Res>(
-        _value.productByLocationModel!, (value) {
-      return _then(_value.copyWith(productByLocationModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $TravelProductsByCitiesModelCopyWith<$Res>? get travelProductsByCitiesModel {
     if (_value.travelProductsByCitiesModel == null) {
       return null;
@@ -7464,7 +7450,7 @@ abstract class _$$TravelStateImplCopyWith<$Res>
       ProductId? travelProductsModel,
       List<ProductId>? searchProducts,
       List<TravelSpecificProductModel>? travelBestPlacesModel,
-      TravelPopularProductsModel? productByLocationModel,
+      List<ProductId>? productByLocationModel,
       int numberOfGuest,
       String country,
       List<TravelSearchLocationModels>? travelSearchLocationModels,
@@ -7485,8 +7471,6 @@ abstract class _$$TravelStateImplCopyWith<$Res>
 
   @override
   $TravelCitiesModelCopyWith<$Res>? get travelCitiesModel;
-  @override
-  $TravelPopularProductsModelCopyWith<$Res>? get productByLocationModel;
   @override
   $TravelProductsByCitiesModelCopyWith<$Res>? get travelProductsByCitiesModel;
 }
@@ -7563,9 +7547,9 @@ class __$$TravelStateImplCopyWithImpl<$Res>
           : travelBestPlacesModel // ignore: cast_nullable_to_non_nullable
               as List<TravelSpecificProductModel>?,
       productByLocationModel: freezed == productByLocationModel
-          ? _value.productByLocationModel
+          ? _value._productByLocationModel
           : productByLocationModel // ignore: cast_nullable_to_non_nullable
-              as TravelPopularProductsModel?,
+              as List<ProductId>?,
       numberOfGuest: null == numberOfGuest
           ? _value.numberOfGuest
           : numberOfGuest // ignore: cast_nullable_to_non_nullable
@@ -7651,7 +7635,7 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
       required this.travelProductsModel,
       required final List<ProductId>? searchProducts,
       required final List<TravelSpecificProductModel>? travelBestPlacesModel,
-      required this.productByLocationModel,
+      required final List<ProductId>? productByLocationModel,
       required this.numberOfGuest,
       required this.country,
       required final List<TravelSearchLocationModels>?
@@ -7673,6 +7657,7 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
       : _travelPopularProductsModel = travelPopularProductsModel,
         _searchProducts = searchProducts,
         _travelBestPlacesModel = travelBestPlacesModel,
+        _productByLocationModel = productByLocationModel,
         _travelSearchLocationModels = travelSearchLocationModels,
         _wishlistProducts = wishlistProducts,
         _travelWishlistItems = travelWishlistItems,
@@ -7721,8 +7706,17 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<ProductId>? _productByLocationModel;
   @override
-  final TravelPopularProductsModel? productByLocationModel;
+  List<ProductId>? get productByLocationModel {
+    final value = _productByLocationModel;
+    if (value == null) return null;
+    if (_productByLocationModel is EqualUnmodifiableListView)
+      return _productByLocationModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final int numberOfGuest;
   @override
@@ -7864,8 +7858,8 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
                 .equals(other._searchProducts, _searchProducts) &&
             const DeepCollectionEquality()
                 .equals(other._travelBestPlacesModel, _travelBestPlacesModel) &&
-            (identical(other.productByLocationModel, productByLocationModel) ||
-                other.productByLocationModel == productByLocationModel) &&
+            const DeepCollectionEquality().equals(
+                other._productByLocationModel, _productByLocationModel) &&
             (identical(other.numberOfGuest, numberOfGuest) ||
                 other.numberOfGuest == numberOfGuest) &&
             (identical(other.country, country) || other.country == country) &&
@@ -7915,7 +7909,7 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
         travelProductsModel,
         const DeepCollectionEquality().hash(_searchProducts),
         const DeepCollectionEquality().hash(_travelBestPlacesModel),
-        productByLocationModel,
+        const DeepCollectionEquality().hash(_productByLocationModel),
         numberOfGuest,
         country,
         const DeepCollectionEquality().hash(_travelSearchLocationModels),
@@ -7953,7 +7947,7 @@ abstract class _TravelState implements TravelState {
       required final ProductId? travelProductsModel,
       required final List<ProductId>? searchProducts,
       required final List<TravelSpecificProductModel>? travelBestPlacesModel,
-      required final TravelPopularProductsModel? productByLocationModel,
+      required final List<ProductId>? productByLocationModel,
       required final int numberOfGuest,
       required final String country,
       required final List<TravelSearchLocationModels>?
@@ -7991,7 +7985,7 @@ abstract class _TravelState implements TravelState {
   @override
   List<TravelSpecificProductModel>? get travelBestPlacesModel;
   @override
-  TravelPopularProductsModel? get productByLocationModel;
+  List<ProductId>? get productByLocationModel;
   @override
   int get numberOfGuest;
   @override

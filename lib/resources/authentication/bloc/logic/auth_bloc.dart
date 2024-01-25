@@ -129,6 +129,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         final currentState = state;
         print(currentState.toString());
         if (currentState is AuthSocialLoginNewUserLoaded) {
+          emit(AuthLoading());
           if (event.code.isEmpty) {
             emit(AuthError('Please fill in all the fields'));
           } else {
@@ -151,6 +152,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             }
           }
         } else if (currentState is AuthPhoneNumber) {
+          emit(AuthLoading());
           final result = await _authService.verifyOTP(
               context: event.context,
               phoneNumber: currentState.phoneNumber,
@@ -162,6 +164,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthPhoneNumber(phoneNumber: currentState.phoneNumber));
           }
         } else if (currentState is AuthLoadedOTPonly) {
+          emit(AuthLoading());
           print(currentState.otp == event.code);
           if (currentState.otp == event.code) {
             print("yes");

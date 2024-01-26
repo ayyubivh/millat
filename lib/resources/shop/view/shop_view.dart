@@ -356,7 +356,7 @@ class _ShopViewState extends State<ShopView> {
               : GestureDetector(
                   onTap: () {
                     context.pushNamed(MyAppRouteConstants.singleBrandRouteName,
-                        extra: {'passValue': data});
+                        extra: {'passValue': data![index]});
                   },
                   child: buildShopbyBrand(result.logo, result.name ?? ""),
                 );

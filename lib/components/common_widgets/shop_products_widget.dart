@@ -72,8 +72,8 @@ class ShopProductWidget extends StatelessWidget {
                   final isWishlisted =
                       state.wishListItems?.contains(productId) ?? false;
 
-                  return GestureDetector(
-                    onTap: () {
+                  return IconButton(
+                    onPressed: () {
                       if (isWishlisted) {
                         context.read<ShopProductsBloc>().add(
                               RemoveWishlistEvent(
@@ -90,7 +90,7 @@ class ShopProductWidget extends StatelessWidget {
                             );
                       }
                     },
-                    child: Icon(
+                    icon: Icon(
                       isWishlisted ? Icons.favorite : Icons.favorite_border,
                       color: isWishlisted
                           ? ColorManager.redColor
@@ -140,8 +140,8 @@ class ShopProductWidget extends StatelessWidget {
                   final isProductInCart =
                       state.cartItems?.contains(productId) ?? false;
 
-                  return GestureDetector(
-                    onTap: () {
+                  return IconButton(
+                    onPressed: () {
                       if (!isProductInCart) {
                         context.read<CartBloc>().add(AddCartEvent(
                               productId: productId ?? "",
@@ -161,22 +161,14 @@ class ShopProductWidget extends StatelessWidget {
                         showSnackBar(context, "Product Removed From Cart!");
                       }
                     },
-                    child: Container(
-                      height: 23,
-                      width: 23,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: isProductInCart
-                            ? ColorManager.redColor
-                            : ColorManager.primary,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          isProductInCart ? Icons.remove : Icons.add,
-                          size: 21,
-                          color: ColorManager.whiteColor,
-                        ),
-                      ),
+                    icon: Icon(
+                      isProductInCart
+                          ? Icons.do_not_disturb_on
+                          : Icons.add_circle,
+                      size: 25,
+                      color: isProductInCart
+                          ? ColorManager.redColor
+                          : ColorManager.primary,
                     ),
                   );
                 },

@@ -834,6 +834,9 @@ class CarouselView extends StatelessWidget {
           children: [
             CarouselSlider(
               options: CarouselOptions(
+                scrollPhysics: data.images?.length == 1
+                    ? const NeverScrollableScrollPhysics()
+                    : null,
                 height: SizeUtility(context).height * 55 / 100,
                 viewportFraction: 1,
                 autoPlayAnimationDuration: const Duration(milliseconds: 800),
@@ -847,6 +850,7 @@ class CarouselView extends StatelessWidget {
                 return Utilities().buildCachedNetworkImage(
                   imageUrl: imageUrl,
                   width: SizeUtility(context).width,
+                  boxFit: BoxFit.cover,
                   onTap: () {
                     context.pushNamed(
                         MyAppRouteConstants.imageFullViewRoutename,

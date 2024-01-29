@@ -48,10 +48,10 @@ class TravelHomeView extends StatelessWidget {
             flexibleSpace: const FlexibleSpaceBar(
               background: BannerCarousel(),
             ),
-            actions: const [
-              SearchIconWidget(),
-              kWidth30,
-            ],
+            // actions: const [
+            //   SearchIconWidget(),
+            //   kWidth30,
+            // ],
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
@@ -213,11 +213,12 @@ class BestPlaceWidget extends StatelessWidget {
                                             ],
                                           ),
                                           Container(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 6),
                                             margin: EdgeInsets.only(
                                                 left:
                                                     SizeUtility(context).width /
                                                         5),
-                                            width: 80,
                                             height: 29,
                                             decoration: BoxDecoration(
                                               color: ColorManager.primary,
@@ -226,7 +227,7 @@ class BestPlaceWidget extends StatelessWidget {
                                             ),
                                             child: Center(
                                               child: Text(
-                                                " Up to ₹${data[index].productId?.offer_price}",
+                                                "Up to ₹${data[index].productId?.offer_price?.toInt()}",
                                                 style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w700,
@@ -755,7 +756,7 @@ class CategoryList extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TitleWidget(
-            titleName: Appstrings.browseBycountries,
+            titleName: Appstrings.browseByCities,
             onTap: () {},
             showSeeAll: false,
           ),
@@ -999,60 +1000,45 @@ class Carousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Stack(
-        children: [
-          ShaderMask(
-            blendMode: BlendMode.darken,
-            shaderCallback: (bounds) => LinearGradient(
-              colors: [
-                Colors.black.withOpacity(0.2),
-                Colors.black.withOpacity(0.2)
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ).createShader(bounds),
-            child: Utilities().buildCachedNetworkImage(
-              imageUrl: banner,
-              boxFit: BoxFit.cover,
-              width: SizeUtility(context).width,
-              // height: 262,
-            ),
+    return Stack(
+      children: [
+        ShaderMask(
+          blendMode: BlendMode.darken,
+          shaderCallback: (bounds) => LinearGradient(
+            colors: [
+              Colors.black.withOpacity(0.2),
+              Colors.black.withOpacity(0.2)
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ).createShader(bounds),
+          child: Utilities().buildCachedNetworkImage(
+            imageUrl: banner,
+            boxFit: BoxFit.cover,
+            width: SizeUtility(context).width,
+            // height: 262,
           ),
-          Padding(
+        ),
+        SizedBox(
+          width: SizeUtility(context).width / 1.3,
+          child: Padding(
             padding: const EdgeInsets.only(
               top: 55,
               left: 30,
               right: 30,
             ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: ColorManager.whiteColor,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    kHeight5,
-
-                    // RatingWidget(
-                    //   rating: rating,
-                    // )
-                  ],
-                ),
-              ],
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                color: ColorManager.whiteColor,
+                fontWeight: FontWeight.w600,
+                height: 1.3,
+              ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

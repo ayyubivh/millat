@@ -527,7 +527,10 @@ class _ShopViewState extends State<ShopView> {
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Utilities().buildCachedNetworkImage(
-                            imageUrl: banner.image, boxFit: BoxFit.fill)),
+                          width: SizeUtility(context).width,
+                          imageUrl: banner.image,
+                          boxFit: BoxFit.fill,
+                        )),
                   );
                 }).toList(),
                 options: CarouselOptions(
@@ -594,30 +597,13 @@ class _ShopViewState extends State<ShopView> {
                 ],
               ),
               const Spacer(),
-              GestureDetector(
-                onTap: () {
-                  context
-                      .pushNamed(MyAppRouteConstants.categoriesFilterRouteName);
-                },
-                child: ImageIcon(
-                  const AssetImage(
-                    AppAssetsStrings.shopMenuIcons,
-                  ),
-                  size: 25,
-                  color: ColorManager.whiteColor,
-                ),
-              ),
-              !Responsive.isMobile(context) ? kWidth30 : kWidth10,
-              GestureDetector(
-                onTap: () {
-                  context.pushNamed(MyAppRouteConstants.wishlistRouteName);
-                },
-                child: ImageIcon(
-                  const AssetImage(AppAssetsStrings.wishList),
-                  color: ColorManager.whiteColor,
-                  size: 22,
-                ),
-              ),
+              _topButtonWidget(
+                  context,
+                  MyAppRouteConstants.categoriesFilterRouteName,
+                  AppAssetsStrings.shopMenuIcons),
+              !Responsive.isMobile(context) ? kWidth30 : const SizedBox(),
+              _topButtonWidget(context, MyAppRouteConstants.wishlistRouteName,
+                  AppAssetsStrings.wishList),
               !Responsive.isMobile(context) ? kWidth20 : const SizedBox(),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
@@ -700,6 +686,22 @@ class _ShopViewState extends State<ShopView> {
             },
           )
         ],
+      ),
+    );
+  }
+
+  Widget _topButtonWidget(
+      BuildContext context, String routeName, String iconName) {
+    return IconButton(
+      onPressed: () {
+        context.pushNamed(routeName);
+      },
+      icon: ImageIcon(
+        AssetImage(
+          iconName,
+        ),
+        size: 25,
+        color: ColorManager.whiteColor,
       ),
     );
   }

@@ -352,7 +352,7 @@ class Appstrings {
       "Now you can sit back, relax, you will be receiving email from our team within 24 hours ";
   static const String backToHome = "Back to home";
   static const String aminities = "Aminities";
-  static const String browseBycountries = "Browse By Countries";
+  static const String browseByCities = "Browse By Cities";
 
 //===============================================//
 //refer and earn---

@@ -353,7 +353,7 @@ class CategoryView extends StatelessWidget {
                                   ),
                                   kHeight16,
                                   SizedBox(
-                                    height: SizeUtility(context).height / 3,
+                                    height: SizeUtility(context).height / 2.9,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemCount: products.length,
@@ -464,7 +464,7 @@ class CategoryView extends StatelessWidget {
                                   ),
                                   kHeight16,
                                   SizedBox(
-                                    height: 280,
+                                    height: SizeUtility(context).height / 2.9,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemCount: products.length,

@@ -30,13 +30,13 @@ class BannerResult with _$BannerResult {
 @freezed
 class Banners with _$Banners {
   const factory Banners({
-    @JsonKey(name: "_id") required String id,
-    @JsonKey(name: "title") required String title,
-    @JsonKey(name: "slug") required String slug,
-    @JsonKey(name: "image") required String image,
-    @JsonKey(name: "url") required String url,
-    @JsonKey(name: "createdAt") required String createdAt,
-    @JsonKey(name: "updatedAt") required String updatedAt,
+    @JsonKey(name: "_id") required String? id,
+    @JsonKey(name: "title") required String? title,
+    @JsonKey(name: "slug") required String? slug,
+    @JsonKey(name: "image") required String? image,
+    @JsonKey(name: "url") required String? url,
+    @JsonKey(name: "createdAt") required String? createdAt,
+    @JsonKey(name: "updatedAt") required String? updatedAt,
   }) = _Banners;
 
   factory Banners.fromJson(Map<String, dynamic> json) =>

@@ -127,7 +127,6 @@ class SingleBrandView extends StatelessWidget {
                         //   return ShimmerUtils.productsShimmers(context);
                         // }
                         return GridView.builder(
-                          padding: const EdgeInsets.all(20),
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           gridDelegate:
@@ -135,7 +134,7 @@ class SingleBrandView extends StatelessWidget {
                             crossAxisCount: 2,
                             crossAxisSpacing: 20,
                             mainAxisSpacing: 20,
-                            mainAxisExtent: SizeUtility(context).height / 3.4,
+                            mainAxisExtent: SizeUtility(context).height / 2.9,
                           ),
                           itemCount: state.brandProductsModel?.result?.products
                                   ?.length ??

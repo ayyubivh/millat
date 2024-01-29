@@ -119,7 +119,7 @@ class TravelTabBarWidget extends StatelessWidget {
                             ),
                           );
                         },
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -160,6 +160,7 @@ class TravelTabBarWidget extends StatelessWidget {
               ],
             ),
           ),
+          kHeight100,
         ],
       ),
     );

@@ -38,13 +38,13 @@ Map<String, dynamic> _$$BannerResultImplToJson(_$BannerResultImpl instance) =>
 
 _$BannersImpl _$$BannersImplFromJson(Map<String, dynamic> json) =>
     _$BannersImpl(
-      id: json['_id'] as String,
-      title: json['title'] as String,
-      slug: json['slug'] as String,
-      image: json['image'] as String,
-      url: json['url'] as String,
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
+      id: json['_id'] as String?,
+      title: json['title'] as String?,
+      slug: json['slug'] as String?,
+      image: json['image'] as String?,
+      url: json['url'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$$BannersImplToJson(_$BannersImpl instance) =>

@@ -7,6 +7,7 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -232,9 +233,10 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
                         )),
                     child: Center(
                       child: state.isLoading
-                          ? const Padding(
-                              padding: EdgeInsets.all(6),
-                              child: Loader(),
+                          ? ShimmerUtilWidget.borderRectangle(
+                              borderRadius: 4,
+                              width: SizeUtility(context).width,
+                              height: 42,
                             )
                           : Text(
                               state.checkCoinsCollected == true

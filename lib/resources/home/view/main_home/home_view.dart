@@ -415,7 +415,7 @@ class _HomeViewState extends State<HomeView> {
                           });
                     },
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
@@ -425,13 +425,14 @@ class _HomeViewState extends State<HomeView> {
                             width: 75,
                           ),
                         ),
-                        kHeight5,
+                        kHeight8,
                         Text(
                           data?.subCategoryName ?? "",
                           style: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
                           ),
+                          textAlign: TextAlign.center,
                         )
                       ],
                     ),
@@ -1127,31 +1128,31 @@ class _HomeViewState extends State<HomeView> {
       {required String image,
       required String text,
       required VoidCallback onTap}) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Container(
-            height: 70,
-            width: 70,
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: black247,
-              borderRadius: BorderRadius.circular(6),
-            ),
-            child: Image.asset(
-              image,
+    return Column(
+      children: [
+        Material(
+          child: InkWell(
+            onTap: onTap,
+            child: Container(
+              height: 70,
+              width: 70,
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: black247,
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: Image.asset(
+                image,
+              ),
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            text,
-            style: const TextStyle(color: black165),
-          )
-        ],
-      ),
+        ),
+        kHeight10,
+        Text(
+          text,
+          style: const TextStyle(color: black165),
+        )
+      ],
     );
   }
 }

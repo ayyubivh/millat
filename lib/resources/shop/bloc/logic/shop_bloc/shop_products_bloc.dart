@@ -625,7 +625,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   _fetchProductsById(
       FetchProductsById event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(isLoading: true));
+    emit(state.copyWith(isLoading: true, productByIdModel: null));
     try {
       final data = await shopService.fetchProductByid(id: event.id);
       emit(state.copyWith(productByIdModel: data, isLoading: false));
@@ -669,7 +669,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await shopService.fetchBrandItemsById(id: event.id);
-    
+
       emit(state.copyWith(brandItemsModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));

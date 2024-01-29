@@ -378,19 +378,19 @@ Banners _$BannersFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Banners {
   @JsonKey(name: "_id")
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "title")
-  String get title => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: "slug")
-  String get slug => throw _privateConstructorUsedError;
+  String? get slug => throw _privateConstructorUsedError;
   @JsonKey(name: "image")
-  String get image => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   @JsonKey(name: "url")
-  String get url => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
   @JsonKey(name: "createdAt")
-  String get createdAt => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: "updatedAt")
-  String get updatedAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -403,13 +403,13 @@ abstract class $BannersCopyWith<$Res> {
       _$BannersCopyWithImpl<$Res, Banners>;
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
-      @JsonKey(name: "title") String title,
-      @JsonKey(name: "slug") String slug,
-      @JsonKey(name: "image") String image,
-      @JsonKey(name: "url") String url,
-      @JsonKey(name: "createdAt") String createdAt,
-      @JsonKey(name: "updatedAt") String updatedAt});
+      {@JsonKey(name: "_id") String? id,
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "slug") String? slug,
+      @JsonKey(name: "image") String? image,
+      @JsonKey(name: "url") String? url,
+      @JsonKey(name: "createdAt") String? createdAt,
+      @JsonKey(name: "updatedAt") String? updatedAt});
 }
 
 /// @nodoc
@@ -425,43 +425,43 @@ class _$BannersCopyWithImpl<$Res, $Val extends Banners>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? slug = null,
-    Object? image = null,
-    Object? url = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? slug = freezed,
+    Object? image = freezed,
+    Object? url = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as String?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      slug: null == slug
+              as String?,
+      slug: freezed == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: null == image
+              as String?,
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
+              as String?,
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -474,13 +474,13 @@ abstract class _$$BannersImplCopyWith<$Res> implements $BannersCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
-      @JsonKey(name: "title") String title,
-      @JsonKey(name: "slug") String slug,
-      @JsonKey(name: "image") String image,
-      @JsonKey(name: "url") String url,
-      @JsonKey(name: "createdAt") String createdAt,
-      @JsonKey(name: "updatedAt") String updatedAt});
+      {@JsonKey(name: "_id") String? id,
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "slug") String? slug,
+      @JsonKey(name: "image") String? image,
+      @JsonKey(name: "url") String? url,
+      @JsonKey(name: "createdAt") String? createdAt,
+      @JsonKey(name: "updatedAt") String? updatedAt});
 }
 
 /// @nodoc
@@ -494,43 +494,43 @@ class __$$BannersImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? slug = null,
-    Object? image = null,
-    Object? url = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? slug = freezed,
+    Object? image = freezed,
+    Object? url = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$BannersImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as String?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      slug: null == slug
+              as String?,
+      slug: freezed == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: null == image
+              as String?,
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
+              as String?,
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -552,25 +552,25 @@ class _$BannersImpl implements _Banners {
 
   @override
   @JsonKey(name: "_id")
-  final String id;
+  final String? id;
   @override
   @JsonKey(name: "title")
-  final String title;
+  final String? title;
   @override
   @JsonKey(name: "slug")
-  final String slug;
+  final String? slug;
   @override
   @JsonKey(name: "image")
-  final String image;
+  final String? image;
   @override
   @JsonKey(name: "url")
-  final String url;
+  final String? url;
   @override
   @JsonKey(name: "createdAt")
-  final String createdAt;
+  final String? createdAt;
   @override
   @JsonKey(name: "updatedAt")
-  final String updatedAt;
+  final String? updatedAt;
 
   @override
   String toString() {
@@ -614,38 +614,38 @@ class _$BannersImpl implements _Banners {
 
 abstract class _Banners implements Banners {
   const factory _Banners(
-          {@JsonKey(name: "_id") required final String id,
-          @JsonKey(name: "title") required final String title,
-          @JsonKey(name: "slug") required final String slug,
-          @JsonKey(name: "image") required final String image,
-          @JsonKey(name: "url") required final String url,
-          @JsonKey(name: "createdAt") required final String createdAt,
-          @JsonKey(name: "updatedAt") required final String updatedAt}) =
+          {@JsonKey(name: "_id") required final String? id,
+          @JsonKey(name: "title") required final String? title,
+          @JsonKey(name: "slug") required final String? slug,
+          @JsonKey(name: "image") required final String? image,
+          @JsonKey(name: "url") required final String? url,
+          @JsonKey(name: "createdAt") required final String? createdAt,
+          @JsonKey(name: "updatedAt") required final String? updatedAt}) =
       _$BannersImpl;
 
   factory _Banners.fromJson(Map<String, dynamic> json) = _$BannersImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
-  String get id;
+  String? get id;
   @override
   @JsonKey(name: "title")
-  String get title;
+  String? get title;
   @override
   @JsonKey(name: "slug")
-  String get slug;
+  String? get slug;
   @override
   @JsonKey(name: "image")
-  String get image;
+  String? get image;
   @override
   @JsonKey(name: "url")
-  String get url;
+  String? get url;
   @override
   @JsonKey(name: "createdAt")
-  String get createdAt;
+  String? get createdAt;
   @override
   @JsonKey(name: "updatedAt")
-  String get updatedAt;
+  String? get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$BannersImplCopyWith<_$BannersImpl> get copyWith =>

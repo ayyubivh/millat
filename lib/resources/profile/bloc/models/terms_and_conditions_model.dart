@@ -30,7 +30,7 @@ class Data with _$Data {
   factory Data({
     required String? id,
     required String slug,
-    required List<TermsCondition>? content,
+    required String? content,
     required String? createdAt,
     required String? date,
     required String? policyType,
@@ -38,16 +38,4 @@ class Data with _$Data {
   }) = _Data;
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
-}
-
-@freezed
-class TermsCondition with _$TermsCondition {
-  factory TermsCondition(
-      {required String? title,
-      required String? html,
-      required String? id,
-      re}) = _TermsCondition;
-
-  factory TermsCondition.fromJson(Map<String, dynamic> json) =>
-      _$TermsConditionFromJson(json);
 }

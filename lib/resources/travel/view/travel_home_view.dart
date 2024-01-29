@@ -117,7 +117,7 @@ class BestPlaceWidget extends StatelessWidget {
                                 context.pushNamed(
                                     MyAppRouteConstants.travelSingleRoutename,
                                     pathParameters: {
-                                      'id': data[index].id ?? "",
+                                      'id': data[index].productId?.id ?? "",
                                     });
                               },
                               child: Stack(

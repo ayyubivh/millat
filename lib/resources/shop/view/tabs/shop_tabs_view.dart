@@ -1,9 +1,6 @@
-import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -63,7 +60,6 @@ class ShopTabsView extends StatelessWidget {
                 : (8.0 / 100.0) * SizeUtility(context).height,
             child: BottomNavigationBar(
               onTap: (newIndex) {
-                log("new index $newIndex and bloc index ${state.index}");
                 if (newIndex == 0 && state.index == newIndex) {
                   context
                       .read<HomeBloc>()

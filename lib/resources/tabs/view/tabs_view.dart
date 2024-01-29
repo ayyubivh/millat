@@ -4,9 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/main_home/home_view.dart';
 import 'package:millat/resources/rewards/rewards_home_view.dart';
-import 'package:millat/resources/rewards/rewards_tab_view.dart';
-import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
-import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_view.dart';
 import 'package:millat/resources/travel/view/travel_tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -22,7 +19,7 @@ class TabsView extends StatelessWidget {
     List screens = [
       const HomeView(),
       const ShopTabsView(),
-      const HowToRedeemView(),
+      const RewardsHomeView(),
       const TravelTabsView(),
       const UserProfileView(),
     ];

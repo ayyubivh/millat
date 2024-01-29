@@ -55,8 +55,7 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 30,
-            vertical: 30,
-          ),
+          ).copyWith(top: 30),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

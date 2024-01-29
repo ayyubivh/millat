@@ -45,17 +45,16 @@ class TermsConditionsView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             kHeight20,
+                            // Text(
+                            //   data?[index].title ?? "",
+                            //   style: const TextStyle(
+                            //     fontSize: 18,
+                            //     fontWeight: FontWeight.w700,
+                            //   ),
+                            // ),
+                            // kHeight20,
                             Text(
-                              data?[index].title ?? "",
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            kHeight20,
-                            Text(
-                              Utilities.removeFootnotesFromMeaning(
-                                  data?[index].html ?? ""),
+                              Utilities.removeFootnotesFromMeaning(data ?? ""),
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,

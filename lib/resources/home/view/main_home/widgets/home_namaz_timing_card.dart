@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -22,6 +23,11 @@ class HomeNamazTimingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      BlocProvider.of<HomeBloc>(context).add(FetchNotificationApi(
+        context: context,
+      ));
+    });
     return AnimatedContainer(
       curve: Curves.slowMiddle,
       duration:
@@ -64,17 +70,30 @@ class HomeNamazTimingCard extends StatelessWidget {
                         ),
                 ),
                 const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5),
-                  child: GestureDetector(
-                    onTap: () {
-                      context
-                          .goNamed(MyAppRouteConstants.notificationRouteName);
-                    },
-                    child: ImageIcon(
-                        const AssetImage(AppAssetsStrings.bellIcon),
-                        color: ColorManager.whiteColor,
-                        size: 25),
+                BlocBuilder<HomeBloc, HomeState>(
+                  builder: (context, state) => Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: GestureDetector(
+                      onTap: () {
+                        context.pushNamed(
+                            MyAppRouteConstants.notificationRouteName);
+                      },
+                      child: Stack(
+                        children: [
+                          ImageIcon(const AssetImage(AppAssetsStrings.bellIcon),
+                              color: ColorManager.whiteColor, size: 25),
+                          state.notificationModel?.result?.data?.any(
+                                      (e) => e.isReadByUser?.isEmpty ?? true) ??
+                                  false
+                              ? Icon(
+                                  Icons.circle,
+                                  size: 10,
+                                  color: ColorManager.redColor,
+                                )
+                              : const SizedBox()
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ],

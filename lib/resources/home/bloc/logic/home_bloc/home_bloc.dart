@@ -233,8 +233,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       FetchNotificationApi event, Emitter<HomeState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final data = await NotificationService()
-          .fetchNotficationApi(context: event.context, id: event.id);
+      final data = await NotificationService().fetchNotficationApi(
+        context: event.context,
+      );
       emit(state.copyWith(notificationModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
@@ -244,11 +245,30 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   _addMarkReadEvent(
       AddMarkReadNotificationEvent event, Emitter<HomeState> emit) async {
+    emit(state.copyWith(isLoading: true));
+
     try {
-      final data = await NotificationService()
+      await NotificationService()
           .addReadMark(context: event.context, id: event.id);
-      emit(state.copyWith(notificationModel: data));
+
+      // Filter out the notification with the specified id from the data list
+      final updatedData = state.notificationModel?.result?.data
+          ?.where((notification) => notification.id != event.id)
+          .toList();
+
+      final updatedNotificationModel = state.notificationModel?.copyWith(
+        result: state.notificationModel?.result?.copyWith(
+          data: updatedData,
+        ),
+      );
+
+      emit(state.copyWith(
+        isLoading: false,
+        notificationModel: updatedNotificationModel,
+      ));
     } catch (e) {
+      emit(state.copyWith(isLoading: false));
+
       throw Exception(e);
     }
   }

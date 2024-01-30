@@ -186,6 +186,7 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
                             horizontal: 5,
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Utilities().buildCachedNetworkImage(
@@ -196,10 +197,26 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
                                 boxFit: BoxFit.fill,
                               ),
                               kHeight5,
-                              PriceCoinWidget(
-                                  coin:
-                                      data[index]?.coins?.toInt().toString() ??
-                                          "")
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    AppAssetsStrings.score,
+                                    height: 20,
+                                    width: 20,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  kWidth5,
+                                  Text(
+                                    data[index]?.coins?.toInt().toString() ??
+                                        "",
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: ColorManager.primary,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ],
                           ),
                         );
@@ -215,10 +232,9 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
 
   Widget _redeemYourCoinsWidget(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const RewardsRedeemView(),
-        ));
+        context.pushNamed(MyAppRouteConstants.rewardsRedeemViewRouteName);
       },
       child: SizedBox(
         height: 134,

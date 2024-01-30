@@ -24,6 +24,10 @@ class AppAssetsStrings {
   static const millatLogo = "$logosPath/Icon only.png";
   static const copyIcon = "$iconsPath/copy.png";
   static const quranBgImage = "$backgroundsPath/quran_bg.png";
+  static const readTasbihBg = "$backgroundsPath/read_tasbih_bg.png";
+  static const duaTasbih = "$iconsPath/dua_tasbih.png";
+  static const rewardPromoBg = "$backgroundsPath/reward_promo_bg.png";
+  static const String kabahBuilding = "$imagesPath/kabah_building.png";
   //tasbih
 
   static const String tasbihBallPink = "$imagesPath/tasbih_balls_pink.png";

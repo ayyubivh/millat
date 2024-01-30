@@ -57,8 +57,8 @@ class RewardsRedeemView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: BlocBuilder<RewardsBloc, RewardsState>(
               builder: (context, state) {
-                if (state.redeemItemModel == null) {
-                  return const SizedBox();
+                if (state.redeemItemModel == null || state.isLoading) {
+                  return const Loader();
                 }
 
                 return SingleChildScrollView(

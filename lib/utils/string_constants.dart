@@ -279,7 +279,10 @@ class Appstrings {
   static const String fifthOrder = "5th Order";
   static const String readDua = "Read Dua";
   static const String readTasbih = "Read Tasbih";
+  static const String tasbih1 = "Astaghfirullah wa atubu ilaih";
   static const String fiveHundred = "500 Points";
+  static const String fiftyPoints = "50 Points";
+
   static const String thousandPoints = "1000 Points";
   static const String fourHundredPoints = "400 Points";
   static const String hundredPoints = "100 Points";

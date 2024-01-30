@@ -220,11 +220,16 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                   kHeight20,
+
                   _bannerWidget(),
-                  kHeight15,
+                  kHeight20,
+                  _readTasbihWidget(context),
+                  kHeight20,
                   _quranAyaWidget(context),
+                  kHeight20,
+                  _rewardPromoWidget(context),
+                  kHeight20,
                   // _dailyPrayerTracker(context),
-                  kHeight16,
                   const SizedBox(
                     height: 340,
                     child: HaditTinkerCards(),
@@ -250,6 +255,135 @@ class _HomeViewState extends State<HomeView> {
             _brandOftheDayWidget(),
             kHeight50,
             kHeight50,
+          ],
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _rewardPromoWidget(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        context.pushNamed(MyAppRouteConstants.rewardsRedeemViewRouteName);
+      },
+      child: SizedBox(
+        height: 132,
+        width: SizeUtility(context).width,
+        child: Stack(
+          // alignment: Alignment.bottomRight,
+          children: [
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                height: 118,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage(
+                    AppAssetsStrings.rewardPromoBg,
+                  ),
+                  fit: BoxFit.fill,
+                )),
+                width: SizeUtility(context).width,
+                child: const Padding(
+                  padding: EdgeInsets.only(
+                    left: 30,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Get Chance\n To Win Free \nHaj & Umrah",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w900,
+                          height: 1.3,
+                        ),
+                      ),
+                      kHeight5,
+                      Icon(Icons.arrow_forward)
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 12, right: 12),
+                child: Image.asset(
+                  AppAssetsStrings.kabahBuilding,
+                  height: 215,
+                  width: 215,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _readTasbihWidget(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        context.pushNamed(MyAppRouteConstants.tasbihRouteName);
+      },
+      behavior: HitTestBehavior.translucent,
+      child: Container(
+        height: 120,
+        width: SizeUtility(context).width,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          image: const DecorationImage(
+              image: AssetImage(
+                AppAssetsStrings.readTasbihBg,
+              ),
+              fit: BoxFit.cover),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              height: 35,
+              width: 35,
+              padding: const EdgeInsets.all(6),
+              decoration: BoxDecoration(
+                color: ColorManager.whiteColor,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: ColorManager.primary,
+                ),
+              ),
+              child: Image.asset(
+                AppAssetsStrings.duaTasbih,
+                color: ColorManager.primary,
+              ),
+            ),
+            const Row(
+              children: [
+                Text(
+                  Appstrings.readTasbih,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Icon(Icons.navigate_next)
+              ],
+            ),
+            Text(
+              Appstrings.tasbih1,
+              style: TextStyle(
+                fontSize: 16,
+                color: ColorManager.black4F,
+                fontWeight: FontWeight.w600,
+              ),
+            )
           ],
         ),
       ),
@@ -888,7 +1022,7 @@ class _HomeViewState extends State<HomeView> {
       height: 290,
       width: !Responsive.isMobile(context)
           ? SizeUtility(context).width / 2.5
-          : SizeUtility(context).width / 1.2,
+          : SizeUtility(context).width,
       child: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: PageController(
@@ -916,14 +1050,16 @@ class _HomeViewState extends State<HomeView> {
                   final data = state.versesByKeyModel?[0];
                   return Container(
                     height: 290,
-                    width: SizeUtility(context).width / 1.2,
+                    width: SizeUtility(context).width,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 10),
                     decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
                         image: DecorationImage(
                             image: AssetImage(
-                      "assets/backgrounds/allay_says_bg_$index.png",
-                    ))),
+                              "assets/backgrounds/allay_says_bg_$index.png",
+                            ),
+                            fit: BoxFit.cover)),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 10),

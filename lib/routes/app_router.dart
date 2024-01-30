@@ -34,6 +34,7 @@ import 'package:millat/resources/profile/views/invite_friend_view.dart';
 import 'package:millat/resources/profile/views/order_history_view.dart';
 import 'package:millat/resources/profile/views/user_profile_view.dart';
 import 'package:millat/resources/rewards/rewards_tab_view.dart';
+import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
 import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';
@@ -172,6 +173,13 @@ class MyAppRouter {
               //     return const MaterialPage(child: RewardsTabView());
               //   },
               // ),
+              GoRoute(
+                name: MyAppRouteConstants.rewardsRedeemViewRouteName,
+                path: MyAppRouteConstants.rewardsRedeemViewRouteName,
+                pageBuilder: (context, state) {
+                  return const MaterialPage(child: RewardsRedeemView());
+                },
+              ),
               GoRoute(
                   name: MyAppRouteConstants.rewardsShopRouteName,
                   path: MyAppRouteConstants.rewardsShopRouteName,

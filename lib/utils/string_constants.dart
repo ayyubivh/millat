@@ -77,6 +77,7 @@ class Appstrings {
   static const String supportAndHelp = "Support & Help";
   static const String notifications = "Notifications";
   static const String millatCo = "Millat.co";
+  static const String exploreAll = "Explore All";
   static const String aboutUsDescription =
       "Welcome to Millat, a unique platform dedicated to the global Muslim audience. Our journey began with the aim of integrating faith with a shared sense of purpose to create an extraordinary marketplace. Millat is more than a collection of products and services; it's a hub for those who embrace Islamic traditions and values. We offer a beautiful selection of attire, including traditional thobes, abayas, and elegant kaftans, each piece reflecting the vibrancy and richness of Islamic culture. Rooted in India, a land with a significant Islamic heritage, our approach is informed by this cultural depth, fostering an environment of compassion and understanding for everyone.At Millat, we symbolize kindness and goodness, embodying the core values of our faith in all that we offer. Whether it's through comprehensive travel assistance or our wide range of products, our goal is to enhance and enrich your experiences. Join us at Millat, where every step with us is towards embracing Islamic traditions and values, marked by kindness, compassion, and inclusivity.";
   static const String privacyPolicyDescription =
@@ -155,6 +156,8 @@ class Appstrings {
   static const String orderTotal = "Order Total";
   static const String downloadInvoice = "Download Invoice";
   static const String deliveryEstimate = "Delivery Estimate";
+  static const String deliveryDate = "Delivery Date";
+  static const String writeReview = "Write Review";
   static const String processing = "PROCESSING";
   static const String paymentInformation = "Payment information";
   static const String paymentMethod = "Payment Method";
@@ -254,6 +257,7 @@ class Appstrings {
   static const String tempAyaMeaning4 =
       "Do not entrust the incapable ˹among your dependants˺ with your wealth which Allah has made a means of support for you—but feed and clothe them from it, and speak to them kindly.";
 //rewards
+  static const String rewards = "Rewards";
   static const String sponsoredBy = "Sponsored By";
   static const String shopWithCoins = "Shop With Coins";
   static const String dailyCoins = "Daily Coins";

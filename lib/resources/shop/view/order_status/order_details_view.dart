@@ -428,11 +428,6 @@ class OrdetailsView extends StatelessWidget {
       builder: (context, state) {
         final data = state.ordersByIdModel?.result?.order;
 
-        DateTime orderDate = DateTime.parse(data?.orderDate ?? "");
-        DateTime estimatedDeliveryDate = orderDate.add(Duration(days: 7));
-        String formattedEstimatedDeliveryDate = Utilities.formatDate(
-          estimatedDeliveryDate.toLocal().toString(),
-        );
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Column(
@@ -451,7 +446,7 @@ class OrdetailsView extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  Appstrings.processing,
+                  data?.shippingStatus ?? '',
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
@@ -473,7 +468,10 @@ class OrdetailsView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      Appstrings.deliveryEstimate,
+                      data?.shippingStatus == Appstrings.delivered ||
+                              data?.shippingStatus == Appstrings.cancelled
+                          ? Appstrings.deliveryDate
+                          : Appstrings.deliveryEstimate,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
@@ -482,7 +480,10 @@ class OrdetailsView extends StatelessWidget {
                     ),
                     kHeight10,
                     Text(
-                      formattedEstimatedDeliveryDate,
+                      data?.shippingStatus == Appstrings.delivered ||
+                              data?.shippingStatus == Appstrings.cancelled
+                          ? Utilities.formatDate(data?.orderDate ?? "")
+                          : 'Within 7 working days',
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
@@ -596,7 +597,7 @@ class OrdetailsView extends StatelessWidget {
                   child: Row(
                     children: [
                       kWidth10,
-                      orderStatus == "Delivered"
+                      orderStatus == Appstrings.delivered
                           ? Text(
                               Appstrings.returnOrder,
                               style: TextStyle(

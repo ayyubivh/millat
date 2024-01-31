@@ -24,4 +24,7 @@ class ReviewEvent with _$ReviewEvent {
     required String comment,
   }) = UpdateReview;
   const factory ReviewEvent.expandReviewList() = ExpandReviewList;
+  const factory ReviewEvent.saveReviewValue({
+    required double value,
+  }) = SaveReviewValue;
 }

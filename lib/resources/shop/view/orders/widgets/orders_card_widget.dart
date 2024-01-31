@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:millat/resources/shop/view/orders/review_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
@@ -325,23 +326,51 @@ class OrdersProfileWidget extends StatelessWidget {
                           ),
                           kHeight3,
                           orderStatus == Appstrings.delivered
-                              ? Container(
-                                  height: 40,
-                                  width: SizeUtility(context).width,
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: ColorManager.scaffoldBgColor,
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: const Text(
-                                    "Rate Product",
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w500,
+                              ? GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                            builder: (context) => ReviewView(
+                                                  productId: id ?? '',
+                                                )));
+                                  },
+                                  behavior: HitTestBehavior.translucent,
+                                  child: Container(
+                                    height: 40,
+                                    width: SizeUtility(context).width,
+                                    padding: const EdgeInsets.all(10),
+                                    decoration: BoxDecoration(
+                                      color: ColorManager.scaffoldBgColor,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        const Text(
+                                          "Rate Product",
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        Spacer(),
+                                        for (int i = 0; i < 5; i++)
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 3.0),
+                                            child: Icon(
+                                              Icons.star,
+                                              color: ColorManager
+                                                  .lightBlackColor
+                                                  .withOpacity(0.7),
+                                            ),
+                                          ),
+                                        kWidth20,
+                                      ],
                                     ),
                                   ),
                                 )
                               : GestureDetector(
+                                  behavior: HitTestBehavior.translucent,
                                   onTap: () {
                                     context.pushReplacementNamed(
                                         MyAppRouteConstants.shopTabsRouteName);

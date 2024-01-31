@@ -42,7 +42,7 @@ _$RedeemProductsImpl _$$RedeemProductsImplFromJson(Map<String, dynamic> json) =>
       json['_id'] as String,
       json['image'] as String?,
       json['title'] as String?,
-      json['defaultStock'] as String?,
+      json['defaultStock'] as int?,
       (json['stock'] as num?)?.toDouble(),
       (json['offerPrice'] as num?)?.toDouble(),
       (json['coins'] as num?)?.toDouble(),

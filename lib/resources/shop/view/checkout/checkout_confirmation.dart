@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
@@ -43,6 +44,10 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
     BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
         context: context,
         id: context.read<AddressBloc>().state.addressId.toString()));
+
+    BlocProvider.of<TermsAndConditionsBloc>(context).add(
+        const TermsAndCondtionsEvent.fetchTermsAndConditionsEvent(
+            slug: "shipping_policy"));
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _onPaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _onPaymentError);
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _onExternalWallet);
@@ -620,71 +625,83 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             ? _codPaymentWidget(context)
             : _onlinePayment(context),
         kHeight20,
-        RichText(
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text:
-                    'By placing an order, you acknowledge that you have read the ',
-                style: TextStyle(
-                  color: ColorManager.textGrey, // Color for the regular text
-                  fontSize: 14, fontWeight: FontWeight.w400,
-                  height: 1.3,
-                ),
-              ),
-              TextSpan(
-                text: 'Terms of Service',
-                style: TextStyle(
-                  color: ColorManager.primary, // Color for "Terms of Service"
-                  fontSize: 14, fontWeight: FontWeight.w400,
-                  height: 1.3,
-                ),
-              ),
-              TextSpan(
-                text: ' and ',
-                style: TextStyle(
-                  color: ColorManager.textGrey, // Color for the regular text
-                  fontSize: 14, fontWeight: FontWeight.w400,
-                  height: 1.3,
-                ),
-              ),
-              TextSpan(
-                text: 'Privacy Policy',
-                style: TextStyle(
-                  color: ColorManager.primary, // Color for "Privacy Policy"
-                  fontSize: 14, fontWeight: FontWeight.w400,
-                  height: 1.3,
-                ),
-              ),
-              TextSpan(
-                text:
-                    ' of Linger Shop. Payment will be processed separately by PIPO ',
-                style: TextStyle(
-                  color: ColorManager.textGrey, // Color for the regular text
-                  fontSize: 14, fontWeight: FontWeight.w400,
-                  height: 1.3,
-                ),
-              ),
-              TextSpan(
-                text: ' according to ',
-                style: TextStyle(
-                  color: ColorManager.textGrey, // Color for the regular text
-                  fontSize: 14, fontWeight: FontWeight.w400,
-                  height: 1.3,
-                ),
-              ),
-              TextSpan(
-                text: 'PIPO Privacy Policy.',
-                style: TextStyle(
-                  color:
-                      ColorManager.primary, // Color for "PIPO Privacy Policy"
-                  fontSize: 14, fontWeight: FontWeight.w400,
-                  height: 1.3,
-                ),
-              ),
-            ],
+        BlocBuilder<TermsAndConditionsBloc, TermsAndConditionsState>(
+          builder: (context, state) => Text(
+            Utilities.removeFootnotesFromMeaning(
+                state.termsConditionsModel?.result.data.content ?? ""),
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: ColorManager.black4F,
+              height: 1.2,
+            ),
           ),
         ),
+        // RichText(
+        //   text: TextSpan(
+        //     children: [
+        //       TextSpan(
+        //         text:
+        //             'By placing an order, you acknowledge that you have read the ',
+        //         style: TextStyle(
+        //           color: ColorManager.textGrey, // Color for the regular text
+        //           fontSize: 14, fontWeight: FontWeight.w400,
+        //           height: 1.3,
+        //         ),
+        //       ),
+        //       TextSpan(
+        //         text: 'Terms of Service',
+        //         style: TextStyle(
+        //           color: ColorManager.primary, // Color for "Terms of Service"
+        //           fontSize: 14, fontWeight: FontWeight.w400,
+        //           height: 1.3,
+        //         ),
+        //       ),
+        //       TextSpan(
+        //         text: ' and ',
+        //         style: TextStyle(
+        //           color: ColorManager.textGrey, // Color for the regular text
+        //           fontSize: 14, fontWeight: FontWeight.w400,
+        //           height: 1.3,
+        //         ),
+        //       ),
+        //       TextSpan(
+        //         text: 'Privacy Policy',
+        //         style: TextStyle(
+        //           color: ColorManager.primary, // Color for "Privacy Policy"
+        //           fontSize: 14, fontWeight: FontWeight.w400,
+        //           height: 1.3,
+        //         ),
+        //       ),
+        //       TextSpan(
+        //         text:
+        //             ' of Linger Shop. Payment will be processed separately by PIPO ',
+        //         style: TextStyle(
+        //           color: ColorManager.textGrey, // Color for the regular text
+        //           fontSize: 14, fontWeight: FontWeight.w400,
+        //           height: 1.3,
+        //         ),
+        //       ),
+        //       TextSpan(
+        //         text: ' according to ',
+        //         style: TextStyle(
+        //           color: ColorManager.textGrey, // Color for the regular text
+        //           fontSize: 14, fontWeight: FontWeight.w400,
+        //           height: 1.3,
+        //         ),
+        //       ),
+        //       TextSpan(
+        //         text: 'PIPO Privacy Policy.',
+        //         style: TextStyle(
+        //           color:
+        //               ColorManager.primary, // Color for "PIPO Privacy Policy"
+        //           fontSize: 14, fontWeight: FontWeight.w400,
+        //           height: 1.3,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }

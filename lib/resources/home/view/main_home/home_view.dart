@@ -85,7 +85,7 @@ class _HomeViewState extends State<HomeView> {
       ..add(const GetHighLatitudeMethodsToLocalStorage());
 
     BlocProvider.of<HomeBloc>(context)
-      ..add(const FetchLargeDiscountsBanner())
+      // ..add(const FetchLargeDiscountsBanner())
       ..add(const FetchTopOffersBanner())
       ..add(const FetchBrandofTheDay())
       ..add(const FetchHadithOfTheDay())
@@ -180,42 +180,54 @@ class _HomeViewState extends State<HomeView> {
                         : MainAxisAlignment.spaceAround,
                     children: [
                       buildIconWidget(
-                        image: AppAssetsStrings.homeQuranIcon,
-                        text: Appstrings.quran,
+                        image: AppAssetsStrings.shopHome,
+                        text: Appstrings.shop,
                         onTap: () {
-                          context.goNamed(MyAppRouteConstants.quranRouteName);
+                          context
+                              .read<HomeBloc>()
+                              .add(const ChangeHomeTabIndexEvent(newIndex: 1));
                         },
                       ),
                       BlocBuilder<LocationBloc, LocationState>(
                         builder: (context, state) => buildIconWidget(
-                          image: AppAssetsStrings.homeCompassIcon,
-                          text: Appstrings.compass,
+                          image: AppAssetsStrings.travelHome,
+                          text: Appstrings.travel,
                           onTap: () {
-                            if (state.currentLocation.isNotEmpty) {
-                              context.goNamed(
-                                  MyAppRouteConstants.compassRouteName);
-                            } else {
-                              showSnackBar(
-                                context,
-                                Appstrings.turnOnLocation,
-                              );
-                            }
+                            context.read<HomeBloc>().add(
+                                const ChangeHomeTabIndexEvent(newIndex: 3));
+                            // if (state.currentLocation.isNotEmpty) {
+                            //   context.pushNamed(
+                            //       MyAppRouteConstants.compassRouteName);
+                            // } else {
+                            //   showSnackBar(
+                            //     context,
+                            //     Appstrings.turnOnLocation,
+                            //   );
+                            // }
                           },
                         ),
                       ),
                       buildIconWidget(
-                        image: AppAssetsStrings.homeTasbihIcon,
-                        text: Appstrings.tasbih,
+                        image: AppAssetsStrings.rewardHome,
+                        text: Appstrings.rewards,
                         onTap: () {
                           context
-                              .pushNamed(MyAppRouteConstants.tasbihRouteName);
+                              .read<HomeBloc>()
+                              .add(const ChangeHomeTabIndexEvent(newIndex: 2));
                         },
                       ),
                       buildIconWidget(
-                          image: AppAssetsStrings.homeDuaIcon,
-                          text: Appstrings.dua,
+                          image: AppAssetsStrings.exploreAll,
+                          text: Appstrings.exploreAll,
                           onTap: () {
-                            context.goNamed(MyAppRouteConstants.duaRouteName);
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) {
+                                return _exploreAllBottomSheet(context);
+                              },
+                            );
                           })
                     ],
                   ),
@@ -261,7 +273,166 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  GestureDetector _rewardPromoWidget(BuildContext context) {
+  Widget _exploreAllBottomSheet(BuildContext context) {
+    return Container(
+      height: SizeUtility(context).height / 1.1,
+      decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
+        ),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Expanded(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Explore All',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  context.pop();
+                },
+                icon: Icon(
+                  Icons.close,
+                  size: 15,
+                  color: ColorManager.black4A,
+                ),
+              ),
+            ],
+          ),
+          bottomSheetWidgets(
+            image: AppAssetsStrings.homeQuranIcon,
+            text: Appstrings.quran,
+            onTap: () {
+              context.pushNamed(MyAppRouteConstants.quranRouteName);
+            },
+            subTitle: "Read Quran",
+          ),
+          BlocBuilder<LocationBloc, LocationState>(
+            builder: (context, state) => bottomSheetWidgets(
+                image: AppAssetsStrings.homeCompassIcon,
+                text: Appstrings.compass,
+                onTap: () {
+                  if (state.currentLocation.isNotEmpty) {
+                    context.goNamed(MyAppRouteConstants.compassRouteName);
+                  } else {
+                    showSnackBar(
+                      context,
+                      Appstrings.turnOnLocation,
+                    );
+                  }
+                },
+                subTitle: "Read Zikr"),
+          ),
+          bottomSheetWidgets(
+              image: AppAssetsStrings.homeTasbihIcon,
+              text: Appstrings.tasbih,
+              onTap: () {
+                context.pushNamed(MyAppRouteConstants.tasbihRouteName);
+              },
+              subTitle: "Read Dua"),
+          bottomSheetWidgets(
+            image: AppAssetsStrings.homeDuaIcon,
+            text: Appstrings.dua,
+            onTap: () {
+              context.pushNamed(MyAppRouteConstants.duaRouteName);
+            },
+            subTitle: "Look for Qibla",
+            isQible: true,
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget bottomSheetWidgets({
+    required String image,
+    required String text,
+    required VoidCallback onTap,
+    required String subTitle,
+    bool isQible = false,
+  }) {
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 15),
+        child: Row(
+          children: [
+            Container(
+              height: 70,
+              width: 70,
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: ColorManager.lightGreenDB,
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: Image.asset(
+                image,
+              ),
+            ),
+            kWidth10,
+            Column(
+              // mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: ColorManager.black4F,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                kHeight10,
+                Text(
+                  subTitle,
+                  style: TextStyle(
+                    color: ColorManager.black4F,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+            const Spacer(),
+            Container(
+              decoration: BoxDecoration(
+                color: ColorManager.midGreenColor,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              height: 28,
+              width: 70,
+              child: Center(
+                child: Text(
+                  isQible ? "GO" : "READ",
+                  style: TextStyle(
+                    color: ColorManager.whiteColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _rewardPromoWidget(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
@@ -1202,13 +1373,29 @@ class _HomeViewState extends State<HomeView> {
               items: banners?.map((banner) {
                 return GestureDetector(
                     onTap: () {
-                      context.pushNamed(
-                          MyAppRouteConstants.categoriesProductsRouteName,
+                      if (banner.routing == null ||
+                          banner.routing?.route == "") {
+                        return;
+                      } else {
+                        final routing = banner.routing!;
+                        final categoryId = routing.categoryId?.title;
+                        final subCategoryId = routing.subCategoryId?.title;
+                        final itemTypeId = routing.itemTypeId?.title;
+
+                        if (categoryId == "" &&
+                            subCategoryId == "" &&
+                            itemTypeId == "") return;
+
+                        context.pushNamed(
+                          routing.route!,
                           extra: {
-                            'category': "Pro Muslim",
-                            'subCategory': "Thobe",
-                            'type': FilterType.category
-                          });
+                            'category': categoryId,
+                            'subCategory': subCategoryId,
+                            'type': FilterType.category,
+                            // 'itemId': itemTypeId,
+                          },
+                        );
+                      }
                     },
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
@@ -1264,31 +1451,30 @@ class _HomeViewState extends State<HomeView> {
       {required String image,
       required String text,
       required VoidCallback onTap}) {
-    return Column(
-      children: [
-        Material(
-          child: InkWell(
-            onTap: onTap,
-            child: Container(
-              height: 70,
-              width: 70,
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: black247,
-                borderRadius: BorderRadius.circular(6),
-              ),
-              child: Image.asset(
-                image,
-              ),
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            height: 70,
+            width: 70,
+            padding: const EdgeInsets.all(14),
+            decoration: BoxDecoration(
+              color: black247,
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: Image.asset(
+              image,
             ),
           ),
-        ),
-        kHeight10,
-        Text(
-          text,
-          style: const TextStyle(color: black165),
-        )
-      ],
+          kHeight10,
+          Text(
+            text,
+            style: const TextStyle(color: black165),
+          )
+        ],
+      ),
     );
   }
 }

@@ -46,6 +46,7 @@ class ColorManager {
   static Color primaryGreenGradient = HexColor.fromHex("#4BEBA6");
   static Color primaryGreenGradient2 = HexColor.fromHex("#BCFEB1");
   static Color darkGreen = HexColor.fromHex("#006639");
+  static Color lightGreenDB = HexColor.fromHex("#DBF5DB");
 //shop
   static Color reviewStar = HexColor.fromHex("#FFE174");
   static Color categorySelectedGreen = HexColor.fromHex("#597766");

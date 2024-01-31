@@ -28,6 +28,7 @@ mixin _$ReviewEvent {
             double rating, String comment)
         updateReview,
     required TResult Function() expandReviewList,
+    required TResult Function(double value) saveReviewValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +42,7 @@ mixin _$ReviewEvent {
             String comment)?
         updateReview,
     TResult? Function()? expandReviewList,
+    TResult? Function(double value)? saveReviewValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +56,7 @@ mixin _$ReviewEvent {
             String comment)?
         updateReview,
     TResult Function()? expandReviewList,
+    TResult Function(double value)? saveReviewValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +67,7 @@ mixin _$ReviewEvent {
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReview value) updateReview,
     required TResult Function(ExpandReviewList value) expandReviewList,
+    required TResult Function(SaveReviewValue value) saveReviewValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +77,7 @@ mixin _$ReviewEvent {
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReview value)? updateReview,
     TResult? Function(ExpandReviewList value)? expandReviewList,
+    TResult? Function(SaveReviewValue value)? saveReviewValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +87,7 @@ mixin _$ReviewEvent {
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReview value)? updateReview,
     TResult Function(ExpandReviewList value)? expandReviewList,
+    TResult Function(SaveReviewValue value)? saveReviewValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -199,6 +205,7 @@ class _$FetchRatingEventImpl
             double rating, String comment)
         updateReview,
     required TResult Function() expandReviewList,
+    required TResult Function(double value) saveReviewValue,
   }) {
     return fetchRatingEvent(id, context);
   }
@@ -215,6 +222,7 @@ class _$FetchRatingEventImpl
             String comment)?
         updateReview,
     TResult? Function()? expandReviewList,
+    TResult? Function(double value)? saveReviewValue,
   }) {
     return fetchRatingEvent?.call(id, context);
   }
@@ -231,6 +239,7 @@ class _$FetchRatingEventImpl
             String comment)?
         updateReview,
     TResult Function()? expandReviewList,
+    TResult Function(double value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (fetchRatingEvent != null) {
@@ -247,6 +256,7 @@ class _$FetchRatingEventImpl
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReview value) updateReview,
     required TResult Function(ExpandReviewList value) expandReviewList,
+    required TResult Function(SaveReviewValue value) saveReviewValue,
   }) {
     return fetchRatingEvent(this);
   }
@@ -259,6 +269,7 @@ class _$FetchRatingEventImpl
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReview value)? updateReview,
     TResult? Function(ExpandReviewList value)? expandReviewList,
+    TResult? Function(SaveReviewValue value)? saveReviewValue,
   }) {
     return fetchRatingEvent?.call(this);
   }
@@ -271,6 +282,7 @@ class _$FetchRatingEventImpl
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReview value)? updateReview,
     TResult Function(ExpandReviewList value)? expandReviewList,
+    TResult Function(SaveReviewValue value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (fetchRatingEvent != null) {
@@ -386,6 +398,7 @@ class _$FetchReviewCommentsImpl
             double rating, String comment)
         updateReview,
     required TResult Function() expandReviewList,
+    required TResult Function(double value) saveReviewValue,
   }) {
     return fetchReviewComments(id, context);
   }
@@ -402,6 +415,7 @@ class _$FetchReviewCommentsImpl
             String comment)?
         updateReview,
     TResult? Function()? expandReviewList,
+    TResult? Function(double value)? saveReviewValue,
   }) {
     return fetchReviewComments?.call(id, context);
   }
@@ -418,6 +432,7 @@ class _$FetchReviewCommentsImpl
             String comment)?
         updateReview,
     TResult Function()? expandReviewList,
+    TResult Function(double value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (fetchReviewComments != null) {
@@ -434,6 +449,7 @@ class _$FetchReviewCommentsImpl
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReview value) updateReview,
     required TResult Function(ExpandReviewList value) expandReviewList,
+    required TResult Function(SaveReviewValue value) saveReviewValue,
   }) {
     return fetchReviewComments(this);
   }
@@ -446,6 +462,7 @@ class _$FetchReviewCommentsImpl
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReview value)? updateReview,
     TResult? Function(ExpandReviewList value)? expandReviewList,
+    TResult? Function(SaveReviewValue value)? saveReviewValue,
   }) {
     return fetchReviewComments?.call(this);
   }
@@ -458,6 +475,7 @@ class _$FetchReviewCommentsImpl
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReview value)? updateReview,
     TResult Function(ExpandReviewList value)? expandReviewList,
+    TResult Function(SaveReviewValue value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (fetchReviewComments != null) {
@@ -609,6 +627,7 @@ class _$AddReviewImpl with DiagnosticableTreeMixin implements AddReview {
             double rating, String comment)
         updateReview,
     required TResult Function() expandReviewList,
+    required TResult Function(double value) saveReviewValue,
   }) {
     return addReview(context, productId, name, rating, comment);
   }
@@ -625,6 +644,7 @@ class _$AddReviewImpl with DiagnosticableTreeMixin implements AddReview {
             String comment)?
         updateReview,
     TResult? Function()? expandReviewList,
+    TResult? Function(double value)? saveReviewValue,
   }) {
     return addReview?.call(context, productId, name, rating, comment);
   }
@@ -641,6 +661,7 @@ class _$AddReviewImpl with DiagnosticableTreeMixin implements AddReview {
             String comment)?
         updateReview,
     TResult Function()? expandReviewList,
+    TResult Function(double value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (addReview != null) {
@@ -657,6 +678,7 @@ class _$AddReviewImpl with DiagnosticableTreeMixin implements AddReview {
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReview value) updateReview,
     required TResult Function(ExpandReviewList value) expandReviewList,
+    required TResult Function(SaveReviewValue value) saveReviewValue,
   }) {
     return addReview(this);
   }
@@ -669,6 +691,7 @@ class _$AddReviewImpl with DiagnosticableTreeMixin implements AddReview {
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReview value)? updateReview,
     TResult? Function(ExpandReviewList value)? expandReviewList,
+    TResult? Function(SaveReviewValue value)? saveReviewValue,
   }) {
     return addReview?.call(this);
   }
@@ -681,6 +704,7 @@ class _$AddReviewImpl with DiagnosticableTreeMixin implements AddReview {
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReview value)? updateReview,
     TResult Function(ExpandReviewList value)? expandReviewList,
+    TResult Function(SaveReviewValue value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (addReview != null) {
@@ -824,6 +848,7 @@ class _$UpdateReviewImpl with DiagnosticableTreeMixin implements UpdateReview {
             double rating, String comment)
         updateReview,
     required TResult Function() expandReviewList,
+    required TResult Function(double value) saveReviewValue,
   }) {
     return updateReview(context, productId, rating, comment);
   }
@@ -840,6 +865,7 @@ class _$UpdateReviewImpl with DiagnosticableTreeMixin implements UpdateReview {
             String comment)?
         updateReview,
     TResult? Function()? expandReviewList,
+    TResult? Function(double value)? saveReviewValue,
   }) {
     return updateReview?.call(context, productId, rating, comment);
   }
@@ -856,6 +882,7 @@ class _$UpdateReviewImpl with DiagnosticableTreeMixin implements UpdateReview {
             String comment)?
         updateReview,
     TResult Function()? expandReviewList,
+    TResult Function(double value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (updateReview != null) {
@@ -872,6 +899,7 @@ class _$UpdateReviewImpl with DiagnosticableTreeMixin implements UpdateReview {
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReview value) updateReview,
     required TResult Function(ExpandReviewList value) expandReviewList,
+    required TResult Function(SaveReviewValue value) saveReviewValue,
   }) {
     return updateReview(this);
   }
@@ -884,6 +912,7 @@ class _$UpdateReviewImpl with DiagnosticableTreeMixin implements UpdateReview {
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReview value)? updateReview,
     TResult? Function(ExpandReviewList value)? expandReviewList,
+    TResult? Function(SaveReviewValue value)? saveReviewValue,
   }) {
     return updateReview?.call(this);
   }
@@ -896,6 +925,7 @@ class _$UpdateReviewImpl with DiagnosticableTreeMixin implements UpdateReview {
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReview value)? updateReview,
     TResult Function(ExpandReviewList value)? expandReviewList,
+    TResult Function(SaveReviewValue value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (updateReview != null) {
@@ -977,6 +1007,7 @@ class _$ExpandReviewListImpl
             double rating, String comment)
         updateReview,
     required TResult Function() expandReviewList,
+    required TResult Function(double value) saveReviewValue,
   }) {
     return expandReviewList();
   }
@@ -993,6 +1024,7 @@ class _$ExpandReviewListImpl
             String comment)?
         updateReview,
     TResult? Function()? expandReviewList,
+    TResult? Function(double value)? saveReviewValue,
   }) {
     return expandReviewList?.call();
   }
@@ -1009,6 +1041,7 @@ class _$ExpandReviewListImpl
             String comment)?
         updateReview,
     TResult Function()? expandReviewList,
+    TResult Function(double value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (expandReviewList != null) {
@@ -1025,6 +1058,7 @@ class _$ExpandReviewListImpl
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReview value) updateReview,
     required TResult Function(ExpandReviewList value) expandReviewList,
+    required TResult Function(SaveReviewValue value) saveReviewValue,
   }) {
     return expandReviewList(this);
   }
@@ -1037,6 +1071,7 @@ class _$ExpandReviewListImpl
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReview value)? updateReview,
     TResult? Function(ExpandReviewList value)? expandReviewList,
+    TResult? Function(SaveReviewValue value)? saveReviewValue,
   }) {
     return expandReviewList?.call(this);
   }
@@ -1049,6 +1084,7 @@ class _$ExpandReviewListImpl
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReview value)? updateReview,
     TResult Function(ExpandReviewList value)? expandReviewList,
+    TResult Function(SaveReviewValue value)? saveReviewValue,
     required TResult orElse(),
   }) {
     if (expandReviewList != null) {
@@ -1063,10 +1099,193 @@ abstract class ExpandReviewList implements ReviewEvent {
 }
 
 /// @nodoc
+abstract class _$$SaveReviewValueImplCopyWith<$Res> {
+  factory _$$SaveReviewValueImplCopyWith(_$SaveReviewValueImpl value,
+          $Res Function(_$SaveReviewValueImpl) then) =
+      __$$SaveReviewValueImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double value});
+}
+
+/// @nodoc
+class __$$SaveReviewValueImplCopyWithImpl<$Res>
+    extends _$ReviewEventCopyWithImpl<$Res, _$SaveReviewValueImpl>
+    implements _$$SaveReviewValueImplCopyWith<$Res> {
+  __$$SaveReviewValueImplCopyWithImpl(
+      _$SaveReviewValueImpl _value, $Res Function(_$SaveReviewValueImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$SaveReviewValueImpl(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveReviewValueImpl
+    with DiagnosticableTreeMixin
+    implements SaveReviewValue {
+  const _$SaveReviewValueImpl({required this.value});
+
+  @override
+  final double value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ReviewEvent.saveReviewValue(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ReviewEvent.saveReviewValue'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveReviewValueImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveReviewValueImplCopyWith<_$SaveReviewValueImpl> get copyWith =>
+      __$$SaveReviewValueImplCopyWithImpl<_$SaveReviewValueImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, BuildContext context) fetchRatingEvent,
+    required TResult Function(String id, BuildContext context)
+        fetchReviewComments,
+    required TResult Function(BuildContext context, String productId,
+            String name, double rating, String comment)
+        addReview,
+    required TResult Function(BuildContext context, String productId,
+            double rating, String comment)
+        updateReview,
+    required TResult Function() expandReviewList,
+    required TResult Function(double value) saveReviewValue,
+  }) {
+    return saveReviewValue(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, BuildContext context)? fetchRatingEvent,
+    TResult? Function(String id, BuildContext context)? fetchReviewComments,
+    TResult? Function(BuildContext context, String productId, String name,
+            double rating, String comment)?
+        addReview,
+    TResult? Function(BuildContext context, String productId, double rating,
+            String comment)?
+        updateReview,
+    TResult? Function()? expandReviewList,
+    TResult? Function(double value)? saveReviewValue,
+  }) {
+    return saveReviewValue?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, BuildContext context)? fetchRatingEvent,
+    TResult Function(String id, BuildContext context)? fetchReviewComments,
+    TResult Function(BuildContext context, String productId, String name,
+            double rating, String comment)?
+        addReview,
+    TResult Function(BuildContext context, String productId, double rating,
+            String comment)?
+        updateReview,
+    TResult Function()? expandReviewList,
+    TResult Function(double value)? saveReviewValue,
+    required TResult orElse(),
+  }) {
+    if (saveReviewValue != null) {
+      return saveReviewValue(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchRatingEvent value) fetchRatingEvent,
+    required TResult Function(FetchReviewComments value) fetchReviewComments,
+    required TResult Function(AddReview value) addReview,
+    required TResult Function(UpdateReview value) updateReview,
+    required TResult Function(ExpandReviewList value) expandReviewList,
+    required TResult Function(SaveReviewValue value) saveReviewValue,
+  }) {
+    return saveReviewValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchRatingEvent value)? fetchRatingEvent,
+    TResult? Function(FetchReviewComments value)? fetchReviewComments,
+    TResult? Function(AddReview value)? addReview,
+    TResult? Function(UpdateReview value)? updateReview,
+    TResult? Function(ExpandReviewList value)? expandReviewList,
+    TResult? Function(SaveReviewValue value)? saveReviewValue,
+  }) {
+    return saveReviewValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchRatingEvent value)? fetchRatingEvent,
+    TResult Function(FetchReviewComments value)? fetchReviewComments,
+    TResult Function(AddReview value)? addReview,
+    TResult Function(UpdateReview value)? updateReview,
+    TResult Function(ExpandReviewList value)? expandReviewList,
+    TResult Function(SaveReviewValue value)? saveReviewValue,
+    required TResult orElse(),
+  }) {
+    if (saveReviewValue != null) {
+      return saveReviewValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SaveReviewValue implements ReviewEvent {
+  const factory SaveReviewValue({required final double value}) =
+      _$SaveReviewValueImpl;
+
+  double get value;
+  @JsonKey(ignore: true)
+  _$$SaveReviewValueImplCopyWith<_$SaveReviewValueImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ReviewState {
   ReviewModel? get reviewModel => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isExpandedReview => throw _privateConstructorUsedError;
+  double get reviewValue => throw _privateConstructorUsedError;
   ReviewCommentsModel? get reviewCommentsModel =>
       throw _privateConstructorUsedError;
 
@@ -1085,6 +1304,7 @@ abstract class $ReviewStateCopyWith<$Res> {
       {ReviewModel? reviewModel,
       bool isLoading,
       bool isExpandedReview,
+      double reviewValue,
       ReviewCommentsModel? reviewCommentsModel});
 
   $ReviewModelCopyWith<$Res>? get reviewModel;
@@ -1107,6 +1327,7 @@ class _$ReviewStateCopyWithImpl<$Res, $Val extends ReviewState>
     Object? reviewModel = freezed,
     Object? isLoading = null,
     Object? isExpandedReview = null,
+    Object? reviewValue = null,
     Object? reviewCommentsModel = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1122,6 +1343,10 @@ class _$ReviewStateCopyWithImpl<$Res, $Val extends ReviewState>
           ? _value.isExpandedReview
           : isExpandedReview // ignore: cast_nullable_to_non_nullable
               as bool,
+      reviewValue: null == reviewValue
+          ? _value.reviewValue
+          : reviewValue // ignore: cast_nullable_to_non_nullable
+              as double,
       reviewCommentsModel: freezed == reviewCommentsModel
           ? _value.reviewCommentsModel
           : reviewCommentsModel // ignore: cast_nullable_to_non_nullable
@@ -1167,6 +1392,7 @@ abstract class _$$ReviewStateImplCopyWith<$Res>
       {ReviewModel? reviewModel,
       bool isLoading,
       bool isExpandedReview,
+      double reviewValue,
       ReviewCommentsModel? reviewCommentsModel});
 
   @override
@@ -1189,6 +1415,7 @@ class __$$ReviewStateImplCopyWithImpl<$Res>
     Object? reviewModel = freezed,
     Object? isLoading = null,
     Object? isExpandedReview = null,
+    Object? reviewValue = null,
     Object? reviewCommentsModel = freezed,
   }) {
     return _then(_$ReviewStateImpl(
@@ -1204,6 +1431,10 @@ class __$$ReviewStateImplCopyWithImpl<$Res>
           ? _value.isExpandedReview
           : isExpandedReview // ignore: cast_nullable_to_non_nullable
               as bool,
+      reviewValue: null == reviewValue
+          ? _value.reviewValue
+          : reviewValue // ignore: cast_nullable_to_non_nullable
+              as double,
       reviewCommentsModel: freezed == reviewCommentsModel
           ? _value.reviewCommentsModel
           : reviewCommentsModel // ignore: cast_nullable_to_non_nullable
@@ -1219,6 +1450,7 @@ class _$ReviewStateImpl with DiagnosticableTreeMixin implements _ReviewState {
       {required this.reviewModel,
       required this.isLoading,
       required this.isExpandedReview,
+      required this.reviewValue,
       required this.reviewCommentsModel});
 
   @override
@@ -1228,11 +1460,13 @@ class _$ReviewStateImpl with DiagnosticableTreeMixin implements _ReviewState {
   @override
   final bool isExpandedReview;
   @override
+  final double reviewValue;
+  @override
   final ReviewCommentsModel? reviewCommentsModel;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ReviewState(reviewModel: $reviewModel, isLoading: $isLoading, isExpandedReview: $isExpandedReview, reviewCommentsModel: $reviewCommentsModel)';
+    return 'ReviewState(reviewModel: $reviewModel, isLoading: $isLoading, isExpandedReview: $isExpandedReview, reviewValue: $reviewValue, reviewCommentsModel: $reviewCommentsModel)';
   }
 
   @override
@@ -1243,6 +1477,7 @@ class _$ReviewStateImpl with DiagnosticableTreeMixin implements _ReviewState {
       ..add(DiagnosticsProperty('reviewModel', reviewModel))
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty('isExpandedReview', isExpandedReview))
+      ..add(DiagnosticsProperty('reviewValue', reviewValue))
       ..add(DiagnosticsProperty('reviewCommentsModel', reviewCommentsModel));
   }
 
@@ -1257,13 +1492,15 @@ class _$ReviewStateImpl with DiagnosticableTreeMixin implements _ReviewState {
                 other.isLoading == isLoading) &&
             (identical(other.isExpandedReview, isExpandedReview) ||
                 other.isExpandedReview == isExpandedReview) &&
+            (identical(other.reviewValue, reviewValue) ||
+                other.reviewValue == reviewValue) &&
             (identical(other.reviewCommentsModel, reviewCommentsModel) ||
                 other.reviewCommentsModel == reviewCommentsModel));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, reviewModel, isLoading,
-      isExpandedReview, reviewCommentsModel);
+      isExpandedReview, reviewValue, reviewCommentsModel);
 
   @JsonKey(ignore: true)
   @override
@@ -1277,6 +1514,7 @@ abstract class _ReviewState implements ReviewState {
           {required final ReviewModel? reviewModel,
           required final bool isLoading,
           required final bool isExpandedReview,
+          required final double reviewValue,
           required final ReviewCommentsModel? reviewCommentsModel}) =
       _$ReviewStateImpl;
 
@@ -1286,6 +1524,8 @@ abstract class _ReviewState implements ReviewState {
   bool get isLoading;
   @override
   bool get isExpandedReview;
+  @override
+  double get reviewValue;
   @override
   ReviewCommentsModel? get reviewCommentsModel;
   @override

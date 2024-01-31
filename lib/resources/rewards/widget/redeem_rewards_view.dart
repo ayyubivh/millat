@@ -348,14 +348,6 @@ class RewardsRedeemView extends StatelessWidget {
                                   color: ColorManager.primary,
                                 ),
                               ),
-                              TextSpan(
-                                text: "/${product.defaultStock}",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                  color: ColorManager.textGrey99,
-                                ),
-                              ),
                             ],
                           ),
                         ),

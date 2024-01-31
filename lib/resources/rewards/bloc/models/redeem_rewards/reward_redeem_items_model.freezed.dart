@@ -402,7 +402,7 @@ mixin _$RedeemProducts {
   String get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  String? get defaultStock => throw _privateConstructorUsedError;
+  int? get defaultStock => throw _privateConstructorUsedError;
   double? get stock => throw _privateConstructorUsedError;
   double? get offerPrice => throw _privateConstructorUsedError;
   double? get coins => throw _privateConstructorUsedError;
@@ -427,7 +427,7 @@ abstract class $RedeemProductsCopyWith<$Res> {
       {@JsonKey(name: "_id") String id,
       String? image,
       String? title,
-      String? defaultStock,
+      int? defaultStock,
       double? stock,
       double? offerPrice,
       double? coins,
@@ -478,7 +478,7 @@ class _$RedeemProductsCopyWithImpl<$Res, $Val extends RedeemProducts>
       defaultStock: freezed == defaultStock
           ? _value.defaultStock
           : defaultStock // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       stock: freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
@@ -523,7 +523,7 @@ abstract class _$$RedeemProductsImplCopyWith<$Res>
       {@JsonKey(name: "_id") String id,
       String? image,
       String? title,
-      String? defaultStock,
+      int? defaultStock,
       double? stock,
       double? offerPrice,
       double? coins,
@@ -572,7 +572,7 @@ class __$$RedeemProductsImplCopyWithImpl<$Res>
       freezed == defaultStock
           ? _value.defaultStock
           : defaultStock // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
@@ -632,7 +632,7 @@ class _$RedeemProductsImpl implements _RedeemProducts {
   @override
   final String? title;
   @override
-  final String? defaultStock;
+  final int? defaultStock;
   @override
   final double? stock;
   @override
@@ -701,7 +701,7 @@ abstract class _RedeemProducts implements RedeemProducts {
       @JsonKey(name: "_id") final String id,
       final String? image,
       final String? title,
-      final String? defaultStock,
+      final int? defaultStock,
       final double? stock,
       final double? offerPrice,
       final double? coins,
@@ -721,7 +721,7 @@ abstract class _RedeemProducts implements RedeemProducts {
   @override
   String? get title;
   @override
-  String? get defaultStock;
+  int? get defaultStock;
   @override
   double? get stock;
   @override

@@ -400,7 +400,7 @@ class _ShopViewState extends State<ShopView> {
                                   top: Radius.circular(12),
                                 ),
                                 child: Utilities().buildCachedNetworkImage(
-                                  imageUrl: banner.brandId?.coverImage ?? "",
+                                  imageUrl: banner.image ?? "",
                                   width: SizeUtility(context).width,
                                   height: 173,
                                 ),
@@ -516,13 +516,29 @@ class _ShopViewState extends State<ShopView> {
                 items: banners.map((banner) {
                   return GestureDetector(
                     onTap: () {
-                      context.pushNamed(
-                          MyAppRouteConstants.categoriesProductsRouteName,
+                      if (banner.routing == null ||
+                          banner.routing?.route == "") {
+                        return;
+                      } else {
+                        final routing = banner.routing!;
+                        final categoryId = routing.categoryId?.title;
+                        final subCategoryId = routing.subCategoryId?.title;
+                        final itemTypeId = routing.itemTypeId?.title;
+
+                        if (categoryId == "" &&
+                            subCategoryId == "" &&
+                            itemTypeId == "") return;
+
+                        context.pushNamed(
+                          routing.route!,
                           extra: {
-                            'subCategory': "",
+                            'category': categoryId,
+                            'subCategory': subCategoryId,
                             'type': FilterType.category,
-                            'category': '',
-                          });
+                            // 'itemId': itemTypeId,
+                          },
+                        );
+                      }
                     },
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),

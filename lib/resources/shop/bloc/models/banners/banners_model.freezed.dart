@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 BannersModel _$BannersModelFromJson(Map<String, dynamic> json) {
-  return _BanersModel.fromJson(json);
+  return _BannersModel.fromJson(json);
 }
 
 /// @nodoc
@@ -95,11 +95,11 @@ class _$BannersModelCopyWithImpl<$Res, $Val extends BannersModel>
 }
 
 /// @nodoc
-abstract class _$$BanersModelImplCopyWith<$Res>
+abstract class _$$BannersModelImplCopyWith<$Res>
     implements $BannersModelCopyWith<$Res> {
-  factory _$$BanersModelImplCopyWith(
-          _$BanersModelImpl value, $Res Function(_$BanersModelImpl) then) =
-      __$$BanersModelImplCopyWithImpl<$Res>;
+  factory _$$BannersModelImplCopyWith(
+          _$BannersModelImpl value, $Res Function(_$BannersModelImpl) then) =
+      __$$BannersModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -110,11 +110,11 @@ abstract class _$$BanersModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$BanersModelImplCopyWithImpl<$Res>
-    extends _$BannersModelCopyWithImpl<$Res, _$BanersModelImpl>
-    implements _$$BanersModelImplCopyWith<$Res> {
-  __$$BanersModelImplCopyWithImpl(
-      _$BanersModelImpl _value, $Res Function(_$BanersModelImpl) _then)
+class __$$BannersModelImplCopyWithImpl<$Res>
+    extends _$BannersModelCopyWithImpl<$Res, _$BannersModelImpl>
+    implements _$$BannersModelImplCopyWith<$Res> {
+  __$$BannersModelImplCopyWithImpl(
+      _$BannersModelImpl _value, $Res Function(_$BannersModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$BanersModelImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$BanersModelImpl(
+    return _then(_$BannersModelImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -148,15 +148,15 @@ class __$$BanersModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BanersModelImpl implements _BanersModel {
-  const _$BanersModelImpl(
+class _$BannersModelImpl implements _BannersModel {
+  const _$BannersModelImpl(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$BanersModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BanersModelImplFromJson(json);
+  factory _$BannersModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BannersModelImplFromJson(json);
 
   @override
   final int? status;
@@ -176,7 +176,7 @@ class _$BanersModelImpl implements _BanersModel {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BanersModelImpl &&
+            other is _$BannersModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -190,26 +190,26 @@ class _$BanersModelImpl implements _BanersModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BanersModelImplCopyWith<_$BanersModelImpl> get copyWith =>
-      __$$BanersModelImplCopyWithImpl<_$BanersModelImpl>(this, _$identity);
+  _$$BannersModelImplCopyWith<_$BannersModelImpl> get copyWith =>
+      __$$BannersModelImplCopyWithImpl<_$BannersModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BanersModelImplToJson(
+    return _$$BannersModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _BanersModel implements BannersModel {
-  const factory _BanersModel(
+abstract class _BannersModel implements BannersModel {
+  const factory _BannersModel(
       {required final int? status,
       required final String? message,
       required final String? error,
-      required final BannerResult? result}) = _$BanersModelImpl;
+      required final BannerResult? result}) = _$BannersModelImpl;
 
-  factory _BanersModel.fromJson(Map<String, dynamic> json) =
-      _$BanersModelImpl.fromJson;
+  factory _BannersModel.fromJson(Map<String, dynamic> json) =
+      _$BannersModelImpl.fromJson;
 
   @override
   int? get status;
@@ -221,7 +221,7 @@ abstract class _BanersModel implements BannersModel {
   BannerResult? get result;
   @override
   @JsonKey(ignore: true)
-  _$$BanersModelImplCopyWith<_$BanersModelImpl> get copyWith =>
+  _$$BannersModelImplCopyWith<_$BannersModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -377,20 +377,21 @@ Banners _$BannersFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Banners {
-  @JsonKey(name: "_id")
+  Routing? get routing => throw _privateConstructorUsedError;
+  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: "title")
   String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: "slug")
   String? get slug => throw _privateConstructorUsedError;
-  @JsonKey(name: "image")
   String? get image => throw _privateConstructorUsedError;
-  @JsonKey(name: "url")
   String? get url => throw _privateConstructorUsedError;
-  @JsonKey(name: "createdAt")
   String? get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: "updatedAt")
   String? get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: '__v')
+  int? get v => throw _privateConstructorUsedError;
+  int? get discount => throw _privateConstructorUsedError;
+  String? get startDate => throw _privateConstructorUsedError;
+  String? get endDate => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -403,13 +404,21 @@ abstract class $BannersCopyWith<$Res> {
       _$BannersCopyWithImpl<$Res, Banners>;
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String? id,
-      @JsonKey(name: "title") String? title,
-      @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "image") String? image,
-      @JsonKey(name: "url") String? url,
-      @JsonKey(name: "createdAt") String? createdAt,
-      @JsonKey(name: "updatedAt") String? updatedAt});
+      {Routing? routing,
+      @JsonKey(name: '_id') String? id,
+      String? title,
+      String? slug,
+      String? image,
+      String? url,
+      String? createdAt,
+      String? updatedAt,
+      @JsonKey(name: '__v') int? v,
+      int? discount,
+      String? startDate,
+      String? endDate,
+      String? status});
+
+  $RoutingCopyWith<$Res>? get routing;
 }
 
 /// @nodoc
@@ -425,6 +434,7 @@ class _$BannersCopyWithImpl<$Res, $Val extends Banners>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? routing = freezed,
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
@@ -432,8 +442,17 @@ class _$BannersCopyWithImpl<$Res, $Val extends Banners>
     Object? url = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? v = freezed,
+    Object? discount = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
+      routing: freezed == routing
+          ? _value.routing
+          : routing // ignore: cast_nullable_to_non_nullable
+              as Routing?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -462,7 +481,39 @@ class _$BannersCopyWithImpl<$Res, $Val extends Banners>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      v: freezed == v
+          ? _value.v
+          : v // ignore: cast_nullable_to_non_nullable
+              as int?,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      endDate: freezed == endDate
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RoutingCopyWith<$Res>? get routing {
+    if (_value.routing == null) {
+      return null;
+    }
+
+    return $RoutingCopyWith<$Res>(_value.routing!, (value) {
+      return _then(_value.copyWith(routing: value) as $Val);
+    });
   }
 }
 
@@ -474,13 +525,22 @@ abstract class _$$BannersImplCopyWith<$Res> implements $BannersCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String? id,
-      @JsonKey(name: "title") String? title,
-      @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "image") String? image,
-      @JsonKey(name: "url") String? url,
-      @JsonKey(name: "createdAt") String? createdAt,
-      @JsonKey(name: "updatedAt") String? updatedAt});
+      {Routing? routing,
+      @JsonKey(name: '_id') String? id,
+      String? title,
+      String? slug,
+      String? image,
+      String? url,
+      String? createdAt,
+      String? updatedAt,
+      @JsonKey(name: '__v') int? v,
+      int? discount,
+      String? startDate,
+      String? endDate,
+      String? status});
+
+  @override
+  $RoutingCopyWith<$Res>? get routing;
 }
 
 /// @nodoc
@@ -494,6 +554,7 @@ class __$$BannersImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? routing = freezed,
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
@@ -501,8 +562,17 @@ class __$$BannersImplCopyWithImpl<$Res>
     Object? url = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? v = freezed,
+    Object? discount = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? status = freezed,
   }) {
     return _then(_$BannersImpl(
+      routing: freezed == routing
+          ? _value.routing
+          : routing // ignore: cast_nullable_to_non_nullable
+              as Routing?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -531,6 +601,26 @@ class __$$BannersImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      v: freezed == v
+          ? _value.v
+          : v // ignore: cast_nullable_to_non_nullable
+              as int?,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      endDate: freezed == endDate
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -539,42 +629,55 @@ class __$$BannersImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BannersImpl implements _Banners {
   const _$BannersImpl(
-      {@JsonKey(name: "_id") required this.id,
-      @JsonKey(name: "title") required this.title,
-      @JsonKey(name: "slug") required this.slug,
-      @JsonKey(name: "image") required this.image,
-      @JsonKey(name: "url") required this.url,
-      @JsonKey(name: "createdAt") required this.createdAt,
-      @JsonKey(name: "updatedAt") required this.updatedAt});
+      {required this.routing,
+      @JsonKey(name: '_id') required this.id,
+      required this.title,
+      required this.slug,
+      required this.image,
+      required this.url,
+      required this.createdAt,
+      required this.updatedAt,
+      @JsonKey(name: '__v') this.v,
+      this.discount,
+      this.startDate,
+      this.endDate,
+      this.status});
 
   factory _$BannersImpl.fromJson(Map<String, dynamic> json) =>
       _$$BannersImplFromJson(json);
 
   @override
-  @JsonKey(name: "_id")
+  final Routing? routing;
+  @override
+  @JsonKey(name: '_id')
   final String? id;
   @override
-  @JsonKey(name: "title")
   final String? title;
   @override
-  @JsonKey(name: "slug")
   final String? slug;
   @override
-  @JsonKey(name: "image")
   final String? image;
   @override
-  @JsonKey(name: "url")
   final String? url;
   @override
-  @JsonKey(name: "createdAt")
   final String? createdAt;
   @override
-  @JsonKey(name: "updatedAt")
   final String? updatedAt;
+  @override
+  @JsonKey(name: '__v')
+  final int? v;
+  @override
+  final int? discount;
+  @override
+  final String? startDate;
+  @override
+  final String? endDate;
+  @override
+  final String? status;
 
   @override
   String toString() {
-    return 'Banners(id: $id, title: $title, slug: $slug, image: $image, url: $url, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Banners(routing: $routing, id: $id, title: $title, slug: $slug, image: $image, url: $url, createdAt: $createdAt, updatedAt: $updatedAt, v: $v, discount: $discount, startDate: $startDate, endDate: $endDate, status: $status)';
   }
 
   @override
@@ -582,6 +685,7 @@ class _$BannersImpl implements _Banners {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BannersImpl &&
+            (identical(other.routing, routing) || other.routing == routing) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.slug, slug) || other.slug == slug) &&
@@ -590,13 +694,20 @@ class _$BannersImpl implements _Banners {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.v, v) || other.v == v) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate) &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, title, slug, image, url, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, routing, id, title, slug, image,
+      url, createdAt, updatedAt, v, discount, startDate, endDate, status);
 
   @JsonKey(ignore: true)
   @override
@@ -614,40 +725,457 @@ class _$BannersImpl implements _Banners {
 
 abstract class _Banners implements Banners {
   const factory _Banners(
-          {@JsonKey(name: "_id") required final String? id,
-          @JsonKey(name: "title") required final String? title,
-          @JsonKey(name: "slug") required final String? slug,
-          @JsonKey(name: "image") required final String? image,
-          @JsonKey(name: "url") required final String? url,
-          @JsonKey(name: "createdAt") required final String? createdAt,
-          @JsonKey(name: "updatedAt") required final String? updatedAt}) =
-      _$BannersImpl;
+      {required final Routing? routing,
+      @JsonKey(name: '_id') required final String? id,
+      required final String? title,
+      required final String? slug,
+      required final String? image,
+      required final String? url,
+      required final String? createdAt,
+      required final String? updatedAt,
+      @JsonKey(name: '__v') final int? v,
+      final int? discount,
+      final String? startDate,
+      final String? endDate,
+      final String? status}) = _$BannersImpl;
 
   factory _Banners.fromJson(Map<String, dynamic> json) = _$BannersImpl.fromJson;
 
   @override
-  @JsonKey(name: "_id")
+  Routing? get routing;
+  @override
+  @JsonKey(name: '_id')
   String? get id;
   @override
-  @JsonKey(name: "title")
   String? get title;
   @override
-  @JsonKey(name: "slug")
   String? get slug;
   @override
-  @JsonKey(name: "image")
   String? get image;
   @override
-  @JsonKey(name: "url")
   String? get url;
   @override
-  @JsonKey(name: "createdAt")
   String? get createdAt;
   @override
-  @JsonKey(name: "updatedAt")
   String? get updatedAt;
+  @override
+  @JsonKey(name: '__v')
+  int? get v;
+  @override
+  int? get discount;
+  @override
+  String? get startDate;
+  @override
+  String? get endDate;
+  @override
+  String? get status;
   @override
   @JsonKey(ignore: true)
   _$$BannersImplCopyWith<_$BannersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Routing _$RoutingFromJson(Map<String, dynamic> json) {
+  return _Routing.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Routing {
+  String? get route => throw _privateConstructorUsedError;
+  CategoryId? get categoryId => throw _privateConstructorUsedError;
+  CategoryId? get subCategoryId => throw _privateConstructorUsedError;
+  CategoryId? get itemTypeId => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RoutingCopyWith<Routing> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RoutingCopyWith<$Res> {
+  factory $RoutingCopyWith(Routing value, $Res Function(Routing) then) =
+      _$RoutingCopyWithImpl<$Res, Routing>;
+  @useResult
+  $Res call(
+      {String? route,
+      CategoryId? categoryId,
+      CategoryId? subCategoryId,
+      CategoryId? itemTypeId});
+
+  $CategoryIdCopyWith<$Res>? get categoryId;
+  $CategoryIdCopyWith<$Res>? get subCategoryId;
+  $CategoryIdCopyWith<$Res>? get itemTypeId;
+}
+
+/// @nodoc
+class _$RoutingCopyWithImpl<$Res, $Val extends Routing>
+    implements $RoutingCopyWith<$Res> {
+  _$RoutingCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? route = freezed,
+    Object? categoryId = freezed,
+    Object? subCategoryId = freezed,
+    Object? itemTypeId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      route: freezed == route
+          ? _value.route
+          : route // ignore: cast_nullable_to_non_nullable
+              as String?,
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as CategoryId?,
+      subCategoryId: freezed == subCategoryId
+          ? _value.subCategoryId
+          : subCategoryId // ignore: cast_nullable_to_non_nullable
+              as CategoryId?,
+      itemTypeId: freezed == itemTypeId
+          ? _value.itemTypeId
+          : itemTypeId // ignore: cast_nullable_to_non_nullable
+              as CategoryId?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryIdCopyWith<$Res>? get categoryId {
+    if (_value.categoryId == null) {
+      return null;
+    }
+
+    return $CategoryIdCopyWith<$Res>(_value.categoryId!, (value) {
+      return _then(_value.copyWith(categoryId: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryIdCopyWith<$Res>? get subCategoryId {
+    if (_value.subCategoryId == null) {
+      return null;
+    }
+
+    return $CategoryIdCopyWith<$Res>(_value.subCategoryId!, (value) {
+      return _then(_value.copyWith(subCategoryId: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryIdCopyWith<$Res>? get itemTypeId {
+    if (_value.itemTypeId == null) {
+      return null;
+    }
+
+    return $CategoryIdCopyWith<$Res>(_value.itemTypeId!, (value) {
+      return _then(_value.copyWith(itemTypeId: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$RoutingImplCopyWith<$Res> implements $RoutingCopyWith<$Res> {
+  factory _$$RoutingImplCopyWith(
+          _$RoutingImpl value, $Res Function(_$RoutingImpl) then) =
+      __$$RoutingImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? route,
+      CategoryId? categoryId,
+      CategoryId? subCategoryId,
+      CategoryId? itemTypeId});
+
+  @override
+  $CategoryIdCopyWith<$Res>? get categoryId;
+  @override
+  $CategoryIdCopyWith<$Res>? get subCategoryId;
+  @override
+  $CategoryIdCopyWith<$Res>? get itemTypeId;
+}
+
+/// @nodoc
+class __$$RoutingImplCopyWithImpl<$Res>
+    extends _$RoutingCopyWithImpl<$Res, _$RoutingImpl>
+    implements _$$RoutingImplCopyWith<$Res> {
+  __$$RoutingImplCopyWithImpl(
+      _$RoutingImpl _value, $Res Function(_$RoutingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? route = freezed,
+    Object? categoryId = freezed,
+    Object? subCategoryId = freezed,
+    Object? itemTypeId = freezed,
+  }) {
+    return _then(_$RoutingImpl(
+      route: freezed == route
+          ? _value.route
+          : route // ignore: cast_nullable_to_non_nullable
+              as String?,
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as CategoryId?,
+      subCategoryId: freezed == subCategoryId
+          ? _value.subCategoryId
+          : subCategoryId // ignore: cast_nullable_to_non_nullable
+              as CategoryId?,
+      itemTypeId: freezed == itemTypeId
+          ? _value.itemTypeId
+          : itemTypeId // ignore: cast_nullable_to_non_nullable
+              as CategoryId?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RoutingImpl implements _Routing {
+  const _$RoutingImpl(
+      {required this.route,
+      required this.categoryId,
+      required this.subCategoryId,
+      required this.itemTypeId});
+
+  factory _$RoutingImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RoutingImplFromJson(json);
+
+  @override
+  final String? route;
+  @override
+  final CategoryId? categoryId;
+  @override
+  final CategoryId? subCategoryId;
+  @override
+  final CategoryId? itemTypeId;
+
+  @override
+  String toString() {
+    return 'Routing(route: $route, categoryId: $categoryId, subCategoryId: $subCategoryId, itemTypeId: $itemTypeId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RoutingImpl &&
+            (identical(other.route, route) || other.route == route) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId) &&
+            (identical(other.subCategoryId, subCategoryId) ||
+                other.subCategoryId == subCategoryId) &&
+            (identical(other.itemTypeId, itemTypeId) ||
+                other.itemTypeId == itemTypeId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, route, categoryId, subCategoryId, itemTypeId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RoutingImplCopyWith<_$RoutingImpl> get copyWith =>
+      __$$RoutingImplCopyWithImpl<_$RoutingImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RoutingImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Routing implements Routing {
+  const factory _Routing(
+      {required final String? route,
+      required final CategoryId? categoryId,
+      required final CategoryId? subCategoryId,
+      required final CategoryId? itemTypeId}) = _$RoutingImpl;
+
+  factory _Routing.fromJson(Map<String, dynamic> json) = _$RoutingImpl.fromJson;
+
+  @override
+  String? get route;
+  @override
+  CategoryId? get categoryId;
+  @override
+  CategoryId? get subCategoryId;
+  @override
+  CategoryId? get itemTypeId;
+  @override
+  @JsonKey(ignore: true)
+  _$$RoutingImplCopyWith<_$RoutingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+CategoryId _$CategoryIdFromJson(Map<String, dynamic> json) {
+  return _CategoryId.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CategoryId {
+  @JsonKey(name: '_id')
+  String? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CategoryIdCopyWith<CategoryId> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CategoryIdCopyWith<$Res> {
+  factory $CategoryIdCopyWith(
+          CategoryId value, $Res Function(CategoryId) then) =
+      _$CategoryIdCopyWithImpl<$Res, CategoryId>;
+  @useResult
+  $Res call({@JsonKey(name: '_id') String? id, String? title});
+}
+
+/// @nodoc
+class _$CategoryIdCopyWithImpl<$Res, $Val extends CategoryId>
+    implements $CategoryIdCopyWith<$Res> {
+  _$CategoryIdCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CategoryIdImplCopyWith<$Res>
+    implements $CategoryIdCopyWith<$Res> {
+  factory _$$CategoryIdImplCopyWith(
+          _$CategoryIdImpl value, $Res Function(_$CategoryIdImpl) then) =
+      __$$CategoryIdImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: '_id') String? id, String? title});
+}
+
+/// @nodoc
+class __$$CategoryIdImplCopyWithImpl<$Res>
+    extends _$CategoryIdCopyWithImpl<$Res, _$CategoryIdImpl>
+    implements _$$CategoryIdImplCopyWith<$Res> {
+  __$$CategoryIdImplCopyWithImpl(
+      _$CategoryIdImpl _value, $Res Function(_$CategoryIdImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? title = freezed,
+  }) {
+    return _then(_$CategoryIdImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CategoryIdImpl implements _CategoryId {
+  const _$CategoryIdImpl(
+      {@JsonKey(name: '_id') required this.id, required this.title});
+
+  factory _$CategoryIdImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CategoryIdImplFromJson(json);
+
+  @override
+  @JsonKey(name: '_id')
+  final String? id;
+  @override
+  final String? title;
+
+  @override
+  String toString() {
+    return 'CategoryId(id: $id, title: $title)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CategoryIdImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, title);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CategoryIdImplCopyWith<_$CategoryIdImpl> get copyWith =>
+      __$$CategoryIdImplCopyWithImpl<_$CategoryIdImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CategoryIdImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CategoryId implements CategoryId {
+  const factory _CategoryId(
+      {@JsonKey(name: '_id') required final String? id,
+      required final String? title}) = _$CategoryIdImpl;
+
+  factory _CategoryId.fromJson(Map<String, dynamic> json) =
+      _$CategoryIdImpl.fromJson;
+
+  @override
+  @JsonKey(name: '_id')
+  String? get id;
+  @override
+  String? get title;
+  @override
+  @JsonKey(ignore: true)
+  _$$CategoryIdImplCopyWith<_$CategoryIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

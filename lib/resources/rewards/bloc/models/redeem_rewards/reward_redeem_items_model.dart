@@ -33,7 +33,7 @@ class RedeemProducts with _$RedeemProducts {
     @JsonKey(name: "_id") String id,
     String? image,
     String? title,
-    String? defaultStock,
+    int? defaultStock,
     double? stock,
     double? offerPrice,
     double? coins,

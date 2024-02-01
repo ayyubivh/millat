@@ -33,6 +33,7 @@ import 'package:millat/resources/profile/views/edit_profile_view.dart';
 import 'package:millat/resources/profile/views/invite_friend_view.dart';
 import 'package:millat/resources/profile/views/order_history_view.dart';
 import 'package:millat/resources/profile/views/user_profile_view.dart';
+import 'package:millat/resources/rewards/rewards_home_view.dart';
 import 'package:millat/resources/rewards/rewards_tab_view.dart';
 import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
 import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
@@ -166,13 +167,13 @@ class MyAppRouter {
                   return const MaterialPage(child: PrayerTrackerCalendarView());
                 },
               ),
-              // GoRoute(
-              //   path: MyAppRouteConstants.rewardsTabRouteName,
-              //   name: MyAppRouteConstants.rewardsTabRouteName,
-              //   pageBuilder: (context, state) {
-              //     return const MaterialPage(child: RewardsTabView());
-              //   },
-              // ),
+              GoRoute(
+                path: MyAppRouteConstants.rewardsHomeRouteName,
+                name: MyAppRouteConstants.rewardsHomeRouteName,
+                pageBuilder: (context, state) {
+                  return const MaterialPage(child: RewardsHomeView());
+                },
+              ),
               GoRoute(
                 name: MyAppRouteConstants.rewardsRedeemViewRouteName,
                 path: MyAppRouteConstants.rewardsRedeemViewRouteName,

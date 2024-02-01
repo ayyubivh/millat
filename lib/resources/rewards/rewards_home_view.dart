@@ -112,7 +112,7 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
   Widget _shopWithCoinsWidget(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.goNamed(MyAppRouteConstants.rewardsShopRouteName);
+        context.pushNamed(MyAppRouteConstants.rewardsShopRouteName);
       },
       child: Container(
           width: SizeUtility(context).width,

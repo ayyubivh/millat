@@ -1,8 +1,7 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'event_of_the_month_model.g.dart';
+
 part 'event_of_the_month_model.freezed.dart';
+part 'event_of_the_month_model.g.dart';
 
 @freezed
 class EventOfTheMonthModel with _$EventOfTheMonthModel {
@@ -30,12 +29,61 @@ class EventResult with _$EventResult {
 @freezed
 class EventItem with _$EventItem {
   const factory EventItem({
-    @JsonKey(name: "_id") String? id,
+    String? id,
     List<String>? images,
-    String? createdAt,
-    String? updatedAt,
+    @JsonKey(name: 'routing') Routing? routing,
+    @JsonKey(name: 'startDate') String? startDate,
+    @JsonKey(name: 'endDate') String? endDate,
+    @JsonKey(name: 'createdAt') String? createdAt,
+    @JsonKey(name: 'updatedAt') String? updatedAt,
   }) = _EventItem;
 
   factory EventItem.fromJson(Map<String, dynamic> json) =>
       _$EventItemFromJson(json);
+}
+
+@freezed
+class Routing with _$Routing {
+  const factory Routing({
+    @JsonKey(name: 'categoryId') CategoryId? categoryId,
+    @JsonKey(name: 'subCategoryId') SubCategoryId? subCategoryId,
+    @JsonKey(name: 'itemTypeId') ItemTypeId? itemTypeId,
+    String? route,
+  }) = _Routing;
+
+  factory Routing.fromJson(Map<String, dynamic> json) =>
+      _$RoutingFromJson(json);
+}
+
+@freezed
+class CategoryId with _$CategoryId {
+  const factory CategoryId({
+    String? id,
+    String? title,
+  }) = _CategoryId;
+
+  factory CategoryId.fromJson(Map<String, dynamic> json) =>
+      _$CategoryIdFromJson(json);
+}
+
+@freezed
+class SubCategoryId with _$SubCategoryId {
+  const factory SubCategoryId({
+    String? id,
+    String? title,
+  }) = _SubCategoryId;
+
+  factory SubCategoryId.fromJson(Map<String, dynamic> json) =>
+      _$SubCategoryIdFromJson(json);
+}
+
+@freezed
+class ItemTypeId with _$ItemTypeId {
+  const factory ItemTypeId({
+    String? id,
+    String? title,
+  }) = _ItemTypeId;
+
+  factory ItemTypeId.fromJson(Map<String, dynamic> json) =>
+      _$ItemTypeIdFromJson(json);
 }

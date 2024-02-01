@@ -84,6 +84,8 @@ _$RoutingImpl _$$RoutingImplFromJson(Map<String, dynamic> json) =>
       itemTypeId: json['itemTypeId'] == null
           ? null
           : CategoryId.fromJson(json['itemTypeId'] as Map<String, dynamic>),
+      city: json['city'] as String?,
+      country: json['country'] as String?,
     );
 
 Map<String, dynamic> _$$RoutingImplToJson(_$RoutingImpl instance) =>
@@ -92,6 +94,8 @@ Map<String, dynamic> _$$RoutingImplToJson(_$RoutingImpl instance) =>
       'categoryId': instance.categoryId,
       'subCategoryId': instance.subCategoryId,
       'itemTypeId': instance.itemTypeId,
+      'city': instance.city,
+      'country': instance.country,
     };
 
 _$CategoryIdImpl _$$CategoryIdImplFromJson(Map<String, dynamic> json) =>

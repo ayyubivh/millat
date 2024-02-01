@@ -353,7 +353,7 @@ class TravelServices {
     } catch (e) {
       if (kDebugMode) {
         debugPrint(
-            'Error on Travel best places products API fetch: ${e.toString()}');
+            'Error on Travel wishlist products API fetch: ${e.toString()}');
       }
       throw Exception(e);
     }

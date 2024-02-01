@@ -46,10 +46,11 @@ _$RedeemProductsImpl _$$RedeemProductsImplFromJson(Map<String, dynamic> json) =>
       (json['stock'] as num?)?.toDouble(),
       (json['offerPrice'] as num?)?.toDouble(),
       (json['coins'] as num?)?.toDouble(),
-      json['startDate'] as String,
-      json['endDate'] as String,
-      json['createdAt'] as String,
-      json['updatedAt'] as String,
+      json['startDate'] as String?,
+      json['endDate'] as String?,
+      json['createdAt'] as String?,
+      json['updatedAt'] as String?,
+      json['description'] as String?,
     );
 
 Map<String, dynamic> _$$RedeemProductsImplToJson(
@@ -66,4 +67,5 @@ Map<String, dynamic> _$$RedeemProductsImplToJson(
       'endDate': instance.endDate,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'description': instance.description,
     };

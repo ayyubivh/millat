@@ -10,6 +10,7 @@ class Utilities {
     try {
       DateTime dateTime = DateTime.parse(date);
       DateFormat dateFormat = DateFormat('dd MMMM yyyy');
+
       return dateFormat.format(dateTime);
     } catch (e) {
       return '';

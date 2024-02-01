@@ -36,7 +36,7 @@ class Banners with _$Banners {
     required String? url,
     required String? createdAt,
     required String? updatedAt,
-  @JsonKey(name: '__v')   int? v,
+    @JsonKey(name: '__v') int? v,
     int? discount,
     String? startDate,
     String? endDate,
@@ -54,6 +54,8 @@ class Routing with _$Routing {
     required CategoryId? categoryId,
     required CategoryId? subCategoryId,
     required CategoryId? itemTypeId,
+    required String? city,
+    required String? country,
   }) = _Routing;
 
   factory Routing.fromJson(Map<String, dynamic> json) =>

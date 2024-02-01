@@ -250,7 +250,7 @@ class OrdetailsView extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 15),
+                          vertical: 8, horizontal: 10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -277,6 +277,7 @@ class OrdetailsView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
                             Appstrings.billingAddress,
@@ -427,7 +428,11 @@ class OrdetailsView extends StatelessWidget {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         final data = state.ordersByIdModel?.result?.order;
-
+        final DateTime gettingDate = DateTime.parse(data?.orderDate ?? "");
+        final DateTime currentDate = DateTime.now();
+        const Duration threeDays = Duration(days: 3);
+        DateTime threeDaysAfter = gettingDate.add(threeDays);
+        bool isAfter3day = currentDate.isAfter(threeDaysAfter);
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Column(
@@ -589,7 +594,7 @@ class OrdetailsView extends StatelessWidget {
                     orderStatus == Appstrings.processing
                         ? context
                             .pushNamed(MyAppRouteConstants.orderCancelRouteName)
-                        : orderStatus == Appstrings.cancelled
+                        : orderStatus == Appstrings.cancelled || isAfter3day
                             ? null
                             : context.pushNamed(
                                 MyAppRouteConstants.orderReturnRouteName);
@@ -599,7 +604,9 @@ class OrdetailsView extends StatelessWidget {
                       kWidth10,
                       orderStatus == Appstrings.delivered
                           ? Text(
-                              Appstrings.returnOrder,
+                              isAfter3day
+                                  ? "Order can only be return within 3 days"
+                                  : Appstrings.returnOrder,
                               style: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w600,
@@ -624,7 +631,7 @@ class OrdetailsView extends StatelessWidget {
                                   ),
                                 ),
                       const Spacer(),
-                      orderStatus == Appstrings.cancelled
+                      orderStatus == Appstrings.cancelled || isAfter3day
                           ? const SizedBox()
                           : Icon(
                               Icons.arrow_forward_ios,

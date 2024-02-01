@@ -2,6 +2,7 @@
 
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -321,38 +322,39 @@ class _HomeViewState extends State<HomeView> {
             },
             subTitle: "Read Quran",
           ),
-          BlocBuilder<LocationBloc, LocationState>(
-            builder: (context, state) => bottomSheetWidgets(
-                image: AppAssetsStrings.homeCompassIcon,
-                text: Appstrings.compass,
-                onTap: () {
-                  if (state.currentLocation.isNotEmpty) {
-                    context.goNamed(MyAppRouteConstants.compassRouteName);
-                  } else {
-                    showSnackBar(
-                      context,
-                      Appstrings.turnOnLocation,
-                    );
-                  }
-                },
-                subTitle: "Read Zikr"),
-          ),
           bottomSheetWidgets(
               image: AppAssetsStrings.homeTasbihIcon,
               text: Appstrings.tasbih,
               onTap: () {
                 context.pushNamed(MyAppRouteConstants.tasbihRouteName);
               },
-              subTitle: "Read Dua"),
+              subTitle: "Read Zikr"),
           bottomSheetWidgets(
             image: AppAssetsStrings.homeDuaIcon,
             text: Appstrings.dua,
             onTap: () {
               context.pushNamed(MyAppRouteConstants.duaRouteName);
             },
-            subTitle: "Look for Qibla",
-            isQible: true,
-          )
+            subTitle: "Read Dua",
+          ),
+          BlocBuilder<LocationBloc, LocationState>(
+            builder: (context, state) => bottomSheetWidgets(
+              image: AppAssetsStrings.homeCompassIcon,
+              text: Appstrings.compass,
+              onTap: () {
+                if (state.currentLocation.isNotEmpty) {
+                  context.goNamed(MyAppRouteConstants.compassRouteName);
+                } else {
+                  showSnackBar(
+                    context,
+                    Appstrings.turnOnLocation,
+                  );
+                }
+              },
+              subTitle: "Look for Qibla",
+              isQibla: true,
+            ),
+          ),
         ],
       ),
     );
@@ -363,7 +365,7 @@ class _HomeViewState extends State<HomeView> {
     required String text,
     required VoidCallback onTap,
     required String subTitle,
-    bool isQible = false,
+    bool isQibla = false,
   }) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
@@ -418,7 +420,7 @@ class _HomeViewState extends State<HomeView> {
               width: 70,
               child: Center(
                 child: Text(
-                  isQible ? "GO" : "READ",
+                  isQibla ? "GO" : "READ",
                   style: TextStyle(
                     color: ColorManager.whiteColor,
                     fontWeight: FontWeight.w600,
@@ -785,13 +787,44 @@ class _HomeViewState extends State<HomeView> {
                 children: [
                   CarouselSlider(
                     items: banners?.map((banner) {
-                      return ClipRRect(
-                        // child: Utilities().buildCachedNetworkImage(
-                        //     imageUrl: banner.images?[0], height: 327)
-                        child: Utilities().buildCachedNetworkImage(
-                          imageUrl: banner.images![0],
-                          height: 327,
-                          boxFit: BoxFit.contain,
+                      return GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          if (banner.routing == null ||
+                              banner.routing?.route == "") {
+                            return;
+                          } else if (banner.routing?.route ==
+                              MyAppRouteConstants.categoriesProductsRouteName) {
+                            final routing = banner.routing!;
+
+                            final categoryId = routing.categoryId?.title;
+                            final subCategoryId = routing.subCategoryId?.title;
+                            final itemTypeId = routing.itemTypeId?.title;
+
+                            if (categoryId == "" &&
+                                subCategoryId == "" &&
+                                itemTypeId == "") {
+                              return;
+                            } else {
+                              context.pushNamed(
+                                routing.route!,
+                                extra: {
+                                  'category': categoryId,
+                                  'subCategory': subCategoryId,
+                                  'type': FilterType.category,
+                                },
+                              );
+                            }
+                          }
+                        },
+                        child: ClipRRect(
+                          // child: Utilities().buildCachedNetworkImage(
+                          //     imageUrl: banner.images?[0], height: 327)
+                          child: Utilities().buildCachedNetworkImage(
+                            imageUrl: banner.images![0],
+                            height: 327,
+                            boxFit: BoxFit.contain,
+                          ),
                         ),
                       );
                     }).toList(),
@@ -1376,23 +1409,43 @@ class _HomeViewState extends State<HomeView> {
                       if (banner.routing == null ||
                           banner.routing?.route == "") {
                         return;
-                      } else {
+                      } else if (banner.routing?.route ==
+                          MyAppRouteConstants.categoriesProductsRouteName) {
                         final routing = banner.routing!;
+
                         final categoryId = routing.categoryId?.title;
                         final subCategoryId = routing.subCategoryId?.title;
                         final itemTypeId = routing.itemTypeId?.title;
 
                         if (categoryId == "" &&
                             subCategoryId == "" &&
-                            itemTypeId == "") return;
+                            itemTypeId == "") {
+                          return;
+                        } else {
+                          context.pushNamed(
+                            routing.route!,
+                            extra: {
+                              'category': categoryId,
+                              'subCategory': subCategoryId,
+                              'type': FilterType.category,
+                            },
+                          );
+                        }
+                      } else if (banner.routing?.route ==
+                          MyAppRouteConstants.travelPackagesView) {
+                        final routing = banner.routing!;
+                        final city = routing.city;
+                        final country = routing.country;
 
                         context.pushNamed(
                           routing.route!,
+                          pathParameters: {
+                            "title": Appstrings.products,
+                          },
                           extra: {
-                            'category': categoryId,
-                            'subCategory': subCategoryId,
-                            'type': FilterType.category,
-                            // 'itemId': itemTypeId,
+                            'city': city,
+                            'country': country,
+                            "type": TravelsPackagesType.browseByCountries,
                           },
                         );
                       }

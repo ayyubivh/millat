@@ -785,6 +785,8 @@ mixin _$Routing {
   CategoryId? get categoryId => throw _privateConstructorUsedError;
   CategoryId? get subCategoryId => throw _privateConstructorUsedError;
   CategoryId? get itemTypeId => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -800,7 +802,9 @@ abstract class $RoutingCopyWith<$Res> {
       {String? route,
       CategoryId? categoryId,
       CategoryId? subCategoryId,
-      CategoryId? itemTypeId});
+      CategoryId? itemTypeId,
+      String? city,
+      String? country});
 
   $CategoryIdCopyWith<$Res>? get categoryId;
   $CategoryIdCopyWith<$Res>? get subCategoryId;
@@ -824,6 +828,8 @@ class _$RoutingCopyWithImpl<$Res, $Val extends Routing>
     Object? categoryId = freezed,
     Object? subCategoryId = freezed,
     Object? itemTypeId = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
   }) {
     return _then(_value.copyWith(
       route: freezed == route
@@ -842,6 +848,14 @@ class _$RoutingCopyWithImpl<$Res, $Val extends Routing>
           ? _value.itemTypeId
           : itemTypeId // ignore: cast_nullable_to_non_nullable
               as CategoryId?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -893,7 +907,9 @@ abstract class _$$RoutingImplCopyWith<$Res> implements $RoutingCopyWith<$Res> {
       {String? route,
       CategoryId? categoryId,
       CategoryId? subCategoryId,
-      CategoryId? itemTypeId});
+      CategoryId? itemTypeId,
+      String? city,
+      String? country});
 
   @override
   $CategoryIdCopyWith<$Res>? get categoryId;
@@ -918,6 +934,8 @@ class __$$RoutingImplCopyWithImpl<$Res>
     Object? categoryId = freezed,
     Object? subCategoryId = freezed,
     Object? itemTypeId = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
   }) {
     return _then(_$RoutingImpl(
       route: freezed == route
@@ -936,6 +954,14 @@ class __$$RoutingImplCopyWithImpl<$Res>
           ? _value.itemTypeId
           : itemTypeId // ignore: cast_nullable_to_non_nullable
               as CategoryId?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -947,7 +973,9 @@ class _$RoutingImpl implements _Routing {
       {required this.route,
       required this.categoryId,
       required this.subCategoryId,
-      required this.itemTypeId});
+      required this.itemTypeId,
+      required this.city,
+      required this.country});
 
   factory _$RoutingImpl.fromJson(Map<String, dynamic> json) =>
       _$$RoutingImplFromJson(json);
@@ -960,10 +988,14 @@ class _$RoutingImpl implements _Routing {
   final CategoryId? subCategoryId;
   @override
   final CategoryId? itemTypeId;
+  @override
+  final String? city;
+  @override
+  final String? country;
 
   @override
   String toString() {
-    return 'Routing(route: $route, categoryId: $categoryId, subCategoryId: $subCategoryId, itemTypeId: $itemTypeId)';
+    return 'Routing(route: $route, categoryId: $categoryId, subCategoryId: $subCategoryId, itemTypeId: $itemTypeId, city: $city, country: $country)';
   }
 
   @override
@@ -977,13 +1009,15 @@ class _$RoutingImpl implements _Routing {
             (identical(other.subCategoryId, subCategoryId) ||
                 other.subCategoryId == subCategoryId) &&
             (identical(other.itemTypeId, itemTypeId) ||
-                other.itemTypeId == itemTypeId));
+                other.itemTypeId == itemTypeId) &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.country, country) || other.country == country));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, route, categoryId, subCategoryId, itemTypeId);
+  int get hashCode => Object.hash(
+      runtimeType, route, categoryId, subCategoryId, itemTypeId, city, country);
 
   @JsonKey(ignore: true)
   @override
@@ -1004,7 +1038,9 @@ abstract class _Routing implements Routing {
       {required final String? route,
       required final CategoryId? categoryId,
       required final CategoryId? subCategoryId,
-      required final CategoryId? itemTypeId}) = _$RoutingImpl;
+      required final CategoryId? itemTypeId,
+      required final String? city,
+      required final String? country}) = _$RoutingImpl;
 
   factory _Routing.fromJson(Map<String, dynamic> json) = _$RoutingImpl.fromJson;
 
@@ -1016,6 +1052,10 @@ abstract class _Routing implements Routing {
   CategoryId? get subCategoryId;
   @override
   CategoryId? get itemTypeId;
+  @override
+  String? get city;
+  @override
+  String? get country;
   @override
   @JsonKey(ignore: true)
   _$$RoutingImplCopyWith<_$RoutingImpl> get copyWith =>

@@ -91,6 +91,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
       emit(state.copyWith(
         addressModel: data,
         isLoading: false,
+        // addressId:state.selectedIndex!=-1? data.result.addresses[state.selectedIndex!].,
         successMessageInShop: false,
       ));
     } catch (e) {

@@ -38,6 +38,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
 
   @override
   void initState() {
+    print(
+        'address id ${context.read<AddressBloc>().state.addressId.toString()}');
     context
         .read<ShopProductsBloc>()
         .add(const ShopProductsEvent.isPromoCodeAvailable(value: false));
@@ -625,83 +627,108 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             ? _codPaymentWidget(context)
             : _onlinePayment(context),
         kHeight20,
-        BlocBuilder<TermsAndConditionsBloc, TermsAndConditionsState>(
-          builder: (context, state) => Text(
-            Utilities.removeFootnotesFromMeaning(
-                state.termsConditionsModel?.result.data.content ?? ""),
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: ColorManager.black4F,
-              height: 1.2,
+        GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                builder: (context) {
+                  return Container(
+                    height: SizeUtility(context).height / 1.1,
+                    decoration: BoxDecoration(
+                      color: ColorManager.whiteColor,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(30.0),
+                        topRight: Radius.circular(30.0),
+                      ),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 15),
+                    child: BlocBuilder<TermsAndConditionsBloc,
+                        TermsAndConditionsState>(
+                      builder: (context, state) => Text(
+                        Utilities.removeFootnotesFromMeaning(
+                            state.termsConditionsModel?.result.data.content ??
+                                ""),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: ColorManager.black4F,
+                          height: 1.2,
+                        ),
+                      ),
+                    ),
+                  );
+                });
+          },
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text:
+                      'By placing an order, you acknowledge that you have read the ',
+                  style: TextStyle(
+                    color: ColorManager.textGrey, // Color for the regular text
+                    fontSize: 14, fontWeight: FontWeight.w400,
+                    height: 1.3,
+                  ),
+                ),
+                TextSpan(
+                  text: 'Terms of Service',
+                  style: TextStyle(
+                    color: ColorManager.primary, // Color for "Terms of Service"
+                    fontSize: 14, fontWeight: FontWeight.w400,
+                    height: 1.3,
+                  ),
+                ),
+                TextSpan(
+                  text: ' and ',
+                  style: TextStyle(
+                    color: ColorManager.textGrey, // Color for the regular text
+                    fontSize: 14, fontWeight: FontWeight.w400,
+                    height: 1.3,
+                  ),
+                ),
+                TextSpan(
+                  text: 'Privacy Policy',
+                  style: TextStyle(
+                    color: ColorManager.primary, // Color for "Privacy Policy"
+                    fontSize: 14, fontWeight: FontWeight.w400,
+                    height: 1.3,
+                  ),
+                ),
+                TextSpan(
+                  text:
+                      ' of Linger Shop. Payment will be processed separately by PIPO ',
+                  style: TextStyle(
+                    color: ColorManager.textGrey, // Color for the regular text
+                    fontSize: 14, fontWeight: FontWeight.w400,
+                    height: 1.3,
+                  ),
+                ),
+                TextSpan(
+                  text: ' according to ',
+                  style: TextStyle(
+                    color: ColorManager.textGrey, // Color for the regular text
+                    fontSize: 14, fontWeight: FontWeight.w400,
+                    height: 1.3,
+                  ),
+                ),
+                TextSpan(
+                  text: 'PIPO Privacy Policy.',
+                  style: TextStyle(
+                    color:
+                        ColorManager.primary, // Color for "PIPO Privacy Policy"
+                    fontSize: 14, fontWeight: FontWeight.w400,
+                    height: 1.3,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
-        // RichText(
-        //   text: TextSpan(
-        //     children: [
-        //       TextSpan(
-        //         text:
-        //             'By placing an order, you acknowledge that you have read the ',
-        //         style: TextStyle(
-        //           color: ColorManager.textGrey, // Color for the regular text
-        //           fontSize: 14, fontWeight: FontWeight.w400,
-        //           height: 1.3,
-        //         ),
-        //       ),
-        //       TextSpan(
-        //         text: 'Terms of Service',
-        //         style: TextStyle(
-        //           color: ColorManager.primary, // Color for "Terms of Service"
-        //           fontSize: 14, fontWeight: FontWeight.w400,
-        //           height: 1.3,
-        //         ),
-        //       ),
-        //       TextSpan(
-        //         text: ' and ',
-        //         style: TextStyle(
-        //           color: ColorManager.textGrey, // Color for the regular text
-        //           fontSize: 14, fontWeight: FontWeight.w400,
-        //           height: 1.3,
-        //         ),
-        //       ),
-        //       TextSpan(
-        //         text: 'Privacy Policy',
-        //         style: TextStyle(
-        //           color: ColorManager.primary, // Color for "Privacy Policy"
-        //           fontSize: 14, fontWeight: FontWeight.w400,
-        //           height: 1.3,
-        //         ),
-        //       ),
-        //       TextSpan(
-        //         text:
-        //             ' of Linger Shop. Payment will be processed separately by PIPO ',
-        //         style: TextStyle(
-        //           color: ColorManager.textGrey, // Color for the regular text
-        //           fontSize: 14, fontWeight: FontWeight.w400,
-        //           height: 1.3,
-        //         ),
-        //       ),
-        //       TextSpan(
-        //         text: ' according to ',
-        //         style: TextStyle(
-        //           color: ColorManager.textGrey, // Color for the regular text
-        //           fontSize: 14, fontWeight: FontWeight.w400,
-        //           height: 1.3,
-        //         ),
-        //       ),
-        //       TextSpan(
-        //         text: 'PIPO Privacy Policy.',
-        //         style: TextStyle(
-        //           color:
-        //               ColorManager.primary, // Color for "PIPO Privacy Policy"
-        //           fontSize: 14, fontWeight: FontWeight.w400,
-        //           height: 1.3,
-        //         ),
-        //       ),
-        //     ],
-        //   ),
-        // ),
       ],
     );
   }

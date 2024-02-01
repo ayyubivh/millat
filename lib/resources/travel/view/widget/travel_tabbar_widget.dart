@@ -76,7 +76,7 @@ class TravelTabBarWidget extends StatelessWidget {
                       ),
                       kHeight15,
                       Text(
-                        overview,
+                        Utilities.removeFootnotesFromMeaning(overview),
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,

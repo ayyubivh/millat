@@ -22,7 +22,6 @@ class CheckoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log("screen caolled");
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final addressBloc = BlocProvider.of<AddressBloc>(context);
       addressBloc.add(FetchAddressEvent(context: context));
@@ -176,15 +175,19 @@ class CheckoutView extends StatelessWidget {
                   onPressed: () {
                     // String? id = context.read<AddressBloc>().state.addressId;
                     // print(context.read<AddressBloc>().state.addressModel);
-                    if (state.addressId == null) {
-                      showSnackBar(context, 'select the address');
-                      return;
-                    }
+                    // if (state.addressId == null) {
+                    //   showSnackBar(context, 'select the address');
+                    //   return;
+                    // }
                     if (state.selectedIndex == null ||
                         state.selectedIndex == -1) {
                       showSnackBar(context, 'select the address');
                       return;
                     }
+                    context.read<AddressBloc>().add(SaveAddressId(
+                        addressId: state.addressModel?.result
+                                .addresses[state.selectedIndex!].id ??
+                            ''));
                     checkoutType == CheckoutType.rewards
                         ? context.pushNamed(
                             MyAppRouteConstants.checkoutPaymentRouteName,

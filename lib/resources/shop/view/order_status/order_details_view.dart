@@ -729,7 +729,7 @@ class OrdetailsView extends StatelessWidget {
                       children: [
                         Text(Appstrings.total, style: _priceStyle()),
                         Text(
-                          data?.sellingPrice.toString() ?? '',
+                          data?.subTotal.toString() ?? '',
                           style: _priceStyle(),
                         ),
                       ],
@@ -744,7 +744,7 @@ class OrdetailsView extends StatelessWidget {
                               fontWeight: FontWeight.w900,
                             )),
                         Text(
-                          data?.sellingPrice.toString() ?? '',
+                          data?.subTotal.toString() ?? '',
                           style: TextStyle(
                               fontSize: 19,
                               fontWeight: FontWeight.w900,

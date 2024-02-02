@@ -402,7 +402,8 @@ class _ShopViewState extends State<ShopView> {
                                 child: Utilities().buildCachedNetworkImage(
                                   imageUrl: banner.image ?? "",
                                   width: SizeUtility(context).width,
-                                  height: 173,
+                                  boxFit: BoxFit.fill,
+                                  height: 186,
                                 ),
                               ),
                               Positioned(
@@ -459,10 +460,13 @@ class _ShopViewState extends State<ShopView> {
                   );
                 }).toList(),
                 options: CarouselOptions(
-                  height: 226,
+                  height: 240,
                   viewportFraction: 1,
                   enlargeCenterPage: false,
-                  autoPlay: true,
+                  scrollPhysics: banners.length == 1
+                      ? const NeverScrollableScrollPhysics()
+                      : null,
+                  autoPlay: banners.length == 1 ? false : true,
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enableInfiniteScroll: true,
                   enlargeFactor: 0.3,

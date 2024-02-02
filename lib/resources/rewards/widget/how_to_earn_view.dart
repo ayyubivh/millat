@@ -58,7 +58,7 @@ class HowToEarnView extends StatelessWidget {
           kHeight30,
           Expanded(
             child: GridView.builder(
-              itemCount: 5,
+              itemCount: 3,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3),
               itemBuilder: (context, index) {

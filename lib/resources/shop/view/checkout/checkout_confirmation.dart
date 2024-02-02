@@ -141,23 +141,26 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             _razorpay.open(options);
           } else if (state.orderId != null && state.orderSucces) {
             if (widget.checkoutType == CheckoutType.rewards) {
-              final subtotal = context
-                  .read<RewardsBloc>()
-                  .state
-                  .rewardsProductByIdModel
-                  ?.result
-                  ?.product
-                  ?.productId
-                  ?.salePrice;
+              // final subtotal = context
+              //     .read<RewardsBloc>()
+              //     .state
+              //     .rewardsProductByIdModel
+              //     ?.result
+              //     ?.product
+              //     ?.productId
+              //     ?.salePrice;
               context.pushReplacementNamed(
                   MyAppRouteConstants.paymentSuccessfullRouteName,
-                  extra: {'subTotal': subtotal, 'delivery': shippingFee});
+                  extra: {
+                    'subTotal': state.totalAmount,
+                    'delivery': state.totalAmount > 599 ? 0 : shippingFee
+                  });
             } else {
               context.pushReplacementNamed(
                   MyAppRouteConstants.paymentSuccessfullRouteName,
                   extra: {
                     'subTotal': state.totalAmount,
-                    'delivery': shippingFee
+                    'delivery': state.totalAmount > 599 ? 0 : shippingFee
                   });
             }
           }
@@ -247,8 +250,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                     ?.toInt();
                 final coins =
                     state.rewardsProductByIdModel?.result?.product?.coins;
-                const deliveryCharge = 90;
-                final total = subTotal! + deliveryCharge - coins!;
+                final deliveryCharge = subTotal! > 599 ? 0 : 90;
+                final total = subTotal + deliveryCharge - coins!;
                 return Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
@@ -384,12 +387,15 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
 
                 final quantity = cartItems?.map((e) => e.quantity).toList();
                 final shippingCharge = widget.paymentType == 0 ? 45 : 90;
-                final shippingFee = cartItems!.length > 1
-                    ? shippingCharge * 2
-                    : quantity![0]! > 1
+                final shippingFee = subTotal > 599
+                    ? 0
+                    : cartItems!.length > 1
                         ? shippingCharge * 2
-                        : shippingCharge;
-                final taxRate = cartItems
+                        : quantity![0]! > 1
+                            ? shippingCharge * 2
+                            : shippingCharge;
+
+                final taxRate = cartItems!
                     .map((item) => item.productId?.tax)
                     .reduce((a, b) => a! + b!)!
                     .toDouble();
@@ -470,7 +476,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                       ),
                                     ),
                                     Text(
-                                      '₹$shippingFee',
+                                      '₹${subTotal > 599 ? 0 : shippingFee}',
                                       style: TextStyle(
                                           color: ColorManager.blackColor,
                                           fontSize: 17,

@@ -99,9 +99,9 @@ class Appstrings {
 
   static const String shop = "Shop";
   static const String brand = "Brands";
-  static const String thousandBrands = "1000+ Brands";
+  static const String thousandBrands = "10+ Brands";
   static const String brandDescription =
-      'We have proudly collaborated with 1000+ \nrenowned brands!"';
+      'We have proudly collaborated with 10+ \nrenowned brands!"';
   static const String top8brands = "Top 8 Brands";
   static const String filters = "Filters";
   static const String filter = "Filter";

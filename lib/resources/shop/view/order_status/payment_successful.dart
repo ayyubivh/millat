@@ -24,7 +24,7 @@ class PaymentSuccessful extends StatelessWidget {
       BlocProvider.of<ShopProductsBloc>(context).add(FetchOrdersById(
           context, context.read<ShopProductsBloc>().state.orderId!));
     });
-    final total = subTotal + delivery;
+    final total = subTotal;
 
     return Scaffold(
         // appBar: AppBar(

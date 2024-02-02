@@ -11,12 +11,10 @@ import 'package:millat/components/buttons/social_login_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
-import 'package:millat/resources/authentication/view/send_otp_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
-import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/validators.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 

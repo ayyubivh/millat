@@ -103,6 +103,7 @@ class ProductId {
   double? offer_price;
   String? main_image;
   String? over_view;
+  String? thumbnail;
   String? country;
   List<String?> travelDate;
   String? createdAt;

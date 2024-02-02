@@ -48,7 +48,7 @@ class TravelProductItemWidget extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: Utilities().buildCachedNetworkImage(
-                      imageUrl: data.main_image,
+                      imageUrl: data.thumbnail,
                     ),
                   ),
                 ),

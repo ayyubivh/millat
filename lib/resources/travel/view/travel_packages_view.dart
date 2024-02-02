@@ -76,7 +76,7 @@ class TravelPackagesView extends StatelessWidget {
                         }
                         return TravelProductWidget(
                           data: travelProducts[index].productId!,
-                          image: travelProducts[index].image ?? '',
+                          image: travelProducts[index].thumbnail ?? '',
                         );
                       },
                     ),
@@ -166,7 +166,7 @@ class TravelPackagesView extends StatelessWidget {
                           },
                         );
                       } else if (state.searchProducts?.length == 0) {
-                        return Center(
+                        return const Center(
                           child: Text(
                             "No Product Available",
                             style: TextStyle(

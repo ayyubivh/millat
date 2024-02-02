@@ -52,7 +52,7 @@ ProductId _$ProductIdFromJson(Map<String, dynamic> json) => ProductId(
           .toList(),
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
-    );
+    )..thumbnail = json['thumbnail'] as String?;
 
 Map<String, dynamic> _$ProductIdToJson(ProductId instance) => <String, dynamic>{
       '_id': instance.id,
@@ -65,6 +65,7 @@ Map<String, dynamic> _$ProductIdToJson(ProductId instance) => <String, dynamic>{
       'offer_price': instance.offer_price,
       'main_image': instance.main_image,
       'over_view': instance.over_view,
+      'thumbnail': instance.thumbnail,
       'country': instance.country,
       'travelDate': instance.travelDate,
       'createdAt': instance.createdAt,

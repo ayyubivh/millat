@@ -311,7 +311,7 @@ class HeaderImageWidget extends StatelessWidget {
                         end: Alignment.bottomCenter,
                       ).createShader(bounds),
                       child: Utilities().buildCachedNetworkImage(
-                          imageUrl: state.singleProductModel?.images?[0]),
+                          imageUrl: state.singleProductModel?.main_image),
                     ),
                   );
           },

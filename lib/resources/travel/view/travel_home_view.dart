@@ -804,7 +804,7 @@ class CategoryList extends StatelessWidget {
                           });
                     },
                     child: CategoryProductWidget(
-                      image: data.image ?? "",
+                      image: data.thumbnail ?? "",
                       country: data.city ?? "",
                     ),
                   );

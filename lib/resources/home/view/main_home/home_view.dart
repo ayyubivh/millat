@@ -1,8 +1,7 @@
 // ignore_for_file: unused_local_variable, depend_on_referenced_packages
-
+import 'dart:developer';
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +39,7 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
   ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
   @override
@@ -53,24 +52,32 @@ class _HomeViewState extends State<HomeView> {
         });
       }
     });
-    // WidgetsBinding.instance.addObserver(AppLifecycleListener(
-    //   onResume: _handleRefresh,
-    //   onStateChange: (value) {
-    //     log("state changed value ${value.name}");
-    //   },
-    // ));
-
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
 
-  _fetchApi() {
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+    if (state == AppLifecycleState.resumed) {
+      log("state changed value ${state.name}");
+      _fetchApi();
+    }
+  }
+
+  _fetchApi() async {
     if (!mounted) {
       return;
     }
-    final verskey = context.read<QuranBloc>().state.shuffleVersKey;
+    final verseKey = context.read<QuranBloc>().state.shuffleVersKey;
     BlocProvider.of<QuranBloc>(context).add(const GetShuffledAya());
     BlocProvider.of<QuranBloc>(context)
-        .add(FetchVersesByKey(verseKey: [verskey]));
+        .add(FetchVersesByKey(verseKey: [verseKey]));
 
     BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
@@ -100,7 +107,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
+    return RefreshIndicator.adaptive(
       color: ColorManager.primary,
       onRefresh: _handleRefresh,
       child: Scaffold(

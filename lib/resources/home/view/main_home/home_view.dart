@@ -74,10 +74,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
     if (!mounted) {
       return;
     }
-    final verseKey = context.read<QuranBloc>().state.shuffleVersKey;
     BlocProvider.of<QuranBloc>(context).add(const GetShuffledAya());
-    BlocProvider.of<QuranBloc>(context)
-        .add(FetchVersesByKey(verseKey: [verseKey]));
 
     BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());

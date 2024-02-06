@@ -25,6 +25,7 @@ class HomeState with _$HomeState {
     required NotificationModel? notificationModel,
     required int homeBannerIndex,
     required int eventOfMonthIndex,
+    required AllaySaysModel? allaySaysModel,
   }) = _HomeState;
   factory HomeState.initial() => const HomeState(
         isLoading: false,
@@ -49,5 +50,6 @@ class HomeState with _$HomeState {
         notificationModel: null,
         homeBannerIndex: 0,
         eventOfMonthIndex: 0,
+        allaySaysModel: null,
       );
 }

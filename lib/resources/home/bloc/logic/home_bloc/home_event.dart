@@ -45,4 +45,5 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.changeEventOfTheMonthIndex({
     required int index,
   }) = ChangeEventOfTheMonthIndex;
+  const factory HomeEvent.fetchAllahSaysApi() = FetchAllahSays;
 }

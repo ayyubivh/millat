@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -10,6 +12,7 @@ import 'package:millat/resources/home/bloc/service/home_services.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/utils/utils.dart';
 import '../../../../../utils/string_constants.dart';
+import '../../models/home_models/allah_says/allah_says_model.dart';
 import '../../models/home_models/brand_of_the_day_model/brandofthe_day_model.dart';
 import '../../models/home_models/hadit_of_the_day_model/hadit_oftheday_mode.dart';
 import '../../models/home_models/large_discount_model/home_large_discounts_model.dart';
@@ -38,6 +41,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<AddMarkReadNotificationEvent>(_addMarkReadEvent);
     on<ChangeHomeBannerIndex>(_changeHomeBannerIndex);
     on<ChangeEventOfTheMonthIndex>(_changeEventOfMonthIndex);
+    on<FetchAllahSays>(_fetchAllahSays);
   }
 
   _fetchLargeDisountsBanner(
@@ -280,5 +284,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   _changeEventOfMonthIndex(
       ChangeEventOfTheMonthIndex event, Emitter<HomeState> emit) {
     emit(state.copyWith(eventOfMonthIndex: event.index));
+  }
+
+  _fetchAllahSays(FetchAllahSays event, Emitter<HomeState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await homeServices.fetchAllahSaysApi();
+      emit(state.copyWith(allaySaysModel: data, isLoading: false));
+      print(state.allaySaysModel);
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      throw Exception(e);
+    }
   }
 }

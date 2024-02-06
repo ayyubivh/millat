@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
+import 'package:millat/resources/home/bloc/models/home_models/allah_says/allah_says_model.dart';
 import 'package:millat/resources/home/bloc/models/home_models/top_offers_model/top_offers_model.dart';
 import 'package:millat/services/http_services.dart';
 import 'package:millat/utils/utils.dart';
@@ -108,6 +109,24 @@ class HomeServices extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = EventOfTheMonthModel.fromJson(data);
+        return result;
+      } catch (e) {
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+//fetch allah says
+  Future<AllaySaysModel> fetchAllahSaysApi() async {
+    final response = await get(endPoint: "allah_says");
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = AllaySaysModel.fromJson(data);
         return result;
       } catch (e) {
         throw Exception('Failed to parse response');

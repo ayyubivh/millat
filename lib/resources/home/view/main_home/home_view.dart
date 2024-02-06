@@ -95,7 +95,8 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
       ..add(const FetchBrandofTheDay())
       ..add(const FetchHadithOfTheDay())
       ..add(const FetchEventOfTheMonth())
-      ..add(const ChangeIndexofAllaysaysBg());
+      ..add(const ChangeIndexofAllaysaysBg())
+      ..add(const FetchAllahSays());
   }
 
   Future<void> _handleRefresh() async {
@@ -1227,156 +1228,144 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
 
   Widget _quranAyaWidget(BuildContext context) {
     return SizedBox(
-      height: 290,
-      width: !Responsive.isMobile(context)
-          ? SizeUtility(context).width / 2.5
-          : SizeUtility(context).width,
-      child: PageView(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: PageController(
-              initialPage: context.read<HomeBloc>().state.allaysBgindex),
-          children: List.generate(
-            7,
-            (index) {
-              return BlocBuilder<QuranBloc, QuranState>(
-                builder: (context, state) {
-                  final verskey = state.shuffleVersKey;
-                  if (state.versesByKeyModel?.isEmpty ?? true) {
-                    return ShimmerUtils.customRectangleShimmer(
-                      SizeUtility(context).width,
-                      10,
-                      borderRadius: 12,
-                    );
-                  }
-                  if (state.isLoading) {
-                    return ShimmerUtils.customRectangleShimmer(
-                      SizeUtility(context).width,
-                      10,
-                      borderRadius: 12,
-                    );
-                  }
-                  final data = state.versesByKeyModel?[0];
-                  return Container(
-                    height: 290,
-                    width: SizeUtility(context).width,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        image: DecorationImage(
-                            image: AssetImage(
-                              "assets/backgrounds/allay_says_bg_$index.png",
-                            ),
-                            fit: BoxFit.cover)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
-                      child: ClipRRect(
-                        child: Column(
-                          children: [
-                            kHeight15,
-                            Text(
-                              Appstrings.allaySays,
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.primary,
-                              ),
-                            ),
-                            kHeight16,
-                            Text(
-                              data?.verses[0].textIndopak ?? '',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.blackColor,
-                                fontFamily: "Hafs",
-                              ),
-                              textDirection: TextDirection.rtl,
-                            ),
-                            kHeight5,
-                            Divider(
-                              thickness: 1,
-                              color: ColorManager.blackColor,
-                            ),
-                            kHeight8,
-                            Text(
-                              verskey == "1:2"
-                                  ? Appstrings.tempAyaMeaning1
-                                  : verskey == "2:2"
-                                      ? Appstrings.tempAyaMeaning2
-                                      : verskey == "3:4"
-                                          ? Appstrings.tempAyaMeaning3
-                                          : Appstrings.tempAyaMeaning4,
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.blackColor,
-                                letterSpacing: 0.5,
-                                height: 1.2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              textDirection: TextDirection.rtl,
-                            ),
-                            kHeight5,
-                            const Spacer(),
-                            GestureDetector(
-                              onTap: () {
-                                final quranState =
-                                    context.read<QuranBloc>().state;
+        height: 290,
+        width: !Responsive.isMobile(context)
+            ? SizeUtility(context).width / 2.5
+            : SizeUtility(context).width,
+        child: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            final data = state.allaySaysModel?.result?.data;
 
-                                final verskey0 = verskey;
-                                final parts = verskey.split(":");
-                                final firstPart = parts[0];
-                                context.read<QuranBloc>().add(
-                                    FetchChaperVersesEvent(
-                                        id: int.parse(firstPart)));
-                                context.read<QuranBloc>().add(
-                                    FetchChapterVersesbyTextName(
-                                        id: int.parse(firstPart)));
-                                context.read<QuranBloc>().add(
-                                    FetchTranslationChapterTexts(
-                                        translationId:
-                                            quranState.globalTransilationId,
-                                        chapterId: int.parse(firstPart)));
-                                context.read<QuranBloc>().add(
-                                    FetchChapterAudioFiles(
-                                        id: int.parse(firstPart),
-                                        recitorId: quranState.recitorId));
-                                context
-                                    .read<QuranBloc>()
-                                    .add(SaveLastReadEvent(value: verskey));
+            return PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: PageController(initialPage: state.allaysBgindex),
+                children: List.generate(
+                  data?.length ?? 0,
+                  (index) {
+                    // return BlocBuilder<HomeBloc, HomeState>(
+                    //   builder: (context, state) {
+                    //     final data = state.allaySaysModel?.result?.data;
 
-                                context.pushNamed(
-                                    MyAppRouteConstants.quranVersesRoutename,
-                                    extra: {
-                                      'scrollType': VersesScroll.home,
-                                      'type': Qurantype.sura,
-                                      'chapterid': int.parse(firstPart)
-                                    });
-                              },
-                              child: Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  Appstrings.learnMore,
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                    color: ColorManager.primary,
-                                  ),
+                    return data == null || state.isLoading
+                        ? ShimmerUtils.customRectangleShimmer(
+                            SizeUtility(context).width,
+                            10,
+                            borderRadius: 12,
+                          )
+                        : Container(
+                            height: 290,
+                            width: SizeUtility(context).width,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 10),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      "assets/backgrounds/allay_says_bg_$index.png",
+                                    ),
+                                    fit: BoxFit.cover)),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 10),
+                              child: ClipRRect(
+                                child: Column(
+                                  children: [
+                                    kHeight15,
+                                    Text(
+                                      Appstrings.allaySays,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorManager.primary,
+                                      ),
+                                    ),
+                                    kHeight16,
+                                    Text(
+                                      data[index].content ?? '',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorManager.blackColor,
+                                        fontFamily: "Hafs",
+                                      ),
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                    kHeight5,
+                                    Divider(
+                                      thickness: 1,
+                                      color: ColorManager.blackColor,
+                                    ),
+                                    kHeight8,
+                                    Text(
+                                      data[index].translate?.first.content ??
+                                          '',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorManager.blackColor,
+                                        letterSpacing: 0.5,
+                                        height: 1.2,
+                                      ),
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                    kHeight5,
+                                    const Spacer(),
+                                    GestureDetector(
+                                      onTap: () {
+                                        // final quranState =
+                                        //     context.read<QuranBloc>().state;
+
+                                        // final verskey0 = verskey;
+                                        // final parts = verskey.split(":");
+                                        // final firstPart = parts[0];
+                                        // context.read<QuranBloc>().add(
+                                        //     FetchChaperVersesEvent(
+                                        //         id: int.parse(firstPart)));
+                                        // context.read<QuranBloc>().add(
+                                        //     FetchChapterVersesbyTextName(
+                                        //         id: int.parse(firstPart)));
+                                        // context.read<QuranBloc>().add(
+                                        //     FetchTranslationChapterTexts(
+                                        //         translationId:
+                                        //             quranState.globalTransilationId,
+                                        //         chapterId: int.parse(firstPart)));
+                                        // context.read<QuranBloc>().add(
+                                        //     FetchChapterAudioFiles(
+                                        //         id: int.parse(firstPart),
+                                        //         recitorId: quranState.recitorId));
+                                        // context
+                                        //     .read<QuranBloc>()
+                                        //     .add(SaveLastReadEvent(value: verskey));
+
+                                        // context.pushNamed(
+                                        //     MyAppRouteConstants.quranVersesRoutename,
+                                        //     extra: {
+                                        //       'scrollType': VersesScroll.home,
+                                        //       'type': Qurantype.sura,
+                                        //       'chapterid': int.parse(firstPart)
+                                        //     });
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Text(
+                                          Appstrings.learnMore,
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                            color: ColorManager.primary,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              );
-            },
-          )),
-    );
+                            ),
+                          );
+                  },
+                ));
+          },
+        ));
   }
 
   Future<void> _downloadAndShareImage(String imageUrl) async {

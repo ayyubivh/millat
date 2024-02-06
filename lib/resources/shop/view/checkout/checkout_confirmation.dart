@@ -377,33 +377,19 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             )
           : BlocBuilder<CartBloc, CartState>(
               builder: (context, state) {
-                final cartItems =
-                    state.cartModel?.result?.cartProducts?.cartItems;
+                final cartItems = state.cartModel?.result;
 
-                final subTotal = _getTotalPrice(
-                  cartItems?.map((e) => e.sellingPrice).toList(),
-                  cartItems?.map((e) => e.quantity).toList(),
-                );
+                final subTotal = cartItems?.amountDetails?.subTotal;
+                final total = cartItems?.amountDetails?.total;
+                final quantity = cartItems?.cartProducts?.cartItems
+                    ?.map((e) => e.quantity)
+                    .toList();
 
-                final quantity = cartItems?.map((e) => e.quantity).toList();
-                final shippingCharge = widget.paymentType == 0 ? 45 : 90;
-                final shippingFee = subTotal > 599
-                    ? 0
-                    : cartItems!.length > 1
-                        ? shippingCharge * 2
-                        : quantity![0]! > 1
-                            ? shippingCharge * 2
-                            : shippingCharge;
+                final shippingFee = cartItems?.amountDetails?.shippingCost;
 
-                final taxRate = cartItems!
-                    .map((item) => item.productId?.tax)
-                    .reduce((a, b) => a! + b!)!
-                    .toDouble();
+                final taxRate = cartItems?.amountDetails?.totalTax ?? 0;
                 // final giftPrice = isGift ? 89 : 0;
-                final averageTax = (taxRate / cartItems.length);
-                final estimatingTax = (averageTax / 100) * subTotal;
-                final total = subTotal + shippingFee;
-                // + estimatingTax;
+
                 final isShow = state.showExapnd;
                 return Container(
                   color: ColorManager.whiteColor,
@@ -476,7 +462,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                       ),
                                     ),
                                     Text(
-                                      '₹${subTotal > 599 ? 0 : shippingFee}',
+                                      '₹$shippingFee',
                                       style: TextStyle(
                                           color: ColorManager.blackColor,
                                           fontSize: 17,
@@ -494,7 +480,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                             color: ColorManager.blackColor,
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold)),
-                                    Text("${estimatingTax.toInt()}",
+                                    Text("${taxRate.toInt()}",
                                         style: TextStyle(
                                             color: ColorManager.blackColor,
                                             fontSize: 17,
@@ -512,7 +498,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                             fontSize: 19,
                                             fontWeight: FontWeight.w700)),
                                     Text(
-                                      '₹${total.toInt()}',
+                                      '₹$total',
                                       style: TextStyle(
                                           color: ColorManager.black4A,
                                           fontSize: 19,
@@ -542,7 +528,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                       ),
                                     ),
                                     Text(
-                                      '₹${total.toInt()}',
+                                      '₹$total',
                                       style: TextStyle(
                                           color: ColorManager.black4A,
                                           fontSize: 19,
@@ -581,19 +567,19 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             if (widget.paymentType == 1) {
                               context.read<ShopProductsBloc>().add(PostOrders(
                                     id: pickUpaddress.id,
-                                    shippingCharges: shippingFee,
+                                    shippingCharges: shippingFee ?? 0,
                                     totalDiscount: 0,
                                     weight: 0,
                                     pickupLocation: pickUpaddress.addressLine,
                                     quantity: state.cartLength,
-                                    totalPrice: total.toDouble(),
+                                    totalPrice: total?.toDouble() ?? 0,
                                     context: context,
                                   ));
                             } else {
                               context.read<ShopProductsBloc>().add(
                                   ShopProductsEvent.postOrderIdOnlinePayment(
                                       context: context,
-                                      amount: total.toDouble()));
+                                      amount: total?.toDouble() ?? 0));
                             }
                           }),
                     ],
@@ -933,20 +919,6 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
         ],
       ),
     );
-  }
-
-  int _getTotalPrice(List<int?>? prices, List<int?>? quantities) {
-    int total = 0;
-
-    if (prices != null && quantities != null) {
-      for (int i = 0; i < prices.length; i++) {
-        int price = prices[i] ?? 0;
-        int quantity = quantities[i] ?? 0;
-        total += price * quantity;
-      }
-    }
-
-    return total;
   }
 }
 

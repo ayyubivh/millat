@@ -392,19 +392,18 @@ class BrandImages extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            for (int i = 0; i < 2; i++)
-              for (int i = 0; i < brandsImages.length; i++)
-                Align(
-                  widthFactor: 0.6,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: NetworkImage(brandsImages[i]!),
-                    ),
+            for (int i = 0; i < brandsImages.length; i++)
+              Align(
+                widthFactor: 0.6,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundColor: Colors.transparent,
+                    backgroundImage: NetworkImage(brandsImages[i]!),
                   ),
-                )
+                ),
+              )
           ],
         ),
       ),

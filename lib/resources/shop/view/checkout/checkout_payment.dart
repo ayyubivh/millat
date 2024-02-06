@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
+import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -117,6 +118,8 @@ class CheckoutPayment extends StatelessWidget {
                   showSnackBar(context, 'Select the Payment method!');
                   return;
                 }
+                BlocProvider.of<CartBloc>(context).add(ChoosePaymentMethod(
+                    state.paymentMethod == 0 ? 'Prepaid' : 'COD', context));
                 checkoutType == CheckoutType.rewards
                     ? context.pushNamed(
                         MyAppRouteConstants.checkoutConfirmationRouteName,

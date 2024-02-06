@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
 import '../../../../services/http_services.dart';
 
@@ -79,6 +81,38 @@ class CartServices extends HttpServices {
       throw Exception('Failed to parse response');
     }
   }
+
+  //choose payment method
+  choosePaymentMethod(
+      {required String paymentMethod, required BuildContext context}) async {
+    const endPoint = 'cart/choose_payment_method';
+
+    final body = {
+      "payment_method": paymentMethod,
+    };
+
+    final response = await put(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
+
+    try {
+      if (response.statusCode == 200) {
+        context.read<CartBloc>().add(FetchCartEvent(context));
+
+        return;
+      } else {
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      debugPrint('error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
+    }
+  }
 // updating the cart quantity
 
   updateCartQuantity({
@@ -99,24 +133,20 @@ class CartServices extends HttpServices {
       body: body,
     );
 
-    if (response.statusCode == 200) {
-      try {
-        if (response.statusCode == 200) {
-          final Map<String, dynamic> data = json.decode(response.body);
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
 
-          return data;
-        } else {
-          debugPrint(
-              'API request failed with status code: ${response.statusCode}');
-          throw Exception(
-              'API request failed with status code: ${response.statusCode}');
-        }
-      } catch (e) {
-        debugPrint('error on API fetch: ${e.toString()}');
-        throw Exception('Failed to parse response');
+        return data;
+      } else {
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
       }
-    } else {
-      throw Exception('Token not available');
+    } catch (e) {
+      debugPrint('error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
     }
   }
 

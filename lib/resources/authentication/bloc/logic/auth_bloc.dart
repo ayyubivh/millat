@@ -11,7 +11,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthService _authService = AuthService();
 
   String? userId;
-
+  String? phoneNumber;
   AuthBloc() : super(AuthInitial()) {
     on<AuthEvent>((event, emit) async {
       if (event is Login) {
@@ -52,6 +52,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } else if (event is SignInWithPhone) {
         if (event.phoneNumber != null) {
+          phoneNumber = event.phoneNumber;
           if (event.isSignUp) {
             emit(AuthLoading());
             final res = await _authService.signInWithPhone(
@@ -81,6 +82,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           }
         }
       } else if (event is SendOTP) {
+        phoneNumber = event.phoneNumber;
+
         final currentState = state;
         if (currentState is AuthSocialLoginNewUser) {
           emit(AuthLoading());
@@ -105,6 +108,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } else if (event is SendOTPonly) {
         emit(AuthLoading());
+        phoneNumber = event.phoneNumber;
         final res =
             await _authService.sendOTPonly(phoneNumber: event.phoneNumber);
 

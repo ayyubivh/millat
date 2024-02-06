@@ -29,4 +29,8 @@ class CartEvent with _$CartEvent {
   const factory CartEvent.toggleShowMoreEvent() = ToggleShowMoreEvent;
   const factory CartEvent.paymentSuccessEvent() = PaymentSuccessEvent;
   const factory CartEvent.showExpandEvent() = ShowExpandEvent;
+  const factory CartEvent.choosePaymentMethod(
+    String paymentMethod,
+    BuildContext context,
+  ) = ChoosePaymentMethod;
 }

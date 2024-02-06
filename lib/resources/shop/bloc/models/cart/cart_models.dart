@@ -166,7 +166,7 @@ class AmountDetails with _$AmountDetails {
     required int? subTotal,
     required int? total,
     required int? shippingCost,
-    required double? avgTax,
+    required double? totalTax,
   }) = _AmountDetails;
 
   factory AmountDetails.fromJson(Map<String, dynamic> json) =>

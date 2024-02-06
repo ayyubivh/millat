@@ -255,10 +255,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       await NotificationService()
           .addReadMark(context: event.context, id: event.id);
 
-      // Filter out the notification with the specified id from the data list
-      final updatedData = state.notificationModel?.result?.data
-          ?.where((notification) => notification.id != event.id)
-          .toList();
+      final updatedData =
+          state.notificationModel?.result?.data?.map((notification) {
+        if (notification.id == event.id) {
+          return notification.copyWith(
+            isReadByUser: [...notification.isReadByUser!, event.id],
+          );
+        }
+        return notification;
+      }).toList();
 
       final updatedNotificationModel = state.notificationModel?.copyWith(
         result: state.notificationModel?.result?.copyWith(

@@ -82,40 +82,20 @@ class CartView extends StatelessWidget {
         ),
         bottomSheet: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
-            final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
-            if (cartItems == null ||
-                cartItems.isEmpty ||
-                cartItems.first.productId == null) {
+            final cartItems = state.cartModel?.result;
+            if (cartItems?.cartProducts?.cartItems == null) {
               return _emptyCartBottomContainer(context);
             }
             if (state.cartLoading) {
               return const SizedBox();
             }
-            final subTotal = cartItems.fold<double>(
-              0.0,
-              (previous, item) =>
-                  previous +
-                  ((item.productId?.salePrice?.toDouble() ?? 0.0) *
-                      (item.quantity ?? 0)),
-            );
+            final subTotal = cartItems?.amountDetails?.subTotal;
 
-            final totalTax = cartItems.fold<double>(
-              0.0,
-              (previous, item) =>
-                  previous +
-                  ((item.productId?.tax?.toDouble() ?? 0.0) *
-                      (item.productId?.salePrice?.toDouble() ?? 0.0) *
-                      (item.quantity ?? 0) /
-                      100),
-            );
+            final totalTax = state.cartModel?.result?.amountDetails?.totalTax;
             // final total = subTotal + totalTax;
 
             return _notEmptyContainer(
-              context,
-              subTotal.round(),
-              state.showExapnd,
-              totalTax,
-            );
+                context, subTotal ?? 0, state.showExapnd, totalTax ?? 0);
           },
         ));
   }

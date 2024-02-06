@@ -2897,7 +2897,7 @@ mixin _$AmountDetails {
   int? get subTotal => throw _privateConstructorUsedError;
   int? get total => throw _privateConstructorUsedError;
   int? get shippingCost => throw _privateConstructorUsedError;
-  double? get avgTax => throw _privateConstructorUsedError;
+  double? get totalTax => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2911,7 +2911,7 @@ abstract class $AmountDetailsCopyWith<$Res> {
           AmountDetails value, $Res Function(AmountDetails) then) =
       _$AmountDetailsCopyWithImpl<$Res, AmountDetails>;
   @useResult
-  $Res call({int? subTotal, int? total, int? shippingCost, double? avgTax});
+  $Res call({int? subTotal, int? total, int? shippingCost, double? totalTax});
 }
 
 /// @nodoc
@@ -2930,7 +2930,7 @@ class _$AmountDetailsCopyWithImpl<$Res, $Val extends AmountDetails>
     Object? subTotal = freezed,
     Object? total = freezed,
     Object? shippingCost = freezed,
-    Object? avgTax = freezed,
+    Object? totalTax = freezed,
   }) {
     return _then(_value.copyWith(
       subTotal: freezed == subTotal
@@ -2945,9 +2945,9 @@ class _$AmountDetailsCopyWithImpl<$Res, $Val extends AmountDetails>
           ? _value.shippingCost
           : shippingCost // ignore: cast_nullable_to_non_nullable
               as int?,
-      avgTax: freezed == avgTax
-          ? _value.avgTax
-          : avgTax // ignore: cast_nullable_to_non_nullable
+      totalTax: freezed == totalTax
+          ? _value.totalTax
+          : totalTax // ignore: cast_nullable_to_non_nullable
               as double?,
     ) as $Val);
   }
@@ -2961,7 +2961,7 @@ abstract class _$$AmountDetailsImplCopyWith<$Res>
       __$$AmountDetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? subTotal, int? total, int? shippingCost, double? avgTax});
+  $Res call({int? subTotal, int? total, int? shippingCost, double? totalTax});
 }
 
 /// @nodoc
@@ -2978,7 +2978,7 @@ class __$$AmountDetailsImplCopyWithImpl<$Res>
     Object? subTotal = freezed,
     Object? total = freezed,
     Object? shippingCost = freezed,
-    Object? avgTax = freezed,
+    Object? totalTax = freezed,
   }) {
     return _then(_$AmountDetailsImpl(
       subTotal: freezed == subTotal
@@ -2993,9 +2993,9 @@ class __$$AmountDetailsImplCopyWithImpl<$Res>
           ? _value.shippingCost
           : shippingCost // ignore: cast_nullable_to_non_nullable
               as int?,
-      avgTax: freezed == avgTax
-          ? _value.avgTax
-          : avgTax // ignore: cast_nullable_to_non_nullable
+      totalTax: freezed == totalTax
+          ? _value.totalTax
+          : totalTax // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -3008,7 +3008,7 @@ class _$AmountDetailsImpl implements _AmountDetails {
       {required this.subTotal,
       required this.total,
       required this.shippingCost,
-      required this.avgTax});
+      required this.totalTax});
 
   factory _$AmountDetailsImpl.fromJson(Map<String, dynamic> json) =>
       _$$AmountDetailsImplFromJson(json);
@@ -3020,11 +3020,11 @@ class _$AmountDetailsImpl implements _AmountDetails {
   @override
   final int? shippingCost;
   @override
-  final double? avgTax;
+  final double? totalTax;
 
   @override
   String toString() {
-    return 'AmountDetails(subTotal: $subTotal, total: $total, shippingCost: $shippingCost, avgTax: $avgTax)';
+    return 'AmountDetails(subTotal: $subTotal, total: $total, shippingCost: $shippingCost, totalTax: $totalTax)';
   }
 
   @override
@@ -3037,13 +3037,14 @@ class _$AmountDetailsImpl implements _AmountDetails {
             (identical(other.total, total) || other.total == total) &&
             (identical(other.shippingCost, shippingCost) ||
                 other.shippingCost == shippingCost) &&
-            (identical(other.avgTax, avgTax) || other.avgTax == avgTax));
+            (identical(other.totalTax, totalTax) ||
+                other.totalTax == totalTax));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, subTotal, total, shippingCost, avgTax);
+      Object.hash(runtimeType, subTotal, total, shippingCost, totalTax);
 
   @JsonKey(ignore: true)
   @override
@@ -3064,7 +3065,7 @@ abstract class _AmountDetails implements AmountDetails {
       {required final int? subTotal,
       required final int? total,
       required final int? shippingCost,
-      required final double? avgTax}) = _$AmountDetailsImpl;
+      required final double? totalTax}) = _$AmountDetailsImpl;
 
   factory _AmountDetails.fromJson(Map<String, dynamic> json) =
       _$AmountDetailsImpl.fromJson;
@@ -3076,7 +3077,7 @@ abstract class _AmountDetails implements AmountDetails {
   @override
   int? get shippingCost;
   @override
-  double? get avgTax;
+  double? get totalTax;
   @override
   @JsonKey(ignore: true)
   _$$AmountDetailsImplCopyWith<_$AmountDetailsImpl> get copyWith =>

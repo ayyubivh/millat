@@ -90,8 +90,8 @@ class _ShopViewState extends State<ShopView> {
                         context.pushNamed(
                             MyAppRouteConstants.shopBrandsRouteName,
                             extra: {
-                              'images': state.shopAdBrands?.result?.data
-                                  ?.map((e) => e.brandId?.logo)
+                              'images': state.brandModels?.result?.data
+                                  ?.map((e) => e.logo)
                                   .toList()
                             });
                       },

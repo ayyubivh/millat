@@ -69,7 +69,7 @@ class CartView extends StatelessWidget {
                   subTitle: data.productId?.description,
                   size: data.size ?? "",
                   image: data.productId?.images?[0],
-                  price: data.productId?.salePrice?.toInt() ?? 0,
+                  price: data.sellingPrice?.toInt() ?? 0,
                   actualPrice: data.productId?.regularPrice.toString(),
                   jsonColor: data.color,
                   colorName: data.color,
@@ -83,19 +83,20 @@ class CartView extends StatelessWidget {
         bottomSheet: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
             final cartItems = state.cartModel?.result;
-            if (cartItems?.cartProducts?.cartItems == null) {
+            if (cartItems?.cartProducts?.cartItems?.isEmpty ?? true) {
               return _emptyCartBottomContainer(context);
-            }
-            if (state.cartLoading) {
-              return const SizedBox();
-            }
-            final subTotal = cartItems?.amountDetails?.subTotal;
+            } else {
+              if (state.cartLoading) {
+                return const SizedBox();
+              }
+              final subTotal = cartItems?.amountDetails?.subTotal;
 
-            final totalTax = state.cartModel?.result?.amountDetails?.totalTax;
-            // final total = subTotal + totalTax;
+              final totalTax = state.cartModel?.result?.amountDetails?.totalTax;
+              // final total = subTotal + totalTax;
 
-            return _notEmptyContainer(
-                context, subTotal ?? 0, state.showExapnd, totalTax ?? 0);
+              return _notEmptyContainer(
+                  context, subTotal ?? 0, state.showExapnd, totalTax ?? 0);
+            }
           },
         ));
   }

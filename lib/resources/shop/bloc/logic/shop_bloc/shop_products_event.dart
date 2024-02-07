@@ -147,4 +147,5 @@ class ShopProductsEvent with _$ShopProductsEvent {
       FetchArticlesByCategory;
   const factory ShopProductsEvent.fetchBrandProductsItemCount(
       {required List<String>? ids}) = FetchBrandProductsItemCount;
+  const factory ShopProductsEvent.changeSizeIndex(int index) = _ChangeSizeIndex;
 }

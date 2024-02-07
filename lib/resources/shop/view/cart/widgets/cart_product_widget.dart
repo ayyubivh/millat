@@ -106,7 +106,8 @@ class CartProductWidget extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.4,
                       child: Text(
-                        subTitle.toString(),
+                        Utilities.removeFootnotesFromMeaning(
+                            subTitle.toString()),
                         style: TextStyle(
                           color: textBlack.withOpacity(0.5),
                           fontSize: 14,

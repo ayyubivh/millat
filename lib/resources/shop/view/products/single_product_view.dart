@@ -33,14 +33,14 @@ class SingleProductView extends StatelessWidget {
         ..add(ReviewEvent.fetchRatingEvent(id: id, context: context))
         ..add(ReviewEvent.fetchReviewComments(id: id, context: context));
     });
-    int selectedSize = 0;
+    // int selectedSize = 0;
 
     int quantity = 1;
     int selectedColor = 0;
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         final data = state.productByIdModel?.result?.product;
-
+        int selectedSize = state.selectedSizeIndex;
         final divider = Divider(
           thickness: 6,
           color: ColorManager.grey08,
@@ -82,7 +82,8 @@ class SingleProductView extends StatelessWidget {
                     children: [
                       CarouselView(data: data),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        padding: const EdgeInsets.symmetric(horizontal: 25)
+                            .copyWith(bottom: 40),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -100,7 +101,7 @@ class SingleProductView extends StatelessWidget {
                                     color: black60, fontSize: 17, height: 1.5)),
                             Row(
                               children: [
-                                Text('${data.salePrice} ₹',
+                                Text('${data.size?[selectedSize].price} ₹',
                                     style: TextStyle(
                                       color: ColorManager.primary,
                                       fontSize: 21,
@@ -131,7 +132,8 @@ class SingleProductView extends StatelessWidget {
                             ),
                             kHeight20,
                             Text(
-                              data.description ?? "",
+                              Utilities.removeFootnotesFromMeaning(
+                                  data.description ?? ""),
                               style: TextStyle(
                                   fontSize: 16, color: ColorManager.textGrey99),
                             ),
@@ -185,67 +187,67 @@ class SingleProductView extends StatelessWidget {
                             ),
                             kHeight16,
                             divider,
-                            kHeight10,
-                            Text(
-                              'Recently Added',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: ColorManager.blackColor),
-                            ),
-                            kHeight10,
-                            BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                              builder: (context, state) {
-                                if (state.productModel?.result?.products ==
-                                    null) {
-                                  return const SizedBox();
-                                }
-                                return SizedBox(
-                                  height: 310,
-                                  child: ListView.builder(
-                                    itemCount: 10,
-                                    scrollDirection: Axis.horizontal,
-                                    itemBuilder: (context, index) {
-                                      final data = state.productModel?.result!
-                                          .products![index];
-                                      return GestureDetector(
-                                          onTap: () {
-                                            context.pushNamed(
-                                                MyAppRouteConstants
-                                                    .singleProductRouteName,
-                                                pathParameters: {
-                                                  "id": data.id.toString()
-                                                });
-                                          },
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 15),
-                                            child: ShopProductWidget(
-                                                color: data?.color ?? "",
-                                                size: data?.size?[0].size ?? "",
-                                                brandId: data?.brand!.id,
-                                                isWishlisted:
-                                                    state.isWishListed,
-                                                brand: data!.brand!.name
-                                                    .toString(),
-                                                productId: data.id,
-                                                image: data.images?[0],
-                                                title: data.title,
-                                                actualPrice: data.regularPrice
-                                                        ?.toInt() ??
-                                                    0,
-                                                discount:
-                                                    data.discount!.toInt(),
-                                                discountPrice:
-                                                    data.salePrice?.toInt() ??
-                                                        0),
-                                          ));
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                            kHeight10,
+                            kHeight30,
+                            // Text(
+                            //   'Recently Added',
+                            //   style: TextStyle(
+                            //       fontWeight: FontWeight.w600,
+                            //       fontSize: 18,
+                            //       color: ColorManager.blackColor),
+                            // ),
+                            // kHeight10,
+                            // BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                            //   builder: (context, state) {
+                            //     if (state.productModel?.result?.products ==
+                            //         null) {
+                            //       return const SizedBox();
+                            //     }
+                            //     return SizedBox(
+                            //       height: 310,
+                            //       child: ListView.builder(
+                            //         itemCount: 10,
+                            //         scrollDirection: Axis.horizontal,
+                            //         itemBuilder: (context, index) {
+                            //           final data = state.productModel?.result!
+                            //               .products![index];
+                            //           return GestureDetector(
+                            //               onTap: () {
+                            //                 context.pushNamed(
+                            //                     MyAppRouteConstants
+                            //                         .singleProductRouteName,
+                            //                     pathParameters: {
+                            //                       "id": data.id.toString()
+                            //                     });
+                            //               },
+                            //               child: Padding(
+                            //                 padding: const EdgeInsets.only(
+                            //                     right: 15),
+                            //                 child: ShopProductWidget(
+                            //                     color: data?.color ?? "",
+                            //                     size: data?.size?[0].size ?? "",
+                            //                     brandId: data?.brand!.id,
+                            //                     isWishlisted:
+                            //                         state.isWishListed,
+                            //                     brand: data!.brand!.name
+                            //                         .toString(),
+                            //                     productId: data.id,
+                            //                     image: data.images?[0],
+                            //                     title: data.title,
+                            //                     actualPrice: data.regularPrice
+                            //                             ?.toInt() ??
+                            //                         0,
+                            //                     discount:
+                            //                         data.discount!.toInt(),
+                            //                     discountPrice:
+                            //                         data.salePrice?.toInt() ??
+                            //                             0),
+                            //               ));
+                            //         },
+                            //       ),
+                            //     );
+                            //   },
+                            // ),
+                            // kHeight10,
                           ],
                         ),
                       ),
@@ -278,7 +280,8 @@ class SingleProductView extends StatelessWidget {
                             productId: id,
                             image: data.images![0],
                             regularPrice: data.regularPrice!.toInt(),
-                            salePrice: data.salePrice!.toInt(),
+                            salePrice:
+                                data.size?[selectedSize].price?.toInt() ?? 0,
                           ),
                         );
                       },
@@ -333,6 +336,9 @@ class SingleProductView extends StatelessWidget {
           BlocBuilder<ReviewBloc, ReviewState>(
             builder: (context, state) {
               final data = state.reviewModel?.result;
+              final isComment = state
+                  .reviewCommentsModel?.result?.data!.reviewComments!
+                  .every((e) => e.comment != "");
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -340,6 +346,8 @@ class SingleProductView extends StatelessWidget {
                   Row(
                     children: [
                       RatingBar.builder(
+                        ignoreGestures: true,
+                        onRatingUpdate: (value) {},
                         itemSize: 20,
                         initialRating:
                             state.reviewModel?.result?.data?.averageRating ?? 0,
@@ -353,22 +361,6 @@ class SingleProductView extends StatelessWidget {
                           Icons.star,
                           color: orange255,
                         ),
-                        onRatingUpdate: (value) {
-                          final name = context
-                                  .read<DatabaseBloc>()
-                                  .state
-                                  .authUserModel
-                                  ?.result
-                                  ?.user
-                                  ?.name ??
-                              "null";
-                          context.read<ReviewBloc>().add(AddReview(
-                              context: context,
-                              productId: id,
-                              name: name,
-                              rating: value,
-                              comment: ""));
-                        },
                       ),
                       kWidth10,
                       Text(
@@ -388,18 +380,22 @@ class SingleProductView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      context.read<ReviewBloc>().add(const ExpandReviewList());
-                    },
-                    child: Icon(
-                      state.isExpandedReview
-                          ? Icons.expand_more_outlined
-                          : Icons.navigate_next_outlined,
-                      color: ColorManager.greenColor1,
-                      size: 30,
-                    ),
-                  ),
+                  isComment == false
+                      ? GestureDetector(
+                          onTap: () {
+                            context
+                                .read<ReviewBloc>()
+                                .add(const ExpandReviewList());
+                          },
+                          child: Icon(
+                            state.isExpandedReview
+                                ? Icons.expand_more_outlined
+                                : Icons.navigate_next_outlined,
+                            color: ColorManager.greenColor1,
+                            size: 30,
+                          ),
+                        )
+                      : const SizedBox(),
                 ],
               );
             },
@@ -432,9 +428,10 @@ class SingleProductView extends StatelessWidget {
     );
   }
 
-  GestureDetector selectOptions(BuildContext context, Product data,
-      int selectedColor, int selectedSize, int quantity, Divider divider) {
+  Widget selectOptions(BuildContext context, Product data, int selectedColor,
+      int selectedSize, int quantity, Divider divider) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: () {
         showModalBottomSheet(
           backgroundColor: Colors.transparent,
@@ -447,7 +444,7 @@ class SingleProductView extends StatelessWidget {
               productId: id,
               image: data.images![0],
               regularPrice: data.regularPrice!.toInt(),
-              salePrice: data.salePrice!.toInt(),
+              salePrice: data.size?[selectedSize].price?.toInt() ?? 0,
               context,
               selectedColor,
               selectedSize,
@@ -571,9 +568,9 @@ class SingleProductView extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              setState(() {
-                                selectedSize = index;
-                              });
+                              BlocProvider.of<ShopProductsBloc>(context).add(
+                                  ShopProductsEvent.changeSizeIndex(index));
+                              context.pop();
                             },
                             child: Container(
                               alignment: Alignment.center,
@@ -672,6 +669,7 @@ class SingleProductView extends StatelessWidget {
                           builder: (context, state) => GestureDetector(
                             onTap: () {
                               context.pop();
+
                               context.read<CartBloc>().add(AddCartEvent(
                                     productId: productId,
                                     basePrice: salePrice,

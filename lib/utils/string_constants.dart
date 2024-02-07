@@ -42,7 +42,7 @@ class Appstrings {
   static const String addGuests = "Add Guests";
   static const String attars = "Attars";
   static const String quran2 = "Qu'ran";
-  static const String learnMore = "Learn More";
+  static const String translate = 'Translate';
   static const String eventOftheMonth = "Events this month";
   static const String assalamuAlaikum = "Assalamualaikkum";
   static const String travel = "Travel";

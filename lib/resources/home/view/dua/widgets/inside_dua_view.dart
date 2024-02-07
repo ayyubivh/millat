@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
+import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -259,7 +260,7 @@ class InsideDuaView extends StatelessWidget {
                         );
                       },
                       child: ImageIcon(
-                        const AssetImage("assets/icons/dua_gpay.png"),
+                          AssetImage(AppAssetsStrings.translateIcon),
                         size: 20,
                         color: ColorManager.black4F,
                       ),
@@ -297,7 +298,8 @@ class InsideDuaView extends StatelessWidget {
                                     .add(FetchDuaBookMarksEvent(context));
                               },
                               child: ImageIcon(
-                                const AssetImage('assets/icons/bookmark_filled.png'),
+                                const AssetImage(
+                                    'assets/icons/bookmark_filled.png'),
                                 size: 20,
                                 color: ColorManager.black4F,
                               ),

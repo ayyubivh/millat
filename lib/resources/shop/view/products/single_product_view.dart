@@ -26,9 +26,9 @@ class SingleProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context
-          .read<ShopProductsBloc>()
-          .add(ShopProductsEvent.fetchProductsById(id: id));
+      context.read<ShopProductsBloc>()
+        ..add(ShopProductsEvent.fetchProductsById(id: id))
+        ..add(ShopProductsEvent.changeSizeIndex(0));
       context.read<ReviewBloc>()
         ..add(ReviewEvent.fetchRatingEvent(id: id, context: context))
         ..add(ReviewEvent.fetchReviewComments(id: id, context: context));

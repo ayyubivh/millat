@@ -32,6 +32,7 @@ class AppAssetsStrings {
   static const duaTasbih = "$iconsPath/dua_tasbih.png";
   static const rewardPromoBg = "$backgroundsPath/reward_promo_bg.png";
   static const String kabahBuilding = "$imagesPath/kabah_building.png";
+  static const String translateIcon = "$iconsPath/dua_gpay.png";
   //tasbih
 
   static const String tasbihBallPink = "$imagesPath/tasbih_balls_pink.png";

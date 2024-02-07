@@ -1297,64 +1297,117 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                                     ),
                                     kHeight8,
                                     Text(
-                                      data[index].translate?.first.content ??
-                                          '',
+                                      (data[index].translate != null &&
+                                              data[index].translate!.length >
+                                                  state
+                                                      .translationLanguageIndex)
+                                          ? data[index]
+                                                  .translate![state
+                                                      .translationLanguageIndex]
+                                                  .content ??
+                                              ''
+                                          : '',
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w600,
                                         color: ColorManager.blackColor,
-                                        letterSpacing: 0.5,
-                                        height: 1.2,
+                                        fontFamily: "Hafs",
                                       ),
                                       textDirection: TextDirection.rtl,
                                     ),
                                     kHeight5,
                                     const Spacer(),
                                     GestureDetector(
+                                      behavior: HitTestBehavior.translucent,
                                       onTap: () {
-                                        // final quranState =
-                                        //     context.read<QuranBloc>().state;
-
-                                        // final verskey0 = verskey;
-                                        // final parts = verskey.split(":");
-                                        // final firstPart = parts[0];
-                                        // context.read<QuranBloc>().add(
-                                        //     FetchChaperVersesEvent(
-                                        //         id: int.parse(firstPart)));
-                                        // context.read<QuranBloc>().add(
-                                        //     FetchChapterVersesbyTextName(
-                                        //         id: int.parse(firstPart)));
-                                        // context.read<QuranBloc>().add(
-                                        //     FetchTranslationChapterTexts(
-                                        //         translationId:
-                                        //             quranState.globalTransilationId,
-                                        //         chapterId: int.parse(firstPart)));
-                                        // context.read<QuranBloc>().add(
-                                        //     FetchChapterAudioFiles(
-                                        //         id: int.parse(firstPart),
-                                        //         recitorId: quranState.recitorId));
-                                        // context
-                                        //     .read<QuranBloc>()
-                                        //     .add(SaveLastReadEvent(value: verskey));
-
-                                        // context.pushNamed(
-                                        //     MyAppRouteConstants.quranVersesRoutename,
-                                        //     extra: {
-                                        //       'scrollType': VersesScroll.home,
-                                        //       'type': Qurantype.sura,
-                                        //       'chapterid': int.parse(firstPart)
-                                        //     });
+                                        showModalBottomSheet(
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) => Container(
+                                            height: 200,
+                                            decoration: BoxDecoration(
+                                              color: ColorManager.whiteColor,
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                topLeft: Radius.circular(30.0),
+                                                topRight: Radius.circular(30.0),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 20),
+                                              child: ListView.separated(
+                                                itemCount: data[index]
+                                                        .translate
+                                                        ?.length ??
+                                                    0,
+                                                itemBuilder:
+                                                    (context, translateIndex) {
+                                                  final translation =
+                                                      data[index].translate![
+                                                          translateIndex];
+                                                  return GestureDetector(
+                                                    onTap: () {
+                                                      BlocProvider.of<HomeBloc>(
+                                                              context)
+                                                          .add(ChangeTranslationLanguageIndex(
+                                                              translateIndex));
+                                                      context.pop();
+                                                    },
+                                                    behavior: HitTestBehavior
+                                                        .translucent,
+                                                    child: Text(
+                                                      translation.language ??
+                                                          '',
+                                                      style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: ColorManager
+                                                            .blackColor,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  );
+                                                },
+                                                separatorBuilder:
+                                                    (context, index) =>
+                                                        const Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 6),
+                                                  child: Divider(),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
                                       },
-                                      child: Align(
-                                        alignment: Alignment.topLeft,
-                                        child: Text(
-                                          Appstrings.learnMore,
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w600,
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          ImageIcon(
+                                            const AssetImage(
+                                                AppAssetsStrings.translateIcon),
+                                            size: 20,
                                             color: ColorManager.primary,
                                           ),
-                                        ),
+                                          kWidth10,
+                                          Text(
+                                            Appstrings.translate,
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600,
+                                              color: ColorManager.primary,
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.keyboard_double_arrow_right,
+                                            color: ColorManager.primary,
+                                            size: 18,
+                                          )
+                                        ],
                                       ),
                                     )
                                   ],

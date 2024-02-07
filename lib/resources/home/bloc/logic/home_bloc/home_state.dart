@@ -26,6 +26,7 @@ class HomeState with _$HomeState {
     required int homeBannerIndex,
     required int eventOfMonthIndex,
     required AllaySaysModel? allaySaysModel,
+    required int translationLanguageIndex,
   }) = _HomeState;
   factory HomeState.initial() => const HomeState(
         isLoading: false,
@@ -51,5 +52,6 @@ class HomeState with _$HomeState {
         homeBannerIndex: 0,
         eventOfMonthIndex: 0,
         allaySaysModel: null,
+        translationLanguageIndex: 0,
       );
 }

@@ -42,6 +42,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<ChangeHomeBannerIndex>(_changeHomeBannerIndex);
     on<ChangeEventOfTheMonthIndex>(_changeEventOfMonthIndex);
     on<FetchAllahSays>(_fetchAllahSays);
+    on<ChangeTranslationLanguageIndex>(_changeTranslationChangeIndex);
   }
 
   _fetchLargeDisountsBanner(
@@ -301,5 +302,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(state.copyWith(isLoading: false));
       throw Exception(e);
     }
+  }
+
+  _changeTranslationChangeIndex(
+      ChangeTranslationLanguageIndex event, Emitter<HomeState> emit) {
+    emit(state.copyWith(translationLanguageIndex: event.index));
+    print(state.translationLanguageIndex);
   }
 }

@@ -46,4 +46,6 @@ class HomeEvent with _$HomeEvent {
     required int index,
   }) = ChangeEventOfTheMonthIndex;
   const factory HomeEvent.fetchAllahSaysApi() = FetchAllahSays;
+  const factory HomeEvent.changeTranslationLanguageIndex(int index) =
+      ChangeTranslationLanguageIndex;
 }

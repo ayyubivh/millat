@@ -16,7 +16,7 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 
-class CategoryView extends StatelessWidget {
+class CategoryView extends StatefulWidget {
   final String category;
   final String categoryId;
   final CategoryType? categoryType;
@@ -27,20 +27,28 @@ class CategoryView extends StatelessWidget {
       this.categoryType});
 
   @override
+  State<CategoryView> createState() => _CategoryViewState();
+}
+
+class _CategoryViewState extends State<CategoryView> {
+  @override
+  void initState() {
+    BlocProvider.of<ShopProductsBloc>(context)
+      ..add(ShopProductsEvent.fetchFlashSaleProducts(
+          endPointSlug:
+              "shop_product_category?slug=${widget.category.toString().replaceAll(" ", "_")}_flash_sales"))
+      ..add(ShopProductsEvent.fetchPopularProducts(
+          endPointSlug:
+              "shop_product_widget.category?slug=${widget.category}_popular_products"))
+      ..add(ShopProductsEvent.fetchSpecificCategeryItems(
+          slug: widget.category.toString().replaceAll(" ", "_")));
+    BlocProvider.of<CategoryBloc>(context)
+        .add(FetchItemsByCategory(category: widget.category));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<ShopProductsBloc>(context)
-        ..add(ShopProductsEvent.fetchFlashSaleProducts(
-            endPointSlug:
-                "shop_product_category?slug=${category.toString().replaceAll(" ", "_")}_flash_sales"))
-        ..add(ShopProductsEvent.fetchPopularProducts(
-            endPointSlug:
-                "shop_product_category?slug=${category}_popular_products"))
-        ..add(ShopProductsEvent.fetchSpecificCategeryItems(
-            slug: category.toString().replaceAll(" ", "_")));
-      BlocProvider.of<CategoryBloc>(context)
-          .add(FetchItemsByCategory(category: category));
-    });
     return Scaffold(
         body: CustomScrollView(
       slivers: [
@@ -146,7 +154,7 @@ class CategoryView extends StatelessWidget {
                 child: Column(
                   children: [
                     kHeight20,
-                    categoryType == CategoryType.specificCategory
+                    widget.categoryType == CategoryType.specificCategory
                         ? BlocBuilder<ShopProductsBloc, ShopProductsState>(
                             builder: (context, state) {
                               List<dynamic>? productItems;
@@ -166,7 +174,7 @@ class CategoryView extends StatelessWidget {
                                           )),
                                 );
                               }
-                              if (category == "women") {
+                              if (widget.category == "women") {
                                 productItems = state
                                     .productItemsSubCategoryWomenModel
                                     ?.result
@@ -196,11 +204,11 @@ class CategoryView extends StatelessWidget {
                                                 .categoriesProductsRouteName,
                                             extra: {
                                               'itemId': productItems?[index].id,
-                                              'category': category,
+                                              'category': widget.category,
                                               'subCategory': "",
                                               'type':
                                                   FilterType.specificCategory,
-                                              'categoryId': categoryId
+                                              'categoryId': widget.categoryId
                                             });
                                       },
                                       child: Column(
@@ -280,9 +288,9 @@ class CategoryView extends StatelessWidget {
                                             extra: {
                                               'itemName': data?.title,
                                               'itemId': data?.id,
-                                              'category': category,
+                                              'category': widget.category,
                                               'subCategory': "",
-                                              'categoryId': categoryId,
+                                              'categoryId': widget.categoryId,
                                               'type': FilterType.category,
                                             });
                                       },
@@ -433,7 +441,7 @@ class CategoryView extends StatelessWidget {
                                                 .shopSpecificCategoryBannerRouteName,
                                             extra: {
                                               'imageUrl': img[i],
-                                              'category': category,
+                                              'category': widget.category,
                                             });
                                       },
                                       child: Padding(
@@ -524,7 +532,7 @@ class CategoryView extends StatelessWidget {
                                           .shopSpecificCategoryBannerRouteName,
                                       extra: {
                                         'imageUrl': bigBannerImageUrl,
-                                        'category': category,
+                                        'category': widget.category,
                                       });
                                 },
                                 child: Utilities().buildCachedNetworkImage(

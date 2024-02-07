@@ -10,7 +10,7 @@ import '../../utils/color_manager.dart';
 class ShopProductWidget extends StatelessWidget {
   final String? image;
   final String? title;
-  final int discountPrice;
+  final double discountPrice;
   final int actualPrice;
   final int discount;
   final String? brand;

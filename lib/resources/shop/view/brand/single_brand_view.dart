@@ -164,8 +164,7 @@ class SingleBrandView extends StatelessWidget {
                                       productId: data.id ?? 'null',
                                       title: data.title,
                                       image: data.thumbnail,
-                                      discountPrice:
-                                          data.salePrice?.toInt() ?? 0,
+                                      discountPrice: data.salePrice ?? 0,
                                       actualPrice:
                                           data.regularPrice?.toInt() ?? 0,
                                       discount: data.discount?.toInt() ?? 0,

@@ -37,7 +37,7 @@ class CartServices extends HttpServices {
   addCart({
     required BuildContext context,
     required String productId,
-    required int basePrice,
+    required double basePrice,
     required String size,
     required String? color,
     required int quantity,
@@ -123,8 +123,8 @@ class CartServices extends HttpServices {
     const endPoint = 'cart/update/quantity';
 
     final body = {
-      "productId": productId,
-      "quantity": quantity,
+      "productId": productId.toString(),
+      "quantity": quantity.toString(),
     };
 
     final response = await put(

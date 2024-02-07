@@ -25,7 +25,7 @@ mixin _$CartEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -44,7 +44,7 @@ mixin _$CartEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -63,7 +63,7 @@ mixin _$CartEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -209,7 +209,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -231,7 +231,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -253,7 +253,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -429,7 +429,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -451,7 +451,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -473,7 +473,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -653,7 +653,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -675,7 +675,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -697,7 +697,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -792,7 +792,7 @@ abstract class _$$AddCartEventImplCopyWith<$Res> {
   @useResult
   $Res call(
       {String productId,
-      int basePrice,
+      double basePrice,
       String size,
       BuildContext context,
       String color,
@@ -827,7 +827,7 @@ class __$$AddCartEventImplCopyWithImpl<$Res>
       basePrice: null == basePrice
           ? _value.basePrice
           : basePrice // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -867,7 +867,7 @@ class _$AddCartEventImpl implements AddCartEvent {
   @override
   final String productId;
   @override
-  final int basePrice;
+  final double basePrice;
   @override
   final String size;
   @override
@@ -921,7 +921,7 @@ class _$AddCartEventImpl implements AddCartEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -944,7 +944,7 @@ class _$AddCartEventImpl implements AddCartEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -967,7 +967,7 @@ class _$AddCartEventImpl implements AddCartEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -1044,7 +1044,7 @@ class _$AddCartEventImpl implements AddCartEvent {
 abstract class AddCartEvent implements CartEvent {
   const factory AddCartEvent(
       {required final String productId,
-      required final int basePrice,
+      required final double basePrice,
       required final String size,
       required final BuildContext context,
       required final String color,
@@ -1052,7 +1052,7 @@ abstract class AddCartEvent implements CartEvent {
       required final String brandId}) = _$AddCartEventImpl;
 
   String get productId;
-  int get basePrice;
+  double get basePrice;
   String get size;
   BuildContext get context;
   String get color;
@@ -1145,7 +1145,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -1167,7 +1167,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -1189,7 +1189,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -1320,7 +1320,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -1342,7 +1342,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -1364,7 +1364,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -1487,7 +1487,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -1509,7 +1509,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -1531,7 +1531,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -1653,7 +1653,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -1675,7 +1675,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -1697,7 +1697,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -1855,7 +1855,7 @@ class _$ChoosePaymentMethodImpl implements ChoosePaymentMethod {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -1877,7 +1877,7 @@ class _$ChoosePaymentMethodImpl implements ChoosePaymentMethod {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -1899,7 +1899,7 @@ class _$ChoosePaymentMethodImpl implements ChoosePaymentMethod {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?

@@ -469,7 +469,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
     required String brandId,
     required String productId,
     required String image,
-    required int salePrice,
+    required double salePrice,
     required int regularPrice,
     required List<String> size,
     required String color,

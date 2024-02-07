@@ -177,8 +177,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                 title: data.title,
                                                 image: data.images![0],
                                                 discountPrice:
-                                                    data.salePrice?.toInt() ??
-                                                        0,
+                                                    data.salePrice ?? 0,
                                                 actualPrice: data.regularPrice
                                                         ?.toInt() ??
                                                     0,
@@ -258,7 +257,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                     title: data.title,
                                                     image: data.images![0],
                                                     discountPrice:
-                                                        data.salePrice!.toInt(),
+                                                        data.salePrice ?? 0,
                                                     actualPrice: data
                                                         .regularPrice!
                                                         .toInt(),
@@ -330,7 +329,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                               title: datas.title,
                                               image: datas.images![0],
                                               discountPrice:
-                                                  datas.salePrice!.toInt(),
+                                                  datas.salePrice ?? 0,
                                               actualPrice:
                                                   datas.regularPrice!.toInt(),
                                               discount: datas.discount!.toInt(),

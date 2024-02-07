@@ -15,7 +15,7 @@ class CartEvent with _$CartEvent {
   }) = UpdateCartEventWithSub;
   const factory CartEvent.addCart({
     required String productId,
-    required int basePrice,
+    required double basePrice,
     required String size,
     required BuildContext context,
     required String color,

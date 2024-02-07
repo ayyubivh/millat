@@ -65,7 +65,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
               cartItems: [
                 ...state.cartModel?.result?.cartProducts?.cartItems ?? [],
                 CartItem(
-                  sellingPrice: event.basePrice,
+                  sellingPrice: event.basePrice.toInt(),
                   productId: ProductInfo(id: event.productId),
                   quantity: event.quantity,
                   size: event.size,

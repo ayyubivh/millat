@@ -395,7 +395,7 @@ class _CategoryViewState extends State<CategoryView> {
                                               discount:
                                                   data.discount?.toInt() ?? 0,
                                               discountPrice:
-                                                  data.salePrice?.toInt() ?? 0,
+                                                  data.salePrice ?? 0,
                                             ),
                                           ),
                                         );
@@ -506,7 +506,7 @@ class _CategoryViewState extends State<CategoryView> {
                                               discount:
                                                   data.discount?.toInt() ?? 0,
                                               discountPrice:
-                                                  data.salePrice?.toInt() ?? 0,
+                                                  data.salePrice ?? 0,
                                             ),
                                           ),
                                         );

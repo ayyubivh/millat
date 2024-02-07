@@ -76,20 +76,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
       ),
       body: BlocConsumer<ShopProductsBloc, ShopProductsState>(
         listener: (context, state) {
-          final cartItems = context
-              .read<CartBloc>()
-              .state
-              .cartModel
-              ?.result
-              ?.cartProducts
-              ?.cartItems;
-          final quantity = cartItems?.map((e) => e.quantity).toList();
-          final shippingCharge = widget.paymentType == 0 ? 45 : 90;
-          final shippingFee = cartItems!.length > 1
-              ? shippingCharge * 2
-              : quantity![0]! > 1
-                  ? shippingCharge * 2
-                  : shippingCharge;
+          final cartItems = context.read<CartBloc>().state.cartModel?.result;
+
           if (state.orderIdRazorPay != "") {
             final userData =
                 context.read<DatabaseBloc>().state.authUserModel?.result?.user;
@@ -126,7 +114,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               'key': 'rzp_live_CPvXnR4zHHC8cD',
               'amount': state.totalAmount * 100,
               'name': 'Millat',
-              'description': cartItems[0].productId?.title,
+              'description':
+                  cartItems?.cartProducts?.cartItems?[0].productId?.title,
               'retry': {'enabled': true, 'max_count': 1},
               'send_sms_hash': true,
               'timeout': 120,
@@ -152,21 +141,26 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               context.pushReplacementNamed(
                   MyAppRouteConstants.paymentSuccessfullRouteName,
                   extra: {
-                    'subTotal': state.totalAmount,
-                    'delivery': state.totalAmount > 599 ? 0 : shippingFee
+                    'subTotal': cartItems?.amountDetails?.subTotal,
+                    'delivery': cartItems?.amountDetails?.shippingCost ?? 0
                   });
             } else {
               context.pushReplacementNamed(
                   MyAppRouteConstants.paymentSuccessfullRouteName,
                   extra: {
-                    'subTotal': state.totalAmount,
-                    'delivery': state.totalAmount > 599 ? 0 : shippingFee
+                    'subTotal': cartItems?.amountDetails?.subTotal,
+                    'delivery': cartItems?.amountDetails?.shippingCost ?? 0
                   });
             }
           }
         },
         builder: (context, state) => state.isLoading
-            ? const Loader()
+            ? Align(
+                alignment: Alignment.topCenter,
+                child: CircularProgressIndicator(
+                  color: ColorManager.primary,
+                ),
+              )
             : widget.checkoutType == CheckoutType.rewards
                 ? BlocBuilder<RewardsBloc, RewardsState>(
                     builder: (context, state) {
@@ -381,9 +375,6 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
 
                 final subTotal = cartItems?.amountDetails?.subTotal;
                 final total = cartItems?.amountDetails?.total;
-                final quantity = cartItems?.cartProducts?.cartItems
-                    ?.map((e) => e.quantity)
-                    .toList();
 
                 final shippingFee = cartItems?.amountDetails?.shippingCost;
 

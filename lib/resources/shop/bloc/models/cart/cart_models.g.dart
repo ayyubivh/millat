@@ -67,7 +67,7 @@ _$CartItemImpl _$$CartItemImplFromJson(Map<String, dynamic> json) =>
           ? null
           : ProductInfo.fromJson(json['productId'] as Map<String, dynamic>),
       quantity: json['quantity'] as int?,
-      sellingPrice: json['selling_price'] as int?,
+      sellingPrice: (json['selling_price'] as num?)?.toDouble(),
       discount: json['discount'] as int?,
       tax: json['tax'] as int?,
       size: json['size'] as String?,

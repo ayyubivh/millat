@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -43,6 +45,40 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<ChangeEventOfTheMonthIndex>(_changeEventOfMonthIndex);
     on<FetchAllahSays>(_fetchAllahSays);
     on<ChangeTranslationLanguageIndex>(_changeTranslationChangeIndex);
+    on<_FetchAllHomePageApi>(_fetchAllHomePageApi);
+  }
+  _fetchAllHomePageApi(
+    _FetchAllHomePageApi event,
+    Emitter<HomeState> emit,
+  ) async {
+    try {
+      // final stopwatch = Stopwatch()..start();
+      // Create a list of Future objects for each event
+      final apiCalls = [
+        FetchTopOffersBanner(),
+        FetchBrandofTheDay(),
+        FetchEventOfTheMonth(),
+        FetchHadithOfTheDay(),
+        ChangeIndexofAllaysaysBg(),
+        FetchAllahSays(),
+      ];
+
+      // Dispatch all events concurrently using Future.forEach
+      await Future.forEach(apiCalls, (event) async {
+        add(event);
+        // log('API execution time: ${stopwatch.elapsedMilliseconds} milliseconds');
+      });
+
+      // stopwatch.stop();
+      // log('ended time: ${stopwatch.elapsedMilliseconds} milliseconds');
+
+      // All events are completed, you can proceed with the logic after API calls here
+    } catch (e) {
+      if (kDebugMode) {
+        debugPrint("error $e");
+      }
+      throw Exception(e);
+    }
   }
 
   _fetchLargeDisountsBanner(

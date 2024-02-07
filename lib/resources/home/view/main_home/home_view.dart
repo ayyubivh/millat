@@ -90,13 +90,13 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
       ..add(const GetHighLatitudeMethodsToLocalStorage());
 
     BlocProvider.of<HomeBloc>(context)
-      // ..add(const FetchLargeDiscountsBanner())
-      ..add(const FetchTopOffersBanner())
-      ..add(const FetchBrandofTheDay())
-      ..add(const FetchHadithOfTheDay())
-      ..add(const FetchEventOfTheMonth())
-      ..add(const ChangeIndexofAllaysaysBg())
-      ..add(const FetchAllahSays());
+        // ..add(const FetchLargeDiscountsBanner())
+        // ..add(const FetchTopOffersBanner())
+        // ..add(const FetchBrandofTheDay())
+        // ..add(const FetchHadithOfTheDay())
+        // ..add(const FetchEventOfTheMonth())
+        // ..add(const ChangeIndexofAllaysaysBg())
+        .add(const HomeEvent.fetchAllHomePageApis());
   }
 
   Future<void> _handleRefresh() async {
@@ -1280,15 +1280,17 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                                       ),
                                     ),
                                     kHeight16,
-                                    Text(
-                                      data[index].content ?? '',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
-                                        color: ColorManager.blackColor,
-                                        fontFamily: "Hafs",
+                                    Expanded(
+                                      child: Text(
+                                        data[index].content ?? '',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                          color: ColorManager.blackColor,
+                                          fontFamily: "Hafs",
+                                        ),
+                                        textDirection: TextDirection.rtl,
                                       ),
-                                      textDirection: TextDirection.rtl,
                                     ),
                                     kHeight5,
                                     Divider(

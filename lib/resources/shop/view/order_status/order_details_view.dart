@@ -786,7 +786,7 @@ class OrdetailsView extends StatelessWidget {
                 title: data.productId?.title,
                 size: data.size,
                 image: data.productId?.images?[0],
-                price: data.sellingPrice ?? 0,
+                price: data.sellingPrice?.toInt() ?? 0,
                 jsonColor: data.color,
                 colorName: data.color,
                 quantity: data.quantity!.toInt(),

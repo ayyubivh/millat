@@ -47,7 +47,7 @@ class CartItem with _$CartItem {
   const factory CartItem({
     required ProductInfo? productId,
     required int? quantity,
-    @JsonKey(name: "selling_price") required int? sellingPrice,
+    @JsonKey(name: "selling_price") required double? sellingPrice,
     int? discount,
     int? tax,
     required String? size,

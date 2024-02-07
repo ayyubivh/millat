@@ -656,7 +656,7 @@ mixin _$CartItem {
   ProductInfo? get productId => throw _privateConstructorUsedError;
   int? get quantity => throw _privateConstructorUsedError;
   @JsonKey(name: "selling_price")
-  int? get sellingPrice => throw _privateConstructorUsedError;
+  double? get sellingPrice => throw _privateConstructorUsedError;
   int? get discount => throw _privateConstructorUsedError;
   int? get tax => throw _privateConstructorUsedError;
   String? get size => throw _privateConstructorUsedError;
@@ -676,7 +676,7 @@ abstract class $CartItemCopyWith<$Res> {
   $Res call(
       {ProductInfo? productId,
       int? quantity,
-      @JsonKey(name: "selling_price") int? sellingPrice,
+      @JsonKey(name: "selling_price") double? sellingPrice,
       int? discount,
       int? tax,
       String? size,
@@ -718,7 +718,7 @@ class _$CartItemCopyWithImpl<$Res, $Val extends CartItem>
       sellingPrice: freezed == sellingPrice
           ? _value.sellingPrice
           : sellingPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -762,7 +762,7 @@ abstract class _$$CartItemImplCopyWith<$Res>
   $Res call(
       {ProductInfo? productId,
       int? quantity,
-      @JsonKey(name: "selling_price") int? sellingPrice,
+      @JsonKey(name: "selling_price") double? sellingPrice,
       int? discount,
       int? tax,
       String? size,
@@ -803,7 +803,7 @@ class __$$CartItemImplCopyWithImpl<$Res>
       sellingPrice: freezed == sellingPrice
           ? _value.sellingPrice
           : sellingPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -845,7 +845,7 @@ class _$CartItemImpl implements _CartItem {
   final int? quantity;
   @override
   @JsonKey(name: "selling_price")
-  final int? sellingPrice;
+  final double? sellingPrice;
   @override
   final int? discount;
   @override
@@ -901,7 +901,7 @@ abstract class _CartItem implements CartItem {
   const factory _CartItem(
       {required final ProductInfo? productId,
       required final int? quantity,
-      @JsonKey(name: "selling_price") required final int? sellingPrice,
+      @JsonKey(name: "selling_price") required final double? sellingPrice,
       final int? discount,
       final int? tax,
       required final String? size,
@@ -916,7 +916,7 @@ abstract class _CartItem implements CartItem {
   int? get quantity;
   @override
   @JsonKey(name: "selling_price")
-  int? get sellingPrice;
+  double? get sellingPrice;
   @override
   int? get discount;
   @override

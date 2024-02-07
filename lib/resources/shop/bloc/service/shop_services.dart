@@ -120,20 +120,27 @@ class ShopService extends HttpServices {
 
   // Fetching Home banners
   Future<BannersModel> fetchHomeBanners() async {
-    final response = await get(endPoint: banner);
+    // final stopwatch = Stopwatch()..start(); // Start the stopwatch
 
-    if (response.statusCode == 200) {
-      try {
+    try {
+      final response = await get(endPoint: banner);
+
+      if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = BannersModel.fromJson(data);
+
+        // stopwatch.stop(); // Stop the stopwatch
+        // print(
+        //     'API execution time: ${stopwatch.elapsedMilliseconds} milliseconds');
+
         return result;
-      } catch (e) {
-        debugPrint('error on Banner API fetch: ${e.toString()}');
-        throw Exception('Failed to parse response');
+      } else {
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
       }
-    } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+    } catch (e) {
+      debugPrint('Error on Banner API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
     }
   }
 

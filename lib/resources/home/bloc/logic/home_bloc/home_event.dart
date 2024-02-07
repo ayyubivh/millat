@@ -48,4 +48,5 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.fetchAllahSaysApi() = FetchAllahSays;
   const factory HomeEvent.changeTranslationLanguageIndex(int index) =
       ChangeTranslationLanguageIndex;
+  const factory HomeEvent.fetchAllHomePageApis() = _FetchAllHomePageApi;
 }

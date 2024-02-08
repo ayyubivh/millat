@@ -54,19 +54,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       // final stopwatch = Stopwatch()..start();
       // Create a list of Future objects for each event
-      final apiCalls = [
-        FetchTopOffersBanner(),
-        FetchBrandofTheDay(),
-        FetchEventOfTheMonth(),
-        FetchHadithOfTheDay(),
-        ChangeIndexofAllaysaysBg(),
-        FetchAllahSays(),
-      ];
+      // final apiCalls = [
+      //   FetchTopOffersBanner(),
+      //   FetchBrandofTheDay(),
+      //   FetchEventOfTheMonth(),
+      //   FetchHadithOfTheDay(),
+      //   ChangeIndexofAllaysaysBg(),
+      //   FetchAllahSays(),
+      // ];
 
       // Dispatch all events concurrently using Future.forEach
-      await Future.wait({
-        // log('API execution time: ${stopwatch.elapsedMilliseconds} milliseconds');
-      });
+      // var data = await Future.wait();
 
       // stopwatch.stop();
       // log('ended time: ${stopwatch.elapsedMilliseconds} milliseconds');

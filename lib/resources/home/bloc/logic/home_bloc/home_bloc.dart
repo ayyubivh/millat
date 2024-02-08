@@ -64,8 +64,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       ];
 
       // Dispatch all events concurrently using Future.forEach
-      await Future.forEach(apiCalls, (event) async {
-        add(event);
+      await Future.wait({
         // log('API execution time: ${stopwatch.elapsedMilliseconds} milliseconds');
       });
 

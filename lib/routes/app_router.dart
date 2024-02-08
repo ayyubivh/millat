@@ -300,6 +300,7 @@ class MyAppRouter {
                                     return MaterialPage(
                                         child: CheckoutDetails(
                                       type: data['type'],
+                                      addressId: data['addressId'],
                                     ));
                                   },
                                   routes: [

@@ -65,99 +65,99 @@ class AddressBookView extends StatelessWidget {
   }
 
   Widget _addressContainerWidget(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            kHeight30,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.add,
-                  color: ColorManager.primary,
-                ),
-                InkWell(
-                  onTap: () {
-                    context.pushNamed(
-                        MyAppRouteConstants.checkoutDetailRoutename,
-                        extra: {'type': AddressNavType.profile});
-                  },
-                  child: Text(
-                    Appstrings.addaddress,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: ColorManager.primary,
-                      fontSize: 16,
-                    ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          kHeight30,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.add,
+                color: ColorManager.primary,
+              ),
+              InkWell(
+                onTap: () {
+                  context.pushNamed(MyAppRouteConstants.checkoutDetailRoutename,
+                      extra: {'type': AddressNavType.profile});
+                },
+                child: Text(
+                  Appstrings.addaddress,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: ColorManager.primary,
+                    fontSize: 16,
                   ),
                 ),
-              ],
-            ),
-            kHeight30,
-            BlocBuilder<AddressBloc, AddressState>(
-              builder: (context, state) {
-                return state.isLoading
-                    ? Center(
-                        child: CircularProgressIndicator(
-                          color: ColorManager.primary,
-                        ),
-                      )
-                    : state.addressModel?.result.addresses == null
-                        ? Padding(
-                            padding: EdgeInsets.only(
-                                top: SizeUtility(context).height / 3),
-                            child: const Text('Address Is Empty'),
-                          )
-                        : ListView.separated(
-                            shrinkWrap: true,
-                            itemCount:
-                                state.addressModel!.result.addresses.length,
-                            itemBuilder: (context, index) {
-                              final data =
-                                  state.addressModel?.result.addresses[index];
+              ),
+            ],
+          ),
+          kHeight30,
+          BlocBuilder<AddressBloc, AddressState>(
+            builder: (context, state) {
+              return state.isLoading
+                  ? Center(
+                      child: CircularProgressIndicator(
+                        color: ColorManager.primary,
+                      ),
+                    )
+                  : state.addressModel?.result.addresses == null
+                      ? Padding(
+                          padding: EdgeInsets.only(
+                              top: SizeUtility(context).height / 3),
+                          child: const Text('Address Is Empty'),
+                        )
+                      : Expanded(
+                          child: ListView.separated(
+                              shrinkWrap: true,
+                              itemCount:
+                                  state.addressModel!.result.addresses.length,
+                              itemBuilder: (context, index) {
+                                final data =
+                                    state.addressModel?.result.addresses[index];
 
-                              final formatedMobile =
-                                  '${data?.mobile.toString().substring(data.mobile.toString().length - 4)}';
-                              final String address =
-                                  '$formatedMobile ${data!.addressLine} ${data.city}\n${data.state} ${data.pincode}';
-                              return Column(
-                                children: [
-                                  buildAddresses(
-                                    index: index,
-                                    state: state,
-                                    type: data.addressType,
-                                    email: context
-                                            .read<DatabaseBloc>()
-                                            .state
-                                            .authUserModel
-                                            ?.result
-                                            ?.user
-                                            ?.name ??
-                                        "",
-                                    context: context,
-                                    phoneNumber: data.mobile.toString(),
-                                    name: data.name,
-                                    address: address,
-                                    isSelected: index == state.selectedIndex,
-                                    onTap: () {
-                                      context.read<AddressBloc>().add(
-                                          SelectAddressEvent(
-                                              selectedIndex: index));
-                                      context.read<AddressBloc>().add(
-                                          SaveAddressId(addressId: data.id));
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
-                            separatorBuilder: (context, index) => kHeight16);
-              },
-            ),
-          ],
-        ),
+                                final formatedMobile =
+                                    '${data?.mobile.toString().substring(data.mobile.toString().length - 4)}';
+                                final String address =
+                                    '$formatedMobile ${data!.addressLine} ${data.city}\n${data.state} ${data.pincode}';
+                                return Column(
+                                  children: [
+                                    buildAddresses(
+                                      index: index,
+                                      state: state,
+                                      type: data.addressType,
+                                      id: data.id,
+                                      email: context
+                                              .read<DatabaseBloc>()
+                                              .state
+                                              .authUserModel
+                                              ?.result
+                                              ?.user
+                                              ?.name ??
+                                          "",
+                                      context: context,
+                                      phoneNumber: data.mobile.toString(),
+                                      name: data.name,
+                                      address: address,
+                                      isSelected: index == state.selectedIndex,
+                                      onTap: () {
+                                        context.read<AddressBloc>().add(
+                                            SelectAddressEvent(
+                                                selectedIndex: index));
+                                        context.read<AddressBloc>().add(
+                                            SaveAddressId(addressId: data.id));
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                              separatorBuilder: (context, index) => kHeight16),
+                        );
+            },
+          ),
+        ],
       ),
     );
   }
@@ -204,17 +204,19 @@ class AddressBookView extends StatelessWidget {
     );
   }
 
-  Widget buildAddresses(
-      {required String? name,
-      required String? address,
-      required bool isSelected,
-      required String phoneNumber,
-      required String email,
-      required String type,
-      required Function() onTap,
-      required BuildContext context,
-      required int index,
-      required AddressState state}) {
+  Widget buildAddresses({
+    required String? name,
+    required String? address,
+    required bool isSelected,
+    required String phoneNumber,
+    required String email,
+    required String type,
+    required Function() onTap,
+    required BuildContext context,
+    required int index,
+    required AddressState state,
+    required String id,
+  }) {
     return Container(
       height: 236,
       width: SizeUtility(context).width,
@@ -334,7 +336,10 @@ class AddressBookView extends StatelessWidget {
                           onTap: () {
                             context.pushNamed(
                                 MyAppRouteConstants.checkoutDetailRoutename,
-                                extra: {'type': AddressNavType.editAddress});
+                                extra: {
+                                  'type': AddressNavType.editAddress,
+                                  'addressId': id
+                                });
                           },
                           child: const Icon(
                             Icons.edit_note,

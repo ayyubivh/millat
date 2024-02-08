@@ -59,6 +59,8 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
   }
 
   _updateAddress(UpdateAddress event, Emitter<AddressState> emit) async {
+    emit(state.copyWith(isLoading: true));
+
     try {
       final data = await _addressService.updateAddresbyId(
           id: event.id,
@@ -74,11 +76,13 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
           country: event.country);
       if (data['status'] == 200) {
         debugPrint('on update address address ${data['message']}');
-        emit(state.copyWith(successMessage: data['message']));
+        emit(state.copyWith(successMessage: data['message'], isLoading: false));
       } else {
-        // emit(state.copyWith(failMessage: data['message']));
+        emit(state.copyWith(isLoading: false));
       }
     } catch (e) {
+      emit(state.copyWith(isLoading: false));
+
       throw Exception();
     }
   }

@@ -633,6 +633,7 @@ class _UserProfileViewState extends State<UserProfileView> {
       required VoidCallback onTap,
       required BuildContext context}) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: SizedBox(
         height: 40,

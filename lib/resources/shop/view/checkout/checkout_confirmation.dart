@@ -148,8 +148,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               context.pushReplacementNamed(
                   MyAppRouteConstants.paymentSuccessfullRouteName,
                   extra: {
-                    'subTotal': cartItems?.amountDetails?.subTotal,
-                    'delivery': cartItems?.amountDetails?.shippingCost ?? 0
+                    'subTotal': cartItems?.amountDetails?.subTotal?.toDouble(),
+                    'delivery': cartItems?.amountDetails?.shippingCost?.toInt()
                   });
             }
           }

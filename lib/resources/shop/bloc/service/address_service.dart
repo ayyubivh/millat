@@ -78,8 +78,8 @@ class AddressService extends HttpServices {
     final body = {
       "addressType": addressType,
       "name": name,
-      "mobile": mobile,
-      "pincode": pincode,
+      "mobile": mobile.toString(),
+      "pincode": pincode.toString(),
       "landmark": landmark,
       "addressLine": addressLine,
       "city": city,
@@ -87,22 +87,29 @@ class AddressService extends HttpServices {
       "country": country,
     };
 
-    final response = await patch(
-      endPoint: endPoint,
-      isToken: true,
-      body: body,
-    );
-    if (response.statusCode == 200) {
-      context
-          .read<AddressBloc>()
-          .add(AddressEvent.fetchAddressEvent(context: context));
-      final Map<String, dynamic> data = json.decode(response.body);
-      debugPrint(data.toString());
-      return data;
-    } else {
-      debugPrint('API request failed with status code: ${response.statusCode}');
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+    try {
+      final response = await patch(
+        endPoint: endPoint,
+        isToken: true,
+        body: body,
+      );
+      if (response.statusCode == 200) {
+        context
+            .read<AddressBloc>()
+            .add(AddressEvent.fetchAddressEvent(context: context));
+        final Map<String, dynamic> data = json.decode(response.body);
+        debugPrint(data.toString());
+        return data;
+      } else {
+        debugPrint(
+            'API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+
+      throw Exception(e);
     }
   }
 //fetching the all address

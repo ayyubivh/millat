@@ -202,7 +202,7 @@ class OrdersService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = OrderModelbyIdModel.fromJson(data);
-        debugPrint('jsone here by resul $result}');
+        debugPrint('jsone here by resul ${result.result?.orderSummary}}');
         return result;
       } catch (e) {
         debugPrint('error on orders  API fetch: ${e.toString()}');

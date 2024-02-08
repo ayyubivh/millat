@@ -653,7 +653,7 @@ class OrdetailsView extends StatelessWidget {
   BlocBuilder<ShopProductsBloc, ShopProductsState> _orderSummaryWidget() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        final data = state.ordersByIdModel?.result?.order;
+        final data = state.ordersByIdModel?.result?.orderSummary;
 
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 30),
@@ -688,7 +688,7 @@ class OrdetailsView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(Appstrings.itemCost, style: _priceStyle()),
-                        Text(data?.subTotal.toString() ?? '0',
+                        Text(data?.orderTotal.toString() ?? '0',
                             style: _priceStyle()),
                       ],
                     ),
@@ -696,20 +696,9 @@ class OrdetailsView extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(Appstrings.postPacking, style: _priceStyle()),
-                        Text(data?.shippingCharges.toString() ?? '0',
+                        Text("Quantity", style: _priceStyle()),
+                        Text(data?.quantity.toString() ?? '0',
                             style: _priceStyle()),
-                      ],
-                    ),
-                    kHeight10,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(Appstrings.totalbfTax, style: _priceStyle()),
-                        Text(
-                          data?.subTotal.toString() ?? '',
-                          style: _priceStyle(),
-                        ),
                       ],
                     ),
                     kHeight10,
@@ -724,12 +713,23 @@ class OrdetailsView extends StatelessWidget {
                       ],
                     ),
                     kHeight10,
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     Text(Appstrings.tax, style: _priceStyle()),
+                    //     Text(
+                    //       data?.tax.toString() ?? '',
+                    //       style: _priceStyle(),
+                    //     ),
+                    //   ],
+                    // ),
+                    // kHeight10,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(Appstrings.total, style: _priceStyle()),
+                        Text("Shipping Cost", style: _priceStyle()),
                         Text(
-                          data?.subTotal.toString() ?? '',
+                          data?.shippingCost.toString() ?? '',
                           style: _priceStyle(),
                         ),
                       ],
@@ -744,7 +744,7 @@ class OrdetailsView extends StatelessWidget {
                               fontWeight: FontWeight.w900,
                             )),
                         Text(
-                          data?.subTotal.toString() ?? '',
+                          data?.orderTotal.toString() ?? '',
                           style: TextStyle(
                               fontSize: 19,
                               fontWeight: FontWeight.w900,

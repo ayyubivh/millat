@@ -253,6 +253,8 @@ OrderResult _$OrderResultFromJson(Map<String, dynamic> json) {
 mixin _$OrderResult {
   @JsonKey(name: 'order')
   Order? get order => throw _privateConstructorUsedError;
+  @JsonKey(name: 'orderSummary')
+  OrderSummary? get orderSummary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -266,9 +268,12 @@ abstract class $OrderResultCopyWith<$Res> {
           OrderResult value, $Res Function(OrderResult) then) =
       _$OrderResultCopyWithImpl<$Res, OrderResult>;
   @useResult
-  $Res call({@JsonKey(name: 'order') Order? order});
+  $Res call(
+      {@JsonKey(name: 'order') Order? order,
+      @JsonKey(name: 'orderSummary') OrderSummary? orderSummary});
 
   $OrderCopyWith<$Res>? get order;
+  $OrderSummaryCopyWith<$Res>? get orderSummary;
 }
 
 /// @nodoc
@@ -285,12 +290,17 @@ class _$OrderResultCopyWithImpl<$Res, $Val extends OrderResult>
   @override
   $Res call({
     Object? order = freezed,
+    Object? orderSummary = freezed,
   }) {
     return _then(_value.copyWith(
       order: freezed == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
               as Order?,
+      orderSummary: freezed == orderSummary
+          ? _value.orderSummary
+          : orderSummary // ignore: cast_nullable_to_non_nullable
+              as OrderSummary?,
     ) as $Val);
   }
 
@@ -305,6 +315,18 @@ class _$OrderResultCopyWithImpl<$Res, $Val extends OrderResult>
       return _then(_value.copyWith(order: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $OrderSummaryCopyWith<$Res>? get orderSummary {
+    if (_value.orderSummary == null) {
+      return null;
+    }
+
+    return $OrderSummaryCopyWith<$Res>(_value.orderSummary!, (value) {
+      return _then(_value.copyWith(orderSummary: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -315,10 +337,14 @@ abstract class _$$OrderResultImplCopyWith<$Res>
       __$$OrderResultImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'order') Order? order});
+  $Res call(
+      {@JsonKey(name: 'order') Order? order,
+      @JsonKey(name: 'orderSummary') OrderSummary? orderSummary});
 
   @override
   $OrderCopyWith<$Res>? get order;
+  @override
+  $OrderSummaryCopyWith<$Res>? get orderSummary;
 }
 
 /// @nodoc
@@ -333,12 +359,17 @@ class __$$OrderResultImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? order = freezed,
+    Object? orderSummary = freezed,
   }) {
     return _then(_$OrderResultImpl(
       order: freezed == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
               as Order?,
+      orderSummary: freezed == orderSummary
+          ? _value.orderSummary
+          : orderSummary // ignore: cast_nullable_to_non_nullable
+              as OrderSummary?,
     ));
   }
 }
@@ -346,7 +377,9 @@ class __$$OrderResultImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$OrderResultImpl implements _OrderResult {
-  const _$OrderResultImpl({@JsonKey(name: 'order') required this.order});
+  const _$OrderResultImpl(
+      {@JsonKey(name: 'order') required this.order,
+      @JsonKey(name: 'orderSummary') required this.orderSummary});
 
   factory _$OrderResultImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrderResultImplFromJson(json);
@@ -354,10 +387,13 @@ class _$OrderResultImpl implements _OrderResult {
   @override
   @JsonKey(name: 'order')
   final Order? order;
+  @override
+  @JsonKey(name: 'orderSummary')
+  final OrderSummary? orderSummary;
 
   @override
   String toString() {
-    return 'OrderResult(order: $order)';
+    return 'OrderResult(order: $order, orderSummary: $orderSummary)';
   }
 
   @override
@@ -365,12 +401,14 @@ class _$OrderResultImpl implements _OrderResult {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OrderResultImpl &&
-            (identical(other.order, order) || other.order == order));
+            (identical(other.order, order) || other.order == order) &&
+            (identical(other.orderSummary, orderSummary) ||
+                other.orderSummary == orderSummary));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, order);
+  int get hashCode => Object.hash(runtimeType, order, orderSummary);
 
   @JsonKey(ignore: true)
   @override
@@ -388,8 +426,9 @@ class _$OrderResultImpl implements _OrderResult {
 
 abstract class _OrderResult implements OrderResult {
   const factory _OrderResult(
-          {@JsonKey(name: 'order') required final Order? order}) =
-      _$OrderResultImpl;
+      {@JsonKey(name: 'order') required final Order? order,
+      @JsonKey(name: 'orderSummary')
+      required final OrderSummary? orderSummary}) = _$OrderResultImpl;
 
   factory _OrderResult.fromJson(Map<String, dynamic> json) =
       _$OrderResultImpl.fromJson;
@@ -398,8 +437,252 @@ abstract class _OrderResult implements OrderResult {
   @JsonKey(name: 'order')
   Order? get order;
   @override
+  @JsonKey(name: 'orderSummary')
+  OrderSummary? get orderSummary;
+  @override
   @JsonKey(ignore: true)
   _$$OrderResultImplCopyWith<_$OrderResultImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+OrderSummary _$OrderSummaryFromJson(Map<String, dynamic> json) {
+  return _OrderSummary.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OrderSummary {
+  @JsonKey(name: 'Item Cost')
+  double? get itemCost => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Quantity')
+  int? get quantity => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Tax')
+  double? get tax => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Shipping Cost')
+  double? get shippingCost => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Order Total')
+  double? get orderTotal => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OrderSummaryCopyWith<OrderSummary> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OrderSummaryCopyWith<$Res> {
+  factory $OrderSummaryCopyWith(
+          OrderSummary value, $Res Function(OrderSummary) then) =
+      _$OrderSummaryCopyWithImpl<$Res, OrderSummary>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'Item Cost') double? itemCost,
+      @JsonKey(name: 'Quantity') int? quantity,
+      @JsonKey(name: 'Tax') double? tax,
+      @JsonKey(name: 'Shipping Cost') double? shippingCost,
+      @JsonKey(name: 'Order Total') double? orderTotal});
+}
+
+/// @nodoc
+class _$OrderSummaryCopyWithImpl<$Res, $Val extends OrderSummary>
+    implements $OrderSummaryCopyWith<$Res> {
+  _$OrderSummaryCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? itemCost = freezed,
+    Object? quantity = freezed,
+    Object? tax = freezed,
+    Object? shippingCost = freezed,
+    Object? orderTotal = freezed,
+  }) {
+    return _then(_value.copyWith(
+      itemCost: freezed == itemCost
+          ? _value.itemCost
+          : itemCost // ignore: cast_nullable_to_non_nullable
+              as double?,
+      quantity: freezed == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as double?,
+      shippingCost: freezed == shippingCost
+          ? _value.shippingCost
+          : shippingCost // ignore: cast_nullable_to_non_nullable
+              as double?,
+      orderTotal: freezed == orderTotal
+          ? _value.orderTotal
+          : orderTotal // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OrderSummaryImplCopyWith<$Res>
+    implements $OrderSummaryCopyWith<$Res> {
+  factory _$$OrderSummaryImplCopyWith(
+          _$OrderSummaryImpl value, $Res Function(_$OrderSummaryImpl) then) =
+      __$$OrderSummaryImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'Item Cost') double? itemCost,
+      @JsonKey(name: 'Quantity') int? quantity,
+      @JsonKey(name: 'Tax') double? tax,
+      @JsonKey(name: 'Shipping Cost') double? shippingCost,
+      @JsonKey(name: 'Order Total') double? orderTotal});
+}
+
+/// @nodoc
+class __$$OrderSummaryImplCopyWithImpl<$Res>
+    extends _$OrderSummaryCopyWithImpl<$Res, _$OrderSummaryImpl>
+    implements _$$OrderSummaryImplCopyWith<$Res> {
+  __$$OrderSummaryImplCopyWithImpl(
+      _$OrderSummaryImpl _value, $Res Function(_$OrderSummaryImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? itemCost = freezed,
+    Object? quantity = freezed,
+    Object? tax = freezed,
+    Object? shippingCost = freezed,
+    Object? orderTotal = freezed,
+  }) {
+    return _then(_$OrderSummaryImpl(
+      itemCost: freezed == itemCost
+          ? _value.itemCost
+          : itemCost // ignore: cast_nullable_to_non_nullable
+              as double?,
+      quantity: freezed == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as double?,
+      shippingCost: freezed == shippingCost
+          ? _value.shippingCost
+          : shippingCost // ignore: cast_nullable_to_non_nullable
+              as double?,
+      orderTotal: freezed == orderTotal
+          ? _value.orderTotal
+          : orderTotal // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OrderSummaryImpl implements _OrderSummary {
+  const _$OrderSummaryImpl(
+      {@JsonKey(name: 'Item Cost') required this.itemCost,
+      @JsonKey(name: 'Quantity') required this.quantity,
+      @JsonKey(name: 'Tax') required this.tax,
+      @JsonKey(name: 'Shipping Cost') required this.shippingCost,
+      @JsonKey(name: 'Order Total') required this.orderTotal});
+
+  factory _$OrderSummaryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrderSummaryImplFromJson(json);
+
+  @override
+  @JsonKey(name: 'Item Cost')
+  final double? itemCost;
+  @override
+  @JsonKey(name: 'Quantity')
+  final int? quantity;
+  @override
+  @JsonKey(name: 'Tax')
+  final double? tax;
+  @override
+  @JsonKey(name: 'Shipping Cost')
+  final double? shippingCost;
+  @override
+  @JsonKey(name: 'Order Total')
+  final double? orderTotal;
+
+  @override
+  String toString() {
+    return 'OrderSummary(itemCost: $itemCost, quantity: $quantity, tax: $tax, shippingCost: $shippingCost, orderTotal: $orderTotal)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrderSummaryImpl &&
+            (identical(other.itemCost, itemCost) ||
+                other.itemCost == itemCost) &&
+            (identical(other.quantity, quantity) ||
+                other.quantity == quantity) &&
+            (identical(other.tax, tax) || other.tax == tax) &&
+            (identical(other.shippingCost, shippingCost) ||
+                other.shippingCost == shippingCost) &&
+            (identical(other.orderTotal, orderTotal) ||
+                other.orderTotal == orderTotal));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, itemCost, quantity, tax, shippingCost, orderTotal);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrderSummaryImplCopyWith<_$OrderSummaryImpl> get copyWith =>
+      __$$OrderSummaryImplCopyWithImpl<_$OrderSummaryImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OrderSummaryImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _OrderSummary implements OrderSummary {
+  const factory _OrderSummary(
+          {@JsonKey(name: 'Item Cost') required final double? itemCost,
+          @JsonKey(name: 'Quantity') required final int? quantity,
+          @JsonKey(name: 'Tax') required final double? tax,
+          @JsonKey(name: 'Shipping Cost') required final double? shippingCost,
+          @JsonKey(name: 'Order Total') required final double? orderTotal}) =
+      _$OrderSummaryImpl;
+
+  factory _OrderSummary.fromJson(Map<String, dynamic> json) =
+      _$OrderSummaryImpl.fromJson;
+
+  @override
+  @JsonKey(name: 'Item Cost')
+  double? get itemCost;
+  @override
+  @JsonKey(name: 'Quantity')
+  int? get quantity;
+  @override
+  @JsonKey(name: 'Tax')
+  double? get tax;
+  @override
+  @JsonKey(name: 'Shipping Cost')
+  double? get shippingCost;
+  @override
+  @JsonKey(name: 'Order Total')
+  double? get orderTotal;
+  @override
+  @JsonKey(ignore: true)
+  _$$OrderSummaryImplCopyWith<_$OrderSummaryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -449,10 +732,16 @@ mixin _$Order {
   String? get paymentStatus => throw _privateConstructorUsedError;
   @JsonKey(name: 'address')
   Address? get address => throw _privateConstructorUsedError;
+  @JsonKey(name: 'isGiftProduct')
+  bool? get isGiftProduct => throw _privateConstructorUsedError;
+  @JsonKey(name: 'giftPackagePrice')
+  double? get giftPackagePrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
   String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updatedAt')
   String? get updatedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'returnOrCancelReason')
+  String? get returnOrCancelReason => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -485,8 +774,11 @@ abstract class $OrderCopyWith<$Res> {
       @JsonKey(name: 'shipping_charges') double? shippingCharges,
       @JsonKey(name: 'payment_status') String? paymentStatus,
       @JsonKey(name: 'address') Address? address,
+      @JsonKey(name: 'isGiftProduct') bool? isGiftProduct,
+      @JsonKey(name: 'giftPackagePrice') double? giftPackagePrice,
       @JsonKey(name: 'createdAt') String? createdAt,
-      @JsonKey(name: 'updatedAt') String? updatedAt});
+      @JsonKey(name: 'updatedAt') String? updatedAt,
+      @JsonKey(name: 'returnOrCancelReason') String? returnOrCancelReason});
 
   $BrandCopyWith<$Res>? get brand;
   $ProductCopyWith<$Res>? get productId;
@@ -526,8 +818,11 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
     Object? shippingCharges = freezed,
     Object? paymentStatus = freezed,
     Object? address = freezed,
+    Object? isGiftProduct = freezed,
+    Object? giftPackagePrice = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? returnOrCancelReason = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -610,6 +905,14 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Address?,
+      isGiftProduct: freezed == isGiftProduct
+          ? _value.isGiftProduct
+          : isGiftProduct // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      giftPackagePrice: freezed == giftPackagePrice
+          ? _value.giftPackagePrice
+          : giftPackagePrice // ignore: cast_nullable_to_non_nullable
+              as double?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -617,6 +920,10 @@ class _$OrderCopyWithImpl<$Res, $Val extends Order>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      returnOrCancelReason: freezed == returnOrCancelReason
+          ? _value.returnOrCancelReason
+          : returnOrCancelReason // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -686,8 +993,11 @@ abstract class _$$OrderImplCopyWith<$Res> implements $OrderCopyWith<$Res> {
       @JsonKey(name: 'shipping_charges') double? shippingCharges,
       @JsonKey(name: 'payment_status') String? paymentStatus,
       @JsonKey(name: 'address') Address? address,
+      @JsonKey(name: 'isGiftProduct') bool? isGiftProduct,
+      @JsonKey(name: 'giftPackagePrice') double? giftPackagePrice,
       @JsonKey(name: 'createdAt') String? createdAt,
-      @JsonKey(name: 'updatedAt') String? updatedAt});
+      @JsonKey(name: 'updatedAt') String? updatedAt,
+      @JsonKey(name: 'returnOrCancelReason') String? returnOrCancelReason});
 
   @override
   $BrandCopyWith<$Res>? get brand;
@@ -728,8 +1038,11 @@ class __$$OrderImplCopyWithImpl<$Res>
     Object? shippingCharges = freezed,
     Object? paymentStatus = freezed,
     Object? address = freezed,
+    Object? isGiftProduct = freezed,
+    Object? giftPackagePrice = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? returnOrCancelReason = freezed,
   }) {
     return _then(_$OrderImpl(
       id: freezed == id
@@ -812,6 +1125,14 @@ class __$$OrderImplCopyWithImpl<$Res>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as Address?,
+      isGiftProduct: freezed == isGiftProduct
+          ? _value.isGiftProduct
+          : isGiftProduct // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      giftPackagePrice: freezed == giftPackagePrice
+          ? _value.giftPackagePrice
+          : giftPackagePrice // ignore: cast_nullable_to_non_nullable
+              as double?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -819,6 +1140,10 @@ class __$$OrderImplCopyWithImpl<$Res>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      returnOrCancelReason: freezed == returnOrCancelReason
+          ? _value.returnOrCancelReason
+          : returnOrCancelReason // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -848,8 +1173,12 @@ class _$OrderImpl implements _Order {
       @JsonKey(name: 'shipping_charges') required this.shippingCharges,
       @JsonKey(name: 'payment_status') required this.paymentStatus,
       @JsonKey(name: 'address') required this.address,
+      @JsonKey(name: 'isGiftProduct') required this.isGiftProduct,
+      @JsonKey(name: 'giftPackagePrice') required this.giftPackagePrice,
       @JsonKey(name: 'createdAt') required this.createdAt,
-      @JsonKey(name: 'updatedAt') required this.updatedAt});
+      @JsonKey(name: 'updatedAt') required this.updatedAt,
+      @JsonKey(name: 'returnOrCancelReason')
+      required this.returnOrCancelReason});
 
   factory _$OrderImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrderImplFromJson(json);
@@ -915,15 +1244,24 @@ class _$OrderImpl implements _Order {
   @JsonKey(name: 'address')
   final Address? address;
   @override
+  @JsonKey(name: 'isGiftProduct')
+  final bool? isGiftProduct;
+  @override
+  @JsonKey(name: 'giftPackagePrice')
+  final double? giftPackagePrice;
+  @override
   @JsonKey(name: 'createdAt')
   final String? createdAt;
   @override
   @JsonKey(name: 'updatedAt')
   final String? updatedAt;
+  @override
+  @JsonKey(name: 'returnOrCancelReason')
+  final String? returnOrCancelReason;
 
   @override
   String toString() {
-    return 'Order(id: $id, userId: $userId, brand: $brand, orderId: $orderId, shiprocketOrderId: $shiprocketOrderId, shipmentId: $shipmentId, productId: $productId, quantity: $quantity, sellingPrice: $sellingPrice, discount: $discount, tax: $tax, size: $size, color: $color, subTotal: $subTotal, orderDate: $orderDate, shippingStatus: $shippingStatus, paymentMethod: $paymentMethod, shippingCharges: $shippingCharges, paymentStatus: $paymentStatus, address: $address, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Order(id: $id, userId: $userId, brand: $brand, orderId: $orderId, shiprocketOrderId: $shiprocketOrderId, shipmentId: $shipmentId, productId: $productId, quantity: $quantity, sellingPrice: $sellingPrice, discount: $discount, tax: $tax, size: $size, color: $color, subTotal: $subTotal, orderDate: $orderDate, shippingStatus: $shippingStatus, paymentMethod: $paymentMethod, shippingCharges: $shippingCharges, paymentStatus: $paymentStatus, address: $address, isGiftProduct: $isGiftProduct, giftPackagePrice: $giftPackagePrice, createdAt: $createdAt, updatedAt: $updatedAt, returnOrCancelReason: $returnOrCancelReason)';
   }
 
   @override
@@ -963,10 +1301,16 @@ class _$OrderImpl implements _Order {
             (identical(other.paymentStatus, paymentStatus) ||
                 other.paymentStatus == paymentStatus) &&
             (identical(other.address, address) || other.address == address) &&
+            (identical(other.isGiftProduct, isGiftProduct) ||
+                other.isGiftProduct == isGiftProduct) &&
+            (identical(other.giftPackagePrice, giftPackagePrice) ||
+                other.giftPackagePrice == giftPackagePrice) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.returnOrCancelReason, returnOrCancelReason) ||
+                other.returnOrCancelReason == returnOrCancelReason));
   }
 
   @JsonKey(ignore: true)
@@ -993,8 +1337,11 @@ class _$OrderImpl implements _Order {
         shippingCharges,
         paymentStatus,
         address,
+        isGiftProduct,
+        giftPackagePrice,
         createdAt,
-        updatedAt
+        updatedAt,
+        returnOrCancelReason
       ]);
 
   @JsonKey(ignore: true)
@@ -1034,9 +1381,13 @@ abstract class _Order implements Order {
       @JsonKey(name: 'shipping_charges') required final double? shippingCharges,
       @JsonKey(name: 'payment_status') required final String? paymentStatus,
       @JsonKey(name: 'address') required final Address? address,
+      @JsonKey(name: 'isGiftProduct') required final bool? isGiftProduct,
+      @JsonKey(name: 'giftPackagePrice')
+      required final double? giftPackagePrice,
       @JsonKey(name: 'createdAt') required final String? createdAt,
-      @JsonKey(name: 'updatedAt')
-      required final String? updatedAt}) = _$OrderImpl;
+      @JsonKey(name: 'updatedAt') required final String? updatedAt,
+      @JsonKey(name: 'returnOrCancelReason')
+      required final String? returnOrCancelReason}) = _$OrderImpl;
 
   factory _Order.fromJson(Map<String, dynamic> json) = _$OrderImpl.fromJson;
 
@@ -1101,11 +1452,20 @@ abstract class _Order implements Order {
   @JsonKey(name: 'address')
   Address? get address;
   @override
+  @JsonKey(name: 'isGiftProduct')
+  bool? get isGiftProduct;
+  @override
+  @JsonKey(name: 'giftPackagePrice')
+  double? get giftPackagePrice;
+  @override
   @JsonKey(name: 'createdAt')
   String? get createdAt;
   @override
   @JsonKey(name: 'updatedAt')
   String? get updatedAt;
+  @override
+  @JsonKey(name: 'returnOrCancelReason')
+  String? get returnOrCancelReason;
   @override
   @JsonKey(ignore: true)
   _$$OrderImplCopyWith<_$OrderImpl> get copyWith =>
@@ -1152,12 +1512,12 @@ mixin _$Brand {
   List<String>? get subCategory => throw _privateConstructorUsedError;
   @JsonKey(name: 'GST')
   String? get GST => throw _privateConstructorUsedError;
+  @JsonKey(name: 'role')
+  String? get role => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
   String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updatedAt')
   String? get updatedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'role')
-  String? get role => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1187,9 +1547,9 @@ abstract class $BrandCopyWith<$Res> {
       @JsonKey(name: 'category') String? category,
       @JsonKey(name: 'subCategory') List<String>? subCategory,
       @JsonKey(name: 'GST') String? GST,
+      @JsonKey(name: 'role') String? role,
       @JsonKey(name: 'createdAt') String? createdAt,
-      @JsonKey(name: 'updatedAt') String? updatedAt,
-      @JsonKey(name: 'role') String? role});
+      @JsonKey(name: 'updatedAt') String? updatedAt});
 }
 
 /// @nodoc
@@ -1222,9 +1582,9 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
     Object? category = freezed,
     Object? subCategory = freezed,
     Object? GST = freezed,
+    Object? role = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? role = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -1295,6 +1655,10 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
           ? _value.GST
           : GST // ignore: cast_nullable_to_non_nullable
               as String?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1302,10 +1666,6 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      role: freezed == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1336,9 +1696,9 @@ abstract class _$$BrandImplCopyWith<$Res> implements $BrandCopyWith<$Res> {
       @JsonKey(name: 'category') String? category,
       @JsonKey(name: 'subCategory') List<String>? subCategory,
       @JsonKey(name: 'GST') String? GST,
+      @JsonKey(name: 'role') String? role,
       @JsonKey(name: 'createdAt') String? createdAt,
-      @JsonKey(name: 'updatedAt') String? updatedAt,
-      @JsonKey(name: 'role') String? role});
+      @JsonKey(name: 'updatedAt') String? updatedAt});
 }
 
 /// @nodoc
@@ -1369,9 +1729,9 @@ class __$$BrandImplCopyWithImpl<$Res>
     Object? category = freezed,
     Object? subCategory = freezed,
     Object? GST = freezed,
+    Object? role = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? role = freezed,
   }) {
     return _then(_$BrandImpl(
       id: freezed == id
@@ -1442,6 +1802,10 @@ class __$$BrandImplCopyWithImpl<$Res>
           ? _value.GST
           : GST // ignore: cast_nullable_to_non_nullable
               as String?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1449,10 +1813,6 @@ class __$$BrandImplCopyWithImpl<$Res>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      role: freezed == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1480,9 +1840,9 @@ class _$BrandImpl implements _Brand {
       @JsonKey(name: 'category') required this.category,
       @JsonKey(name: 'subCategory') required final List<String>? subCategory,
       @JsonKey(name: 'GST') required this.GST,
+      @JsonKey(name: 'role') required this.role,
       @JsonKey(name: 'createdAt') required this.createdAt,
-      @JsonKey(name: 'updatedAt') required this.updatedAt,
-      @JsonKey(name: 'role') required this.role})
+      @JsonKey(name: 'updatedAt') required this.updatedAt})
       : _subCategory = subCategory;
 
   factory _$BrandImpl.fromJson(Map<String, dynamic> json) =>
@@ -1548,18 +1908,18 @@ class _$BrandImpl implements _Brand {
   @JsonKey(name: 'GST')
   final String? GST;
   @override
+  @JsonKey(name: 'role')
+  final String? role;
+  @override
   @JsonKey(name: 'createdAt')
   final String? createdAt;
   @override
   @JsonKey(name: 'updatedAt')
   final String? updatedAt;
-  @override
-  @JsonKey(name: 'role')
-  final String? role;
 
   @override
   String toString() {
-    return 'Brand(id: $id, name: $name, email: $email, password: $password, isActive: $isActive, phoneNumber: $phoneNumber, logo: $logo, coverImage: $coverImage, description: $description, cityName: $cityName, brandName: $brandName, companyName: $companyName, companyRegYear: $companyRegYear, revenueOfLastThreeMonths: $revenueOfLastThreeMonths, category: $category, subCategory: $subCategory, GST: $GST, createdAt: $createdAt, updatedAt: $updatedAt, role: $role)';
+    return 'Brand(id: $id, name: $name, email: $email, password: $password, isActive: $isActive, phoneNumber: $phoneNumber, logo: $logo, coverImage: $coverImage, description: $description, cityName: $cityName, brandName: $brandName, companyName: $companyName, companyRegYear: $companyRegYear, revenueOfLastThreeMonths: $revenueOfLastThreeMonths, category: $category, subCategory: $subCategory, GST: $GST, role: $role, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -1597,11 +1957,11 @@ class _$BrandImpl implements _Brand {
             const DeepCollectionEquality()
                 .equals(other._subCategory, _subCategory) &&
             (identical(other.GST, GST) || other.GST == GST) &&
+            (identical(other.role, role) || other.role == role) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.role, role) || other.role == role));
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
@@ -1625,9 +1985,9 @@ class _$BrandImpl implements _Brand {
         category,
         const DeepCollectionEquality().hash(_subCategory),
         GST,
+        role,
         createdAt,
-        updatedAt,
-        role
+        updatedAt
       ]);
 
   @JsonKey(ignore: true)
@@ -1664,9 +2024,10 @@ abstract class _Brand implements Brand {
       @JsonKey(name: 'category') required final String? category,
       @JsonKey(name: 'subCategory') required final List<String>? subCategory,
       @JsonKey(name: 'GST') required final String? GST,
+      @JsonKey(name: 'role') required final String? role,
       @JsonKey(name: 'createdAt') required final String? createdAt,
-      @JsonKey(name: 'updatedAt') required final String? updatedAt,
-      @JsonKey(name: 'role') required final String? role}) = _$BrandImpl;
+      @JsonKey(name: 'updatedAt')
+      required final String? updatedAt}) = _$BrandImpl;
 
   factory _Brand.fromJson(Map<String, dynamic> json) = _$BrandImpl.fromJson;
 
@@ -1722,14 +2083,14 @@ abstract class _Brand implements Brand {
   @JsonKey(name: 'GST')
   String? get GST;
   @override
+  @JsonKey(name: 'role')
+  String? get role;
+  @override
   @JsonKey(name: 'createdAt')
   String? get createdAt;
   @override
   @JsonKey(name: 'updatedAt')
   String? get updatedAt;
-  @override
-  @JsonKey(name: 'role')
-  String? get role;
   @override
   @JsonKey(ignore: true)
   _$$BrandImplCopyWith<_$BrandImpl> get copyWith =>
@@ -2362,6 +2723,10 @@ mixin _$Size {
   int? get stock => throw _privateConstructorUsedError;
   @JsonKey(name: 'price')
   double? get price => throw _privateConstructorUsedError;
+  @JsonKey(name: 'discount')
+  double? get discount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'salePrice')
+  double? get salePrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'sku')
   String? get sku => throw _privateConstructorUsedError;
   @JsonKey(name: 'width')
@@ -2385,6 +2750,8 @@ abstract class $SizeCopyWith<$Res> {
       {@JsonKey(name: 'size') String? size,
       @JsonKey(name: 'stock') int? stock,
       @JsonKey(name: 'price') double? price,
+      @JsonKey(name: 'discount') double? discount,
+      @JsonKey(name: 'salePrice') double? salePrice,
       @JsonKey(name: 'sku') String? sku,
       @JsonKey(name: 'width') String? width,
       @JsonKey(name: 'height') String? height,
@@ -2407,6 +2774,8 @@ class _$SizeCopyWithImpl<$Res, $Val extends Size>
     Object? size = freezed,
     Object? stock = freezed,
     Object? price = freezed,
+    Object? discount = freezed,
+    Object? salePrice = freezed,
     Object? sku = freezed,
     Object? width = freezed,
     Object? height = freezed,
@@ -2424,6 +2793,14 @@ class _$SizeCopyWithImpl<$Res, $Val extends Size>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
+              as double?,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
+      salePrice: freezed == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
               as double?,
       sku: freezed == sku
           ? _value.sku
@@ -2456,6 +2833,8 @@ abstract class _$$SizeImplCopyWith<$Res> implements $SizeCopyWith<$Res> {
       {@JsonKey(name: 'size') String? size,
       @JsonKey(name: 'stock') int? stock,
       @JsonKey(name: 'price') double? price,
+      @JsonKey(name: 'discount') double? discount,
+      @JsonKey(name: 'salePrice') double? salePrice,
       @JsonKey(name: 'sku') String? sku,
       @JsonKey(name: 'width') String? width,
       @JsonKey(name: 'height') String? height,
@@ -2475,6 +2854,8 @@ class __$$SizeImplCopyWithImpl<$Res>
     Object? size = freezed,
     Object? stock = freezed,
     Object? price = freezed,
+    Object? discount = freezed,
+    Object? salePrice = freezed,
     Object? sku = freezed,
     Object? width = freezed,
     Object? height = freezed,
@@ -2492,6 +2873,14 @@ class __$$SizeImplCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
+              as double?,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as double?,
+      salePrice: freezed == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
               as double?,
       sku: freezed == sku
           ? _value.sku
@@ -2520,6 +2909,8 @@ class _$SizeImpl implements _Size {
       {@JsonKey(name: 'size') required this.size,
       @JsonKey(name: 'stock') required this.stock,
       @JsonKey(name: 'price') required this.price,
+      @JsonKey(name: 'discount') required this.discount,
+      @JsonKey(name: 'salePrice') required this.salePrice,
       @JsonKey(name: 'sku') required this.sku,
       @JsonKey(name: 'width') required this.width,
       @JsonKey(name: 'height') required this.height,
@@ -2538,6 +2929,12 @@ class _$SizeImpl implements _Size {
   @JsonKey(name: 'price')
   final double? price;
   @override
+  @JsonKey(name: 'discount')
+  final double? discount;
+  @override
+  @JsonKey(name: 'salePrice')
+  final double? salePrice;
+  @override
   @JsonKey(name: 'sku')
   final String? sku;
   @override
@@ -2552,7 +2949,7 @@ class _$SizeImpl implements _Size {
 
   @override
   String toString() {
-    return 'Size(size: $size, stock: $stock, price: $price, sku: $sku, width: $width, height: $height, weight: $weight)';
+    return 'Size(size: $size, stock: $stock, price: $price, discount: $discount, salePrice: $salePrice, sku: $sku, width: $width, height: $height, weight: $weight)';
   }
 
   @override
@@ -2563,6 +2960,10 @@ class _$SizeImpl implements _Size {
             (identical(other.size, size) || other.size == size) &&
             (identical(other.stock, stock) || other.stock == stock) &&
             (identical(other.price, price) || other.price == price) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
+            (identical(other.salePrice, salePrice) ||
+                other.salePrice == salePrice) &&
             (identical(other.sku, sku) || other.sku == sku) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height) &&
@@ -2571,8 +2972,8 @@ class _$SizeImpl implements _Size {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, size, stock, price, sku, width, height, weight);
+  int get hashCode => Object.hash(runtimeType, size, stock, price, discount,
+      salePrice, sku, width, height, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -2593,6 +2994,8 @@ abstract class _Size implements Size {
       {@JsonKey(name: 'size') required final String? size,
       @JsonKey(name: 'stock') required final int? stock,
       @JsonKey(name: 'price') required final double? price,
+      @JsonKey(name: 'discount') required final double? discount,
+      @JsonKey(name: 'salePrice') required final double? salePrice,
       @JsonKey(name: 'sku') required final String? sku,
       @JsonKey(name: 'width') required final String? width,
       @JsonKey(name: 'height') required final String? height,
@@ -2609,6 +3012,12 @@ abstract class _Size implements Size {
   @override
   @JsonKey(name: 'price')
   double? get price;
+  @override
+  @JsonKey(name: 'discount')
+  double? get discount;
+  @override
+  @JsonKey(name: 'salePrice')
+  double? get salePrice;
   @override
   @JsonKey(name: 'sku')
   String? get sku;

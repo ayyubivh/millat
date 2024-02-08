@@ -40,8 +40,10 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
   @override
   void initState() {
     log('widget typs ${widget.type}');
+    final addressBloc = BlocProvider.of<AddressBloc>(context);
+    addressBloc.add(const AddressEvent.makeDefaultResponse());
     widget.type == AddressNavType.editAddress
-        ? BlocProvider.of<AddressBloc>(context).add(
+        ? addressBloc.add(
             FetchAddressByIdEvent(context: context, id: widget.addressId ?? ""))
         : null;
     widget.type == AddressNavType.editAddress ? addFieldVal() : null;
@@ -92,10 +94,13 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               stateController.text = "";
               contryController.text = "India";
             }
-            if (state.successMessageInShop == true) {
+            if (state.addAddressSuccess) {
               context.pushReplacementNamed(
                   MyAppRouteConstants.checkoutRouteName,
                   extra: {'checkoutType': CheckoutType.shop});
+            }
+            if (state.updateAddressSuccess) {
+              context.pushReplacement(MyAppRouteConstants.addressBookRouteName);
             }
           },
           builder: (context, state) => state.isLoading

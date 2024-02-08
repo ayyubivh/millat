@@ -44,4 +44,5 @@ class AddressEvent with _$AddressEvent {
     required String country,
     required String id,
   }) = UpdateAddress;
+  const factory AddressEvent.makeDefaultResponse() = _MakeDefaultResponse;
 }

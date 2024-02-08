@@ -52,24 +52,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) async {
     try {
-      // final stopwatch = Stopwatch()..start();
-      // Create a list of Future objects for each event
-      // final apiCalls = [
-      //   FetchTopOffersBanner(),
-      //   FetchBrandofTheDay(),
-      //   FetchEventOfTheMonth(),
-      //   FetchHadithOfTheDay(),
-      //   ChangeIndexofAllaysaysBg(),
-      //   FetchAllahSays(),
-      // ];
-
-      // Dispatch all events concurrently using Future.forEach
-      // var data = await Future.wait();
-
-      // stopwatch.stop();
-      // log('ended time: ${stopwatch.elapsedMilliseconds} milliseconds');
-
-      // All events are completed, you can proceed with the logic after API calls here
+      final data = await homeServices.fetchAll();
+      print(data);
     } catch (e) {
       if (kDebugMode) {
         debugPrint("error $e");

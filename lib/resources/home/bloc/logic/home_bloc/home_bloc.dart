@@ -51,9 +51,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _FetchAllHomePageApi event,
     Emitter<HomeState> emit,
   ) async {
+    print('object');
     try {
       final data = await homeServices.fetchAll();
-      print(data);
+      emit(state.copyWith(
+        largeDiscountModel: data[0],
+        topOffersModel: data[1],
+        brandOftheDayModel: data[2],
+        haditOfTheDayModel: data[3],
+        eventOfTheMonthModel: data[4],
+        allaySaysModel: data[5],
+      ));
     } catch (e) {
       if (kDebugMode) {
         debugPrint("error $e");

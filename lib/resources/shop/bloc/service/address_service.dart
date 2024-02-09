@@ -94,9 +94,6 @@ class AddressService extends HttpServices {
         body: body,
       );
       if (response.statusCode == 200) {
-        context
-            .read<AddressBloc>()
-            .add(AddressEvent.fetchAddressEvent(context: context));
         final Map<String, dynamic> data = json.decode(response.body);
         debugPrint(data.toString());
         return data;
@@ -114,7 +111,7 @@ class AddressService extends HttpServices {
   }
 //fetching the all address
 
-  Future<AddressModel> fetchAddress(BuildContext context) async {
+  Future<AddressModel> fetchAddress() async {
     const endPoint = 'address';
 
     final response = await get(endPoint: endPoint, isToken: true);
@@ -152,7 +149,7 @@ class AddressService extends HttpServices {
           debugPrint('address here fetxh ${response.body}');
           final Map<String, dynamic> data = json.decode(response.body);
           final result = AddressIdModel.fromJson(data);
-          debugPrint('api address by id  $result');
+
           return result;
         } else {
           debugPrint(

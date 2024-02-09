@@ -8,17 +8,22 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../shop/bloc/logic/address_bloc/address_bloc.dart';
 
 class AddressBookView extends StatelessWidget {
-  static const String routeName = '/manage-address';
   const AddressBookView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<AddressBloc>(context)
+          .add(FetchAddressEvent(context: context));
+    });
+
     return Scaffold(
       backgroundColor: ColorManager.scaffoldBgColor,
       appBar: AppBar(
@@ -34,32 +39,31 @@ class AddressBookView extends StatelessWidget {
         elevation: 0,
         backgroundColor: ColorManager.whiteColor,
       ),
-      body: BlocProvider(
-        create: (context) =>
-            AddressBloc()..add(FetchAddressEvent(context: context)),
-        child: BlocBuilder<AddressBloc, AddressState>(
-          builder: (context, state) {
-            if (state.addressModel?.result == null) {
-              return Column(
-                children: [
-                  ...List.generate(
-                    3,
-                    (index) => Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 10),
-                      child: ShimmerUtils.customRectangleShimmer(
-                          SizeUtility(context).width, 200,
-                          borderRadius: 14),
-                    ),
-                  )
-                ],
-              );
-            }
+      body: BlocBuilder<AddressBloc, AddressState>(
+        builder: (context, state) {
+          if (state.addressModel?.result == null) {
+            return Column(
+              children: [
+                ...List.generate(
+                  3,
+                  (index) => Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 10),
+                    child: ShimmerUtils.customRectangleShimmer(
+                        SizeUtility(context).width, 200,
+                        borderRadius: 14),
+                  ),
+                )
+              ],
+            );
+          } else if (state.isLoading) {
+            return const Loader();
+          } else {
             return state.addressModel!.result.addresses.isNotEmpty
                 ? _addressContainerWidget(context)
                 : _emptyAddressWidget(context);
-          },
-        ),
+          }
+        },
       ),
     );
   }

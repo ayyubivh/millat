@@ -26,7 +26,7 @@ class HomeServices extends HttpServices {
   //Here fetching all the large discount banners
 
   Future fetchAll() async {
-    await Future.wait([
+    final data = await Future.wait([
       fetchLargeDiscountsBanner(),
       fetchAllTopOfferBanner(),
       fetchAllbrandOftheDay(),
@@ -34,6 +34,7 @@ class HomeServices extends HttpServices {
       fetchEventOfTheMonth(),
       fetchAllahSaysApi(),
     ]);
+    return data;
   }
 
   Future<LargeDiscountModel> fetchLargeDiscountsBanner() async {

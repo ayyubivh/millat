@@ -95,6 +95,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchArticlesByCategory>(_fetchArticlesByCategory);
     on<FetchBrandProductsItemCount>(_fetchBrandProductsItemCount);
     on<_ChangeSizeIndex>(_changeSizeIndex);
+    on<EmptyRazorpayOrderId>(_emptyRazorpayOrderId);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -815,5 +816,10 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   _changeSizeIndex(_ChangeSizeIndex event, Emitter<ShopProductsState> emit) {
     emit(state.copyWith(selectedSizeIndex: event.index));
+  }
+
+  _emptyRazorpayOrderId(
+      EmptyRazorpayOrderId event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(orderIdRazorPay: ""));
   }
 }

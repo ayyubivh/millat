@@ -798,6 +798,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
   void _onPaymentError(
     PaymentFailureResponse response,
   ) {
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const EmptyRazorpayOrderId());
     showSnackBar(context, response.error.toString());
   }
 

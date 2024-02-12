@@ -148,4 +148,5 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.fetchBrandProductsItemCount(
       {required List<String>? ids}) = FetchBrandProductsItemCount;
   const factory ShopProductsEvent.changeSizeIndex(int index) = _ChangeSizeIndex;
+  const factory ShopProductsEvent.emptyRazorpayOrderId() = EmptyRazorpayOrderId;
 }

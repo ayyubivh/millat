@@ -25,11 +25,11 @@ class SendOTP extends AuthEvent {
   SendOTP(this.phoneNumber);
 }
 
-class SendOTPonly extends AuthEvent {
-  final String phoneNumber;
+// class SendOTPonly extends AuthEvent {
+//   final String phoneNumber;
 
-  SendOTPonly(this.phoneNumber);
-}
+//   SendOTPonly(this.phoneNumber);
+// }
 
 class ResendSendOTP extends AuthEvent {}
 
@@ -37,10 +37,8 @@ class SignInWithPhone extends AuthEvent {
   final String? phoneNumber;
   final BuildContext context;
   final String referralCode;
-  final bool isSignUp;
 
-  SignInWithPhone(this.context,
-      {this.phoneNumber, required this.isSignUp, required this.referralCode});
+  SignInWithPhone(this.context, {this.phoneNumber, required this.referralCode});
 }
 
 class VerifyOTP extends AuthEvent {

@@ -337,7 +337,7 @@ class SingleProductView extends StatelessWidget {
               final data = state.reviewModel?.result;
               final isComment = state
                   .reviewCommentsModel?.result?.data!.reviewComments!
-                  .every((e) => e.comment != "");
+                  .every((e) => e.comment?.isEmpty ?? true);
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -754,72 +754,68 @@ class SingleProductView extends StatelessWidget {
     required String dob,
     required String image,
   }) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CircleAvatar(
-            backgroundColor: ColorManager.scaffoldBgColor,
-            backgroundImage: NetworkImage(image),
-            radius: 30,
-          ),
-          kWidth15,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: SizeUtility(context).width * 70 / 100,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      name,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w700, fontSize: 17),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              RatingBar.builder(
-                itemSize: 20,
-                initialRating: rating,
-                minRating: 1,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                itemBuilder: (context, _) => const Icon(
-                  Icons.star,
-                  color: orange255,
-                ),
-                onRatingUpdate: (value) {
-                  return;
-                },
-              ),
-              kHeight15,
-              SizedBox(
-                  width: SizeUtility(context).width * 70 / 100,
-                  child: Text(
-                    comment,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CircleAvatar(
+          backgroundColor: ColorManager.scaffoldBgColor,
+          backgroundImage: NetworkImage(image),
+          radius: 30,
+        ),
+        kWidth15,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: SizeUtility(context).width * 70 / 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    name,
                     style: const TextStyle(
                         fontWeight: FontWeight.w700, fontSize: 17),
-                  )),
-              kHeight15,
-              Text(
-                dob,
-                style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 17,
-                    color: ColorManager.textGrey99),
+                  ),
+                ],
               ),
-            ],
-          )
-        ],
-      ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            RatingBar.builder(
+              itemSize: 20,
+              initialRating: rating,
+              minRating: 1,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              ignoreGestures: true,
+              itemCount: 5,
+              itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+              itemBuilder: (context, _) => const Icon(
+                Icons.star,
+                color: orange255,
+              ),
+              onRatingUpdate: (value) {},
+            ),
+            kHeight15,
+            SizedBox(
+                width: SizeUtility(context).width * 70 / 100,
+                child: Text(
+                  comment,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w700, fontSize: 17),
+                )),
+            kHeight15,
+            Text(
+              dob,
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 17,
+                  color: ColorManager.textGrey99),
+            ),
+          ],
+        )
+      ],
     );
   }
 }

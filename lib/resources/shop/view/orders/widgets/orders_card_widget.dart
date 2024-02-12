@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:go_router/go_router.dart';
+import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/view/orders/review_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -357,17 +359,23 @@ class OrdersProfileWidget extends StatelessWidget {
                                           ),
                                         ),
                                         Spacer(),
-                                        for (int i = 0; i < 5; i++)
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 3.0),
-                                            child: Icon(
-                                              Icons.star,
-                                              color: ColorManager
-                                                  .lightBlackColor
-                                                  .withOpacity(0.7),
-                                            ),
+                                        RatingBar.builder(
+                                          itemSize: 20,
+                                          initialRating: 0,
+                                          direction: Axis.horizontal,
+                                          allowHalfRating: true,
+                                          ignoreGestures: true,
+                                          itemCount: 5,
+                                          itemPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 4.0),
+                                          itemBuilder: (context, _) =>
+                                              const Icon(
+                                            Icons.star,
+                                            color: orange255,
                                           ),
+                                          onRatingUpdate: (value) {},
+                                        ),
                                         kWidth20,
                                       ],
                                     ),

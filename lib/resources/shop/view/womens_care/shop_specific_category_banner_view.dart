@@ -52,7 +52,7 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                                   const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 20,
-                                mainAxisExtent: 275,
+                                mainAxisExtent: 295,
                                 mainAxisSpacing: 20,
                               ),
                               itemCount:

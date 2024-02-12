@@ -315,9 +315,13 @@ class OrdersProfileWidget extends StatelessWidget {
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
-                              orderStatus != Appstrings.cancelled
-                                  ? "Exchange/Return closed by $formattedEstimatedDeliveryDate"
-                                  : Appstrings.orderCancelled,
+                              orderStatus == Appstrings.cancelled
+                                  ? Appstrings.orderCancelled
+                                  : orderStatus == Appstrings.delivered
+                                      ? "Exchange/Return closed by $formattedEstimatedDeliveryDate"
+                                      : orderStatus == Appstrings.processing
+                                          ? "${Appstrings.deliveryEstimate} Within 7 working days"
+                                          : '',
                               style: const TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500,

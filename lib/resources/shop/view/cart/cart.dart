@@ -58,6 +58,12 @@ class CartView extends StatelessWidget {
               itemBuilder: (context, index) {
                 final data =
                     state.cartModel?.result?.cartProducts?.cartItems?[index];
+                var actualPrice;
+                data?.productId?.size?.forEach((element) {
+                  if (data.size == element.size) {
+                    actualPrice = element.price;
+                  }
+                });
 
                 if (data == null) {
                   return ShimmerUtils.cartShimmer(context);
@@ -70,7 +76,7 @@ class CartView extends StatelessWidget {
                   size: data.size ?? "",
                   image: data.productId?.images?[0],
                   price: data.sellingPrice?.toInt() ?? 0,
-                  actualPrice: data.productId?.regularPrice.toString(),
+                  actualPrice: actualPrice.toString(),
                   jsonColor: data.color,
                   colorName: data.color,
                   quantity: data.quantity!.toInt(),
@@ -89,7 +95,7 @@ class CartView extends StatelessWidget {
               if (state.cartLoading) {
                 return const SizedBox();
               }
-              final subTotal = cartItems?.amountDetails?.subTotal;
+              final subTotal = cartItems?.amountDetails?.total;
 
               final totalTax = state.cartModel?.result?.amountDetails?.totalTax;
               // final total = subTotal + totalTax;

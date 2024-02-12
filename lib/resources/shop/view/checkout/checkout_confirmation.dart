@@ -216,6 +216,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                         itemCount: itemCount,
                         itemBuilder: (context, index) {
                           final data = cartItems![index];
+                          var actualPrice;
+                          data.productId?.size?.forEach((element) {
+                            if (data.size == element.size) {
+                              actualPrice = element.price;
+                            }
+                          });
                           return CartProductWidget(
                             showQuantity: true,
                             id: data.productId!.id,
@@ -223,9 +229,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             subTitle: data.productId!.description,
                             size: data.size,
                             image: data.productId?.images![0],
-                            price: data.productId?.salePrice?.toInt() ?? 0,
-                            actualPrice:
-                                data.productId?.regularPrice.toString(),
+                            price: data.sellingPrice?.toInt() ?? 0,
+                            actualPrice: actualPrice.toString(),
                             jsonColor: data.color,
                             colorName: data.color,
                             quantity: data.quantity!.toInt(),
@@ -373,8 +378,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               builder: (context, state) {
                 final cartItems = state.cartModel?.result;
 
-                final subTotal = cartItems?.amountDetails?.subTotal;
-                final total = cartItems?.amountDetails?.total;
+                final subTotal = cartItems?.amountDetails?.total;
+                final total = cartItems?.amountDetails?.subTotal;
 
                 final shippingFee = cartItems?.amountDetails?.shippingCost;
 

@@ -101,7 +101,7 @@ class SingleProductView extends StatelessWidget {
                                     color: black60, fontSize: 17, height: 1.5)),
                             Row(
                               children: [
-                                Text('${data.size?[selectedSize].price} ₹',
+                                Text('${data.size?[selectedSize].salePrice} ₹',
                                     style: TextStyle(
                                       color: ColorManager.primary,
                                       fontSize: 21,
@@ -503,7 +503,7 @@ class SingleProductView extends StatelessWidget {
               child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
                 builder: (context, state) {
                   final price = state.productByIdModel?.result?.product
-                      ?.size?[state.selectedSizeIndex].price;
+                      ?.size?[state.selectedSizeIndex].salePrice;
                   return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -536,7 +536,8 @@ class SingleProductView extends StatelessWidget {
                                             fontWeight: FontWeight.w700,
                                             fontSize: 24)),
                                     kHeight20,
-                                    Text('$regularPrice ₹',
+                                    Text(
+                                        '${state.productByIdModel?.result?.product?.size?[state.selectedSizeIndex].price} ₹',
                                         style: const TextStyle(
                                             decoration:
                                                 TextDecoration.lineThrough,
@@ -672,11 +673,13 @@ class SingleProductView extends StatelessWidget {
                                 behavior: HitTestBehavior.translucent,
                                 onTap: () {
                                   context.pop();
-
                                   context.read<CartBloc>().add(AddCartEvent(
                                         productId: productId,
                                         basePrice: price ?? 0.0,
-                                        size: size[selectedSize],
+                                        size: size[context
+                                            .read<ShopProductsBloc>()
+                                            .state
+                                            .selectedSizeIndex],
                                         color: color,
                                         context: context,
                                         quantity: quantity,
@@ -719,7 +722,7 @@ class SingleProductView extends StatelessWidget {
                                     context.read<CartBloc>().add(AddCartEvent(
                                         productId: productId,
                                         basePrice: price ?? 0.0,
-                                        size: size[selectedSize],
+                                        size: size[state.selectedSizeIndex],
                                         color: color,
                                         context: context,
                                         quantity: quantity,

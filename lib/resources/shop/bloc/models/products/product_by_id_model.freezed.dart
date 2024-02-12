@@ -2025,6 +2025,7 @@ mixin _$Size {
   String? get size => throw _privateConstructorUsedError;
   int? get stock => throw _privateConstructorUsedError;
   double? get price => throw _privateConstructorUsedError;
+  double? get salePrice => throw _privateConstructorUsedError;
   String? get sku => throw _privateConstructorUsedError;
   String? get width => throw _privateConstructorUsedError;
   String? get height => throw _privateConstructorUsedError;
@@ -2044,6 +2045,7 @@ abstract class $SizeCopyWith<$Res> {
       {String? size,
       int? stock,
       double? price,
+      double? salePrice,
       String? sku,
       String? width,
       String? height,
@@ -2066,6 +2068,7 @@ class _$SizeCopyWithImpl<$Res, $Val extends Size>
     Object? size = freezed,
     Object? stock = freezed,
     Object? price = freezed,
+    Object? salePrice = freezed,
     Object? sku = freezed,
     Object? width = freezed,
     Object? height = freezed,
@@ -2083,6 +2086,10 @@ class _$SizeCopyWithImpl<$Res, $Val extends Size>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
+              as double?,
+      salePrice: freezed == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
               as double?,
       sku: freezed == sku
           ? _value.sku
@@ -2115,6 +2122,7 @@ abstract class _$$SizeImplCopyWith<$Res> implements $SizeCopyWith<$Res> {
       {String? size,
       int? stock,
       double? price,
+      double? salePrice,
       String? sku,
       String? width,
       String? height,
@@ -2134,6 +2142,7 @@ class __$$SizeImplCopyWithImpl<$Res>
     Object? size = freezed,
     Object? stock = freezed,
     Object? price = freezed,
+    Object? salePrice = freezed,
     Object? sku = freezed,
     Object? width = freezed,
     Object? height = freezed,
@@ -2151,6 +2160,10 @@ class __$$SizeImplCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
+              as double?,
+      salePrice: freezed == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
               as double?,
       sku: freezed == sku
           ? _value.sku
@@ -2179,6 +2192,7 @@ class _$SizeImpl implements _Size {
       {required this.size,
       required this.stock,
       required this.price,
+      required this.salePrice,
       required this.sku,
       required this.width,
       required this.height,
@@ -2194,6 +2208,8 @@ class _$SizeImpl implements _Size {
   @override
   final double? price;
   @override
+  final double? salePrice;
+  @override
   final String? sku;
   @override
   final String? width;
@@ -2204,7 +2220,7 @@ class _$SizeImpl implements _Size {
 
   @override
   String toString() {
-    return 'Size(size: $size, stock: $stock, price: $price, sku: $sku, width: $width, height: $height, weight: $weight)';
+    return 'Size(size: $size, stock: $stock, price: $price, salePrice: $salePrice, sku: $sku, width: $width, height: $height, weight: $weight)';
   }
 
   @override
@@ -2215,6 +2231,8 @@ class _$SizeImpl implements _Size {
             (identical(other.size, size) || other.size == size) &&
             (identical(other.stock, stock) || other.stock == stock) &&
             (identical(other.price, price) || other.price == price) &&
+            (identical(other.salePrice, salePrice) ||
+                other.salePrice == salePrice) &&
             (identical(other.sku, sku) || other.sku == sku) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height) &&
@@ -2223,8 +2241,8 @@ class _$SizeImpl implements _Size {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, size, stock, price, sku, width, height, weight);
+  int get hashCode => Object.hash(
+      runtimeType, size, stock, price, salePrice, sku, width, height, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -2245,6 +2263,7 @@ abstract class _Size implements Size {
       {required final String? size,
       required final int? stock,
       required final double? price,
+      required final double? salePrice,
       required final String? sku,
       required final String? width,
       required final String? height,
@@ -2258,6 +2277,8 @@ abstract class _Size implements Size {
   int? get stock;
   @override
   double? get price;
+  @override
+  double? get salePrice;
   @override
   String? get sku;
   @override

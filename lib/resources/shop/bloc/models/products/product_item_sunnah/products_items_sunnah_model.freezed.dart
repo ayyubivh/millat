@@ -635,6 +635,7 @@ mixin _$ItemList {
   SubCategoryId? get subCategoryId => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
+  String? get thumbnail => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
   String? get brandId => throw _privateConstructorUsedError;
@@ -656,6 +657,7 @@ abstract class $ItemListCopyWith<$Res> {
       SubCategoryId? subCategoryId,
       String? title,
       String? image,
+      String? thumbnail,
       String? createdAt,
       String? updatedAt,
       String? brandId});
@@ -682,6 +684,7 @@ class _$ItemListCopyWithImpl<$Res, $Val extends ItemList>
     Object? subCategoryId = freezed,
     Object? title = freezed,
     Object? image = freezed,
+    Object? thumbnail = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? brandId = freezed,
@@ -706,6 +709,10 @@ class _$ItemListCopyWithImpl<$Res, $Val extends ItemList>
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
@@ -761,6 +768,7 @@ abstract class _$$ItemListImplCopyWith<$Res>
       SubCategoryId? subCategoryId,
       String? title,
       String? image,
+      String? thumbnail,
       String? createdAt,
       String? updatedAt,
       String? brandId});
@@ -787,6 +795,7 @@ class __$$ItemListImplCopyWithImpl<$Res>
     Object? subCategoryId = freezed,
     Object? title = freezed,
     Object? image = freezed,
+    Object? thumbnail = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? brandId = freezed,
@@ -811,6 +820,10 @@ class __$$ItemListImplCopyWithImpl<$Res>
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
@@ -837,6 +850,7 @@ class _$ItemListImpl implements _ItemList {
       this.subCategoryId,
       this.title,
       this.image,
+      this.thumbnail,
       this.createdAt,
       this.updatedAt,
       this.brandId});
@@ -856,6 +870,8 @@ class _$ItemListImpl implements _ItemList {
   @override
   final String? image;
   @override
+  final String? thumbnail;
+  @override
   final String? createdAt;
   @override
   final String? updatedAt;
@@ -864,7 +880,7 @@ class _$ItemListImpl implements _ItemList {
 
   @override
   String toString() {
-    return 'ItemList(id: $id, categoryId: $categoryId, subCategoryId: $subCategoryId, title: $title, image: $image, createdAt: $createdAt, updatedAt: $updatedAt, brandId: $brandId)';
+    return 'ItemList(id: $id, categoryId: $categoryId, subCategoryId: $subCategoryId, title: $title, image: $image, thumbnail: $thumbnail, createdAt: $createdAt, updatedAt: $updatedAt, brandId: $brandId)';
   }
 
   @override
@@ -879,6 +895,8 @@ class _$ItemListImpl implements _ItemList {
                 other.subCategoryId == subCategoryId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.image, image) || other.image == image) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -889,7 +907,7 @@ class _$ItemListImpl implements _ItemList {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, categoryId, subCategoryId,
-      title, image, createdAt, updatedAt, brandId);
+      title, image, thumbnail, createdAt, updatedAt, brandId);
 
   @JsonKey(ignore: true)
   @override
@@ -912,6 +930,7 @@ abstract class _ItemList implements ItemList {
       final SubCategoryId? subCategoryId,
       final String? title,
       final String? image,
+      final String? thumbnail,
       final String? createdAt,
       final String? updatedAt,
       final String? brandId}) = _$ItemListImpl;
@@ -930,6 +949,8 @@ abstract class _ItemList implements ItemList {
   String? get title;
   @override
   String? get image;
+  @override
+  String? get thumbnail;
   @override
   String? get createdAt;
   @override

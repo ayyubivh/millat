@@ -29,7 +29,7 @@ class TermsConditionsView extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (context) => TermsAndConditionsBloc()
-          ..add(const FetchTermsAndConditionsEvent(slug: "terms_conditions")),
+          ..add(const FetchTermsAndConditionsEvent(slug: "app_terms_conditions")),
         child: BlocBuilder<TermsAndConditionsBloc, TermsAndConditionsState>(
           builder: (context, state) {
             final data = state.termsConditionsModel?.result.data.content;
@@ -45,17 +45,16 @@ class TermsConditionsView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             kHeight20,
+                            // Text(
+                            //   data?[index].title ?? "",
+                            //   style: const TextStyle(
+                            //     fontSize: 18,
+                            //     fontWeight: FontWeight.w700,
+                            //   ),
+                            // ),
+                            // kHeight20,
                             Text(
-                              data?[index].title ?? "",
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            kHeight20,
-                            Text(
-                              Utilities.removeFootnotesFromMeaning(
-                                  data?[index].html ?? ""),
+                              Utilities.removeFootnotesFromMeaning(data ?? ""),
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,

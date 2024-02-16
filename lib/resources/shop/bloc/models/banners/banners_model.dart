@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'banners_model.freezed.dart';
 part 'banners_model.g.dart';
@@ -11,7 +9,7 @@ class BannersModel with _$BannersModel {
     required String? message,
     required String? error,
     required BannerResult? result,
-  }) = _BanersModel;
+  }) = _BannersModel;
 
   factory BannersModel.fromJson(Map<String, dynamic> json) =>
       _$BannersModelFromJson(json);
@@ -30,15 +28,47 @@ class BannerResult with _$BannerResult {
 @freezed
 class Banners with _$Banners {
   const factory Banners({
-    @JsonKey(name: "_id") required String id,
-    @JsonKey(name: "title") required String title,
-    @JsonKey(name: "slug") required String slug,
-    @JsonKey(name: "image") required String image,
-    @JsonKey(name: "url") required String url,
-    @JsonKey(name: "createdAt") required String createdAt,
-    @JsonKey(name: "updatedAt") required String updatedAt,
+    required Routing? routing,
+    @JsonKey(name: '_id') required String? id,
+    required String? title,
+    required String? slug,
+    required String? image,
+    required String? url,
+    required String? createdAt,
+    required String? updatedAt,
+    @JsonKey(name: '__v') int? v,
+    int? discount,
+    String? startDate,
+    String? endDate,
+    String? status,
   }) = _Banners;
 
   factory Banners.fromJson(Map<String, dynamic> json) =>
       _$BannersFromJson(json);
+}
+
+@freezed
+class Routing with _$Routing {
+  const factory Routing({
+    required String? route,
+    required CategoryId? categoryId,
+    required CategoryId? subCategoryId,
+    required CategoryId? itemTypeId,
+    required String? city,
+    required String? country,
+  }) = _Routing;
+
+  factory Routing.fromJson(Map<String, dynamic> json) =>
+      _$RoutingFromJson(json);
+}
+
+@freezed
+class CategoryId with _$CategoryId {
+  const factory CategoryId({
+    @JsonKey(name: '_id') required String? id,
+    required String? title,
+  }) = _CategoryId;
+
+  factory CategoryId.fromJson(Map<String, dynamic> json) =>
+      _$CategoryIdFromJson(json);
 }

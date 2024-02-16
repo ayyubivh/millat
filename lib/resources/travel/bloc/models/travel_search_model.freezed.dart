@@ -22,11 +22,11 @@ TravelSearchLocationModels _$TravelSearchLocationModelsFromJson(
 /// @nodoc
 mixin _$TravelSearchLocationModels {
   @JsonKey(name: "_id")
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "city")
-  String get city => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
   @JsonKey(name: "country")
-  String get country => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,9 +42,9 @@ abstract class $TravelSearchLocationModelsCopyWith<$Res> {
           TravelSearchLocationModels>;
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
-      @JsonKey(name: "city") String city,
-      @JsonKey(name: "country") String country});
+      {@JsonKey(name: "_id") String? id,
+      @JsonKey(name: "city") String? city,
+      @JsonKey(name: "country") String? country});
 }
 
 /// @nodoc
@@ -61,23 +61,23 @@ class _$TravelSearchLocationModelsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? city = null,
-    Object? country = null,
+    Object? id = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -92,9 +92,9 @@ abstract class _$$TravelSearchLocationModelsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
-      @JsonKey(name: "city") String city,
-      @JsonKey(name: "country") String country});
+      {@JsonKey(name: "_id") String? id,
+      @JsonKey(name: "city") String? city,
+      @JsonKey(name: "country") String? country});
 }
 
 /// @nodoc
@@ -110,23 +110,23 @@ class __$$TravelSearchLocationModelsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? city = null,
-    Object? country = null,
+    Object? id = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
   }) {
     return _then(_$TravelSearchLocationModelsImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -145,13 +145,13 @@ class _$TravelSearchLocationModelsImpl implements _TravelSearchLocationModels {
 
   @override
   @JsonKey(name: "_id")
-  final String id;
+  final String? id;
   @override
   @JsonKey(name: "city")
-  final String city;
+  final String? city;
   @override
   @JsonKey(name: "country")
-  final String country;
+  final String? country;
 
   @override
   String toString() {
@@ -190,9 +190,9 @@ class _$TravelSearchLocationModelsImpl implements _TravelSearchLocationModels {
 abstract class _TravelSearchLocationModels
     implements TravelSearchLocationModels {
   const factory _TravelSearchLocationModels(
-          {@JsonKey(name: "_id") required final String id,
-          @JsonKey(name: "city") required final String city,
-          @JsonKey(name: "country") required final String country}) =
+          {@JsonKey(name: "_id") required final String? id,
+          @JsonKey(name: "city") required final String? city,
+          @JsonKey(name: "country") required final String? country}) =
       _$TravelSearchLocationModelsImpl;
 
   factory _TravelSearchLocationModels.fromJson(Map<String, dynamic> json) =
@@ -200,13 +200,13 @@ abstract class _TravelSearchLocationModels
 
   @override
   @JsonKey(name: "_id")
-  String get id;
+  String? get id;
   @override
   @JsonKey(name: "city")
-  String get city;
+  String? get city;
   @override
   @JsonKey(name: "country")
-  String get country;
+  String? get country;
   @override
   @JsonKey(ignore: true)
   _$$TravelSearchLocationModelsImplCopyWith<_$TravelSearchLocationModelsImpl>

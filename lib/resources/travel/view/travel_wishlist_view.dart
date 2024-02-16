@@ -99,7 +99,7 @@ class TravelWishlistView extends StatelessWidget {
               itemBuilder: (context, index) {
                 //   return _buildItems(
                 //       context, state.searchProducts![index]);
-                final data = state.wishlistProducts![index].product;
+                final data = state.wishlistProducts![index];
                 return TravelProductItemWidget(data: data);
               },
             );

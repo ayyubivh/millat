@@ -1,7 +1,8 @@
 import 'dart:async';
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/shop/bloc/models/articles/article_category/article_categories_model.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
 import 'package:millat/resources/shop/bloc/models/category/specific_category_model.dart';
@@ -13,6 +14,7 @@ import 'package:millat/resources/shop/bloc/models/recent_products/recent_product
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/brand_model.dart';
 import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import '../../models/articles/article_by_id_model.dart';
 import '../../models/banners/banners_model.dart';
 import '../../models/home_sub_category_card/home_sub_category_card_model.dart';
@@ -94,6 +96,8 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<SaveArticleCategoryFilterVal>(_saveArticleCategoryFilterVal);
     on<FetchArticlesByCategory>(_fetchArticlesByCategory);
     on<FetchBrandProductsItemCount>(_fetchBrandProductsItemCount);
+    on<_ChangeSizeIndex>(_changeSizeIndex);
+    on<EmptyRazorpayOrderId>(_emptyRazorpayOrderId);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -625,7 +629,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   _fetchProductsById(
       FetchProductsById event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(isLoading: true));
+    emit(state.copyWith(isLoading: true, productByIdModel: null));
     try {
       final data = await shopService.fetchProductByid(id: event.id);
       emit(state.copyWith(productByIdModel: data, isLoading: false));
@@ -669,6 +673,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await shopService.fetchBrandItemsById(id: event.id);
+
       emit(state.copyWith(brandItemsModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
@@ -741,22 +746,20 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await ordersService.postOrderRewards(
         context: event.context,
-        price: event.price,
         addressId: event.addressId,
-        totalQuantity: event.totalQuantity,
         productId: event.productId,
-        brandId: event.brandId,
-        coins: event.coins,
-        color: event.color,
-        size: event.size,
       );
 
       final orderIds = data["result"]["orderIds"][0];
-      debugPrint('here orderid $orderIds');
 
-      emit(state.copyWith(
-          isLoading: false, orderId: orderIds, orderSucces: true));
-      debugPrint('here is the order id in the bloc ${state.orderId}');
+      if (orderIds != null) {
+        emit(state.copyWith(
+            isLoading: false, orderId: orderIds, orderSucces: true));
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          event.context.pushReplacementNamed(MyAppRouteConstants.homeTabsRouteName);
+        });
+        debugPrint('here is the order id in the bloc ${state.orderId}');
+      }
     } catch (e) {
       emit(state.copyWith(
           errorMessage: e.toString(), isLoading: false, orderSucces: false));
@@ -809,5 +812,14 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }
+  }
+
+  _changeSizeIndex(_ChangeSizeIndex event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(selectedSizeIndex: event.index));
+  }
+
+  _emptyRazorpayOrderId(
+      EmptyRazorpayOrderId event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(orderIdRazorPay: ""));
   }
 }

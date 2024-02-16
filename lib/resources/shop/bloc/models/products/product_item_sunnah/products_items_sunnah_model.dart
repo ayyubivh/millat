@@ -51,6 +51,7 @@ class ItemList with _$ItemList {
     SubCategoryId? subCategoryId,
     String? title,
     String? image,
+    String? thumbnail,
     String? createdAt,
     String? updatedAt,
     String? brandId,

@@ -394,7 +394,7 @@ Data _$DataFromJson(Map<String, dynamic> json) {
 mixin _$Data {
   String? get id => throw _privateConstructorUsedError;
   String get slug => throw _privateConstructorUsedError;
-  List<TermsCondition>? get content => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get date => throw _privateConstructorUsedError;
   String? get policyType => throw _privateConstructorUsedError;
@@ -413,7 +413,7 @@ abstract class $DataCopyWith<$Res> {
   $Res call(
       {String? id,
       String slug,
-      List<TermsCondition>? content,
+      String? content,
       String? createdAt,
       String? date,
       String? policyType,
@@ -453,7 +453,7 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as List<TermsCondition>?,
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -484,7 +484,7 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
   $Res call(
       {String? id,
       String slug,
-      List<TermsCondition>? content,
+      String? content,
       String? createdAt,
       String? date,
       String? policyType,
@@ -519,9 +519,9 @@ class __$$DataImplCopyWithImpl<$Res>
           : slug // ignore: cast_nullable_to_non_nullable
               as String,
       content: freezed == content
-          ? _value._content
+          ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as List<TermsCondition>?,
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -548,12 +548,11 @@ class _$DataImpl implements _Data {
   _$DataImpl(
       {required this.id,
       required this.slug,
-      required final List<TermsCondition>? content,
+      required this.content,
       required this.createdAt,
       required this.date,
       required this.policyType,
-      required this.updatedAt})
-      : _content = content;
+      required this.updatedAt});
 
   factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
       _$$DataImplFromJson(json);
@@ -562,16 +561,8 @@ class _$DataImpl implements _Data {
   final String? id;
   @override
   final String slug;
-  final List<TermsCondition>? _content;
   @override
-  List<TermsCondition>? get content {
-    final value = _content;
-    if (value == null) return null;
-    if (_content is EqualUnmodifiableListView) return _content;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
+  final String? content;
   @override
   final String? createdAt;
   @override
@@ -593,7 +584,7 @@ class _$DataImpl implements _Data {
             other is _$DataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.slug, slug) || other.slug == slug) &&
-            const DeepCollectionEquality().equals(other._content, _content) &&
+            (identical(other.content, content) || other.content == content) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.date, date) || other.date == date) &&
@@ -606,14 +597,7 @@ class _$DataImpl implements _Data {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      slug,
-      const DeepCollectionEquality().hash(_content),
-      createdAt,
-      date,
-      policyType,
-      updatedAt);
+      runtimeType, id, slug, content, createdAt, date, policyType, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -633,7 +617,7 @@ abstract class _Data implements Data {
   factory _Data(
       {required final String? id,
       required final String slug,
-      required final List<TermsCondition>? content,
+      required final String? content,
       required final String? createdAt,
       required final String? date,
       required final String? policyType,
@@ -646,7 +630,7 @@ abstract class _Data implements Data {
   @override
   String get slug;
   @override
-  List<TermsCondition>? get content;
+  String? get content;
   @override
   String? get createdAt;
   @override
@@ -658,193 +642,5 @@ abstract class _Data implements Data {
   @override
   @JsonKey(ignore: true)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-TermsCondition _$TermsConditionFromJson(Map<String, dynamic> json) {
-  return _TermsCondition.fromJson(json);
-}
-
-/// @nodoc
-mixin _$TermsCondition {
-  String? get title => throw _privateConstructorUsedError;
-  String? get html => throw _privateConstructorUsedError;
-  String? get id => throw _privateConstructorUsedError;
-  dynamic get re => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TermsConditionCopyWith<TermsCondition> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TermsConditionCopyWith<$Res> {
-  factory $TermsConditionCopyWith(
-          TermsCondition value, $Res Function(TermsCondition) then) =
-      _$TermsConditionCopyWithImpl<$Res, TermsCondition>;
-  @useResult
-  $Res call({String? title, String? html, String? id, dynamic re});
-}
-
-/// @nodoc
-class _$TermsConditionCopyWithImpl<$Res, $Val extends TermsCondition>
-    implements $TermsConditionCopyWith<$Res> {
-  _$TermsConditionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? title = freezed,
-    Object? html = freezed,
-    Object? id = freezed,
-    Object? re = freezed,
-  }) {
-    return _then(_value.copyWith(
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      html: freezed == html
-          ? _value.html
-          : html // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      re: freezed == re
-          ? _value.re
-          : re // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$TermsConditionImplCopyWith<$Res>
-    implements $TermsConditionCopyWith<$Res> {
-  factory _$$TermsConditionImplCopyWith(_$TermsConditionImpl value,
-          $Res Function(_$TermsConditionImpl) then) =
-      __$$TermsConditionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? title, String? html, String? id, dynamic re});
-}
-
-/// @nodoc
-class __$$TermsConditionImplCopyWithImpl<$Res>
-    extends _$TermsConditionCopyWithImpl<$Res, _$TermsConditionImpl>
-    implements _$$TermsConditionImplCopyWith<$Res> {
-  __$$TermsConditionImplCopyWithImpl(
-      _$TermsConditionImpl _value, $Res Function(_$TermsConditionImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? title = freezed,
-    Object? html = freezed,
-    Object? id = freezed,
-    Object? re = freezed,
-  }) {
-    return _then(_$TermsConditionImpl(
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      html: freezed == html
-          ? _value.html
-          : html // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      re: freezed == re ? _value.re! : re,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$TermsConditionImpl implements _TermsCondition {
-  _$TermsConditionImpl(
-      {required this.title, required this.html, required this.id, this.re});
-
-  factory _$TermsConditionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TermsConditionImplFromJson(json);
-
-  @override
-  final String? title;
-  @override
-  final String? html;
-  @override
-  final String? id;
-  @override
-  final dynamic re;
-
-  @override
-  String toString() {
-    return 'TermsCondition(title: $title, html: $html, id: $id, re: $re)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$TermsConditionImpl &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.html, html) || other.html == html) &&
-            (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality().equals(other.re, re));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, title, html, id, const DeepCollectionEquality().hash(re));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$TermsConditionImplCopyWith<_$TermsConditionImpl> get copyWith =>
-      __$$TermsConditionImplCopyWithImpl<_$TermsConditionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TermsConditionImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _TermsCondition implements TermsCondition {
-  factory _TermsCondition(
-      {required final String? title,
-      required final String? html,
-      required final String? id,
-      final dynamic re}) = _$TermsConditionImpl;
-
-  factory _TermsCondition.fromJson(Map<String, dynamic> json) =
-      _$TermsConditionImpl.fromJson;
-
-  @override
-  String? get title;
-  @override
-  String? get html;
-  @override
-  String? get id;
-  @override
-  dynamic get re;
-  @override
-  @JsonKey(ignore: true)
-  _$$TermsConditionImplCopyWith<_$TermsConditionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

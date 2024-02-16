@@ -40,9 +40,7 @@ Map<String, dynamic> _$$TermsConditionsResultImplToJson(
 _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       id: json['id'] as String?,
       slug: json['slug'] as String,
-      content: (json['content'] as List<dynamic>?)
-          ?.map((e) => TermsCondition.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      content: json['content'] as String?,
       createdAt: json['createdAt'] as String?,
       date: json['date'] as String?,
       policyType: json['policyType'] as String?,
@@ -58,21 +56,4 @@ Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
       'date': instance.date,
       'policyType': instance.policyType,
       'updatedAt': instance.updatedAt,
-    };
-
-_$TermsConditionImpl _$$TermsConditionImplFromJson(Map<String, dynamic> json) =>
-    _$TermsConditionImpl(
-      title: json['title'] as String?,
-      html: json['html'] as String?,
-      id: json['id'] as String?,
-      re: json['re'],
-    );
-
-Map<String, dynamic> _$$TermsConditionImplToJson(
-        _$TermsConditionImpl instance) =>
-    <String, dynamic>{
-      'title': instance.title,
-      'html': instance.html,
-      'id': instance.id,
-      're': instance.re,
     };

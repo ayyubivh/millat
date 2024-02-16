@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
@@ -37,12 +39,18 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
 
   @override
   void initState() {
+    print(
+        'address id ${context.read<AddressBloc>().state.addressId.toString()}');
     context
         .read<ShopProductsBloc>()
         .add(const ShopProductsEvent.isPromoCodeAvailable(value: false));
     BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
         context: context,
         id: context.read<AddressBloc>().state.addressId.toString()));
+
+    // BlocProvider.of<TermsAndConditionsBloc>(context).add(
+    //     const TermsAndCondtionsEvent.fetchTermsAndConditionsEvent(
+    //         slug: "shipping_policy"));
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _onPaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _onPaymentError);
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _onExternalWallet);
@@ -69,20 +77,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
       ),
       body: BlocConsumer<ShopProductsBloc, ShopProductsState>(
         listener: (context, state) {
-          final cartItems = context
-              .read<CartBloc>()
-              .state
-              .cartModel
-              ?.result
-              ?.cartProducts
-              ?.cartItems;
-          final quantity = cartItems?.map((e) => e.quantity).toList();
-          final shippingCharge = widget.paymentType == 0 ? 45 : 90;
-          final shippingFee = cartItems!.length > 1
-              ? shippingCharge * 2
-              : quantity![0]! > 1
-                  ? shippingCharge * 2
-                  : shippingCharge;
+          final cartItems = context.read<CartBloc>().state.cartModel?.result;
+
           if (state.orderIdRazorPay != "") {
             final userData =
                 context.read<DatabaseBloc>().state.authUserModel?.result?.user;
@@ -119,7 +115,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               'key': 'rzp_live_CPvXnR4zHHC8cD',
               'amount': state.totalAmount * 100,
               'name': 'Millat',
-              'description': cartItems[0].productId?.title,
+              'description':
+                  cartItems?.cartProducts?.cartItems?[0].productId?.title,
               'retry': {'enabled': true, 'max_count': 1},
               'send_sms_hash': true,
               'timeout': 120,
@@ -134,29 +131,37 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             _razorpay.open(options);
           } else if (state.orderId != null && state.orderSucces) {
             if (widget.checkoutType == CheckoutType.rewards) {
-              final subtotal = context
-                  .read<RewardsBloc>()
-                  .state
-                  .rewardsProductByIdModel
-                  ?.result
-                  ?.product
-                  ?.productId
-                  ?.salePrice;
+              // final subtotal = context
+              //     .read<RewardsBloc>()
+              //     .state
+              //     .rewardsProductByIdModel
+              //     ?.result
+              //     ?.product
+              //     ?.productId
+              //     ?.salePrice;
               context.pushReplacementNamed(
                   MyAppRouteConstants.paymentSuccessfullRouteName,
-                  extra: {'subTotal': subtotal, 'delivery': shippingFee});
+                  extra: {
+                    'subTotal': cartItems?.amountDetails?.subTotal,
+                    'delivery': cartItems?.amountDetails?.shippingCost ?? 0
+                  });
             } else {
               context.pushReplacementNamed(
                   MyAppRouteConstants.paymentSuccessfullRouteName,
                   extra: {
-                    'subTotal': state.totalAmount,
-                    'delivery': shippingFee
+                    'subTotal': cartItems?.amountDetails?.subTotal?.toDouble(),
+                    'delivery': cartItems?.amountDetails?.shippingCost?.toInt()
                   });
             }
           }
         },
         builder: (context, state) => state.isLoading
-            ? const Loader()
+            ? Align(
+                alignment: Alignment.topCenter,
+                child: CircularProgressIndicator(
+                  color: ColorManager.primary,
+                ),
+              )
             : widget.checkoutType == CheckoutType.rewards
                 ? BlocBuilder<RewardsBloc, RewardsState>(
                     builder: (context, state) {
@@ -203,6 +208,18 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                           state.cartModel?.result?.cartProducts?.cartItems;
                       final itemCount = cartItems?.length ?? 0;
 
+                      if (state.cartModel?.result?.cartProducts?.cartItems
+                              ?.isEmpty ??
+                          true) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          // while (context.canPop()) {
+                          //   context.pop();
+                          // }
+                          context.pushReplacementNamed(
+                              MyAppRouteConstants.cartRouteName);
+                        });
+                      }
+
                       return ListView.builder(
                         padding: EdgeInsets.only(
                             top: 20,
@@ -212,6 +229,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                         itemCount: itemCount,
                         itemBuilder: (context, index) {
                           final data = cartItems![index];
+                          int? actualPrice;
+                          data.productId?.size?.forEach((element) {
+                            if (data.size == element.size) {
+                              actualPrice = element.price;
+                            }
+                          });
                           return CartProductWidget(
                             showQuantity: true,
                             id: data.productId!.id,
@@ -219,9 +242,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             subTitle: data.productId!.description,
                             size: data.size,
                             image: data.productId?.images![0],
-                            price: data.productId?.salePrice?.toInt() ?? 0,
-                            actualPrice:
-                                data.productId?.regularPrice.toString(),
+                            price: data.sellingPrice?.toInt() ?? 0,
+                            actualPrice: actualPrice.toString(),
                             jsonColor: data.color,
                             colorName: data.color,
                             quantity: data.quantity!.toInt(),
@@ -240,8 +262,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                     ?.toInt();
                 final coins =
                     state.rewardsProductByIdModel?.result?.product?.coins;
-                const deliveryCharge = 90;
-                final total = subTotal! + deliveryCharge - coins!;
+                final deliveryCharge = subTotal! > 599 ? 0 : 90;
+                final total = subTotal + deliveryCharge - coins!;
                 return Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
@@ -367,30 +389,16 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             )
           : BlocBuilder<CartBloc, CartState>(
               builder: (context, state) {
-                final cartItems =
-                    state.cartModel?.result?.cartProducts?.cartItems;
+                final cartItems = state.cartModel?.result;
 
-                final subTotal = _getTotalPrice(
-                  cartItems?.map((e) => e.sellingPrice).toList(),
-                  cartItems?.map((e) => e.quantity).toList(),
-                );
+                final subTotal = cartItems?.amountDetails?.total;
+                final total = cartItems?.amountDetails?.subTotal;
 
-                final quantity = cartItems?.map((e) => e.quantity).toList();
-                final shippingCharge = widget.paymentType == 0 ? 45 : 90;
-                final shippingFee = cartItems!.length > 1
-                    ? shippingCharge * 2
-                    : quantity![0]! > 1
-                        ? shippingCharge * 2
-                        : shippingCharge;
-                final taxRate = cartItems
-                    .map((item) => item.productId?.tax)
-                    .reduce((a, b) => a! + b!)!
-                    .toDouble();
+                final shippingFee = cartItems?.amountDetails?.shippingCost;
+
+                final taxRate = cartItems?.amountDetails?.totalTax ?? 0;
                 // final giftPrice = isGift ? 89 : 0;
-                final averageTax = (taxRate / cartItems.length);
-                final estimatingTax = (averageTax / 100) * subTotal;
-                final total = subTotal + shippingFee;
-                // + estimatingTax;
+
                 final isShow = state.showExapnd;
                 return Container(
                   color: ColorManager.whiteColor,
@@ -481,7 +489,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                             color: ColorManager.blackColor,
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold)),
-                                    Text("${estimatingTax.toInt()}",
+                                    Text("${taxRate.toInt()}",
                                         style: TextStyle(
                                             color: ColorManager.blackColor,
                                             fontSize: 17,
@@ -499,7 +507,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                             fontSize: 19,
                                             fontWeight: FontWeight.w700)),
                                     Text(
-                                      '₹${total.toInt()}',
+                                      '₹$total',
                                       style: TextStyle(
                                           color: ColorManager.black4A,
                                           fontSize: 19,
@@ -529,7 +537,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                       ),
                                     ),
                                     Text(
-                                      '₹${total.toInt()}',
+                                      '₹$total',
                                       style: TextStyle(
                                           color: ColorManager.black4A,
                                           fontSize: 19,
@@ -568,19 +576,19 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             if (widget.paymentType == 1) {
                               context.read<ShopProductsBloc>().add(PostOrders(
                                     id: pickUpaddress.id,
-                                    shippingCharges: shippingFee,
+                                    shippingCharges: shippingFee ?? 0,
                                     totalDiscount: 0,
                                     weight: 0,
                                     pickupLocation: pickUpaddress.addressLine,
                                     quantity: state.cartLength,
-                                    totalPrice: total.toDouble(),
+                                    totalPrice: total?.toDouble() ?? 0,
                                     context: context,
                                   ));
                             } else {
                               context.read<ShopProductsBloc>().add(
                                   ShopProductsEvent.postOrderIdOnlinePayment(
                                       context: context,
-                                      amount: total.toDouble()));
+                                      amount: total?.toDouble() ?? 0));
                             }
                           }),
                     ],
@@ -634,6 +642,13 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               ),
               TextSpan(
                 text: 'Terms of Service',
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    context.read<TermsAndConditionsBloc>().add(
+                        const FetchTermsAndConditionsEvent(
+                            slug: "shop_terms_conditions"));
+                    termAndConditionBottomSheet(context);
+                  },
                 style: TextStyle(
                   color: ColorManager.primary, // Color for "Terms of Service"
                   fontSize: 14, fontWeight: FontWeight.w400,
@@ -650,6 +665,13 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               ),
               TextSpan(
                 text: 'Privacy Policy',
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    context.read<TermsAndConditionsBloc>().add(
+                        const FetchTermsAndConditionsEvent(
+                            slug: "shop_privacy_policy"));
+                    termAndConditionBottomSheet(context);
+                  },
                 style: TextStyle(
                   color: ColorManager.primary, // Color for "Privacy Policy"
                   fontSize: 14, fontWeight: FontWeight.w400,
@@ -658,7 +680,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               ),
               TextSpan(
                 text:
-                    ' of Linger Shop. Payment will be processed separately by PIPO ',
+                    ' of Linger Shop. Payment will be processed separately by RazorPay ',
                 style: TextStyle(
                   color: ColorManager.textGrey, // Color for the regular text
                   fontSize: 14, fontWeight: FontWeight.w400,
@@ -674,7 +696,15 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 ),
               ),
               TextSpan(
-                text: 'PIPO Privacy Policy.',
+                text: 'RazorPay Privacy Policy.',
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    context
+                        .read<TermsAndConditionsBloc>()
+                        .add(const FetchTermsAndConditionsEvent(
+                            slug: "razorpay_terms_conditions"));
+                    termAndConditionBottomSheet(context);
+                  },
                 style: TextStyle(
                   color:
                       ColorManager.primary, // Color for "PIPO Privacy Policy"
@@ -687,6 +717,59 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
         ),
       ],
     );
+  }
+
+  Future<dynamic> termAndConditionBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.transparent,
+        builder: (context) {
+          return Container(
+            decoration: BoxDecoration(
+              color: ColorManager.whiteColor,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                topRight: Radius.circular(30.0),
+              ),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        onPressed: () => context.pop(),
+                        icon: const Icon(Icons.close)),
+                  ],
+                ),
+                Expanded(
+                  child: BlocBuilder<TermsAndConditionsBloc,
+                      TermsAndConditionsState>(
+                    builder: (context, state) => state.isLoading
+                        ? const Loader()
+                        : SingleChildScrollView(
+                            child: Text(
+                              Utilities.removeFootnotesFromMeaning(state
+                                      .termsConditionsModel
+                                      ?.result
+                                      .data
+                                      .content ??
+                                  ""),
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: ColorManager.black4F,
+                                height: 1.2,
+                              ),
+                            ),
+                          ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        });
   }
 
   Widget makeaGift(BuildContext context) {
@@ -766,6 +849,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
   void _onPaymentError(
     PaymentFailureResponse response,
   ) {
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const EmptyRazorpayOrderId());
     showSnackBar(context, response.error.toString());
   }
 
@@ -883,20 +968,6 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
         ],
       ),
     );
-  }
-
-  int _getTotalPrice(List<int?>? prices, List<int?>? quantities) {
-    int total = 0;
-
-    if (prices != null && quantities != null) {
-      for (int i = 0; i < prices.length; i++) {
-        int price = prices[i] ?? 0;
-        int quantity = quantities[i] ?? 0;
-        total += price * quantity;
-      }
-    }
-
-    return total;
   }
 }
 

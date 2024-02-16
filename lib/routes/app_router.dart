@@ -33,7 +33,9 @@ import 'package:millat/resources/profile/views/edit_profile_view.dart';
 import 'package:millat/resources/profile/views/invite_friend_view.dart';
 import 'package:millat/resources/profile/views/order_history_view.dart';
 import 'package:millat/resources/profile/views/user_profile_view.dart';
+import 'package:millat/resources/rewards/rewards_home_view.dart';
 import 'package:millat/resources/rewards/rewards_tab_view.dart';
+import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
 import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';
@@ -78,12 +80,60 @@ class MyAppRouter {
           isAuth ? "/" : "/${MyAppRouteConstants.onBoardingRouteName}",
       routes: [
         GoRoute(
-          name: MyAppRouteConstants.onBoardingRouteName,
-          path: '/onboarding',
-          pageBuilder: (context, state) {
-            return const MaterialPage(child: OnBoardingView());
-          },
-        ),
+            name: MyAppRouteConstants.onBoardingRouteName,
+            path: '/onboarding',
+            pageBuilder: (context, state) {
+              return const MaterialPage(child: OnBoardingView());
+            },
+            routes: [
+              GoRoute(
+                name: MyAppRouteConstants.verifyOtpRouteName,
+                path: 'verify_otp',
+                pageBuilder: (context, state) {
+                  return const MaterialPage(
+                    child: VerifyOTPView(),
+                  );
+                },
+              ),
+              GoRoute(
+                name: MyAppRouteConstants.sendOtpRouteName,
+                path: 'send_otp',
+                pageBuilder: (BuildContext context, GoRouterState state) {
+                  Map data = state.extra as Map;
+                  return MaterialPage(
+                    child: SendOTPView(type: data['type']),
+                  );
+                },
+              ),
+              GoRoute(
+                name: MyAppRouteConstants.signUpRouteName,
+                path: 'signup',
+                pageBuilder: (context, state) {
+                  return const MaterialPage(
+                    child: SignUpView(),
+                  );
+                },
+              ),
+              GoRoute(
+                  name: MyAppRouteConstants.loginRouteName,
+                  path: 'login',
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(
+                      child: LoginView(),
+                    );
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.forgotPassWordRouteName,
+                      path: 'forgot_password',
+                      pageBuilder: (BuildContext context, GoRouterState state) {
+                        return const MaterialPage(
+                          child: ForgotPasswordView(),
+                        );
+                      },
+                    )
+                  ]),
+            ]),
         GoRoute(
             name: MyAppRouteConstants.homeTabsRouteName,
             path: '/',
@@ -118,10 +168,17 @@ class MyAppRouter {
                 },
               ),
               GoRoute(
-                path: MyAppRouteConstants.rewardsTabRouteName,
-                name: MyAppRouteConstants.rewardsTabRouteName,
+                path: MyAppRouteConstants.rewardsHomeRouteName,
+                name: MyAppRouteConstants.rewardsHomeRouteName,
                 pageBuilder: (context, state) {
-                  return const MaterialPage(child: RewardsTabView());
+                  return const MaterialPage(child: RewardsHomeView());
+                },
+              ),
+              GoRoute(
+                name: MyAppRouteConstants.rewardsRedeemViewRouteName,
+                path: MyAppRouteConstants.rewardsRedeemViewRouteName,
+                pageBuilder: (context, state) {
+                  return const MaterialPage(child: RewardsRedeemView());
                 },
               ),
               GoRoute(
@@ -175,7 +232,7 @@ class MyAppRouter {
                         Map data = state.extra as Map;
                         return MaterialPage(
                           child: TravelPackagesView(
-                            title: state.pathParameters['title']!,
+                            title: state.pathParameters['title'] ?? "",
                             type: data['type'],
                             city: data['city'],
                             country: data['country'],
@@ -230,6 +287,7 @@ class MyAppRouter {
                                   return MaterialPage(
                                       child: CheckoutView(
                                     checkoutType: data['checkoutType'],
+                                    data: data['data'],
                                   ));
                                 },
                               ),
@@ -243,6 +301,7 @@ class MyAppRouter {
                                     return MaterialPage(
                                         child: CheckoutDetails(
                                       type: data['type'],
+                                      addressId: data['addressId'],
                                     ));
                                   },
                                   routes: [
@@ -452,7 +511,11 @@ class MyAppRouter {
                       name: MyAppRouteConstants.shopBrandsRouteName,
                       path: MyAppRouteConstants.shopBrandsRouteName,
                       pageBuilder: (context, state) {
-                        return const MaterialPage(child: ShopBrandView());
+                        Map data = state.extra as Map;
+                        return MaterialPage(
+                            child: ShopBrandView(
+                          images: data['images'],
+                        ));
                       },
                     ),
                     GoRoute(
@@ -690,55 +753,6 @@ class MyAppRouter {
               child: HomeView(),
             );
           },
-        ),
-        GoRoute(
-          name: MyAppRouteConstants.verifyOtpRouteName,
-          path: '/verify_otp',
-          pageBuilder: (context, state) {
-            return const MaterialPage(
-              child: VerifyOTPView(),
-            );
-          },
-        ),
-        GoRoute(
-          name: MyAppRouteConstants.signUpRouteName,
-          path: '/signup',
-          pageBuilder: (context, state) {
-            return const MaterialPage(
-              child: SignUpView(),
-            );
-          },
-          routes: [
-            GoRoute(
-                name: MyAppRouteConstants.loginRouteName,
-                path: 'login',
-                pageBuilder: (context, state) {
-                  return const MaterialPage(
-                    child: LoginView(),
-                  );
-                },
-                routes: [
-                  GoRoute(
-                    name: MyAppRouteConstants.forgotPassWordRouteName,
-                    path: 'forgot_password',
-                    pageBuilder: (BuildContext context, GoRouterState state) {
-                      return const MaterialPage(
-                        child: ForgotPasswordView(),
-                      );
-                    },
-                  )
-                ]),
-            GoRoute(
-              name: MyAppRouteConstants.sendOtpRouteName,
-              path: 'send_otp',
-              pageBuilder: (BuildContext context, GoRouterState state) {
-                Map data = state.extra as Map;
-                return MaterialPage(
-                  child: SendOTPView(type: data['type']),
-                );
-              },
-            )
-          ],
         ),
       ],
     );

@@ -57,8 +57,8 @@ class RewardsRedeemView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: BlocBuilder<RewardsBloc, RewardsState>(
               builder: (context, state) {
-                if (state.redeemItemModel == null) {
-                  return const SizedBox();
+                if (state.redeemItemModel == null || state.isLoading) {
+                  return const Loader();
                 }
 
                 return SingleChildScrollView(
@@ -247,7 +247,8 @@ class RewardsRedeemView extends StatelessWidget {
               product.image ?? "",
               product.coins ?? 0,
               state.rewardCoins.toDouble(),
-              product.id);
+              product.id,
+              product.description ?? '');
         },
         child: ClipPath(
           clipper: RewardClipper(),
@@ -310,7 +311,7 @@ class RewardsRedeemView extends StatelessWidget {
                               ),
                               _scoreWidget(product.coins.toString()),
                               Text(
-                                "Valid till ${Utilities.formatDate(product.endDate)}",
+                                "Valid till ${Utilities.formatDate(product.endDate ?? '')}",
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
@@ -348,14 +349,6 @@ class RewardsRedeemView extends StatelessWidget {
                                   color: ColorManager.primary,
                                 ),
                               ),
-                              TextSpan(
-                                text: "/${product.defaultStock}",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                  color: ColorManager.textGrey99,
-                                ),
-                              ),
                             ],
                           ),
                         ),
@@ -389,8 +382,14 @@ class RewardsRedeemView extends StatelessWidget {
     );
   }
 
-  Future<dynamic> _showModelBottomSheet(BuildContext context, String title,
-      String image, double coins, double userCoins, String id) {
+  Future<dynamic> _showModelBottomSheet(
+      BuildContext context,
+      String title,
+      String image,
+      double coins,
+      double userCoins,
+      String id,
+      String description) {
     return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -494,7 +493,7 @@ class RewardsRedeemView extends StatelessWidget {
                         ),
                         kHeight16,
                         Text(
-                          '',
+                          description,
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
@@ -503,9 +502,7 @@ class RewardsRedeemView extends StatelessWidget {
                           ),
                           textAlign: TextAlign.center,
                         ),
-                        SizedBox(
-                          height: SizeUtility(context).height / 5.5,
-                        ),
+                        const Spacer(),
                         DottedLine(
                           direction: Axis.horizontal,
                           alignment: WrapAlignment.center,

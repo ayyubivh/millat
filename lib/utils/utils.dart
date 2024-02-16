@@ -10,6 +10,7 @@ class Utilities {
     try {
       DateTime dateTime = DateTime.parse(date);
       DateFormat dateFormat = DateFormat('dd MMMM yyyy');
+
       return dateFormat.format(dateTime);
     } catch (e) {
       return '';
@@ -157,6 +158,8 @@ class Utilities {
         return Colors.blue;
       case "black":
         return Colors.black;
+      case "green":
+        return Colors.green;
       default:
         return Colors.black;
     }

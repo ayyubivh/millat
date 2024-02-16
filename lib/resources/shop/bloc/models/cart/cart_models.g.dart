@@ -67,7 +67,7 @@ _$CartItemImpl _$$CartItemImplFromJson(Map<String, dynamic> json) =>
           ? null
           : ProductInfo.fromJson(json['productId'] as Map<String, dynamic>),
       quantity: json['quantity'] as int?,
-      sellingPrice: json['selling_price'] as int?,
+      sellingPrice: (json['selling_price'] as num?)?.toDouble(),
       discount: json['discount'] as int?,
       tax: json['tax'] as int?,
       size: json['size'] as String?,
@@ -263,7 +263,7 @@ _$AmountDetailsImpl _$$AmountDetailsImplFromJson(Map<String, dynamic> json) =>
       subTotal: json['subTotal'] as int?,
       total: json['total'] as int?,
       shippingCost: json['shippingCost'] as int?,
-      avgTax: (json['avgTax'] as num?)?.toDouble(),
+      totalTax: (json['totalTax'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$AmountDetailsImplToJson(_$AmountDetailsImpl instance) =>
@@ -271,5 +271,5 @@ Map<String, dynamic> _$$AmountDetailsImplToJson(_$AmountDetailsImpl instance) =>
       'subTotal': instance.subTotal,
       'total': instance.total,
       'shippingCost': instance.shippingCost,
-      'avgTax': instance.avgTax,
+      'totalTax': instance.totalTax,
     };

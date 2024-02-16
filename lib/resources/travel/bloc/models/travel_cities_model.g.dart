@@ -9,8 +9,8 @@ part of 'travel_cities_model.dart';
 _$TravelCitiesModelImpl _$$TravelCitiesModelImplFromJson(
         Map<String, dynamic> json) =>
     _$TravelCitiesModelImpl(
-      cities: (json['cities'] as List<dynamic>)
-          .map((e) => City.fromJson(e as Map<String, dynamic>))
+      cities: (json['cities'] as List<dynamic>?)
+          ?.map((e) => City.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -21,13 +21,14 @@ Map<String, dynamic> _$$TravelCitiesModelImplToJson(
     };
 
 _$CityImpl _$$CityImplFromJson(Map<String, dynamic> json) => _$CityImpl(
-      id: json['_id'] as String,
-      image: json['image'] as String,
-      city: json['city'] as String,
-      country: json['country'] as String,
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
-      v: json['__v'] as int,
+      id: json['_id'] as String?,
+      image: json['image'] as String?,
+      city: json['city'] as String?,
+      country: json['country'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
+      v: json['__v'] as int?,
+      thumbnail: json['thumbnail'] as String?,
     );
 
 Map<String, dynamic> _$$CityImplToJson(_$CityImpl instance) =>
@@ -39,4 +40,5 @@ Map<String, dynamic> _$$CityImplToJson(_$CityImpl instance) =>
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
       '__v': instance.v,
+      'thumbnail': instance.thumbnail,
     };

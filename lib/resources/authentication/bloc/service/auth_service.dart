@@ -62,18 +62,17 @@ class AuthService extends HttpServices {
   newSignIn({
     required String phoneNumber,
     required BuildContext context,
+    required String userId,
   }) async {
     return await posts(endPoint: newSignInApi, body: {
       "phone_number": phoneNumber,
+      "user_id": userId,
     }).then((value) {
       debugPrint(value.body);
 
       if (value.statusCode == 200) {
-        final result = UserModel.fromJson(jsonDecode(value.body));
-        print(result.result!.token.toString());
-        context
-            .read<DatabaseBloc>()
-            .add(StoreTokenEvent(token: result.result!.token.toString()));
+        // final result = UserModel.fromJson(jsonDecode(value.body));
+
         // context.read<DatabaseBloc>().add(StoreUserDetails(
         //     email: result.result!.user!.email.toString(),
         //     name: result.result!.user!.name.toString()));
@@ -132,6 +131,7 @@ class AuthService extends HttpServices {
     }).then((value) {
       if (value.statusCode == 200) {
         final data = jsonDecode(value.body);
+        print(data);
         return data;
       } else {
         return {'status': false, 'message': jsonDecode(value.body)['message']};
@@ -153,32 +153,6 @@ class AuthService extends HttpServices {
         return {
           'status': true,
           'result': value['result']['otp']['otp'],
-        };
-      } else {
-        return {
-          'status': false,
-          'message': value['message'],
-        };
-      }
-    } catch (e) {
-      return {
-        'status': false,
-        'message': 'Something went wrong, Please try again later',
-      };
-    }
-  }
-
-  Future<Map<String, dynamic>> sendOTPonly(
-      {required String phoneNumber}) async {
-    try {
-      final res = await posts(
-          endPoint: sentOtpOnlyApi, body: {"phone_number": phoneNumber});
-      var value = json.decode(res.body);
-
-      if (value['status'] == 200) {
-        return {
-          'status': true,
-          'result': value['result']['otp']['otp'].toString(),
         };
       } else {
         return {
@@ -256,10 +230,13 @@ class AuthService extends HttpServices {
   verifyOTP(
       {required String phoneNumber,
       required String otp,
+      required String referalCode,
       required BuildContext context}) async {
-    return await posts(
-        endPoint: verifyOTPAPI,
-        body: {"phone_number": phoneNumber, "otp": otp}).then((value) {
+    return await posts(endPoint: verifyOTPAPI, body: {
+      "phone_number": phoneNumber,
+      "otp": otp,
+      "referredCode": referalCode
+    }).then((value) {
       if (value.statusCode == 200) {
         debugPrint(value.body);
         final token = jsonDecode(value.body)['result']['token'];
@@ -445,7 +422,7 @@ class AuthService extends HttpServices {
       } else {
         return {
           'status': false,
-          'message': 'Failed to update profile',
+          'message': 'Email is already registered',
         };
       }
     } catch (error) {

@@ -1125,7 +1125,7 @@ class _VersesViewState extends State<VersesView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _buildTextSettinWidget(
+                      _buildTextSettingWidget(
                         image: "assets/icons/text_increase.png",
                         onTap: () {
                           context
@@ -1133,7 +1133,7 @@ class _VersesViewState extends State<VersesView> {
                               .add(const IncreaseFontsize());
                         },
                       ),
-                      _buildTextSettinWidget(
+                      _buildTextSettingWidget(
                         image: "assets/icons/text_decrease.png",
                         onTap: () {
                           context
@@ -1141,11 +1141,11 @@ class _VersesViewState extends State<VersesView> {
                               .add(const DecreaseFontsize());
                         },
                       ),
-                      _buildTextSettinWidget(
+                      _buildTextSettingWidget(
                         image: "assets/icons/textsettings_a.png",
                         onTap: () {},
                       ),
-                      _buildTextSettinWidget(
+                      _buildTextSettingWidget(
                         image: "assets/icons/text_setting_lang.png",
                         onTap: () {
                           _settinPopUp(context);
@@ -1344,13 +1344,14 @@ class _VersesViewState extends State<VersesView> {
         });
   }
 
-  Widget _buildTextSettinWidget(
+  Widget _buildTextSettingWidget(
       {required String image, required VoidCallback onTap}) {
     return InkWell(
       onTap: onTap,
       child: Container(
         height: 60,
         width: 60,
+        padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: ColorManager.black4A,
           borderRadius: BorderRadius.circular(30),

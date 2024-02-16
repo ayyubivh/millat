@@ -150,8 +150,8 @@ class OrdetailsView extends StatelessWidget {
                         _orderSummaryWidget(),
                         kHeight16,
                         containerHeight10,
-                        kHeight20,
-                        _lastProductWidget(),
+                        // kHeight20,
+                        // _lastProductWidget(),
                       ],
                     ),
                   ),
@@ -204,7 +204,7 @@ class OrdetailsView extends StatelessWidget {
                               title: data.title,
                               actualPrice: data.regularPrice?.toInt() ?? 0,
                               discount: data.discount!.toInt(),
-                              discountPrice: data.salePrice?.toInt() ?? 0),
+                              discountPrice: data.salePrice ?? 0),
                         ));
                   },
                 ),
@@ -250,7 +250,7 @@ class OrdetailsView extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 15),
+                          vertical: 8, horizontal: 10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -277,6 +277,7 @@ class OrdetailsView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
                             Appstrings.billingAddress,
@@ -427,15 +428,11 @@ class OrdetailsView extends StatelessWidget {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         final data = state.ordersByIdModel?.result?.order;
-
-        // Format the order date
-
-        // Calculate the estimated delivery date (order date + 7 days)
-        DateTime orderDate = DateTime.parse(data?.orderDate ?? "");
-        DateTime estimatedDeliveryDate = orderDate.add(Duration(days: 7));
-        String formattedEstimatedDeliveryDate = Utilities.formatDate(
-          estimatedDeliveryDate.toLocal().toString(),
-        );
+        final DateTime gettingDate = DateTime.parse(data?.orderDate ?? "");
+        final DateTime currentDate = DateTime.now();
+        const Duration threeDays = Duration(days: 3);
+        DateTime threeDaysAfter = gettingDate.add(threeDays);
+        bool isAfter3day = currentDate.isAfter(threeDaysAfter);
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Column(
@@ -454,7 +451,7 @@ class OrdetailsView extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  Appstrings.processing,
+                  data?.shippingStatus ?? '',
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
@@ -476,7 +473,10 @@ class OrdetailsView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      Appstrings.deliveryEstimate,
+                      data?.shippingStatus == Appstrings.delivered ||
+                              data?.shippingStatus == Appstrings.cancelled
+                          ? Appstrings.deliveryDate
+                          : Appstrings.deliveryEstimate,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
@@ -485,7 +485,10 @@ class OrdetailsView extends StatelessWidget {
                     ),
                     kHeight10,
                     Text(
-                      formattedEstimatedDeliveryDate,
+                      data?.shippingStatus == Appstrings.delivered ||
+                              data?.shippingStatus == Appstrings.cancelled
+                          ? Utilities.formatDate(data?.orderDate ?? "")
+                          : 'Within 7 working days',
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
@@ -591,7 +594,7 @@ class OrdetailsView extends StatelessWidget {
                     orderStatus == Appstrings.processing
                         ? context
                             .pushNamed(MyAppRouteConstants.orderCancelRouteName)
-                        : orderStatus == Appstrings.cancelled
+                        : orderStatus == Appstrings.cancelled || isAfter3day
                             ? null
                             : context.pushNamed(
                                 MyAppRouteConstants.orderReturnRouteName);
@@ -599,9 +602,11 @@ class OrdetailsView extends StatelessWidget {
                   child: Row(
                     children: [
                       kWidth10,
-                      orderStatus == "Delivered"
+                      orderStatus == Appstrings.delivered
                           ? Text(
-                              Appstrings.returnOrder,
+                              isAfter3day
+                                  ? "Order can only be return within 3 days"
+                                  : Appstrings.returnOrder,
                               style: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w600,
@@ -626,7 +631,7 @@ class OrdetailsView extends StatelessWidget {
                                   ),
                                 ),
                       const Spacer(),
-                      orderStatus == Appstrings.cancelled
+                      orderStatus == Appstrings.cancelled || isAfter3day
                           ? const SizedBox()
                           : Icon(
                               Icons.arrow_forward_ios,
@@ -648,7 +653,7 @@ class OrdetailsView extends StatelessWidget {
   BlocBuilder<ShopProductsBloc, ShopProductsState> _orderSummaryWidget() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        final data = state.ordersByIdModel?.result?.order;
+        final data = state.ordersByIdModel?.result?.orderSummary;
 
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 30),
@@ -683,7 +688,7 @@ class OrdetailsView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(Appstrings.itemCost, style: _priceStyle()),
-                        Text(data?.subTotal.toString() ?? '0',
+                        Text(data?.orderTotal.toString() ?? '0',
                             style: _priceStyle()),
                       ],
                     ),
@@ -691,20 +696,9 @@ class OrdetailsView extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(Appstrings.postPacking, style: _priceStyle()),
-                        Text(data?.shippingCharges.toString() ?? '0',
+                        Text("Quantity", style: _priceStyle()),
+                        Text(data?.quantity.toString() ?? '0',
                             style: _priceStyle()),
-                      ],
-                    ),
-                    kHeight10,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(Appstrings.totalbfTax, style: _priceStyle()),
-                        Text(
-                          data?.subTotal.toString() ?? '',
-                          style: _priceStyle(),
-                        ),
                       ],
                     ),
                     kHeight10,
@@ -719,12 +713,23 @@ class OrdetailsView extends StatelessWidget {
                       ],
                     ),
                     kHeight10,
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     Text(Appstrings.tax, style: _priceStyle()),
+                    //     Text(
+                    //       data?.tax.toString() ?? '',
+                    //       style: _priceStyle(),
+                    //     ),
+                    //   ],
+                    // ),
+                    // kHeight10,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(Appstrings.total, style: _priceStyle()),
+                        Text("Shipping Cost", style: _priceStyle()),
                         Text(
-                          data?.sellingPrice.toString() ?? '',
+                          data?.shippingCost.toString() ?? '',
                           style: _priceStyle(),
                         ),
                       ],
@@ -739,7 +744,7 @@ class OrdetailsView extends StatelessWidget {
                               fontWeight: FontWeight.w900,
                             )),
                         Text(
-                          data?.sellingPrice.toString() ?? '',
+                          data?.orderTotal.toString() ?? '',
                           style: TextStyle(
                               fontSize: 19,
                               fontWeight: FontWeight.w900,
@@ -781,7 +786,7 @@ class OrdetailsView extends StatelessWidget {
                 title: data.productId?.title,
                 size: data.size,
                 image: data.productId?.images?[0],
-                price: data.sellingPrice ?? 0,
+                price: data.sellingPrice?.toInt() ?? 0,
                 jsonColor: data.color,
                 colorName: data.color,
                 quantity: data.quantity!.toInt(),

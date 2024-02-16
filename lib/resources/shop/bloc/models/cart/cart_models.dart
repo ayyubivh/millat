@@ -47,7 +47,7 @@ class CartItem with _$CartItem {
   const factory CartItem({
     required ProductInfo? productId,
     required int? quantity,
-    @JsonKey(name: "selling_price") required int? sellingPrice,
+    @JsonKey(name: "selling_price") required double? sellingPrice,
     int? discount,
     int? tax,
     required String? size,
@@ -166,7 +166,7 @@ class AmountDetails with _$AmountDetails {
     required int? subTotal,
     required int? total,
     required int? shippingCost,
-    required double? avgTax,
+    required double? totalTax,
   }) = _AmountDetails;
 
   factory AmountDetails.fromJson(Map<String, dynamic> json) =>

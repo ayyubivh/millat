@@ -11,7 +11,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthService _authService = AuthService();
 
   String? userId;
-
+  String? phoneNumber;
+  String? referralCode;
   AuthBloc() : super(AuthInitial()) {
     on<AuthEvent>((event, emit) async {
       if (event is Login) {
@@ -52,41 +53,31 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } else if (event is SignInWithPhone) {
         if (event.phoneNumber != null) {
-          if (event.isSignUp) {
-            emit(AuthLoading());
-            final res = await _authService.signInWithPhone(
-                userId: userId,
-                referralCode: event.referralCode,
-                phoneNumber: event.phoneNumber!,
-                context: event.context);
-            if (res['status'] == true) {
-              emit(AuthLoaded(event.phoneNumber!));
-              emit(AuthPhoneNumber(phoneNumber: event.phoneNumber!));
-            } else {
-              emit(AuthError(res['message']));
-            }
+          phoneNumber = event.phoneNumber;
+
+          emit(AuthLoading());
+          final res = await _authService.newSignIn(
+              userId: userId ?? '',
+              // referralCode: event.referralCode,
+              phoneNumber: event.phoneNumber!,
+              context: event.context);
+          if (res['status'] == true) {
+            referralCode = event.referralCode;
+            emit(AuthLoaded(event.phoneNumber!));
+            emit(AuthPhoneNumber(phoneNumber: event.phoneNumber!));
           } else {
-            emit(AuthLoading());
-            final res = await _authService.signInWithPhone(
-                userId: "",
-                referralCode: event.referralCode,
-                phoneNumber: event.phoneNumber!,
-                context: event.context);
-            if (res['status'] == true) {
-              emit(AuthLoaded(event.phoneNumber!));
-              emit(AuthPhoneNumber(phoneNumber: event.phoneNumber!));
-            } else {
-              emit(AuthError(res['message']));
-            }
+            emit(AuthError(res['message']));
           }
         }
       } else if (event is SendOTP) {
+        phoneNumber = event.phoneNumber;
+
         final currentState = state;
         if (currentState is AuthSocialLoginNewUser) {
+          emit(AuthLoading());
           final res =
               await _authService.sendOTP(phoneNumber: event.phoneNumber);
           if (res['status'] == true) {
-            emit(AuthLoaded(event.phoneNumber));
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
 
             emit(AuthSocialLoginNewUserLoaded(
@@ -103,17 +94,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthError(res['message']));
           }
         }
-      } else if (event is SendOTPonly) {
-        emit(AuthLoading());
-        final res =
-            await _authService.sendOTPonly(phoneNumber: event.phoneNumber);
+        // }
+        //  else if (event is SendOTPonly) {
+        //   emit(AuthLoading());
+        //   phoneNumber = event.phoneNumber;
+        //   final res =
+        //       await _authService.sendOTPonly(phoneNumber: event.phoneNumber);
 
-        if (res['status'] == true) {
-          print(res['result'].toString);
-          emit(AuthLoadedOTPonly(event.phoneNumber, res['result'].toString()));
-        } else {
-          emit(AuthError(res['message']));
-        }
+        //   if (res['status'] == true) {
+        //     print(res['result'].toString);
+        //     emit(AuthLoadedOTPonly(event.phoneNumber, res['result'].toString()));
+        //   } else {
+        //     emit(AuthError(res['message']));
+        //   }
       } else if (event is ResendSendOTP) {
         final currentState = state as AuthPhoneNumber;
 
@@ -129,6 +122,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         final currentState = state;
         print(currentState.toString());
         if (currentState is AuthSocialLoginNewUserLoaded) {
+          emit(AuthLoading());
           if (event.code.isEmpty) {
             emit(AuthError('Please fill in all the fields'));
           } else {
@@ -151,7 +145,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             }
           }
         } else if (currentState is AuthPhoneNumber) {
+          emit(AuthLoading());
           final result = await _authService.verifyOTP(
+              referalCode: referralCode ?? "",
               context: event.context,
               phoneNumber: currentState.phoneNumber,
               otp: event.code);
@@ -161,22 +157,25 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthError(result['message']));
             emit(AuthPhoneNumber(phoneNumber: currentState.phoneNumber));
           }
-        } else if (currentState is AuthLoadedOTPonly) {
-          print(currentState.otp == event.code);
-          if (currentState.otp == event.code) {
-            print("yes");
-
-            final result = await _authService.newSignIn(
-              context: event.context,
-              phoneNumber: currentState.phoneNumber!,
-            );
-            if (result['status'] == true) {
-              emit(AuthLoaded(currentState.phoneNumber!));
-            } else {
-              emit(AuthError(result['message']));
-            }
-          }
         }
+        //  else if (currentState is AuthLoadedOTPonly) {
+        //   emit(AuthLoading());
+        //   print(currentState.otp == event.code);
+        //   if (currentState.otp == event.code) {
+        //     print("yes");
+
+        //     final result = await _authService.newSignIn(
+        //       context: event.context,
+        //       userId: userId ?? "",
+        //       phoneNumber: currentState.phoneNumber!,
+        //     );
+        //     if (result['status'] == true) {
+        //       emit(AuthLoaded(currentState.phoneNumber!));
+        //     } else {
+        //       emit(AuthError(result['message']));
+        //     }
+        //   }
+        // }
       } else if (event is SocialLogin) {
         emit(AuthLoading());
         emit(AuthloadingSocialLogin());

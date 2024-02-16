@@ -64,8 +64,8 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
               children: [
                 BlocBuilder<TravelBloc, TravelState>(
                   builder: (context, state) {
-                    final data = state.travelProductsModel?.product;
-                    if (data == null) {
+                    final data = state.singleProductModel;
+                    if (data == null || state.isLoading) {
                       return const Loader();
                     }
                     return Container(
@@ -179,8 +179,7 @@ class _TravelBookingFormState extends State<TravelBookingForm> {
                                   ),
                                   kWidth3,
                                   Text(
-                                    Utilities.formatDate(
-                                        DateTime.now().toString()),
+                                    data.travelDate.first.toString(),
                                     style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w700,

@@ -33,14 +33,15 @@ class RedeemProducts with _$RedeemProducts {
     @JsonKey(name: "_id") String id,
     String? image,
     String? title,
-    String? defaultStock,
+    int? defaultStock,
     double? stock,
     double? offerPrice,
     double? coins,
-    String startDate,
-    String endDate,
-    String createdAt,
-    String updatedAt,
+    String? startDate,
+    String? endDate,
+    String? createdAt,
+    String? updatedAt,
+    String? description,
   ) = _RedeemProducts;
 
   factory RedeemProducts.fromJson(Map<String, dynamic> json) =>

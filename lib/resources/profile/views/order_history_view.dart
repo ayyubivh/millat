@@ -60,31 +60,29 @@ class OrderHistoryView extends StatelessWidget {
             itemCount: state.orderModel?.result?.orderProducts?.length ?? 0,
             itemBuilder: (context, index) {
               final data = state.orderModel?.result?.orderProducts?[index];
-              return SizedBox(
-                child: OrdersProfileWidget(
-                  date: data?.orderDate ?? "",
-                  id: data?.productId?.id ?? "0",
-                  title: data?.productId?.title,
-                  size: data?.size,
-                  orderStatus: data?.shippingStatus,
-                  image: data?.productId?.images?[0],
-                  price: data!.productId?.salePrice?.toDouble() ?? 0,
-                  jsonColor: data.color,
-                  colorName: data.color,
-                  quantity: data.quantity?.toInt() ?? 0,
-                  productId: data.productId?.id,
-                  orderId: data.shiprocketOrderId,
-                  isIndex: index,
-                  onTap: () {
-                    context.pushNamed(MyAppRouteConstants.orderDetailRouteName,
-                        extra: {'orderStatus': data.shippingStatus});
+              return OrdersProfileWidget(
+                date: data?.orderDate ?? "",
+                id: data?.productId?.id ?? "0",
+                title: data?.productId?.title,
+                size: data?.size,
+                orderStatus: data?.shippingStatus,
+                image: data?.productId?.images?[0],
+                price: data!.productId?.salePrice?.toDouble() ?? 0,
+                jsonColor: data.color,
+                colorName: data.color,
+                quantity: data.quantity?.toInt() ?? 0,
+                productId: data.productId?.id,
+                orderId: data.shiprocketOrderId,
+                isIndex: index,
+                onTap: () {
+                  context.pushNamed(MyAppRouteConstants.orderDetailRouteName,
+                      extra: {'orderStatus': data.shippingStatus});
 
-                    final id = data.orderId;
-                    context
-                        .read<ShopProductsBloc>()
-                        .add(FetchOrdersById(context, int.parse(id!)));
-                  },
-                ),
+                  final id = data.orderId;
+                  context
+                      .read<ShopProductsBloc>()
+                      .add(FetchOrdersById(context, int.parse(id!)));
+                },
               );
             },
           );

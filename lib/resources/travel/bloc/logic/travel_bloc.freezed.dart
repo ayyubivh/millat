@@ -7184,16 +7184,16 @@ abstract class PickMultipleImageEvent implements TravelEvent {
 mixin _$TravelState {
   int get index => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  TravelPopularProductsModel? get travelPopularProductsModel =>
+  List<TravelSpecificProductModel>? get travelPopularProductsModel =>
       throw _privateConstructorUsedError;
+  ProductId? get singleProductModel => throw _privateConstructorUsedError;
   TravelCitiesModel? get travelCitiesModel =>
       throw _privateConstructorUsedError;
-  TravelProductsModel? get travelProductsModel =>
+  ProductId? get travelProductsModel => throw _privateConstructorUsedError;
+  List<ProductId>? get searchProducts => throw _privateConstructorUsedError;
+  List<TravelSpecificProductModel>? get travelBestPlacesModel =>
       throw _privateConstructorUsedError;
-  List<TravelProduct>? get searchProducts => throw _privateConstructorUsedError;
-  TravelBestPlacesModel? get travelBestPlacesModel =>
-      throw _privateConstructorUsedError;
-  TravelPopularProductsModel? get productByLocationModel =>
+  List<ProductId>? get productByLocationModel =>
       throw _privateConstructorUsedError;
   int get numberOfGuest => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
@@ -7206,11 +7206,10 @@ mixin _$TravelState {
   DateTime? get selectedEndDate => throw _privateConstructorUsedError;
   DateTime get focusDay => throw _privateConstructorUsedError;
   String get formattedDateRang => throw _privateConstructorUsedError;
-  List<TravelProductsModel>? get wishlistProducts =>
-      throw _privateConstructorUsedError;
+  List<ProductId>? get wishlistProducts => throw _privateConstructorUsedError;
   Set<String>? get travelWishlistItems => throw _privateConstructorUsedError;
   bool get bookingSuccess => throw _privateConstructorUsedError;
-  List<TravelPackageItems>? get travelHomeBannerPackages =>
+  List<TravelSpecificProductModel>? get travelHomeBannerPackages =>
       throw _privateConstructorUsedError;
   List<File> get formImages => throw _privateConstructorUsedError;
   String get searchSuccess => throw _privateConstructorUsedError;
@@ -7231,12 +7230,13 @@ abstract class $TravelStateCopyWith<$Res> {
   $Res call(
       {int index,
       bool isLoading,
-      TravelPopularProductsModel? travelPopularProductsModel,
+      List<TravelSpecificProductModel>? travelPopularProductsModel,
+      ProductId? singleProductModel,
       TravelCitiesModel? travelCitiesModel,
-      TravelProductsModel? travelProductsModel,
-      List<TravelProduct>? searchProducts,
-      TravelBestPlacesModel? travelBestPlacesModel,
-      TravelPopularProductsModel? productByLocationModel,
+      ProductId? travelProductsModel,
+      List<ProductId>? searchProducts,
+      List<TravelSpecificProductModel>? travelBestPlacesModel,
+      List<ProductId>? productByLocationModel,
       int numberOfGuest,
       String country,
       List<TravelSearchLocationModels>? travelSearchLocationModels,
@@ -7247,19 +7247,15 @@ abstract class $TravelStateCopyWith<$Res> {
       DateTime? selectedEndDate,
       DateTime focusDay,
       String formattedDateRang,
-      List<TravelProductsModel>? wishlistProducts,
+      List<ProductId>? wishlistProducts,
       Set<String>? travelWishlistItems,
       bool bookingSuccess,
-      List<TravelPackageItems>? travelHomeBannerPackages,
+      List<TravelSpecificProductModel>? travelHomeBannerPackages,
       List<File> formImages,
       String searchSuccess,
       TravelProductsByCitiesModel? travelProductsByCitiesModel});
 
-  $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel;
   $TravelCitiesModelCopyWith<$Res>? get travelCitiesModel;
-  $TravelProductsModelCopyWith<$Res>? get travelProductsModel;
-  $TravelBestPlacesModelCopyWith<$Res>? get travelBestPlacesModel;
-  $TravelPopularProductsModelCopyWith<$Res>? get productByLocationModel;
   $TravelProductsByCitiesModelCopyWith<$Res>? get travelProductsByCitiesModel;
 }
 
@@ -7279,6 +7275,7 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
     Object? index = null,
     Object? isLoading = null,
     Object? travelPopularProductsModel = freezed,
+    Object? singleProductModel = freezed,
     Object? travelCitiesModel = freezed,
     Object? travelProductsModel = freezed,
     Object? searchProducts = freezed,
@@ -7314,7 +7311,11 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
       travelPopularProductsModel: freezed == travelPopularProductsModel
           ? _value.travelPopularProductsModel
           : travelPopularProductsModel // ignore: cast_nullable_to_non_nullable
-              as TravelPopularProductsModel?,
+              as List<TravelSpecificProductModel>?,
+      singleProductModel: freezed == singleProductModel
+          ? _value.singleProductModel
+          : singleProductModel // ignore: cast_nullable_to_non_nullable
+              as ProductId?,
       travelCitiesModel: freezed == travelCitiesModel
           ? _value.travelCitiesModel
           : travelCitiesModel // ignore: cast_nullable_to_non_nullable
@@ -7322,19 +7323,19 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
       travelProductsModel: freezed == travelProductsModel
           ? _value.travelProductsModel
           : travelProductsModel // ignore: cast_nullable_to_non_nullable
-              as TravelProductsModel?,
+              as ProductId?,
       searchProducts: freezed == searchProducts
           ? _value.searchProducts
           : searchProducts // ignore: cast_nullable_to_non_nullable
-              as List<TravelProduct>?,
+              as List<ProductId>?,
       travelBestPlacesModel: freezed == travelBestPlacesModel
           ? _value.travelBestPlacesModel
           : travelBestPlacesModel // ignore: cast_nullable_to_non_nullable
-              as TravelBestPlacesModel?,
+              as List<TravelSpecificProductModel>?,
       productByLocationModel: freezed == productByLocationModel
           ? _value.productByLocationModel
           : productByLocationModel // ignore: cast_nullable_to_non_nullable
-              as TravelPopularProductsModel?,
+              as List<ProductId>?,
       numberOfGuest: null == numberOfGuest
           ? _value.numberOfGuest
           : numberOfGuest // ignore: cast_nullable_to_non_nullable
@@ -7378,7 +7379,7 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
       wishlistProducts: freezed == wishlistProducts
           ? _value.wishlistProducts
           : wishlistProducts // ignore: cast_nullable_to_non_nullable
-              as List<TravelProductsModel>?,
+              as List<ProductId>?,
       travelWishlistItems: freezed == travelWishlistItems
           ? _value.travelWishlistItems
           : travelWishlistItems // ignore: cast_nullable_to_non_nullable
@@ -7390,7 +7391,7 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
       travelHomeBannerPackages: freezed == travelHomeBannerPackages
           ? _value.travelHomeBannerPackages
           : travelHomeBannerPackages // ignore: cast_nullable_to_non_nullable
-              as List<TravelPackageItems>?,
+              as List<TravelSpecificProductModel>?,
       formImages: null == formImages
           ? _value.formImages
           : formImages // ignore: cast_nullable_to_non_nullable
@@ -7408,19 +7409,6 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
 
   @override
   @pragma('vm:prefer-inline')
-  $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel {
-    if (_value.travelPopularProductsModel == null) {
-      return null;
-    }
-
-    return $TravelPopularProductsModelCopyWith<$Res>(
-        _value.travelPopularProductsModel!, (value) {
-      return _then(_value.copyWith(travelPopularProductsModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $TravelCitiesModelCopyWith<$Res>? get travelCitiesModel {
     if (_value.travelCitiesModel == null) {
       return null;
@@ -7428,45 +7416,6 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
 
     return $TravelCitiesModelCopyWith<$Res>(_value.travelCitiesModel!, (value) {
       return _then(_value.copyWith(travelCitiesModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TravelProductsModelCopyWith<$Res>? get travelProductsModel {
-    if (_value.travelProductsModel == null) {
-      return null;
-    }
-
-    return $TravelProductsModelCopyWith<$Res>(_value.travelProductsModel!,
-        (value) {
-      return _then(_value.copyWith(travelProductsModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TravelBestPlacesModelCopyWith<$Res>? get travelBestPlacesModel {
-    if (_value.travelBestPlacesModel == null) {
-      return null;
-    }
-
-    return $TravelBestPlacesModelCopyWith<$Res>(_value.travelBestPlacesModel!,
-        (value) {
-      return _then(_value.copyWith(travelBestPlacesModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TravelPopularProductsModelCopyWith<$Res>? get productByLocationModel {
-    if (_value.productByLocationModel == null) {
-      return null;
-    }
-
-    return $TravelPopularProductsModelCopyWith<$Res>(
-        _value.productByLocationModel!, (value) {
-      return _then(_value.copyWith(productByLocationModel: value) as $Val);
     });
   }
 
@@ -7495,12 +7444,13 @@ abstract class _$$TravelStateImplCopyWith<$Res>
   $Res call(
       {int index,
       bool isLoading,
-      TravelPopularProductsModel? travelPopularProductsModel,
+      List<TravelSpecificProductModel>? travelPopularProductsModel,
+      ProductId? singleProductModel,
       TravelCitiesModel? travelCitiesModel,
-      TravelProductsModel? travelProductsModel,
-      List<TravelProduct>? searchProducts,
-      TravelBestPlacesModel? travelBestPlacesModel,
-      TravelPopularProductsModel? productByLocationModel,
+      ProductId? travelProductsModel,
+      List<ProductId>? searchProducts,
+      List<TravelSpecificProductModel>? travelBestPlacesModel,
+      List<ProductId>? productByLocationModel,
       int numberOfGuest,
       String country,
       List<TravelSearchLocationModels>? travelSearchLocationModels,
@@ -7511,24 +7461,16 @@ abstract class _$$TravelStateImplCopyWith<$Res>
       DateTime? selectedEndDate,
       DateTime focusDay,
       String formattedDateRang,
-      List<TravelProductsModel>? wishlistProducts,
+      List<ProductId>? wishlistProducts,
       Set<String>? travelWishlistItems,
       bool bookingSuccess,
-      List<TravelPackageItems>? travelHomeBannerPackages,
+      List<TravelSpecificProductModel>? travelHomeBannerPackages,
       List<File> formImages,
       String searchSuccess,
       TravelProductsByCitiesModel? travelProductsByCitiesModel});
 
   @override
-  $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel;
-  @override
   $TravelCitiesModelCopyWith<$Res>? get travelCitiesModel;
-  @override
-  $TravelProductsModelCopyWith<$Res>? get travelProductsModel;
-  @override
-  $TravelBestPlacesModelCopyWith<$Res>? get travelBestPlacesModel;
-  @override
-  $TravelPopularProductsModelCopyWith<$Res>? get productByLocationModel;
   @override
   $TravelProductsByCitiesModelCopyWith<$Res>? get travelProductsByCitiesModel;
 }
@@ -7547,6 +7489,7 @@ class __$$TravelStateImplCopyWithImpl<$Res>
     Object? index = null,
     Object? isLoading = null,
     Object? travelPopularProductsModel = freezed,
+    Object? singleProductModel = freezed,
     Object? travelCitiesModel = freezed,
     Object? travelProductsModel = freezed,
     Object? searchProducts = freezed,
@@ -7580,9 +7523,13 @@ class __$$TravelStateImplCopyWithImpl<$Res>
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
       travelPopularProductsModel: freezed == travelPopularProductsModel
-          ? _value.travelPopularProductsModel
+          ? _value._travelPopularProductsModel
           : travelPopularProductsModel // ignore: cast_nullable_to_non_nullable
-              as TravelPopularProductsModel?,
+              as List<TravelSpecificProductModel>?,
+      singleProductModel: freezed == singleProductModel
+          ? _value.singleProductModel
+          : singleProductModel // ignore: cast_nullable_to_non_nullable
+              as ProductId?,
       travelCitiesModel: freezed == travelCitiesModel
           ? _value.travelCitiesModel
           : travelCitiesModel // ignore: cast_nullable_to_non_nullable
@@ -7590,19 +7537,19 @@ class __$$TravelStateImplCopyWithImpl<$Res>
       travelProductsModel: freezed == travelProductsModel
           ? _value.travelProductsModel
           : travelProductsModel // ignore: cast_nullable_to_non_nullable
-              as TravelProductsModel?,
+              as ProductId?,
       searchProducts: freezed == searchProducts
           ? _value._searchProducts
           : searchProducts // ignore: cast_nullable_to_non_nullable
-              as List<TravelProduct>?,
+              as List<ProductId>?,
       travelBestPlacesModel: freezed == travelBestPlacesModel
-          ? _value.travelBestPlacesModel
+          ? _value._travelBestPlacesModel
           : travelBestPlacesModel // ignore: cast_nullable_to_non_nullable
-              as TravelBestPlacesModel?,
+              as List<TravelSpecificProductModel>?,
       productByLocationModel: freezed == productByLocationModel
-          ? _value.productByLocationModel
+          ? _value._productByLocationModel
           : productByLocationModel // ignore: cast_nullable_to_non_nullable
-              as TravelPopularProductsModel?,
+              as List<ProductId>?,
       numberOfGuest: null == numberOfGuest
           ? _value.numberOfGuest
           : numberOfGuest // ignore: cast_nullable_to_non_nullable
@@ -7646,7 +7593,7 @@ class __$$TravelStateImplCopyWithImpl<$Res>
       wishlistProducts: freezed == wishlistProducts
           ? _value._wishlistProducts
           : wishlistProducts // ignore: cast_nullable_to_non_nullable
-              as List<TravelProductsModel>?,
+              as List<ProductId>?,
       travelWishlistItems: freezed == travelWishlistItems
           ? _value._travelWishlistItems
           : travelWishlistItems // ignore: cast_nullable_to_non_nullable
@@ -7658,7 +7605,7 @@ class __$$TravelStateImplCopyWithImpl<$Res>
       travelHomeBannerPackages: freezed == travelHomeBannerPackages
           ? _value._travelHomeBannerPackages
           : travelHomeBannerPackages // ignore: cast_nullable_to_non_nullable
-              as List<TravelPackageItems>?,
+              as List<TravelSpecificProductModel>?,
       formImages: null == formImages
           ? _value._formImages
           : formImages // ignore: cast_nullable_to_non_nullable
@@ -7681,12 +7628,14 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
   const _$TravelStateImpl(
       {required this.index,
       required this.isLoading,
-      required this.travelPopularProductsModel,
+      required final List<TravelSpecificProductModel>?
+          travelPopularProductsModel,
+      required this.singleProductModel,
       required this.travelCitiesModel,
       required this.travelProductsModel,
-      required final List<TravelProduct>? searchProducts,
-      required this.travelBestPlacesModel,
-      required this.productByLocationModel,
+      required final List<ProductId>? searchProducts,
+      required final List<TravelSpecificProductModel>? travelBestPlacesModel,
+      required final List<ProductId>? productByLocationModel,
       required this.numberOfGuest,
       required this.country,
       required final List<TravelSearchLocationModels>?
@@ -7698,14 +7647,17 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
       required this.selectedEndDate,
       required this.focusDay,
       required this.formattedDateRang,
-      required final List<TravelProductsModel>? wishlistProducts,
+      required final List<ProductId>? wishlistProducts,
       required final Set<String>? travelWishlistItems,
       required this.bookingSuccess,
-      required final List<TravelPackageItems>? travelHomeBannerPackages,
+      required final List<TravelSpecificProductModel>? travelHomeBannerPackages,
       required final List<File> formImages,
       required this.searchSuccess,
       required this.travelProductsByCitiesModel})
-      : _searchProducts = searchProducts,
+      : _travelPopularProductsModel = travelPopularProductsModel,
+        _searchProducts = searchProducts,
+        _travelBestPlacesModel = travelBestPlacesModel,
+        _productByLocationModel = productByLocationModel,
         _travelSearchLocationModels = travelSearchLocationModels,
         _wishlistProducts = wishlistProducts,
         _travelWishlistItems = travelWishlistItems,
@@ -7716,15 +7668,26 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
   final int index;
   @override
   final bool isLoading;
+  final List<TravelSpecificProductModel>? _travelPopularProductsModel;
   @override
-  final TravelPopularProductsModel? travelPopularProductsModel;
+  List<TravelSpecificProductModel>? get travelPopularProductsModel {
+    final value = _travelPopularProductsModel;
+    if (value == null) return null;
+    if (_travelPopularProductsModel is EqualUnmodifiableListView)
+      return _travelPopularProductsModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final ProductId? singleProductModel;
   @override
   final TravelCitiesModel? travelCitiesModel;
   @override
-  final TravelProductsModel? travelProductsModel;
-  final List<TravelProduct>? _searchProducts;
+  final ProductId? travelProductsModel;
+  final List<ProductId>? _searchProducts;
   @override
-  List<TravelProduct>? get searchProducts {
+  List<ProductId>? get searchProducts {
     final value = _searchProducts;
     if (value == null) return null;
     if (_searchProducts is EqualUnmodifiableListView) return _searchProducts;
@@ -7732,10 +7695,28 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<TravelSpecificProductModel>? _travelBestPlacesModel;
   @override
-  final TravelBestPlacesModel? travelBestPlacesModel;
+  List<TravelSpecificProductModel>? get travelBestPlacesModel {
+    final value = _travelBestPlacesModel;
+    if (value == null) return null;
+    if (_travelBestPlacesModel is EqualUnmodifiableListView)
+      return _travelBestPlacesModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<ProductId>? _productByLocationModel;
   @override
-  final TravelPopularProductsModel? productByLocationModel;
+  List<ProductId>? get productByLocationModel {
+    final value = _productByLocationModel;
+    if (value == null) return null;
+    if (_productByLocationModel is EqualUnmodifiableListView)
+      return _productByLocationModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final int numberOfGuest;
   @override
@@ -7765,9 +7746,9 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
   final DateTime focusDay;
   @override
   final String formattedDateRang;
-  final List<TravelProductsModel>? _wishlistProducts;
+  final List<ProductId>? _wishlistProducts;
   @override
-  List<TravelProductsModel>? get wishlistProducts {
+  List<ProductId>? get wishlistProducts {
     final value = _wishlistProducts;
     if (value == null) return null;
     if (_wishlistProducts is EqualUnmodifiableListView)
@@ -7789,9 +7770,9 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
 
   @override
   final bool bookingSuccess;
-  final List<TravelPackageItems>? _travelHomeBannerPackages;
+  final List<TravelSpecificProductModel>? _travelHomeBannerPackages;
   @override
-  List<TravelPackageItems>? get travelHomeBannerPackages {
+  List<TravelSpecificProductModel>? get travelHomeBannerPackages {
     final value = _travelHomeBannerPackages;
     if (value == null) return null;
     if (_travelHomeBannerPackages is EqualUnmodifiableListView)
@@ -7815,7 +7796,7 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TravelState(index: $index, isLoading: $isLoading, travelPopularProductsModel: $travelPopularProductsModel, travelCitiesModel: $travelCitiesModel, travelProductsModel: $travelProductsModel, searchProducts: $searchProducts, travelBestPlacesModel: $travelBestPlacesModel, productByLocationModel: $productByLocationModel, numberOfGuest: $numberOfGuest, country: $country, travelSearchLocationModels: $travelSearchLocationModels, searchedLocation: $searchedLocation, showCalendar: $showCalendar, tabIndex: $tabIndex, selectedStartDate: $selectedStartDate, selectedEndDate: $selectedEndDate, focusDay: $focusDay, formattedDateRang: $formattedDateRang, wishlistProducts: $wishlistProducts, travelWishlistItems: $travelWishlistItems, bookingSuccess: $bookingSuccess, travelHomeBannerPackages: $travelHomeBannerPackages, formImages: $formImages, searchSuccess: $searchSuccess, travelProductsByCitiesModel: $travelProductsByCitiesModel)';
+    return 'TravelState(index: $index, isLoading: $isLoading, travelPopularProductsModel: $travelPopularProductsModel, singleProductModel: $singleProductModel, travelCitiesModel: $travelCitiesModel, travelProductsModel: $travelProductsModel, searchProducts: $searchProducts, travelBestPlacesModel: $travelBestPlacesModel, productByLocationModel: $productByLocationModel, numberOfGuest: $numberOfGuest, country: $country, travelSearchLocationModels: $travelSearchLocationModels, searchedLocation: $searchedLocation, showCalendar: $showCalendar, tabIndex: $tabIndex, selectedStartDate: $selectedStartDate, selectedEndDate: $selectedEndDate, focusDay: $focusDay, formattedDateRang: $formattedDateRang, wishlistProducts: $wishlistProducts, travelWishlistItems: $travelWishlistItems, bookingSuccess: $bookingSuccess, travelHomeBannerPackages: $travelHomeBannerPackages, formImages: $formImages, searchSuccess: $searchSuccess, travelProductsByCitiesModel: $travelProductsByCitiesModel)';
   }
 
   @override
@@ -7827,6 +7808,7 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty(
           'travelPopularProductsModel', travelPopularProductsModel))
+      ..add(DiagnosticsProperty('singleProductModel', singleProductModel))
       ..add(DiagnosticsProperty('travelCitiesModel', travelCitiesModel))
       ..add(DiagnosticsProperty('travelProductsModel', travelProductsModel))
       ..add(DiagnosticsProperty('searchProducts', searchProducts))
@@ -7863,20 +7845,21 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
             (identical(other.index, index) || other.index == index) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.travelPopularProductsModel,
-                    travelPopularProductsModel) ||
-                other.travelPopularProductsModel ==
-                    travelPopularProductsModel) &&
+            const DeepCollectionEquality().equals(
+                other._travelPopularProductsModel,
+                _travelPopularProductsModel) &&
+            (identical(other.singleProductModel, singleProductModel) ||
+                other.singleProductModel == singleProductModel) &&
             (identical(other.travelCitiesModel, travelCitiesModel) ||
                 other.travelCitiesModel == travelCitiesModel) &&
             (identical(other.travelProductsModel, travelProductsModel) ||
                 other.travelProductsModel == travelProductsModel) &&
             const DeepCollectionEquality()
                 .equals(other._searchProducts, _searchProducts) &&
-            (identical(other.travelBestPlacesModel, travelBestPlacesModel) ||
-                other.travelBestPlacesModel == travelBestPlacesModel) &&
-            (identical(other.productByLocationModel, productByLocationModel) ||
-                other.productByLocationModel == productByLocationModel) &&
+            const DeepCollectionEquality()
+                .equals(other._travelBestPlacesModel, _travelBestPlacesModel) &&
+            const DeepCollectionEquality().equals(
+                other._productByLocationModel, _productByLocationModel) &&
             (identical(other.numberOfGuest, numberOfGuest) ||
                 other.numberOfGuest == numberOfGuest) &&
             (identical(other.country, country) || other.country == country) &&
@@ -7920,12 +7903,13 @@ class _$TravelStateImpl with DiagnosticableTreeMixin implements _TravelState {
         runtimeType,
         index,
         isLoading,
-        travelPopularProductsModel,
+        const DeepCollectionEquality().hash(_travelPopularProductsModel),
+        singleProductModel,
         travelCitiesModel,
         travelProductsModel,
         const DeepCollectionEquality().hash(_searchProducts),
-        travelBestPlacesModel,
-        productByLocationModel,
+        const DeepCollectionEquality().hash(_travelBestPlacesModel),
+        const DeepCollectionEquality().hash(_productByLocationModel),
         numberOfGuest,
         country,
         const DeepCollectionEquality().hash(_travelSearchLocationModels),
@@ -7956,12 +7940,14 @@ abstract class _TravelState implements TravelState {
   const factory _TravelState(
       {required final int index,
       required final bool isLoading,
-      required final TravelPopularProductsModel? travelPopularProductsModel,
+      required final List<TravelSpecificProductModel>?
+          travelPopularProductsModel,
+      required final ProductId? singleProductModel,
       required final TravelCitiesModel? travelCitiesModel,
-      required final TravelProductsModel? travelProductsModel,
-      required final List<TravelProduct>? searchProducts,
-      required final TravelBestPlacesModel? travelBestPlacesModel,
-      required final TravelPopularProductsModel? productByLocationModel,
+      required final ProductId? travelProductsModel,
+      required final List<ProductId>? searchProducts,
+      required final List<TravelSpecificProductModel>? travelBestPlacesModel,
+      required final List<ProductId>? productByLocationModel,
       required final int numberOfGuest,
       required final String country,
       required final List<TravelSearchLocationModels>?
@@ -7973,10 +7959,10 @@ abstract class _TravelState implements TravelState {
       required final DateTime? selectedEndDate,
       required final DateTime focusDay,
       required final String formattedDateRang,
-      required final List<TravelProductsModel>? wishlistProducts,
+      required final List<ProductId>? wishlistProducts,
       required final Set<String>? travelWishlistItems,
       required final bool bookingSuccess,
-      required final List<TravelPackageItems>? travelHomeBannerPackages,
+      required final List<TravelSpecificProductModel>? travelHomeBannerPackages,
       required final List<File> formImages,
       required final String searchSuccess,
       required final TravelProductsByCitiesModel?
@@ -7987,17 +7973,19 @@ abstract class _TravelState implements TravelState {
   @override
   bool get isLoading;
   @override
-  TravelPopularProductsModel? get travelPopularProductsModel;
+  List<TravelSpecificProductModel>? get travelPopularProductsModel;
+  @override
+  ProductId? get singleProductModel;
   @override
   TravelCitiesModel? get travelCitiesModel;
   @override
-  TravelProductsModel? get travelProductsModel;
+  ProductId? get travelProductsModel;
   @override
-  List<TravelProduct>? get searchProducts;
+  List<ProductId>? get searchProducts;
   @override
-  TravelBestPlacesModel? get travelBestPlacesModel;
+  List<TravelSpecificProductModel>? get travelBestPlacesModel;
   @override
-  TravelPopularProductsModel? get productByLocationModel;
+  List<ProductId>? get productByLocationModel;
   @override
   int get numberOfGuest;
   @override
@@ -8019,13 +8007,13 @@ abstract class _TravelState implements TravelState {
   @override
   String get formattedDateRang;
   @override
-  List<TravelProductsModel>? get wishlistProducts;
+  List<ProductId>? get wishlistProducts;
   @override
   Set<String>? get travelWishlistItems;
   @override
   bool get bookingSuccess;
   @override
-  List<TravelPackageItems>? get travelHomeBannerPackages;
+  List<TravelSpecificProductModel>? get travelHomeBannerPackages;
   @override
   List<File> get formImages;
   @override

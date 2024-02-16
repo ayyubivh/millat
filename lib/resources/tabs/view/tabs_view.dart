@@ -1,10 +1,9 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/main_home/home_view.dart';
-import 'package:millat/resources/rewards/rewards_tab_view.dart';
+import 'package:millat/resources/rewards/rewards_home_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_view.dart';
 import 'package:millat/resources/travel/view/travel_tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -20,7 +19,7 @@ class TabsView extends StatelessWidget {
     List screens = [
       const HomeView(),
       const ShopTabsView(),
-      const RewardsTabView(),
+      const RewardsHomeView(),
       const TravelTabsView(),
       const UserProfileView(),
     ];
@@ -43,7 +42,8 @@ class TabsView extends StatelessWidget {
         },
         child: Scaffold(
           bottomNavigationBar: state.homeTabIndex != 0 &&
-                  state.homeTabIndex != 4
+                  state.homeTabIndex != 4 &&
+                  state.homeTabIndex != 2
               ? const SizedBox()
               : SizedBox(
                   height: Platform.isIOS

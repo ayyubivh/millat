@@ -402,14 +402,15 @@ mixin _$RedeemProducts {
   String get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  String? get defaultStock => throw _privateConstructorUsedError;
+  int? get defaultStock => throw _privateConstructorUsedError;
   double? get stock => throw _privateConstructorUsedError;
   double? get offerPrice => throw _privateConstructorUsedError;
   double? get coins => throw _privateConstructorUsedError;
-  String get startDate => throw _privateConstructorUsedError;
-  String get endDate => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String? get startDate => throw _privateConstructorUsedError;
+  String? get endDate => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -427,14 +428,15 @@ abstract class $RedeemProductsCopyWith<$Res> {
       {@JsonKey(name: "_id") String id,
       String? image,
       String? title,
-      String? defaultStock,
+      int? defaultStock,
       double? stock,
       double? offerPrice,
       double? coins,
-      String startDate,
-      String endDate,
-      String createdAt,
-      String updatedAt});
+      String? startDate,
+      String? endDate,
+      String? createdAt,
+      String? updatedAt,
+      String? description});
 }
 
 /// @nodoc
@@ -457,10 +459,11 @@ class _$RedeemProductsCopyWithImpl<$Res, $Val extends RedeemProducts>
     Object? stock = freezed,
     Object? offerPrice = freezed,
     Object? coins = freezed,
-    Object? startDate = null,
-    Object? endDate = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -478,7 +481,7 @@ class _$RedeemProductsCopyWithImpl<$Res, $Val extends RedeemProducts>
       defaultStock: freezed == defaultStock
           ? _value.defaultStock
           : defaultStock // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       stock: freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
@@ -491,22 +494,26 @@ class _$RedeemProductsCopyWithImpl<$Res, $Val extends RedeemProducts>
           ? _value.coins
           : coins // ignore: cast_nullable_to_non_nullable
               as double?,
-      startDate: null == startDate
+      startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      endDate: null == endDate
+              as String?,
+      endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -523,14 +530,15 @@ abstract class _$$RedeemProductsImplCopyWith<$Res>
       {@JsonKey(name: "_id") String id,
       String? image,
       String? title,
-      String? defaultStock,
+      int? defaultStock,
       double? stock,
       double? offerPrice,
       double? coins,
-      String startDate,
-      String endDate,
-      String createdAt,
-      String updatedAt});
+      String? startDate,
+      String? endDate,
+      String? createdAt,
+      String? updatedAt,
+      String? description});
 }
 
 /// @nodoc
@@ -551,10 +559,11 @@ class __$$RedeemProductsImplCopyWithImpl<$Res>
     Object? stock = freezed,
     Object? offerPrice = freezed,
     Object? coins = freezed,
-    Object? startDate = null,
-    Object? endDate = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? description = freezed,
   }) {
     return _then(_$RedeemProductsImpl(
       null == id
@@ -572,7 +581,7 @@ class __$$RedeemProductsImplCopyWithImpl<$Res>
       freezed == defaultStock
           ? _value.defaultStock
           : defaultStock // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
@@ -585,22 +594,26 @@ class __$$RedeemProductsImplCopyWithImpl<$Res>
           ? _value.coins
           : coins // ignore: cast_nullable_to_non_nullable
               as double?,
-      null == startDate
+      freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == endDate
+              as String?,
+      freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == createdAt
+              as String?,
+      freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      null == updatedAt
+              as String?,
+      freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -619,7 +632,8 @@ class _$RedeemProductsImpl implements _RedeemProducts {
       this.startDate,
       this.endDate,
       this.createdAt,
-      this.updatedAt);
+      this.updatedAt,
+      this.description);
 
   factory _$RedeemProductsImpl.fromJson(Map<String, dynamic> json) =>
       _$$RedeemProductsImplFromJson(json);
@@ -632,7 +646,7 @@ class _$RedeemProductsImpl implements _RedeemProducts {
   @override
   final String? title;
   @override
-  final String? defaultStock;
+  final int? defaultStock;
   @override
   final double? stock;
   @override
@@ -640,17 +654,19 @@ class _$RedeemProductsImpl implements _RedeemProducts {
   @override
   final double? coins;
   @override
-  final String startDate;
+  final String? startDate;
   @override
-  final String endDate;
+  final String? endDate;
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
-  final String updatedAt;
+  final String? updatedAt;
+  @override
+  final String? description;
 
   @override
   String toString() {
-    return 'RedeemProducts(id: $id, image: $image, title: $title, defaultStock: $defaultStock, stock: $stock, offerPrice: $offerPrice, coins: $coins, startDate: $startDate, endDate: $endDate, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'RedeemProducts(id: $id, image: $image, title: $title, defaultStock: $defaultStock, stock: $stock, offerPrice: $offerPrice, coins: $coins, startDate: $startDate, endDate: $endDate, createdAt: $createdAt, updatedAt: $updatedAt, description: $description)';
   }
 
   @override
@@ -673,13 +689,27 @@ class _$RedeemProductsImpl implements _RedeemProducts {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, image, title, defaultStock,
-      stock, offerPrice, coins, startDate, endDate, createdAt, updatedAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      image,
+      title,
+      defaultStock,
+      stock,
+      offerPrice,
+      coins,
+      startDate,
+      endDate,
+      createdAt,
+      updatedAt,
+      description);
 
   @JsonKey(ignore: true)
   @override
@@ -701,14 +731,15 @@ abstract class _RedeemProducts implements RedeemProducts {
       @JsonKey(name: "_id") final String id,
       final String? image,
       final String? title,
-      final String? defaultStock,
+      final int? defaultStock,
       final double? stock,
       final double? offerPrice,
       final double? coins,
-      final String startDate,
-      final String endDate,
-      final String createdAt,
-      final String updatedAt) = _$RedeemProductsImpl;
+      final String? startDate,
+      final String? endDate,
+      final String? createdAt,
+      final String? updatedAt,
+      final String? description) = _$RedeemProductsImpl;
 
   factory _RedeemProducts.fromJson(Map<String, dynamic> json) =
       _$RedeemProductsImpl.fromJson;
@@ -721,7 +752,7 @@ abstract class _RedeemProducts implements RedeemProducts {
   @override
   String? get title;
   @override
-  String? get defaultStock;
+  int? get defaultStock;
   @override
   double? get stock;
   @override
@@ -729,13 +760,15 @@ abstract class _RedeemProducts implements RedeemProducts {
   @override
   double? get coins;
   @override
-  String get startDate;
+  String? get startDate;
   @override
-  String get endDate;
+  String? get endDate;
   @override
-  String get createdAt;
+  String? get createdAt;
   @override
-  String get updatedAt;
+  String? get updatedAt;
+  @override
+  String? get description;
   @override
   @JsonKey(ignore: true)
   _$$RedeemProductsImplCopyWith<_$RedeemProductsImpl> get copyWith =>

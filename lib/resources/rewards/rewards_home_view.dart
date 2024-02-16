@@ -5,7 +5,6 @@ import 'package:millat/resources/authentication/bloc/logic/database_bloc/databas
 import 'package:millat/resources/rewards/widget/daily_coins_widget.dart';
 import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
 import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
-import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
 import 'package:millat/resources/rewards/widget/score_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -54,8 +53,7 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 30,
-            vertical: 30,
-          ),
+          ).copyWith(top: 30),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,7 +110,7 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
   Widget _shopWithCoinsWidget(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.goNamed(MyAppRouteConstants.rewardsShopRouteName);
+        context.pushNamed(MyAppRouteConstants.rewardsShopRouteName);
       },
       child: Container(
           width: SizeUtility(context).width,
@@ -155,7 +153,7 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
               ),
               kHeight10,
               SizedBox(
-                height: 106,
+                height: 116,
                 child: BlocBuilder<RewardsBloc, RewardsState>(
                   builder: (context, state) {
                     return ListView.builder(
@@ -174,8 +172,8 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
                           );
                         }
                         return Container(
-                          height: 106,
-                          width: 93,
+                          height: 116,
+                          width: 96,
                           decoration: BoxDecoration(
                             color: ColorManager.whiteColor,
                             borderRadius: BorderRadius.circular(6),
@@ -186,6 +184,7 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
                             horizontal: 5,
                           ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Utilities().buildCachedNetworkImage(
@@ -195,16 +194,27 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
                                 width: 106,
                                 boxFit: BoxFit.fill,
                               ),
-                              kHeight3,
-                              Text(
-                                data[index]?.productId?.salePrice.toString() ??
-                                    "",
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w600,
-                                  color: ColorManager.primary,
-                                ),
-                              )
+                              kHeight5,
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    AppAssetsStrings.score,
+                                    height: 20,
+                                    width: 20,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  kWidth5,
+                                  Text(
+                                    data[index]?.coins?.toInt().toString() ??
+                                        "",
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: ColorManager.primary,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ],
                           ),
                         );
@@ -220,10 +230,9 @@ class _RewardsHomeViewState extends State<RewardsHomeView> {
 
   Widget _redeemYourCoinsWidget(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const RewardsRedeemView(),
-        ));
+        context.pushNamed(MyAppRouteConstants.rewardsRedeemViewRouteName);
       },
       child: SizedBox(
         height: 134,

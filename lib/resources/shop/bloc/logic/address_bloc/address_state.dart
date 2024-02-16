@@ -4,7 +4,8 @@ part of 'address_bloc.dart';
 class AddressState with _$AddressState {
   const factory AddressState({
     required String? successMessage,
-    required bool? successMessageInShop,
+    required bool updateAddressSuccess,
+    required bool addAddressSuccess,
     required String? failMessage,
     required AddressModel? addressModel,
     required int? selectedIndex,
@@ -22,6 +23,7 @@ class AddressState with _$AddressState {
         addressIdModel: null,
         isLoading: false,
         pincodeAddressModel: null,
-        successMessageInShop: false,
+        addAddressSuccess: false,
+        updateAddressSuccess: false,
       );
 }

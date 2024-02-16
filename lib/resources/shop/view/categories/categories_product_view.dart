@@ -143,8 +143,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                       mainAxisSpacing: 20,
                                       mainAxisExtent: !Responsive.isMobile(
                                               context)
-                                          ? SizeUtility(context).height / 3.6
-                                          : SizeUtility(context).height / 3.2,
+                                          ? SizeUtility(context).height / 3.3
+                                          : SizeUtility(context).height / 2.9,
                                     ),
                                     itemCount: state.multiFilterProduct?.result
                                             ?.products?.length ??
@@ -177,8 +177,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                 title: data.title,
                                                 image: data.images![0],
                                                 discountPrice:
-                                                    data.salePrice?.toInt() ??
-                                                        0,
+                                                    data.salePrice ?? 0,
                                                 actualPrice: data.regularPrice
                                                         ?.toInt() ??
                                                     0,
@@ -218,9 +217,9 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                           mainAxisExtent: !Responsive.isMobile(
                                                   context)
                                               ? SizeUtility(context).height /
-                                                  3.6
+                                                  3.3
                                               : SizeUtility(context).height /
-                                                  3.2,
+                                                  2.9,
                                         ),
                                         itemCount: state.product?.result
                                                 ?.products?.length ??
@@ -258,7 +257,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                     title: data.title,
                                                     image: data.images![0],
                                                     discountPrice:
-                                                        data.salePrice!.toInt(),
+                                                        data.salePrice ?? 0,
                                                     actualPrice: data
                                                         .regularPrice!
                                                         .toInt(),
@@ -297,9 +296,9 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                           mainAxisExtent: !Responsive.isMobile(
                                                   context)
                                               ? SizeUtility(context).height /
-                                                  3.6
+                                                  3.3
                                               : SizeUtility(context).height /
-                                                  3.2,
+                                                  2.9,
                                         ),
                                         itemCount: state.product?.result
                                                 ?.products?.length ??
@@ -330,7 +329,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                               title: datas.title,
                                               image: datas.images![0],
                                               discountPrice:
-                                                  datas.salePrice!.toInt(),
+                                                  datas.salePrice ?? 0,
                                               actualPrice:
                                                   datas.regularPrice!.toInt(),
                                               discount: datas.discount!.toInt(),

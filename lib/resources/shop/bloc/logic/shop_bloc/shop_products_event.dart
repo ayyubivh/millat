@@ -51,14 +51,8 @@ class ShopProductsEvent with _$ShopProductsEvent {
   }) = PostOrderIdOnlinePayment;
   const factory ShopProductsEvent.postOrdersRewards({
     required BuildContext context,
-    required double price,
-    required int coins,
     required String addressId,
-    required int totalQuantity,
     required String productId,
-    required String brandId,
-    required String size,
-    required String color,
   }) = PostOrdersRewards;
   const factory ShopProductsEvent.fetchOrders(
     BuildContext context,
@@ -147,4 +141,6 @@ class ShopProductsEvent with _$ShopProductsEvent {
       FetchArticlesByCategory;
   const factory ShopProductsEvent.fetchBrandProductsItemCount(
       {required List<String>? ids}) = FetchBrandProductsItemCount;
+  const factory ShopProductsEvent.changeSizeIndex(int index) = _ChangeSizeIndex;
+  const factory ShopProductsEvent.emptyRazorpayOrderId() = EmptyRazorpayOrderId;
 }

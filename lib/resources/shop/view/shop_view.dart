@@ -1,4 +1,3 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +22,9 @@ import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../utils/color_manager.dart';
 import '../../../utils/shimmer_utils.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
+import '../bloc/models/banners/banners_model.dart';
+import '../bloc/models/shop_by_brand/brand_model.dart';
+import '../bloc/models/shop_by_brand/shop_ad_brand_model.dart';
 
 class ShopView extends StatefulWidget {
   const ShopView({Key? key}) : super(key: key);
@@ -69,183 +71,194 @@ class _ShopViewState extends State<ShopView> {
             _categorySections(context),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                children: [
-                  _shopCarouselSliderWidget(),
-                  kHeight20,
-                  _titleWidget(text: Appstrings.brand),
-                  kHeight10,
-                  _brandCarouselSliderWidget(),
-                  kHeight20,
-                  _brandsWidget(),
-                  kHeight16,
-                  LighGreenGradienButton(
-                    text: Appstrings.viewBrands,
-                    onTap: () {
-                      context.goNamed(MyAppRouteConstants.shopBrandsRouteName);
-                    },
-                  ),
-                  kHeight40,
-                  _titleWidget(text: Appstrings.womensCare),
-                  kHeight16,
-                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                    builder: (context, state) {
-                      final womenSubCategoryData = state
-                          .productItemsSubCategoryWomenModel
-                          ?.result
-                          ?.data
-                          ?.itemList;
+              child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                builder: (context, state) => Column(
+                  children: [
+                    _shopCarouselSliderWidget(
+                        state.shopBanner?.result?.banners),
+                    kHeight20,
+                    _titleWidget(text: Appstrings.brand),
+                    kHeight10,
+                    _brandCarouselSliderWidget(
+                        state.shopAdBrands?.result?.data),
+                    kHeight20,
+                    _brandsWidget(state.brandModels?.result?.data),
+                    kHeight16,
+                    LighGreenGradienButton(
+                      text: Appstrings.viewBrands,
+                      onTap: () {
+                        context.pushNamed(
+                            MyAppRouteConstants.shopBrandsRouteName,
+                            extra: {
+                              'images': state.brandModels?.result?.data
+                                  ?.map((e) => e.logo)
+                                  .toList()
+                            });
+                      },
+                    ),
+                    kHeight40,
+                    _titleWidget(text: Appstrings.womensCare),
+                    kHeight16,
+                    BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                      builder: (context, state) {
+                        final womenSubCategoryData = state
+                            .productItemsSubCategoryWomenModel
+                            ?.result
+                            ?.data
+                            ?.itemList;
 
-                      final healthyDietSubCategoryData = state
-                          .productItemsSubCategoryHealthModel
-                          ?.result
-                          ?.data
-                          ?.itemList;
+                        final healthyDietSubCategoryData = state
+                            .productItemsSubCategoryHealthModel
+                            ?.result
+                            ?.data
+                            ?.itemList;
 
-                      final sunnahSubCategoryData = state
-                          .productItemsSubCategorySunnahModel
-                          ?.result
-                          ?.data
-                          ?.articleList;
+                        final sunnahSubCategoryData = state
+                            .productItemsSubCategorySunnahModel
+                            ?.result
+                            ?.data
+                            ?.articleList;
 
-                      return Column(
-                        children: [
-                          BackgroundContainer(
-                            cardType: ShopHomeCardtype.women,
-                            onTap: () {
-                              context.pushNamed(
-                                  MyAppRouteConstants.categoryRouteName,
-                                  extra: {
-                                    "categoryType":
-                                        CategoryType.specificCategory,
-                                    "category": "women",
-                                    "categoryId": "",
-                                  });
-                            },
-                            width: SizeUtility(context).width / 2,
-                            title: "Women",
-                            imageUrl: AppAssetsStrings.womenCareImg,
-                            text: "Because we care \nfor ",
-                            buttonColor: ColorManager.pinkButtonColor,
-                            gradientColors: [
-                              ColorManager.pinkGradient2,
-                              ColorManager.pinkGradient1,
-                            ],
-                            textColor: ColorManager.whiteColor,
-                            child: womenSubCategoryData == null
-                                ? ShimmerUtils.customRectangleShimmer(
-                                    SizeUtility(context).width, 60,
-                                    borderRadius: 16)
-                                : shopCardSubcategoryWidget(
-                                    getId: (index) =>
-                                        womenSubCategoryData[index].id ?? "",
-                                    state: state,
-                                    height: 126,
-                                    color: ColorManager.lightPinkClr,
-                                    itemCount: womenSubCategoryData.length,
-                                    getTitle: (index) =>
-                                        womenSubCategoryData[index].title ?? "",
-                                    getImageUrl: (index) =>
-                                        womenSubCategoryData[index].image ?? "",
-                                  ),
-                          ),
-                          kHeight20,
-                          _titleWidget(text: Appstrings.healthyDiet),
-                          kHeight20,
-                          BackgroundContainer(
-                            cardType: ShopHomeCardtype.health,
-                            onTap: () {
-                              context.pushNamed(
-                                  MyAppRouteConstants.categoryRouteName,
-                                  extra: {
-                                    "categoryType":
-                                        CategoryType.specificCategory,
-                                    "category": "healthy_diet",
-                                    "categoryId": "",
-                                  });
-                            },
-                            width: SizeUtility(context).width / 2,
-                            title: "Healthy",
-                            title2: "Sunnah",
-                            imageUrl: AppAssetsStrings.healhtyDietImg1,
-                            text: "your ",
-                            text2: "Lifestyle By Following",
-                            buttonColor: ColorManager.healthyDietButtonClr,
-                            gradientColors: [
-                              ColorManager.helthyDietGradientClr2,
-                              ColorManager.helthyDietGradientClr1,
-                            ],
-                            textColor: ColorManager.blackColor,
-                            child: healthyDietSubCategoryData == null
-                                ? ShimmerUtils.customRectangleShimmer(
-                                    SizeUtility(context).width, 60,
-                                    borderRadius: 16)
-                                : shopCardSubcategoryWidget(
-                                    getId: (index) =>
-                                        healthyDietSubCategoryData[index].id ??
-                                        "",
-                                    state: state,
-                                    height: 126,
-                                    color: ColorManager.helthyDietGradientClr2,
-                                    itemCount:
-                                        healthyDietSubCategoryData.length,
-                                    getTitle: (index) =>
-                                        healthyDietSubCategoryData[index]
-                                            .title ??
-                                        '',
-                                    getImageUrl: (index) =>
-                                        healthyDietSubCategoryData[index]
-                                            .image ??
-                                        "",
-                                  ),
-                          ),
-                          kHeight20,
-                          _titleWidget(text: Appstrings.followSunnah),
-                          kHeight20,
-                          BackgroundContainer(
-                            onTap: () {
-                              context.goNamed(
-                                  MyAppRouteConstants.articleRouteName);
-                            },
-                            cardType: ShopHomeCardtype.sunnah,
-                            title: "",
-                            imageUrl: AppAssetsStrings.sunnahImg1,
-                            text: "Read articles and learn more about",
-                            buttonColor: ColorManager.whiteColor,
-                            width: SizeUtility(context).width / 1.5,
-                            gradientColors: [
-                              ColorManager.sunnahGreenClr2,
-                              ColorManager.sunnahGreenClr1,
-                            ],
-                            textColor: ColorManager.whiteColor,
-                            child: sunnahSubCategoryData == null
-                                ? ShimmerUtils.customRectangleShimmer(
-                                    SizeUtility(context).width, 60,
-                                    borderRadius: 16)
-                                : shopCardSubcategoryWidget(
-                                    data: sunnahSubCategoryData,
-                                    getId: (index) =>
-                                        sunnahSubCategoryData[index].id ?? "",
-                                    state: state,
-                                    height: 126,
-                                    color: ColorManager.whiteColor,
-                                    itemCount: sunnahSubCategoryData.length,
-                                    getTitle: (index) =>
-                                        sunnahSubCategoryData[index].title ??
-                                        "",
-                                    getImageUrl: (index) =>
-                                        sunnahSubCategoryData[index].image!,
-                                    isSunnah: true),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                  kHeight15,
-                ],
+                        return Column(
+                          children: [
+                            BackgroundContainer(
+                              cardType: ShopHomeCardtype.women,
+                              onTap: () {
+                                context
+                                    .read<ShopProductsBloc>()
+                                    .add(const TabIndexChangeEvent(index: 2));
+                              },
+                              width: SizeUtility(context).width / 2,
+                              title: "Women",
+                              imageUrl: AppAssetsStrings.womenCareImg,
+                              text: "Because we care \nfor ",
+                              buttonColor: ColorManager.pinkButtonColor,
+                              gradientColors: [
+                                ColorManager.pinkGradient2,
+                                ColorManager.pinkGradient1,
+                              ],
+                              textColor: ColorManager.whiteColor,
+                              child: womenSubCategoryData == null
+                                  ? ShimmerUtils.customRectangleShimmer(
+                                      SizeUtility(context).width, 60,
+                                      borderRadius: 16)
+                                  : shopCardSubcategoryWidget(
+                                      getId: (index) =>
+                                          womenSubCategoryData[index].id ?? "",
+                                      state: state,
+                                      height: 126,
+                                      color: ColorManager.lightPinkClr,
+                                      itemCount: womenSubCategoryData.length,
+                                      getTitle: (index) =>
+                                          womenSubCategoryData[index].title ??
+                                          "",
+                                      getImageUrl: (index) =>
+                                          womenSubCategoryData[index].image ??
+                                          "",
+                                    ),
+                            ),
+                            kHeight20,
+                            _titleWidget(text: Appstrings.healthyDiet),
+                            kHeight20,
+                            BackgroundContainer(
+                              cardType: ShopHomeCardtype.health,
+                              onTap: () {
+                                context.pushNamed(
+                                    MyAppRouteConstants.categoryRouteName,
+                                    extra: {
+                                      "categoryType":
+                                          CategoryType.specificCategory,
+                                      "category": "healthy_diet",
+                                      "categoryId": "",
+                                    });
+                              },
+                              width: SizeUtility(context).width / 2,
+                              title: "Healthy",
+                              title2: "Sunnah",
+                              imageUrl: AppAssetsStrings.healhtyDietImg1,
+                              text: "your ",
+                              text2: "Lifestyle By Following",
+                              buttonColor: ColorManager.healthyDietButtonClr,
+                              gradientColors: [
+                                ColorManager.helthyDietGradientClr2,
+                                ColorManager.helthyDietGradientClr1,
+                              ],
+                              textColor: ColorManager.blackColor,
+                              child: healthyDietSubCategoryData == null
+                                  ? ShimmerUtils.customRectangleShimmer(
+                                      SizeUtility(context).width, 60,
+                                      borderRadius: 16)
+                                  : shopCardSubcategoryWidget(
+                                      getId: (index) =>
+                                          healthyDietSubCategoryData[index]
+                                              .id ??
+                                          "",
+                                      state: state,
+                                      height: 126,
+                                      color:
+                                          ColorManager.helthyDietGradientClr2,
+                                      itemCount:
+                                          healthyDietSubCategoryData.length,
+                                      getTitle: (index) =>
+                                          healthyDietSubCategoryData[index]
+                                              .title ??
+                                          '',
+                                      getImageUrl: (index) =>
+                                          healthyDietSubCategoryData[index]
+                                              .image ??
+                                          "",
+                                    ),
+                            ),
+                            kHeight20,
+                            _titleWidget(text: Appstrings.followSunnah),
+                            kHeight20,
+                            BackgroundContainer(
+                              onTap: () {
+                                context
+                                    .read<ShopProductsBloc>()
+                                    .add(const TabIndexChangeEvent(index: 1));
+                              },
+                              cardType: ShopHomeCardtype.sunnah,
+                              title: "",
+                              imageUrl: AppAssetsStrings.sunnahImg1,
+                              text: "Read articles and learn more about",
+                              buttonColor: ColorManager.whiteColor,
+                              width: SizeUtility(context).width / 1.5,
+                              gradientColors: [
+                                ColorManager.sunnahGreenClr2,
+                                ColorManager.sunnahGreenClr1,
+                              ],
+                              textColor: ColorManager.whiteColor,
+                              child: sunnahSubCategoryData == null
+                                  ? ShimmerUtils.customRectangleShimmer(
+                                      SizeUtility(context).width, 60,
+                                      borderRadius: 16)
+                                  : shopCardSubcategoryWidget(
+                                      data: sunnahSubCategoryData,
+                                      getId: (index) =>
+                                          sunnahSubCategoryData[index].id ?? "",
+                                      state: state,
+                                      height: 126,
+                                      color: ColorManager.whiteColor,
+                                      itemCount: sunnahSubCategoryData.length,
+                                      getTitle: (index) =>
+                                          sunnahSubCategoryData[index].title ??
+                                          "",
+                                      getImageUrl: (index) =>
+                                          sunnahSubCategoryData[index]
+                                              .thumbnail ??
+                                          "",
+                                      isSunnah: true),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                    kHeight15,
+                  ],
+                ),
               ),
             ),
-            kHeight100,
           ],
         ),
       ),
@@ -323,252 +336,258 @@ class _ShopViewState extends State<ShopView> {
     );
   }
 
-  Widget _brandsWidget() {
-    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
-      builder: (context, state) {
-        return SizedBox(
-          height: 100,
-          child: ListView.builder(
-            itemExtent: !Responsive.isMobile(context) ? 150 : 100,
-            scrollDirection: Axis.horizontal,
-            itemCount: state.brandModels?.result?.data?.length ?? 6,
-            itemBuilder: (BuildContext context, int index) {
-              final data = state.brandModels?.result?.data?[index];
-              return state.brandModels?.result?.data == null
-                  ? const Padding(
-                      padding: EdgeInsets.all(12.0),
-                      child: ShimmerUtilWidgetRounded(width: 56, height: 56))
-                  : GestureDetector(
-                      onTap: () {
-                        context.goNamed(
-                            MyAppRouteConstants.singleBrandRouteName,
-                            extra: {'passValue': data});
-                      },
-                      child: buildShopbyBrand(data?.logo, data?.name ?? ""),
-                    );
-            },
-          ),
-        );
-      },
+  Widget _brandsWidget(List<BrandData>? data) {
+    return SizedBox(
+      height: 100,
+      child: ListView.builder(
+        itemExtent: !Responsive.isMobile(context) ? 150 : 100,
+        scrollDirection: Axis.horizontal,
+        itemCount: data?.length ?? 6,
+        itemBuilder: (BuildContext context, int index) {
+          final result = data?[index];
+          return result == null
+              ? const Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: ShimmerUtilWidgetRounded(width: 56, height: 56))
+              : GestureDetector(
+                  onTap: () {
+                    context.pushNamed(MyAppRouteConstants.singleBrandRouteName,
+                        extra: {'passValue': data![index]});
+                  },
+                  child: buildShopbyBrand(result.logo, result.name ?? ""),
+                );
+        },
+      ),
     );
   }
 
-  Widget _brandCarouselSliderWidget() {
-    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
-      builder: (context, state) {
-        if (state.shopAdBrands?.result?.data == null) {
-          return ShimmerUtils.customRectangleShimmer(
+  Widget _brandCarouselSliderWidget(List<Data>? banners) {
+    return banners == null
+        ? ShimmerUtils.customRectangleShimmer(
             SizeUtility(context).width,
             150,
             borderRadius: 12,
-          );
-        }
-        final banners = state.shopAdBrands!.result?.data;
-        return Column(
-          children: [
-            CarouselSlider(
-              items: banners?.map((banner) {
-                return GestureDetector(
-                  onTap: () {
-                    context.goNamed(MyAppRouteConstants.singleBrandRouteName,
-                        extra: {'passValue': banner.brandId});
-                  },
-                  child: Container(
-                    // height: 226,
-                    width: SizeUtility(context).width,
-                    decoration: BoxDecoration(
-                      color: Colors.orange.withOpacity(0.65),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    margin: const EdgeInsets.only(right: 10),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Stack(
-                          children: [
-                            ClipRRect(
-                              borderRadius: const BorderRadius.vertical(
-                                top: Radius.circular(12),
-                              ),
-                              child: Image.asset(
-                                AppAssetsStrings.brandBackgroundImg,
-                                fit: BoxFit.fill,
-                                width: SizeUtility(context).width,
-                                height: 173,
-                              ),
-                            ),
-                            Positioned(
-                              top: 20,
-                              left: 20,
-                              child: CircleAvatar(
-                                radius: 32,
-                                backgroundColor: ColorManager.whiteColor,
-                                child: ClipOval(
-                                    child: Utilities().buildCachedNetworkImage(
-                                  imageUrl: banner.brandId?.logo ?? "",
-                                )),
-                              ),
-                            )
-                          ],
-                        ),
-                        Container(
-                          height: 52,
-                          width: SizeUtility(context).width,
-                          padding: const EdgeInsets.symmetric(horizontal: 14),
-                          child: Row(
+          )
+        : Column(
+            children: [
+              CarouselSlider(
+                items: banners.map((banner) {
+                  return GestureDetector(
+                    onTap: () {
+                      context.pushNamed(
+                          MyAppRouteConstants.singleBrandRouteName,
+                          extra: {'passValue': banner.brandId});
+                    },
+                    child: Container(
+                      // height: 226,
+                      width: SizeUtility(context).width,
+                      decoration: BoxDecoration(
+                        color: Colors.orange.withOpacity(0.65),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      margin: const EdgeInsets.only(right: 10),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Stack(
                             children: [
-                              const Text(
-                                "Discount Alerts",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                              ClipRRect(
+                                borderRadius: const BorderRadius.vertical(
+                                  top: Radius.circular(12),
+                                ),
+                                child: Utilities().buildCachedNetworkImage(
+                                  imageUrl: banner.image ?? "",
+                                  width: SizeUtility(context).width,
+                                  boxFit: BoxFit.fill,
+                                  height: 186,
                                 ),
                               ),
-                              kWidth8,
-                              ImageIcon(
-                                const AssetImage(
-                                  AppAssetsStrings.discountStar,
+                              Positioned(
+                                top: 20,
+                                left: 20,
+                                child: CircleAvatar(
+                                  radius: 32,
+                                  backgroundColor: ColorManager.whiteColor,
+                                  child: ClipOval(
+                                      child:
+                                          Utilities().buildCachedNetworkImage(
+                                    imageUrl: banner.brandId?.logo ?? "",
+                                  )),
                                 ),
-                                color: ColorManager.whiteColor,
-                              ),
-                              kWidth8,
-                              Expanded(
-                                child: Text(
-                                  banner.text ?? "",
-                                  style: const TextStyle(
+                              )
+                            ],
+                          ),
+                          Container(
+                            height: 52,
+                            width: SizeUtility(context).width,
+                            padding: const EdgeInsets.symmetric(horizontal: 14),
+                            child: Row(
+                              children: [
+                                const Text(
+                                  "Discount Alerts",
+                                  style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                              ),
-                            ],
+                                kWidth8,
+                                ImageIcon(
+                                  const AssetImage(
+                                    AppAssetsStrings.discountStar,
+                                  ),
+                                  color: ColorManager.whiteColor,
+                                ),
+                                kWidth8,
+                                Expanded(
+                                  child: Text(
+                                    banner.text ?? "",
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              }).toList(),
-              options: CarouselOptions(
-                height: 226,
-                viewportFraction: 1,
-                enlargeCenterPage: false,
-                autoPlay: true,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
-                enlargeFactor: 0.3,
-                scrollDirection: Axis.horizontal,
-                autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                onPageChanged: (index, reason) {
-                  context
-                      .read<ShopProductsBloc>()
-                      .add(ChangeBrandBannerIndex(index));
-                },
-              ),
-            ),
-            kHeight10,
-            BlocBuilder<ShopProductsBloc, ShopProductsState>(
-              builder: (context, state) => Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: banners!.map((banner) {
-                  int index = banners.indexOf(banner);
-                  return Container(
-                    width: state.brandBannerIndex == index ? 24 : 6,
-                    height: 6,
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: state.brandBannerIndex == index
-                          ? ColorManager.primary
-                          : ColorManager.textGrey,
+                        ],
+                      ),
                     ),
                   );
                 }).toList(),
+                options: CarouselOptions(
+                  height: 240,
+                  viewportFraction: 1,
+                  enlargeCenterPage: false,
+                  scrollPhysics: banners.length == 1
+                      ? const NeverScrollableScrollPhysics()
+                      : null,
+                  autoPlay: banners.length == 1 ? false : true,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enableInfiniteScroll: true,
+                  enlargeFactor: 0.3,
+                  scrollDirection: Axis.horizontal,
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  onPageChanged: (index, reason) {
+                    context
+                        .read<ShopProductsBloc>()
+                        .add(ChangeBrandBannerIndex(index));
+                  },
+                ),
               ),
-            ),
-          ],
-        );
-      },
-    );
+              kHeight10,
+              BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                builder: (context, state) => Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: banners.map((banner) {
+                    int index = banners.indexOf(banner);
+                    return Container(
+                      width: state.brandBannerIndex == index ? 24 : 6,
+                      height: 6,
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: state.brandBannerIndex == index
+                            ? ColorManager.primary
+                            : ColorManager.textGrey,
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+            ],
+          );
   }
 
-  Widget _shopCarouselSliderWidget() {
-    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
-      builder: (context, state) {
-        if (state.shopBanner == null) {
-          return Padding(
+  Widget _shopCarouselSliderWidget(List<Banners>? banners) {
+    return banners == null
+        ? Padding(
             padding: const EdgeInsets.only(top: 18.0),
             child: ShimmerUtils.customRectangleShimmer(
               SizeUtility(context).width,
               150,
               borderRadius: 12,
             ),
-          );
-        }
+          )
+        : Column(
+            children: [
+              kHeight20,
+              CarouselSlider(
+                items: banners.map((banner) {
+                  return GestureDetector(
+                    onTap: () {
+                      if (banner.routing == null ||
+                          banner.routing?.route == "") {
+                        return;
+                      } else {
+                        final routing = banner.routing!;
+                        final categoryId = routing.categoryId?.title;
+                        final subCategoryId = routing.subCategoryId?.title;
+                        final itemTypeId = routing.itemTypeId?.title;
 
-        final banners = state.shopBanner?.result!.banners;
-        return Column(
-          children: [
-            kHeight20,
-            CarouselSlider(
-              items: banners?.map((banner) {
-                return GestureDetector(
-                  onTap: () {
-                    context.pushNamed(
-                        MyAppRouteConstants.categoriesProductsRouteName,
-                        extra: {
-                          'subCategory': "",
-                          'type': FilterType.category,
-                          'category': '',
-                        });
-                  },
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Utilities().buildCachedNetworkImage(
-                          imageUrl: banner.image, boxFit: BoxFit.fill)),
-                );
-              }).toList(),
-              options: CarouselOptions(
-                height: 150,
-                viewportFraction: 1,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
-                enlargeFactor: 0.3,
-                scrollDirection: Axis.horizontal,
-                autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                onPageChanged: (index, reason) {
-                  context
-                      .read<ShopProductsBloc>()
-                      .add(ChangeShopBannerIndex(index));
-                },
-              ),
-            ),
-            kHeight10,
-            BlocBuilder<ShopProductsBloc, ShopProductsState>(
-              builder: (context, state) => Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: banners!.map((banner) {
-                  int index = banners.indexOf(banner);
-                  return Container(
-                    width: state.shopBannerIndex == index ? 24 : 6,
-                    height: 6,
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: state.shopBannerIndex == index
-                          ? ColorManager.primary
-                          : ColorManager.textGrey,
-                    ),
+                        if (categoryId == "" &&
+                            subCategoryId == "" &&
+                            itemTypeId == "") return;
+
+                        context.pushNamed(
+                          routing.route!,
+                          extra: {
+                            'category': categoryId,
+                            'subCategory': subCategoryId,
+                            'type': FilterType.category,
+                            // 'itemId': itemTypeId,
+                          },
+                        );
+                      }
+                    },
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Utilities().buildCachedNetworkImage(
+                          width: SizeUtility(context).width,
+                          imageUrl: banner.image,
+                          boxFit: BoxFit.fill,
+                        )),
                   );
                 }).toList(),
+                options: CarouselOptions(
+                  height: 150,
+                  viewportFraction: 1,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enableInfiniteScroll: true,
+                  enlargeFactor: 0.3,
+                  scrollDirection: Axis.horizontal,
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  onPageChanged: (index, reason) {
+                    context
+                        .read<ShopProductsBloc>()
+                        .add(ChangeShopBannerIndex(index));
+                  },
+                ),
               ),
-            ),
-          ],
-        );
-      },
-    );
+              kHeight10,
+              BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                builder: (context, state) => Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: banners.map((banner) {
+                    int index = banners.indexOf(banner);
+                    return Container(
+                      width: state.shopBannerIndex == index ? 24 : 6,
+                      height: 6,
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: state.shopBannerIndex == index
+                            ? ColorManager.primary
+                            : ColorManager.textGrey,
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+            ],
+          );
   }
 
   Widget _categorySections(BuildContext context) {
@@ -594,30 +613,13 @@ class _ShopViewState extends State<ShopView> {
                 ],
               ),
               const Spacer(),
-              GestureDetector(
-                onTap: () {
-                  context
-                      .pushNamed(MyAppRouteConstants.categoriesFilterRouteName);
-                },
-                child: ImageIcon(
-                  const AssetImage(
-                    AppAssetsStrings.shopMenuIcons,
-                  ),
-                  size: 25,
-                  color: ColorManager.whiteColor,
-                ),
-              ),
-              !Responsive.isMobile(context) ? kWidth30 : kWidth10,
-              GestureDetector(
-                onTap: () {
-                  context.pushNamed(MyAppRouteConstants.wishlistRouteName);
-                },
-                child: ImageIcon(
-                  const AssetImage(AppAssetsStrings.wishList),
-                  color: ColorManager.whiteColor,
-                  size: 22,
-                ),
-              ),
+              _topButtonWidget(
+                  context,
+                  MyAppRouteConstants.categoriesFilterRouteName,
+                  AppAssetsStrings.shopMenuIcons),
+              !Responsive.isMobile(context) ? kWidth30 : const SizedBox(),
+              _topButtonWidget(context, MyAppRouteConstants.wishlistRouteName,
+                  AppAssetsStrings.wishList),
               !Responsive.isMobile(context) ? kWidth20 : const SizedBox(),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
@@ -671,9 +673,9 @@ class _ShopViewState extends State<ShopView> {
           kHeight20,
           BlocBuilder<CategoryBloc, CategoryState>(
             builder: (context, state) {
-              return SizedBox(
-                height: 95,
+              return Expanded(
                 child: ListView.builder(
+                  shrinkWrap: true,
                   itemCount: state.category?.result?.category?.length,
                   itemExtent: !Responsive.isMobile(context) ? 150 : 100,
                   scrollDirection: Axis.horizontal,
@@ -700,6 +702,22 @@ class _ShopViewState extends State<ShopView> {
             },
           )
         ],
+      ),
+    );
+  }
+
+  Widget _topButtonWidget(
+      BuildContext context, String routeName, String iconName) {
+    return IconButton(
+      onPressed: () {
+        context.pushNamed(routeName);
+      },
+      icon: ImageIcon(
+        AssetImage(
+          iconName,
+        ),
+        size: 25,
+        color: ColorManager.whiteColor,
       ),
     );
   }

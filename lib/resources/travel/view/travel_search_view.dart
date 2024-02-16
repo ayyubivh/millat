@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:millat/components/debounce/debounce.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:millat/resources/travel/view/widget/travel_search_textfield.dart';
 import 'package:millat/routes/app_router_constants.dart';
@@ -79,7 +80,14 @@ class TravelSearchView extends StatelessWidget {
                         location: location,
                         date: state.formattedDateRang));
                 context.pushNamed(MyAppRouteConstants.travelPackagesView,
-                    pathParameters: {"title": "Products"});
+                    pathParameters: {
+                      "title": "Products"
+                    },
+                    extra: {
+                      "type": TravelsPackagesType.search,
+                      "city": " ",
+                      "country": "",
+                    });
               }
             },
             child: Container(
@@ -414,7 +422,7 @@ class SearchWidget extends StatelessWidget {
                                           BlocProvider.of<TravelBloc>(context)
                                               .add(SaveSearchLocation(
                                                   location:
-                                                      "${countryData?.city}, ${countryData?.country}"));
+                                                      "${countryData?.city ?? ""}, ${countryData?.country ?? ""}"));
                                         },
                                         child: Column(
                                           crossAxisAlignment:
@@ -428,7 +436,9 @@ class SearchWidget extends StatelessWidget {
                                                 children: [
                                                   Flexible(
                                                     child: Text(
-                                                      "${countryData?.city}, ",
+                                                      countryData?.city != null
+                                                          ? '${countryData?.city}, '
+                                                          : '',
                                                       style: const TextStyle(
                                                         fontWeight:
                                                             FontWeight.w500,

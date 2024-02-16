@@ -28,6 +28,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     on<UpdateAddress>(_updateAddress);
     on<FetchAddressDefaultIndex>(_fetchAddressDefaultIndex);
     on<FetchPincodeAddres>(_fetchPincodeAddress);
+    on<_MakeDefaultResponse>(_makeDefaultResponse);
   }
 
   _addAddress(AddAddress event, Emitter<AddressState> emit) async {
@@ -47,9 +48,11 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
       if (data['status'] == 200) {
         debugPrint('on add address ${data['message']}');
         emit(state.copyWith(
-          successMessageInShop: true,
+          addAddressSuccess: true,
           isLoading: false,
         ));
+        final updatedAddress = await _addressService.fetchAddress();
+        emit(state.copyWith(addressModel: updatedAddress));
       } else {
         emit(state.copyWith(failMessage: data['message'], isLoading: false));
       }
@@ -59,6 +62,8 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
   }
 
   _updateAddress(UpdateAddress event, Emitter<AddressState> emit) async {
+    emit(state.copyWith(isLoading: true));
+
     try {
       final data = await _addressService.updateAddresbyId(
           id: event.id,
@@ -74,12 +79,30 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
           country: event.country);
       if (data['status'] == 200) {
         debugPrint('on update address address ${data['message']}');
-        emit(state.copyWith(successMessage: data['message']));
+        emit(state.copyWith(
+            successMessage: data['message'],
+            isLoading: false,
+            updateAddressSuccess: true));
+        final updatedAddress = await _addressService.fetchAddress();
+        emit(state.copyWith(addressModel: updatedAddress));
       } else {
-        // emit(state.copyWith(failMessage: data['message']));
+        emit(state.copyWith(isLoading: false));
       }
     } catch (e) {
+      emit(state.copyWith(isLoading: false));
+
       throw Exception();
+    }
+  }
+
+  _makeDefaultResponse(_MakeDefaultResponse event, Emitter<AddressState> emit) {
+    emit(state.copyWith(
+      addAddressSuccess: false,
+      updateAddressSuccess: false,
+    ));
+    if (kDebugMode) {
+      debugPrint(
+          "add--------- ${state.addAddressSuccess} \n update -----------${state.updateAddressSuccess}");
     }
   }
 
@@ -87,16 +110,15 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
       FetchAddressEvent event, Emitter<AddressState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final data = await _addressService.fetchAddress(event.context);
+      final data = await _addressService.fetchAddress();
       emit(state.copyWith(
         addressModel: data,
         isLoading: false,
-        successMessageInShop: false,
+        // addressId:state.selectedIndex!=-1? data.result.addresses[state.selectedIndex!].,
       ));
     } catch (e) {
       emit(state.copyWith(
         isLoading: false,
-        successMessageInShop: false,
       ));
 
       throw Exception();
@@ -149,13 +171,15 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
 
   _fetchAddressByIdEvent(
       FetchAddressByIdEvent event, Emitter<AddressState> emit) async {
-    emit(state.copyWith(isLoading: true));
+    emit(state.copyWith(
+      isLoading: true,
+    ));
 
     try {
       final data =
           await _addressService.fetchAddressById(event.context, event.id);
       emit(state.copyWith(addressIdModel: data, isLoading: false));
-      debugPrint('on addess $data');
+      debugPrint('on addess ${data.result.address.name}');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
 
@@ -165,6 +189,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
 
   _deleteAddressEvent(
       DeleteAddressEvent event, Emitter<AddressState> emit) async {
+    emit(state.copyWith(isLoading: true));
     try {
       final updatedAddressModel = state.addressModel!.copyWith(
           result: state.addressModel!.result.copyWith(
@@ -173,9 +198,10 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
                   .toList()));
       final data =
           await _addressService.deleteAddressbyId(event.context, event.id);
-      emit(state.copyWith(addressModel: updatedAddressModel));
+      emit(state.copyWith(addressModel: updatedAddressModel, isLoading: false));
       debugPrint('data on bloc $data');
     } catch (e) {
+      emit(state.copyWith(isLoading: false));
       throw Exception();
     }
   }

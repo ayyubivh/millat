@@ -25,7 +25,7 @@ mixin _$CartEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -33,6 +33,8 @@ mixin _$CartEvent {
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
     required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,7 +44,7 @@ mixin _$CartEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -50,6 +52,8 @@ mixin _$CartEvent {
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
     TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +63,7 @@ mixin _$CartEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -67,6 +71,8 @@ mixin _$CartEvent {
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
     TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -82,6 +88,7 @@ mixin _$CartEvent {
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
     required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,6 +101,7 @@ mixin _$CartEvent {
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,6 +114,7 @@ mixin _$CartEvent {
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -200,7 +209,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -208,6 +217,8 @@ class _$FetchCartEventImpl implements FetchCartEvent {
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
     required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
   }) {
     return fetchCartEvent(context);
   }
@@ -220,7 +231,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -228,6 +239,8 @@ class _$FetchCartEventImpl implements FetchCartEvent {
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
     TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
   }) {
     return fetchCartEvent?.call(context);
   }
@@ -240,7 +253,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -248,6 +261,8 @@ class _$FetchCartEventImpl implements FetchCartEvent {
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
     TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (fetchCartEvent != null) {
@@ -269,6 +284,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
     required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
   }) {
     return fetchCartEvent(this);
   }
@@ -284,6 +300,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
   }) {
     return fetchCartEvent?.call(this);
   }
@@ -299,6 +316,7 @@ class _$FetchCartEventImpl implements FetchCartEvent {
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (fetchCartEvent != null) {
@@ -411,7 +429,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -419,6 +437,8 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
     required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
   }) {
     return updateCartEventWithAdd(context, productId, quantity);
   }
@@ -431,7 +451,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -439,6 +459,8 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
     TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
   }) {
     return updateCartEventWithAdd?.call(context, productId, quantity);
   }
@@ -451,7 +473,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -459,6 +481,8 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
     TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (updateCartEventWithAdd != null) {
@@ -480,6 +504,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
     required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
   }) {
     return updateCartEventWithAdd(this);
   }
@@ -495,6 +520,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
   }) {
     return updateCartEventWithAdd?.call(this);
   }
@@ -510,6 +536,7 @@ class _$UpdateCartEventWithAddImpl implements UpdateCartEventWithAdd {
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (updateCartEventWithAdd != null) {
@@ -626,7 +653,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -634,6 +661,8 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
     required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
   }) {
     return updateCartEventWithSub(context, productId, quantity);
   }
@@ -646,7 +675,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -654,6 +683,8 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
     TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
   }) {
     return updateCartEventWithSub?.call(context, productId, quantity);
   }
@@ -666,7 +697,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -674,6 +705,8 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
     TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (updateCartEventWithSub != null) {
@@ -695,6 +728,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
     required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
   }) {
     return updateCartEventWithSub(this);
   }
@@ -710,6 +744,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
   }) {
     return updateCartEventWithSub?.call(this);
   }
@@ -725,6 +760,7 @@ class _$UpdateCartEventWithSubImpl implements UpdateCartEventWithSub {
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (updateCartEventWithSub != null) {
@@ -756,7 +792,7 @@ abstract class _$$AddCartEventImplCopyWith<$Res> {
   @useResult
   $Res call(
       {String productId,
-      int basePrice,
+      double basePrice,
       String size,
       BuildContext context,
       String color,
@@ -791,7 +827,7 @@ class __$$AddCartEventImplCopyWithImpl<$Res>
       basePrice: null == basePrice
           ? _value.basePrice
           : basePrice // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -831,7 +867,7 @@ class _$AddCartEventImpl implements AddCartEvent {
   @override
   final String productId;
   @override
-  final int basePrice;
+  final double basePrice;
   @override
   final String size;
   @override
@@ -885,7 +921,7 @@ class _$AddCartEventImpl implements AddCartEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -893,6 +929,8 @@ class _$AddCartEventImpl implements AddCartEvent {
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
     required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
   }) {
     return addCart(
         productId, basePrice, size, context, color, quantity, brandId);
@@ -906,7 +944,7 @@ class _$AddCartEventImpl implements AddCartEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -914,6 +952,8 @@ class _$AddCartEventImpl implements AddCartEvent {
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
     TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
   }) {
     return addCart?.call(
         productId, basePrice, size, context, color, quantity, brandId);
@@ -927,7 +967,7 @@ class _$AddCartEventImpl implements AddCartEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -935,6 +975,8 @@ class _$AddCartEventImpl implements AddCartEvent {
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
     TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (addCart != null) {
@@ -957,6 +999,7 @@ class _$AddCartEventImpl implements AddCartEvent {
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
     required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
   }) {
     return addCart(this);
   }
@@ -972,6 +1015,7 @@ class _$AddCartEventImpl implements AddCartEvent {
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
   }) {
     return addCart?.call(this);
   }
@@ -987,6 +1031,7 @@ class _$AddCartEventImpl implements AddCartEvent {
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (addCart != null) {
@@ -999,7 +1044,7 @@ class _$AddCartEventImpl implements AddCartEvent {
 abstract class AddCartEvent implements CartEvent {
   const factory AddCartEvent(
       {required final String productId,
-      required final int basePrice,
+      required final double basePrice,
       required final String size,
       required final BuildContext context,
       required final String color,
@@ -1007,7 +1052,7 @@ abstract class AddCartEvent implements CartEvent {
       required final String brandId}) = _$AddCartEventImpl;
 
   String get productId;
-  int get basePrice;
+  double get basePrice;
   String get size;
   BuildContext get context;
   String get color;
@@ -1100,7 +1145,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -1108,6 +1153,8 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
     required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
   }) {
     return removeCartItemEvent(context, productId);
   }
@@ -1120,7 +1167,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -1128,6 +1175,8 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
     TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
   }) {
     return removeCartItemEvent?.call(context, productId);
   }
@@ -1140,7 +1189,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -1148,6 +1197,8 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
     TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (removeCartItemEvent != null) {
@@ -1169,6 +1220,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
     required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
   }) {
     return removeCartItemEvent(this);
   }
@@ -1184,6 +1236,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
   }) {
     return removeCartItemEvent?.call(this);
   }
@@ -1199,6 +1252,7 @@ class _$RemoveCartItemEventImpl implements RemoveCartItemEvent {
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (removeCartItemEvent != null) {
@@ -1266,7 +1320,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -1274,6 +1328,8 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
     required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
   }) {
     return toggleShowMoreEvent();
   }
@@ -1286,7 +1342,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -1294,6 +1350,8 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
     TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
   }) {
     return toggleShowMoreEvent?.call();
   }
@@ -1306,7 +1364,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -1314,6 +1372,8 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
     TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (toggleShowMoreEvent != null) {
@@ -1335,6 +1395,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
     required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
   }) {
     return toggleShowMoreEvent(this);
   }
@@ -1350,6 +1411,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
   }) {
     return toggleShowMoreEvent?.call(this);
   }
@@ -1365,6 +1427,7 @@ class _$ToggleShowMoreEventImpl implements ToggleShowMoreEvent {
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (toggleShowMoreEvent != null) {
@@ -1424,7 +1487,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -1432,6 +1495,8 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
     required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
   }) {
     return paymentSuccessEvent();
   }
@@ -1444,7 +1509,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -1452,6 +1517,8 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
     TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
   }) {
     return paymentSuccessEvent?.call();
   }
@@ -1464,7 +1531,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -1472,6 +1539,8 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
     TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (paymentSuccessEvent != null) {
@@ -1493,6 +1562,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
     required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
   }) {
     return paymentSuccessEvent(this);
   }
@@ -1508,6 +1578,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
   }) {
     return paymentSuccessEvent?.call(this);
   }
@@ -1523,6 +1594,7 @@ class _$PaymentSuccessEventImpl implements PaymentSuccessEvent {
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (paymentSuccessEvent != null) {
@@ -1581,7 +1653,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
     required TResult Function(
             BuildContext context, String productId, int quantity)
         updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
+    required TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)
         addCart,
     required TResult Function(BuildContext context, String productId)
@@ -1589,6 +1661,8 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
     required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
   }) {
     return showExpandEvent();
   }
@@ -1601,7 +1675,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
         updateCartEventWithAdd,
     TResult? Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
+    TResult? Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult? Function(BuildContext context, String productId)?
@@ -1609,6 +1683,8 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
     TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
   }) {
     return showExpandEvent?.call();
   }
@@ -1621,7 +1697,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
         updateCartEventWithAdd,
     TResult Function(BuildContext context, String productId, int quantity)?
         updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
+    TResult Function(String productId, double basePrice, String size,
             BuildContext context, String color, int quantity, String brandId)?
         addCart,
     TResult Function(BuildContext context, String productId)?
@@ -1629,6 +1705,8 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
     TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (showExpandEvent != null) {
@@ -1650,6 +1728,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
     required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
   }) {
     return showExpandEvent(this);
   }
@@ -1665,6 +1744,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
   }) {
     return showExpandEvent?.call(this);
   }
@@ -1680,6 +1760,7 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
     TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
     required TResult orElse(),
   }) {
     if (showExpandEvent != null) {
@@ -1691,6 +1772,216 @@ class _$ShowExpandEventImpl implements ShowExpandEvent {
 
 abstract class ShowExpandEvent implements CartEvent {
   const factory ShowExpandEvent() = _$ShowExpandEventImpl;
+}
+
+/// @nodoc
+abstract class _$$ChoosePaymentMethodImplCopyWith<$Res> {
+  factory _$$ChoosePaymentMethodImplCopyWith(_$ChoosePaymentMethodImpl value,
+          $Res Function(_$ChoosePaymentMethodImpl) then) =
+      __$$ChoosePaymentMethodImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String paymentMethod, BuildContext context});
+}
+
+/// @nodoc
+class __$$ChoosePaymentMethodImplCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$ChoosePaymentMethodImpl>
+    implements _$$ChoosePaymentMethodImplCopyWith<$Res> {
+  __$$ChoosePaymentMethodImplCopyWithImpl(_$ChoosePaymentMethodImpl _value,
+      $Res Function(_$ChoosePaymentMethodImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? paymentMethod = null,
+    Object? context = null,
+  }) {
+    return _then(_$ChoosePaymentMethodImpl(
+      null == paymentMethod
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChoosePaymentMethodImpl implements ChoosePaymentMethod {
+  const _$ChoosePaymentMethodImpl(this.paymentMethod, this.context);
+
+  @override
+  final String paymentMethod;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'CartEvent.choosePaymentMethod(paymentMethod: $paymentMethod, context: $context)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChoosePaymentMethodImpl &&
+            (identical(other.paymentMethod, paymentMethod) ||
+                other.paymentMethod == paymentMethod) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, paymentMethod, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChoosePaymentMethodImplCopyWith<_$ChoosePaymentMethodImpl> get copyWith =>
+      __$$ChoosePaymentMethodImplCopyWithImpl<_$ChoosePaymentMethodImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchCartEvent,
+    required TResult Function(
+            BuildContext context, String productId, int quantity)
+        updateCartEventWithAdd,
+    required TResult Function(
+            BuildContext context, String productId, int quantity)
+        updateCartEventWithSub,
+    required TResult Function(String productId, double basePrice, String size,
+            BuildContext context, String color, int quantity, String brandId)
+        addCart,
+    required TResult Function(BuildContext context, String productId)
+        removeCartItemEvent,
+    required TResult Function() toggleShowMoreEvent,
+    required TResult Function() paymentSuccessEvent,
+    required TResult Function() showExpandEvent,
+    required TResult Function(String paymentMethod, BuildContext context)
+        choosePaymentMethod,
+  }) {
+    return choosePaymentMethod(paymentMethod, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchCartEvent,
+    TResult? Function(BuildContext context, String productId, int quantity)?
+        updateCartEventWithAdd,
+    TResult? Function(BuildContext context, String productId, int quantity)?
+        updateCartEventWithSub,
+    TResult? Function(String productId, double basePrice, String size,
+            BuildContext context, String color, int quantity, String brandId)?
+        addCart,
+    TResult? Function(BuildContext context, String productId)?
+        removeCartItemEvent,
+    TResult? Function()? toggleShowMoreEvent,
+    TResult? Function()? paymentSuccessEvent,
+    TResult? Function()? showExpandEvent,
+    TResult? Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
+  }) {
+    return choosePaymentMethod?.call(paymentMethod, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchCartEvent,
+    TResult Function(BuildContext context, String productId, int quantity)?
+        updateCartEventWithAdd,
+    TResult Function(BuildContext context, String productId, int quantity)?
+        updateCartEventWithSub,
+    TResult Function(String productId, double basePrice, String size,
+            BuildContext context, String color, int quantity, String brandId)?
+        addCart,
+    TResult Function(BuildContext context, String productId)?
+        removeCartItemEvent,
+    TResult Function()? toggleShowMoreEvent,
+    TResult Function()? paymentSuccessEvent,
+    TResult Function()? showExpandEvent,
+    TResult Function(String paymentMethod, BuildContext context)?
+        choosePaymentMethod,
+    required TResult orElse(),
+  }) {
+    if (choosePaymentMethod != null) {
+      return choosePaymentMethod(paymentMethod, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchCartEvent value) fetchCartEvent,
+    required TResult Function(UpdateCartEventWithAdd value)
+        updateCartEventWithAdd,
+    required TResult Function(UpdateCartEventWithSub value)
+        updateCartEventWithSub,
+    required TResult Function(AddCartEvent value) addCart,
+    required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
+    required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
+    required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
+    required TResult Function(ShowExpandEvent value) showExpandEvent,
+    required TResult Function(ChoosePaymentMethod value) choosePaymentMethod,
+  }) {
+    return choosePaymentMethod(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchCartEvent value)? fetchCartEvent,
+    TResult? Function(UpdateCartEventWithAdd value)? updateCartEventWithAdd,
+    TResult? Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
+    TResult? Function(AddCartEvent value)? addCart,
+    TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
+    TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
+    TResult? Function(ShowExpandEvent value)? showExpandEvent,
+    TResult? Function(ChoosePaymentMethod value)? choosePaymentMethod,
+  }) {
+    return choosePaymentMethod?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchCartEvent value)? fetchCartEvent,
+    TResult Function(UpdateCartEventWithAdd value)? updateCartEventWithAdd,
+    TResult Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
+    TResult Function(AddCartEvent value)? addCart,
+    TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
+    TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
+    TResult Function(ShowExpandEvent value)? showExpandEvent,
+    TResult Function(ChoosePaymentMethod value)? choosePaymentMethod,
+    required TResult orElse(),
+  }) {
+    if (choosePaymentMethod != null) {
+      return choosePaymentMethod(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChoosePaymentMethod implements CartEvent {
+  const factory ChoosePaymentMethod(
+          final String paymentMethod, final BuildContext context) =
+      _$ChoosePaymentMethodImpl;
+
+  String get paymentMethod;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$ChoosePaymentMethodImplCopyWith<_$ChoosePaymentMethodImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

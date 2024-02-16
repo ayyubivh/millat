@@ -30,6 +30,13 @@ class _SendOTPViewState extends State<SendOTPView> {
   bool isValidate = false;
   bool isReferral = false;
   @override
+  void dispose() {
+    clearDate();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocConsumer<AuthBloc, AuthState>(
@@ -159,7 +166,6 @@ class _SendOTPViewState extends State<SendOTPView> {
                 if (widget.type == SendOTPType.signUp) {
                   context.read<AuthBloc>().add(SignInWithPhone(
                       phoneNumber: number!.phoneNumber!,
-                      isSignUp: true,
                       context,
                       referralCode: _referralCodeController.text));
                 } else if (widget.type == SendOTPType.signIn) {
@@ -168,9 +174,8 @@ class _SendOTPViewState extends State<SendOTPView> {
                   //     context,
                   //     isSignUp: false,
                   //     referralCode: _referralCodeController.text));
-                  context
-                      .read<AuthBloc>()
-                      .add(SendOTPonly(number!.phoneNumber!));
+                  context.read<AuthBloc>().add(SignInWithPhone(context,
+                      referralCode: '', phoneNumber: number!.phoneNumber));
                 } else {
                   context.read<AuthBloc>().add(SendOTP(number!.phoneNumber!));
                 }
@@ -178,6 +183,10 @@ class _SendOTPViewState extends State<SendOTPView> {
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text("Please enter phone number")));
               }
+              setState(() {
+                isReferral = false;
+              });
+              clearDate();
             }),
       ),
     );
@@ -188,5 +197,8 @@ class _SendOTPViewState extends State<SendOTPView> {
         .showSnackBar(SnackBar(content: Text(message)));
   }
 
-  clearDate() => number = null;
+  clearDate() {
+    _referralCodeController.clear();
+    number = null;
+  }
 }

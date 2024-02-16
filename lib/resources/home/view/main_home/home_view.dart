@@ -1,5 +1,5 @@
 // ignore_for_file: unused_local_variable, depend_on_referenced_packages
-
+import 'dart:developer';
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -39,16 +39,12 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
   ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
   @override
   void initState() {
     _fetchApi();
-
-    WidgetsBinding.instance.addObserver(AppLifecycleListener(onResume: () {
-      _fetchApi();
-    }));
     OneSignal.Notifications.addClickListener((event) {
       if (event.notification.additionalData?["route"] != null) {
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -56,25 +52,35 @@ class _HomeViewState extends State<HomeView> {
         });
       }
     });
-
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
 
-  _fetchApi() {
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+    if (state == AppLifecycleState.resumed) {
+      log("state changed value ${state.name}");
+      _fetchApi();
+    }
+  }
+
+  _fetchApi() async {
     if (!mounted) {
       return;
     }
-    final verskey = context.read<QuranBloc>().state.shuffleVersKey;
     BlocProvider.of<QuranBloc>(context).add(const GetShuffledAya());
-    BlocProvider.of<QuranBloc>(context)
-        .add(FetchVersesByKey(verseKey: [verskey]));
 
     BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
     BlocProvider.of<DatabaseBloc>(context)
       ..add(FetchAuthUser(context: context))
-      ..add(const FetchCoverImage())
-      ..add(const FetchContactEvent());
+      ..add(const FetchCoverImage());
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchHomeBanners());
     // BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
@@ -84,12 +90,13 @@ class _HomeViewState extends State<HomeView> {
       ..add(const GetHighLatitudeMethodsToLocalStorage());
 
     BlocProvider.of<HomeBloc>(context)
-      ..add(const FetchLargeDiscountsBanner())
-      ..add(const FetchTopOffersBanner())
-      ..add(const FetchBrandofTheDay())
-      ..add(const FetchHadithOfTheDay())
-      ..add(const FetchEventOfTheMonth())
-      ..add(const ChangeIndexofAllaysaysBg());
+        // ..add(const FetchLargeDiscountsBanner())
+        // ..add(const FetchTopOffersBanner())
+        // ..add(const FetchBrandofTheDay())
+        // ..add(const FetchHadithOfTheDay())
+        // ..add(const FetchEventOfTheMonth())
+        // ..add(const ChangeIndexofAllaysaysBg())
+        .add(const HomeEvent.fetchAllHomePageApis());
   }
 
   Future<void> _handleRefresh() async {
@@ -98,7 +105,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
+    return RefreshIndicator.adaptive(
       color: ColorManager.primary,
       onRefresh: _handleRefresh,
       child: Scaffold(
@@ -179,51 +186,68 @@ class _HomeViewState extends State<HomeView> {
                         : MainAxisAlignment.spaceAround,
                     children: [
                       buildIconWidget(
-                        image: AppAssetsStrings.homeQuranIcon,
-                        text: Appstrings.quran,
+                        image: AppAssetsStrings.shopHome,
+                        text: Appstrings.shop,
                         onTap: () {
-                          context.goNamed(MyAppRouteConstants.quranRouteName);
+                          context
+                              .read<HomeBloc>()
+                              .add(const ChangeHomeTabIndexEvent(newIndex: 1));
                         },
                       ),
                       BlocBuilder<LocationBloc, LocationState>(
                         builder: (context, state) => buildIconWidget(
-                          image: AppAssetsStrings.homeCompassIcon,
-                          text: Appstrings.compass,
+                          image: AppAssetsStrings.travelHome,
+                          text: Appstrings.travel,
                           onTap: () {
-                            if (state.currentLocation.isNotEmpty) {
-                              context.goNamed(
-                                  MyAppRouteConstants.compassRouteName);
-                            } else {
-                              showSnackBar(
-                                context,
-                                Appstrings.turnOnLocation,
-                              );
-                            }
+                            context.read<HomeBloc>().add(
+                                const ChangeHomeTabIndexEvent(newIndex: 3));
+                            // if (state.currentLocation.isNotEmpty) {
+                            //   context.pushNamed(
+                            //       MyAppRouteConstants.compassRouteName);
+                            // } else {
+                            //   showSnackBar(
+                            //     context,
+                            //     Appstrings.turnOnLocation,
+                            //   );
+                            // }
                           },
                         ),
                       ),
                       buildIconWidget(
-                        image: AppAssetsStrings.homeTasbihIcon,
-                        text: Appstrings.tasbih,
+                        image: AppAssetsStrings.rewardHome,
+                        text: Appstrings.rewards,
                         onTap: () {
                           context
-                              .pushNamed(MyAppRouteConstants.tasbihRouteName);
+                              .read<HomeBloc>()
+                              .add(const ChangeHomeTabIndexEvent(newIndex: 2));
                         },
                       ),
                       buildIconWidget(
-                          image: AppAssetsStrings.homeDuaIcon,
-                          text: Appstrings.dua,
+                          image: AppAssetsStrings.exploreAll,
+                          text: Appstrings.exploreAll,
                           onTap: () {
-                            context.goNamed(MyAppRouteConstants.duaRouteName);
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) {
+                                return _exploreAllBottomSheet(context);
+                              },
+                            );
                           })
                     ],
                   ),
                   kHeight20,
+
                   _bannerWidget(),
-                  kHeight15,
+                  kHeight20,
+                  _readTasbihWidget(context),
+                  kHeight20,
                   _quranAyaWidget(context),
+                  kHeight20,
+                  _rewardPromoWidget(context),
+                  kHeight20,
                   // _dailyPrayerTracker(context),
-                  kHeight16,
                   const SizedBox(
                     height: 340,
                     child: HaditTinkerCards(),
@@ -249,6 +273,295 @@ class _HomeViewState extends State<HomeView> {
             _brandOftheDayWidget(),
             kHeight50,
             kHeight50,
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _exploreAllBottomSheet(BuildContext context) {
+    return Container(
+      height: SizeUtility(context).height / 1.1,
+      decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
+        ),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Expanded(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Explore All',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  context.pop();
+                },
+                icon: Icon(
+                  Icons.close,
+                  size: 15,
+                  color: ColorManager.black4A,
+                ),
+              ),
+            ],
+          ),
+          bottomSheetWidgets(
+            image: AppAssetsStrings.homeQuranIcon,
+            text: Appstrings.quran,
+            onTap: () {
+              context.pushNamed(MyAppRouteConstants.quranRouteName);
+            },
+            subTitle: "Read Quran",
+          ),
+          bottomSheetWidgets(
+              image: AppAssetsStrings.homeTasbihIcon,
+              text: Appstrings.tasbih,
+              onTap: () {
+                context.pushNamed(MyAppRouteConstants.tasbihRouteName);
+              },
+              subTitle: "Read Zikr"),
+          bottomSheetWidgets(
+            image: AppAssetsStrings.homeDuaIcon,
+            text: Appstrings.dua,
+            onTap: () {
+              context.pushNamed(MyAppRouteConstants.duaRouteName);
+            },
+            subTitle: "Read Dua",
+          ),
+          BlocBuilder<LocationBloc, LocationState>(
+            builder: (context, state) => bottomSheetWidgets(
+              image: AppAssetsStrings.homeCompassIcon,
+              text: Appstrings.compass,
+              onTap: () {
+                if (state.currentLocation.isNotEmpty) {
+                  context.goNamed(MyAppRouteConstants.compassRouteName);
+                } else {
+                  showSnackBar(
+                    context,
+                    Appstrings.turnOnLocation,
+                  );
+                }
+              },
+              subTitle: "Look for Qibla",
+              isQibla: true,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget bottomSheetWidgets({
+    required String image,
+    required String text,
+    required VoidCallback onTap,
+    required String subTitle,
+    bool isQibla = false,
+  }) {
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 15),
+        child: Row(
+          children: [
+            Container(
+              height: 70,
+              width: 70,
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: ColorManager.lightGreenDB,
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: Image.asset(
+                image,
+              ),
+            ),
+            kWidth10,
+            Column(
+              // mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: ColorManager.black4F,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                kHeight10,
+                Text(
+                  subTitle,
+                  style: TextStyle(
+                    color: ColorManager.black4F,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+            const Spacer(),
+            Container(
+              decoration: BoxDecoration(
+                color: ColorManager.midGreenColor,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              height: 28,
+              width: 70,
+              child: Center(
+                child: Text(
+                  isQibla ? "GO" : "READ",
+                  style: TextStyle(
+                    color: ColorManager.whiteColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _rewardPromoWidget(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        context.pushNamed(MyAppRouteConstants.rewardsRedeemViewRouteName);
+      },
+      child: SizedBox(
+        height: 132,
+        width: SizeUtility(context).width,
+        child: Stack(
+          // alignment: Alignment.bottomRight,
+          children: [
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                height: 118,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage(
+                    AppAssetsStrings.rewardPromoBg,
+                  ),
+                  fit: BoxFit.fill,
+                )),
+                width: SizeUtility(context).width,
+                child: const Padding(
+                  padding: EdgeInsets.only(
+                    left: 30,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Get Chance\n To Win Free \nHaj & Umrah",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w900,
+                          height: 1.3,
+                        ),
+                      ),
+                      kHeight5,
+                      Icon(Icons.arrow_forward)
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 12, right: 12),
+                child: Image.asset(
+                  AppAssetsStrings.kabahBuilding,
+                  height: 215,
+                  width: 215,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _readTasbihWidget(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        context.pushNamed(MyAppRouteConstants.tasbihRouteName);
+      },
+      behavior: HitTestBehavior.translucent,
+      child: Container(
+        height: 120,
+        width: SizeUtility(context).width,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          image: const DecorationImage(
+              image: AssetImage(
+                AppAssetsStrings.readTasbihBg,
+              ),
+              fit: BoxFit.cover),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              height: 35,
+              width: 35,
+              padding: const EdgeInsets.all(6),
+              decoration: BoxDecoration(
+                color: ColorManager.whiteColor,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: ColorManager.primary,
+                ),
+              ),
+              child: Image.asset(
+                AppAssetsStrings.duaTasbih,
+                color: ColorManager.primary,
+              ),
+            ),
+            const Row(
+              children: [
+                Text(
+                  Appstrings.readTasbih,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Icon(Icons.navigate_next)
+              ],
+            ),
+            Text(
+              Appstrings.tasbih1,
+              style: TextStyle(
+                fontSize: 16,
+                color: ColorManager.black4F,
+                fontWeight: FontWeight.w600,
+              ),
+            )
           ],
         ),
       ),
@@ -414,7 +727,7 @@ class _HomeViewState extends State<HomeView> {
                           });
                     },
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
@@ -424,13 +737,14 @@ class _HomeViewState extends State<HomeView> {
                             width: 75,
                           ),
                         ),
-                        kHeight5,
+                        kHeight8,
                         Text(
                           data?.subCategoryName ?? "",
                           style: const TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
                           ),
+                          textAlign: TextAlign.center,
                         )
                       ],
                     ),
@@ -478,13 +792,44 @@ class _HomeViewState extends State<HomeView> {
                 children: [
                   CarouselSlider(
                     items: banners?.map((banner) {
-                      return ClipRRect(
-                        // child: Utilities().buildCachedNetworkImage(
-                        //     imageUrl: banner.images?[0], height: 327)
-                        child: Utilities().buildCachedNetworkImage(
-                          imageUrl: banner.images![0],
-                          height: 327,
-                          boxFit: BoxFit.contain,
+                      return GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          if (banner.routing == null ||
+                              banner.routing?.route == "") {
+                            return;
+                          } else if (banner.routing?.route ==
+                              MyAppRouteConstants.categoriesProductsRouteName) {
+                            final routing = banner.routing!;
+
+                            final categoryId = routing.categoryId?.title;
+                            final subCategoryId = routing.subCategoryId?.title;
+                            final itemTypeId = routing.itemTypeId?.title;
+
+                            if (categoryId == "" &&
+                                subCategoryId == "" &&
+                                itemTypeId == "") {
+                              return;
+                            } else {
+                              context.pushNamed(
+                                routing.route!,
+                                extra: {
+                                  'category': categoryId,
+                                  'subCategory': subCategoryId,
+                                  'type': FilterType.category,
+                                },
+                              );
+                            }
+                          }
+                        },
+                        child: ClipRRect(
+                          // child: Utilities().buildCachedNetworkImage(
+                          //     imageUrl: banner.images?[0], height: 327)
+                          child: Utilities().buildCachedNetworkImage(
+                            imageUrl: banner.images![0],
+                            height: 327,
+                            boxFit: BoxFit.contain,
+                          ),
                         ),
                       );
                     }).toList(),
@@ -883,154 +1228,199 @@ class _HomeViewState extends State<HomeView> {
 
   Widget _quranAyaWidget(BuildContext context) {
     return SizedBox(
-      height: 290,
-      width: !Responsive.isMobile(context)
-          ? SizeUtility(context).width / 2.5
-          : SizeUtility(context).width / 1.2,
-      child: PageView(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: PageController(
-              initialPage: context.read<HomeBloc>().state.allaysBgindex),
-          children: List.generate(
-            7,
-            (index) {
-              return BlocBuilder<QuranBloc, QuranState>(
-                builder: (context, state) {
-                  final verskey = state.shuffleVersKey;
-                  if (state.versesByKeyModel?.isEmpty ?? true) {
-                    return ShimmerUtils.customRectangleShimmer(
-                      SizeUtility(context).width,
-                      10,
-                      borderRadius: 12,
-                    );
-                  }
-                  if (state.isLoading) {
-                    return ShimmerUtils.customRectangleShimmer(
-                      SizeUtility(context).width,
-                      10,
-                      borderRadius: 12,
-                    );
-                  }
-                  final data = state.versesByKeyModel?[0];
-                  return Container(
-                    height: 290,
-                    width: SizeUtility(context).width / 1.2,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(
-                      "assets/backgrounds/allay_says_bg_$index.png",
-                    ))),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
-                      child: ClipRRect(
-                        child: Column(
-                          children: [
-                            kHeight15,
-                            Text(
-                              Appstrings.allaySays,
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.primary,
-                              ),
-                            ),
-                            kHeight16,
-                            Text(
-                              data?.verses[0].textIndopak ?? '',
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.blackColor,
-                                fontFamily: "Hafs",
-                              ),
-                              textDirection: TextDirection.rtl,
-                            ),
-                            kHeight5,
-                            Divider(
-                              thickness: 1,
-                              color: ColorManager.blackColor,
-                            ),
-                            kHeight8,
-                            Text(
-                              verskey == "1:2"
-                                  ? Appstrings.tempAyaMeaning1
-                                  : verskey == "2:2"
-                                      ? Appstrings.tempAyaMeaning2
-                                      : verskey == "3:4"
-                                          ? Appstrings.tempAyaMeaning3
-                                          : Appstrings.tempAyaMeaning4,
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.blackColor,
-                                letterSpacing: 0.5,
-                                height: 1.2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              textDirection: TextDirection.rtl,
-                            ),
-                            kHeight5,
-                            const Spacer(),
-                            GestureDetector(
-                              onTap: () {
-                                final quranState =
-                                    context.read<QuranBloc>().state;
+        height: 290,
+        width: !Responsive.isMobile(context)
+            ? SizeUtility(context).width / 2.5
+            : SizeUtility(context).width,
+        child: BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            final data = state.allaySaysModel?.result?.data;
 
-                                final verskey0 = verskey;
-                                final parts = verskey.split(":");
-                                final firstPart = parts[0];
-                                context.read<QuranBloc>().add(
-                                    FetchChaperVersesEvent(
-                                        id: int.parse(firstPart)));
-                                context.read<QuranBloc>().add(
-                                    FetchChapterVersesbyTextName(
-                                        id: int.parse(firstPart)));
-                                context.read<QuranBloc>().add(
-                                    FetchTranslationChapterTexts(
-                                        translationId:
-                                            quranState.globalTransilationId,
-                                        chapterId: int.parse(firstPart)));
-                                context.read<QuranBloc>().add(
-                                    FetchChapterAudioFiles(
-                                        id: int.parse(firstPart),
-                                        recitorId: quranState.recitorId));
-                                context
-                                    .read<QuranBloc>()
-                                    .add(SaveLastReadEvent(value: verskey));
+            return PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: PageController(initialPage: state.allaysBgindex),
+                children: List.generate(
+                  data?.length ?? 0,
+                  (index) {
+                    // return BlocBuilder<HomeBloc, HomeState>(
+                    //   builder: (context, state) {
+                    //     final data = state.allaySaysModel?.result?.data;
 
-                                context.pushNamed(
-                                    MyAppRouteConstants.quranVersesRoutename,
-                                    extra: {
-                                      'scrollType': VersesScroll.home,
-                                      'type': Qurantype.sura,
-                                      'chapterid': int.parse(firstPart)
-                                    });
-                              },
-                              child: Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  Appstrings.learnMore,
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                    color: ColorManager.primary,
-                                  ),
+                    return data == null || state.isLoading
+                        ? ShimmerUtils.customRectangleShimmer(
+                            SizeUtility(context).width,
+                            10,
+                            borderRadius: 12,
+                          )
+                        : Container(
+                            height: 290,
+                            width: SizeUtility(context).width,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 10),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      "assets/backgrounds/allay_says_bg_$index.png",
+                                    ),
+                                    fit: BoxFit.cover)),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 10),
+                              child: ClipRRect(
+                                child: Column(
+                                  children: [
+                                    kHeight15,
+                                    Text(
+                                      Appstrings.allaySays,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorManager.primary,
+                                      ),
+                                    ),
+                                    kHeight16,
+                                    Expanded(
+                                      child: Text(
+                                        data[index].content ?? '',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                          color: ColorManager.blackColor,
+                                          fontFamily: "Hafs",
+                                        ),
+                                        textDirection: TextDirection.rtl,
+                                      ),
+                                    ),
+                                    kHeight5,
+                                    Divider(
+                                      thickness: 1,
+                                      color: ColorManager.blackColor,
+                                    ),
+                                    kHeight8,
+                                    Text(
+                                      (data[index].translate != null &&
+                                              data[index].translate!.length >
+                                                  state
+                                                      .translationLanguageIndex)
+                                          ? data[index]
+                                                  .translate![state
+                                                      .translationLanguageIndex]
+                                                  .content ??
+                                              ''
+                                          : '',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorManager.blackColor,
+                                        fontFamily: "Hafs",
+                                      ),
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                    kHeight5,
+                                    const Spacer(),
+                                    GestureDetector(
+                                      behavior: HitTestBehavior.translucent,
+                                      onTap: () {
+                                        showModalBottomSheet(
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) => Container(
+                                            height: 200,
+                                            decoration: BoxDecoration(
+                                              color: ColorManager.whiteColor,
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                topLeft: Radius.circular(30.0),
+                                                topRight: Radius.circular(30.0),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 20),
+                                              child: ListView.separated(
+                                                itemCount: data[index]
+                                                        .translate
+                                                        ?.length ??
+                                                    0,
+                                                itemBuilder:
+                                                    (context, translateIndex) {
+                                                  final translation =
+                                                      data[index].translate![
+                                                          translateIndex];
+                                                  return GestureDetector(
+                                                    onTap: () {
+                                                      BlocProvider.of<HomeBloc>(
+                                                              context)
+                                                          .add(ChangeTranslationLanguageIndex(
+                                                              translateIndex));
+                                                      context.pop();
+                                                    },
+                                                    behavior: HitTestBehavior
+                                                        .translucent,
+                                                    child: Text(
+                                                      translation.language ??
+                                                          '',
+                                                      style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        color: ColorManager
+                                                            .blackColor,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  );
+                                                },
+                                                separatorBuilder:
+                                                    (context, index) =>
+                                                        const Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 6),
+                                                  child: Divider(),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          ImageIcon(
+                                            const AssetImage(
+                                                AppAssetsStrings.translateIcon),
+                                            size: 20,
+                                            color: ColorManager.primary,
+                                          ),
+                                          kWidth10,
+                                          Text(
+                                            Appstrings.translate,
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600,
+                                              color: ColorManager.primary,
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.keyboard_double_arrow_right,
+                                            color: ColorManager.primary,
+                                            size: 18,
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              );
-            },
-          )),
-    );
+                            ),
+                          );
+                  },
+                ));
+          },
+        ));
   }
 
   Future<void> _downloadAndShareImage(String imageUrl) async {
@@ -1064,13 +1454,49 @@ class _HomeViewState extends State<HomeView> {
               items: banners?.map((banner) {
                 return GestureDetector(
                     onTap: () {
-                      context.pushNamed(
-                          MyAppRouteConstants.categoriesProductsRouteName,
+                      if (banner.routing == null ||
+                          banner.routing?.route == "") {
+                        return;
+                      } else if (banner.routing?.route ==
+                          MyAppRouteConstants.categoriesProductsRouteName) {
+                        final routing = banner.routing!;
+
+                        final categoryId = routing.categoryId?.title;
+                        final subCategoryId = routing.subCategoryId?.title;
+                        final itemTypeId = routing.itemTypeId?.title;
+
+                        if (categoryId == "" &&
+                            subCategoryId == "" &&
+                            itemTypeId == "") {
+                          return;
+                        } else {
+                          context.pushNamed(
+                            routing.route!,
+                            extra: {
+                              'category': categoryId,
+                              'subCategory': subCategoryId,
+                              'type': FilterType.category,
+                            },
+                          );
+                        }
+                      } else if (banner.routing?.route ==
+                          MyAppRouteConstants.travelPackagesView) {
+                        final routing = banner.routing!;
+                        final city = routing.city;
+                        final country = routing.country;
+
+                        context.pushNamed(
+                          routing.route!,
+                          pathParameters: {
+                            "title": Appstrings.products,
+                          },
                           extra: {
-                            'category': "Pro Muslim",
-                            'subCategory': "Thobe",
-                            'type': FilterType.category
-                          });
+                            'city': city,
+                            'country': country,
+                            "type": TravelsPackagesType.browseByCountries,
+                          },
+                        );
+                      }
                     },
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
@@ -1127,13 +1553,14 @@ class _HomeViewState extends State<HomeView> {
       required String text,
       required VoidCallback onTap}) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Column(
         children: [
           Container(
             height: 70,
             width: 70,
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: black247,
               borderRadius: BorderRadius.circular(6),
@@ -1142,9 +1569,7 @@ class _HomeViewState extends State<HomeView> {
               image,
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          kHeight10,
           Text(
             text,
             style: const TextStyle(color: black165),

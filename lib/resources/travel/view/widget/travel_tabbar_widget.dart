@@ -61,65 +61,67 @@ class TravelTabBarWidget extends StatelessWidget {
           Expanded(
             child: TabBarView(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    kHeight10,
-                    Text(
-                      "Package Overview",
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w700,
-                        color: ColorManager.blackColor,
+                SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      kHeight10,
+                      Text(
+                        "Package Overview",
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.blackColor,
+                        ),
                       ),
-                    ),
-                    kHeight15,
-                    Text(
-                      overview,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: ColorManager.lightGrey85,
-                        height: 1.2,
+                      kHeight15,
+                      Text(
+                        Utilities.removeFootnotesFromMeaning(overview),
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: ColorManager.lightGrey85,
+                          height: 1.2,
+                        ),
                       ),
-                    ),
-                    kHeight25,
-                    Text(
-                      Appstrings.aminities,
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w700,
-                        color: ColorManager.blackColor,
+                      kHeight25,
+                      Text(
+                        Appstrings.aminities,
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.blackColor,
+                        ),
                       ),
-                    ),
-                    GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 7,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
+                      GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: 7,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4,
+                        ),
+                        itemBuilder: (context, index) {
+                          return Container(
+                            height: 80,
+                            width: 80,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 20),
+                            decoration: BoxDecoration(
+                              color: ColorManager.darkWhite,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: const EdgeInsets.all(12),
+                            child: Image.asset(
+                              "assets/icons/aminities_${index + 1}.png",
+                              height: 27,
+                              width: 27,
+                            ),
+                          );
+                        },
                       ),
-                      itemBuilder: (context, index) {
-                        return Container(
-                          height: 80,
-                          width: 80,
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 20),
-                          decoration: BoxDecoration(
-                            color: ColorManager.darkWhite,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          padding: const EdgeInsets.all(12),
-                          child: Image.asset(
-                            "assets/icons/aminities_${index + 1}.png",
-                            height: 27,
-                            width: 27,
-                          ),
-                        );
-                      },
-                    )
-                  ],
+                    ],
+                  ),
                 ),
                 ListView.builder(
                   itemCount: imageUrl.length,
@@ -158,6 +160,7 @@ class TravelTabBarWidget extends StatelessWidget {
               ],
             ),
           ),
+          kHeight100,
         ],
       ),
     );

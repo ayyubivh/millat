@@ -15,7 +15,7 @@ class CartEvent with _$CartEvent {
   }) = UpdateCartEventWithSub;
   const factory CartEvent.addCart({
     required String productId,
-    required int basePrice,
+    required double basePrice,
     required String size,
     required BuildContext context,
     required String color,
@@ -29,4 +29,8 @@ class CartEvent with _$CartEvent {
   const factory CartEvent.toggleShowMoreEvent() = ToggleShowMoreEvent;
   const factory CartEvent.paymentSuccessEvent() = PaymentSuccessEvent;
   const factory CartEvent.showExpandEvent() = ShowExpandEvent;
+  const factory CartEvent.choosePaymentMethod(
+    String paymentMethod,
+    BuildContext context,
+  ) = ChoosePaymentMethod;
 }

@@ -85,7 +85,8 @@ class NotificationService extends HttpServices {
     );
   }
 
-  Future<NotificationModel> fetchNotficationApi(BuildContext context) async {
+  Future<NotificationModel> fetchNotficationApi(
+      {required BuildContext context}) async {
     const endPoint = 'notification_in_app';
 
     final response = await get(endPoint: endPoint, isToken: true);

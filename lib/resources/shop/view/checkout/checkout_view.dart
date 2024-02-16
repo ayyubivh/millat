@@ -6,6 +6,8 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/rewards/bloc/models/rewards_product/rewards_product_by_id_model.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -18,11 +20,12 @@ import '../../bloc/logic/address_bloc/address_bloc.dart';
 
 class CheckoutView extends StatelessWidget {
   final CheckoutType? checkoutType;
-  const CheckoutView({Key? key, this.checkoutType}) : super(key: key);
+  final Product? data;
+  const CheckoutView({Key? key, this.checkoutType, this.data})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    log("screen caolled");
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final addressBloc = BlocProvider.of<AddressBloc>(context);
       addressBloc.add(FetchAddressEvent(context: context));
@@ -171,27 +174,33 @@ class CheckoutView extends StatelessWidget {
             return Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-                child: MainButton(
-                  title: Appstrings.continueText,
-                  onPressed: () {
-                    // String? id = context.read<AddressBloc>().state.addressId;
-                    // print(context.read<AddressBloc>().state.addressModel);
-                    if (state.addressId == null) {
-                      showSnackBar(context, 'select the address');
-                      return;
-                    }
-                    if (state.selectedIndex == null ||
-                        state.selectedIndex == -1) {
-                      showSnackBar(context, 'select the address');
-                      return;
-                    }
-                    checkoutType == CheckoutType.rewards
-                        ? context.pushNamed(
-                            MyAppRouteConstants.checkoutPaymentRouteName,
-                            extra: {'checkoutType': CheckoutType.rewards})
-                        : context.pushNamed(
-                            MyAppRouteConstants.checkoutPaymentRouteName,
-                            extra: {'checkoutType': CheckoutType.shop});
+                child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                  builder: (context, newState) {
+                    return MainButton(
+                      title: Appstrings.continueText,
+                      isLoading: newState.isLoading,
+                      onPressed: () {
+                        if (state.selectedIndex == null ||
+                            state.selectedIndex == -1) {
+                          showSnackBar(context, 'select the address');
+                          return;
+                        }
+                        context.read<AddressBloc>().add(SaveAddressId(
+                            addressId: state.addressModel?.result
+                                    .addresses[state.selectedIndex!].id ??
+                                ''));
+                        checkoutType == CheckoutType.rewards
+                            ? context.read<ShopProductsBloc>().add(
+                                PostOrdersRewards(
+                                    context: context,
+                                    addressId: state.addressModel!.result
+                                        .addresses[state.selectedIndex!].id,
+                                    productId: data!.id ?? ""))
+                            : context.pushNamed(
+                                MyAppRouteConstants.checkoutPaymentRouteName,
+                                extra: {'checkoutType': CheckoutType.shop});
+                      },
+                    );
                   },
                 ));
           },

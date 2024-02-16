@@ -118,6 +118,7 @@ class Size with _$Size {
     required String? size,
     required int? stock,
     required double? price,
+    required double? salePrice,
     required String? sku,
     required String? width,
     required String? height,

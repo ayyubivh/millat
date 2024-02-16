@@ -27,102 +27,95 @@ class CartView extends StatelessWidget {
       cartBloc.add(CartEvent.fetchCartEvent(context));
       addressBloc.add(FetchAddressEvent(context: context));
     });
-    return Scaffold(
-        backgroundColor: ColorManager.scaffoldBgColor,
-        appBar: AppBar(
-          title: Text(Appstrings.yourCart,
-              style: TextStyle(
-                  color: ColorManager.blackColor, fontWeight: FontWeight.w700)),
-          centerTitle: true,
-          leading: BackButton(color: ColorManager.blackColor),
-          elevation: 0,
-          backgroundColor: ColorManager.whiteColor,
-        ),
-        body: BlocBuilder<CartBloc, CartState>(
-          builder: (context, state) {
-            if (state.cartLoading) {
-              return Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
-                child: ShimmerUtils.cartShimmer(context),
-              );
-            } else if (state
-                    .cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
-                true) {
-              return _buildEmptyCartWidget(context);
-            }
-            return ListView.builder(
-              padding: const EdgeInsets.only(bottom: 200, top: 20),
-              itemCount:
-                  state.cartModel?.result?.cartProducts?.cartItems?.length,
-              itemBuilder: (context, index) {
-                final data =
-                    state.cartModel?.result?.cartProducts?.cartItems?[index];
-
-                if (data == null) {
-                  return ShimmerUtils.cartShimmer(context);
-                }
-                return CartProductWidget(
-                  showQuantity: true,
-                  id: data.productId?.id,
-                  title: data.productId?.title,
-                  subTitle: data.productId?.description,
-                  size: data.size ?? "",
-                  image: data.productId?.images?[0],
-                  price: data.productId?.salePrice?.toInt() ?? 0,
-                  actualPrice: data.productId?.regularPrice.toString(),
-                  jsonColor: data.color,
-                  colorName: data.color,
-                  quantity: data.quantity!.toInt(),
-                  productId: data.productId?.id,
+    return WillPopScope(
+      onWillPop: () async {
+        context.pushReplacementNamed(MyAppRouteConstants.shopTabsRouteName);
+        return true;
+      },
+      child: Scaffold(
+          backgroundColor: ColorManager.scaffoldBgColor,
+          appBar: AppBar(
+            title: Text(Appstrings.yourCart,
+                style: TextStyle(
+                    color: ColorManager.blackColor, fontWeight: FontWeight.w700)),
+            centerTitle: true,
+            leading: BackButton(color: ColorManager.blackColor),
+            elevation: 0,
+            backgroundColor: ColorManager.whiteColor,
+          ),
+          body: BlocBuilder<CartBloc, CartState>(
+            builder: (context, state) {
+              if (state.cartLoading) {
+                return Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
+                  child: ShimmerUtils.cartShimmer(context),
                 );
-              },
-            );
-          },
-        ),
-        bottomSheet: BlocBuilder<CartBloc, CartState>(
-          builder: (context, state) {
-            final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
-            if (cartItems == null ||
-                cartItems.isEmpty ||
-                cartItems.first.productId == null) {
-              return _emptyCartBottomContainer(context);
-            }
-            if (state.cartLoading) {
-              return const SizedBox();
-            }
-            final subTotal = cartItems.fold<double>(
-              0.0,
-              (previous, item) =>
-                  previous +
-                  ((item.productId?.salePrice?.toDouble() ?? 0.0) *
-                      (item.quantity ?? 0)),
-            );
-
-            final totalTax = cartItems.fold<double>(
-              0.0,
-              (previous, item) =>
-                  previous +
-                  ((item.productId?.tax?.toDouble() ?? 0.0) *
-                      (item.productId?.salePrice?.toDouble() ?? 0.0) *
-                      (item.quantity ?? 0) /
-                      100),
-            );
-            final total = subTotal + totalTax;
-
-            return _notEmptyContainer(
-              context,
-              subTotal.round(),
-              total.toInt(),
-              state.showExapnd,
-              totalTax,
-            );
-          },
-        ));
+              } else if (state
+                      .cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
+                  true) {
+                return _buildEmptyCartWidget(context);
+              }
+              return ListView.builder(
+                padding: const EdgeInsets.only(bottom: 200, top: 20),
+                itemCount:
+                    state.cartModel?.result?.cartProducts?.cartItems?.length,
+                itemBuilder: (context, index) {
+                  final data =
+                      state.cartModel?.result?.cartProducts?.cartItems?[index];
+                  int? actualPrice;
+                  data?.productId?.size?.forEach((element) {
+                    if (data.size == element.size) {
+                      actualPrice = element.price;
+                    }
+                  });
+    
+                  if (data == null) {
+                    return ShimmerUtils.cartShimmer(context);
+                  }
+                  return CartProductWidget(
+                    showQuantity: true,
+                    id: data.productId?.id,
+                    title: data.productId?.title,
+                    subTitle: data.productId?.description,
+                    size: data.size ?? "",
+                    image: data.productId?.images?[0],
+                    price: data.sellingPrice?.toInt() ?? 0,
+                    actualPrice: actualPrice.toString(),
+                    jsonColor: data.color,
+                    colorName: data.color,
+                    quantity: data.quantity!.toInt(),
+                    productId: data.productId?.id,
+                  );
+                },
+              );
+            },
+          ),
+          bottomSheet: BlocBuilder<CartBloc, CartState>(
+            builder: (context, state) {
+              final cartItems = state.cartModel?.result;
+              if (cartItems?.cartProducts?.cartItems?.isEmpty ?? true) {
+                return _emptyCartBottomContainer(context);
+              } else {
+                if (state.cartLoading) {
+                  return const SizedBox();
+                }
+                // final q = cartItems?.cartProducts?.cartItems;
+                final subTotal = cartItems?.amountDetails?.total;
+    
+                final totalTax = state.cartModel?.result?.amountDetails?.totalTax;
+                // final total = subTotal + totalTax;
+    
+                return _notEmptyContainer(
+                    context, subTotal ?? 0, state.showExapnd, totalTax ?? 0);
+              }
+            },
+          )),
+    );
   }
 
   Widget _notEmptyContainer(
-      BuildContext context, int subTotal, int total, bool isShow, double tax) {
+      BuildContext context, int subTotal, bool isShow, double tax) {
     return Container(
         color: ColorManager.whiteColor,
         padding:
@@ -237,7 +230,7 @@ class CartView extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '₹$total',
+                            '₹$subTotal',
                             style: TextStyle(
                                 color: ColorManager.black4A,
                                 fontSize: 19,

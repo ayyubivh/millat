@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'fetch_order_byId_model.g.dart';
@@ -22,10 +20,25 @@ class OrderModelbyIdModel with _$OrderModelbyIdModel {
 class OrderResult with _$OrderResult {
   const factory OrderResult({
     @JsonKey(name: 'order') required Order? order,
+    @JsonKey(name: 'orderSummary') required OrderSummary? orderSummary,
   }) = _OrderResult;
 
   factory OrderResult.fromJson(Map<String, dynamic> json) =>
       _$OrderResultFromJson(json);
+}
+
+@freezed
+class OrderSummary with _$OrderSummary {
+  const factory OrderSummary({
+    @JsonKey(name: 'Item Cost') required double? itemCost,
+    @JsonKey(name: 'Quantity') required int? quantity,
+    @JsonKey(name: 'Tax') required double? tax,
+    @JsonKey(name: 'Shipping Cost') required double? shippingCost,
+    @JsonKey(name: 'Order Total') required double? orderTotal,
+  }) = _OrderSummary;
+
+  factory OrderSummary.fromJson(Map<String, dynamic> json) =>
+      _$OrderSummaryFromJson(json);
 }
 
 @freezed
@@ -51,8 +64,12 @@ class Order with _$Order {
     @JsonKey(name: 'shipping_charges') required double? shippingCharges,
     @JsonKey(name: 'payment_status') required String? paymentStatus,
     @JsonKey(name: 'address') required Address? address,
+    @JsonKey(name: 'isGiftProduct') required bool? isGiftProduct,
+    @JsonKey(name: 'giftPackagePrice') required double? giftPackagePrice,
     @JsonKey(name: 'createdAt') required String? createdAt,
     @JsonKey(name: 'updatedAt') required String? updatedAt,
+    @JsonKey(name: 'returnOrCancelReason')
+    required String? returnOrCancelReason,
   }) = _Order;
 
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
@@ -79,9 +96,9 @@ class Brand with _$Brand {
     @JsonKey(name: 'category') required String? category,
     @JsonKey(name: 'subCategory') required List<String>? subCategory,
     @JsonKey(name: 'GST') required String? GST,
+    @JsonKey(name: 'role') required String? role,
     @JsonKey(name: 'createdAt') required String? createdAt,
     @JsonKey(name: 'updatedAt') required String? updatedAt,
-    @JsonKey(name: 'role') required String? role,
   }) = _Brand;
 
   factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
@@ -121,6 +138,8 @@ class Size with _$Size {
     @JsonKey(name: 'size') required String? size,
     @JsonKey(name: 'stock') required int? stock,
     @JsonKey(name: 'price') required double? price,
+    @JsonKey(name: 'discount') required double? discount,
+    @JsonKey(name: 'salePrice') required double? salePrice,
     @JsonKey(name: 'sku') required String? sku,
     @JsonKey(name: 'width') required String? width,
     @JsonKey(name: 'height') required String? height,

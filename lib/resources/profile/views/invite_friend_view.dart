@@ -8,7 +8,6 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InviteFriendView extends StatelessWidget {
@@ -16,24 +15,27 @@ class InviteFriendView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DatabaseBloc>(context).add(const FetchContactEvent());
+    });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: ColorManager.whiteColor,
         actions: [
-          GestureDetector(
-            onTap: () {
-              Share.share(context.read<DatabaseBloc>().state.referralMessage);
-            },
-            child: ImageIcon(
-              const AssetImage(
-                AppAssetsStrings.share,
-              ),
-              size: 23,
-              color: ColorManager.blackColor,
-            ),
-          ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Share.share(context.read<DatabaseBloc>().state.referralMessage);
+          //   },
+          //   child: ImageIcon(
+          //     const AssetImage(
+          //       AppAssetsStrings.share,
+          //     ),
+          //     size: 23,
+          //     color: ColorManager.blackColor,
+          //   ),
+          // ),
           kWidth20,
           GestureDetector(
             onTap: () {

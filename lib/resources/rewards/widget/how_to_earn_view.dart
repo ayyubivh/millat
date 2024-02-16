@@ -58,31 +58,31 @@ class HowToEarnView extends StatelessWidget {
           kHeight30,
           Expanded(
             child: GridView.builder(
-              itemCount: 9,
+              itemCount: 3,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3),
               itemBuilder: (context, index) {
                 final texts = [
                   Appstrings.welcome,
-                  Appstrings.birthday,
+                  // Appstrings.birthday,
                   Appstrings.firstOrder,
-                  Appstrings.quranAya,
-                  Appstrings.dailyRecite,
-                  Appstrings.prayNamaz,
+                  // Appstrings.quranAya,
+                  // Appstrings.dailyRecite,
+                  // Appstrings.prayNamaz,
                   Appstrings.fifthOrder,
                   Appstrings.readDua,
                   Appstrings.readTasbih,
                 ];
                 final points = [
+                  Appstrings.fiftyPoints,
+                  Appstrings.hundredPoints,
+                  // Appstrings.fourHundredPoints,
+                  // Appstrings.hundredPoints,
+                  // Appstrings.hundredPoints,
+                  // Appstrings.hundredPoints,
                   Appstrings.fiveHundred,
-                  Appstrings.thousandPoints,
-                  Appstrings.fourHundredPoints,
                   Appstrings.hundredPoints,
                   Appstrings.hundredPoints,
-                  Appstrings.hundredPoints,
-                  Appstrings.eightHundredPoints,
-                  Appstrings.hundredPoints,
-                  Appstrings.fiveHundred,
                 ];
                 return _taskContainer(
                     text: texts[index],

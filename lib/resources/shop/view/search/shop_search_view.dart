@@ -169,8 +169,7 @@ class _ShopSearchViewState extends State<ShopSearchView> {
                                           productId: data?.id ?? 'null',
                                           title: data?.title,
                                           image: data?.images?[0] ?? 'null',
-                                          discountPrice:
-                                              data?.salePrice?.toInt() ?? 0,
+                                          discountPrice: data?.salePrice ?? 0,
                                           actualPrice:
                                               data?.regularPrice?.toInt() ?? 0,
                                           discount:

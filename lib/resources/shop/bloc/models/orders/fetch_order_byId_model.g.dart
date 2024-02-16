@@ -31,11 +31,33 @@ _$OrderResultImpl _$$OrderResultImplFromJson(Map<String, dynamic> json) =>
       order: json['order'] == null
           ? null
           : Order.fromJson(json['order'] as Map<String, dynamic>),
+      orderSummary: json['orderSummary'] == null
+          ? null
+          : OrderSummary.fromJson(json['orderSummary'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$OrderResultImplToJson(_$OrderResultImpl instance) =>
     <String, dynamic>{
       'order': instance.order,
+      'orderSummary': instance.orderSummary,
+    };
+
+_$OrderSummaryImpl _$$OrderSummaryImplFromJson(Map<String, dynamic> json) =>
+    _$OrderSummaryImpl(
+      itemCost: (json['Item Cost'] as num?)?.toDouble(),
+      quantity: json['Quantity'] as int?,
+      tax: (json['Tax'] as num?)?.toDouble(),
+      shippingCost: (json['Shipping Cost'] as num?)?.toDouble(),
+      orderTotal: (json['Order Total'] as num?)?.toDouble(),
+    );
+
+Map<String, dynamic> _$$OrderSummaryImplToJson(_$OrderSummaryImpl instance) =>
+    <String, dynamic>{
+      'Item Cost': instance.itemCost,
+      'Quantity': instance.quantity,
+      'Tax': instance.tax,
+      'Shipping Cost': instance.shippingCost,
+      'Order Total': instance.orderTotal,
     };
 
 _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
@@ -65,8 +87,11 @@ _$OrderImpl _$$OrderImplFromJson(Map<String, dynamic> json) => _$OrderImpl(
       address: json['address'] == null
           ? null
           : Address.fromJson(json['address'] as Map<String, dynamic>),
+      isGiftProduct: json['isGiftProduct'] as bool?,
+      giftPackagePrice: (json['giftPackagePrice'] as num?)?.toDouble(),
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
+      returnOrCancelReason: json['returnOrCancelReason'] as String?,
     );
 
 Map<String, dynamic> _$$OrderImplToJson(_$OrderImpl instance) =>
@@ -91,8 +116,11 @@ Map<String, dynamic> _$$OrderImplToJson(_$OrderImpl instance) =>
       'shipping_charges': instance.shippingCharges,
       'payment_status': instance.paymentStatus,
       'address': instance.address,
+      'isGiftProduct': instance.isGiftProduct,
+      'giftPackagePrice': instance.giftPackagePrice,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'returnOrCancelReason': instance.returnOrCancelReason,
     };
 
 _$BrandImpl _$$BrandImplFromJson(Map<String, dynamic> json) => _$BrandImpl(
@@ -115,9 +143,9 @@ _$BrandImpl _$$BrandImplFromJson(Map<String, dynamic> json) => _$BrandImpl(
           ?.map((e) => e as String)
           .toList(),
       GST: json['GST'] as String?,
+      role: json['role'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
-      role: json['role'] as String?,
     );
 
 Map<String, dynamic> _$$BrandImplToJson(_$BrandImpl instance) =>
@@ -139,9 +167,9 @@ Map<String, dynamic> _$$BrandImplToJson(_$BrandImpl instance) =>
       'category': instance.category,
       'subCategory': instance.subCategory,
       'GST': instance.GST,
+      'role': instance.role,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
-      'role': instance.role,
     };
 
 _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
@@ -199,6 +227,8 @@ _$SizeImpl _$$SizeImplFromJson(Map<String, dynamic> json) => _$SizeImpl(
       size: json['size'] as String?,
       stock: json['stock'] as int?,
       price: (json['price'] as num?)?.toDouble(),
+      discount: (json['discount'] as num?)?.toDouble(),
+      salePrice: (json['salePrice'] as num?)?.toDouble(),
       sku: json['sku'] as String?,
       width: json['width'] as String?,
       height: json['height'] as String?,
@@ -210,6 +240,8 @@ Map<String, dynamic> _$$SizeImplToJson(_$SizeImpl instance) =>
       'size': instance.size,
       'stock': instance.stock,
       'price': instance.price,
+      'discount': instance.discount,
+      'salePrice': instance.salePrice,
       'sku': instance.sku,
       'width': instance.width,
       'height': instance.height,

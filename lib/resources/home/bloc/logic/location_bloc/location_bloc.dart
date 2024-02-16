@@ -17,6 +17,7 @@ part 'location_bloc.freezed.dart';
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
   final LocationService locationService = LocationService();
   bool isClickedOnLocationButton = false;
+  bool isDenied = false;
   LocationBloc() : super(LocationState.initial()) {
     on<FetchCurrentLocation>(_fetchCurrentLocation);
     on<FetchCities>(_fetchCities);
@@ -81,17 +82,22 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     LocationPermission permission;
 
     permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
+    if (permission == LocationPermission.denied && !isDenied) {
       permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
+      if (permission == LocationPermission.denied ||
+          permission == LocationPermission.deniedForever) {
+        isDenied = true;
         emit(state.copyWith(errorMessage: 'Location permissions are denied'));
         return false;
       }
     }
-    if (permission == LocationPermission.deniedForever) {
-      if (isClickedOnLocationButton) {
+    if (isClickedOnLocationButton) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.deniedForever) {
         Geolocator.openAppSettings();
       }
+      isDenied = true;
+      isClickedOnLocationButton = false;
       emit(state.copyWith(
           errorMessage:
               'Location permissions are permanently denied, we cannot request permissions.'));

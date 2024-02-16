@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/common_widgets/reusable_methods.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
-import 'package:millat/resources/travel/bloc/models/travel_popular_products_model.dart';
+import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
 import 'package:millat/resources/travel/view/widget/category_list_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -48,10 +48,10 @@ class TravelHomeView extends StatelessWidget {
             flexibleSpace: const FlexibleSpaceBar(
               background: BannerCarousel(),
             ),
-            actions: const [
-              SearchIconWidget(),
-              kWidth30,
-            ],
+            // actions: const [
+            //   SearchIconWidget(),
+            //   kWidth30,
+            // ],
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
@@ -90,13 +90,10 @@ class BestPlaceWidget extends StatelessWidget {
                 SizedBox(
                   height: 180,
                   child: ListView.builder(
-                    itemCount: state
-                            .travelBestPlacesModel?.products.products?.length ??
-                        3,
+                    itemCount: state.travelBestPlacesModel?.length ?? 3,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      final data =
-                          state.travelBestPlacesModel?.products.products;
+                      final data = state.travelBestPlacesModel;
                       if (data == null) {
                         return Padding(
                           padding: const EdgeInsets.only(right: 12.0, top: 20),
@@ -120,7 +117,7 @@ class BestPlaceWidget extends StatelessWidget {
                                 context.pushNamed(
                                     MyAppRouteConstants.travelSingleRoutename,
                                     pathParameters: {
-                                      'id': data[index].id ?? "",
+                                      'id': data[index].productId?.id ?? "",
                                     });
                               },
                               child: Stack(
@@ -136,7 +133,7 @@ class BestPlaceWidget extends StatelessWidget {
                                       end: Alignment.topCenter,
                                     ).createShader(bounds),
                                     child: Utilities().buildCachedNetworkImage(
-                                      imageUrl: data[index].images?[0],
+                                      imageUrl: data[index].thumbnail,
                                       boxFit: BoxFit.cover,
                                       height: 180,
                                       width: SizeUtility(context).width / 1.3,
@@ -170,7 +167,8 @@ class BestPlaceWidget extends StatelessWidget {
                                               SizedBox(
                                                 width: 140,
                                                 child: Text(
-                                                  data[index].name ?? "",
+                                                  data[index].productId?.name ??
+                                                      '',
                                                   style: TextStyle(
                                                     fontSize: 17,
                                                     fontWeight: FontWeight.bold,
@@ -198,7 +196,10 @@ class BestPlaceWidget extends StatelessWidget {
                                                   ),
                                                   kWidth3,
                                                   Text(
-                                                    data[index].location ?? "",
+                                                    data[index]
+                                                            .productId
+                                                            ?.location ??
+                                                        "",
                                                     style: TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
@@ -212,11 +213,12 @@ class BestPlaceWidget extends StatelessWidget {
                                             ],
                                           ),
                                           Container(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 6),
                                             margin: EdgeInsets.only(
                                                 left:
                                                     SizeUtility(context).width /
                                                         5),
-                                            width: 80,
                                             height: 29,
                                             decoration: BoxDecoration(
                                               color: ColorManager.primary,
@@ -225,7 +227,7 @@ class BestPlaceWidget extends StatelessWidget {
                                             ),
                                             child: Center(
                                               child: Text(
-                                                " Up to ₹${data[index].price}",
+                                                "Up to ₹${data[index].productId?.offer_price?.toInt()}",
                                                 style: TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w700,
@@ -287,7 +289,7 @@ class PopularDestinationWidget extends StatelessWidget {
           kHeight16,
           BlocBuilder<TravelBloc, TravelState>(
             builder: (context, state) {
-              final travelProducts = state.travelPopularProductsModel?.products;
+              final travelProducts = state.travelPopularProductsModel;
               if (travelProducts == null || state.isLoading) {
                 return Row(
                     children: List.generate(
@@ -309,7 +311,10 @@ class PopularDestinationWidget extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     final data = travelProducts[index];
-                    return TravelProductWidget(data: data);
+                    return TravelProductWidget(
+                      data: data.productId!,
+                      image: data.thumbnail.toString(),
+                    );
                   },
                 ),
               );
@@ -322,12 +327,14 @@ class PopularDestinationWidget extends StatelessWidget {
 }
 
 class TravelProductWidget extends StatelessWidget {
+  final String image;
   const TravelProductWidget({
     super.key,
     required this.data,
+    required this.image,
   });
 
-  final Products data;
+  final ProductId data;
 
   @override
   Widget build(BuildContext context) {
@@ -335,7 +342,7 @@ class TravelProductWidget extends StatelessWidget {
       onTap: () {
         context.pushNamed(MyAppRouteConstants.travelSingleRoutename,
             pathParameters: {
-              'id': data.id,
+              'id': data.id ?? "",
             });
       },
       child: Container(
@@ -358,19 +365,24 @@ class TravelProductWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Utilities().buildCachedNetworkImage(
-                  imageUrl: data.mainImage,
+                  imageUrl: image,
                 ),
               ),
             ),
             kHeight10,
             Row(
               children: [
-                Text(
-                  data.name,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: ColorManager.blackColor,
+                SizedBox(
+                  width: SizeUtility(context).width / 3.5,
+                  child: Text(
+                    data.name ?? "",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: ColorManager.blackColor,
+                      height: 1.2,
+                    ),
+                    maxLines: 2,
                   ),
                 ),
                 const Spacer(),
@@ -383,12 +395,12 @@ class TravelProductWidget extends StatelessWidget {
                         if (isWishlist) {
                           BlocProvider.of<TravelBloc>(context).add(
                               AddTravelWishlist(
-                                  productId: data.id,
+                                  productId: data.id ?? "",
                                   wishlistType: TravelWishlist.remove));
                         } else {
                           BlocProvider.of<TravelBloc>(context).add(
                               AddTravelWishlist(
-                                  productId: data.id,
+                                  productId: data.id ?? "",
                                   wishlistType: TravelWishlist.add));
                         }
                       },
@@ -408,7 +420,7 @@ class TravelProductWidget extends StatelessWidget {
             ),
             kHeight5,
             Text(
-              data.location,
+              data.location ?? "",
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
@@ -425,7 +437,7 @@ class TravelProductWidget extends StatelessWidget {
                 ),
                 kWidth3,
                 Text(
-                  "₹100,000/",
+                  "₹${data.price ?? ""}/ ",
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
@@ -491,11 +503,11 @@ class RecommendationWidget extends StatelessWidget {
             builder: (context, state) => SizedBox(
               height: 120,
               child: ListView.builder(
-                itemCount: 2,
+                itemCount: state.travelPopularProductsModel?.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  final products = state.travelPopularProductsModel?.products;
-                  if (products == null) {
+                  final products = state.travelPopularProductsModel;
+                  if (products == null || state.isLoading) {
                     return Padding(
                       padding: const EdgeInsets.only(right: 12.0),
                       child: ShimmerUtils.customRectangleShimmer(
@@ -504,15 +516,14 @@ class RecommendationWidget extends StatelessWidget {
                     );
                   }
                   int reversedIndex = products.length - 1 - index;
-                  final data =
-                      state.travelPopularProductsModel?.products[reversedIndex];
+                  final data = state.travelPopularProductsModel?[reversedIndex];
 
                   return GestureDetector(
                     onTap: () {
                       context.pushNamed(
                           MyAppRouteConstants.travelSingleRoutename,
                           pathParameters: {
-                            'id': data.id,
+                            'id': data?.productId?.id ?? "",
                           });
                     },
                     child: Padding(
@@ -538,7 +549,7 @@ class RecommendationWidget extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(12),
                                         child: Utilities()
                                             .buildCachedNetworkImage(
-                                                imageUrl: data?.mainImage,
+                                                imageUrl: data?.thumbnail,
                                                 height: 55,
                                                 width: 55)),
                                     kWidth10,
@@ -546,11 +557,18 @@ class RecommendationWidget extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          data!.name,
-                                          style: const TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
+                                        SizedBox(
+                                          width:
+                                              SizeUtility(context).width / 3.5,
+                                          child: Text(
+                                            data?.productId?.name ?? "",
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.2,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 2,
                                           ),
                                         ),
                                         kHeight10,
@@ -565,7 +583,7 @@ class RecommendationWidget extends StatelessWidget {
                                             ),
                                             kWidth10,
                                             Text(
-                                              data.location,
+                                              data?.productId?.location ?? "",
                                               style: const TextStyle(
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w400,
@@ -610,7 +628,9 @@ class RecommendationWidget extends StatelessWidget {
                                         ),
                                         kWidth3,
                                         Text(
-                                          data.price.toString(),
+                                          data?.productId?.offer_price
+                                                  .toString() ??
+                                              "",
                                           style: TextStyle(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w700,
@@ -652,8 +672,9 @@ class RecommendationWidget extends StatelessWidget {
                                         ),
                                         kWidth3,
                                         Text(
-                                          Utilities.formatDate(
-                                              DateTime.now().toString()),
+                                          data?.productId?.travelDate.first
+                                                  .toString() ??
+                                              '',
                                           style: TextStyle(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w700,
@@ -735,7 +756,7 @@ class CategoryList extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: TitleWidget(
-            titleName: Appstrings.browseBycountries,
+            titleName: Appstrings.browseByCities,
             onTap: () {},
             showSeeAll: false,
           ),
@@ -770,8 +791,8 @@ class CategoryList extends StatelessWidget {
                   final data = cities[index];
                   return GestureDetector(
                     onTap: () {
-                      BlocProvider.of<TravelBloc>(context)
-                          .add(FetchProductByLocation(location: data.city));
+                      // BlocProvider.of<TravelBloc>(context).add(
+                      //     FetchProductByLocation(location: data.city ?? ""));
                       context.pushNamed(MyAppRouteConstants.travelPackagesView,
                           pathParameters: {
                             "title": Appstrings.products,
@@ -783,8 +804,8 @@ class CategoryList extends StatelessWidget {
                           });
                     },
                     child: CategoryProductWidget(
-                      image: data.image,
-                      country: data.city,
+                      image: data.thumbnail ?? "",
+                      country: data.city ?? "",
                     ),
                   );
                 },
@@ -816,16 +837,19 @@ class BannerCarousel extends StatelessWidget {
                   CarouselSlider(
                     items: banners.map((banner) {
                       return Carousel(
-                        banner: banner.images?[0] ?? "",
-                        title: banner.name ?? "",
+                        banner: banner.thumbnail ?? '',
+                        title: banner.productId?.name ?? "",
                         rating: 4.5,
                       );
                     }).toList(),
                     options: CarouselOptions(
+                      scrollPhysics: banners.length == 1
+                          ? const NeverScrollableScrollPhysics()
+                          : null,
                       height: SizeUtility(context).height / 3.5,
                       viewportFraction: 1,
                       enlargeCenterPage: true,
-                      autoPlay: true,
+                      autoPlay: banners.length != 1 ? true : false,
                       autoPlayCurve: Curves.fastOutSlowIn,
                       enableInfiniteScroll: true,
                       // enlargeFactor: 0.3,
@@ -904,7 +928,7 @@ class BookNowContainer extends StatelessWidget {
                 onTap: () {
                   context.pushNamed(
                     MyAppRouteConstants.travelBookingFormRoutename,
-                    pathParameters: {"id": data.id!},
+                    pathParameters: {"id": data.productId?.id ?? ""},
                   );
                 },
                 child: Row(
@@ -917,7 +941,7 @@ class BookNowContainer extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            "₹100,000 /",
+                            "₹${data.productId?.price} /",
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
@@ -926,7 +950,7 @@ class BookNowContainer extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            " ${data.price}",
+                            " ${data.productId?.offer_price}",
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
@@ -976,60 +1000,45 @@ class Carousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Stack(
-        children: [
-          ShaderMask(
-            blendMode: BlendMode.darken,
-            shaderCallback: (bounds) => LinearGradient(
-              colors: [
-                Colors.black.withOpacity(0.2),
-                Colors.black.withOpacity(0.2)
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ).createShader(bounds),
-            child: Utilities().buildCachedNetworkImage(
-              imageUrl: banner,
-              boxFit: BoxFit.cover,
-              width: SizeUtility(context).width,
-              // height: 262,
-            ),
+    return Stack(
+      children: [
+        ShaderMask(
+          blendMode: BlendMode.darken,
+          shaderCallback: (bounds) => LinearGradient(
+            colors: [
+              Colors.black.withOpacity(0.2),
+              Colors.black.withOpacity(0.2)
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ).createShader(bounds),
+          child: Utilities().buildCachedNetworkImage(
+            imageUrl: banner,
+            boxFit: BoxFit.cover,
+            width: SizeUtility(context).width,
+            // height: 262,
           ),
-          Padding(
+        ),
+        SizedBox(
+          width: SizeUtility(context).width / 1.3,
+          child: Padding(
             padding: const EdgeInsets.only(
               top: 55,
               left: 30,
               right: 30,
             ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: ColorManager.whiteColor,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    kHeight5,
-
-                    // RatingWidget(
-                    //   rating: rating,
-                    // )
-                  ],
-                ),
-              ],
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                color: ColorManager.whiteColor,
+                fontWeight: FontWeight.w600,
+                height: 1.3,
+              ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

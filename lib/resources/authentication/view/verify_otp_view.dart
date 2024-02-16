@@ -108,11 +108,27 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     const SizedBox(
                       height: 40,
                     ),
-                    const Text(
-                      'We have sent OTP verification to your email/number. This code will expire in',
-                      style:
-                          TextStyle(color: black133, fontSize: 16, height: 1.3),
+                    RichText(
                       textAlign: TextAlign.center,
+                      text: TextSpan(
+                        style: const TextStyle(
+                            color: black133, fontSize: 16, height: 1.3),
+                        children: [
+                          const TextSpan(
+                            text: 'We have sent OTP verification to your ',
+                          ),
+                          TextSpan(
+                            text: '${context.read<AuthBloc>().phoneNumber}',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: ColorManager.black4A,
+                            ),
+                          ),
+                          const TextSpan(
+                            text: ' This code will expire in 1 minute',
+                          ),
+                        ],
+                      ),
                     ),
                     kHeight30,
                     Text(formatTime(seconds),

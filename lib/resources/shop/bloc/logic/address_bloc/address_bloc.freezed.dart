@@ -52,6 +52,7 @@ mixin _$AddressEvent {
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +89,7 @@ mixin _$AddressEvent {
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -124,6 +126,7 @@ mixin _$AddressEvent {
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +143,7 @@ mixin _$AddressEvent {
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -153,6 +157,7 @@ mixin _$AddressEvent {
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -166,6 +171,7 @@ mixin _$AddressEvent {
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -400,6 +406,7 @@ class _$AddAddressImpl with DiagnosticableTreeMixin implements AddAddress {
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) {
     return addAddress(context, addressType, name, mobile, pincode, landmark,
         addressLine, city, state, country);
@@ -440,6 +447,7 @@ class _$AddAddressImpl with DiagnosticableTreeMixin implements AddAddress {
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) {
     return addAddress?.call(context, addressType, name, mobile, pincode,
         landmark, addressLine, city, state, country);
@@ -480,6 +488,7 @@ class _$AddAddressImpl with DiagnosticableTreeMixin implements AddAddress {
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (addAddress != null) {
@@ -503,6 +512,7 @@ class _$AddAddressImpl with DiagnosticableTreeMixin implements AddAddress {
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) {
     return addAddress(this);
   }
@@ -519,6 +529,7 @@ class _$AddAddressImpl with DiagnosticableTreeMixin implements AddAddress {
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) {
     return addAddress?.call(this);
   }
@@ -535,6 +546,7 @@ class _$AddAddressImpl with DiagnosticableTreeMixin implements AddAddress {
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (addAddress != null) {
@@ -681,6 +693,7 @@ class _$FetchAddressEventImpl
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) {
     return fetchAddressEvent(context);
   }
@@ -720,6 +733,7 @@ class _$FetchAddressEventImpl
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) {
     return fetchAddressEvent?.call(context);
   }
@@ -759,6 +773,7 @@ class _$FetchAddressEventImpl
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (fetchAddressEvent != null) {
@@ -781,6 +796,7 @@ class _$FetchAddressEventImpl
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) {
     return fetchAddressEvent(this);
   }
@@ -797,6 +813,7 @@ class _$FetchAddressEventImpl
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) {
     return fetchAddressEvent?.call(this);
   }
@@ -813,6 +830,7 @@ class _$FetchAddressEventImpl
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (fetchAddressEvent != null) {
@@ -942,6 +960,7 @@ class _$SelectAddressEventImpl
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) {
     return selectAddressEvent(selectedIndex);
   }
@@ -981,6 +1000,7 @@ class _$SelectAddressEventImpl
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) {
     return selectAddressEvent?.call(selectedIndex);
   }
@@ -1020,6 +1040,7 @@ class _$SelectAddressEventImpl
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (selectAddressEvent != null) {
@@ -1042,6 +1063,7 @@ class _$SelectAddressEventImpl
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) {
     return selectAddressEvent(this);
   }
@@ -1058,6 +1080,7 @@ class _$SelectAddressEventImpl
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) {
     return selectAddressEvent?.call(this);
   }
@@ -1074,6 +1097,7 @@ class _$SelectAddressEventImpl
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (selectAddressEvent != null) {
@@ -1202,6 +1226,7 @@ class _$SaveAddressIdImpl
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) {
     return saveAddressId(addressId);
   }
@@ -1241,6 +1266,7 @@ class _$SaveAddressIdImpl
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) {
     return saveAddressId?.call(addressId);
   }
@@ -1280,6 +1306,7 @@ class _$SaveAddressIdImpl
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (saveAddressId != null) {
@@ -1302,6 +1329,7 @@ class _$SaveAddressIdImpl
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) {
     return saveAddressId(this);
   }
@@ -1318,6 +1346,7 @@ class _$SaveAddressIdImpl
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) {
     return saveAddressId?.call(this);
   }
@@ -1334,6 +1363,7 @@ class _$SaveAddressIdImpl
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (saveAddressId != null) {
@@ -1472,6 +1502,7 @@ class _$FetchAddressByIdEventImpl
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) {
     return fetchAddressByIdEvent(context, id);
   }
@@ -1511,6 +1542,7 @@ class _$FetchAddressByIdEventImpl
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) {
     return fetchAddressByIdEvent?.call(context, id);
   }
@@ -1550,6 +1582,7 @@ class _$FetchAddressByIdEventImpl
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (fetchAddressByIdEvent != null) {
@@ -1572,6 +1605,7 @@ class _$FetchAddressByIdEventImpl
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) {
     return fetchAddressByIdEvent(this);
   }
@@ -1588,6 +1622,7 @@ class _$FetchAddressByIdEventImpl
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) {
     return fetchAddressByIdEvent?.call(this);
   }
@@ -1604,6 +1639,7 @@ class _$FetchAddressByIdEventImpl
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (fetchAddressByIdEvent != null) {
@@ -1734,6 +1770,7 @@ class _$FetchPincodeAddresImpl
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) {
     return fetchPincodeAddres(pincode);
   }
@@ -1773,6 +1810,7 @@ class _$FetchPincodeAddresImpl
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) {
     return fetchPincodeAddres?.call(pincode);
   }
@@ -1812,6 +1850,7 @@ class _$FetchPincodeAddresImpl
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (fetchPincodeAddres != null) {
@@ -1834,6 +1873,7 @@ class _$FetchPincodeAddresImpl
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) {
     return fetchPincodeAddres(this);
   }
@@ -1850,6 +1890,7 @@ class _$FetchPincodeAddresImpl
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) {
     return fetchPincodeAddres?.call(this);
   }
@@ -1866,6 +1907,7 @@ class _$FetchPincodeAddresImpl
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (fetchPincodeAddres != null) {
@@ -2003,6 +2045,7 @@ class _$DeleteAddressEventImpl
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) {
     return deleteAddressEvent(context, id);
   }
@@ -2042,6 +2085,7 @@ class _$DeleteAddressEventImpl
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) {
     return deleteAddressEvent?.call(context, id);
   }
@@ -2081,6 +2125,7 @@ class _$DeleteAddressEventImpl
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (deleteAddressEvent != null) {
@@ -2103,6 +2148,7 @@ class _$DeleteAddressEventImpl
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) {
     return deleteAddressEvent(this);
   }
@@ -2119,6 +2165,7 @@ class _$DeleteAddressEventImpl
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) {
     return deleteAddressEvent?.call(this);
   }
@@ -2135,6 +2182,7 @@ class _$DeleteAddressEventImpl
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (deleteAddressEvent != null) {
@@ -2240,6 +2288,7 @@ class _$FetchAddressDefaultIndexImpl
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) {
     return fetchAddressDefaultIndex();
   }
@@ -2279,6 +2328,7 @@ class _$FetchAddressDefaultIndexImpl
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) {
     return fetchAddressDefaultIndex?.call();
   }
@@ -2318,6 +2368,7 @@ class _$FetchAddressDefaultIndexImpl
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (fetchAddressDefaultIndex != null) {
@@ -2340,6 +2391,7 @@ class _$FetchAddressDefaultIndexImpl
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) {
     return fetchAddressDefaultIndex(this);
   }
@@ -2356,6 +2408,7 @@ class _$FetchAddressDefaultIndexImpl
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) {
     return fetchAddressDefaultIndex?.call(this);
   }
@@ -2372,6 +2425,7 @@ class _$FetchAddressDefaultIndexImpl
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (fetchAddressDefaultIndex != null) {
@@ -2609,6 +2663,7 @@ class _$UpdateAddressImpl
             String country,
             String id)
         updateAddress,
+    required TResult Function() makeDefaultResponse,
   }) {
     return updateAddress(context, addressType, name, mobile, pincode, landmark,
         addressLine, city, state, country, id);
@@ -2649,6 +2704,7 @@ class _$UpdateAddressImpl
             String country,
             String id)?
         updateAddress,
+    TResult? Function()? makeDefaultResponse,
   }) {
     return updateAddress?.call(context, addressType, name, mobile, pincode,
         landmark, addressLine, city, state, country, id);
@@ -2689,6 +2745,7 @@ class _$UpdateAddressImpl
             String country,
             String id)?
         updateAddress,
+    TResult Function()? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (updateAddress != null) {
@@ -2712,6 +2769,7 @@ class _$UpdateAddressImpl
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
     required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
   }) {
     return updateAddress(this);
   }
@@ -2728,6 +2786,7 @@ class _$UpdateAddressImpl
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
   }) {
     return updateAddress?.call(this);
   }
@@ -2744,6 +2803,7 @@ class _$UpdateAddressImpl
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
     required TResult orElse(),
   }) {
     if (updateAddress != null) {
@@ -2784,9 +2844,243 @@ abstract class UpdateAddress implements AddressEvent {
 }
 
 /// @nodoc
+abstract class _$$MakeDefaultResponseImplCopyWith<$Res> {
+  factory _$$MakeDefaultResponseImplCopyWith(_$MakeDefaultResponseImpl value,
+          $Res Function(_$MakeDefaultResponseImpl) then) =
+      __$$MakeDefaultResponseImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MakeDefaultResponseImplCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$MakeDefaultResponseImpl>
+    implements _$$MakeDefaultResponseImplCopyWith<$Res> {
+  __$$MakeDefaultResponseImplCopyWithImpl(_$MakeDefaultResponseImpl _value,
+      $Res Function(_$MakeDefaultResponseImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MakeDefaultResponseImpl
+    with DiagnosticableTreeMixin
+    implements _MakeDefaultResponse {
+  const _$MakeDefaultResponseImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AddressEvent.makeDefaultResponse()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'AddressEvent.makeDefaultResponse'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MakeDefaultResponseImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function() fetchAddressDefaultIndex,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+    required TResult Function() makeDefaultResponse,
+  }) {
+    return makeDefaultResponse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function()? fetchAddressDefaultIndex,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    TResult? Function()? makeDefaultResponse,
+  }) {
+    return makeDefaultResponse?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function()? fetchAddressDefaultIndex,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    TResult Function()? makeDefaultResponse,
+    required TResult orElse(),
+  }) {
+    if (makeDefaultResponse != null) {
+      return makeDefaultResponse();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(FetchAddressDefaultIndex value)
+        fetchAddressDefaultIndex,
+    required TResult Function(UpdateAddress value) updateAddress,
+    required TResult Function(_MakeDefaultResponse value) makeDefaultResponse,
+  }) {
+    return makeDefaultResponse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
+    TResult? Function(UpdateAddress value)? updateAddress,
+    TResult? Function(_MakeDefaultResponse value)? makeDefaultResponse,
+  }) {
+    return makeDefaultResponse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
+    TResult Function(UpdateAddress value)? updateAddress,
+    TResult Function(_MakeDefaultResponse value)? makeDefaultResponse,
+    required TResult orElse(),
+  }) {
+    if (makeDefaultResponse != null) {
+      return makeDefaultResponse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MakeDefaultResponse implements AddressEvent {
+  const factory _MakeDefaultResponse() = _$MakeDefaultResponseImpl;
+}
+
+/// @nodoc
 mixin _$AddressState {
   String? get successMessage => throw _privateConstructorUsedError;
-  bool? get successMessageInShop => throw _privateConstructorUsedError;
+  bool get updateAddressSuccess => throw _privateConstructorUsedError;
+  bool get addAddressSuccess => throw _privateConstructorUsedError;
   String? get failMessage => throw _privateConstructorUsedError;
   AddressModel? get addressModel => throw _privateConstructorUsedError;
   int? get selectedIndex => throw _privateConstructorUsedError;
@@ -2809,7 +3103,8 @@ abstract class $AddressStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String? successMessage,
-      bool? successMessageInShop,
+      bool updateAddressSuccess,
+      bool addAddressSuccess,
       String? failMessage,
       AddressModel? addressModel,
       int? selectedIndex,
@@ -2837,7 +3132,8 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
   @override
   $Res call({
     Object? successMessage = freezed,
-    Object? successMessageInShop = freezed,
+    Object? updateAddressSuccess = null,
+    Object? addAddressSuccess = null,
     Object? failMessage = freezed,
     Object? addressModel = freezed,
     Object? selectedIndex = freezed,
@@ -2851,10 +3147,14 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
           ? _value.successMessage
           : successMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      successMessageInShop: freezed == successMessageInShop
-          ? _value.successMessageInShop
-          : successMessageInShop // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      updateAddressSuccess: null == updateAddressSuccess
+          ? _value.updateAddressSuccess
+          : updateAddressSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      addAddressSuccess: null == addAddressSuccess
+          ? _value.addAddressSuccess
+          : addAddressSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
       failMessage: freezed == failMessage
           ? _value.failMessage
           : failMessage // ignore: cast_nullable_to_non_nullable
@@ -2934,7 +3234,8 @@ abstract class _$$InitialImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? successMessage,
-      bool? successMessageInShop,
+      bool updateAddressSuccess,
+      bool addAddressSuccess,
       String? failMessage,
       AddressModel? addressModel,
       int? selectedIndex,
@@ -2963,7 +3264,8 @@ class __$$InitialImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? successMessage = freezed,
-    Object? successMessageInShop = freezed,
+    Object? updateAddressSuccess = null,
+    Object? addAddressSuccess = null,
     Object? failMessage = freezed,
     Object? addressModel = freezed,
     Object? selectedIndex = freezed,
@@ -2977,10 +3279,14 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.successMessage
           : successMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-      successMessageInShop: freezed == successMessageInShop
-          ? _value.successMessageInShop
-          : successMessageInShop // ignore: cast_nullable_to_non_nullable
-              as bool?,
+      updateAddressSuccess: null == updateAddressSuccess
+          ? _value.updateAddressSuccess
+          : updateAddressSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      addAddressSuccess: null == addAddressSuccess
+          ? _value.addAddressSuccess
+          : addAddressSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
       failMessage: freezed == failMessage
           ? _value.failMessage
           : failMessage // ignore: cast_nullable_to_non_nullable
@@ -3018,7 +3324,8 @@ class __$$InitialImplCopyWithImpl<$Res>
 class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   const _$InitialImpl(
       {required this.successMessage,
-      required this.successMessageInShop,
+      required this.updateAddressSuccess,
+      required this.addAddressSuccess,
       required this.failMessage,
       required this.addressModel,
       required this.selectedIndex,
@@ -3030,7 +3337,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   @override
   final String? successMessage;
   @override
-  final bool? successMessageInShop;
+  final bool updateAddressSuccess;
+  @override
+  final bool addAddressSuccess;
   @override
   final String? failMessage;
   @override
@@ -3048,7 +3357,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AddressState(successMessage: $successMessage, successMessageInShop: $successMessageInShop, failMessage: $failMessage, addressModel: $addressModel, selectedIndex: $selectedIndex, addressId: $addressId, addressIdModel: $addressIdModel, isLoading: $isLoading, pincodeAddressModel: $pincodeAddressModel)';
+    return 'AddressState(successMessage: $successMessage, updateAddressSuccess: $updateAddressSuccess, addAddressSuccess: $addAddressSuccess, failMessage: $failMessage, addressModel: $addressModel, selectedIndex: $selectedIndex, addressId: $addressId, addressIdModel: $addressIdModel, isLoading: $isLoading, pincodeAddressModel: $pincodeAddressModel)';
   }
 
   @override
@@ -3057,7 +3366,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     properties
       ..add(DiagnosticsProperty('type', 'AddressState'))
       ..add(DiagnosticsProperty('successMessage', successMessage))
-      ..add(DiagnosticsProperty('successMessageInShop', successMessageInShop))
+      ..add(DiagnosticsProperty('updateAddressSuccess', updateAddressSuccess))
+      ..add(DiagnosticsProperty('addAddressSuccess', addAddressSuccess))
       ..add(DiagnosticsProperty('failMessage', failMessage))
       ..add(DiagnosticsProperty('addressModel', addressModel))
       ..add(DiagnosticsProperty('selectedIndex', selectedIndex))
@@ -3074,8 +3384,10 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
             other is _$InitialImpl &&
             (identical(other.successMessage, successMessage) ||
                 other.successMessage == successMessage) &&
-            (identical(other.successMessageInShop, successMessageInShop) ||
-                other.successMessageInShop == successMessageInShop) &&
+            (identical(other.updateAddressSuccess, updateAddressSuccess) ||
+                other.updateAddressSuccess == updateAddressSuccess) &&
+            (identical(other.addAddressSuccess, addAddressSuccess) ||
+                other.addAddressSuccess == addAddressSuccess) &&
             (identical(other.failMessage, failMessage) ||
                 other.failMessage == failMessage) &&
             (identical(other.addressModel, addressModel) ||
@@ -3096,7 +3408,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   int get hashCode => Object.hash(
       runtimeType,
       successMessage,
-      successMessageInShop,
+      updateAddressSuccess,
+      addAddressSuccess,
       failMessage,
       addressModel,
       selectedIndex,
@@ -3115,7 +3428,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
 abstract class _Initial implements AddressState {
   const factory _Initial(
       {required final String? successMessage,
-      required final bool? successMessageInShop,
+      required final bool updateAddressSuccess,
+      required final bool addAddressSuccess,
       required final String? failMessage,
       required final AddressModel? addressModel,
       required final int? selectedIndex,
@@ -3127,7 +3441,9 @@ abstract class _Initial implements AddressState {
   @override
   String? get successMessage;
   @override
-  bool? get successMessageInShop;
+  bool get updateAddressSuccess;
+  @override
+  bool get addAddressSuccess;
   @override
   String? get failMessage;
   @override

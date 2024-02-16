@@ -40,6 +40,9 @@ mixin _$HomeEvent {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +68,9 @@ mixin _$HomeEvent {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +96,9 @@ mixin _$HomeEvent {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +133,10 @@ mixin _$HomeEvent {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -150,6 +163,10 @@ mixin _$HomeEvent {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -175,6 +192,10 @@ mixin _$HomeEvent {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -217,12 +238,21 @@ class __$$FetchLargeDiscountsBannerImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
+class _$FetchLargeDiscountsBannerImpl
+    with DiagnosticableTreeMixin
+    implements FetchLargeDiscountsBanner {
   const _$FetchLargeDiscountsBannerImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.fetchLargeDisountsBanner()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'HomeEvent.fetchLargeDisountsBanner'));
   }
 
   @override
@@ -260,6 +290,9 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return fetchLargeDisountsBanner();
   }
@@ -288,6 +321,9 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return fetchLargeDisountsBanner?.call();
   }
@@ -316,6 +352,9 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -356,6 +395,10 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return fetchLargeDisountsBanner(this);
   }
@@ -385,6 +428,10 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return fetchLargeDisountsBanner?.call(this);
   }
@@ -413,6 +460,10 @@ class _$FetchLargeDiscountsBannerImpl implements FetchLargeDiscountsBanner {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -444,12 +495,21 @@ class __$$FetchTopOffersBannerImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
+class _$FetchTopOffersBannerImpl
+    with DiagnosticableTreeMixin
+    implements FetchTopOffersBanner {
   const _$FetchTopOffersBannerImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.fetchTopOffersBanner()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'HomeEvent.fetchTopOffersBanner'));
   }
 
   @override
@@ -487,6 +547,9 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return fetchTopOffersBanner();
   }
@@ -515,6 +578,9 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return fetchTopOffersBanner?.call();
   }
@@ -543,6 +609,9 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -583,6 +652,10 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return fetchTopOffersBanner(this);
   }
@@ -612,6 +685,10 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return fetchTopOffersBanner?.call(this);
   }
@@ -640,6 +717,10 @@ class _$FetchTopOffersBannerImpl implements FetchTopOffersBanner {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -671,12 +752,20 @@ class __$$FetchBrandofTheDayImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
+class _$FetchBrandofTheDayImpl
+    with DiagnosticableTreeMixin
+    implements FetchBrandofTheDay {
   const _$FetchBrandofTheDayImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.fetchBrandofTheDay()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'HomeEvent.fetchBrandofTheDay'));
   }
 
   @override
@@ -713,6 +802,9 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return fetchBrandofTheDay();
   }
@@ -741,6 +833,9 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return fetchBrandofTheDay?.call();
   }
@@ -769,6 +864,9 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -809,6 +907,10 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return fetchBrandofTheDay(this);
   }
@@ -838,6 +940,10 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return fetchBrandofTheDay?.call(this);
   }
@@ -866,6 +972,10 @@ class _$FetchBrandofTheDayImpl implements FetchBrandofTheDay {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -897,12 +1007,21 @@ class __$$FetchHadithOfTheDayImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
+class _$FetchHadithOfTheDayImpl
+    with DiagnosticableTreeMixin
+    implements FetchHadithOfTheDay {
   const _$FetchHadithOfTheDayImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.fetchHadithOfTheDay()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'HomeEvent.fetchHadithOfTheDay'));
   }
 
   @override
@@ -940,6 +1059,9 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return fetchHadithOfTheDay();
   }
@@ -968,6 +1090,9 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return fetchHadithOfTheDay?.call();
   }
@@ -996,6 +1121,9 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -1036,6 +1164,10 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return fetchHadithOfTheDay(this);
   }
@@ -1065,6 +1197,10 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return fetchHadithOfTheDay?.call(this);
   }
@@ -1093,6 +1229,10 @@ class _$FetchHadithOfTheDayImpl implements FetchHadithOfTheDay {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -1124,12 +1264,21 @@ class __$$FetchEventOfTheMonthImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
+class _$FetchEventOfTheMonthImpl
+    with DiagnosticableTreeMixin
+    implements FetchEventOfTheMonth {
   const _$FetchEventOfTheMonthImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.fetchEventOfTheMonth()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'HomeEvent.fetchEventOfTheMonth'));
   }
 
   @override
@@ -1167,6 +1316,9 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return fetchEventOfTheMonth();
   }
@@ -1195,6 +1347,9 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return fetchEventOfTheMonth?.call();
   }
@@ -1223,6 +1378,9 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -1263,6 +1421,10 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return fetchEventOfTheMonth(this);
   }
@@ -1292,6 +1454,10 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return fetchEventOfTheMonth?.call(this);
   }
@@ -1320,6 +1486,10 @@ class _$FetchEventOfTheMonthImpl implements FetchEventOfTheMonth {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -1373,7 +1543,9 @@ class __$$FetchPrayerTrackerEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
+class _$FetchPrayerTrackerEventImpl
+    with DiagnosticableTreeMixin
+    implements FetchPrayerTrackerEvent {
   const _$FetchPrayerTrackerEventImpl(
       {required this.date, required this.context});
 
@@ -1383,8 +1555,17 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
   final BuildContext context;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.fetchPrayerTrackerEvent(date: $date, context: $context)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.fetchPrayerTrackerEvent'))
+      ..add(DiagnosticsProperty('date', date))
+      ..add(DiagnosticsProperty('context', context));
   }
 
   @override
@@ -1431,6 +1612,9 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return fetchPrayerTrackerEvent(date, context);
   }
@@ -1459,6 +1643,9 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return fetchPrayerTrackerEvent?.call(date, context);
   }
@@ -1487,6 +1674,9 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -1527,6 +1717,10 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return fetchPrayerTrackerEvent(this);
   }
@@ -1556,6 +1750,10 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return fetchPrayerTrackerEvent?.call(this);
   }
@@ -1584,6 +1782,10 @@ class _$FetchPrayerTrackerEventImpl implements FetchPrayerTrackerEvent {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -1645,7 +1847,9 @@ class __$$AddPrayerToPrayerTrackerImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
+class _$AddPrayerToPrayerTrackerImpl
+    with DiagnosticableTreeMixin
+    implements AddPrayerToPrayerTracker {
   const _$AddPrayerToPrayerTrackerImpl(
       {required this.namazName, required this.context});
 
@@ -1655,8 +1859,17 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
   final BuildContext context;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.addPrayerToPrayerTracker(namazName: $namazName, context: $context)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.addPrayerToPrayerTracker'))
+      ..add(DiagnosticsProperty('namazName', namazName))
+      ..add(DiagnosticsProperty('context', context));
   }
 
   @override
@@ -1704,6 +1917,9 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return addPrayerToPrayerTracker(namazName, context);
   }
@@ -1732,6 +1948,9 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return addPrayerToPrayerTracker?.call(namazName, context);
   }
@@ -1760,6 +1979,9 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -1800,6 +2022,10 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return addPrayerToPrayerTracker(this);
   }
@@ -1829,6 +2055,10 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return addPrayerToPrayerTracker?.call(this);
   }
@@ -1857,6 +2087,10 @@ class _$AddPrayerToPrayerTrackerImpl implements AddPrayerToPrayerTracker {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -1898,12 +2132,21 @@ class __$$ChangeIndexofAllaysaysBgImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
+class _$ChangeIndexofAllaysaysBgImpl
+    with DiagnosticableTreeMixin
+    implements ChangeIndexofAllaysaysBg {
   const _$ChangeIndexofAllaysaysBgImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.changeIndexofAllaysaysBg()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'HomeEvent.changeIndexofAllaysaysBg'));
   }
 
   @override
@@ -1941,6 +2184,9 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return changeIndexofAllaysaysBg();
   }
@@ -1969,6 +2215,9 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return changeIndexofAllaysaysBg?.call();
   }
@@ -1997,6 +2246,9 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeIndexofAllaysaysBg != null) {
@@ -2037,6 +2289,10 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return changeIndexofAllaysaysBg(this);
   }
@@ -2066,6 +2322,10 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return changeIndexofAllaysaysBg?.call(this);
   }
@@ -2094,6 +2354,10 @@ class _$ChangeIndexofAllaysaysBgImpl implements ChangeIndexofAllaysaysBg {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeIndexofAllaysaysBg != null) {
@@ -2142,15 +2406,25 @@ class __$$ChangeHomeTabIndexEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
+class _$ChangeHomeTabIndexEventImpl
+    with DiagnosticableTreeMixin
+    implements ChangeHomeTabIndexEvent {
   const _$ChangeHomeTabIndexEventImpl({required this.newIndex});
 
   @override
   final int newIndex;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.changeHomeTabIndexEvent(newIndex: $newIndex)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.changeHomeTabIndexEvent'))
+      ..add(DiagnosticsProperty('newIndex', newIndex));
   }
 
   @override
@@ -2197,6 +2471,9 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return changeHomeTabIndexEvent(newIndex);
   }
@@ -2225,6 +2502,9 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return changeHomeTabIndexEvent?.call(newIndex);
   }
@@ -2253,6 +2533,9 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeHomeTabIndexEvent != null) {
@@ -2293,6 +2576,10 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return changeHomeTabIndexEvent(this);
   }
@@ -2322,6 +2609,10 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return changeHomeTabIndexEvent?.call(this);
   }
@@ -2350,6 +2641,10 @@ class _$ChangeHomeTabIndexEventImpl implements ChangeHomeTabIndexEvent {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeHomeTabIndexEvent != null) {
@@ -2410,6 +2705,7 @@ class __$$RemoveDailyPrayerTrackerNamazImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RemoveDailyPrayerTrackerNamazImpl
+    with DiagnosticableTreeMixin
     implements RemoveDailyPrayerTrackerNamaz {
   const _$RemoveDailyPrayerTrackerNamazImpl(
       {required this.namazName, required this.context});
@@ -2420,8 +2716,18 @@ class _$RemoveDailyPrayerTrackerNamazImpl
   final BuildContext context;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.removeDailyPrayerTrackerNamaz(namazName: $namazName, context: $context)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'HomeEvent.removeDailyPrayerTrackerNamaz'))
+      ..add(DiagnosticsProperty('namazName', namazName))
+      ..add(DiagnosticsProperty('context', context));
   }
 
   @override
@@ -2470,6 +2776,9 @@ class _$RemoveDailyPrayerTrackerNamazImpl
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return removeDailyPrayerTrackerNamaz(namazName, context);
   }
@@ -2498,6 +2807,9 @@ class _$RemoveDailyPrayerTrackerNamazImpl
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return removeDailyPrayerTrackerNamaz?.call(namazName, context);
   }
@@ -2526,6 +2838,9 @@ class _$RemoveDailyPrayerTrackerNamazImpl
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (removeDailyPrayerTrackerNamaz != null) {
@@ -2566,6 +2881,10 @@ class _$RemoveDailyPrayerTrackerNamazImpl
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return removeDailyPrayerTrackerNamaz(this);
   }
@@ -2595,6 +2914,10 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return removeDailyPrayerTrackerNamaz?.call(this);
   }
@@ -2623,6 +2946,10 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (removeDailyPrayerTrackerNamaz != null) {
@@ -2681,15 +3008,26 @@ class __$$ChangeTinterCardSwipeOptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
+class _$ChangeTinterCardSwipeOptionImpl
+    with DiagnosticableTreeMixin
+    implements ChangeTinterCardSwipeOption {
   const _$ChangeTinterCardSwipeOptionImpl({required this.value});
 
   @override
   final bool value;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.changeTinterCardSwipeOption(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'HomeEvent.changeTinterCardSwipeOption'))
+      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -2735,6 +3073,9 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return changeTinterCardSwipeOption(value);
   }
@@ -2763,6 +3104,9 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return changeTinterCardSwipeOption?.call(value);
   }
@@ -2791,6 +3135,9 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeTinterCardSwipeOption != null) {
@@ -2831,6 +3178,10 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return changeTinterCardSwipeOption(this);
   }
@@ -2860,6 +3211,10 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return changeTinterCardSwipeOption?.call(this);
   }
@@ -2888,6 +3243,10 @@ class _$ChangeTinterCardSwipeOptionImpl implements ChangeTinterCardSwipeOption {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeTinterCardSwipeOption != null) {
@@ -2942,15 +3301,25 @@ class __$$ChangeCompassThemeEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
+class _$ChangeCompassThemeEventImpl
+    with DiagnosticableTreeMixin
+    implements ChangeCompassThemeEvent {
   const _$ChangeCompassThemeEventImpl({required this.compassTheme});
 
   @override
   final CompassTheme compassTheme;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.changeCompassThemeEvent(compassTheme: $compassTheme)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.changeCompassThemeEvent'))
+      ..add(DiagnosticsProperty('compassTheme', compassTheme));
   }
 
   @override
@@ -2997,6 +3366,9 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return changeCompassThemeEvent(compassTheme);
   }
@@ -3025,6 +3397,9 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return changeCompassThemeEvent?.call(compassTheme);
   }
@@ -3053,6 +3428,9 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeCompassThemeEvent != null) {
@@ -3093,6 +3471,10 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return changeCompassThemeEvent(this);
   }
@@ -3122,6 +3504,10 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return changeCompassThemeEvent?.call(this);
   }
@@ -3150,6 +3536,10 @@ class _$ChangeCompassThemeEventImpl implements ChangeCompassThemeEvent {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeCompassThemeEvent != null) {
@@ -3205,15 +3595,25 @@ class __$$ChangeCompassThemeIndexImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
+class _$ChangeCompassThemeIndexImpl
+    with DiagnosticableTreeMixin
+    implements ChangeCompassThemeIndex {
   const _$ChangeCompassThemeIndexImpl({required this.index});
 
   @override
   final int index;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.changeCompassThemeIndex(index: $index)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.changeCompassThemeIndex'))
+      ..add(DiagnosticsProperty('index', index));
   }
 
   @override
@@ -3259,6 +3659,9 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return changeCompassThemeIndex(index);
   }
@@ -3287,6 +3690,9 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return changeCompassThemeIndex?.call(index);
   }
@@ -3315,6 +3721,9 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeCompassThemeIndex != null) {
@@ -3355,6 +3764,10 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return changeCompassThemeIndex(this);
   }
@@ -3384,6 +3797,10 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return changeCompassThemeIndex?.call(this);
   }
@@ -3412,6 +3829,10 @@ class _$ChangeCompassThemeIndexImpl implements ChangeCompassThemeIndex {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeCompassThemeIndex != null) {
@@ -3464,15 +3885,25 @@ class __$$FetchNotificationApiImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchNotificationApiImpl implements FetchNotificationApi {
+class _$FetchNotificationApiImpl
+    with DiagnosticableTreeMixin
+    implements FetchNotificationApi {
   const _$FetchNotificationApiImpl({required this.context});
 
   @override
   final BuildContext context;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.fetchNotificationApi(context: $context)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.fetchNotificationApi'))
+      ..add(DiagnosticsProperty('context', context));
   }
 
   @override
@@ -3519,6 +3950,9 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return fetchNotificationApi(context);
   }
@@ -3547,6 +3981,9 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return fetchNotificationApi?.call(context);
   }
@@ -3575,6 +4012,9 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchNotificationApi != null) {
@@ -3615,6 +4055,10 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return fetchNotificationApi(this);
   }
@@ -3644,6 +4088,10 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return fetchNotificationApi?.call(this);
   }
@@ -3672,6 +4120,10 @@ class _$FetchNotificationApiImpl implements FetchNotificationApi {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (fetchNotificationApi != null) {
@@ -3732,6 +4184,7 @@ class __$$AddMarkReadNotificationEventImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddMarkReadNotificationEventImpl
+    with DiagnosticableTreeMixin
     implements AddMarkReadNotificationEvent {
   const _$AddMarkReadNotificationEventImpl(
       {required this.id, required this.context});
@@ -3742,8 +4195,18 @@ class _$AddMarkReadNotificationEventImpl
   final BuildContext context;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.addMarkReadNotificationEvent(id: $id, context: $context)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'HomeEvent.addMarkReadNotificationEvent'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('context', context));
   }
 
   @override
@@ -3791,6 +4254,9 @@ class _$AddMarkReadNotificationEventImpl
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return addMarkReadNotificationEvent(id, context);
   }
@@ -3819,6 +4285,9 @@ class _$AddMarkReadNotificationEventImpl
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return addMarkReadNotificationEvent?.call(id, context);
   }
@@ -3847,6 +4316,9 @@ class _$AddMarkReadNotificationEventImpl
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (addMarkReadNotificationEvent != null) {
@@ -3887,6 +4359,10 @@ class _$AddMarkReadNotificationEventImpl
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return addMarkReadNotificationEvent(this);
   }
@@ -3916,6 +4392,10 @@ class _$AddMarkReadNotificationEventImpl
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return addMarkReadNotificationEvent?.call(this);
   }
@@ -3944,6 +4424,10 @@ class _$AddMarkReadNotificationEventImpl
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (addMarkReadNotificationEvent != null) {
@@ -4000,15 +4484,25 @@ class __$$ChangeHomeBannerIndexImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
+class _$ChangeHomeBannerIndexImpl
+    with DiagnosticableTreeMixin
+    implements ChangeHomeBannerIndex {
   const _$ChangeHomeBannerIndexImpl({required this.index});
 
   @override
   final int index;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.changeHomeBannerIndex(index: $index)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.changeHomeBannerIndex'))
+      ..add(DiagnosticsProperty('index', index));
   }
 
   @override
@@ -4054,6 +4548,9 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return changeHomeBannerIndex(index);
   }
@@ -4082,6 +4579,9 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return changeHomeBannerIndex?.call(index);
   }
@@ -4110,6 +4610,9 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeHomeBannerIndex != null) {
@@ -4150,6 +4653,10 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return changeHomeBannerIndex(this);
   }
@@ -4179,6 +4686,10 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return changeHomeBannerIndex?.call(this);
   }
@@ -4207,6 +4718,10 @@ class _$ChangeHomeBannerIndexImpl implements ChangeHomeBannerIndex {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeHomeBannerIndex != null) {
@@ -4261,15 +4776,25 @@ class __$$ChangeEventOfTheMonthIndexImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
+class _$ChangeEventOfTheMonthIndexImpl
+    with DiagnosticableTreeMixin
+    implements ChangeEventOfTheMonthIndex {
   const _$ChangeEventOfTheMonthIndexImpl({required this.index});
 
   @override
   final int index;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeEvent.changeEventOfTheMonthIndex(index: $index)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.changeEventOfTheMonthIndex'))
+      ..add(DiagnosticsProperty('index', index));
   }
 
   @override
@@ -4315,6 +4840,9 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
         addMarkReadNotificationEvent,
     required TResult Function(int index) changeHomeBannerIndex,
     required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
   }) {
     return changeEventOfTheMonthIndex(index);
   }
@@ -4343,6 +4871,9 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
         addMarkReadNotificationEvent,
     TResult? Function(int index)? changeHomeBannerIndex,
     TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
   }) {
     return changeEventOfTheMonthIndex?.call(index);
   }
@@ -4371,6 +4902,9 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
         addMarkReadNotificationEvent,
     TResult Function(int index)? changeHomeBannerIndex,
     TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeEventOfTheMonthIndex != null) {
@@ -4411,6 +4945,10 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
         changeHomeBannerIndex,
     required TResult Function(ChangeEventOfTheMonthIndex value)
         changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
   }) {
     return changeEventOfTheMonthIndex(this);
   }
@@ -4440,6 +4978,10 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
     TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult? Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
   }) {
     return changeEventOfTheMonthIndex?.call(this);
   }
@@ -4468,6 +5010,10 @@ class _$ChangeEventOfTheMonthIndexImpl implements ChangeEventOfTheMonthIndex {
     TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     TResult Function(ChangeEventOfTheMonthIndex value)?
         changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
     required TResult orElse(),
   }) {
     if (changeEventOfTheMonthIndex != null) {
@@ -4485,6 +5031,813 @@ abstract class ChangeEventOfTheMonthIndex implements HomeEvent {
   @JsonKey(ignore: true)
   _$$ChangeEventOfTheMonthIndexImplCopyWith<_$ChangeEventOfTheMonthIndexImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchAllahSaysImplCopyWith<$Res> {
+  factory _$$FetchAllahSaysImplCopyWith(_$FetchAllahSaysImpl value,
+          $Res Function(_$FetchAllahSaysImpl) then) =
+      __$$FetchAllahSaysImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchAllahSaysImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchAllahSaysImpl>
+    implements _$$FetchAllahSaysImplCopyWith<$Res> {
+  __$$FetchAllahSaysImplCopyWithImpl(
+      _$FetchAllahSaysImpl _value, $Res Function(_$FetchAllahSaysImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchAllahSaysImpl
+    with DiagnosticableTreeMixin
+    implements FetchAllahSays {
+  const _$FetchAllahSaysImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.fetchAllahSaysApi()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'HomeEvent.fetchAllahSaysApi'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchAllahSaysImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLargeDisountsBanner,
+    required TResult Function() fetchTopOffersBanner,
+    required TResult Function() fetchBrandofTheDay,
+    required TResult Function() fetchHadithOfTheDay,
+    required TResult Function() fetchEventOfTheMonth,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
+    required TResult Function(int newIndex) changeHomeTabIndexEvent,
+    required TResult Function(String namazName, BuildContext context)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(bool value) changeTinterCardSwipeOption,
+    required TResult Function(CompassTheme compassTheme)
+        changeCompassThemeEvent,
+    required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
+    required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
+  }) {
+    return fetchAllahSaysApi();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLargeDisountsBanner,
+    TResult? Function()? fetchTopOffersBanner,
+    TResult? Function()? fetchBrandofTheDay,
+    TResult? Function()? fetchHadithOfTheDay,
+    TResult? Function()? fetchEventOfTheMonth,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
+    TResult? Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(bool value)? changeTinterCardSwipeOption,
+    TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
+    TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
+  }) {
+    return fetchAllahSaysApi?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLargeDisountsBanner,
+    TResult Function()? fetchTopOffersBanner,
+    TResult Function()? fetchBrandofTheDay,
+    TResult Function()? fetchHadithOfTheDay,
+    TResult Function()? fetchEventOfTheMonth,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
+    TResult Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(bool value)? changeTinterCardSwipeOption,
+    TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
+    TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
+    required TResult orElse(),
+  }) {
+    if (fetchAllahSaysApi != null) {
+      return fetchAllahSaysApi();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchLargeDiscountsBanner value)
+        fetchLargeDisountsBanner,
+    required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
+    required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
+    required TResult Function(FetchHadithOfTheDay value) fetchHadithOfTheDay,
+    required TResult Function(FetchEventOfTheMonth value) fetchEventOfTheMonth,
+    required TResult Function(FetchPrayerTrackerEvent value)
+        fetchPrayerTrackerEvent,
+    required TResult Function(AddPrayerToPrayerTracker value)
+        addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
+    required TResult Function(ChangeHomeTabIndexEvent value)
+        changeHomeTabIndexEvent,
+    required TResult Function(RemoveDailyPrayerTrackerNamaz value)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(ChangeTinterCardSwipeOption value)
+        changeTinterCardSwipeOption,
+    required TResult Function(ChangeCompassThemeEvent value)
+        changeCompassThemeEvent,
+    required TResult Function(ChangeCompassThemeIndex value)
+        changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
+    required TResult Function(ChangeEventOfTheMonthIndex value)
+        changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+  }) {
+    return fetchAllahSaysApi(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
+    TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult? Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult? Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+    TResult? Function(ChangeEventOfTheMonthIndex value)?
+        changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+  }) {
+    return fetchAllahSaysApi?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+    TResult Function(ChangeEventOfTheMonthIndex value)?
+        changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    required TResult orElse(),
+  }) {
+    if (fetchAllahSaysApi != null) {
+      return fetchAllahSaysApi(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchAllahSays implements HomeEvent {
+  const factory FetchAllahSays() = _$FetchAllahSaysImpl;
+}
+
+/// @nodoc
+abstract class _$$ChangeTranslationLanguageIndexImplCopyWith<$Res> {
+  factory _$$ChangeTranslationLanguageIndexImplCopyWith(
+          _$ChangeTranslationLanguageIndexImpl value,
+          $Res Function(_$ChangeTranslationLanguageIndexImpl) then) =
+      __$$ChangeTranslationLanguageIndexImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$ChangeTranslationLanguageIndexImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeTranslationLanguageIndexImpl>
+    implements _$$ChangeTranslationLanguageIndexImplCopyWith<$Res> {
+  __$$ChangeTranslationLanguageIndexImplCopyWithImpl(
+      _$ChangeTranslationLanguageIndexImpl _value,
+      $Res Function(_$ChangeTranslationLanguageIndexImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$ChangeTranslationLanguageIndexImpl(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeTranslationLanguageIndexImpl
+    with DiagnosticableTreeMixin
+    implements ChangeTranslationLanguageIndex {
+  const _$ChangeTranslationLanguageIndexImpl(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.changeTranslationLanguageIndex(index: $index)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'HomeEvent.changeTranslationLanguageIndex'))
+      ..add(DiagnosticsProperty('index', index));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeTranslationLanguageIndexImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeTranslationLanguageIndexImplCopyWith<
+          _$ChangeTranslationLanguageIndexImpl>
+      get copyWith => __$$ChangeTranslationLanguageIndexImplCopyWithImpl<
+          _$ChangeTranslationLanguageIndexImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLargeDisountsBanner,
+    required TResult Function() fetchTopOffersBanner,
+    required TResult Function() fetchBrandofTheDay,
+    required TResult Function() fetchHadithOfTheDay,
+    required TResult Function() fetchEventOfTheMonth,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
+    required TResult Function(int newIndex) changeHomeTabIndexEvent,
+    required TResult Function(String namazName, BuildContext context)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(bool value) changeTinterCardSwipeOption,
+    required TResult Function(CompassTheme compassTheme)
+        changeCompassThemeEvent,
+    required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
+    required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
+  }) {
+    return changeTranslationLanguageIndex(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLargeDisountsBanner,
+    TResult? Function()? fetchTopOffersBanner,
+    TResult? Function()? fetchBrandofTheDay,
+    TResult? Function()? fetchHadithOfTheDay,
+    TResult? Function()? fetchEventOfTheMonth,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
+    TResult? Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(bool value)? changeTinterCardSwipeOption,
+    TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
+    TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
+  }) {
+    return changeTranslationLanguageIndex?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLargeDisountsBanner,
+    TResult Function()? fetchTopOffersBanner,
+    TResult Function()? fetchBrandofTheDay,
+    TResult Function()? fetchHadithOfTheDay,
+    TResult Function()? fetchEventOfTheMonth,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
+    TResult Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(bool value)? changeTinterCardSwipeOption,
+    TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
+    TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
+    required TResult orElse(),
+  }) {
+    if (changeTranslationLanguageIndex != null) {
+      return changeTranslationLanguageIndex(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchLargeDiscountsBanner value)
+        fetchLargeDisountsBanner,
+    required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
+    required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
+    required TResult Function(FetchHadithOfTheDay value) fetchHadithOfTheDay,
+    required TResult Function(FetchEventOfTheMonth value) fetchEventOfTheMonth,
+    required TResult Function(FetchPrayerTrackerEvent value)
+        fetchPrayerTrackerEvent,
+    required TResult Function(AddPrayerToPrayerTracker value)
+        addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
+    required TResult Function(ChangeHomeTabIndexEvent value)
+        changeHomeTabIndexEvent,
+    required TResult Function(RemoveDailyPrayerTrackerNamaz value)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(ChangeTinterCardSwipeOption value)
+        changeTinterCardSwipeOption,
+    required TResult Function(ChangeCompassThemeEvent value)
+        changeCompassThemeEvent,
+    required TResult Function(ChangeCompassThemeIndex value)
+        changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
+    required TResult Function(ChangeEventOfTheMonthIndex value)
+        changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+  }) {
+    return changeTranslationLanguageIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
+    TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult? Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult? Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+    TResult? Function(ChangeEventOfTheMonthIndex value)?
+        changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+  }) {
+    return changeTranslationLanguageIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+    TResult Function(ChangeEventOfTheMonthIndex value)?
+        changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    required TResult orElse(),
+  }) {
+    if (changeTranslationLanguageIndex != null) {
+      return changeTranslationLanguageIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeTranslationLanguageIndex implements HomeEvent {
+  const factory ChangeTranslationLanguageIndex(final int index) =
+      _$ChangeTranslationLanguageIndexImpl;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$ChangeTranslationLanguageIndexImplCopyWith<
+          _$ChangeTranslationLanguageIndexImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchAllHomePageApiImplCopyWith<$Res> {
+  factory _$$FetchAllHomePageApiImplCopyWith(_$FetchAllHomePageApiImpl value,
+          $Res Function(_$FetchAllHomePageApiImpl) then) =
+      __$$FetchAllHomePageApiImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchAllHomePageApiImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchAllHomePageApiImpl>
+    implements _$$FetchAllHomePageApiImplCopyWith<$Res> {
+  __$$FetchAllHomePageApiImplCopyWithImpl(_$FetchAllHomePageApiImpl _value,
+      $Res Function(_$FetchAllHomePageApiImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchAllHomePageApiImpl
+    with DiagnosticableTreeMixin
+    implements _FetchAllHomePageApi {
+  const _$FetchAllHomePageApiImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.fetchAllHomePageApis()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'HomeEvent.fetchAllHomePageApis'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchAllHomePageApiImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLargeDisountsBanner,
+    required TResult Function() fetchTopOffersBanner,
+    required TResult Function() fetchBrandofTheDay,
+    required TResult Function() fetchHadithOfTheDay,
+    required TResult Function() fetchEventOfTheMonth,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
+    required TResult Function(int newIndex) changeHomeTabIndexEvent,
+    required TResult Function(String namazName, BuildContext context)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(bool value) changeTinterCardSwipeOption,
+    required TResult Function(CompassTheme compassTheme)
+        changeCompassThemeEvent,
+    required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
+    required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
+  }) {
+    return fetchAllHomePageApis();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLargeDisountsBanner,
+    TResult? Function()? fetchTopOffersBanner,
+    TResult? Function()? fetchBrandofTheDay,
+    TResult? Function()? fetchHadithOfTheDay,
+    TResult? Function()? fetchEventOfTheMonth,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
+    TResult? Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(bool value)? changeTinterCardSwipeOption,
+    TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
+    TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
+  }) {
+    return fetchAllHomePageApis?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLargeDisountsBanner,
+    TResult Function()? fetchTopOffersBanner,
+    TResult Function()? fetchBrandofTheDay,
+    TResult Function()? fetchHadithOfTheDay,
+    TResult Function()? fetchEventOfTheMonth,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
+    TResult Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(bool value)? changeTinterCardSwipeOption,
+    TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
+    TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
+    required TResult orElse(),
+  }) {
+    if (fetchAllHomePageApis != null) {
+      return fetchAllHomePageApis();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchLargeDiscountsBanner value)
+        fetchLargeDisountsBanner,
+    required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
+    required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
+    required TResult Function(FetchHadithOfTheDay value) fetchHadithOfTheDay,
+    required TResult Function(FetchEventOfTheMonth value) fetchEventOfTheMonth,
+    required TResult Function(FetchPrayerTrackerEvent value)
+        fetchPrayerTrackerEvent,
+    required TResult Function(AddPrayerToPrayerTracker value)
+        addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
+    required TResult Function(ChangeHomeTabIndexEvent value)
+        changeHomeTabIndexEvent,
+    required TResult Function(RemoveDailyPrayerTrackerNamaz value)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(ChangeTinterCardSwipeOption value)
+        changeTinterCardSwipeOption,
+    required TResult Function(ChangeCompassThemeEvent value)
+        changeCompassThemeEvent,
+    required TResult Function(ChangeCompassThemeIndex value)
+        changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
+    required TResult Function(ChangeEventOfTheMonthIndex value)
+        changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+  }) {
+    return fetchAllHomePageApis(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
+    TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult? Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult? Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+    TResult? Function(ChangeEventOfTheMonthIndex value)?
+        changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+  }) {
+    return fetchAllHomePageApis?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+    TResult Function(ChangeEventOfTheMonthIndex value)?
+        changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    required TResult orElse(),
+  }) {
+    if (fetchAllHomePageApis != null) {
+      return fetchAllHomePageApis(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchAllHomePageApi implements HomeEvent {
+  const factory _FetchAllHomePageApi() = _$FetchAllHomePageApiImpl;
 }
 
 /// @nodoc
@@ -4516,6 +5869,8 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   int get homeBannerIndex => throw _privateConstructorUsedError;
   int get eventOfMonthIndex => throw _privateConstructorUsedError;
+  AllaySaysModel? get allaySaysModel => throw _privateConstructorUsedError;
+  int get translationLanguageIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -4549,7 +5904,9 @@ abstract class $HomeStateCopyWith<$Res> {
       int compassThemeIndex,
       NotificationModel? notificationModel,
       int homeBannerIndex,
-      int eventOfMonthIndex});
+      int eventOfMonthIndex,
+      AllaySaysModel? allaySaysModel,
+      int translationLanguageIndex});
 
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
   $TopOffersModelCopyWith<$Res>? get topOffersModel;
@@ -4558,6 +5915,7 @@ abstract class $HomeStateCopyWith<$Res> {
   $EventOfTheMonthModelCopyWith<$Res>? get eventOfTheMonthModel;
   $PrayerTrackerModelCopyWith<$Res>? get prayerTracker;
   $NotificationModelCopyWith<$Res>? get notificationModel;
+  $AllaySaysModelCopyWith<$Res>? get allaySaysModel;
 }
 
 /// @nodoc
@@ -4595,6 +5953,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? notificationModel = freezed,
     Object? homeBannerIndex = null,
     Object? eventOfMonthIndex = null,
+    Object? allaySaysModel = freezed,
+    Object? translationLanguageIndex = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -4684,6 +6044,14 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       eventOfMonthIndex: null == eventOfMonthIndex
           ? _value.eventOfMonthIndex
           : eventOfMonthIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      allaySaysModel: freezed == allaySaysModel
+          ? _value.allaySaysModel
+          : allaySaysModel // ignore: cast_nullable_to_non_nullable
+              as AllaySaysModel?,
+      translationLanguageIndex: null == translationLanguageIndex
+          ? _value.translationLanguageIndex
+          : translationLanguageIndex // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -4775,6 +6143,18 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       return _then(_value.copyWith(notificationModel: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AllaySaysModelCopyWith<$Res>? get allaySaysModel {
+    if (_value.allaySaysModel == null) {
+      return null;
+    }
+
+    return $AllaySaysModelCopyWith<$Res>(_value.allaySaysModel!, (value) {
+      return _then(_value.copyWith(allaySaysModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -4807,7 +6187,9 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       int compassThemeIndex,
       NotificationModel? notificationModel,
       int homeBannerIndex,
-      int eventOfMonthIndex});
+      int eventOfMonthIndex,
+      AllaySaysModel? allaySaysModel,
+      int translationLanguageIndex});
 
   @override
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
@@ -4823,6 +6205,8 @@ abstract class _$$HomeStateImplCopyWith<$Res>
   $PrayerTrackerModelCopyWith<$Res>? get prayerTracker;
   @override
   $NotificationModelCopyWith<$Res>? get notificationModel;
+  @override
+  $AllaySaysModelCopyWith<$Res>? get allaySaysModel;
 }
 
 /// @nodoc
@@ -4858,6 +6242,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? notificationModel = freezed,
     Object? homeBannerIndex = null,
     Object? eventOfMonthIndex = null,
+    Object? allaySaysModel = freezed,
+    Object? translationLanguageIndex = null,
   }) {
     return _then(_$HomeStateImpl(
       isLoading: null == isLoading
@@ -4948,13 +6334,21 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.eventOfMonthIndex
           : eventOfMonthIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      allaySaysModel: freezed == allaySaysModel
+          ? _value.allaySaysModel
+          : allaySaysModel // ignore: cast_nullable_to_non_nullable
+              as AllaySaysModel?,
+      translationLanguageIndex: null == translationLanguageIndex
+          ? _value.translationLanguageIndex
+          : translationLanguageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
 
-class _$HomeStateImpl implements _HomeState {
+class _$HomeStateImpl with DiagnosticableTreeMixin implements _HomeState {
   const _$HomeStateImpl(
       {required this.isLoading,
       required this.largeDiscountModel,
@@ -4977,7 +6371,9 @@ class _$HomeStateImpl implements _HomeState {
       required this.compassThemeIndex,
       required this.notificationModel,
       required this.homeBannerIndex,
-      required this.eventOfMonthIndex});
+      required this.eventOfMonthIndex,
+      required this.allaySaysModel,
+      required this.translationLanguageIndex});
 
   @override
   final bool isLoading;
@@ -5023,10 +6419,47 @@ class _$HomeStateImpl implements _HomeState {
   final int homeBannerIndex;
   @override
   final int eventOfMonthIndex;
+  @override
+  final AllaySaysModel? allaySaysModel;
+  @override
+  final int translationLanguageIndex;
 
   @override
-  String toString() {
-    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker, namazCompletedCount: $namazCompletedCount, dailyPrayerTrackerDate: $dailyPrayerTrackerDate, allaysBgindex: $allaysBgindex, homeTabIndex: $homeTabIndex, tinderCardSwipVal: $tinderCardSwipVal, compassTheme: $compassTheme, compassThemeIndex: $compassThemeIndex, notificationModel: $notificationModel, homeBannerIndex: $homeBannerIndex, eventOfMonthIndex: $eventOfMonthIndex)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker, namazCompletedCount: $namazCompletedCount, dailyPrayerTrackerDate: $dailyPrayerTrackerDate, allaysBgindex: $allaysBgindex, homeTabIndex: $homeTabIndex, tinderCardSwipVal: $tinderCardSwipVal, compassTheme: $compassTheme, compassThemeIndex: $compassThemeIndex, notificationModel: $notificationModel, homeBannerIndex: $homeBannerIndex, eventOfMonthIndex: $eventOfMonthIndex, allaySaysModel: $allaySaysModel, translationLanguageIndex: $translationLanguageIndex)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeState'))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('largeDiscountModel', largeDiscountModel))
+      ..add(DiagnosticsProperty('topOffersModel', topOffersModel))
+      ..add(DiagnosticsProperty('brandOftheDayModel', brandOftheDayModel))
+      ..add(DiagnosticsProperty('haditOfTheDayModel', haditOfTheDayModel))
+      ..add(DiagnosticsProperty('eventOfTheMonthModel', eventOfTheMonthModel))
+      ..add(DiagnosticsProperty('prayerTrackerFajr', prayerTrackerFajr))
+      ..add(DiagnosticsProperty('prayerTrackerDhuhr', prayerTrackerDhuhr))
+      ..add(DiagnosticsProperty('prayerTrackerAsr', prayerTrackerAsr))
+      ..add(DiagnosticsProperty('prayerTrackerMagrib', prayerTrackerMagrib))
+      ..add(DiagnosticsProperty('prayerTrackerIsha', prayerTrackerIsha))
+      ..add(DiagnosticsProperty('prayerTracker', prayerTracker))
+      ..add(DiagnosticsProperty('namazCompletedCount', namazCompletedCount))
+      ..add(
+          DiagnosticsProperty('dailyPrayerTrackerDate', dailyPrayerTrackerDate))
+      ..add(DiagnosticsProperty('allaysBgindex', allaysBgindex))
+      ..add(DiagnosticsProperty('homeTabIndex', homeTabIndex))
+      ..add(DiagnosticsProperty('tinderCardSwipVal', tinderCardSwipVal))
+      ..add(DiagnosticsProperty('compassTheme', compassTheme))
+      ..add(DiagnosticsProperty('compassThemeIndex', compassThemeIndex))
+      ..add(DiagnosticsProperty('notificationModel', notificationModel))
+      ..add(DiagnosticsProperty('homeBannerIndex', homeBannerIndex))
+      ..add(DiagnosticsProperty('eventOfMonthIndex', eventOfMonthIndex))
+      ..add(DiagnosticsProperty('allaySaysModel', allaySaysModel))
+      ..add(DiagnosticsProperty(
+          'translationLanguageIndex', translationLanguageIndex));
   }
 
   @override
@@ -5077,7 +6510,12 @@ class _$HomeStateImpl implements _HomeState {
             (identical(other.homeBannerIndex, homeBannerIndex) ||
                 other.homeBannerIndex == homeBannerIndex) &&
             (identical(other.eventOfMonthIndex, eventOfMonthIndex) ||
-                other.eventOfMonthIndex == eventOfMonthIndex));
+                other.eventOfMonthIndex == eventOfMonthIndex) &&
+            (identical(other.allaySaysModel, allaySaysModel) ||
+                other.allaySaysModel == allaySaysModel) &&
+            (identical(
+                    other.translationLanguageIndex, translationLanguageIndex) ||
+                other.translationLanguageIndex == translationLanguageIndex));
   }
 
   @override
@@ -5104,7 +6542,9 @@ class _$HomeStateImpl implements _HomeState {
         compassThemeIndex,
         notificationModel,
         homeBannerIndex,
-        eventOfMonthIndex
+        eventOfMonthIndex,
+        allaySaysModel,
+        translationLanguageIndex
       ]);
 
   @JsonKey(ignore: true)
@@ -5137,7 +6577,9 @@ abstract class _HomeState implements HomeState {
       required final int compassThemeIndex,
       required final NotificationModel? notificationModel,
       required final int homeBannerIndex,
-      required final int eventOfMonthIndex}) = _$HomeStateImpl;
+      required final int eventOfMonthIndex,
+      required final AllaySaysModel? allaySaysModel,
+      required final int translationLanguageIndex}) = _$HomeStateImpl;
 
   @override
   bool get isLoading;
@@ -5183,6 +6625,10 @@ abstract class _HomeState implements HomeState {
   int get homeBannerIndex;
   @override
   int get eventOfMonthIndex;
+  @override
+  AllaySaysModel? get allaySaysModel;
+  @override
+  int get translationLanguageIndex;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

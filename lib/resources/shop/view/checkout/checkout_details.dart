@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -12,8 +14,10 @@ import '../../../../routes/app_router_constants.dart';
 import '../../../../utils/string_constants.dart';
 
 class CheckoutDetails extends StatefulWidget {
-  const CheckoutDetails({Key? key, required this.type}) : super(key: key);
+  const CheckoutDetails({Key? key, required this.type, this.addressId})
+      : super(key: key);
   final AddressNavType type;
+  final String? addressId;
   @override
   State<CheckoutDetails> createState() => _CheckoutDetailsState();
 }
@@ -33,29 +37,32 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
   String selectedFilter = '';
   String addressType = 'Home';
   final formkey = GlobalKey<FormState>();
+  bool _isUpdateSuccessHandled = false;
+  bool _isAddedField = false;
   @override
   void initState() {
+    _isAddedField = false;
+    final addressBloc = BlocProvider.of<AddressBloc>(context);
+    addressBloc.add(const AddressEvent.makeDefaultResponse());
     widget.type == AddressNavType.editAddress
-        ? BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
-            context: context,
-            id: context.read<AddressBloc>().state.addressId.toString()))
+        ? addressBloc.add(
+            FetchAddressByIdEvent(context: context, id: widget.addressId ?? ""))
         : null;
-    widget.type == AddressNavType.editAddress ? addFieldVal() : null;
     super.initState();
   }
 
   addFieldVal() {
     final data =
         context.read<AddressBloc>().state.addressIdModel?.result.address;
-    deliveryToController.text = data!.name;
-    addressLineController.text = data.addressLine;
-    landMarkController.text = data.landmark ?? "";
-    stateController.text = data.state;
-    mobileNumberController.text = data.mobile.toString();
-    contryController.text = data.country;
-    cityController.text = data.city;
-    pinCodecontroller.text = data.pincode.toString();
-    addressType = data.addressType;
+    deliveryToController.text = data?.name ?? '';
+    addressLineController.text = data?.addressLine ?? '';
+    landMarkController.text = data?.landmark ?? "";
+    stateController.text = data?.state ?? '';
+    mobileNumberController.text = data?.mobile.toString() ?? '';
+    contryController.text = data?.country ?? "";
+    cityController.text = data?.city ?? '';
+    pinCodecontroller.text = data?.pincode.toString() ?? "";
+    addressType = data?.addressType ?? "";
   }
 
   @override
@@ -79,6 +86,12 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
         body: BlocConsumer<AddressBloc, AddressState>(
           listener: (context, state) {
             final data = state.pincodeAddressModel?.postOffice;
+            if (state.addressIdModel?.result != null &&
+                !_isAddedField &&
+                widget.type == AddressNavType.editAddress) {
+              _isAddedField = true;
+              addFieldVal();
+            }
             if (data != null) {
               cityController.text = data.first.name ?? "";
               stateController.text = data.first.state ?? "";
@@ -88,10 +101,21 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               stateController.text = "";
               contryController.text = "India";
             }
-            if (state.successMessageInShop == true) {
+            if (state.addAddressSuccess &&
+                widget.type == AddressNavType.checkout) {
               context.pushReplacementNamed(
                   MyAppRouteConstants.checkoutRouteName,
                   extra: {'checkoutType': CheckoutType.shop});
+            } else if (state.addAddressSuccess &&
+                widget.type == AddressNavType.profile &&
+                !_isUpdateSuccessHandled) {
+              _isUpdateSuccessHandled = true;
+              context.pop();
+            }
+            if (state.updateAddressSuccess && !_isUpdateSuccessHandled) {
+              _isUpdateSuccessHandled = true;
+
+              context.pop();
             }
           },
           builder: (context, state) => state.isLoading
@@ -150,8 +174,16 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                                   labelText: 'Deliver to'),
                               kHeight30,
                               _addressTextfeld(
-                                  controller: addressLineController,
-                                  labelText: 'Address Line'),
+                                controller: addressLineController,
+                                labelText: 'Address Line',
+                                isAddressLine: true,
+                                addresslinevalidator: (value) {
+                                  if (addressLineController.text.length < 3) {
+                                    return 'Please provide address Line more than 2 characters';
+                                  }
+                                  return null;
+                                },
+                              ),
                               kHeight30,
                               _addressTextfeld(
                                   controller: landMarkController,
@@ -284,21 +316,20 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
             onPressed: () {
               if (widget.type == AddressNavType.profile &&
                   formkey.currentState!.validate()) {
-                Future.delayed(const Duration(seconds: 3)).then((value) {
-                  context.pushNamed(MyAppRouteConstants.addressBookRouteName);
-                });
-              } else if (widget.type == AddressNavType.checkout &&
-                  formkey.currentState!.validate()) {
-                // context
-                //     .read<AddressBloc>()
-                //     .add(AddressEvent.fetchAddressEvent(context: context));
-                // Future.delayed(const Duration(seconds: 2)).then((value) {
-                //   context.pushNamed(MyAppRouteConstants.checkoutRouteName,
-                //       extra: {'checkoutType': CheckoutType.shop});
-                // });
+                context.read<AddressBloc>().add(AddressEvent.addAddress(
+                    context: context,
+                    addressType: addressType,
+                    name: deliveryToController.text,
+                    mobile: int.tryParse(mobileNumberController.text) ?? 0,
+                    pincode: int.tryParse(pinCodecontroller.text) ?? 0,
+                    landmark: landMarkController.text,
+                    addressLine: addressLineController.text,
+                    city: cityController.text,
+                    state: stateController.text,
+                    country: contryController.text));
               } else if (widget.type == AddressNavType.editAddress &&
                   formkey.currentState!.validate()) {
-                final id = context.read<AddressBloc>().state.addressId;
+                // final id = context.read<AddressBloc>().state.addressId;
                 context.read<AddressBloc>().add(UpdateAddress(
                     context: context,
                     addressType: addressType,
@@ -310,13 +341,10 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                     city: cityController.text,
                     state: stateController.text,
                     country: contryController.text,
-                    id: id.toString()));
-                Future.delayed(const Duration(seconds: 2)).then((value) {
-                  context.pushNamed(MyAppRouteConstants.addressBookRouteName);
-                });
+                    id: widget.addressId.toString()));
               }
               if (formkey.currentState!.validate() &&
-                  widget.type != AddressNavType.editAddress) {
+                  widget.type == AddressNavType.checkout) {
                 context.read<AddressBloc>().add(AddressEvent.addAddress(
                     context: context,
                     addressType: addressType,
@@ -353,7 +381,9 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
       {required TextEditingController controller,
       required String labelText,
       int? maxLength,
+      String? Function(String?)? addresslinevalidator,
       Function(String)? onChanged,
+      bool isAddressLine = false,
       TextInputType? textInputType}) {
     return TextFormField(
       controller: controller,
@@ -387,16 +417,18 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
         ),
       ),
       onChanged: onChanged,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter the $labelText';
-        }
+      validator: isAddressLine
+          ? addresslinevalidator
+          : (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter the $labelText';
+              }
 
-        if (maxLength != null && value.length != maxLength) {
-          return 'Please provide $maxLength digits';
-        }
-        return null;
-      },
+              if (maxLength != null && value.length != maxLength) {
+                return 'Please provide $maxLength digits';
+              }
+              return null;
+            },
     );
   }
 }

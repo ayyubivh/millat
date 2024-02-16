@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/size_utility.dart';
@@ -34,6 +36,9 @@ class _UserProfileViewState extends State<UserProfileView> {
   Widget build(BuildContext context) {
     return BlocConsumer<DatabaseBloc, DatabaseState>(
       listener: (context, state) {
+        if (state.editFailedMessage != "") {
+          showSnackBar(context, state.editFailedMessage);
+        }
         if (state.failedMessage != "") {
           showSnackBar(context, state.failedMessage);
         } else if (state.succesMessage != "") {
@@ -72,7 +77,7 @@ class _UserProfileViewState extends State<UserProfileView> {
                   AssetImage(AppAssetsStrings.editIcon),
                 ),
               ),
-              kWidth20,
+              kWidth35,
             ],
             title: Text(
               Appstrings.profile,
@@ -145,12 +150,14 @@ class _UserProfileViewState extends State<UserProfileView> {
                   Align(
                     alignment: Alignment.center,
                     child: BlocBuilder<DatabaseBloc, DatabaseState>(
-                      builder: (context, state) =>
-                          Text(state.authUserModel?.result?.user?.name ?? "",
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              )),
+                      builder: (context, state) {
+                        return Text(
+                            state.authUserModel?.result?.user?.name ?? "",
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ));
+                      },
                     ),
                   ),
                   kHeight20,
@@ -182,13 +189,28 @@ class _UserProfileViewState extends State<UserProfileView> {
                           textAlign: TextAlign.center,
                         ),
                         kHeight10,
+                        state.authUserModel?.result?.user?.institution == "" ||
+                                state.authUserModel?.result?.user
+                                        ?.institution ==
+                                    null
+                            ? const SizedBox()
+                            : Text(
+                                "Works at ${state.authUserModel?.result?.user?.institution}",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.3,
+                                    color: ColorManager.blue7A),
+                                textAlign: TextAlign.center,
+                              ),
+                        kHeight5,
                         Text(
-                          "Works at ${state.authUserModel?.result?.user?.institution ?? "Empty"}",
+                          " ${state.authUserModel?.result?.user?.profession ?? ""}",
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                               height: 1.3,
-                              color: ColorManager.blue7A),
+                              color: ColorManager.blackColor),
                           textAlign: TextAlign.center,
                         ),
                         kHeight10,
@@ -258,67 +280,86 @@ class _UserProfileViewState extends State<UserProfileView> {
                                 ],
                               ),
                               const Spacer(),
-                              Icon(
-                                Icons.navigate_next_outlined,
-                                size: 28,
-                                color: ColorManager.black4F,
-                              )
+                              IconButton(
+                                  onPressed: () {
+                                    Share.share(
+                                        "Assalamualaikum!\n\nGreat news! Millat is now offering a fantastic referral program. When you install the Millat application and sign up with my code, both of us will receive 100 coins each! 🎉\n\nRedeem coins for an Umrah package and shop for much more. Here's the link to install the app: https://play.google.com/store/apps/details?id=com.app.linger&hl=en&gl=US \n\nMy code: ${context.read<DatabaseBloc>().state.referralCode}\n\nJazakallah khair! ");
+                                  },
+                                  icon: const ImageIcon(
+                                      AssetImage(AppAssetsStrings.share)))
                             ],
                           ),
                           kHeight10,
-                          Text(
-                            Appstrings.yourReferralLink,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.blackColor,
+                          const Divider(),
+                          kHeight10,
+                          Center(
+                            child: Text(
+                              Appstrings.yourReferralLink,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: ColorManager.blackColor,
+                              ),
                             ),
                           ),
-                          kHeight10,
-                          Container(
-                              height: 35,
-                              decoration: BoxDecoration(
-                                color: ColorManager.black4A,
-                                borderRadius: BorderRadius.circular(2),
-                              ),
-                              padding:
-                                  const EdgeInsets.all(3).copyWith(left: 8),
-                              child: BlocBuilder<DatabaseBloc, DatabaseState>(
-                                builder: (context, state) => Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      state.referralCode,
-                                      style: TextStyle(
+                          kHeight12,
+                          DottedBorder(
+                            color: ColorManager.primary,
+                            dashPattern: const [5, 5],
+                            strokeWidth: 1.5,
+                            borderType: BorderType.RRect,
+                            radius: const Radius.circular(30),
+                            padding: const EdgeInsets.all(6),
+                            child: Container(
+                                height: 35,
+                                padding:
+                                    const EdgeInsets.all(3).copyWith(left: 8),
+                                child: BlocBuilder<DatabaseBloc, DatabaseState>(
+                                  builder: (context, state) => Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        state.referralCode,
+                                        style: TextStyle(
                                           fontSize: 16,
-                                          color: ColorManager.whiteColor),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Clipboard.setData(ClipboardData(
-                                            text: state.referralCode));
-                                        showSnackBar(context, "Text Copied!");
-                                      },
-                                      child: Container(
-                                        height: 35,
-                                        width: 30,
-                                        decoration: BoxDecoration(
-                                          color: ColorManager.whiteColor,
-                                          borderRadius:
-                                              BorderRadius.circular(2),
-                                        ),
-                                        padding: const EdgeInsets.all(4),
-                                        child: ImageIcon(
-                                          const AssetImage(
-                                              AppAssetsStrings.copyIcon),
-                                          color: ColorManager.black4A,
+                                          color: ColorManager.blackColor,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                    )
-                                  ],
-                                ),
-                              ))
+                                      GestureDetector(
+                                        onTap: () {
+                                          Clipboard.setData(ClipboardData(
+                                              text: state.referralCode));
+                                          showSnackBar(context, "Text Copied!");
+                                        },
+                                        child: Container(
+                                          height: 33,
+                                          width: 65,
+                                          decoration: BoxDecoration(
+                                            color: ColorManager.primary,
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
+                                          padding: const EdgeInsets.all(3),
+                                          child: Center(
+                                            child: Text(
+                                              "copy",
+                                              style: TextStyle(
+                                                color: ColorManager.whiteColor,
+                                                fontSize: 16,
+                                                letterSpacing: 1.2,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )),
+                          ),
                         ],
                       ),
                     ),
@@ -592,6 +633,7 @@ class _UserProfileViewState extends State<UserProfileView> {
       required VoidCallback onTap,
       required BuildContext context}) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: SizedBox(
         height: 40,

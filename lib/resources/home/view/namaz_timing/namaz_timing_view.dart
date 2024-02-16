@@ -65,7 +65,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            context.goNamed(
+                            context.pushNamed(
                                 MyAppRouteConstants.userProfileRoutename);
                           },
                           child: CircleAvatar(

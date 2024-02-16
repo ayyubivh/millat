@@ -1,3 +1,4 @@
+import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
@@ -19,6 +20,7 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     on<UpdateReview>(_updateReview);
     on<ExpandReviewList>(_expandReviewList);
     on<FetchReviewComments>(_fetchReviewComments);
+    on<SaveReviewValue>(_saveReviewValue);
   }
 
   _fetchRatingEvent(FetchRatingEvent event, Emitter<ReviewState> emit) async {
@@ -34,11 +36,12 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
   _addReview(AddReview event, Emitter<ReviewState> emit) async {
     try {
       reviewServices.addReview(
-          context: event.context,
-          productId: event.productId,
-          name: event.name,
-          comment: event.comment,
-          rating: event.rating);
+        context: event.context,
+        productId: event.productId,
+        name: event.name,
+        comment: event.comment,
+        rating: event.rating,
+      );
     } catch (e) {
       throw Exception(e);
     }
@@ -70,5 +73,10 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }
+  }
+
+  FutureOr<void> _saveReviewValue(
+      SaveReviewValue event, Emitter<ReviewState> emit) {
+    emit(state.copyWith(reviewValue: event.value));
   }
 }

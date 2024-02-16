@@ -9,9 +9,9 @@ part of 'travel_search_model.dart';
 _$TravelSearchLocationModelsImpl _$$TravelSearchLocationModelsImplFromJson(
         Map<String, dynamic> json) =>
     _$TravelSearchLocationModelsImpl(
-      id: json['_id'] as String,
-      city: json['city'] as String,
-      country: json['country'] as String,
+      id: json['_id'] as String?,
+      city: json['city'] as String?,
+      country: json['country'] as String?,
     );
 
 Map<String, dynamic> _$$TravelSearchLocationModelsImplToJson(

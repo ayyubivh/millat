@@ -42,7 +42,7 @@ class Appstrings {
   static const String addGuests = "Add Guests";
   static const String attars = "Attars";
   static const String quran2 = "Qu'ran";
-  static const String learnMore = "Learn More";
+  static const String translate = 'Translate';
   static const String eventOftheMonth = "Events this month";
   static const String assalamuAlaikum = "Assalamualaikkum";
   static const String travel = "Travel";
@@ -77,8 +77,9 @@ class Appstrings {
   static const String supportAndHelp = "Support & Help";
   static const String notifications = "Notifications";
   static const String millatCo = "Millat.co";
+  static const String exploreAll = "Explore All";
   static const String aboutUsDescription =
-      "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may cedfrom you acedross our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.We don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
+      "Welcome to Millat, a unique platform dedicated to the global Muslim audience. Our journey began with the aim of integrating faith with a shared sense of purpose to create an extraordinary marketplace. Millat is more than a collection of products and services; it's a hub for those who embrace Islamic traditions and values. We offer a beautiful selection of attire, including traditional thobes, abayas, and elegant kaftans, each piece reflecting the vibrancy and richness of Islamic culture. Rooted in India, a land with a significant Islamic heritage, our approach is informed by this cultural depth, fostering an environment of compassion and understanding for everyone.At Millat, we symbolize kindness and goodness, embodying the core values of our faith in all that we offer. Whether it's through comprehensive travel assistance or our wide range of products, our goal is to enhance and enrich your experiences. Join us at Millat, where every step with us is towards embracing Islamic traditions and values, marked by kindness, compassion, and inclusivity.";
   static const String privacyPolicyDescription =
       "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.\n\nWe don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
   static const String inviteYourFriend = "Invite your Friends";
@@ -98,9 +99,9 @@ class Appstrings {
 
   static const String shop = "Shop";
   static const String brand = "Brands";
-  static const String thousandBrands = "1000+ Brands";
+  static const String thousandBrands = "10+ Brands";
   static const String brandDescription =
-      'We have proudly collaborated with 1000+ \nrenowned brands!"';
+      'We have proudly collaborated with 10+ \nrenowned brands!"';
   static const String top8brands = "Top 8 Brands";
   static const String filters = "Filters";
   static const String filter = "Filter";
@@ -147,7 +148,7 @@ class Appstrings {
   static const String cancelled = "CANCELLED";
   static const String ordered = "ORDERED";
   static const String orderCancelled = "Order Cancelled";
-  static const String delivered = "Delivered";
+  static const String delivered = "DELIVERED";
   static const String keepShopping = "Keep Shopping";
   static const String viewOrderDetails = "View Order Details";
   static const String orderDate = "Order date";
@@ -155,6 +156,8 @@ class Appstrings {
   static const String orderTotal = "Order Total";
   static const String downloadInvoice = "Download Invoice";
   static const String deliveryEstimate = "Delivery Estimate";
+  static const String deliveryDate = "Delivery Date";
+  static const String writeReview = "Write Review";
   static const String processing = "PROCESSING";
   static const String paymentInformation = "Payment information";
   static const String paymentMethod = "Payment Method";
@@ -254,6 +257,7 @@ class Appstrings {
   static const String tempAyaMeaning4 =
       "Do not entrust the incapable ˹among your dependants˺ with your wealth which Allah has made a means of support for you—but feed and clothe them from it, and speak to them kindly.";
 //rewards
+  static const String rewards = "Rewards";
   static const String sponsoredBy = "Sponsored By";
   static const String shopWithCoins = "Shop With Coins";
   static const String dailyCoins = "Daily Coins";
@@ -279,7 +283,10 @@ class Appstrings {
   static const String fifthOrder = "5th Order";
   static const String readDua = "Read Dua";
   static const String readTasbih = "Read Tasbih";
+  static const String tasbih1 = "Astaghfirullah wa atubu ilaih";
   static const String fiveHundred = "500 Points";
+  static const String fiftyPoints = "50 Points";
+
   static const String thousandPoints = "1000 Points";
   static const String fourHundredPoints = "400 Points";
   static const String hundredPoints = "100 Points";
@@ -352,7 +359,35 @@ class Appstrings {
       "Now you can sit back, relax, you will be receiving email from our team within 24 hours ";
   static const String backToHome = "Back to home";
   static const String aminities = "Aminities";
-  static const String browseBycountries = "Browse By Countries";
+  static const String browseByCities = "Browse By Cities";
+
+//===============================================//
+//refer and earn---
+  static const String whatIsReferAndEarnD =
+      '''Introducing the Millat Coins Referral Program – Your Path to Rewards!
+Unlock a world of benefits with the Millat app's exciting Refer and Earn program! It's time to share the love and earn big – every referral brings you a whopping 100 Millat Coins, enriching your experience and adding extra value to your journey with us.
+Why Refer and Earn with Millat Coins?
+Instant Rewards: The moment your referral signs up using your link, you earn 100 Millat Coins. No waiting – instant gratification!
+Unlimited Earning Potential: There's no cap on how many friends you can refer. The more, the merrier – and the richer you become in Millat Coins!
+Diverse Redemption Options: Use your Millat Coins to redeem rewards that suit your preferences – from exclusive discounts and vouchers to amazing merchandise.''';
+  static const String howToReferFreindD = '''How It Works:
+Refer Friends: Invite your friends, family, and colleagues to join the Millat app using your unique referral link.
+Earn Millat Coins: For every successful referral, you earn 100 Millat Coins instantly! It's that simple.
+Collect Rewards: Accumulate Millat Coins and redeem them for a variety of exciting rewards available on our app.
+Tips for Successful Referrals:
+Personalize Your Invites: Add a personal touch to your invitations. Share your positive experiences with the Millat app to encourage others to join.
+Leverage Social Media: Share your referral link on your social media platforms and let your network know about the incredible benefits they can enjoy by joining Millat.
+Engage in Conversations: Discuss the app's features and advantages with your friends. A direct conversation can be a powerful way to convince them to sign up.
+Timing is Key: Choose the right moments to talk about the Millat app – perhaps when discussing career growth, networking, or exploring new opportunities.
+Terms and Conditions:
+Referrals must sign up using your unique referral link to qualify.
+Successful referrals will be credited with 100 Millat Coins.
+Millat Coins can be redeemed within the app for a variety of rewards.
+The Refer and Earn program is subject to change, and additional terms may apply.
+Don't miss out on the chance to maximize your Millat experience. Start referring today, and let the Millat Coins roll in, turning your connections into rewards! Join us in building a stronger, more rewarding Millat community – one referral at a time. ''';
+  static const String canIuseMillatCoinsD =
+      '''While Millat Coins offer you a fantastic way to earn rewards and enhance your experience within the Millat app, the availability of their use on all products may vary. It's essential to check the terms and conditions within the app or contact Millat's customer support for specific details on which products or services are eligible for redemption using Millat Coins.
+Typically, companies design reward programs to be versatile, allowing users to redeem their earned credits across a range of offerings. However, to ensure you have accurate and up-to-date information about the products or services that accept Millat Coins, it's advisable to refer to the app's guidelines or reach out to customer support for clarification.''';
 }
 
 String authToken = 'authToken';

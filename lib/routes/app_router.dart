@@ -287,6 +287,7 @@ class MyAppRouter {
                                   return MaterialPage(
                                       child: CheckoutView(
                                     checkoutType: data['checkoutType'],
+                                    data: data['data'],
                                   ));
                                 },
                               ),

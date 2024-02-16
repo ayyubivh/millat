@@ -28,7 +28,7 @@ class PrivacyPolicyView extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (context) => TermsAndConditionsBloc()
-          ..add(const FetchTermsAndConditionsEvent(slug: "privacy_policy")),
+          ..add(const FetchTermsAndConditionsEvent(slug: "app_privacy_policy")),
         child: BlocBuilder<TermsAndConditionsBloc, TermsAndConditionsState>(
           builder: (context, state) {
             final data = state.termsConditionsModel?.result.data.content;

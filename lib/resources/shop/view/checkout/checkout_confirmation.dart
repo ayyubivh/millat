@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -47,9 +48,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
         context: context,
         id: context.read<AddressBloc>().state.addressId.toString()));
 
-    BlocProvider.of<TermsAndConditionsBloc>(context).add(
-        const TermsAndCondtionsEvent.fetchTermsAndConditionsEvent(
-            slug: "shipping_policy"));
+    // BlocProvider.of<TermsAndConditionsBloc>(context).add(
+    //     const TermsAndCondtionsEvent.fetchTermsAndConditionsEvent(
+    //         slug: "shipping_policy"));
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _onPaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _onPaymentError);
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _onExternalWallet);
@@ -207,6 +208,18 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                           state.cartModel?.result?.cartProducts?.cartItems;
                       final itemCount = cartItems?.length ?? 0;
 
+                      if (state.cartModel?.result?.cartProducts?.cartItems
+                              ?.isEmpty ??
+                          true) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          // while (context.canPop()) {
+                          //   context.pop();
+                          // }
+                          context.pushReplacementNamed(
+                              MyAppRouteConstants.cartRouteName);
+                        });
+                      }
+
                       return ListView.builder(
                         padding: EdgeInsets.only(
                             top: 20,
@@ -216,7 +229,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                         itemCount: itemCount,
                         itemBuilder: (context, index) {
                           final data = cartItems![index];
-                          var actualPrice;
+                          int? actualPrice;
                           data.productId?.size?.forEach((element) {
                             if (data.size == element.size) {
                               actualPrice = element.price;
@@ -615,110 +628,148 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             ? _codPaymentWidget(context)
             : _onlinePayment(context),
         kHeight20,
-        GestureDetector(
-          behavior: HitTestBehavior.translucent,
-          onTap: () {
-            showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                builder: (context) {
-                  return Container(
-                    height: SizeUtility(context).height / 1.1,
-                    decoration: BoxDecoration(
-                      color: ColorManager.whiteColor,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(30.0),
-                        topRight: Radius.circular(30.0),
-                      ),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 15),
-                    child: BlocBuilder<TermsAndConditionsBloc,
-                        TermsAndConditionsState>(
-                      builder: (context, state) => Text(
-                        Utilities.removeFootnotesFromMeaning(
-                            state.termsConditionsModel?.result.data.content ??
-                                ""),
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: ColorManager.black4F,
-                          height: 1.2,
-                        ),
-                      ),
-                    ),
-                  );
-                });
-          },
-          child: RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text:
-                      'By placing an order, you acknowledge that you have read the ',
-                  style: TextStyle(
-                    color: ColorManager.textGrey, // Color for the regular text
-                    fontSize: 14, fontWeight: FontWeight.w400,
-                    height: 1.3,
-                  ),
+        RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text:
+                    'By placing an order, you acknowledge that you have read the ',
+                style: TextStyle(
+                  color: ColorManager.textGrey, // Color for the regular text
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
                 ),
-                TextSpan(
-                  text: 'Terms of Service',
-                  style: TextStyle(
-                    color: ColorManager.primary, // Color for "Terms of Service"
-                    fontSize: 14, fontWeight: FontWeight.w400,
-                    height: 1.3,
-                  ),
+              ),
+              TextSpan(
+                text: 'Terms of Service',
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    context.read<TermsAndConditionsBloc>().add(
+                        const FetchTermsAndConditionsEvent(
+                            slug: "shop_terms_conditions"));
+                    termAndConditionBottomSheet(context);
+                  },
+                style: TextStyle(
+                  color: ColorManager.primary, // Color for "Terms of Service"
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
                 ),
-                TextSpan(
-                  text: ' and ',
-                  style: TextStyle(
-                    color: ColorManager.textGrey, // Color for the regular text
-                    fontSize: 14, fontWeight: FontWeight.w400,
-                    height: 1.3,
-                  ),
+              ),
+              TextSpan(
+                text: ' and ',
+                style: TextStyle(
+                  color: ColorManager.textGrey, // Color for the regular text
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
                 ),
-                TextSpan(
-                  text: 'Privacy Policy',
-                  style: TextStyle(
-                    color: ColorManager.primary, // Color for "Privacy Policy"
-                    fontSize: 14, fontWeight: FontWeight.w400,
-                    height: 1.3,
-                  ),
+              ),
+              TextSpan(
+                text: 'Privacy Policy',
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    context.read<TermsAndConditionsBloc>().add(
+                        const FetchTermsAndConditionsEvent(
+                            slug: "shop_privacy_policy"));
+                    termAndConditionBottomSheet(context);
+                  },
+                style: TextStyle(
+                  color: ColorManager.primary, // Color for "Privacy Policy"
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
                 ),
-                TextSpan(
-                  text:
-                      ' of Linger Shop. Payment will be processed separately by PIPO ',
-                  style: TextStyle(
-                    color: ColorManager.textGrey, // Color for the regular text
-                    fontSize: 14, fontWeight: FontWeight.w400,
-                    height: 1.3,
-                  ),
+              ),
+              TextSpan(
+                text:
+                    ' of Linger Shop. Payment will be processed separately by RazorPay ',
+                style: TextStyle(
+                  color: ColorManager.textGrey, // Color for the regular text
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
                 ),
-                TextSpan(
-                  text: ' according to ',
-                  style: TextStyle(
-                    color: ColorManager.textGrey, // Color for the regular text
-                    fontSize: 14, fontWeight: FontWeight.w400,
-                    height: 1.3,
-                  ),
+              ),
+              TextSpan(
+                text: ' according to ',
+                style: TextStyle(
+                  color: ColorManager.textGrey, // Color for the regular text
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
                 ),
-                TextSpan(
-                  text: 'PIPO Privacy Policy.',
-                  style: TextStyle(
-                    color:
-                        ColorManager.primary, // Color for "PIPO Privacy Policy"
-                    fontSize: 14, fontWeight: FontWeight.w400,
-                    height: 1.3,
-                  ),
+              ),
+              TextSpan(
+                text: 'RazorPay Privacy Policy.',
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    context
+                        .read<TermsAndConditionsBloc>()
+                        .add(const FetchTermsAndConditionsEvent(
+                            slug: "razorpay_terms_conditions"));
+                    termAndConditionBottomSheet(context);
+                  },
+                style: TextStyle(
+                  color:
+                      ColorManager.primary, // Color for "PIPO Privacy Policy"
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ],
     );
+  }
+
+  Future<dynamic> termAndConditionBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.transparent,
+        builder: (context) {
+          return Container(
+            decoration: BoxDecoration(
+              color: ColorManager.whiteColor,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                topRight: Radius.circular(30.0),
+              ),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        onPressed: () => context.pop(),
+                        icon: const Icon(Icons.close)),
+                  ],
+                ),
+                Expanded(
+                  child: BlocBuilder<TermsAndConditionsBloc,
+                      TermsAndConditionsState>(
+                    builder: (context, state) => state.isLoading
+                        ? const Loader()
+                        : SingleChildScrollView(
+                            child: Text(
+                              Utilities.removeFootnotesFromMeaning(state
+                                      .termsConditionsModel
+                                      ?.result
+                                      .data
+                                      .content ??
+                                  ""),
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: ColorManager.black4F,
+                                height: 1.2,
+                              ),
+                            ),
+                          ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        });
   }
 
   Widget makeaGift(BuildContext context) {

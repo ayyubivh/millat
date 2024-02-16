@@ -115,7 +115,7 @@ class CartServices extends HttpServices {
   }
 // updating the cart quantity
 
-  updateCartQuantity({
+  Future updateCartQuantity({
     required BuildContext context,
     required String productId,
     required int quantity,

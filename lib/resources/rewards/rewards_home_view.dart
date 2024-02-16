@@ -5,8 +5,6 @@ import 'package:millat/resources/authentication/bloc/logic/database_bloc/databas
 import 'package:millat/resources/rewards/widget/daily_coins_widget.dart';
 import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
 import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
-import 'package:millat/resources/rewards/widget/price_coin_widget.dart';
-import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
 import 'package:millat/resources/rewards/widget/score_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';

@@ -53,15 +53,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -142,16 +134,7 @@ mixin _$ShopProductsEvent {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -230,16 +213,7 @@ mixin _$ShopProductsEvent {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -638,15 +612,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -730,16 +696,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -821,16 +778,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -1236,15 +1184,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -1328,16 +1268,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -1419,16 +1350,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -1809,15 +1731,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -1901,16 +1815,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -1992,16 +1897,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -2372,15 +2268,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -2464,16 +2352,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -2555,16 +2434,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -2935,15 +2805,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -3027,16 +2889,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -3118,16 +2971,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -3525,15 +3369,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -3617,16 +3453,7 @@ class _$FetchArticlesImpl implements FetchArticles {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -3708,16 +3535,7 @@ class _$FetchArticlesImpl implements FetchArticles {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -4094,15 +3912,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -4186,16 +3996,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -4277,16 +4078,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -4683,15 +4475,7 @@ class _$FetchWishListImpl implements FetchWishList {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -4775,16 +4559,7 @@ class _$FetchWishListImpl implements FetchWishList {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -4866,16 +4641,7 @@ class _$FetchWishListImpl implements FetchWishList {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -5277,15 +5043,7 @@ class _$SearchProductImpl implements SearchProduct {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -5369,16 +5127,7 @@ class _$SearchProductImpl implements SearchProduct {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -5460,16 +5209,7 @@ class _$SearchProductImpl implements SearchProduct {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -5882,15 +5622,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -5974,16 +5706,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -6065,16 +5788,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -6490,15 +6204,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -6582,16 +6288,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -6673,16 +6370,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -7092,15 +6780,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -7184,16 +6864,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -7275,16 +6946,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -7688,15 +7350,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -7780,16 +7434,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -7871,16 +7516,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -8361,15 +7997,7 @@ class _$PostOrdersImpl implements PostOrders {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -8454,16 +8082,7 @@ class _$PostOrdersImpl implements PostOrders {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -8546,16 +8165,7 @@ class _$PostOrdersImpl implements PostOrders {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -9021,15 +8631,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -9114,16 +8716,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -9206,16 +8799,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -9640,15 +9224,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -9732,16 +9308,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -9823,16 +9390,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -10144,16 +9702,7 @@ abstract class _$$PostOrdersRewardsImplCopyWith<$Res> {
           $Res Function(_$PostOrdersRewardsImpl) then) =
       __$$PostOrdersRewardsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {BuildContext context,
-      double price,
-      int coins,
-      String addressId,
-      int totalQuantity,
-      String productId,
-      String brandId,
-      String size,
-      String color});
+  $Res call({BuildContext context, String addressId, String productId});
 }
 
 /// @nodoc
@@ -10168,51 +9717,21 @@ class __$$PostOrdersRewardsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? context = null,
-    Object? price = null,
-    Object? coins = null,
     Object? addressId = null,
-    Object? totalQuantity = null,
     Object? productId = null,
-    Object? brandId = null,
-    Object? size = null,
-    Object? color = null,
   }) {
     return _then(_$PostOrdersRewardsImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
               as BuildContext,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
-      coins: null == coins
-          ? _value.coins
-          : coins // ignore: cast_nullable_to_non_nullable
-              as int,
       addressId: null == addressId
           ? _value.addressId
           : addressId // ignore: cast_nullable_to_non_nullable
               as String,
-      totalQuantity: null == totalQuantity
-          ? _value.totalQuantity
-          : totalQuantity // ignore: cast_nullable_to_non_nullable
-              as int,
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
-              as String,
-      brandId: null == brandId
-          ? _value.brandId
-          : brandId // ignore: cast_nullable_to_non_nullable
-              as String,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as String,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -10223,37 +9742,19 @@ class __$$PostOrdersRewardsImplCopyWithImpl<$Res>
 class _$PostOrdersRewardsImpl implements PostOrdersRewards {
   const _$PostOrdersRewardsImpl(
       {required this.context,
-      required this.price,
-      required this.coins,
       required this.addressId,
-      required this.totalQuantity,
-      required this.productId,
-      required this.brandId,
-      required this.size,
-      required this.color});
+      required this.productId});
 
   @override
   final BuildContext context;
   @override
-  final double price;
-  @override
-  final int coins;
-  @override
   final String addressId;
   @override
-  final int totalQuantity;
-  @override
   final String productId;
-  @override
-  final String brandId;
-  @override
-  final String size;
-  @override
-  final String color;
 
   @override
   String toString() {
-    return 'ShopProductsEvent.postOrdersRewards(context: $context, price: $price, coins: $coins, addressId: $addressId, totalQuantity: $totalQuantity, productId: $productId, brandId: $brandId, size: $size, color: $color)';
+    return 'ShopProductsEvent.postOrdersRewards(context: $context, addressId: $addressId, productId: $productId)';
   }
 
   @override
@@ -10262,22 +9763,14 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
         (other.runtimeType == runtimeType &&
             other is _$PostOrdersRewardsImpl &&
             (identical(other.context, context) || other.context == context) &&
-            (identical(other.price, price) || other.price == price) &&
-            (identical(other.coins, coins) || other.coins == coins) &&
             (identical(other.addressId, addressId) ||
                 other.addressId == addressId) &&
-            (identical(other.totalQuantity, totalQuantity) ||
-                other.totalQuantity == totalQuantity) &&
             (identical(other.productId, productId) ||
-                other.productId == productId) &&
-            (identical(other.brandId, brandId) || other.brandId == brandId) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.color, color) || other.color == color));
+                other.productId == productId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, context, price, coins, addressId,
-      totalQuantity, productId, brandId, size, color);
+  int get hashCode => Object.hash(runtimeType, context, addressId, productId);
 
   @JsonKey(ignore: true)
   @override
@@ -10324,15 +9817,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -10377,8 +9862,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
   }) {
-    return postOrdersRewards(context, price, coins, addressId, totalQuantity,
-        productId, brandId, size, color);
+    return postOrdersRewards(context, addressId, productId);
   }
 
   @override
@@ -10417,16 +9901,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -10469,8 +9944,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
   }) {
-    return postOrdersRewards?.call(context, price, coins, addressId,
-        totalQuantity, productId, brandId, size, color);
+    return postOrdersRewards?.call(context, addressId, productId);
   }
 
   @override
@@ -10509,16 +9983,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -10563,8 +10028,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     required TResult orElse(),
   }) {
     if (postOrdersRewards != null) {
-      return postOrdersRewards(context, price, coins, addressId, totalQuantity,
-          productId, brandId, size, color);
+      return postOrdersRewards(context, addressId, productId);
     }
     return orElse();
   }
@@ -10816,24 +10280,12 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
 abstract class PostOrdersRewards implements ShopProductsEvent {
   const factory PostOrdersRewards(
       {required final BuildContext context,
-      required final double price,
-      required final int coins,
       required final String addressId,
-      required final int totalQuantity,
-      required final String productId,
-      required final String brandId,
-      required final String size,
-      required final String color}) = _$PostOrdersRewardsImpl;
+      required final String productId}) = _$PostOrdersRewardsImpl;
 
   BuildContext get context;
-  double get price;
-  int get coins;
   String get addressId;
-  int get totalQuantity;
   String get productId;
-  String get brandId;
-  String get size;
-  String get color;
   @JsonKey(ignore: true)
   _$$PostOrdersRewardsImplCopyWith<_$PostOrdersRewardsImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -10938,15 +10390,7 @@ class _$FetchOrdersImpl implements FetchOrders {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -11030,16 +10474,7 @@ class _$FetchOrdersImpl implements FetchOrders {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -11121,16 +10556,7 @@ class _$FetchOrdersImpl implements FetchOrders {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -11541,15 +10967,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -11633,16 +11051,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -11724,16 +11133,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -12151,15 +11551,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -12243,16 +11635,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -12334,16 +11717,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -12757,15 +12131,7 @@ class _$CancelOrderImpl implements CancelOrder {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -12849,16 +12215,7 @@ class _$CancelOrderImpl implements CancelOrder {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -12940,16 +12297,7 @@ class _$CancelOrderImpl implements CancelOrder {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -13363,15 +12711,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -13455,16 +12795,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -13546,16 +12877,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -13938,15 +13260,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -14030,16 +13344,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -14121,16 +13426,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -14507,15 +13803,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -14599,16 +13887,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -14690,16 +13969,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -15077,15 +14347,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -15169,16 +14431,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -15260,16 +14513,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -15641,15 +14885,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -15733,16 +14969,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -15824,16 +15051,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -16204,15 +15422,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -16296,16 +15506,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -16387,16 +15588,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -16772,15 +15964,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -16864,16 +16048,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -16955,16 +16130,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -17341,15 +16507,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -17433,16 +16591,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -17524,16 +16673,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -17910,15 +17050,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -18002,16 +17134,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -18093,16 +17216,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -18502,15 +17616,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -18594,16 +17700,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -18685,16 +17782,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -19100,15 +18188,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -19192,16 +18272,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -19283,16 +18354,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -19672,15 +18734,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -19764,16 +18818,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -19855,16 +18900,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -20265,15 +19301,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -20357,16 +19385,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -20448,16 +19467,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -20866,15 +19876,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -20958,16 +19960,7 @@ class _$IndexChangeOnWomensCareBannerImpl
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -21049,16 +20042,7 @@ class _$IndexChangeOnWomensCareBannerImpl
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -21464,15 +20448,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -21556,16 +20532,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -21647,16 +20614,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -22061,15 +21019,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -22153,16 +21103,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -22244,16 +21185,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -22634,15 +21566,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -22726,16 +21650,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -22817,16 +21732,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -23228,15 +22134,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -23320,16 +22218,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -23411,16 +22300,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -23824,15 +22704,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -23916,16 +22788,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -24007,16 +22870,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -24420,15 +23274,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -24512,16 +23358,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -24603,16 +23440,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -24989,15 +23817,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -25081,16 +23901,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -25172,16 +23983,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -25580,15 +24382,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -25672,16 +24466,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -25763,16 +24548,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -26176,15 +24952,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -26268,16 +25036,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -26359,16 +25118,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -26772,15 +25522,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -26864,16 +25606,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -26955,16 +25688,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -27342,15 +26066,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -27434,16 +26150,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -27525,16 +26232,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -27933,15 +26631,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -28025,16 +26715,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -28116,16 +26797,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -28537,15 +27209,7 @@ class _$AddReasonsImpl implements AddReasons {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -28629,16 +27293,7 @@ class _$AddReasonsImpl implements AddReasons {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -28720,16 +27375,7 @@ class _$AddReasonsImpl implements AddReasons {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -29135,15 +27781,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -29227,16 +27865,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -29318,16 +27947,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -29704,15 +28324,7 @@ class _$FetchProductsImpl implements FetchProducts {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -29796,16 +28408,7 @@ class _$FetchProductsImpl implements FetchProducts {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -29887,16 +28490,7 @@ class _$FetchProductsImpl implements FetchProducts {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -30269,15 +28863,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -30361,16 +28947,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -30452,16 +29029,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -30865,15 +29433,7 @@ class _$SaveArticleCategoryFilterValImpl
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -30957,16 +29517,7 @@ class _$SaveArticleCategoryFilterValImpl
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -31048,16 +29599,7 @@ class _$SaveArticleCategoryFilterValImpl
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -31465,15 +30007,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -31557,16 +30091,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -31648,16 +30173,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -32073,15 +30589,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -32165,16 +30673,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -32256,16 +30755,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -32669,15 +31159,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -32761,16 +31243,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -32852,16 +31325,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -33238,15 +31702,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
     required TResult Function(BuildContext context, double amount)
         postOrderIdOnlinePayment,
     required TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)
+            BuildContext context, String addressId, String productId)
         postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -33330,16 +31786,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
         postOnlieOrders,
     TResult? Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult? Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -33421,16 +31868,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
         postOnlieOrders,
     TResult Function(BuildContext context, double amount)?
         postOrderIdOnlinePayment,
-    TResult Function(
-            BuildContext context,
-            double price,
-            int coins,
-            String addressId,
-            int totalQuantity,
-            String productId,
-            String brandId,
-            String size,
-            String color)?
+    TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,

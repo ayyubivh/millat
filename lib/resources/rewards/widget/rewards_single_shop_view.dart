@@ -43,259 +43,268 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: ColorManager.whiteColor,
-        appBar: AppBar(
-          foregroundColor: ColorManager.blackColor,
-          backgroundColor: ColorManager.whiteColor,
-          elevation: 0,
-          centerTitle: true,
-          actions: const [
-            ScoreWidget(),
-            kWidth20,
-          ],
-        ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 14.0),
-          child: SingleChildScrollView(
-            child: BlocBuilder<RewardsBloc, RewardsState>(
-              builder: (context, state) {
-                final data = state.rewardsProductByIdModel?.result?.product;
-                if (data == null) {
-                  return ShimmerUtils.singleProductShimmer(context);
-                }
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CarouselSlider(
-                      options: CarouselOptions(
-                        height: SizeUtility(context).height * 30 / 100,
-                        viewportFraction: 1,
-                        autoPlayAnimationDuration:
-                            const Duration(milliseconds: 800),
-                        onPageChanged: (index, reason) {
-                          context
-                              .read<RewardsBloc>()
-                              .add(ChangeCarousselImageIndex(index));
-                        },
-                      ),
-                      items: data.productId?.images?.map((imageUrl) {
-                            return Image.network(imageUrl);
-                          }).toList() ??
-                          [],
-                    ),
-                    kHeight10,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: data.productId!.images!.map((banner) {
-                        int index = data.productId!.images!.indexOf(banner);
-                        return Container(
-                          width: state.carouselImageIndex == index ? 24 : 6,
-                          height: 6,
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: state.carouselImageIndex == index
-                                ? ColorManager.primary
-                                : ColorManager.textGrey,
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                    kHeight16,
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: Column(
+    return BlocBuilder<RewardsBloc, RewardsState>(
+      builder: (context, state) {
+        final data = state.rewardsProductByIdModel?.result?.product;
+        return Scaffold(
+            backgroundColor: ColorManager.whiteColor,
+            appBar: AppBar(
+              foregroundColor: ColorManager.blackColor,
+              backgroundColor: ColorManager.whiteColor,
+              elevation: 0,
+              centerTitle: true,
+              actions: const [
+                ScoreWidget(),
+                kWidth20,
+              ],
+            ),
+            body: Padding(
+              padding: const EdgeInsets.only(top: 14.0),
+              child: SingleChildScrollView(
+                child: data == null
+                    ? ShimmerUtils.singleProductShimmer(context)
+                    : Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            children: [
-                              Image.asset(
-                                AppAssetsStrings.shop2,
-                                height: 12,
-                              ),
-                              kWidth5,
-                              Text(
-                                Appstrings.islamicStore,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                  color: ColorManager.black79,
-                                ),
-                              ),
-                            ],
-                          ),
-                          kHeight16,
-                          Text(
-                            data.productId?.title ?? "",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.blackColor,
-                              height: 1.2,
+                          CarouselSlider(
+                            options: CarouselOptions(
+                              height: SizeUtility(context).height * 30 / 100,
+                              viewportFraction: 1,
+                              autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
+                              onPageChanged: (index, reason) {
+                                context
+                                    .read<RewardsBloc>()
+                                    .add(ChangeCarousselImageIndex(index));
+                              },
                             ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
+                            items: data.productId?.images?.map((imageUrl) {
+                                  return Image.network(imageUrl);
+                                }).toList() ??
+                                [],
                           ),
                           kHeight10,
                           Row(
-                            children: [
-                              Text(
-                                data.productId?.salePrice.toString() ?? "",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700,
-                                  color: ColorManager.blackColor,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: data.productId!.images!.map((banner) {
+                              int index =
+                                  data.productId!.images!.indexOf(banner);
+                              return Container(
+                                width:
+                                    state.carouselImageIndex == index ? 24 : 6,
+                                height: 6,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: state.carouselImageIndex == index
+                                      ? ColorManager.primary
+                                      : ColorManager.textGrey,
                                 ),
-                              ),
-                              kWidth5,
-                              Text(
-                                data.productId?.regularPrice.toString() ?? '',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w700,
-                                  color: ColorManager.blackColor,
-                                  decoration: TextDecoration.lineThrough,
-                                ),
-                              ),
-                              kWidth3,
-                              Text(
-                                "${data.productId!.discount}% off",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w700,
-                                  color: ColorManager.primary,
-                                ),
-                              ),
-                            ],
+                              );
+                            }).toList(),
                           ),
                           kHeight16,
-                          Row(
-                            children: [
-                              Text(
-                                "By using",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                  color: ColorManager.greyB4,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      AppAssetsStrings.shop2,
+                                      height: 12,
+                                    ),
+                                    kWidth5,
+                                    Text(
+                                      Appstrings.islamicStore,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorManager.black79,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              kWidth8,
-                              PriceCoinWidget(coin: data.coins.toString()),
-                              kWidth3,
-                              const Icon(
-                                Icons.info_outline,
-                                size: 16,
-                              ),
-                            ],
-                          ),
-                          kWidth5,
-                        ],
-                      ),
-                    ),
-                    kHeight20,
-                    Container(
-                      width: SizeUtility(context).width,
-                      height: 10,
-                      color: ColorManager.scaffoldBgColor,
-                    ),
-                    kHeight25,
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            data.productId!.description ?? "",
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              color: ColorManager.textGrey99,
-                              height: 1.3,
+                                kHeight16,
+                                Text(
+                                  data.productId?.title ?? "",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorManager.blackColor,
+                                    height: 1.2,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                kHeight10,
+                                Row(
+                                  children: [
+                                    Text(
+                                      data.productId?.salePrice.toString() ??
+                                          "",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700,
+                                        color: ColorManager.blackColor,
+                                      ),
+                                    ),
+                                    kWidth5,
+                                    Text(
+                                      data.productId?.regularPrice.toString() ??
+                                          '',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                        color: ColorManager.blackColor,
+                                        decoration: TextDecoration.lineThrough,
+                                      ),
+                                    ),
+                                    kWidth3,
+                                    Text(
+                                      "${data.productId!.discount}% off",
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w700,
+                                        color: ColorManager.primary,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                kHeight16,
+                                Row(
+                                  children: [
+                                    Text(
+                                      "By using",
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        color: ColorManager.greyB4,
+                                      ),
+                                    ),
+                                    kWidth8,
+                                    PriceCoinWidget(
+                                        coin: data.coins.toString()),
+                                    kWidth3,
+                                    const Icon(
+                                      Icons.info_outline,
+                                      size: 16,
+                                    ),
+                                  ],
+                                ),
+                                kWidth5,
+                              ],
                             ),
                           ),
-                          kHeight10,
+                          kHeight20,
+                          Container(
+                            width: SizeUtility(context).width,
+                            height: 10,
+                            color: ColorManager.scaffoldBgColor,
+                          ),
+                          kHeight25,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Text(
+                                  data.productId!.description ?? "",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: ColorManager.textGrey99,
+                                    height: 1.3,
+                                  ),
+                                ),
+                                kHeight10,
+                              ],
+                            ),
+                          ),
+                          kHeight15,
+                          lastWidget(text: Appstrings.composition),
+                          lastWidget(text: Appstrings.howToUse),
+                          kHeight16,
+                          imgStackWidget(context),
+                          kHeight16,
+                          GestureDetector(
+                            onTap: () {
+                              cancellationPolicyPopup(context);
+                            },
+                            child: lastWidget(
+                                text: Appstrings.cancellationPolicy,
+                                showDivider: false,
+                                icon: Icons.navigate_next_outlined),
+                          ),
+                          lastWidget(
+                              text: Appstrings.nonReturnalbe,
+                              icon: Icons.navigate_next_outlined),
+                          kHeight100,
                         ],
                       ),
-                    ),
-                    kHeight15,
-                    lastWidget(text: Appstrings.composition),
-                    lastWidget(text: Appstrings.howToUse),
-                    kHeight16,
-                    imgStackWidget(context),
-                    kHeight16,
-                    GestureDetector(
-                      onTap: () {
-                        cancellationPolicyPopup(context);
-                      },
-                      child: lastWidget(
-                          text: Appstrings.cancellationPolicy,
-                          showDivider: false,
-                          icon: Icons.navigate_next_outlined),
-                    ),
-                    lastWidget(
-                        text: Appstrings.nonReturnalbe,
-                        icon: Icons.navigate_next_outlined),
-                    kHeight100,
-                  ],
-                );
-              },
-            ),
-          ),
-        ),
-        bottomSheet: BlocBuilder<AddressBloc, AddressState>(
-          builder: (context, state) => GestureDetector(
-            onTap: () {
-              // context.read<ShopProductsBloc>().add(PostOrders(
-              //     context: context,
-              //     totalPrice: totalPrice,
-              //     pickupLocation: pickupLocation,
-              //     quantity: quantity,
-              //     totalDiscount: totalDiscount,
-              //     shippingCharges: shippingCharges,
-              //     weight: weight,
-              //     id: id));
-              if (state.addressModel!.result.addresses.isEmpty) {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const CheckoutDetails(
-                    type: AddressNavType.checkout,
-                  ),
-                ));
-              } else {
-                context.pushNamed(MyAppRouteConstants.checkoutRouteName,
-                    extra: {'checkoutType': CheckoutType.rewards});
-                // Navigator.of(context).push(MaterialPageRoute(
-                //   builder: (context) =>
-                //       const CheckoutView(checkoutType: CheckoutType.rewards),
-                // ));
-              }
-            },
-            child: Container(
-              color: ColorManager.primary,
-              height: 60,
-              width: SizeUtility(context).width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    Appstrings.buyNow,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                      color: ColorManager.whiteColor,
-                    ),
-                  ),
-                  kWidth3,
-                  Icon(
-                    Icons.navigate_next,
-                    color: ColorManager.whiteColor,
-                    size: 24,
-                  ),
-                ],
               ),
             ),
-          ),
-        ));
+            bottomSheet: BlocBuilder<AddressBloc, AddressState>(
+              builder: (context, addressState) => GestureDetector(
+                onTap: () async {
+                  // context.read<ShopProductsBloc>().add(PostOrders(
+                  //     context: context,
+                  //     totalPrice: totalPrice,
+                  //     pickupLocation: pickupLocation,
+                  //     quantity: quantity,
+                  //     totalDiscount: totalDiscount,
+                  //     shippingCharges: shippingCharges,
+                  //     weight: weight,
+                  //     id: id));
+                  if (state.rewardCoins >= data!.coins!) {
+                    if (addressState.addressModel!.result.addresses.isEmpty) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const CheckoutDetails(
+                          type: AddressNavType.checkout,
+                        ),
+                      ));
+                    } else {
+                      context.pushNamed(MyAppRouteConstants.checkoutRouteName,
+                          extra: {'checkoutType': CheckoutType.rewards, 'data': data});
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) =>
+                      //       const CheckoutView(checkoutType: CheckoutType.rewards),
+                      // ));
+                    }
+                  } else {
+                    showSnackBar(context, 'Not enough coins');
+                  }
+                },
+                child: Container(
+                  color: ColorManager.primary,
+                  height: 60,
+                  width: SizeUtility(context).width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        Appstrings.buyNow,
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: ColorManager.whiteColor,
+                        ),
+                      ),
+                      kWidth3,
+                      Icon(
+                        Icons.navigate_next,
+                        color: ColorManager.whiteColor,
+                        size: 24,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ));
+      },
+    );
   }
 
   Future<dynamic> cancellationPolicyPopup(BuildContext context) {

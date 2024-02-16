@@ -28,7 +28,7 @@ class SingleProductView extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<ShopProductsBloc>()
         ..add(ShopProductsEvent.fetchProductsById(id: id))
-        ..add(ShopProductsEvent.changeSizeIndex(0));
+        ..add(const ShopProductsEvent.changeSizeIndex(0));
       context.read<ReviewBloc>()
         ..add(ReviewEvent.fetchRatingEvent(id: id, context: context))
         ..add(ReviewEvent.fetchReviewComments(id: id, context: context));
@@ -158,25 +158,25 @@ class SingleProductView extends StatelessWidget {
                                 ? const SizedBox()
                                 : Column(
                                     children: [
-                                      const Text(
-                                        'Colors',
-                                        style: TextStyle(
+                                      Text(
+                                        'Colors: ${data.color ?? ""}',
+                                        style: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w700),
                                       ),
                                       kHeight10,
-                                      SizedBox(
-                                        height: 30,
-                                        child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 20),
-                                            child: CircleAvatar(
-                                              radius: 15,
-                                              backgroundColor: Utilities
-                                                  .getColorFromApiString(
-                                                      data.color ?? ""),
-                                            )),
-                                      ),
+                                      // SizedBox(
+                                      //   height: 30,
+                                      //   child: Padding(
+                                      //       padding: const EdgeInsets.only(
+                                      //           right: 20),
+                                      //       child: CircleAvatar(
+                                      //         radius: 15,
+                                      //         backgroundColor: Utilities
+                                      //             .getColorFromApiString(
+                                      //                 data.color ?? ""),
+                                      //       )),
+                                      // ),
                                     ],
                                   ),
                             kHeight20,
@@ -260,9 +260,8 @@ class SingleProductView extends StatelessWidget {
                 // ),
                 bottomSheet: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 10),
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
+                        horizontal: 30, vertical: 20),
+                    child: InkWell(
                       onTap: () {
                         showModalBottomSheet(
                           context: context,

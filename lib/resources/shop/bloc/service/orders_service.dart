@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:millat/resources/shop/bloc/models/orders/reason_model.dart';
+import 'package:millat/utils/utils.dart';
 import '../../../../services/http_services.dart';
 import 'package:http/http.dart' as http;
 
@@ -120,29 +121,12 @@ class OrdersService extends HttpServices {
 //For adding the orders
   Future<Map<String, dynamic>> postOrderRewards({
     required BuildContext context,
-    required double price,
-    required int coins,
     required String addressId,
-    required int totalQuantity,
     required String productId,
-    required String brandId,
-    required String size,
-    required String color,
   }) async {
     const endPoint = 'order/payment/coin';
 
-    final body = {
-      "coins": coins.toString(),
-      "price": price.toString(),
-      "productId": productId,
-      "address": addressId,
-      "details": {
-        "brandId": brandId,
-        "quantity": totalQuantity,
-        "size": size,
-        "color": color,
-      }
-    };
+    final body = {"rewardProductId": productId, "address": addressId};
 
     try {
       final response = await http.post(

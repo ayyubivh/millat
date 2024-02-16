@@ -124,14 +124,9 @@ class _ShopViewState extends State<ShopView> {
                             BackgroundContainer(
                               cardType: ShopHomeCardtype.women,
                               onTap: () {
-                                context.pushNamed(
-                                    MyAppRouteConstants.categoryRouteName,
-                                    extra: {
-                                      "categoryType":
-                                          CategoryType.specificCategory,
-                                      "category": "women",
-                                      "categoryId": "",
-                                    });
+                                context
+                                    .read<ShopProductsBloc>()
+                                    .add(const TabIndexChangeEvent(index: 2));
                               },
                               width: SizeUtility(context).width / 2,
                               title: "Women",
@@ -219,8 +214,9 @@ class _ShopViewState extends State<ShopView> {
                             kHeight20,
                             BackgroundContainer(
                               onTap: () {
-                                context.goNamed(
-                                    MyAppRouteConstants.articleRouteName);
+                                context
+                                    .read<ShopProductsBloc>()
+                                    .add(const TabIndexChangeEvent(index: 1));
                               },
                               cardType: ShopHomeCardtype.sunnah,
                               title: "",

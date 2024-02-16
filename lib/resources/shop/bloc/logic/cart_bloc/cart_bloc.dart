@@ -134,12 +134,20 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
 
   FutureOr<void> _updateCartEvent(
-    UpdateCartEventWithAdd event,
-    Emitter<CartState> emit,
-  ) async {
+      UpdateCartEventWithAdd event, Emitter<CartState> emit) async {
     try {
       final updatedCartModel = state.cartModel?.copyWith(
         result: state.cartModel?.result?.copyWith(
+          // amountDetails: state.cartModel?.result?.amountDetails?.copyWith(
+          //   total: state.cartModel!.result!.cartProducts!.cartItems!
+          //       .map((item) => item.size[event.index]! * event.quantity)
+          //       .reduce((value, element) => value + element)
+          //       .toInt(),
+          //   totalTax: state.cartModel!.result!.cartProducts!.cartItems!
+          //       .map((item) => item.tax! * event.quantity)
+          //       .reduce((value, element) => value + element)
+          //       .toDouble(),
+          // ),
           cartProducts: state.cartModel?.result?.cartProducts?.copyWith(
             cartItems: state.cartModel?.result?.cartProducts?.cartItems?.map(
               (item) {
@@ -156,11 +164,19 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       emit(state.copyWith(
         cartModel: updatedCartModel,
       ));
-      final data = await _cartServices.updateCartQuantity(
+      final data = await _cartServices
+          .updateCartQuantity(
         productId: event.productId,
         context: event.context,
         quantity: event.quantity,
-      );
+      )
+          .then((value) async {
+        if (value['status'] == 200) {
+          debugPrint('Success: ${value['message']}');
+          var data = await _cartServices.fetchCart(event.context);
+          emit(state.copyWith(cartModel: data));
+        }
+      });
       debugPrint('cart update model data $data');
     } catch (e) {
       emit(state.copyWith(
@@ -175,6 +191,20 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     try {
       final updatedCartModel = state.cartModel?.copyWith(
         result: state.cartModel?.result?.copyWith(
+          // amountDetails: state.cartModel?.result?.amountDetails?.copyWith(
+          //   total: state.cartModel!.result!.cartProducts!.cartItems!
+          //       .map((item) =>
+          //           state.cartModel!.result!.amountDetails!.total! -
+          //           item.sellingPrice!)
+          //       .reduce((value, element) => value + element)
+          //       .toInt(),
+          //   totalTax: state.cartModel!.result!.cartProducts!.cartItems!
+          //       .map((item) =>
+          //           state.cartModel!.result!.amountDetails!.totalTax! -
+          //           item.tax!)
+          //       .reduce((value, element) => value + element)
+          //       .toDouble(),
+          // ),
           cartProducts: state.cartModel?.result?.cartProducts?.copyWith(
             cartItems: state.cartModel?.result?.cartProducts?.cartItems?.map(
               (item) {
@@ -193,11 +223,19 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       emit(state.copyWith(
         cartModel: updatedCartModel,
       ));
-      final data = await _cartServices.updateCartQuantity(
+      final data = await _cartServices
+          .updateCartQuantity(
         productId: event.productId,
         context: event.context,
         quantity: event.quantity,
-      );
+      )
+          .then((value) async {
+        if (value['status'] == 200) {
+          debugPrint('Success: ${value['message']}');
+          var data = await _cartServices.fetchCart(event.context);
+          emit(state.copyWith(cartModel: data));
+        }
+      });
       debugPrint('cart update model data $data');
     } catch (e) {
       emit(state.copyWith(

@@ -39,7 +39,7 @@ class _CategoryViewState extends State<CategoryView> {
               "shop_product_category?slug=${widget.category.toString().replaceAll(" ", "_")}_flash_sales"))
       ..add(ShopProductsEvent.fetchPopularProducts(
           endPointSlug:
-              "shop_product_category?slug=${widget.category}_popular_products"))
+              "shop_product_category?slug=${widget.category.toString().replaceAll(" ", "_")}_popular_products"))
       ..add(ShopProductsEvent.fetchSpecificCategeryItems(
           slug: widget.category.toString().replaceAll(" ", "_")));
     BlocProvider.of<CategoryBloc>(context)

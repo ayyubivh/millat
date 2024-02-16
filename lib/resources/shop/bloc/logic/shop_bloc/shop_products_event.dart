@@ -51,14 +51,8 @@ class ShopProductsEvent with _$ShopProductsEvent {
   }) = PostOrderIdOnlinePayment;
   const factory ShopProductsEvent.postOrdersRewards({
     required BuildContext context,
-    required double price,
-    required int coins,
     required String addressId,
-    required int totalQuantity,
     required String productId,
-    required String brandId,
-    required String size,
-    required String color,
   }) = PostOrdersRewards;
   const factory ShopProductsEvent.fetchOrders(
     BuildContext context,

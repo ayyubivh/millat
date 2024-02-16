@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +12,6 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/cart_icon_widget.dart';
-import '../../../../components/common_widgets/shop_products_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';

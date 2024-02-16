@@ -138,6 +138,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'SofiaPro',
         primarySwatch: Colors.blue,
+        useMaterial3: false
       ),
     );
   }

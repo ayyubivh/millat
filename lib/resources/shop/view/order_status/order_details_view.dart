@@ -319,23 +319,14 @@ class OrdetailsView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               decoration: BoxDecoration(
                 color: ColorManager.whiteColor,
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(12),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
                 ),
                 border: Border(
-                  left: BorderSide(
-                    color: ColorManager.greyB8,
-                  ),
-                  top: BorderSide(
-                    color: ColorManager.greyB8,
-                  ),
-                  right: BorderSide(
-                    color: ColorManager.greyB8,
-                  ),
-                  bottom: BorderSide(
-                    color: ColorManager.greyB8,
-                    width: 0,
-                  ),
+                  left: BorderSide(color: ColorManager.greyB8),
+                  top: BorderSide(color: ColorManager.greyB8),
+                  right: BorderSide(color: ColorManager.greyB8),
                 ),
               ),
               child: Column(

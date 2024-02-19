@@ -79,7 +79,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       itemType: json['itemType'] as String?,
       pickupAddress: json['pickupAddress'] as String?,
       regularPrice: json['regularPrice'] as int?,
-      salePrice: json['salePrice'] as int?,
+      salePrice: (json['salePrice'] as num?)?.toDouble(),
       discount: json['discount'] as int?,
       color: json['color'] as String?,
       images:

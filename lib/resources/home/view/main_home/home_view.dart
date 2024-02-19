@@ -1,6 +1,6 @@
 // ignore_for_file: unused_local_variable, depend_on_referenced_packages
-import 'dart:developer';
 import 'dart:io';
+import 'dart:math';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -65,7 +65,6 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
   @override
   Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
     if (state == AppLifecycleState.resumed) {
-      log("state changed value ${state.name}");
       _fetchApi();
     }
   }
@@ -1236,79 +1235,51 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
           builder: (context, state) {
             final data = state.allaySaysModel?.result?.data;
 
-            return PageView(
-                physics: const NeverScrollableScrollPhysics(),
-                controller: PageController(initialPage: state.allaysBgindex),
-                children: List.generate(
-                  data?.length ?? 0,
-                  (index) {
-                    // return BlocBuilder<HomeBloc, HomeState>(
-                    //   builder: (context, state) {
-                    //     final data = state.allaySaysModel?.result?.data;
-
-                    return data == null || state.isLoading
-                        ? ShimmerUtils.customRectangleShimmer(
-                            SizeUtility(context).width,
-                            10,
-                            borderRadius: 12,
-                          )
-                        : Container(
-                            height: 290,
-                            width: SizeUtility(context).width,
+            return data == null || data.isEmpty
+                ? ShimmerUtils.customRectangleShimmer(
+                    SizeUtility(context).width,
+                    10,
+                    borderRadius: 12,
+                  )
+                : PageView(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: PageController(
+                        initialPage: Random().nextInt(data.length)),
+                    scrollDirection: Axis.horizontal,
+                    children: List.generate(
+                      data.length,
+                      (index) {
+                        return Container(
+                          height: 290,
+                          width: SizeUtility(context).width,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    "assets/backgrounds/allay_says_bg_$index.png",
+                                  ),
+                                  fit: BoxFit.cover)),
+                          child: Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                      "assets/backgrounds/allay_says_bg_$index.png",
+                            child: ClipRRect(
+                              child: Column(
+                                children: [
+                                  kHeight15,
+                                  Text(
+                                    Appstrings.allaySays,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: ColorManager.primary,
                                     ),
-                                    fit: BoxFit.cover)),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10),
-                              child: ClipRRect(
-                                child: Column(
-                                  children: [
-                                    kHeight15,
-                                    Text(
-                                      Appstrings.allaySays,
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
-                                        color: ColorManager.primary,
-                                      ),
-                                    ),
-                                    kHeight16,
-                                    Expanded(
-                                      child: Text(
-                                        data[index].content ?? '',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w600,
-                                          color: ColorManager.blackColor,
-                                          fontFamily: "Hafs",
-                                        ),
-                                        textDirection: TextDirection.rtl,
-                                      ),
-                                    ),
-                                    kHeight5,
-                                    Divider(
-                                      thickness: 1,
-                                      color: ColorManager.blackColor,
-                                    ),
-                                    kHeight8,
-                                    Text(
-                                      (data[index].translate != null &&
-                                              data[index].translate!.length >
-                                                  state
-                                                      .translationLanguageIndex)
-                                          ? data[index]
-                                                  .translate![state
-                                                      .translationLanguageIndex]
-                                                  .content ??
-                                              ''
-                                          : '',
+                                  ),
+                                  kHeight16,
+                                  Expanded(
+                                    child: Text(
+                                      data[index].content ?? '',
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w600,
@@ -1317,108 +1288,130 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                                       ),
                                       textDirection: TextDirection.rtl,
                                     ),
-                                    kHeight5,
-                                    const Spacer(),
-                                    GestureDetector(
-                                      behavior: HitTestBehavior.translucent,
-                                      onTap: () {
-                                        showModalBottomSheet(
-                                          backgroundColor: Colors.transparent,
-                                          context: context,
-                                          builder: (context) => Container(
-                                            height: 200,
-                                            decoration: BoxDecoration(
-                                              color: ColorManager.whiteColor,
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                topLeft: Radius.circular(30.0),
-                                                topRight: Radius.circular(30.0),
-                                              ),
+                                  ),
+                                  kHeight5,
+                                  Divider(
+                                    thickness: 1,
+                                    color: ColorManager.blackColor,
+                                  ),
+                                  kHeight8,
+                                  Text(
+                                    (data[index].translate != null &&
+                                            data[index].translate!.length >
+                                                state.translationLanguageIndex)
+                                        ? data[index]
+                                                .translate![state
+                                                    .translationLanguageIndex]
+                                                .content ??
+                                            ''
+                                        : '',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      color: ColorManager.blackColor,
+                                      fontFamily: "Hafs",
+                                    ),
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                  kHeight5,
+                                  const Spacer(),
+                                  GestureDetector(
+                                    behavior: HitTestBehavior.translucent,
+                                    onTap: () {
+                                      showModalBottomSheet(
+                                        backgroundColor: Colors.transparent,
+                                        context: context,
+                                        builder: (context) => Container(
+                                          height: 200,
+                                          decoration: BoxDecoration(
+                                            color: ColorManager.whiteColor,
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                              topLeft: Radius.circular(30.0),
+                                              topRight: Radius.circular(30.0),
                                             ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 20),
-                                              child: ListView.separated(
-                                                itemCount: data[index]
-                                                        .translate
-                                                        ?.length ??
-                                                    0,
-                                                itemBuilder:
-                                                    (context, translateIndex) {
-                                                  final translation =
-                                                      data[index].translate![
-                                                          translateIndex];
-                                                  return GestureDetector(
-                                                    onTap: () {
-                                                      BlocProvider.of<HomeBloc>(
-                                                              context)
-                                                          .add(ChangeTranslationLanguageIndex(
-                                                              translateIndex));
-                                                      context.pop();
-                                                    },
-                                                    behavior: HitTestBehavior
-                                                        .translucent,
-                                                    child: Text(
-                                                      translation.language ??
-                                                          '',
-                                                      style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        color: ColorManager
-                                                            .blackColor,
-                                                      ),
-                                                      textAlign:
-                                                          TextAlign.center,
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 20),
+                                            child: ListView.separated(
+                                              itemCount: data[index]
+                                                      .translate
+                                                      ?.length ??
+                                                  0,
+                                              itemBuilder:
+                                                  (context, translateIndex) {
+                                                final translation = data[index]
+                                                    .translate![translateIndex];
+                                                return GestureDetector(
+                                                  onTap: () {
+                                                    BlocProvider.of<HomeBloc>(
+                                                            context)
+                                                        .add(ChangeTranslationLanguageIndex(
+                                                            translateIndex));
+                                                    context.pop();
+                                                  },
+                                                  behavior: HitTestBehavior
+                                                      .translucent,
+                                                  child: Text(
+                                                    translation.language ?? '',
+                                                    style: TextStyle(
+                                                      fontSize: 15,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: ColorManager
+                                                          .blackColor,
                                                     ),
-                                                  );
-                                                },
-                                                separatorBuilder:
-                                                    (context, index) =>
-                                                        const Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      vertical: 6),
-                                                  child: Divider(),
-                                                ),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                );
+                                              },
+                                              separatorBuilder:
+                                                  (context, index) =>
+                                                      const Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: 6),
+                                                child: Divider(),
                                               ),
                                             ),
                                           ),
-                                        );
-                                      },
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          ImageIcon(
-                                            const AssetImage(
-                                                AppAssetsStrings.translateIcon),
-                                            size: 20,
+                                        ),
+                                      );
+                                    },
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        ImageIcon(
+                                          const AssetImage(
+                                              AppAssetsStrings.translateIcon),
+                                          size: 20,
+                                          color: ColorManager.primary,
+                                        ),
+                                        kWidth10,
+                                        Text(
+                                          Appstrings.translate,
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
                                             color: ColorManager.primary,
                                           ),
-                                          kWidth10,
-                                          Text(
-                                            Appstrings.translate,
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w600,
-                                              color: ColorManager.primary,
-                                            ),
-                                          ),
-                                          Icon(
-                                            Icons.keyboard_double_arrow_right,
-                                            color: ColorManager.primary,
-                                            size: 18,
-                                          )
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
+                                        ),
+                                        Icon(
+                                          Icons.keyboard_double_arrow_right,
+                                          color: ColorManager.primary,
+                                          size: 18,
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                          );
-                  },
-                ));
+                          ),
+                        );
+                      },
+                    ));
           },
         ));
   }

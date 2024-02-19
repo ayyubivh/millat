@@ -66,11 +66,12 @@ class RewardsRedeemView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _couponWidget(context, state),
-                      _redeemedCouponWidget(
-                          state,
-                          state.redeemedCouponModel?.result.coupons
-                                  .isNotEmpty ??
-                              true)
+                      // _redeemedCouponWidget(
+
+                      //     state,
+                      //     state.redeemedCouponModel?.result.coupons
+                      //             .isNotEmpty ??
+                      //         true)
                     ],
                   ),
                 );
@@ -106,7 +107,7 @@ class RewardsRedeemView extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
-        log(state.redeemedCouponModel!.result.coupons.toString());
+        // log(state.redeemedCouponModel!.result.coupons.toString());
         if (state.redeemedCouponModel == null || state.isLoading) {
           return const SizedBox();
         }
@@ -407,21 +408,18 @@ class RewardsRedeemView extends StatelessWidget {
           child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Expanded(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        Appstrings.hadithSettings,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    "Claim Coupon",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   IconButton(
+                    padding: EdgeInsets.zero,
                     onPressed: () {
                       Navigator.of(context).pop();
                     },

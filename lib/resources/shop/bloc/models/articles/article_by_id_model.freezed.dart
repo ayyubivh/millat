@@ -12,7 +12,7 @@ part of 'article_by_id_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ArticleModelById _$ArticleModelByIdFromJson(Map<String, dynamic> json) {
   return _ArticleModelById.fromJson(json);
@@ -732,7 +732,7 @@ mixin _$Product {
   String? get pickupAddress => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   int? get regularPrice => throw _privateConstructorUsedError;
-  int? get salePrice => throw _privateConstructorUsedError;
+  double? get salePrice => throw _privateConstructorUsedError;
   int? get discount => throw _privateConstructorUsedError;
   String? get color => throw _privateConstructorUsedError;
   List<String>? get images => throw _privateConstructorUsedError;
@@ -763,7 +763,7 @@ abstract class $ProductCopyWith<$Res> {
       String? pickupAddress,
       String? description,
       int? regularPrice,
-      int? salePrice,
+      double? salePrice,
       int? discount,
       String? color,
       List<String>? images,
@@ -848,7 +848,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -906,7 +906,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String? pickupAddress,
       String? description,
       int? regularPrice,
-      int? salePrice,
+      double? salePrice,
       int? discount,
       String? color,
       List<String>? images,
@@ -989,7 +989,7 @@ class __$$ProductImplCopyWithImpl<$Res>
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -1080,7 +1080,7 @@ class _$ProductImpl implements _Product {
   @override
   final int? regularPrice;
   @override
-  final int? salePrice;
+  final double? salePrice;
   @override
   final int? discount;
   @override
@@ -1217,7 +1217,7 @@ abstract class _Product implements Product {
       required final String? pickupAddress,
       required final String? description,
       required final int? regularPrice,
-      required final int? salePrice,
+      required final double? salePrice,
       required final int? discount,
       required final String? color,
       required final List<String>? images,
@@ -1250,7 +1250,7 @@ abstract class _Product implements Product {
   @override
   int? get regularPrice;
   @override
-  int? get salePrice;
+  double? get salePrice;
   @override
   int? get discount;
   @override

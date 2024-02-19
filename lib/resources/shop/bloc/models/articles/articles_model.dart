@@ -60,7 +60,7 @@ class Product with _$Product {
     required String? itemType,
     required String? pickupAddress,
     required int? regularPrice,
-    required int? salePrice,
+    required double? salePrice,
     required int? discount,
     required String? color,
     required List<String>? images,

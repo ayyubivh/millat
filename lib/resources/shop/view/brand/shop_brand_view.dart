@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -49,6 +47,7 @@ class ShopBrandView extends StatelessWidget {
             centerTitle: true,
             stretch: true,
             flexibleSpace: FlexibleSpaceBar(
+              titlePadding: EdgeInsets.zero,
               centerTitle: true,
               background: const HeaderBackgroundImage(),
               title: Column(
@@ -249,7 +248,7 @@ class ShopBrandView extends StatelessWidget {
               borderRadius: BorderRadius.circular(21),
               child: Stack(
                 children: [
-                  data == null || data.coverImage?.length == 0
+                  data == null || data.coverImage!.isEmpty
                       ? Container(
                           height: SizeUtility(context).height / 4.045,
                           width: double.infinity,

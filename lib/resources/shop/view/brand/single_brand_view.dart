@@ -13,7 +13,6 @@ import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
-import '../../../../utils/assets_paths.dart';
 
 class SingleBrandView extends StatelessWidget {
   final BrandViewType? brandViewType;
@@ -38,6 +37,7 @@ class SingleBrandView extends StatelessWidget {
               expandedHeight: SizeUtility(context).height / 3,
               stretch: true,
               flexibleSpace: FlexibleSpaceBar(
+                titlePadding: EdgeInsets.zero,
                 centerTitle: true,
                 background: passValue.coverImage == null
                     ? const HeaderImageErrorWidget()

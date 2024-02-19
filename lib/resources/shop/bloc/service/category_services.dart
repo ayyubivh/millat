@@ -157,13 +157,14 @@ class CategoryService extends HttpServices {
   Future<ProductResponse> fetchProductsByFilter({
     required int minPrice,
     required int maxPrice,
+    required int page,
     required String category,
     required List<String> subCategory,
     required List<String> brand,
     required List<String> color,
     required List<String>? itemType,
   }) async {
-    const endpoint = "product/multi-filter";
+    final endpoint = "product/multi-filter?page=$page";
     final body = {
       "brand": brand,
       "category": category,
@@ -175,7 +176,6 @@ class CategoryService extends HttpServices {
         "max": maxPrice,
       },
     };
-
     try {
       final response = await http.post(
         Uri.parse(kBaseUrl + endpoint),

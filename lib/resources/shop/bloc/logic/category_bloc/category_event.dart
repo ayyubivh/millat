@@ -65,4 +65,5 @@ class CategoryEvent with _$CategoryEvent {
   const factory CategoryEvent.saveColorsFilters({required String value}) =
       SaveColorsFilters;
   const factory CategoryEvent.clearAllFilterEvent() = ClearAllFilterEvent;
+  const factory CategoryEvent.makePaginationDefualt() = MakePaginationDefault;
 }

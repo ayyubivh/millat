@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -40,6 +41,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<SaveColorsFilters>(_saveColorsFilter);
     on<ClearAllFilterEvent>(_clearAllFilterEvent);
     on<SaveItemTypeFilters>(_saveItemTypeFilterEvent);
+    on<MakePaginationDefault>(_makePaginationDefault);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -157,10 +159,15 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
 
   _fetchProductsByFilter(
       FetchProductsByFilter event, Emitter<CategoryState> emit) async {
+    if (state.reachMax) {
+      return;
+    }
     emit(state.copyWith(productLoading: true));
 
     try {
+      log(state.currentPage.toString());
       final data = await _categoryService.fetchProductsByFilter(
+        page: state.currentPage,
         maxPrice: event.maxPrice,
         minPrice: event.minPrice,
         category: event.category,
@@ -169,11 +176,21 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         color: event.color,
         itemType: event.itemId,
       );
-      print("filtered products $data");
-      emit(state.copyWith(
-        multiFilterProduct: data,
-        productLoading: false,
-      ));
+      log(state.currentPage.toString());
+
+      if (data.result?.totalPages == state.currentPage) {
+        emit(state.copyWith(
+          multiFilterProduct: data,
+          productLoading: false,
+          currentPage: state.currentPage + 1,
+          reachMax: true,
+        ));
+      } else {
+        emit(state.copyWith(
+            multiFilterProduct: data,
+            productLoading: false,
+            currentPage: state.currentPage + 1));
+      }
     } catch (e) {
       emit(state.copyWith(
           errorMessage: "An error occurred", productLoading: false));
@@ -270,5 +287,10 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     }
     debugPrint("here current list $currentList");
     emit(state.copyWith(itemTypeFiltersList: currentList));
+  }
+
+  _makePaginationDefault(
+      MakePaginationDefault event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(currentPage: 1, reachMax: false));
   }
 }

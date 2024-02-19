@@ -30,6 +30,8 @@ class CategoryState with _$CategoryState {
     required List<String> colorsFiltersList,
     required List<String> itemTypeFiltersList,
     required ProductResponse? multiFilterProduct,
+    required bool reachMax,
+    required int currentPage,
   }) = _CategoryState;
   factory CategoryState.initial() => const CategoryState(
         product: null,
@@ -59,5 +61,7 @@ class CategoryState with _$CategoryState {
         colorsFiltersList: [],
         itemTypeFiltersList: [],
         multiFilterProduct: null,
+        reachMax: false,
+        currentPage: 1,
       );
 }

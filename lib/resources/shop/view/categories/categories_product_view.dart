@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -36,20 +38,12 @@ class CategoriesProductView extends StatefulWidget {
 }
 
 class _CategoriesProductViewState extends State<CategoriesProductView> {
+  final _scrollController = ScrollController();
   @override
   void initState() {
-    BlocProvider.of<CategoryBloc>(context).add(
-        widget.type == FilterType.specificCategory
-            ? FetchFilterProducts(
-                category: widget.category,
-                subCategory: widget.subCategory,
-                itemId: widget.itemId)
-            : FetchFilterProducts(
-                category: widget.category,
-                subCategory: widget.subCategory,
-                itemId: widget.itemId,
-              ));
-
+    log(widget.type.toString());
+    BlocProvider.of<CategoryBloc>(context).add(MakePaginationDefault());
+    _fetchApi();
     BlocProvider.of<CategoryBloc>(context).add(
       FetchFilterOptionEvent(
         category: widget.type == FilterType.specificCategory
@@ -59,8 +53,39 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
             : "category=${widget.category}",
       ),
     );
-
+    _scrollController.addListener(_scrolListener);
     super.initState();
+  }
+
+  _scrolListener() {
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      _fetchApi();
+      log("scrolled");
+    }
+  }
+
+  _fetchApi() {
+    BlocProvider.of<CategoryBloc>(context)
+        .add(widget.type == FilterType.fromFilter
+            ? FetchProductsByFilter(
+                minPrice: 0,
+                maxPrice: 0,
+                brand: [],
+                color: [],
+                category: widget.category ?? '',
+                subCategory: [widget.subCategory ?? ""],
+                itemId: [],
+              )
+            : FetchProductsByFilter(
+                minPrice: 0,
+                maxPrice: 0,
+                brand: [],
+                color: [],
+                category: widget.category ?? '',
+                subCategory: [widget.subCategory ?? ""],
+                itemId: [widget.itemId ?? ''],
+              ));
   }
 
   @override
@@ -191,7 +216,9 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                       : widget.type == FilterType.category
                           ? state.productLoading
                               ? ShimmerUtils.productsShimmers(context: context)
-                              : state.product?.result?.products?.isEmpty ?? true
+                              : state.multiFilterProduct?.result?.products
+                                          ?.isEmpty ??
+                                      true
                                   ? Padding(
                                       padding: EdgeInsets.only(
                                           top: SizeUtility(context).height /
@@ -209,68 +236,76 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                     )
                                   : Expanded(
                                       child: GridView.builder(
-                                        gridDelegate:
-                                            SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2,
-                                          crossAxisSpacing: 20,
-                                          mainAxisSpacing: 20,
-                                          mainAxisExtent: !Responsive.isMobile(
-                                                  context)
-                                              ? SizeUtility(context).height /
-                                                  3.3
-                                              : SizeUtility(context).height /
-                                                  2.9,
-                                        ),
-                                        itemCount: state.product?.result
-                                                ?.products?.length ??
-                                            10,
-                                        itemBuilder: (context, index) {
-                                          final data = state.product?.result
-                                              ?.products?[index];
-                                          return data == null
-                                              ? ShimmerUtils.productsShimmers(
-                                                  context: context)
-                                              : GestureDetector(
-                                                  onTap: () {
-                                                    // print(data.id);
+                                          controller: _scrollController,
+                                          gridDelegate:
+                                              SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 2,
+                                            crossAxisSpacing: 20,
+                                            mainAxisSpacing: 20,
+                                            mainAxisExtent:
+                                                !Responsive.isMobile(context)
+                                                    ? SizeUtility(context)
+                                                            .height /
+                                                        3.3
+                                                    : SizeUtility(context)
+                                                            .height /
+                                                        2.9,
+                                          ),
+                                          itemCount: state.multiFilterProduct
+                                                  ?.result?.products?.length ??
+                                              10 + 1,
+                                          itemBuilder: (context, index) {
+                                            final data = state
+                                                .multiFilterProduct
+                                                ?.result
+                                                ?.products?[index];
+                                            return data == null
+                                                ? ShimmerUtils.productsShimmers(
+                                                    context: context)
+                                                : GestureDetector(
+                                                    onTap: () {
+                                                      // print(data.id);
 
-                                                    context.pushNamed(
-                                                        MyAppRouteConstants
-                                                            .singleProductRouteName,
-                                                        pathParameters: {
-                                                          "id": data.id ?? ""
-                                                        });
-                                                  },
-                                                  child: ShopProductWidget(
-                                                    color: data.color ?? "",
-                                                    size: (data.size != null &&
-                                                            data.size!
-                                                                .isNotEmpty)
-                                                        ? data.size![0].size ??
-                                                            ""
-                                                        : "",
-                                                    brandId: data.brand!.id,
-                                                    isWishlisted: false,
-                                                    brand: data.brand!.name
-                                                        .toString(),
-                                                    productId: data.id,
-                                                    title: data.title,
-                                                    image: data.images![0],
-                                                    discountPrice:
-                                                        data.salePrice ?? 0,
-                                                    actualPrice: data
-                                                        .regularPrice!
-                                                        .toInt(),
-                                                    discount:
-                                                        data.discount!.toInt(),
-                                                  ),
-                                                );
-                                        },
-                                      ),
+                                                      context.pushNamed(
+                                                          MyAppRouteConstants
+                                                              .singleProductRouteName,
+                                                          pathParameters: {
+                                                            "id": data.id ?? ""
+                                                          });
+                                                    },
+                                                    child: ShopProductWidget(
+                                                      color: data.color ?? "",
+                                                      size: (data.size !=
+                                                                  null &&
+                                                              data.size!
+                                                                  .isNotEmpty)
+                                                          ? data.size![0]
+                                                                  .size ??
+                                                              ""
+                                                          : "",
+                                                      brandId: data.brand!.id,
+                                                      isWishlisted: false,
+                                                      brand: data.brand!.name
+                                                          .toString(),
+                                                      productId: data.id,
+                                                      title: data.title,
+                                                      image: data.images![0],
+                                                      discountPrice:
+                                                          data.salePrice ?? 0,
+                                                      actualPrice: data
+                                                          .regularPrice!
+                                                          .toInt(),
+                                                      discount: data.discount!
+                                                          .toInt(),
+                                                    ),
+                                                  );
+                                          }),
                                     )
                           : state.productLoading
                               ? ShimmerUtils.productsShimmers(context: context)
-                              : state.product?.result?.products?.length == 0
+                              : state.multiFilterProduct?.result?.products
+                                          ?.length ==
+                                      0
                                   ? Padding(
                                       padding: EdgeInsets.only(
                                           top: SizeUtility(context).height /
@@ -300,12 +335,12 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                               : SizeUtility(context).height /
                                                   2.9,
                                         ),
-                                        itemCount: state.product?.result
-                                                ?.products?.length ??
+                                        itemCount: state.multiFilterProduct
+                                                ?.result?.products?.length ??
                                             10,
                                         itemBuilder: (context, index) {
-                                          final datas = state.product?.result
-                                              ?.products?[index];
+                                          final datas = state.multiFilterProduct
+                                              ?.result?.products?[index];
                                           if (datas == null) {
                                             return const SizedBox();
                                           }

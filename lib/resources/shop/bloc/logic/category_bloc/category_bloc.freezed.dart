@@ -54,6 +54,7 @@ mixin _$CategoryEvent {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -91,6 +92,7 @@ mixin _$CategoryEvent {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -127,6 +129,7 @@ mixin _$CategoryEvent {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,6 +162,8 @@ mixin _$CategoryEvent {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -185,6 +190,7 @@ mixin _$CategoryEvent {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -211,6 +217,7 @@ mixin _$CategoryEvent {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -354,6 +361,7 @@ class _$FetchFilterProductsImpl implements FetchFilterProducts {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return fetchFilterProducts(category, subCategory, itemId);
   }
@@ -394,6 +402,7 @@ class _$FetchFilterProductsImpl implements FetchFilterProducts {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return fetchFilterProducts?.call(category, subCategory, itemId);
   }
@@ -433,6 +442,7 @@ class _$FetchFilterProductsImpl implements FetchFilterProducts {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchFilterProducts != null) {
@@ -471,6 +481,8 @@ class _$FetchFilterProductsImpl implements FetchFilterProducts {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return fetchFilterProducts(this);
   }
@@ -500,6 +512,7 @@ class _$FetchFilterProductsImpl implements FetchFilterProducts {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return fetchFilterProducts?.call(this);
   }
@@ -529,6 +542,7 @@ class _$FetchFilterProductsImpl implements FetchFilterProducts {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchFilterProducts != null) {
@@ -626,6 +640,7 @@ class _$FetchCategoriesImpl implements FetchCategories {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return fetchCategories();
   }
@@ -666,6 +681,7 @@ class _$FetchCategoriesImpl implements FetchCategories {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return fetchCategories?.call();
   }
@@ -705,6 +721,7 @@ class _$FetchCategoriesImpl implements FetchCategories {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchCategories != null) {
@@ -743,6 +760,8 @@ class _$FetchCategoriesImpl implements FetchCategories {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return fetchCategories(this);
   }
@@ -772,6 +791,7 @@ class _$FetchCategoriesImpl implements FetchCategories {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return fetchCategories?.call(this);
   }
@@ -801,6 +821,7 @@ class _$FetchCategoriesImpl implements FetchCategories {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchCategories != null) {
@@ -888,6 +909,7 @@ class _$FetchSubcategoriesImpl implements FetchSubcategories {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return fetchSubcategories();
   }
@@ -928,6 +950,7 @@ class _$FetchSubcategoriesImpl implements FetchSubcategories {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return fetchSubcategories?.call();
   }
@@ -967,6 +990,7 @@ class _$FetchSubcategoriesImpl implements FetchSubcategories {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchSubcategories != null) {
@@ -1005,6 +1029,8 @@ class _$FetchSubcategoriesImpl implements FetchSubcategories {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return fetchSubcategories(this);
   }
@@ -1034,6 +1060,7 @@ class _$FetchSubcategoriesImpl implements FetchSubcategories {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return fetchSubcategories?.call(this);
   }
@@ -1063,6 +1090,7 @@ class _$FetchSubcategoriesImpl implements FetchSubcategories {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchSubcategories != null) {
@@ -1177,6 +1205,7 @@ class _$OnSelectFilterImpl implements OnSelectFilter {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return onSelectFilter(value);
   }
@@ -1217,6 +1246,7 @@ class _$OnSelectFilterImpl implements OnSelectFilter {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return onSelectFilter?.call(value);
   }
@@ -1256,6 +1286,7 @@ class _$OnSelectFilterImpl implements OnSelectFilter {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (onSelectFilter != null) {
@@ -1294,6 +1325,8 @@ class _$OnSelectFilterImpl implements OnSelectFilter {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return onSelectFilter(this);
   }
@@ -1323,6 +1356,7 @@ class _$OnSelectFilterImpl implements OnSelectFilter {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return onSelectFilter?.call(this);
   }
@@ -1352,6 +1386,7 @@ class _$OnSelectFilterImpl implements OnSelectFilter {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (onSelectFilter != null) {
@@ -1474,6 +1509,7 @@ class _$FetchItemsByCategoryImpl implements FetchItemsByCategory {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return fetchItemsByCategory(category);
   }
@@ -1514,6 +1550,7 @@ class _$FetchItemsByCategoryImpl implements FetchItemsByCategory {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return fetchItemsByCategory?.call(category);
   }
@@ -1553,6 +1590,7 @@ class _$FetchItemsByCategoryImpl implements FetchItemsByCategory {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchItemsByCategory != null) {
@@ -1591,6 +1629,8 @@ class _$FetchItemsByCategoryImpl implements FetchItemsByCategory {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return fetchItemsByCategory(this);
   }
@@ -1620,6 +1660,7 @@ class _$FetchItemsByCategoryImpl implements FetchItemsByCategory {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return fetchItemsByCategory?.call(this);
   }
@@ -1649,6 +1690,7 @@ class _$FetchItemsByCategoryImpl implements FetchItemsByCategory {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchItemsByCategory != null) {
@@ -1771,6 +1813,7 @@ class _$ChangeCategoryIndexEventImpl implements ChangeCategoryIndexEvent {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return changeCategoryIndexEvent(index);
   }
@@ -1811,6 +1854,7 @@ class _$ChangeCategoryIndexEventImpl implements ChangeCategoryIndexEvent {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return changeCategoryIndexEvent?.call(index);
   }
@@ -1850,6 +1894,7 @@ class _$ChangeCategoryIndexEventImpl implements ChangeCategoryIndexEvent {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (changeCategoryIndexEvent != null) {
@@ -1888,6 +1933,8 @@ class _$ChangeCategoryIndexEventImpl implements ChangeCategoryIndexEvent {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return changeCategoryIndexEvent(this);
   }
@@ -1917,6 +1964,7 @@ class _$ChangeCategoryIndexEventImpl implements ChangeCategoryIndexEvent {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return changeCategoryIndexEvent?.call(this);
   }
@@ -1946,6 +1994,7 @@ class _$ChangeCategoryIndexEventImpl implements ChangeCategoryIndexEvent {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (changeCategoryIndexEvent != null) {
@@ -2075,6 +2124,7 @@ class _$FilterEventImpl implements FilterEvent {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return filterEvent(category, subCategory);
   }
@@ -2115,6 +2165,7 @@ class _$FilterEventImpl implements FilterEvent {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return filterEvent?.call(category, subCategory);
   }
@@ -2154,6 +2205,7 @@ class _$FilterEventImpl implements FilterEvent {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (filterEvent != null) {
@@ -2192,6 +2244,8 @@ class _$FilterEventImpl implements FilterEvent {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return filterEvent(this);
   }
@@ -2221,6 +2275,7 @@ class _$FilterEventImpl implements FilterEvent {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return filterEvent?.call(this);
   }
@@ -2250,6 +2305,7 @@ class _$FilterEventImpl implements FilterEvent {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (filterEvent != null) {
@@ -2373,6 +2429,7 @@ class _$FilterBrandPickEventImpl implements FilterBrandPickEvent {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return filterBrandPickEvent(brand);
   }
@@ -2413,6 +2470,7 @@ class _$FilterBrandPickEventImpl implements FilterBrandPickEvent {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return filterBrandPickEvent?.call(brand);
   }
@@ -2452,6 +2510,7 @@ class _$FilterBrandPickEventImpl implements FilterBrandPickEvent {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (filterBrandPickEvent != null) {
@@ -2490,6 +2549,8 @@ class _$FilterBrandPickEventImpl implements FilterBrandPickEvent {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return filterBrandPickEvent(this);
   }
@@ -2519,6 +2580,7 @@ class _$FilterBrandPickEventImpl implements FilterBrandPickEvent {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return filterBrandPickEvent?.call(this);
   }
@@ -2548,6 +2610,7 @@ class _$FilterBrandPickEventImpl implements FilterBrandPickEvent {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (filterBrandPickEvent != null) {
@@ -2668,6 +2731,7 @@ class _$PriceRangeEventImpl implements PriceRangeEvent {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return priceRangeEvent(index);
   }
@@ -2708,6 +2772,7 @@ class _$PriceRangeEventImpl implements PriceRangeEvent {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return priceRangeEvent?.call(index);
   }
@@ -2747,6 +2812,7 @@ class _$PriceRangeEventImpl implements PriceRangeEvent {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (priceRangeEvent != null) {
@@ -2785,6 +2851,8 @@ class _$PriceRangeEventImpl implements PriceRangeEvent {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return priceRangeEvent(this);
   }
@@ -2814,6 +2882,7 @@ class _$PriceRangeEventImpl implements PriceRangeEvent {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return priceRangeEvent?.call(this);
   }
@@ -2843,6 +2912,7 @@ class _$PriceRangeEventImpl implements PriceRangeEvent {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (priceRangeEvent != null) {
@@ -2969,6 +3039,7 @@ class _$FetchSubCategoriesByCategoryIdImpl
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return fetchSubCategoriesByCategoryId(categoryId);
   }
@@ -3009,6 +3080,7 @@ class _$FetchSubCategoriesByCategoryIdImpl
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return fetchSubCategoriesByCategoryId?.call(categoryId);
   }
@@ -3048,6 +3120,7 @@ class _$FetchSubCategoriesByCategoryIdImpl
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchSubCategoriesByCategoryId != null) {
@@ -3086,6 +3159,8 @@ class _$FetchSubCategoriesByCategoryIdImpl
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return fetchSubCategoriesByCategoryId(this);
   }
@@ -3115,6 +3190,7 @@ class _$FetchSubCategoriesByCategoryIdImpl
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return fetchSubCategoriesByCategoryId?.call(this);
   }
@@ -3144,6 +3220,7 @@ class _$FetchSubCategoriesByCategoryIdImpl
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchSubCategoriesByCategoryId != null) {
@@ -3288,6 +3365,7 @@ class _$SavePriceRangeImpl implements SavePriceRange {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return savePriceRange(minPrice, maxPrice, rangeValues);
   }
@@ -3328,6 +3406,7 @@ class _$SavePriceRangeImpl implements SavePriceRange {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return savePriceRange?.call(minPrice, maxPrice, rangeValues);
   }
@@ -3367,6 +3446,7 @@ class _$SavePriceRangeImpl implements SavePriceRange {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (savePriceRange != null) {
@@ -3405,6 +3485,8 @@ class _$SavePriceRangeImpl implements SavePriceRange {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return savePriceRange(this);
   }
@@ -3434,6 +3516,7 @@ class _$SavePriceRangeImpl implements SavePriceRange {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return savePriceRange?.call(this);
   }
@@ -3463,6 +3546,7 @@ class _$SavePriceRangeImpl implements SavePriceRange {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (savePriceRange != null) {
@@ -3608,6 +3692,7 @@ class _$FetchProductSortByPriceImpl implements FetchProductSortByPrice {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return fetchProductSortByPrice(order, category, subCategory);
   }
@@ -3648,6 +3733,7 @@ class _$FetchProductSortByPriceImpl implements FetchProductSortByPrice {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return fetchProductSortByPrice?.call(order, category, subCategory);
   }
@@ -3687,6 +3773,7 @@ class _$FetchProductSortByPriceImpl implements FetchProductSortByPrice {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchProductSortByPrice != null) {
@@ -3725,6 +3812,8 @@ class _$FetchProductSortByPriceImpl implements FetchProductSortByPrice {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return fetchProductSortByPrice(this);
   }
@@ -3754,6 +3843,7 @@ class _$FetchProductSortByPriceImpl implements FetchProductSortByPrice {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return fetchProductSortByPrice?.call(this);
   }
@@ -3783,6 +3873,7 @@ class _$FetchProductSortByPriceImpl implements FetchProductSortByPrice {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchProductSortByPrice != null) {
@@ -3907,6 +3998,7 @@ class _$ChangeSortListIndexImpl implements ChangeSortListIndex {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return changeSortListIndex(index);
   }
@@ -3947,6 +4039,7 @@ class _$ChangeSortListIndexImpl implements ChangeSortListIndex {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return changeSortListIndex?.call(index);
   }
@@ -3986,6 +4079,7 @@ class _$ChangeSortListIndexImpl implements ChangeSortListIndex {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (changeSortListIndex != null) {
@@ -4024,6 +4118,8 @@ class _$ChangeSortListIndexImpl implements ChangeSortListIndex {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return changeSortListIndex(this);
   }
@@ -4053,6 +4149,7 @@ class _$ChangeSortListIndexImpl implements ChangeSortListIndex {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return changeSortListIndex?.call(this);
   }
@@ -4082,6 +4179,7 @@ class _$ChangeSortListIndexImpl implements ChangeSortListIndex {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (changeSortListIndex != null) {
@@ -4306,6 +4404,7 @@ class _$FetchProductsByFilterImpl implements FetchProductsByFilter {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return fetchProductsByFilter(
         minPrice, maxPrice, category, subCategory, brand, color, itemId);
@@ -4347,6 +4446,7 @@ class _$FetchProductsByFilterImpl implements FetchProductsByFilter {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return fetchProductsByFilter?.call(
         minPrice, maxPrice, category, subCategory, brand, color, itemId);
@@ -4387,6 +4487,7 @@ class _$FetchProductsByFilterImpl implements FetchProductsByFilter {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchProductsByFilter != null) {
@@ -4426,6 +4527,8 @@ class _$FetchProductsByFilterImpl implements FetchProductsByFilter {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return fetchProductsByFilter(this);
   }
@@ -4455,6 +4558,7 @@ class _$FetchProductsByFilterImpl implements FetchProductsByFilter {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return fetchProductsByFilter?.call(this);
   }
@@ -4484,6 +4588,7 @@ class _$FetchProductsByFilterImpl implements FetchProductsByFilter {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchProductsByFilter != null) {
@@ -4616,6 +4721,7 @@ class _$ChangeFilterIndexImpl implements ChangeFilterIndex {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return changeFilterIndex(index);
   }
@@ -4656,6 +4762,7 @@ class _$ChangeFilterIndexImpl implements ChangeFilterIndex {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return changeFilterIndex?.call(index);
   }
@@ -4695,6 +4802,7 @@ class _$ChangeFilterIndexImpl implements ChangeFilterIndex {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (changeFilterIndex != null) {
@@ -4733,6 +4841,8 @@ class _$ChangeFilterIndexImpl implements ChangeFilterIndex {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return changeFilterIndex(this);
   }
@@ -4762,6 +4872,7 @@ class _$ChangeFilterIndexImpl implements ChangeFilterIndex {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return changeFilterIndex?.call(this);
   }
@@ -4791,6 +4902,7 @@ class _$ChangeFilterIndexImpl implements ChangeFilterIndex {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (changeFilterIndex != null) {
@@ -4914,6 +5026,7 @@ class _$FetchFilterOptionEventImpl implements FetchFilterOptionEvent {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return fetchFilterOptionEvent(category);
   }
@@ -4954,6 +5067,7 @@ class _$FetchFilterOptionEventImpl implements FetchFilterOptionEvent {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return fetchFilterOptionEvent?.call(category);
   }
@@ -4993,6 +5107,7 @@ class _$FetchFilterOptionEventImpl implements FetchFilterOptionEvent {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchFilterOptionEvent != null) {
@@ -5031,6 +5146,8 @@ class _$FetchFilterOptionEventImpl implements FetchFilterOptionEvent {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return fetchFilterOptionEvent(this);
   }
@@ -5060,6 +5177,7 @@ class _$FetchFilterOptionEventImpl implements FetchFilterOptionEvent {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return fetchFilterOptionEvent?.call(this);
   }
@@ -5089,6 +5207,7 @@ class _$FetchFilterOptionEventImpl implements FetchFilterOptionEvent {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (fetchFilterOptionEvent != null) {
@@ -5211,6 +5330,7 @@ class _$SaveSubcategoryFiltersImpl implements SaveSubcategoryFilters {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return saveSubcategoryFilters(value);
   }
@@ -5251,6 +5371,7 @@ class _$SaveSubcategoryFiltersImpl implements SaveSubcategoryFilters {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return saveSubcategoryFilters?.call(value);
   }
@@ -5290,6 +5411,7 @@ class _$SaveSubcategoryFiltersImpl implements SaveSubcategoryFilters {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (saveSubcategoryFilters != null) {
@@ -5328,6 +5450,8 @@ class _$SaveSubcategoryFiltersImpl implements SaveSubcategoryFilters {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return saveSubcategoryFilters(this);
   }
@@ -5357,6 +5481,7 @@ class _$SaveSubcategoryFiltersImpl implements SaveSubcategoryFilters {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return saveSubcategoryFilters?.call(this);
   }
@@ -5386,6 +5511,7 @@ class _$SaveSubcategoryFiltersImpl implements SaveSubcategoryFilters {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (saveSubcategoryFilters != null) {
@@ -5506,6 +5632,7 @@ class _$SaveItemTypeFiltersImpl implements SaveItemTypeFilters {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return saveItemTypeFilters(value);
   }
@@ -5546,6 +5673,7 @@ class _$SaveItemTypeFiltersImpl implements SaveItemTypeFilters {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return saveItemTypeFilters?.call(value);
   }
@@ -5585,6 +5713,7 @@ class _$SaveItemTypeFiltersImpl implements SaveItemTypeFilters {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (saveItemTypeFilters != null) {
@@ -5623,6 +5752,8 @@ class _$SaveItemTypeFiltersImpl implements SaveItemTypeFilters {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return saveItemTypeFilters(this);
   }
@@ -5652,6 +5783,7 @@ class _$SaveItemTypeFiltersImpl implements SaveItemTypeFilters {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return saveItemTypeFilters?.call(this);
   }
@@ -5681,6 +5813,7 @@ class _$SaveItemTypeFiltersImpl implements SaveItemTypeFilters {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (saveItemTypeFilters != null) {
@@ -5801,6 +5934,7 @@ class _$SaveBrandsFiltersImpl implements SaveBrandsFilters {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return saveBrandsFilters(value);
   }
@@ -5841,6 +5975,7 @@ class _$SaveBrandsFiltersImpl implements SaveBrandsFilters {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return saveBrandsFilters?.call(value);
   }
@@ -5880,6 +6015,7 @@ class _$SaveBrandsFiltersImpl implements SaveBrandsFilters {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (saveBrandsFilters != null) {
@@ -5918,6 +6054,8 @@ class _$SaveBrandsFiltersImpl implements SaveBrandsFilters {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return saveBrandsFilters(this);
   }
@@ -5947,6 +6085,7 @@ class _$SaveBrandsFiltersImpl implements SaveBrandsFilters {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return saveBrandsFilters?.call(this);
   }
@@ -5976,6 +6115,7 @@ class _$SaveBrandsFiltersImpl implements SaveBrandsFilters {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (saveBrandsFilters != null) {
@@ -6096,6 +6236,7 @@ class _$SaveColorsFiltersImpl implements SaveColorsFilters {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return saveColorsFilters(value);
   }
@@ -6136,6 +6277,7 @@ class _$SaveColorsFiltersImpl implements SaveColorsFilters {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return saveColorsFilters?.call(value);
   }
@@ -6175,6 +6317,7 @@ class _$SaveColorsFiltersImpl implements SaveColorsFilters {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (saveColorsFilters != null) {
@@ -6213,6 +6356,8 @@ class _$SaveColorsFiltersImpl implements SaveColorsFilters {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return saveColorsFilters(this);
   }
@@ -6242,6 +6387,7 @@ class _$SaveColorsFiltersImpl implements SaveColorsFilters {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return saveColorsFilters?.call(this);
   }
@@ -6271,6 +6417,7 @@ class _$SaveColorsFiltersImpl implements SaveColorsFilters {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (saveColorsFilters != null) {
@@ -6365,6 +6512,7 @@ class _$ClearAllFilterEventImpl implements ClearAllFilterEvent {
     required TResult Function(String value) saveBrandsFilters,
     required TResult Function(String value) saveColorsFilters,
     required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
   }) {
     return clearAllFilterEvent();
   }
@@ -6405,6 +6553,7 @@ class _$ClearAllFilterEventImpl implements ClearAllFilterEvent {
     TResult? Function(String value)? saveBrandsFilters,
     TResult? Function(String value)? saveColorsFilters,
     TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
   }) {
     return clearAllFilterEvent?.call();
   }
@@ -6444,6 +6593,7 @@ class _$ClearAllFilterEventImpl implements ClearAllFilterEvent {
     TResult Function(String value)? saveBrandsFilters,
     TResult Function(String value)? saveColorsFilters,
     TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (clearAllFilterEvent != null) {
@@ -6482,6 +6632,8 @@ class _$ClearAllFilterEventImpl implements ClearAllFilterEvent {
     required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
     required TResult Function(SaveColorsFilters value) saveColorsFilters,
     required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
   }) {
     return clearAllFilterEvent(this);
   }
@@ -6511,6 +6663,7 @@ class _$ClearAllFilterEventImpl implements ClearAllFilterEvent {
     TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult? Function(SaveColorsFilters value)? saveColorsFilters,
     TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
   }) {
     return clearAllFilterEvent?.call(this);
   }
@@ -6540,6 +6693,7 @@ class _$ClearAllFilterEventImpl implements ClearAllFilterEvent {
     TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
     TResult Function(SaveColorsFilters value)? saveColorsFilters,
     TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
     required TResult orElse(),
   }) {
     if (clearAllFilterEvent != null) {
@@ -6551,6 +6705,277 @@ class _$ClearAllFilterEventImpl implements ClearAllFilterEvent {
 
 abstract class ClearAllFilterEvent implements CategoryEvent {
   const factory ClearAllFilterEvent() = _$ClearAllFilterEventImpl;
+}
+
+/// @nodoc
+abstract class _$$MakePaginationDefaultImplCopyWith<$Res> {
+  factory _$$MakePaginationDefaultImplCopyWith(
+          _$MakePaginationDefaultImpl value,
+          $Res Function(_$MakePaginationDefaultImpl) then) =
+      __$$MakePaginationDefaultImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MakePaginationDefaultImplCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res, _$MakePaginationDefaultImpl>
+    implements _$$MakePaginationDefaultImplCopyWith<$Res> {
+  __$$MakePaginationDefaultImplCopyWithImpl(_$MakePaginationDefaultImpl _value,
+      $Res Function(_$MakePaginationDefaultImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MakePaginationDefaultImpl implements MakePaginationDefault {
+  const _$MakePaginationDefaultImpl();
+
+  @override
+  String toString() {
+    return 'CategoryEvent.makePaginationDefualt()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MakePaginationDefaultImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
+        fetchFilterProducts,
+    required TResult Function() fetchCategories,
+    required TResult Function() fetchSubcategories,
+    required TResult Function(String value) onSelectFilter,
+    required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
+    required TResult Function(String? category, String? subCategory)
+        filterEvent,
+    required TResult Function(String brand) filterBrandPickEvent,
+    required TResult Function(int index) priceRangeEvent,
+    required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
+    required TResult Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)
+        savePriceRange,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
+    required TResult Function(int index) changeSortListIndex,
+    required TResult Function(
+            int minPrice,
+            int maxPrice,
+            String category,
+            List<String> subCategory,
+            List<String> brand,
+            List<String> color,
+            List<String>? itemId)
+        fetchProductsByFilter,
+    required TResult Function(int index) changeFilterIndex,
+    required TResult Function(String category) fetchFilterOptionEvent,
+    required TResult Function(String value) saveSubcategoryFilters,
+    required TResult Function(String value) saveItemTypeFilters,
+    required TResult Function(String value) saveBrandsFilters,
+    required TResult Function(String value) saveColorsFilters,
+    required TResult Function() clearAllFilterEvent,
+    required TResult Function() makePaginationDefualt,
+  }) {
+    return makePaginationDefualt();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult? Function()? fetchCategories,
+    TResult? Function()? fetchSubcategories,
+    TResult? Function(String value)? onSelectFilter,
+    TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
+    TResult? Function(String? category, String? subCategory)? filterEvent,
+    TResult? Function(String brand)? filterBrandPickEvent,
+    TResult? Function(int index)? priceRangeEvent,
+    TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult? Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(
+            int minPrice,
+            int maxPrice,
+            String category,
+            List<String> subCategory,
+            List<String> brand,
+            List<String> color,
+            List<String>? itemId)?
+        fetchProductsByFilter,
+    TResult? Function(int index)? changeFilterIndex,
+    TResult? Function(String category)? fetchFilterOptionEvent,
+    TResult? Function(String value)? saveSubcategoryFilters,
+    TResult? Function(String value)? saveItemTypeFilters,
+    TResult? Function(String value)? saveBrandsFilters,
+    TResult? Function(String value)? saveColorsFilters,
+    TResult? Function()? clearAllFilterEvent,
+    TResult? Function()? makePaginationDefualt,
+  }) {
+    return makePaginationDefualt?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult Function()? fetchCategories,
+    TResult Function()? fetchSubcategories,
+    TResult Function(String value)? onSelectFilter,
+    TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
+    TResult Function(String? category, String? subCategory)? filterEvent,
+    TResult Function(String brand)? filterBrandPickEvent,
+    TResult Function(int index)? priceRangeEvent,
+    TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult Function(int index)? changeSortListIndex,
+    TResult Function(
+            int minPrice,
+            int maxPrice,
+            String category,
+            List<String> subCategory,
+            List<String> brand,
+            List<String> color,
+            List<String>? itemId)?
+        fetchProductsByFilter,
+    TResult Function(int index)? changeFilterIndex,
+    TResult Function(String category)? fetchFilterOptionEvent,
+    TResult Function(String value)? saveSubcategoryFilters,
+    TResult Function(String value)? saveItemTypeFilters,
+    TResult Function(String value)? saveBrandsFilters,
+    TResult Function(String value)? saveColorsFilters,
+    TResult Function()? clearAllFilterEvent,
+    TResult Function()? makePaginationDefualt,
+    required TResult orElse(),
+  }) {
+    if (makePaginationDefualt != null) {
+      return makePaginationDefualt();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFilterProducts value) fetchFilterProducts,
+    required TResult Function(FetchCategories value) fetchCategories,
+    required TResult Function(FetchSubcategories value) fetchSubcategories,
+    required TResult Function(OnSelectFilter value) onSelectFilter,
+    required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
+    required TResult Function(FilterEvent value) filterEvent,
+    required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
+    required TResult Function(PriceRangeEvent value) priceRangeEvent,
+    required TResult Function(FetchSubCategoriesByCategoryId value)
+        fetchSubCategoriesByCategoryId,
+    required TResult Function(SavePriceRange value) savePriceRange,
+    required TResult Function(FetchProductSortByPrice value)
+        fetchProductSortByPrice,
+    required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilter value)
+        fetchProductsByFilter,
+    required TResult Function(ChangeFilterIndex value) changeFilterIndex,
+    required TResult Function(FetchFilterOptionEvent value)
+        fetchFilterOptionEvent,
+    required TResult Function(SaveSubcategoryFilters value)
+        saveSubcategoryFilters,
+    required TResult Function(SaveItemTypeFilters value) saveItemTypeFilters,
+    required TResult Function(SaveBrandsFilters value) saveBrandsFilters,
+    required TResult Function(SaveColorsFilters value) saveColorsFilters,
+    required TResult Function(ClearAllFilterEvent value) clearAllFilterEvent,
+    required TResult Function(MakePaginationDefault value)
+        makePaginationDefualt,
+  }) {
+    return makePaginationDefualt(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult? Function(FetchCategories value)? fetchCategories,
+    TResult? Function(FetchSubcategories value)? fetchSubcategories,
+    TResult? Function(OnSelectFilter value)? onSelectFilter,
+    TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult? Function(FilterEvent value)? filterEvent,
+    TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult? Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult? Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult? Function(SavePriceRange value)? savePriceRange,
+    TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilter value)? fetchProductsByFilter,
+    TResult? Function(ChangeFilterIndex value)? changeFilterIndex,
+    TResult? Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
+    TResult? Function(SaveSubcategoryFilters value)? saveSubcategoryFilters,
+    TResult? Function(SaveItemTypeFilters value)? saveItemTypeFilters,
+    TResult? Function(SaveBrandsFilters value)? saveBrandsFilters,
+    TResult? Function(SaveColorsFilters value)? saveColorsFilters,
+    TResult? Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult? Function(MakePaginationDefault value)? makePaginationDefualt,
+  }) {
+    return makePaginationDefualt?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult Function(FetchCategories value)? fetchCategories,
+    TResult Function(FetchSubcategories value)? fetchSubcategories,
+    TResult Function(OnSelectFilter value)? onSelectFilter,
+    TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult Function(FilterEvent value)? filterEvent,
+    TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult Function(SavePriceRange value)? savePriceRange,
+    TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilter value)? fetchProductsByFilter,
+    TResult Function(ChangeFilterIndex value)? changeFilterIndex,
+    TResult Function(FetchFilterOptionEvent value)? fetchFilterOptionEvent,
+    TResult Function(SaveSubcategoryFilters value)? saveSubcategoryFilters,
+    TResult Function(SaveItemTypeFilters value)? saveItemTypeFilters,
+    TResult Function(SaveBrandsFilters value)? saveBrandsFilters,
+    TResult Function(SaveColorsFilters value)? saveColorsFilters,
+    TResult Function(ClearAllFilterEvent value)? clearAllFilterEvent,
+    TResult Function(MakePaginationDefault value)? makePaginationDefualt,
+    required TResult orElse(),
+  }) {
+    if (makePaginationDefualt != null) {
+      return makePaginationDefualt(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MakePaginationDefault implements CategoryEvent {
+  const factory MakePaginationDefault() = _$MakePaginationDefaultImpl;
 }
 
 /// @nodoc
@@ -6585,6 +7010,8 @@ mixin _$CategoryState {
   List<String> get colorsFiltersList => throw _privateConstructorUsedError;
   List<String> get itemTypeFiltersList => throw _privateConstructorUsedError;
   ProductResponse? get multiFilterProduct => throw _privateConstructorUsedError;
+  bool get reachMax => throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryStateCopyWith<CategoryState> get copyWith =>
@@ -6624,7 +7051,9 @@ abstract class $CategoryStateCopyWith<$Res> {
       List<String> brandsFiltersList,
       List<String> colorsFiltersList,
       List<String> itemTypeFiltersList,
-      ProductResponse? multiFilterProduct});
+      ProductResponse? multiFilterProduct,
+      bool reachMax,
+      int currentPage});
 
   $ProductModelCopyWith<$Res>? get product;
   $CategoryModelCopyWith<$Res>? get category;
@@ -6675,6 +7104,8 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
     Object? colorsFiltersList = null,
     Object? itemTypeFiltersList = null,
     Object? multiFilterProduct = freezed,
+    Object? reachMax = null,
+    Object? currentPage = null,
   }) {
     return _then(_value.copyWith(
       product: freezed == product
@@ -6785,6 +7216,14 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
           ? _value.multiFilterProduct
           : multiFilterProduct // ignore: cast_nullable_to_non_nullable
               as ProductResponse?,
+      reachMax: null == reachMax
+          ? _value.reachMax
+          : reachMax // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -6911,7 +7350,9 @@ abstract class _$$CategoryStateImplCopyWith<$Res>
       List<String> brandsFiltersList,
       List<String> colorsFiltersList,
       List<String> itemTypeFiltersList,
-      ProductResponse? multiFilterProduct});
+      ProductResponse? multiFilterProduct,
+      bool reachMax,
+      int currentPage});
 
   @override
   $ProductModelCopyWith<$Res>? get product;
@@ -6967,6 +7408,8 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
     Object? colorsFiltersList = null,
     Object? itemTypeFiltersList = null,
     Object? multiFilterProduct = freezed,
+    Object? reachMax = null,
+    Object? currentPage = null,
   }) {
     return _then(_$CategoryStateImpl(
       product: freezed == product
@@ -7077,6 +7520,14 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
           ? _value.multiFilterProduct
           : multiFilterProduct // ignore: cast_nullable_to_non_nullable
               as ProductResponse?,
+      reachMax: null == reachMax
+          ? _value.reachMax
+          : reachMax // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -7111,7 +7562,9 @@ class _$CategoryStateImpl implements _CategoryState {
       required final List<String> brandsFiltersList,
       required final List<String> colorsFiltersList,
       required final List<String> itemTypeFiltersList,
-      required this.multiFilterProduct})
+      required this.multiFilterProduct,
+      required this.reachMax,
+      required this.currentPage})
       : _subcategoryFiltersList = subcategoryFiltersList,
         _brandsFiltersList = brandsFiltersList,
         _colorsFiltersList = colorsFiltersList,
@@ -7199,10 +7652,14 @@ class _$CategoryStateImpl implements _CategoryState {
 
   @override
   final ProductResponse? multiFilterProduct;
+  @override
+  final bool reachMax;
+  @override
+  final int currentPage;
 
   @override
   String toString() {
-    return 'CategoryState(product: $product, productLoading: $productLoading, errorMessage: $errorMessage, category: $category, categoryLoading: $categoryLoading, subCategory: $subCategory, subCategoryLoading: $subCategoryLoading, selectedFilter: $selectedFilter, filterCategory: $filterCategory, filterSubCategory: $filterSubCategory, filterBrand: $filterBrand, priceRangeIndex: $priceRangeIndex, subcategoryByCategoryIdModel: $subcategoryByCategoryIdModel, filterVal: $filterVal, minPrice: $minPrice, maxPrice: $maxPrice, sortListIndex: $sortListIndex, rangeValues: $rangeValues, categoryItemModel: $categoryItemModel, categoryIndex: $categoryIndex, filterIndex: $filterIndex, filterOptionModel: $filterOptionModel, subcategoryFiltersList: $subcategoryFiltersList, brandsFiltersList: $brandsFiltersList, colorsFiltersList: $colorsFiltersList, itemTypeFiltersList: $itemTypeFiltersList, multiFilterProduct: $multiFilterProduct)';
+    return 'CategoryState(product: $product, productLoading: $productLoading, errorMessage: $errorMessage, category: $category, categoryLoading: $categoryLoading, subCategory: $subCategory, subCategoryLoading: $subCategoryLoading, selectedFilter: $selectedFilter, filterCategory: $filterCategory, filterSubCategory: $filterSubCategory, filterBrand: $filterBrand, priceRangeIndex: $priceRangeIndex, subcategoryByCategoryIdModel: $subcategoryByCategoryIdModel, filterVal: $filterVal, minPrice: $minPrice, maxPrice: $maxPrice, sortListIndex: $sortListIndex, rangeValues: $rangeValues, categoryItemModel: $categoryItemModel, categoryIndex: $categoryIndex, filterIndex: $filterIndex, filterOptionModel: $filterOptionModel, subcategoryFiltersList: $subcategoryFiltersList, brandsFiltersList: $brandsFiltersList, colorsFiltersList: $colorsFiltersList, itemTypeFiltersList: $itemTypeFiltersList, multiFilterProduct: $multiFilterProduct, reachMax: $reachMax, currentPage: $currentPage)';
   }
 
   @override
@@ -7264,7 +7721,11 @@ class _$CategoryStateImpl implements _CategoryState {
             const DeepCollectionEquality()
                 .equals(other._itemTypeFiltersList, _itemTypeFiltersList) &&
             (identical(other.multiFilterProduct, multiFilterProduct) ||
-                other.multiFilterProduct == multiFilterProduct));
+                other.multiFilterProduct == multiFilterProduct) &&
+            (identical(other.reachMax, reachMax) ||
+                other.reachMax == reachMax) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage));
   }
 
   @override
@@ -7296,7 +7757,9 @@ class _$CategoryStateImpl implements _CategoryState {
         const DeepCollectionEquality().hash(_brandsFiltersList),
         const DeepCollectionEquality().hash(_colorsFiltersList),
         const DeepCollectionEquality().hash(_itemTypeFiltersList),
-        multiFilterProduct
+        multiFilterProduct,
+        reachMax,
+        currentPage
       ]);
 
   @JsonKey(ignore: true)
@@ -7334,8 +7797,9 @@ abstract class _CategoryState implements CategoryState {
       required final List<String> brandsFiltersList,
       required final List<String> colorsFiltersList,
       required final List<String> itemTypeFiltersList,
-      required final ProductResponse?
-          multiFilterProduct}) = _$CategoryStateImpl;
+      required final ProductResponse? multiFilterProduct,
+      required final bool reachMax,
+      required final int currentPage}) = _$CategoryStateImpl;
 
   @override
   ProductModel? get product;
@@ -7391,6 +7855,10 @@ abstract class _CategoryState implements CategoryState {
   List<String> get itemTypeFiltersList;
   @override
   ProductResponse? get multiFilterProduct;
+  @override
+  bool get reachMax;
+  @override
+  int get currentPage;
   @override
   @JsonKey(ignore: true)
   _$$CategoryStateImplCopyWith<_$CategoryStateImpl> get copyWith =>

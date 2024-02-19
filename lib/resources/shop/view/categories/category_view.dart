@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class CategoryView extends StatefulWidget {
 class _CategoryViewState extends State<CategoryView> {
   @override
   void initState() {
+    log(widget.categoryType.toString());
     BlocProvider.of<ShopProductsBloc>(context)
       ..add(ShopProductsEvent.fetchFlashSaleProducts(
           endPointSlug:

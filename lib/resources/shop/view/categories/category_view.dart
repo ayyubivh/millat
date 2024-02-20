@@ -199,6 +199,7 @@ class _CategoryViewState extends State<CategoryView> {
                                   itemBuilder: (context, index) {
                                     final subCategoryData =
                                         productItems?[index];
+
                                     return GestureDetector(
                                       onTap: () {
                                         context.pushNamed(
@@ -438,12 +439,30 @@ class _CategoryViewState extends State<CategoryView> {
                                         //           imageUrl: img[i] ?? "",
                                         //           category: widget.category),
                                         // ));
+                                        final data = state.specificCategoryModel
+                                            ?.result?.data;
+                                        if (data?.smallBannerImage?.first
+                                                .routing ==
+                                            null) {
+                                          return;
+                                        }
                                         context.pushNamed(
                                             MyAppRouteConstants
                                                 .shopSpecificCategoryBannerRouteName,
                                             extra: {
                                               'imageUrl': img[i],
-                                              'category': widget.category,
+                                              'category': data
+                                                      ?.smallBannerImage
+                                                      ?.first
+                                                      .routing
+                                                      ?.categoryId ??
+                                                  "",
+                                              'subcategory': data
+                                                      ?.smallBannerImage
+                                                      ?.first
+                                                      .routing
+                                                      ?.subCategoryId ??
+                                                  ""
                                             });
                                       },
                                       child: Padding(
@@ -529,12 +548,22 @@ class _CategoryViewState extends State<CategoryView> {
                                 SizeUtility(context).width, 100)
                             : GestureDetector(
                                 onTap: () {
+                                  final data =
+                                      state.specificCategoryModel?.result?.data;
+                                  if (data?.bigBannerImage?.routing == null) {
+                                    return;
+                                  }
                                   context.pushNamed(
                                       MyAppRouteConstants
                                           .shopSpecificCategoryBannerRouteName,
                                       extra: {
                                         'imageUrl': bigBannerImageUrl,
-                                        'category': widget.category,
+                                        'category': data?.bigBannerImage
+                                                ?.routing?.categoryId ??
+                                            "",
+                                        'subcategory': data?.bigBannerImage
+                                                ?.routing?.subCategoryId ??
+                                            ""
                                       });
                                 },
                                 child: Utilities().buildCachedNetworkImage(

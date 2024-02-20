@@ -688,6 +688,7 @@ BigBannerImage _$BigBannerImageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BigBannerImage {
+  Routing? get routing => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get discount => throw _privateConstructorUsedError;
@@ -704,7 +705,10 @@ abstract class $BigBannerImageCopyWith<$Res> {
           BigBannerImage value, $Res Function(BigBannerImage) then) =
       _$BigBannerImageCopyWithImpl<$Res, BigBannerImage>;
   @useResult
-  $Res call({String? imageUrl, String? url, String? discount});
+  $Res call(
+      {Routing? routing, String? imageUrl, String? url, String? discount});
+
+  $RoutingCopyWith<$Res>? get routing;
 }
 
 /// @nodoc
@@ -720,11 +724,16 @@ class _$BigBannerImageCopyWithImpl<$Res, $Val extends BigBannerImage>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? routing = freezed,
     Object? imageUrl = freezed,
     Object? url = freezed,
     Object? discount = freezed,
   }) {
     return _then(_value.copyWith(
+      routing: freezed == routing
+          ? _value.routing
+          : routing // ignore: cast_nullable_to_non_nullable
+              as Routing?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -739,6 +748,18 @@ class _$BigBannerImageCopyWithImpl<$Res, $Val extends BigBannerImage>
               as String?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RoutingCopyWith<$Res>? get routing {
+    if (_value.routing == null) {
+      return null;
+    }
+
+    return $RoutingCopyWith<$Res>(_value.routing!, (value) {
+      return _then(_value.copyWith(routing: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -749,7 +770,11 @@ abstract class _$$BigBannerImageImplCopyWith<$Res>
       __$$BigBannerImageImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? imageUrl, String? url, String? discount});
+  $Res call(
+      {Routing? routing, String? imageUrl, String? url, String? discount});
+
+  @override
+  $RoutingCopyWith<$Res>? get routing;
 }
 
 /// @nodoc
@@ -763,11 +788,16 @@ class __$$BigBannerImageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? routing = freezed,
     Object? imageUrl = freezed,
     Object? url = freezed,
     Object? discount = freezed,
   }) {
     return _then(_$BigBannerImageImpl(
+      routing: freezed == routing
+          ? _value.routing
+          : routing // ignore: cast_nullable_to_non_nullable
+              as Routing?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -788,11 +818,16 @@ class __$$BigBannerImageImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BigBannerImageImpl implements _BigBannerImage {
   const _$BigBannerImageImpl(
-      {required this.imageUrl, required this.url, required this.discount});
+      {required this.routing,
+      required this.imageUrl,
+      required this.url,
+      required this.discount});
 
   factory _$BigBannerImageImpl.fromJson(Map<String, dynamic> json) =>
       _$$BigBannerImageImplFromJson(json);
 
+  @override
+  final Routing? routing;
   @override
   final String? imageUrl;
   @override
@@ -802,7 +837,7 @@ class _$BigBannerImageImpl implements _BigBannerImage {
 
   @override
   String toString() {
-    return 'BigBannerImage(imageUrl: $imageUrl, url: $url, discount: $discount)';
+    return 'BigBannerImage(routing: $routing, imageUrl: $imageUrl, url: $url, discount: $discount)';
   }
 
   @override
@@ -810,6 +845,7 @@ class _$BigBannerImageImpl implements _BigBannerImage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BigBannerImageImpl &&
+            (identical(other.routing, routing) || other.routing == routing) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.url, url) || other.url == url) &&
@@ -819,7 +855,8 @@ class _$BigBannerImageImpl implements _BigBannerImage {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, imageUrl, url, discount);
+  int get hashCode =>
+      Object.hash(runtimeType, routing, imageUrl, url, discount);
 
   @JsonKey(ignore: true)
   @override
@@ -838,13 +875,16 @@ class _$BigBannerImageImpl implements _BigBannerImage {
 
 abstract class _BigBannerImage implements BigBannerImage {
   const factory _BigBannerImage(
-      {required final String? imageUrl,
+      {required final Routing? routing,
+      required final String? imageUrl,
       required final String? url,
       required final String? discount}) = _$BigBannerImageImpl;
 
   factory _BigBannerImage.fromJson(Map<String, dynamic> json) =
       _$BigBannerImageImpl.fromJson;
 
+  @override
+  Routing? get routing;
   @override
   String? get imageUrl;
   @override
@@ -857,12 +897,234 @@ abstract class _BigBannerImage implements BigBannerImage {
       throw _privateConstructorUsedError;
 }
 
+Routing _$RoutingFromJson(Map<String, dynamic> json) {
+  return _Routing.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Routing {
+  String? get route => throw _privateConstructorUsedError;
+  String? get categoryId => throw _privateConstructorUsedError;
+  String? get subCategoryId => throw _privateConstructorUsedError;
+  String? get itemTypeId => throw _privateConstructorUsedError;
+  String? get productId => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RoutingCopyWith<Routing> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RoutingCopyWith<$Res> {
+  factory $RoutingCopyWith(Routing value, $Res Function(Routing) then) =
+      _$RoutingCopyWithImpl<$Res, Routing>;
+  @useResult
+  $Res call(
+      {String? route,
+      String? categoryId,
+      String? subCategoryId,
+      String? itemTypeId,
+      String? productId});
+}
+
+/// @nodoc
+class _$RoutingCopyWithImpl<$Res, $Val extends Routing>
+    implements $RoutingCopyWith<$Res> {
+  _$RoutingCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? route = freezed,
+    Object? categoryId = freezed,
+    Object? subCategoryId = freezed,
+    Object? itemTypeId = freezed,
+    Object? productId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      route: freezed == route
+          ? _value.route
+          : route // ignore: cast_nullable_to_non_nullable
+              as String?,
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategoryId: freezed == subCategoryId
+          ? _value.subCategoryId
+          : subCategoryId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      itemTypeId: freezed == itemTypeId
+          ? _value.itemTypeId
+          : itemTypeId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      productId: freezed == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$RoutingImplCopyWith<$Res> implements $RoutingCopyWith<$Res> {
+  factory _$$RoutingImplCopyWith(
+          _$RoutingImpl value, $Res Function(_$RoutingImpl) then) =
+      __$$RoutingImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? route,
+      String? categoryId,
+      String? subCategoryId,
+      String? itemTypeId,
+      String? productId});
+}
+
+/// @nodoc
+class __$$RoutingImplCopyWithImpl<$Res>
+    extends _$RoutingCopyWithImpl<$Res, _$RoutingImpl>
+    implements _$$RoutingImplCopyWith<$Res> {
+  __$$RoutingImplCopyWithImpl(
+      _$RoutingImpl _value, $Res Function(_$RoutingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? route = freezed,
+    Object? categoryId = freezed,
+    Object? subCategoryId = freezed,
+    Object? itemTypeId = freezed,
+    Object? productId = freezed,
+  }) {
+    return _then(_$RoutingImpl(
+      route: freezed == route
+          ? _value.route
+          : route // ignore: cast_nullable_to_non_nullable
+              as String?,
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategoryId: freezed == subCategoryId
+          ? _value.subCategoryId
+          : subCategoryId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      itemTypeId: freezed == itemTypeId
+          ? _value.itemTypeId
+          : itemTypeId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      productId: freezed == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RoutingImpl implements _Routing {
+  const _$RoutingImpl(
+      {required this.route,
+      required this.categoryId,
+      required this.subCategoryId,
+      required this.itemTypeId,
+      required this.productId});
+
+  factory _$RoutingImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RoutingImplFromJson(json);
+
+  @override
+  final String? route;
+  @override
+  final String? categoryId;
+  @override
+  final String? subCategoryId;
+  @override
+  final String? itemTypeId;
+  @override
+  final String? productId;
+
+  @override
+  String toString() {
+    return 'Routing(route: $route, categoryId: $categoryId, subCategoryId: $subCategoryId, itemTypeId: $itemTypeId, productId: $productId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RoutingImpl &&
+            (identical(other.route, route) || other.route == route) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId) &&
+            (identical(other.subCategoryId, subCategoryId) ||
+                other.subCategoryId == subCategoryId) &&
+            (identical(other.itemTypeId, itemTypeId) ||
+                other.itemTypeId == itemTypeId) &&
+            (identical(other.productId, productId) ||
+                other.productId == productId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, route, categoryId, subCategoryId, itemTypeId, productId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RoutingImplCopyWith<_$RoutingImpl> get copyWith =>
+      __$$RoutingImplCopyWithImpl<_$RoutingImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RoutingImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Routing implements Routing {
+  const factory _Routing(
+      {required final String? route,
+      required final String? categoryId,
+      required final String? subCategoryId,
+      required final String? itemTypeId,
+      required final String? productId}) = _$RoutingImpl;
+
+  factory _Routing.fromJson(Map<String, dynamic> json) = _$RoutingImpl.fromJson;
+
+  @override
+  String? get route;
+  @override
+  String? get categoryId;
+  @override
+  String? get subCategoryId;
+  @override
+  String? get itemTypeId;
+  @override
+  String? get productId;
+  @override
+  @JsonKey(ignore: true)
+  _$$RoutingImplCopyWith<_$RoutingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 SmallBannerImage _$SmallBannerImageFromJson(Map<String, dynamic> json) {
   return _SmallBannerImage.fromJson(json);
 }
 
 /// @nodoc
 mixin _$SmallBannerImage {
+  Routing? get routing => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get discount => throw _privateConstructorUsedError;
@@ -880,7 +1142,14 @@ abstract class $SmallBannerImageCopyWith<$Res> {
           SmallBannerImage value, $Res Function(SmallBannerImage) then) =
       _$SmallBannerImageCopyWithImpl<$Res, SmallBannerImage>;
   @useResult
-  $Res call({String? imageUrl, String? url, String? discount, String? id});
+  $Res call(
+      {Routing? routing,
+      String? imageUrl,
+      String? url,
+      String? discount,
+      String? id});
+
+  $RoutingCopyWith<$Res>? get routing;
 }
 
 /// @nodoc
@@ -896,12 +1165,17 @@ class _$SmallBannerImageCopyWithImpl<$Res, $Val extends SmallBannerImage>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? routing = freezed,
     Object? imageUrl = freezed,
     Object? url = freezed,
     Object? discount = freezed,
     Object? id = freezed,
   }) {
     return _then(_value.copyWith(
+      routing: freezed == routing
+          ? _value.routing
+          : routing // ignore: cast_nullable_to_non_nullable
+              as Routing?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -920,6 +1194,18 @@ class _$SmallBannerImageCopyWithImpl<$Res, $Val extends SmallBannerImage>
               as String?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RoutingCopyWith<$Res>? get routing {
+    if (_value.routing == null) {
+      return null;
+    }
+
+    return $RoutingCopyWith<$Res>(_value.routing!, (value) {
+      return _then(_value.copyWith(routing: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -930,7 +1216,15 @@ abstract class _$$SmallBannerImageImplCopyWith<$Res>
       __$$SmallBannerImageImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? imageUrl, String? url, String? discount, String? id});
+  $Res call(
+      {Routing? routing,
+      String? imageUrl,
+      String? url,
+      String? discount,
+      String? id});
+
+  @override
+  $RoutingCopyWith<$Res>? get routing;
 }
 
 /// @nodoc
@@ -944,12 +1238,17 @@ class __$$SmallBannerImageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? routing = freezed,
     Object? imageUrl = freezed,
     Object? url = freezed,
     Object? discount = freezed,
     Object? id = freezed,
   }) {
     return _then(_$SmallBannerImageImpl(
+      routing: freezed == routing
+          ? _value.routing
+          : routing // ignore: cast_nullable_to_non_nullable
+              as Routing?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -974,7 +1273,8 @@ class __$$SmallBannerImageImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SmallBannerImageImpl implements _SmallBannerImage {
   const _$SmallBannerImageImpl(
-      {required this.imageUrl,
+      {required this.routing,
+      required this.imageUrl,
       required this.url,
       required this.discount,
       required this.id});
@@ -982,6 +1282,8 @@ class _$SmallBannerImageImpl implements _SmallBannerImage {
   factory _$SmallBannerImageImpl.fromJson(Map<String, dynamic> json) =>
       _$$SmallBannerImageImplFromJson(json);
 
+  @override
+  final Routing? routing;
   @override
   final String? imageUrl;
   @override
@@ -993,7 +1295,7 @@ class _$SmallBannerImageImpl implements _SmallBannerImage {
 
   @override
   String toString() {
-    return 'SmallBannerImage(imageUrl: $imageUrl, url: $url, discount: $discount, id: $id)';
+    return 'SmallBannerImage(routing: $routing, imageUrl: $imageUrl, url: $url, discount: $discount, id: $id)';
   }
 
   @override
@@ -1001,6 +1303,7 @@ class _$SmallBannerImageImpl implements _SmallBannerImage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SmallBannerImageImpl &&
+            (identical(other.routing, routing) || other.routing == routing) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.url, url) || other.url == url) &&
@@ -1011,7 +1314,8 @@ class _$SmallBannerImageImpl implements _SmallBannerImage {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, imageUrl, url, discount, id);
+  int get hashCode =>
+      Object.hash(runtimeType, routing, imageUrl, url, discount, id);
 
   @JsonKey(ignore: true)
   @override
@@ -1030,7 +1334,8 @@ class _$SmallBannerImageImpl implements _SmallBannerImage {
 
 abstract class _SmallBannerImage implements SmallBannerImage {
   const factory _SmallBannerImage(
-      {required final String? imageUrl,
+      {required final Routing? routing,
+      required final String? imageUrl,
       required final String? url,
       required final String? discount,
       required final String? id}) = _$SmallBannerImageImpl;
@@ -1038,6 +1343,8 @@ abstract class _SmallBannerImage implements SmallBannerImage {
   factory _SmallBannerImage.fromJson(Map<String, dynamic> json) =
       _$SmallBannerImageImpl.fromJson;
 
+  @override
+  Routing? get routing;
   @override
   String? get imageUrl;
   @override

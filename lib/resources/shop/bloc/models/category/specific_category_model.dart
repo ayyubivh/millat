@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'specific_category_model.g.dart';
 part 'specific_category_model.freezed.dart';
 
@@ -43,6 +42,7 @@ class Data with _$Data {
 @freezed
 class BigBannerImage with _$BigBannerImage {
   const factory BigBannerImage({
+    required Routing? routing,
     required String? imageUrl,
     required String? url,
     required String? discount,
@@ -53,8 +53,23 @@ class BigBannerImage with _$BigBannerImage {
 }
 
 @freezed
+class Routing with _$Routing {
+  const factory Routing({
+    required String? route,
+    required String? categoryId,
+    required String? subCategoryId,
+    required String? itemTypeId,
+    required String? productId,
+  }) = _Routing;
+
+  factory Routing.fromJson(Map<String, dynamic> json) =>
+      _$RoutingFromJson(json);
+}
+
+@freezed
 class SmallBannerImage with _$SmallBannerImage {
   const factory SmallBannerImage({
+    required Routing? routing,
     required String? imageUrl,
     required String? url,
     required String? discount,

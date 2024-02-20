@@ -434,6 +434,7 @@ class MyAppRouter {
                               child: ShopSpecificCategoryBannerView(
                                 category: data['category'],
                                 imageUrl: data['imageUrl'],
+                                subCategory: data['subcategory'],
                               ),
                             );
                           },

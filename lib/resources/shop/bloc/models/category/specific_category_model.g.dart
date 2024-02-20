@@ -67,6 +67,9 @@ Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
 
 _$BigBannerImageImpl _$$BigBannerImageImplFromJson(Map<String, dynamic> json) =>
     _$BigBannerImageImpl(
+      routing: json['routing'] == null
+          ? null
+          : Routing.fromJson(json['routing'] as Map<String, dynamic>),
       imageUrl: json['imageUrl'] as String?,
       url: json['url'] as String?,
       discount: json['discount'] as String?,
@@ -75,14 +78,36 @@ _$BigBannerImageImpl _$$BigBannerImageImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$BigBannerImageImplToJson(
         _$BigBannerImageImpl instance) =>
     <String, dynamic>{
+      'routing': instance.routing,
       'imageUrl': instance.imageUrl,
       'url': instance.url,
       'discount': instance.discount,
     };
 
+_$RoutingImpl _$$RoutingImplFromJson(Map<String, dynamic> json) =>
+    _$RoutingImpl(
+      route: json['route'] as String?,
+      categoryId: json['categoryId'] as String?,
+      subCategoryId: json['subCategoryId'] as String?,
+      itemTypeId: json['itemTypeId'] as String?,
+      productId: json['productId'] as String?,
+    );
+
+Map<String, dynamic> _$$RoutingImplToJson(_$RoutingImpl instance) =>
+    <String, dynamic>{
+      'route': instance.route,
+      'categoryId': instance.categoryId,
+      'subCategoryId': instance.subCategoryId,
+      'itemTypeId': instance.itemTypeId,
+      'productId': instance.productId,
+    };
+
 _$SmallBannerImageImpl _$$SmallBannerImageImplFromJson(
         Map<String, dynamic> json) =>
     _$SmallBannerImageImpl(
+      routing: json['routing'] == null
+          ? null
+          : Routing.fromJson(json['routing'] as Map<String, dynamic>),
       imageUrl: json['imageUrl'] as String?,
       url: json['url'] as String?,
       discount: json['discount'] as String?,
@@ -92,6 +117,7 @@ _$SmallBannerImageImpl _$$SmallBannerImageImplFromJson(
 Map<String, dynamic> _$$SmallBannerImageImplToJson(
         _$SmallBannerImageImpl instance) =>
     <String, dynamic>{
+      'routing': instance.routing,
       'imageUrl': instance.imageUrl,
       'url': instance.url,
       'discount': instance.discount,

@@ -11,15 +11,20 @@ import '../../bloc/logic/category_bloc/category_bloc.dart';
 class ShopSpecificCategoryBannerView extends StatelessWidget {
   final String imageUrl;
   final String category;
+  final String subCategory;
   const ShopSpecificCategoryBannerView(
-      {super.key, required this.imageUrl, required this.category});
+      {super.key,
+      required this.imageUrl,
+      required this.category,
+      required this.subCategory});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
         create: (context) => CategoryBloc()
-          ..add(FetchFilterProducts(category: category, subCategory: category)),
+          ..add(FetchFilterProducts(
+              category: category, subCategory: subCategory)),
         child: SingleChildScrollView(
           child: Stack(
             children: [
@@ -52,7 +57,7 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                                   const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 20,
-                                mainAxisExtent: 295,
+                                mainAxisExtent: 315,
                                 mainAxisSpacing: 20,
                               ),
                               itemCount:

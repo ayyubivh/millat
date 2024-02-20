@@ -196,12 +196,17 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
 
   void scheduleInitialNamazTimingNotification(
       DateTime upcomingNamazTime, String namazTimeName, int id) {
-    NotificationService().scheduleNotification(
+    try {
+      NotificationService().scheduleNotification(
         scheduledNotificationDateTime: upcomingNamazTime,
         title: 'Namaz Reminder',
         body: namazTimeName,
         isNotificationOn: true,
-        id: id);
+        id: id,
+      );
+    } catch (e) {
+      print('Error scheduling notification: $e');
+    }
   }
 
   _prayerTimingEvent(PrayerTimingEvent event, Emitter<NamazTimingState> emit) {

@@ -560,9 +560,6 @@ class _EditProfileViewState extends State<EditProfileView> {
                                     profession: _professionController.text,
                                     image: ''));
 
-                                context
-                                    .read<DatabaseBloc>()
-                                    .add(FetchAuthUser(context: context));
                                 context.pop();
                               }
                             },

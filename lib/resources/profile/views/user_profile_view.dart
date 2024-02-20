@@ -53,7 +53,6 @@ class _UserProfileViewState extends State<UserProfileView> {
       },
       builder: (context, state) {
         if (state.isLoading || state.editIsloading) {
-          context.read<DatabaseBloc>().add(FetchAuthUser(context: context));
           return const Loader();
         }
         return Scaffold(

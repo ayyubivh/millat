@@ -75,8 +75,11 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       debugPrint('data $data');
       if (data['status'] == true) {
         debugPrint('data $data');
+        final res = await authService.fetchAuthUser(context: event.context);
+
         emit(
           state.copyWith(
+              authUserModel: res,
               editIsloading: false,
               editSuccesMessage: data['message'].toString()),
         );
@@ -87,7 +90,9 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
               editFailedMessage: data['message'].toString()),
         );
 
-        emit(state.copyWith(editFailedMessage: ""));
+        emit(state.copyWith(
+          editFailedMessage: "",
+        ));
 
         print(
             "state in the bloc of edit failed message ${state.editFailedMessage}");

@@ -12,15 +12,39 @@ import '../../../utils/size_utility.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../../shop/view/orders/widgets/orders_card_widget.dart';
 
-class OrderHistoryView extends StatelessWidget {
+class OrderHistoryView extends StatefulWidget {
   const OrderHistoryView({super.key});
 
   @override
+  State<OrderHistoryView> createState() => _OrderHistoryViewState();
+}
+
+class _OrderHistoryViewState extends State<OrderHistoryView> {
+  final _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    _fetchApi();
+    _scrollController.addListener(_scrolListener);
+
+    super.initState();
+  }
+
+  _scrolListener() {
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      _fetchApi();
+    }
+  }
+
+  _fetchApi() {
+    BlocProvider.of<ShopProductsBloc>(context)
+      ..add(const ShopProductsEvent.makePaginationDefault())
+      ..add(const ShopProductsEvent.fetchOrders());
+  }
+
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<ShopProductsBloc>(context)
-          .add(ShopProductsEvent.fetchOrders(context));
-    });
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -57,6 +81,7 @@ class OrderHistoryView extends StatelessWidget {
             );
           }
           return ListView.builder(
+            controller: _scrollController,
             itemCount: state.orderModel?.result?.orderProducts?.length ?? 0,
             itemBuilder: (context, index) {
               final data = state.orderModel?.result?.orderProducts?[index];

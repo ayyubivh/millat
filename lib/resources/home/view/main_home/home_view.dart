@@ -185,7 +185,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                         : MainAxisAlignment.spaceAround,
                     children: [
                       buildIconWidget(
-                        image: AppAssetsStrings.shopHome,
+                        image: AppAssetsStrings.newShop,
                         text: Appstrings.shop,
                         onTap: () {
                           context
@@ -195,7 +195,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                       ),
                       BlocBuilder<LocationBloc, LocationState>(
                         builder: (context, state) => buildIconWidget(
-                          image: AppAssetsStrings.travelHome,
+                          image: AppAssetsStrings.newTravel,
                           text: Appstrings.travel,
                           onTap: () {
                             context.read<HomeBloc>().add(
@@ -213,7 +213,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                         ),
                       ),
                       buildIconWidget(
-                        image: AppAssetsStrings.rewardHome,
+                        image: AppAssetsStrings.newReward,
                         text: Appstrings.rewards,
                         onTap: () {
                           context

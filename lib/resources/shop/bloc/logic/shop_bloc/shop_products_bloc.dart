@@ -98,6 +98,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchBrandProductsItemCount>(_fetchBrandProductsItemCount);
     on<_ChangeSizeIndex>(_changeSizeIndex);
     on<EmptyRazorpayOrderId>(_emptyRazorpayOrderId);
+    on<MakePaginationDefualt>(_makePaginationDefault);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -330,10 +331,25 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   }
 
   _fetchOrders(FetchOrders event, Emitter<ShopProductsState> emit) async {
+    if (state.reachMax) {
+      return;
+    }
     emit(state.copyWith(isLoading: true, errorMessage: ""));
     try {
-      final data = await ordersService.fetchOrders(event.context);
-      emit(state.copyWith(orderModel: data, isLoading: false));
+      final data = await ordersService.fetchOrders(state.orderCurrentPage);
+      if (data.result?.totalPage == state.orderCurrentPage) {
+        emit(state.copyWith(
+            orderModel: data,
+            isLoading: false,
+            orderCurrentPage: state.orderCurrentPage + 1,
+            reachMax: true));
+      } else {
+        emit(state.copyWith(
+          orderModel: data,
+          isLoading: false,
+          orderCurrentPage: state.orderCurrentPage + 1,
+        ));
+      }
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
     }
@@ -756,7 +772,8 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
         emit(state.copyWith(
             isLoading: false, orderId: orderIds, orderSucces: true));
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          event.context.pushReplacementNamed(MyAppRouteConstants.homeTabsRouteName);
+          event.context
+              .pushReplacementNamed(MyAppRouteConstants.homeTabsRouteName);
         });
         debugPrint('here is the order id in the bloc ${state.orderId}');
       }
@@ -821,5 +838,10 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   _emptyRazorpayOrderId(
       EmptyRazorpayOrderId event, Emitter<ShopProductsState> emit) {
     emit(state.copyWith(orderIdRazorPay: ""));
+  }
+
+  _makePaginationDefault(
+      MakePaginationDefualt event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(reachMax: false, orderCurrentPage: 1));
   }
 }

@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:millat/resources/shop/bloc/models/orders/reason_model.dart';
-import 'package:millat/utils/utils.dart';
 import '../../../../services/http_services.dart';
 import 'package:http/http.dart' as http;
 
@@ -154,8 +153,8 @@ class OrdersService extends HttpServices {
   }
 
   //For Getting Orders
-  Future<OrderModel> fetchOrders(BuildContext context) async {
-    const endPoint = "order";
+  Future<OrderModel> fetchOrders(int page) async {
+    final endPoint = "order?page=$page";
 
     final response = await get(endPoint: endPoint, isToken: true);
 

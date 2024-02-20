@@ -55,7 +55,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -97,6 +97,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -136,7 +137,7 @@ mixin _$ShopProductsEvent {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -176,6 +177,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -215,7 +217,7 @@ mixin _$ShopProductsEvent {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -255,6 +257,7 @@ mixin _$ShopProductsEvent {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -340,6 +343,8 @@ mixin _$ShopProductsEvent {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -413,6 +418,7 @@ mixin _$ShopProductsEvent {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -486,6 +492,7 @@ mixin _$ShopProductsEvent {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -614,7 +621,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -656,6 +663,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchFlashSaleProducts(endPointSlug);
   }
@@ -698,7 +706,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -738,6 +746,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchFlashSaleProducts?.call(endPointSlug);
   }
@@ -780,7 +789,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -820,6 +829,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -911,6 +921,8 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchFlashSaleProducts(this);
   }
@@ -987,6 +999,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchFlashSaleProducts?.call(this);
   }
@@ -1063,6 +1076,7 @@ class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -1186,7 +1200,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -1228,6 +1242,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchPopularProducts(endPointSlug);
   }
@@ -1270,7 +1285,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -1310,6 +1325,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchPopularProducts?.call(endPointSlug);
   }
@@ -1352,7 +1368,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -1392,6 +1408,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -1483,6 +1500,8 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchPopularProducts(this);
   }
@@ -1559,6 +1578,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchPopularProducts?.call(this);
   }
@@ -1635,6 +1655,7 @@ class _$FetchPopularProductsImpl implements FetchPopularProducts {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -1733,7 +1754,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -1775,6 +1796,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchRecentProductProducts();
   }
@@ -1817,7 +1839,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -1857,6 +1879,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchRecentProductProducts?.call();
   }
@@ -1899,7 +1922,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -1939,6 +1962,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -2030,6 +2054,8 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchRecentProductProducts(this);
   }
@@ -2106,6 +2132,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchRecentProductProducts?.call(this);
   }
@@ -2182,6 +2209,7 @@ class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -2270,7 +2298,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -2312,6 +2340,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchHomeBanners();
   }
@@ -2354,7 +2383,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -2394,6 +2423,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchHomeBanners?.call();
   }
@@ -2436,7 +2466,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -2476,6 +2506,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -2567,6 +2598,8 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchHomeBanners(this);
   }
@@ -2643,6 +2676,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchHomeBanners?.call(this);
   }
@@ -2719,6 +2753,7 @@ class _$FetchHomeBannersImpl implements FetchHomeBanners {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -2807,7 +2842,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -2849,6 +2884,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchShopBanners();
   }
@@ -2891,7 +2927,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -2931,6 +2967,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchShopBanners?.call();
   }
@@ -2973,7 +3010,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -3013,6 +3050,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -3104,6 +3142,8 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchShopBanners(this);
   }
@@ -3180,6 +3220,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchShopBanners?.call(this);
   }
@@ -3256,6 +3297,7 @@ class _$FetchShopBannersImpl implements FetchShopBanners {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -3371,7 +3413,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -3413,6 +3455,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchArticles(searchQuery);
   }
@@ -3455,7 +3498,7 @@ class _$FetchArticlesImpl implements FetchArticles {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -3495,6 +3538,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchArticles?.call(searchQuery);
   }
@@ -3537,7 +3581,7 @@ class _$FetchArticlesImpl implements FetchArticles {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -3577,6 +3621,7 @@ class _$FetchArticlesImpl implements FetchArticles {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -3668,6 +3713,8 @@ class _$FetchArticlesImpl implements FetchArticles {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchArticles(this);
   }
@@ -3744,6 +3791,7 @@ class _$FetchArticlesImpl implements FetchArticles {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchArticles?.call(this);
   }
@@ -3820,6 +3868,7 @@ class _$FetchArticlesImpl implements FetchArticles {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -3914,7 +3963,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -3956,6 +4005,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchShopByBrand();
   }
@@ -3998,7 +4048,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -4038,6 +4088,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchShopByBrand?.call();
   }
@@ -4080,7 +4131,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -4120,6 +4171,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -4211,6 +4263,8 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchShopByBrand(this);
   }
@@ -4287,6 +4341,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchShopByBrand?.call(this);
   }
@@ -4363,6 +4418,7 @@ class _$FetchShopByBrandImpl implements FetchShopByBrand {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -4477,7 +4533,7 @@ class _$FetchWishListImpl implements FetchWishList {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -4519,6 +4575,7 @@ class _$FetchWishListImpl implements FetchWishList {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchWishList(context);
   }
@@ -4561,7 +4618,7 @@ class _$FetchWishListImpl implements FetchWishList {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -4601,6 +4658,7 @@ class _$FetchWishListImpl implements FetchWishList {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchWishList?.call(context);
   }
@@ -4643,7 +4701,7 @@ class _$FetchWishListImpl implements FetchWishList {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -4683,6 +4741,7 @@ class _$FetchWishListImpl implements FetchWishList {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -4774,6 +4833,8 @@ class _$FetchWishListImpl implements FetchWishList {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchWishList(this);
   }
@@ -4850,6 +4911,7 @@ class _$FetchWishListImpl implements FetchWishList {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchWishList?.call(this);
   }
@@ -4926,6 +4988,7 @@ class _$FetchWishListImpl implements FetchWishList {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -5045,7 +5108,7 @@ class _$SearchProductImpl implements SearchProduct {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -5087,6 +5150,7 @@ class _$SearchProductImpl implements SearchProduct {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return searchProduct(query);
   }
@@ -5129,7 +5193,7 @@ class _$SearchProductImpl implements SearchProduct {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -5169,6 +5233,7 @@ class _$SearchProductImpl implements SearchProduct {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return searchProduct?.call(query);
   }
@@ -5211,7 +5276,7 @@ class _$SearchProductImpl implements SearchProduct {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -5251,6 +5316,7 @@ class _$SearchProductImpl implements SearchProduct {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -5342,6 +5408,8 @@ class _$SearchProductImpl implements SearchProduct {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return searchProduct(this);
   }
@@ -5418,6 +5486,7 @@ class _$SearchProductImpl implements SearchProduct {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return searchProduct?.call(this);
   }
@@ -5494,6 +5563,7 @@ class _$SearchProductImpl implements SearchProduct {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -5624,7 +5694,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -5666,6 +5736,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return addWishListEvent(productId, context);
   }
@@ -5708,7 +5779,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -5748,6 +5819,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return addWishListEvent?.call(productId, context);
   }
@@ -5790,7 +5862,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -5830,6 +5902,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -5921,6 +5994,8 @@ class _$AddWishListEventImpl implements AddWishListEvent {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return addWishListEvent(this);
   }
@@ -5997,6 +6072,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return addWishListEvent?.call(this);
   }
@@ -6073,6 +6149,7 @@ class _$AddWishListEventImpl implements AddWishListEvent {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -6206,7 +6283,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -6248,6 +6325,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return removeWishlistEvent(productId, context);
   }
@@ -6290,7 +6368,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -6330,6 +6408,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return removeWishlistEvent?.call(productId, context);
   }
@@ -6372,7 +6451,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -6412,6 +6491,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -6503,6 +6583,8 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return removeWishlistEvent(this);
   }
@@ -6579,6 +6661,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return removeWishlistEvent?.call(this);
   }
@@ -6655,6 +6738,7 @@ class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -6782,7 +6866,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -6824,6 +6908,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchShopByBrandProducts(brandName);
   }
@@ -6866,7 +6951,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -6906,6 +6991,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchShopByBrandProducts?.call(brandName);
   }
@@ -6948,7 +7034,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -6988,6 +7074,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -7079,6 +7166,8 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchShopByBrandProducts(this);
   }
@@ -7155,6 +7244,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchShopByBrandProducts?.call(this);
   }
@@ -7231,6 +7321,7 @@ class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -7352,7 +7443,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -7394,6 +7485,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return tabIndexChangeEvent(index);
   }
@@ -7436,7 +7528,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -7476,6 +7568,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return tabIndexChangeEvent?.call(index);
   }
@@ -7518,7 +7611,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -7558,6 +7651,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -7649,6 +7743,8 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return tabIndexChangeEvent(this);
   }
@@ -7725,6 +7821,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return tabIndexChangeEvent?.call(this);
   }
@@ -7801,6 +7898,7 @@ class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -7999,7 +8097,7 @@ class _$PostOrdersImpl implements PostOrders {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -8041,6 +8139,7 @@ class _$PostOrdersImpl implements PostOrders {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return postOrders(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -8084,7 +8183,7 @@ class _$PostOrdersImpl implements PostOrders {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -8124,6 +8223,7 @@ class _$PostOrdersImpl implements PostOrders {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return postOrders?.call(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -8167,7 +8267,7 @@ class _$PostOrdersImpl implements PostOrders {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -8207,6 +8307,7 @@ class _$PostOrdersImpl implements PostOrders {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -8299,6 +8400,8 @@ class _$PostOrdersImpl implements PostOrders {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return postOrders(this);
   }
@@ -8375,6 +8478,7 @@ class _$PostOrdersImpl implements PostOrders {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return postOrders?.call(this);
   }
@@ -8451,6 +8555,7 @@ class _$PostOrdersImpl implements PostOrders {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -8633,7 +8738,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -8675,6 +8780,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return postOnlieOrders(context, razorpayOrderId, razorpayPaymentId,
         razorpaySignature, addressId);
@@ -8718,7 +8824,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -8758,6 +8864,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return postOnlieOrders?.call(context, razorpayOrderId, razorpayPaymentId,
         razorpaySignature, addressId);
@@ -8801,7 +8908,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -8841,6 +8948,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (postOnlieOrders != null) {
@@ -8933,6 +9041,8 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return postOnlieOrders(this);
   }
@@ -9009,6 +9119,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return postOnlieOrders?.call(this);
   }
@@ -9085,6 +9196,7 @@ class _$PostOnlieOrdersImpl implements PostOnlieOrders {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (postOnlieOrders != null) {
@@ -9226,7 +9338,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -9268,6 +9380,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return postOrderIdOnlinePayment(context, amount);
   }
@@ -9310,7 +9423,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -9350,6 +9463,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return postOrderIdOnlinePayment?.call(context, amount);
   }
@@ -9392,7 +9506,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -9432,6 +9546,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (postOrderIdOnlinePayment != null) {
@@ -9523,6 +9638,8 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return postOrderIdOnlinePayment(this);
   }
@@ -9599,6 +9716,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return postOrderIdOnlinePayment?.call(this);
   }
@@ -9675,6 +9793,7 @@ class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (postOrderIdOnlinePayment != null) {
@@ -9819,7 +9938,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -9861,6 +9980,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return postOrdersRewards(context, addressId, productId);
   }
@@ -9903,7 +10023,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -9943,6 +10063,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return postOrdersRewards?.call(context, addressId, productId);
   }
@@ -9985,7 +10106,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -10025,6 +10146,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (postOrdersRewards != null) {
@@ -10116,6 +10238,8 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return postOrdersRewards(this);
   }
@@ -10192,6 +10316,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return postOrdersRewards?.call(this);
   }
@@ -10268,6 +10393,7 @@ class _$PostOrdersRewardsImpl implements PostOrdersRewards {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (postOrdersRewards != null) {
@@ -10296,8 +10422,6 @@ abstract class _$$FetchOrdersImplCopyWith<$Res> {
   factory _$$FetchOrdersImplCopyWith(
           _$FetchOrdersImpl value, $Res Function(_$FetchOrdersImpl) then) =
       __$$FetchOrdersImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({BuildContext context});
 }
 
 /// @nodoc
@@ -10307,50 +10431,26 @@ class __$$FetchOrdersImplCopyWithImpl<$Res>
   __$$FetchOrdersImplCopyWithImpl(
       _$FetchOrdersImpl _value, $Res Function(_$FetchOrdersImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? context = null,
-  }) {
-    return _then(_$FetchOrdersImpl(
-      null == context
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as BuildContext,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$FetchOrdersImpl implements FetchOrders {
-  const _$FetchOrdersImpl(this.context);
-
-  @override
-  final BuildContext context;
+  const _$FetchOrdersImpl();
 
   @override
   String toString() {
-    return 'ShopProductsEvent.fetchOrders(context: $context)';
+    return 'ShopProductsEvent.fetchOrders()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchOrdersImpl &&
-            (identical(other.context, context) || other.context == context));
+        (other.runtimeType == runtimeType && other is _$FetchOrdersImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, context);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchOrdersImplCopyWith<_$FetchOrdersImpl> get copyWith =>
-      __$$FetchOrdersImplCopyWithImpl<_$FetchOrdersImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -10392,7 +10492,7 @@ class _$FetchOrdersImpl implements FetchOrders {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -10434,8 +10534,9 @@ class _$FetchOrdersImpl implements FetchOrders {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
-    return fetchOrders(context);
+    return fetchOrders();
   }
 
   @override
@@ -10476,7 +10577,7 @@ class _$FetchOrdersImpl implements FetchOrders {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -10516,8 +10617,9 @@ class _$FetchOrdersImpl implements FetchOrders {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
-    return fetchOrders?.call(context);
+    return fetchOrders?.call();
   }
 
   @override
@@ -10558,7 +10660,7 @@ class _$FetchOrdersImpl implements FetchOrders {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -10598,10 +10700,11 @@ class _$FetchOrdersImpl implements FetchOrders {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
-      return fetchOrders(context);
+      return fetchOrders();
     }
     return orElse();
   }
@@ -10689,6 +10792,8 @@ class _$FetchOrdersImpl implements FetchOrders {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchOrders(this);
   }
@@ -10765,6 +10870,7 @@ class _$FetchOrdersImpl implements FetchOrders {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchOrders?.call(this);
   }
@@ -10841,6 +10947,7 @@ class _$FetchOrdersImpl implements FetchOrders {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -10851,12 +10958,7 @@ class _$FetchOrdersImpl implements FetchOrders {
 }
 
 abstract class FetchOrders implements ShopProductsEvent {
-  const factory FetchOrders(final BuildContext context) = _$FetchOrdersImpl;
-
-  BuildContext get context;
-  @JsonKey(ignore: true)
-  _$$FetchOrdersImplCopyWith<_$FetchOrdersImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory FetchOrders() = _$FetchOrdersImpl;
 }
 
 /// @nodoc
@@ -10969,7 +11071,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -11011,6 +11113,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchOrdersById(context, id);
   }
@@ -11053,7 +11156,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -11093,6 +11196,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchOrdersById?.call(context, id);
   }
@@ -11135,7 +11239,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -11175,6 +11279,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -11266,6 +11371,8 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchOrdersById(this);
   }
@@ -11342,6 +11449,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchOrdersById?.call(this);
   }
@@ -11418,6 +11526,7 @@ class _$FetchOrdersByIdImpl implements FetchOrdersById {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -11553,7 +11662,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -11595,6 +11704,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchOrdersbyFilterEvent(context, filterName);
   }
@@ -11637,7 +11747,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -11677,6 +11787,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchOrdersbyFilterEvent?.call(context, filterName);
   }
@@ -11719,7 +11830,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -11759,6 +11870,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -11850,6 +11962,8 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchOrdersbyFilterEvent(this);
   }
@@ -11926,6 +12040,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchOrdersbyFilterEvent?.call(this);
   }
@@ -12002,6 +12117,7 @@ class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -12133,7 +12249,7 @@ class _$CancelOrderImpl implements CancelOrder {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -12175,6 +12291,7 @@ class _$CancelOrderImpl implements CancelOrder {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return cancelOrder(context, shiprockeId);
   }
@@ -12217,7 +12334,7 @@ class _$CancelOrderImpl implements CancelOrder {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -12257,6 +12374,7 @@ class _$CancelOrderImpl implements CancelOrder {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return cancelOrder?.call(context, shiprockeId);
   }
@@ -12299,7 +12417,7 @@ class _$CancelOrderImpl implements CancelOrder {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -12339,6 +12457,7 @@ class _$CancelOrderImpl implements CancelOrder {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -12430,6 +12549,8 @@ class _$CancelOrderImpl implements CancelOrder {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return cancelOrder(this);
   }
@@ -12506,6 +12627,7 @@ class _$CancelOrderImpl implements CancelOrder {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return cancelOrder?.call(this);
   }
@@ -12582,6 +12704,7 @@ class _$CancelOrderImpl implements CancelOrder {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -12713,7 +12836,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -12755,6 +12878,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return returnOrder(context, shiprockeId);
   }
@@ -12797,7 +12921,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -12837,6 +12961,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return returnOrder?.call(context, shiprockeId);
   }
@@ -12879,7 +13004,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -12919,6 +13044,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (returnOrder != null) {
@@ -13010,6 +13136,8 @@ class _$ReturnOrderImpl implements ReturnOrder {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return returnOrder(this);
   }
@@ -13086,6 +13214,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return returnOrder?.call(this);
   }
@@ -13162,6 +13291,7 @@ class _$ReturnOrderImpl implements ReturnOrder {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (returnOrder != null) {
@@ -13262,7 +13392,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -13304,6 +13434,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCard();
   }
@@ -13346,7 +13477,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -13386,6 +13517,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCard?.call();
   }
@@ -13428,7 +13560,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -13468,6 +13600,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCard != null) {
@@ -13559,6 +13692,8 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCard(this);
   }
@@ -13635,6 +13770,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCard?.call(this);
   }
@@ -13711,6 +13847,7 @@ class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCard != null) {
@@ -13805,7 +13942,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -13847,6 +13984,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet();
   }
@@ -13889,7 +14027,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -13929,6 +14067,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet?.call();
   }
@@ -13971,7 +14110,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -14011,6 +14150,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardHelthyDiet != null) {
@@ -14102,6 +14242,8 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet(this);
   }
@@ -14178,6 +14320,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet?.call(this);
   }
@@ -14254,6 +14397,7 @@ class _$FetchShopHomeBackgroundCardHelthyDietImpl
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardHelthyDiet != null) {
@@ -14349,7 +14493,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -14391,6 +14535,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCardSunnah();
   }
@@ -14433,7 +14578,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -14473,6 +14618,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCardSunnah?.call();
   }
@@ -14515,7 +14661,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -14555,6 +14701,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardSunnah != null) {
@@ -14646,6 +14793,8 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCardSunnah(this);
   }
@@ -14722,6 +14871,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchShopHomeBackgroundCardSunnah?.call(this);
   }
@@ -14798,6 +14948,7 @@ class _$FetchShopHomeBackgroundCardSunnahImpl
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardSunnah != null) {
@@ -14887,7 +15038,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -14929,6 +15080,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchShopAdBrands();
   }
@@ -14971,7 +15123,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -15011,6 +15163,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchShopAdBrands?.call();
   }
@@ -15053,7 +15206,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -15093,6 +15246,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrands != null) {
@@ -15184,6 +15338,8 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchShopAdBrands(this);
   }
@@ -15260,6 +15416,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchShopAdBrands?.call(this);
   }
@@ -15336,6 +15493,7 @@ class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrands != null) {
@@ -15424,7 +15582,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -15466,6 +15624,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchTopBrands();
   }
@@ -15508,7 +15667,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -15548,6 +15707,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchTopBrands?.call();
   }
@@ -15590,7 +15750,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -15630,6 +15790,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchTopBrands != null) {
@@ -15721,6 +15882,8 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchTopBrands(this);
   }
@@ -15797,6 +15960,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchTopBrands?.call(this);
   }
@@ -15873,6 +16037,7 @@ class _$FetchTopBrandsImpl implements FetchTopBrands {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchTopBrands != null) {
@@ -15966,7 +16131,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -16008,6 +16173,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchProductItemsSubcategorySunnah();
   }
@@ -16050,7 +16216,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -16090,6 +16256,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchProductItemsSubcategorySunnah?.call();
   }
@@ -16132,7 +16299,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -16172,6 +16339,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategorySunnah != null) {
@@ -16263,6 +16431,8 @@ class _$FetchProductItemsSubcategorySunnahImpl
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchProductItemsSubcategorySunnah(this);
   }
@@ -16339,6 +16509,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchProductItemsSubcategorySunnah?.call(this);
   }
@@ -16415,6 +16586,7 @@ class _$FetchProductItemsSubcategorySunnahImpl
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategorySunnah != null) {
@@ -16509,7 +16681,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -16551,6 +16723,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchProductItemsSubcategoryHealth();
   }
@@ -16593,7 +16766,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -16633,6 +16806,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchProductItemsSubcategoryHealth?.call();
   }
@@ -16675,7 +16849,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -16715,6 +16889,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryHealth != null) {
@@ -16806,6 +16981,8 @@ class _$FetchProductItemsSubcategoryHealthImpl
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchProductItemsSubcategoryHealth(this);
   }
@@ -16882,6 +17059,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchProductItemsSubcategoryHealth?.call(this);
   }
@@ -16958,6 +17136,7 @@ class _$FetchProductItemsSubcategoryHealthImpl
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryHealth != null) {
@@ -17052,7 +17231,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -17094,6 +17273,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchProductItemsSubcategoryWomen();
   }
@@ -17136,7 +17316,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -17176,6 +17356,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchProductItemsSubcategoryWomen?.call();
   }
@@ -17218,7 +17399,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -17258,6 +17439,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryWomen != null) {
@@ -17349,6 +17531,8 @@ class _$FetchProductItemsSubcategoryWomenImpl
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchProductItemsSubcategoryWomen(this);
   }
@@ -17425,6 +17609,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchProductItemsSubcategoryWomen?.call(this);
   }
@@ -17501,6 +17686,7 @@ class _$FetchProductItemsSubcategoryWomenImpl
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryWomen != null) {
@@ -17618,7 +17804,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -17660,6 +17846,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return changeShopBannerIndex(index);
   }
@@ -17702,7 +17889,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -17742,6 +17929,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return changeShopBannerIndex?.call(index);
   }
@@ -17784,7 +17972,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -17824,6 +18012,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (changeShopBannerIndex != null) {
@@ -17915,6 +18104,8 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return changeShopBannerIndex(this);
   }
@@ -17991,6 +18182,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return changeShopBannerIndex?.call(this);
   }
@@ -18067,6 +18259,7 @@ class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (changeShopBannerIndex != null) {
@@ -18190,7 +18383,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -18232,6 +18425,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return changeBrandBannerIndex(index);
   }
@@ -18274,7 +18468,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -18314,6 +18508,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return changeBrandBannerIndex?.call(index);
   }
@@ -18356,7 +18551,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -18396,6 +18591,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (changeBrandBannerIndex != null) {
@@ -18487,6 +18683,8 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return changeBrandBannerIndex(this);
   }
@@ -18563,6 +18761,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return changeBrandBannerIndex?.call(this);
   }
@@ -18639,6 +18838,7 @@ class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (changeBrandBannerIndex != null) {
@@ -18736,7 +18936,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -18778,6 +18978,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return showOrderProgressEvent();
   }
@@ -18820,7 +19021,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -18860,6 +19061,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return showOrderProgressEvent?.call();
   }
@@ -18902,7 +19104,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -18942,6 +19144,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (showOrderProgressEvent != null) {
@@ -19033,6 +19236,8 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return showOrderProgressEvent(this);
   }
@@ -19109,6 +19314,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return showOrderProgressEvent?.call(this);
   }
@@ -19185,6 +19391,7 @@ class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (showOrderProgressEvent != null) {
@@ -19303,7 +19510,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -19345,6 +19552,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return indexChangeOnOrderProgress(index);
   }
@@ -19387,7 +19595,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -19427,6 +19635,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return indexChangeOnOrderProgress?.call(index);
   }
@@ -19469,7 +19678,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -19509,6 +19718,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (indexChangeOnOrderProgress != null) {
@@ -19600,6 +19810,8 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return indexChangeOnOrderProgress(this);
   }
@@ -19676,6 +19888,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return indexChangeOnOrderProgress?.call(this);
   }
@@ -19752,6 +19965,7 @@ class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (indexChangeOnOrderProgress != null) {
@@ -19878,7 +20092,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -19920,6 +20134,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return indexChangeOnWomensCareBanner(index);
   }
@@ -19962,7 +20177,7 @@ class _$IndexChangeOnWomensCareBannerImpl
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -20002,6 +20217,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return indexChangeOnWomensCareBanner?.call(index);
   }
@@ -20044,7 +20260,7 @@ class _$IndexChangeOnWomensCareBannerImpl
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -20084,6 +20300,7 @@ class _$IndexChangeOnWomensCareBannerImpl
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (indexChangeOnWomensCareBanner != null) {
@@ -20175,6 +20392,8 @@ class _$IndexChangeOnWomensCareBannerImpl
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return indexChangeOnWomensCareBanner(this);
   }
@@ -20251,6 +20470,7 @@ class _$IndexChangeOnWomensCareBannerImpl
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return indexChangeOnWomensCareBanner?.call(this);
   }
@@ -20327,6 +20547,7 @@ class _$IndexChangeOnWomensCareBannerImpl
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (indexChangeOnWomensCareBanner != null) {
@@ -20450,7 +20671,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -20492,6 +20713,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchShopAdBrandsById(id);
   }
@@ -20534,7 +20756,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -20574,6 +20796,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchShopAdBrandsById?.call(id);
   }
@@ -20616,7 +20839,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -20656,6 +20879,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrandsById != null) {
@@ -20747,6 +20971,8 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchShopAdBrandsById(this);
   }
@@ -20823,6 +21049,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchShopAdBrandsById?.call(this);
   }
@@ -20899,6 +21126,7 @@ class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrandsById != null) {
@@ -21021,7 +21249,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -21063,6 +21291,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return savePaymentMethodType(index);
   }
@@ -21105,7 +21334,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -21145,6 +21374,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return savePaymentMethodType?.call(index);
   }
@@ -21187,7 +21417,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -21227,6 +21457,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (savePaymentMethodType != null) {
@@ -21318,6 +21549,8 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return savePaymentMethodType(this);
   }
@@ -21394,6 +21627,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return savePaymentMethodType?.call(this);
   }
@@ -21470,6 +21704,7 @@ class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (savePaymentMethodType != null) {
@@ -21568,7 +21803,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -21610,6 +21845,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchProductItemsbyCategory();
   }
@@ -21652,7 +21888,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -21692,6 +21928,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchProductItemsbyCategory?.call();
   }
@@ -21734,7 +21971,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -21774,6 +22011,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductItemsbyCategory != null) {
@@ -21865,6 +22103,8 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchProductItemsbyCategory(this);
   }
@@ -21941,6 +22181,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchProductItemsbyCategory?.call(this);
   }
@@ -22017,6 +22258,7 @@ class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductItemsbyCategory != null) {
@@ -22136,7 +22378,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -22178,6 +22420,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchSpecificCategeryItems(slug);
   }
@@ -22220,7 +22463,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -22260,6 +22503,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchSpecificCategeryItems?.call(slug);
   }
@@ -22302,7 +22546,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -22342,6 +22586,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchSpecificCategeryItems != null) {
@@ -22433,6 +22678,8 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchSpecificCategeryItems(this);
   }
@@ -22509,6 +22756,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchSpecificCategeryItems?.call(this);
   }
@@ -22585,6 +22833,7 @@ class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchSpecificCategeryItems != null) {
@@ -22706,7 +22955,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -22748,6 +22997,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchProductsById(id);
   }
@@ -22790,7 +23040,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -22830,6 +23080,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchProductsById?.call(id);
   }
@@ -22872,7 +23123,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -22912,6 +23163,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductsById != null) {
@@ -23003,6 +23255,8 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchProductsById(this);
   }
@@ -23079,6 +23333,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchProductsById?.call(this);
   }
@@ -23155,6 +23410,7 @@ class _$FetchProductsByIdImpl implements FetchProductsById {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProductsById != null) {
@@ -23276,7 +23532,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -23318,6 +23574,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchBrandProducts(brandId);
   }
@@ -23360,7 +23617,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -23400,6 +23657,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchBrandProducts?.call(brandId);
   }
@@ -23442,7 +23700,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -23482,6 +23740,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchBrandProducts != null) {
@@ -23573,6 +23832,8 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchBrandProducts(this);
   }
@@ -23649,6 +23910,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchBrandProducts?.call(this);
   }
@@ -23725,6 +23987,7 @@ class _$FetchBrandProductsImpl implements FetchBrandProducts {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchBrandProducts != null) {
@@ -23819,7 +24082,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -23861,6 +24124,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchCoupons();
   }
@@ -23903,7 +24167,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -23943,6 +24207,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchCoupons?.call();
   }
@@ -23985,7 +24250,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -24025,6 +24290,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchCoupons != null) {
@@ -24116,6 +24382,8 @@ class _$FetchCouponsImpl implements FetchCoupons {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchCoupons(this);
   }
@@ -24192,6 +24460,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchCoupons?.call(this);
   }
@@ -24268,6 +24537,7 @@ class _$FetchCouponsImpl implements FetchCoupons {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchCoupons != null) {
@@ -24384,7 +24654,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -24426,6 +24696,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return isPromoCodeAvailable(value);
   }
@@ -24468,7 +24739,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -24508,6 +24779,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return isPromoCodeAvailable?.call(value);
   }
@@ -24550,7 +24822,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -24590,6 +24862,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (isPromoCodeAvailable != null) {
@@ -24681,6 +24954,8 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return isPromoCodeAvailable(this);
   }
@@ -24757,6 +25032,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return isPromoCodeAvailable?.call(this);
   }
@@ -24833,6 +25109,7 @@ class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (isPromoCodeAvailable != null) {
@@ -24954,7 +25231,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -24996,6 +25273,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return changeIndexEvent(index);
   }
@@ -25038,7 +25316,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -25078,6 +25356,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return changeIndexEvent?.call(index);
   }
@@ -25120,7 +25399,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -25160,6 +25439,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (changeIndexEvent != null) {
@@ -25251,6 +25531,8 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return changeIndexEvent(this);
   }
@@ -25327,6 +25609,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return changeIndexEvent?.call(this);
   }
@@ -25403,6 +25686,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (changeIndexEvent != null) {
@@ -25524,7 +25808,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -25566,6 +25850,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchBrandItemsbyId(id);
   }
@@ -25608,7 +25893,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -25648,6 +25933,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchBrandItemsbyId?.call(id);
   }
@@ -25690,7 +25976,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -25730,6 +26016,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchBrandItemsbyId != null) {
@@ -25821,6 +26108,8 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchBrandItemsbyId(this);
   }
@@ -25897,6 +26186,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchBrandItemsbyId?.call(this);
   }
@@ -25973,6 +26263,7 @@ class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchBrandItemsbyId != null) {
@@ -26068,7 +26359,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -26110,6 +26401,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchAllBrandsEvent();
   }
@@ -26152,7 +26444,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -26192,6 +26484,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchAllBrandsEvent?.call();
   }
@@ -26234,7 +26527,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -26274,6 +26567,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchAllBrandsEvent != null) {
@@ -26365,6 +26659,8 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchAllBrandsEvent(this);
   }
@@ -26441,6 +26737,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchAllBrandsEvent?.call(this);
   }
@@ -26517,6 +26814,7 @@ class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchAllBrandsEvent != null) {
@@ -26633,7 +26931,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -26675,6 +26973,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchOrderReasons(endpoint);
   }
@@ -26717,7 +27016,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -26757,6 +27056,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchOrderReasons?.call(endpoint);
   }
@@ -26799,7 +27099,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -26839,6 +27139,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchOrderReasons != null) {
@@ -26930,6 +27231,8 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchOrderReasons(this);
   }
@@ -27006,6 +27309,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchOrderReasons?.call(this);
   }
@@ -27082,6 +27386,7 @@ class _$FetchOrderReasonsImpl implements FetchOrderReasons {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchOrderReasons != null) {
@@ -27211,7 +27516,7 @@ class _$AddReasonsImpl implements AddReasons {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -27253,6 +27558,7 @@ class _$AddReasonsImpl implements AddReasons {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return addReasons(endpoint, text);
   }
@@ -27295,7 +27601,7 @@ class _$AddReasonsImpl implements AddReasons {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -27335,6 +27641,7 @@ class _$AddReasonsImpl implements AddReasons {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return addReasons?.call(endpoint, text);
   }
@@ -27377,7 +27684,7 @@ class _$AddReasonsImpl implements AddReasons {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -27417,6 +27724,7 @@ class _$AddReasonsImpl implements AddReasons {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (addReasons != null) {
@@ -27508,6 +27816,8 @@ class _$AddReasonsImpl implements AddReasons {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return addReasons(this);
   }
@@ -27584,6 +27894,7 @@ class _$AddReasonsImpl implements AddReasons {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return addReasons?.call(this);
   }
@@ -27660,6 +27971,7 @@ class _$AddReasonsImpl implements AddReasons {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (addReasons != null) {
@@ -27783,7 +28095,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -27825,6 +28137,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchArticlesbyId(id);
   }
@@ -27867,7 +28180,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -27907,6 +28220,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchArticlesbyId?.call(id);
   }
@@ -27949,7 +28263,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -27989,6 +28303,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchArticlesbyId != null) {
@@ -28080,6 +28395,8 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchArticlesbyId(this);
   }
@@ -28156,6 +28473,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchArticlesbyId?.call(this);
   }
@@ -28232,6 +28550,7 @@ class _$FetchArticlesIdImpl implements FetchArticlesId {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchArticlesbyId != null) {
@@ -28326,7 +28645,7 @@ class _$FetchProductsImpl implements FetchProducts {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -28368,6 +28687,7 @@ class _$FetchProductsImpl implements FetchProducts {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchProducts();
   }
@@ -28410,7 +28730,7 @@ class _$FetchProductsImpl implements FetchProducts {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -28450,6 +28770,7 @@ class _$FetchProductsImpl implements FetchProducts {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchProducts?.call();
   }
@@ -28492,7 +28813,7 @@ class _$FetchProductsImpl implements FetchProducts {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -28532,6 +28853,7 @@ class _$FetchProductsImpl implements FetchProducts {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProducts != null) {
@@ -28623,6 +28945,8 @@ class _$FetchProductsImpl implements FetchProducts {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchProducts(this);
   }
@@ -28699,6 +29023,7 @@ class _$FetchProductsImpl implements FetchProducts {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchProducts?.call(this);
   }
@@ -28775,6 +29100,7 @@ class _$FetchProductsImpl implements FetchProducts {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchProducts != null) {
@@ -28865,7 +29191,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -28907,6 +29233,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchArticlesCategory();
   }
@@ -28949,7 +29276,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -28989,6 +29316,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchArticlesCategory?.call();
   }
@@ -29031,7 +29359,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -29071,6 +29399,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchArticlesCategory != null) {
@@ -29162,6 +29491,8 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchArticlesCategory(this);
   }
@@ -29238,6 +29569,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchArticlesCategory?.call(this);
   }
@@ -29314,6 +29646,7 @@ class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchArticlesCategory != null) {
@@ -29435,7 +29768,7 @@ class _$SaveArticleCategoryFilterValImpl
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -29477,6 +29810,7 @@ class _$SaveArticleCategoryFilterValImpl
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return saveArticleCategoryFilterVal(filterVal);
   }
@@ -29519,7 +29853,7 @@ class _$SaveArticleCategoryFilterValImpl
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -29559,6 +29893,7 @@ class _$SaveArticleCategoryFilterValImpl
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return saveArticleCategoryFilterVal?.call(filterVal);
   }
@@ -29601,7 +29936,7 @@ class _$SaveArticleCategoryFilterValImpl
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -29641,6 +29976,7 @@ class _$SaveArticleCategoryFilterValImpl
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (saveArticleCategoryFilterVal != null) {
@@ -29732,6 +30068,8 @@ class _$SaveArticleCategoryFilterValImpl
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return saveArticleCategoryFilterVal(this);
   }
@@ -29808,6 +30146,7 @@ class _$SaveArticleCategoryFilterValImpl
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return saveArticleCategoryFilterVal?.call(this);
   }
@@ -29884,6 +30223,7 @@ class _$SaveArticleCategoryFilterValImpl
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (saveArticleCategoryFilterVal != null) {
@@ -30009,7 +30349,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -30051,6 +30391,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchArticlesByCategory(category);
   }
@@ -30093,7 +30434,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -30133,6 +30474,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchArticlesByCategory?.call(category);
   }
@@ -30175,7 +30517,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -30215,6 +30557,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchArticlesByCategory != null) {
@@ -30306,6 +30649,8 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchArticlesByCategory(this);
   }
@@ -30382,6 +30727,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchArticlesByCategory?.call(this);
   }
@@ -30458,6 +30804,7 @@ class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchArticlesByCategory != null) {
@@ -30591,7 +30938,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -30633,6 +30980,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return fetchBrandProductsItemCount(ids);
   }
@@ -30675,7 +31023,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -30715,6 +31063,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return fetchBrandProductsItemCount?.call(ids);
   }
@@ -30757,7 +31106,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -30797,6 +31146,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchBrandProductsItemCount != null) {
@@ -30888,6 +31238,8 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return fetchBrandProductsItemCount(this);
   }
@@ -30964,6 +31316,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return fetchBrandProductsItemCount?.call(this);
   }
@@ -31040,6 +31393,7 @@ class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (fetchBrandProductsItemCount != null) {
@@ -31161,7 +31515,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -31203,6 +31557,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return changeSizeIndex(index);
   }
@@ -31245,7 +31600,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -31285,6 +31640,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return changeSizeIndex?.call(index);
   }
@@ -31327,7 +31683,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -31367,6 +31723,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (changeSizeIndex != null) {
@@ -31458,6 +31815,8 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return changeSizeIndex(this);
   }
@@ -31534,6 +31893,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return changeSizeIndex?.call(this);
   }
@@ -31610,6 +31970,7 @@ class _$ChangeSizeIndexImpl implements _ChangeSizeIndex {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (changeSizeIndex != null) {
@@ -31704,7 +32065,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
     required TResult Function(
             BuildContext context, String addressId, String productId)
         postOrdersRewards,
-    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function() fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
@@ -31746,6 +32107,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
     required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
     required TResult Function(int index) changeSizeIndex,
     required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
   }) {
     return emptyRazorpayOrderId();
   }
@@ -31788,7 +32150,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
         postOrderIdOnlinePayment,
     TResult? Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function()? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -31828,6 +32190,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
     TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult? Function(int index)? changeSizeIndex,
     TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
   }) {
     return emptyRazorpayOrderId?.call();
   }
@@ -31870,7 +32233,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
         postOrderIdOnlinePayment,
     TResult Function(BuildContext context, String addressId, String productId)?
         postOrdersRewards,
-    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function()? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
@@ -31910,6 +32273,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
     TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     TResult Function(int index)? changeSizeIndex,
     TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (emptyRazorpayOrderId != null) {
@@ -32001,6 +32365,8 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
         fetchBrandProductsItemCount,
     required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
     required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
   }) {
     return emptyRazorpayOrderId(this);
   }
@@ -32077,6 +32443,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
         fetchBrandProductsItemCount,
     TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
   }) {
     return emptyRazorpayOrderId?.call(this);
   }
@@ -32153,6 +32520,7 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
         fetchBrandProductsItemCount,
     TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
     TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
     required TResult orElse(),
   }) {
     if (emptyRazorpayOrderId != null) {
@@ -32164,6 +32532,552 @@ class _$EmptyRazorpayOrderIdImpl implements EmptyRazorpayOrderId {
 
 abstract class EmptyRazorpayOrderId implements ShopProductsEvent {
   const factory EmptyRazorpayOrderId() = _$EmptyRazorpayOrderIdImpl;
+}
+
+/// @nodoc
+abstract class _$$MakePaginationDefualtImplCopyWith<$Res> {
+  factory _$$MakePaginationDefualtImplCopyWith(
+          _$MakePaginationDefualtImpl value,
+          $Res Function(_$MakePaginationDefualtImpl) then) =
+      __$$MakePaginationDefualtImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MakePaginationDefualtImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$MakePaginationDefualtImpl>
+    implements _$$MakePaginationDefualtImplCopyWith<$Res> {
+  __$$MakePaginationDefualtImplCopyWithImpl(_$MakePaginationDefualtImpl _value,
+      $Res Function(_$MakePaginationDefualtImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MakePaginationDefualtImpl implements MakePaginationDefualt {
+  const _$MakePaginationDefualtImpl();
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.makePaginationDefault()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MakePaginationDefualtImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function(String searchQuery) fetchArticles,
+    required TResult Function() fetchShopByBrand,
+    required TResult Function(BuildContext context) fetchWishList,
+    required TResult Function(String query) searchProduct,
+    required TResult Function(String productId, BuildContext context)
+        addWishListEvent,
+    required TResult Function(String productId, BuildContext context)
+        removeWishlistEvent,
+    required TResult Function(String brandName) fetchShopByBrandProducts,
+    required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            BuildContext context,
+            double totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)
+        postOrders,
+    required TResult Function(
+            BuildContext context,
+            String razorpayOrderId,
+            String razorpayPaymentId,
+            String razorpaySignature,
+            String addressId)
+        postOnlieOrders,
+    required TResult Function(BuildContext context, double amount)
+        postOrderIdOnlinePayment,
+    required TResult Function(
+            BuildContext context, String addressId, String productId)
+        postOrdersRewards,
+    required TResult Function() fetchOrders,
+    required TResult Function(BuildContext context, int id) fetchOrdersById,
+    required TResult Function(BuildContext context, String filterName)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
+    required TResult Function() fetchShopHomeBackgroundCard,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardSunnah,
+    required TResult Function() fetchShopAdBrands,
+    required TResult Function() fetchTopBrands,
+    required TResult Function() fetchProductItemsSubcategorySunnah,
+    required TResult Function() fetchProductItemsSubcategoryHealth,
+    required TResult Function() fetchProductItemsSubcategoryWomen,
+    required TResult Function(int index) changeShopBannerIndex,
+    required TResult Function(int index) changeBrandBannerIndex,
+    required TResult Function() showOrderProgressEvent,
+    required TResult Function(int index) indexChangeOnOrderProgress,
+    required TResult Function(int index) indexChangeOnWomensCareBanner,
+    required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
+    required TResult Function() fetchProductItemsbyCategory,
+    required TResult Function(String slug) fetchSpecificCategeryItems,
+    required TResult Function(String id) fetchProductsById,
+    required TResult Function(String brandId) fetchBrandProducts,
+    required TResult Function() fetchCoupons,
+    required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
+    required TResult Function(String id) fetchBrandItemsbyId,
+    required TResult Function() fetchAllBrandsEvent,
+    required TResult Function(String endpoint) fetchOrderReasons,
+    required TResult Function(String endpoint, String text) addReasons,
+    required TResult Function(String id) fetchArticlesbyId,
+    required TResult Function() fetchProducts,
+    required TResult Function() fetchArticlesCategory,
+    required TResult Function(String filterVal) saveArticleCategoryFilterVal,
+    required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
+    required TResult Function(int index) changeSizeIndex,
+    required TResult Function() emptyRazorpayOrderId,
+    required TResult Function() makePaginationDefault,
+  }) {
+    return makePaginationDefault();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function(String searchQuery)? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+    TResult? Function(BuildContext context)? fetchWishList,
+    TResult? Function(String query)? searchProduct,
+    TResult? Function(String productId, BuildContext context)? addWishListEvent,
+    TResult? Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult? Function(String brandName)? fetchShopByBrandProducts,
+    TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(
+            BuildContext context,
+            double totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult? Function(
+            BuildContext context,
+            String razorpayOrderId,
+            String razorpayPaymentId,
+            String razorpaySignature,
+            String addressId)?
+        postOnlieOrders,
+    TResult? Function(BuildContext context, double amount)?
+        postOrderIdOnlinePayment,
+    TResult? Function(BuildContext context, String addressId, String productId)?
+        postOrdersRewards,
+    TResult? Function()? fetchOrders,
+    TResult? Function(BuildContext context, int id)? fetchOrdersById,
+    TResult? Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
+    TResult? Function()? fetchShopHomeBackgroundCard,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult? Function()? fetchShopAdBrands,
+    TResult? Function()? fetchTopBrands,
+    TResult? Function()? fetchProductItemsSubcategorySunnah,
+    TResult? Function()? fetchProductItemsSubcategoryHealth,
+    TResult? Function()? fetchProductItemsSubcategoryWomen,
+    TResult? Function(int index)? changeShopBannerIndex,
+    TResult? Function(int index)? changeBrandBannerIndex,
+    TResult? Function()? showOrderProgressEvent,
+    TResult? Function(int index)? indexChangeOnOrderProgress,
+    TResult? Function(int index)? indexChangeOnWomensCareBanner,
+    TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
+    TResult? Function()? fetchProductItemsbyCategory,
+    TResult? Function(String slug)? fetchSpecificCategeryItems,
+    TResult? Function(String id)? fetchProductsById,
+    TResult? Function(String brandId)? fetchBrandProducts,
+    TResult? Function()? fetchCoupons,
+    TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
+    TResult? Function(String id)? fetchBrandItemsbyId,
+    TResult? Function()? fetchAllBrandsEvent,
+    TResult? Function(String endpoint)? fetchOrderReasons,
+    TResult? Function(String endpoint, String text)? addReasons,
+    TResult? Function(String id)? fetchArticlesbyId,
+    TResult? Function()? fetchProducts,
+    TResult? Function()? fetchArticlesCategory,
+    TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
+    TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
+    TResult? Function(int index)? changeSizeIndex,
+    TResult? Function()? emptyRazorpayOrderId,
+    TResult? Function()? makePaginationDefault,
+  }) {
+    return makePaginationDefault?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function(String searchQuery)? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    TResult Function(BuildContext context)? fetchWishList,
+    TResult Function(String query)? searchProduct,
+    TResult Function(String productId, BuildContext context)? addWishListEvent,
+    TResult Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult Function(String brandName)? fetchShopByBrandProducts,
+    TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(
+            BuildContext context,
+            double totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult Function(
+            BuildContext context,
+            String razorpayOrderId,
+            String razorpayPaymentId,
+            String razorpaySignature,
+            String addressId)?
+        postOnlieOrders,
+    TResult Function(BuildContext context, double amount)?
+        postOrderIdOnlinePayment,
+    TResult Function(BuildContext context, String addressId, String productId)?
+        postOrdersRewards,
+    TResult Function()? fetchOrders,
+    TResult Function(BuildContext context, int id)? fetchOrdersById,
+    TResult Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
+    TResult Function()? fetchShopHomeBackgroundCard,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult Function()? fetchShopAdBrands,
+    TResult Function()? fetchTopBrands,
+    TResult Function()? fetchProductItemsSubcategorySunnah,
+    TResult Function()? fetchProductItemsSubcategoryHealth,
+    TResult Function()? fetchProductItemsSubcategoryWomen,
+    TResult Function(int index)? changeShopBannerIndex,
+    TResult Function(int index)? changeBrandBannerIndex,
+    TResult Function()? showOrderProgressEvent,
+    TResult Function(int index)? indexChangeOnOrderProgress,
+    TResult Function(int index)? indexChangeOnWomensCareBanner,
+    TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
+    TResult Function()? fetchProductItemsbyCategory,
+    TResult Function(String slug)? fetchSpecificCategeryItems,
+    TResult Function(String id)? fetchProductsById,
+    TResult Function(String brandId)? fetchBrandProducts,
+    TResult Function()? fetchCoupons,
+    TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
+    TResult Function(String id)? fetchBrandItemsbyId,
+    TResult Function()? fetchAllBrandsEvent,
+    TResult Function(String endpoint)? fetchOrderReasons,
+    TResult Function(String endpoint, String text)? addReasons,
+    TResult Function(String id)? fetchArticlesbyId,
+    TResult Function()? fetchProducts,
+    TResult Function()? fetchArticlesCategory,
+    TResult Function(String filterVal)? saveArticleCategoryFilterVal,
+    TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
+    TResult Function(int index)? changeSizeIndex,
+    TResult Function()? emptyRazorpayOrderId,
+    TResult Function()? makePaginationDefault,
+    required TResult orElse(),
+  }) {
+    if (makePaginationDefault != null) {
+      return makePaginationDefault();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+    required TResult Function(FetchWishList value) fetchWishList,
+    required TResult Function(SearchProduct value) searchProduct,
+    required TResult Function(AddWishListEvent value) addWishListEvent,
+    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
+    required TResult Function(FetchShopByBrandProducts value)
+        fetchShopByBrandProducts,
+    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOnlieOrders value) postOnlieOrders,
+    required TResult Function(PostOrderIdOnlinePayment value)
+        postOrderIdOnlinePayment,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
+    required TResult Function(FetchOrders value) fetchOrders,
+    required TResult Function(FetchOrdersById value) fetchOrdersById,
+    required TResult Function(FetchOrdersbyFilterEvent value)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
+    required TResult Function(FetchShopHomeBackgroundCard value)
+        fetchShopHomeBackgroundCard,
+    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
+        fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
+        fetchShopHomeBackgroundCardSunnah,
+    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
+    required TResult Function(FetchTopBrands value) fetchTopBrands,
+    required TResult Function(FetchProductItemsSubcategorySunnah value)
+        fetchProductItemsSubcategorySunnah,
+    required TResult Function(FetchProductItemsSubcategoryHealth value)
+        fetchProductItemsSubcategoryHealth,
+    required TResult Function(FetchProductItemsSubcategoryWomen value)
+        fetchProductItemsSubcategoryWomen,
+    required TResult Function(ChangeShopBannerIndex value)
+        changeShopBannerIndex,
+    required TResult Function(ChangeBrandBannerIndex value)
+        changeBrandBannerIndex,
+    required TResult Function(ShowOrderProgressEvent value)
+        showOrderProgressEvent,
+    required TResult Function(IndexChangeOnOrderProgress value)
+        indexChangeOnOrderProgress,
+    required TResult Function(IndexChangeOnWomensCareBanner value)
+        indexChangeOnWomensCareBanner,
+    required TResult Function(FetchShopAdBrandsById value)
+        fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
+    required TResult Function(FetchProductItemsbyCategory value)
+        fetchProductItemsbyCategory,
+    required TResult Function(FetchSpecificCategeryItems value)
+        fetchSpecificCategeryItems,
+    required TResult Function(FetchProductsById value) fetchProductsById,
+    required TResult Function(FetchBrandProducts value) fetchBrandProducts,
+    required TResult Function(FetchCoupons value) fetchCoupons,
+    required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
+    required TResult Function(FetchBrandItemsbyId value) fetchBrandItemsbyId,
+    required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
+    required TResult Function(FetchOrderReasons value) fetchOrderReasons,
+    required TResult Function(AddReasons value) addReasons,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
+    required TResult Function(FetchProducts value) fetchProducts,
+    required TResult Function(FetchArticlesCategory value)
+        fetchArticlesCategory,
+    required TResult Function(SaveArticleCategoryFilterVal value)
+        saveArticleCategoryFilterVal,
+    required TResult Function(FetchArticlesByCategory value)
+        fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
+    required TResult Function(_ChangeSizeIndex value) changeSizeIndex,
+    required TResult Function(EmptyRazorpayOrderId value) emptyRazorpayOrderId,
+    required TResult Function(MakePaginationDefualt value)
+        makePaginationDefault,
+  }) {
+    return makePaginationDefault(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult? Function(FetchWishList value)? fetchWishList,
+    TResult? Function(SearchProduct value)? searchProduct,
+    TResult? Function(AddWishListEvent value)? addWishListEvent,
+    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOnlieOrders value)? postOnlieOrders,
+    TResult? Function(PostOrderIdOnlinePayment value)? postOrderIdOnlinePayment,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
+    TResult? Function(FetchOrders value)? fetchOrders,
+    TResult? Function(FetchOrdersById value)? fetchOrdersById,
+    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
+    TResult? Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult? Function(FetchTopBrands value)? fetchTopBrands,
+    TResult? Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult? Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult? Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult? Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult? Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult? Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+    TResult? Function(FetchSpecificCategeryItems value)?
+        fetchSpecificCategeryItems,
+    TResult? Function(FetchProductsById value)? fetchProductsById,
+    TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
+    TResult? Function(FetchCoupons value)? fetchCoupons,
+    TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
+    TResult? Function(FetchBrandItemsbyId value)? fetchBrandItemsbyId,
+    TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
+    TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
+    TResult? Function(AddReasons value)? addReasons,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
+    TResult? Function(FetchProducts value)? fetchProducts,
+    TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
+    TResult? Function(SaveArticleCategoryFilterVal value)?
+        saveArticleCategoryFilterVal,
+    TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
+    TResult? Function(_ChangeSizeIndex value)? changeSizeIndex,
+    TResult? Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult? Function(MakePaginationDefualt value)? makePaginationDefault,
+  }) {
+    return makePaginationDefault?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult Function(FetchWishList value)? fetchWishList,
+    TResult Function(SearchProduct value)? searchProduct,
+    TResult Function(AddWishListEvent value)? addWishListEvent,
+    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOnlieOrders value)? postOnlieOrders,
+    TResult Function(PostOrderIdOnlinePayment value)? postOrderIdOnlinePayment,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
+    TResult Function(FetchOrders value)? fetchOrders,
+    TResult Function(FetchOrdersById value)? fetchOrdersById,
+    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
+    TResult Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult Function(FetchTopBrands value)? fetchTopBrands,
+    TResult Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+    TResult Function(FetchSpecificCategeryItems value)?
+        fetchSpecificCategeryItems,
+    TResult Function(FetchProductsById value)? fetchProductsById,
+    TResult Function(FetchBrandProducts value)? fetchBrandProducts,
+    TResult Function(FetchCoupons value)? fetchCoupons,
+    TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
+    TResult Function(FetchBrandItemsbyId value)? fetchBrandItemsbyId,
+    TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
+    TResult Function(FetchOrderReasons value)? fetchOrderReasons,
+    TResult Function(AddReasons value)? addReasons,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
+    TResult Function(FetchProducts value)? fetchProducts,
+    TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
+    TResult Function(SaveArticleCategoryFilterVal value)?
+        saveArticleCategoryFilterVal,
+    TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
+    TResult Function(_ChangeSizeIndex value)? changeSizeIndex,
+    TResult Function(EmptyRazorpayOrderId value)? emptyRazorpayOrderId,
+    TResult Function(MakePaginationDefualt value)? makePaginationDefault,
+    required TResult orElse(),
+  }) {
+    if (makePaginationDefault != null) {
+      return makePaginationDefault(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MakePaginationDefualt implements ShopProductsEvent {
+  const factory MakePaginationDefualt() = _$MakePaginationDefualtImpl;
 }
 
 /// @nodoc
@@ -32237,6 +33151,8 @@ mixin _$ShopProductsState {
   List<double>? get brandProductsItemCount =>
       throw _privateConstructorUsedError;
   int get selectedSizeIndex => throw _privateConstructorUsedError;
+  int get orderCurrentPage => throw _privateConstructorUsedError;
+  bool get reachMax => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ShopProductsStateCopyWith<ShopProductsState> get copyWith =>
@@ -32308,7 +33224,9 @@ abstract class $ShopProductsStateCopyWith<$Res> {
       double totalAmount,
       bool orderSucces,
       List<double>? brandProductsItemCount,
-      int selectedSizeIndex});
+      int selectedSizeIndex,
+      int orderCurrentPage,
+      bool reachMax});
 
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
   $ShopProductsCopyWith<$Res>? get popularProducts;
@@ -32419,6 +33337,8 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
     Object? orderSucces = null,
     Object? brandProductsItemCount = freezed,
     Object? selectedSizeIndex = null,
+    Object? orderCurrentPage = null,
+    Object? reachMax = null,
   }) {
     return _then(_value.copyWith(
       flashSaleproducts: freezed == flashSaleproducts
@@ -32659,6 +33579,14 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
           ? _value.selectedSizeIndex
           : selectedSizeIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      orderCurrentPage: null == orderCurrentPage
+          ? _value.orderCurrentPage
+          : orderCurrentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      reachMax: null == reachMax
+          ? _value.reachMax
+          : reachMax // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -33109,7 +34037,9 @@ abstract class _$$InitialImplCopyWith<$Res>
       double totalAmount,
       bool orderSucces,
       List<double>? brandProductsItemCount,
-      int selectedSizeIndex});
+      int selectedSizeIndex,
+      int orderCurrentPage,
+      bool reachMax});
 
   @override
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
@@ -33248,6 +34178,8 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? orderSucces = null,
     Object? brandProductsItemCount = freezed,
     Object? selectedSizeIndex = null,
+    Object? orderCurrentPage = null,
+    Object? reachMax = null,
   }) {
     return _then(_$InitialImpl(
       flashSaleproducts: freezed == flashSaleproducts
@@ -33488,6 +34420,14 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.selectedSizeIndex
           : selectedSizeIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      orderCurrentPage: null == orderCurrentPage
+          ? _value.orderCurrentPage
+          : orderCurrentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      reachMax: null == reachMax
+          ? _value.reachMax
+          : reachMax // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -33553,7 +34493,9 @@ class _$InitialImpl implements _Initial {
       required this.totalAmount,
       required this.orderSucces,
       required final List<double>? brandProductsItemCount,
-      required this.selectedSizeIndex})
+      required this.selectedSizeIndex,
+      required this.orderCurrentPage,
+      required this.reachMax})
       : _articles = articles,
         _wishListItems = wishListItems,
         _brandProductsItemCount = brandProductsItemCount;
@@ -33700,10 +34642,14 @@ class _$InitialImpl implements _Initial {
 
   @override
   final int selectedSizeIndex;
+  @override
+  final int orderCurrentPage;
+  @override
+  final bool reachMax;
 
   @override
   String toString() {
-    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage, shopHomeBackgroundCardModelWomens: $shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelHealthyDiet: $shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelSunnah: $shopHomeBackgroundCardModelSunnah, shopAdBrands: $shopAdBrands, shopAdBrandsById: $shopAdBrandsById, topBrandsModel: $topBrandsModel, productItemsSubCategorySunnahModel: $productItemsSubCategorySunnahModel, productItemsSubCategoryHealthModel: $productItemsSubCategoryHealthModel, productItemsSubCategoryWomenModel: $productItemsSubCategoryWomenModel, shopBannerIndex: $shopBannerIndex, showProgress: $showProgress, brandBannerIndex: $brandBannerIndex, ordereProgressIndex: $ordereProgressIndex, womensCareBannerIndex: $womensCareBannerIndex, paymentMethod: $paymentMethod, specificCategoryModel: $specificCategoryModel, productByIdModel: $productByIdModel, brandProductsModel: $brandProductsModel, couponModel: $couponModel, isPromoCodeAvailable: $isPromoCodeAvailable, indexVal: $indexVal, brandItemsModel: $brandItemsModel, brandModels: $brandModels, reasonModel: $reasonModel, articleModelById: $articleModelById, productModel: $productModel, articleCategories: $articleCategories, filterVal: $filterVal, orderIdRazorPay: $orderIdRazorPay, totalAmount: $totalAmount, orderSucces: $orderSucces, brandProductsItemCount: $brandProductsItemCount, selectedSizeIndex: $selectedSizeIndex)';
+    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage, shopHomeBackgroundCardModelWomens: $shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelHealthyDiet: $shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelSunnah: $shopHomeBackgroundCardModelSunnah, shopAdBrands: $shopAdBrands, shopAdBrandsById: $shopAdBrandsById, topBrandsModel: $topBrandsModel, productItemsSubCategorySunnahModel: $productItemsSubCategorySunnahModel, productItemsSubCategoryHealthModel: $productItemsSubCategoryHealthModel, productItemsSubCategoryWomenModel: $productItemsSubCategoryWomenModel, shopBannerIndex: $shopBannerIndex, showProgress: $showProgress, brandBannerIndex: $brandBannerIndex, ordereProgressIndex: $ordereProgressIndex, womensCareBannerIndex: $womensCareBannerIndex, paymentMethod: $paymentMethod, specificCategoryModel: $specificCategoryModel, productByIdModel: $productByIdModel, brandProductsModel: $brandProductsModel, couponModel: $couponModel, isPromoCodeAvailable: $isPromoCodeAvailable, indexVal: $indexVal, brandItemsModel: $brandItemsModel, brandModels: $brandModels, reasonModel: $reasonModel, articleModelById: $articleModelById, productModel: $productModel, articleCategories: $articleCategories, filterVal: $filterVal, orderIdRazorPay: $orderIdRazorPay, totalAmount: $totalAmount, orderSucces: $orderSucces, brandProductsItemCount: $brandProductsItemCount, selectedSizeIndex: $selectedSizeIndex, orderCurrentPage: $orderCurrentPage, reachMax: $reachMax)';
   }
 
   @override
@@ -33807,7 +34753,9 @@ class _$InitialImpl implements _Initial {
             (identical(other.totalAmount, totalAmount) || other.totalAmount == totalAmount) &&
             (identical(other.orderSucces, orderSucces) || other.orderSucces == orderSucces) &&
             const DeepCollectionEquality().equals(other._brandProductsItemCount, _brandProductsItemCount) &&
-            (identical(other.selectedSizeIndex, selectedSizeIndex) || other.selectedSizeIndex == selectedSizeIndex));
+            (identical(other.selectedSizeIndex, selectedSizeIndex) || other.selectedSizeIndex == selectedSizeIndex) &&
+            (identical(other.orderCurrentPage, orderCurrentPage) || other.orderCurrentPage == orderCurrentPage) &&
+            (identical(other.reachMax, reachMax) || other.reachMax == reachMax));
   }
 
   @override
@@ -33870,7 +34818,9 @@ class _$InitialImpl implements _Initial {
         totalAmount,
         orderSucces,
         const DeepCollectionEquality().hash(_brandProductsItemCount),
-        selectedSizeIndex
+        selectedSizeIndex,
+        orderCurrentPage,
+        reachMax
       ]);
 
   @JsonKey(ignore: true)
@@ -33945,7 +34895,9 @@ abstract class _Initial implements ShopProductsState {
       required final double totalAmount,
       required final bool orderSucces,
       required final List<double>? brandProductsItemCount,
-      required final int selectedSizeIndex}) = _$InitialImpl;
+      required final int selectedSizeIndex,
+      required final int orderCurrentPage,
+      required final bool reachMax}) = _$InitialImpl;
 
   @override
   ShopProducts? get flashSaleproducts;
@@ -34064,6 +35016,10 @@ abstract class _Initial implements ShopProductsState {
   List<double>? get brandProductsItemCount;
   @override
   int get selectedSizeIndex;
+  @override
+  int get orderCurrentPage;
+  @override
+  bool get reachMax;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

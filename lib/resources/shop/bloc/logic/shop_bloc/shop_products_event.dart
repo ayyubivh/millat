@@ -54,9 +54,7 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required String addressId,
     required String productId,
   }) = PostOrdersRewards;
-  const factory ShopProductsEvent.fetchOrders(
-    BuildContext context,
-  ) = FetchOrders;
+  const factory ShopProductsEvent.fetchOrders() = FetchOrders;
   const factory ShopProductsEvent.fetchOrdersById(
     BuildContext context,
     int id,
@@ -143,4 +141,6 @@ class ShopProductsEvent with _$ShopProductsEvent {
       {required List<String>? ids}) = FetchBrandProductsItemCount;
   const factory ShopProductsEvent.changeSizeIndex(int index) = _ChangeSizeIndex;
   const factory ShopProductsEvent.emptyRazorpayOrderId() = EmptyRazorpayOrderId;
+  const factory ShopProductsEvent.makePaginationDefault() =
+      MakePaginationDefualt;
 }

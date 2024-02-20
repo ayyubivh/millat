@@ -161,6 +161,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                 )
                               : Expanded(
                                   child: GridView.builder(
+                                    controller: _scrollController,
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 2,
@@ -323,6 +324,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                     )
                                   : Expanded(
                                       child: GridView.builder(
+                                        controller: _scrollController,
                                         gridDelegate:
                                             SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 2,

@@ -65,6 +65,8 @@ class ShopProductsState with _$ShopProductsState {
     required bool orderSucces,
     required List<double>? brandProductsItemCount,
     required int selectedSizeIndex,
+    required int orderCurrentPage,
+    required bool reachMax,
   }) = _Initial;
 
   factory ShopProductsState.initial() => const ShopProductsState(
@@ -126,5 +128,7 @@ class ShopProductsState with _$ShopProductsState {
         totalAmount: 0.0,
         brandProductsItemCount: null,
         selectedSizeIndex: 0,
+        orderCurrentPage: 1,
+        reachMax: false,
       );
 }

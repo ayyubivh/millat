@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
 
-import '../../../../utils/utils.dart';
-
 part 'auth_event.dart';
 part 'auth_state.dart';
 

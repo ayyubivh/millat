@@ -21,7 +21,7 @@ class ArticlesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController searchController = TextEditingController();
+    // final TextEditingController searchController = TextEditingController();
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       body: BlocProvider(
@@ -48,7 +48,11 @@ class ArticlesView extends StatelessWidget {
                   SizedBox(
                     height: 48,
                     child: TextFormField(
-                      controller: searchController,
+                      onTap: () {
+                        context
+                            .pushNamed(MyAppRouteConstants.shopSearchRouteName);
+                      },
+                      // controller: searchController,
                       decoration: InputDecoration(
                         prefixIcon: Transform.scale(
                           scale: 0.5,
@@ -79,15 +83,15 @@ class ArticlesView extends StatelessWidget {
                         ),
                         hintText: 'Search...',
                       ),
-                      onChanged: (value) {
-                        context
-                            .read<ShopProductsBloc>()
-                            .add(FetchArticles(searchQuery: value));
-                      },
-                      onFieldSubmitted: (value) {
-                        context.read<ShopProductsBloc>().add(
-                            FetchArticles(searchQuery: searchController.text));
-                      },
+                      // onChanged: (value) {
+                      //   context
+                      //       .read<ShopProductsBloc>()
+                      //       .add(FetchArticles(searchQuery: value));
+                      // },
+                      // onFieldSubmitted: (value) {
+                      //   context.read<ShopProductsBloc>().add(
+                      //       FetchArticles(searchQuery: searchController.text));
+                      // },
                     ),
                   ),
                   kHeight20,

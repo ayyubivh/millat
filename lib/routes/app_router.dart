@@ -468,6 +468,10 @@ class MyAppRouter {
                                   type: data['type'],
                                   itemId: data['itemId'],
                                   itemName: data['itemName'],
+                                  brand: data['brand'],
+                                  color: data['color'],
+                                  maxPrice: data['maxPrice'],
+                                  minPrice: data['minPrice'],
                                 ),
                               );
                             },

@@ -166,34 +166,39 @@ class CategoryProductsFilterView extends StatelessWidget {
                         state.colorsFiltersList.isEmpty) {
                       return context.pop();
                     } else {
-                      type == FilterType.specificCategory
-                          ? context
-                              .read<CategoryBloc>()
-                              .add(FetchProductsByFilter(
-                                maxPrice: int.parse(state.maxPrice),
-                                minPrice: int.parse(state.minPrice),
-                                category: '',
-                                subCategory: state.subcategoryFiltersList,
-                                itemId: state.itemTypeFiltersList,
-                                brand: state.brandsFiltersList,
-                                color: state.colorsFiltersList,
-                              ))
-                          : context.read<CategoryBloc>().add(
-                              FetchProductsByFilter(
-                                  maxPrice: int.parse(state.maxPrice),
-                                  minPrice: int.parse(state.minPrice),
-                                  category: category,
-                                  subCategory: state.subcategoryFiltersList,
-                                  brand: state.brandsFiltersList,
-                                  color: state.colorsFiltersList));
+                      // type == FilterType.specificCategory
+                      //     ? context
+                      //         .read<CategoryBloc>()
+                      //         .add(FetchProductsByFilter(
+                      //           maxPrice: int.parse(state.maxPrice),
+                      //           minPrice: int.parse(state.minPrice),
+                      //           category: '',
+                      //           subCategory: state.subcategoryFiltersList,
+                      //           itemId: state.itemTypeFiltersList,
+                      //           brand: state.brandsFiltersList,
+                      //           color: state.colorsFiltersList,
+                      //         ))
+                      //     : context.read<CategoryBloc>().add(
+                      //         FetchProductsByFilter(
+                      //             maxPrice: int.parse(state.maxPrice),
+                      //             minPrice: int.parse(state.minPrice),
+                      //             category: category,
+                      //             subCategory: state.subcategoryFiltersList,
+                      //             brand: state.brandsFiltersList,
+                      //             color: state.colorsFiltersList));
                       // context.pop();
 
                       context.pushReplacementNamed(
                           MyAppRouteConstants.categoriesProductsRouteName,
                           extra: {
                             'type': FilterType.fromFilter,
-                            'subCategory': '',
-                            'category': category
+                            'subCategory':
+                                state.subcategoryFiltersList.toString(),
+                            'category': category,
+                            'maxPrice': int.parse(state.maxPrice),
+                            'minPrice': int.parse(state.minPrice),
+                            'brand': state.brandsFiltersList.toList(),
+                            'color': state.colorsFiltersList.toList(),
                           });
                     }
                   },

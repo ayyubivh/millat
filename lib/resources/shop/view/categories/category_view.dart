@@ -208,7 +208,7 @@ class _CategoryViewState extends State<CategoryView> {
                                             extra: {
                                               'itemId': productItems?[index].id,
                                               'category': widget.category,
-                                              'subCategory': "",
+                                              'subCategory': '',
                                               'type':
                                                   FilterType.specificCategory,
                                               'categoryId': widget.categoryId

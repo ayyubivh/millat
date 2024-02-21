@@ -23,6 +23,10 @@ class CategoriesProductView extends StatefulWidget {
   final String? itemId;
   final String? itemName;
   final String? categoryId;
+  final int? minPrice;
+  final int? maxPrice;
+  final List<String>? brand;
+  final List<String>? color;
   const CategoriesProductView(
       {super.key,
       required this.category,
@@ -30,7 +34,11 @@ class CategoriesProductView extends StatefulWidget {
       required this.type,
       this.itemId,
       this.itemName,
-      this.categoryId});
+      this.categoryId,
+      this.minPrice,
+      this.maxPrice,
+      this.brand,
+      this.color});
   final FilterType type;
 
   @override
@@ -61,31 +69,40 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
     if (_scrollController.position.pixels ==
         _scrollController.position.maxScrollExtent) {
       _fetchApi();
-      log("scrolled");
     }
   }
 
   _fetchApi() {
     BlocProvider.of<CategoryBloc>(context)
-        .add(widget.type == FilterType.fromFilter
+        .add(widget.type == FilterType.specificCategory
             ? FetchProductsByFilter(
                 minPrice: 0,
                 maxPrice: 0,
                 brand: [],
                 color: [],
-                category: widget.category ?? '',
-                subCategory: [widget.subCategory ?? ""],
-                itemId: [],
-              )
-            : FetchProductsByFilter(
-                minPrice: 0,
-                maxPrice: 0,
-                brand: [],
-                color: [],
-                category: widget.category ?? '',
-                subCategory: [widget.subCategory ?? ""],
+                category: '',
+                subCategory: [],
                 itemId: [widget.itemId ?? ''],
-              ));
+              )
+            : widget.type == FilterType.fromFilter
+                ? FetchProductsByFilter(
+                    minPrice: widget.minPrice ?? 0,
+                    maxPrice: widget.maxPrice ?? 0,
+                    brand: widget.brand ?? [],
+                    color: widget.color ?? [],
+                    category: widget.category ?? '',
+                    subCategory: [widget.subCategory ?? ""],
+                    itemId: [widget.itemId ?? ''],
+                  )
+                : FetchProductsByFilter(
+                    minPrice: 0,
+                    maxPrice: 0,
+                    brand: [],
+                    color: [],
+                    category: widget.category ?? '',
+                    subCategory: [widget.subCategory ?? ""],
+                    itemId: [widget.itemId ?? ''],
+                  ));
   }
 
   @override

@@ -42,11 +42,11 @@ class TravelEvent with _$TravelEvent {
     required DateTime end,
     required DateTime focusedDay,
   }) = SelectDateRangeEvent;
-  const factory TravelEvent.fetchTravelSearchedProducts({
-    required String country,
-    required String location,
-    required String date,
-  }) = FetchTravelSearchedProducts;
+  const factory TravelEvent.fetchTravelSearchedProducts(
+      {required String country,
+      required String location,
+      required String startDate,
+      required String endDate}) = FetchTravelSearchedProducts;
   const factory TravelEvent.fetchTravelProductsByCities({
     required String country,
     required String city,

@@ -186,15 +186,15 @@ class CategoryProductsFilterView extends StatelessWidget {
                                   subCategory: state.subcategoryFiltersList,
                                   brand: state.brandsFiltersList,
                                   color: state.colorsFiltersList));
-                      context.pop();
+                      // context.pop();
 
-                      // context.pushReplacementNamed(
-                      //     MyAppRouteConstants.categoriesProductsRouteName,
-                      //     extra: {
-                      //       'type': FilterType.fromFilter,
-                      //       'subCategory': '',
-                      //       'category': category
-                      //     });
+                      context.pushReplacementNamed(
+                          MyAppRouteConstants.categoriesProductsRouteName,
+                          extra: {
+                            'type': FilterType.fromFilter,
+                            'subCategory': '',
+                            'category': category
+                          });
                     }
                   },
                 )),

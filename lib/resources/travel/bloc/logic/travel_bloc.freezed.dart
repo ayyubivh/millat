@@ -37,7 +37,8 @@ mixin _$TravelEvent {
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -70,7 +71,8 @@ mixin _$TravelEvent {
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -102,7 +104,8 @@ mixin _$TravelEvent {
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -333,7 +336,8 @@ class _$ChangeBannerIndexImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -369,7 +373,8 @@ class _$ChangeBannerIndexImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -404,7 +409,8 @@ class _$ChangeBannerIndexImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -644,7 +650,8 @@ class _$ChangeTravelTabIndexImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -680,7 +687,8 @@ class _$ChangeTravelTabIndexImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -715,7 +723,8 @@ class _$ChangeTravelTabIndexImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -929,7 +938,8 @@ class _$FetchTravelPopularProductsImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -965,7 +975,8 @@ class _$FetchTravelPopularProductsImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -1000,7 +1011,8 @@ class _$FetchTravelPopularProductsImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -1208,7 +1220,8 @@ class _$FetchBestPlacesProductsImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -1244,7 +1257,8 @@ class _$FetchBestPlacesProductsImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -1279,7 +1293,8 @@ class _$FetchBestPlacesProductsImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -1484,7 +1499,8 @@ class _$FetchTravelCitiesImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -1520,7 +1536,8 @@ class _$FetchTravelCitiesImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -1555,7 +1572,8 @@ class _$FetchTravelCitiesImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -1790,7 +1808,8 @@ class _$FetchTravelProductsByIdImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -1826,7 +1845,8 @@ class _$FetchTravelProductsByIdImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -1861,7 +1881,8 @@ class _$FetchTravelProductsByIdImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -2104,7 +2125,8 @@ class _$FetchTravelSearchLocationsImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -2140,7 +2162,8 @@ class _$FetchTravelSearchLocationsImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -2175,7 +2198,8 @@ class _$FetchTravelSearchLocationsImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -2417,7 +2441,8 @@ class _$FetchProductByLocationImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -2453,7 +2478,8 @@ class _$FetchProductByLocationImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -2488,7 +2514,8 @@ class _$FetchProductByLocationImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -2788,7 +2815,8 @@ class _$BookTravelEventImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -2825,7 +2853,8 @@ class _$BookTravelEventImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -2861,7 +2890,8 @@ class _$BookTravelEventImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -3083,7 +3113,8 @@ class _$IncreaseGuestEventImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -3119,7 +3150,8 @@ class _$IncreaseGuestEventImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -3154,7 +3186,8 @@ class _$IncreaseGuestEventImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -3359,7 +3392,8 @@ class _$DecreaseGuestEventImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -3395,7 +3429,8 @@ class _$DecreaseGuestEventImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -3430,7 +3465,8 @@ class _$DecreaseGuestEventImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -3663,7 +3699,8 @@ class _$SelectCountryEventImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -3699,7 +3736,8 @@ class _$SelectCountryEventImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -3734,7 +3772,8 @@ class _$SelectCountryEventImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -3974,7 +4013,8 @@ class _$SaveSearchLocationImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -4010,7 +4050,8 @@ class _$SaveSearchLocationImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -4045,7 +4086,8 @@ class _$SaveSearchLocationImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -4255,7 +4297,8 @@ class _$ResetSearchDataImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -4291,7 +4334,8 @@ class _$ResetSearchDataImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -4326,7 +4370,8 @@ class _$ResetSearchDataImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -4531,7 +4576,8 @@ class _$ShowCalendarEventImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -4567,7 +4613,8 @@ class _$ShowCalendarEventImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -4602,7 +4649,8 @@ class _$ShowCalendarEventImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -4856,7 +4904,8 @@ class _$SelectDateRangeEventImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -4892,7 +4941,8 @@ class _$SelectDateRangeEventImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -4927,7 +4977,8 @@ class _$SelectDateRangeEventImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -5083,7 +5134,8 @@ abstract class _$$FetchTravelSearchedProductsImplCopyWith<$Res> {
           $Res Function(_$FetchTravelSearchedProductsImpl) then) =
       __$$FetchTravelSearchedProductsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String country, String location, String date});
+  $Res call(
+      {String country, String location, String startDate, String endDate});
 }
 
 /// @nodoc
@@ -5100,7 +5152,8 @@ class __$$FetchTravelSearchedProductsImplCopyWithImpl<$Res>
   $Res call({
     Object? country = null,
     Object? location = null,
-    Object? date = null,
+    Object? startDate = null,
+    Object? endDate = null,
   }) {
     return _then(_$FetchTravelSearchedProductsImpl(
       country: null == country
@@ -5111,9 +5164,13 @@ class __$$FetchTravelSearchedProductsImplCopyWithImpl<$Res>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      startDate: null == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      endDate: null == endDate
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -5125,18 +5182,23 @@ class _$FetchTravelSearchedProductsImpl
     with DiagnosticableTreeMixin
     implements FetchTravelSearchedProducts {
   const _$FetchTravelSearchedProductsImpl(
-      {required this.country, required this.location, required this.date});
+      {required this.country,
+      required this.location,
+      required this.startDate,
+      required this.endDate});
 
   @override
   final String country;
   @override
   final String location;
   @override
-  final String date;
+  final String startDate;
+  @override
+  final String endDate;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TravelEvent.fetchTravelSearchedProducts(country: $country, location: $location, date: $date)';
+    return 'TravelEvent.fetchTravelSearchedProducts(country: $country, location: $location, startDate: $startDate, endDate: $endDate)';
   }
 
   @override
@@ -5147,7 +5209,8 @@ class _$FetchTravelSearchedProductsImpl
           'type', 'TravelEvent.fetchTravelSearchedProducts'))
       ..add(DiagnosticsProperty('country', country))
       ..add(DiagnosticsProperty('location', location))
-      ..add(DiagnosticsProperty('date', date));
+      ..add(DiagnosticsProperty('startDate', startDate))
+      ..add(DiagnosticsProperty('endDate', endDate));
   }
 
   @override
@@ -5158,11 +5221,14 @@ class _$FetchTravelSearchedProductsImpl
             (identical(other.country, country) || other.country == country) &&
             (identical(other.location, location) ||
                 other.location == location) &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, country, location, date);
+  int get hashCode =>
+      Object.hash(runtimeType, country, location, startDate, endDate);
 
   @JsonKey(ignore: true)
   @override
@@ -5193,7 +5259,8 @@ class _$FetchTravelSearchedProductsImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -5204,7 +5271,7 @@ class _$FetchTravelSearchedProductsImpl
     required TResult Function() fetchTravelHomeBannerPackages,
     required TResult Function() pickMultipleImageEvent,
   }) {
-    return fetchTravelSearchedProducts(country, location, date);
+    return fetchTravelSearchedProducts(country, location, startDate, endDate);
   }
 
   @override
@@ -5229,7 +5296,8 @@ class _$FetchTravelSearchedProductsImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -5239,7 +5307,8 @@ class _$FetchTravelSearchedProductsImpl
     TResult? Function()? fetchTravelHomeBannerPackages,
     TResult? Function()? pickMultipleImageEvent,
   }) {
-    return fetchTravelSearchedProducts?.call(country, location, date);
+    return fetchTravelSearchedProducts?.call(
+        country, location, startDate, endDate);
   }
 
   @override
@@ -5264,7 +5333,8 @@ class _$FetchTravelSearchedProductsImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -5276,7 +5346,7 @@ class _$FetchTravelSearchedProductsImpl
     required TResult orElse(),
   }) {
     if (fetchTravelSearchedProducts != null) {
-      return fetchTravelSearchedProducts(country, location, date);
+      return fetchTravelSearchedProducts(country, location, startDate, endDate);
     }
     return orElse();
   }
@@ -5403,11 +5473,13 @@ abstract class FetchTravelSearchedProducts implements TravelEvent {
   const factory FetchTravelSearchedProducts(
       {required final String country,
       required final String location,
-      required final String date}) = _$FetchTravelSearchedProductsImpl;
+      required final String startDate,
+      required final String endDate}) = _$FetchTravelSearchedProductsImpl;
 
   String get country;
   String get location;
-  String get date;
+  String get startDate;
+  String get endDate;
   @JsonKey(ignore: true)
   _$$FetchTravelSearchedProductsImplCopyWith<_$FetchTravelSearchedProductsImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -5520,7 +5592,8 @@ class _$FetchTravelProductsByCitiesImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -5556,7 +5629,8 @@ class _$FetchTravelProductsByCitiesImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -5591,7 +5665,8 @@ class _$FetchTravelProductsByCitiesImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -5807,7 +5882,8 @@ class _$FetchTravelWishlistProductsImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -5843,7 +5919,8 @@ class _$FetchTravelWishlistProductsImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -5878,7 +5955,8 @@ class _$FetchTravelWishlistProductsImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -6124,7 +6202,8 @@ class _$AddTravelWishlistImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -6160,7 +6239,8 @@ class _$AddTravelWishlistImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -6195,7 +6275,8 @@ class _$AddTravelWishlistImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -6411,7 +6492,8 @@ class _$TravelBookingCompletedImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -6447,7 +6529,8 @@ class _$TravelBookingCompletedImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -6482,7 +6565,8 @@ class _$TravelBookingCompletedImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -6690,7 +6774,8 @@ class _$FetchTravelHomeBannerPackagesImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -6726,7 +6811,8 @@ class _$FetchTravelHomeBannerPackagesImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -6761,7 +6847,8 @@ class _$FetchTravelHomeBannerPackagesImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,
@@ -6970,7 +7057,8 @@ class _$PickMultipleImageEventImpl
     required TResult Function() showCalendarEvent,
     required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
         selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
+    required TResult Function(
+            String country, String location, String startDate, String endDate)
         fetchTravelSearchedProducts,
     required TResult Function(String country, String city)
         fetchTravelProductsByCities,
@@ -7006,7 +7094,8 @@ class _$PickMultipleImageEventImpl
     TResult? Function()? showCalendarEvent,
     TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
+    TResult? Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult? Function(String country, String city)? fetchTravelProductsByCities,
     TResult? Function()? fetchTravelWishlistProducts,
@@ -7041,7 +7130,8 @@ class _$PickMultipleImageEventImpl
     TResult Function()? showCalendarEvent,
     TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
         selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
+    TResult Function(
+            String country, String location, String startDate, String endDate)?
         fetchTravelSearchedProducts,
     TResult Function(String country, String city)? fetchTravelProductsByCities,
     TResult Function()? fetchTravelWishlistProducts,

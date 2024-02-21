@@ -140,9 +140,9 @@ class TravelServices {
   Future<List<ProductId>> fetchTravelSearchedProducts(
       {required String country,
       required String location,
-      required String date}) async {
+      required String startDate,required String endDate,}) async {
     final String endPoint =
-        "search-query?country=$country&location=$location&date=$date";
+        "search-query?country=$country&location=$location&startDate=$startDate&endDate=$endDate";
     final response = await http.get(Uri.parse(travelBaseUrl + endPoint));
 
     if (response.statusCode == 200 || response.statusCode == 201) {

@@ -206,8 +206,14 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
       FetchTravelSearchedProducts event, Emitter<TravelState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
+      final startDate = state.selectedStartDate;
+      final endDate = state.selectedEndDate;
       final data = await travelServices.fetchTravelSearchedProducts(
-          country: event.country, location: event.location, date: event.date);
+        country: event.country,
+        location: event.location,
+        startDate: DateFormat.yMMMd().format(startDate!),
+        endDate: DateFormat.yMMMd().format(endDate!),
+      );
       emit(state.copyWith(searchProducts: data, isLoading: false));
       print("State of bloc ${state.searchProducts}");
     } catch (e) {

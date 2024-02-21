@@ -74,11 +74,13 @@ class TravelSearchView extends StatelessWidget {
               if (numParts.length == 2) {
                 String location = numParts[0];
                 String country = numParts[1];
-                BlocProvider.of<TravelBloc>(context).add(
-                    FetchTravelSearchedProducts(
-                        country: country,
-                        location: location,
-                        date: state.formattedDateRang));
+                BlocProvider.of<TravelBloc>(context)
+                    .add(FetchTravelSearchedProducts(
+                  country: country,
+                  location: location,
+                  startDate: state.formattedDateRang,
+                  endDate: state.formattedDateRang,
+                ));
                 context.pushNamed(MyAppRouteConstants.travelPackagesView,
                     pathParameters: {
                       "title": "Products"

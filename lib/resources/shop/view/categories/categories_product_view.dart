@@ -47,7 +47,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
     BlocProvider.of<CategoryBloc>(context).add(
       FetchFilterOptionEvent(
         category: widget.type == FilterType.specificCategory
-            ? (widget.category == "women"
+            ? (widget.category == "Women"
                 ? "subcategory=Women"
                 : "subcategory=Honey")
             : "category=${widget.category}",

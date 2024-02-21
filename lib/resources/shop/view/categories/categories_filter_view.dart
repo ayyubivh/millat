@@ -152,7 +152,7 @@ class CategoriesFilterView extends StatelessWidget {
                         context.pushNamed(
                             MyAppRouteConstants.categoriesProductsRouteName,
                             extra: {
-                              'type': FilterType.fromFilter,
+                              'type': FilterType.category,
                               'categoryId': categoryId,
                               'subCategory': data[index].title,
                               'category': state.category?.result

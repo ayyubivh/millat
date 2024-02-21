@@ -202,11 +202,17 @@ class AuthService extends HttpServices {
   Future signIn(
       {required String phoneNumber,
       required String userId,
+      required String referrelCode,
       required BuildContext context}) async {
     try {
       final res = await posts(
-          endPoint: signIN,
-          body: {"phone_number": phoneNumber, "userId": userId});
+        endPoint: signIN,
+        body: {
+          "phone_number": phoneNumber,
+          "userId": userId,
+          "referredCode": referrelCode
+        },
+      );
       var value = json.decode(res.body);
 
       if (value['status'] == 200) {
@@ -222,7 +228,7 @@ class AuthService extends HttpServices {
     } catch (e) {
       return {
         'status': false,
-        'message': 'Something went wrong, Please try again later',
+        'message': e.toString(),
       };
     }
   }

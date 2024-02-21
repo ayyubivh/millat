@@ -78,6 +78,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           final res =
               await _authService.sendOTP(phoneNumber: event.phoneNumber);
           if (res['status'] == true) {
+            referralCode = event.referrelCode;
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
 
             emit(AuthSocialLoginNewUserLoaded(
@@ -133,6 +134,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 context: event.context,
                 phoneNumber: currentState.phoneNumber!,
                 userId: userId!,
+                referrelCode: referralCode.toString(),
               );
 
               if (result['status'] == true) {
@@ -141,7 +143,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 emit(AuthError(result['message']));
               }
             } else {
-              showSnackBar(event.context, "Invalid OTP");
+              emit(AuthError("Invalid OTP"));
             }
           }
         } else if (currentState is AuthPhoneNumber) {

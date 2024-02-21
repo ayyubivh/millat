@@ -21,8 +21,8 @@ class SignUp extends AuthEvent {
 
 class SendOTP extends AuthEvent {
   final String phoneNumber;
-
-  SendOTP(this.phoneNumber);
+  final String referrelCode;
+  SendOTP(this.phoneNumber, this.referrelCode);
 }
 
 // class SendOTPonly extends AuthEvent {

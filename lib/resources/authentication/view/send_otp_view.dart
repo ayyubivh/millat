@@ -175,9 +175,11 @@ class _SendOTPViewState extends State<SendOTPView> {
                   //     isSignUp: false,
                   //     referralCode: _referralCodeController.text));
                   context.read<AuthBloc>().add(SignInWithPhone(context,
-                      referralCode: '', phoneNumber: number!.phoneNumber));
+                      referralCode: _referralCodeController.text,
+                      phoneNumber: number!.phoneNumber));
                 } else {
-                  context.read<AuthBloc>().add(SendOTP(number!.phoneNumber!));
+                  context.read<AuthBloc>().add(SendOTP(
+                      number!.phoneNumber!, _referralCodeController.text));
                 }
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(

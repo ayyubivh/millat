@@ -216,13 +216,16 @@ class _SignUpViewState extends State<SignUpView> {
   Future googleSignIn() async {
     try {
       final user = await GoogleSignInService.login();
-
-      await user?.authentication;
+      if (user == null) {
+        return;
+      }
+      print(user);
+      await user.authentication;
 
       context.read<AuthBloc>().add(SocialLogin(
-          email: user?.email ?? "",
-          name: user?.displayName ?? "",
-          picture: user?.photoUrl ?? "",
+          email: user.email,
+          name: user.displayName ?? "",
+          picture: user.photoUrl ?? "",
           context));
     } catch (exception) {
       showSnackBar(context, exception.toString());

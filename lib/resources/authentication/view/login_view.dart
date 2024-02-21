@@ -180,8 +180,12 @@ class _LoginViewState extends State<LoginView> {
           AppleIDAuthorizationScopes.fullName,
         ]);
         showSnackBar(context, "${user.givenName} signed in");
-        context.read<AuthBloc>().add(
-            SocialLogin(email: user.email!, name: user.givenName!, context));
+        context.read<AuthBloc>().add(SocialLogin(
+              email: user.email!,
+              name: user.givenName!,
+              context,
+              id: user.userIdentifier,
+            ));
       } on Exception catch (e) {
         debugPrint(e.toString());
       }
@@ -193,12 +197,15 @@ class _LoginViewState extends State<LoginView> {
   Future googleSignIn() async {
     try {
       final user = await GoogleSignInService.login();
+      if (user == null) {
+        return;
+      }
+      print(user);
+      await user.authentication;
 
-      await user?.authentication;
-
-      showSnackBar(context, "${user?.displayName} signed in");
+      showSnackBar(context, "${user.displayName} signed in");
       context.read<AuthBloc>().add(
-          SocialLogin(email: user!.email, name: user.displayName!, context));
+          SocialLogin(email: user.email, name: user.displayName!, context));
       // await GoogleSignInService.logout();
     } catch (exception) {
       debugPrint(exception.toString());

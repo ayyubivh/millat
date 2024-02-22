@@ -465,6 +465,14 @@ mixin _$User {
   String? get username => throw _privateConstructorUsedError;
   @JsonKey(name: 'email')
   String? get email => throw _privateConstructorUsedError;
+  @JsonKey(name: 'picture')
+  String? get picture => throw _privateConstructorUsedError;
+  @JsonKey(name: 'phone_number')
+  String? get phoneNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'otp')
+  String? get otp => throw _privateConstructorUsedError;
+  @JsonKey(name: 'socialId')
+  String? get socialId => throw _privateConstructorUsedError;
   @JsonKey(name: 'uuid')
   String? get uuid => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
@@ -487,6 +495,10 @@ abstract class $UserCopyWith<$Res> {
       @JsonKey(name: 'name') String? name,
       @JsonKey(name: 'username') String? username,
       @JsonKey(name: 'email') String? email,
+      @JsonKey(name: 'picture') String? picture,
+      @JsonKey(name: 'phone_number') String? phoneNumber,
+      @JsonKey(name: 'otp') String? otp,
+      @JsonKey(name: 'socialId') String? socialId,
       @JsonKey(name: 'uuid') String? uuid,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt});
@@ -509,6 +521,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? name = freezed,
     Object? username = freezed,
     Object? email = freezed,
+    Object? picture = freezed,
+    Object? phoneNumber = freezed,
+    Object? otp = freezed,
+    Object? socialId = freezed,
     Object? uuid = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -529,6 +545,22 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      otp: freezed == otp
+          ? _value.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      socialId: freezed == socialId
+          ? _value.socialId
+          : socialId // ignore: cast_nullable_to_non_nullable
               as String?,
       uuid: freezed == uuid
           ? _value.uuid
@@ -558,6 +590,10 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       @JsonKey(name: 'name') String? name,
       @JsonKey(name: 'username') String? username,
       @JsonKey(name: 'email') String? email,
+      @JsonKey(name: 'picture') String? picture,
+      @JsonKey(name: 'phone_number') String? phoneNumber,
+      @JsonKey(name: 'otp') String? otp,
+      @JsonKey(name: 'socialId') String? socialId,
       @JsonKey(name: 'uuid') String? uuid,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt});
@@ -577,6 +613,10 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? username = freezed,
     Object? email = freezed,
+    Object? picture = freezed,
+    Object? phoneNumber = freezed,
+    Object? otp = freezed,
+    Object? socialId = freezed,
     Object? uuid = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -597,6 +637,22 @@ class __$$UserImplCopyWithImpl<$Res>
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      otp: freezed == otp
+          ? _value.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      socialId: freezed == socialId
+          ? _value.socialId
+          : socialId // ignore: cast_nullable_to_non_nullable
               as String?,
       uuid: freezed == uuid
           ? _value.uuid
@@ -622,6 +678,10 @@ class _$UserImpl implements _User {
       @JsonKey(name: 'name') this.name,
       @JsonKey(name: 'username') this.username,
       @JsonKey(name: 'email') this.email,
+      @JsonKey(name: 'picture') this.picture,
+      @JsonKey(name: 'phone_number') this.phoneNumber,
+      @JsonKey(name: 'otp') this.otp,
+      @JsonKey(name: 'socialId') this.socialId,
       @JsonKey(name: 'uuid') this.uuid,
       @JsonKey(name: 'createdAt') this.createdAt,
       @JsonKey(name: 'updatedAt') this.updatedAt});
@@ -642,6 +702,18 @@ class _$UserImpl implements _User {
   @JsonKey(name: 'email')
   final String? email;
   @override
+  @JsonKey(name: 'picture')
+  final String? picture;
+  @override
+  @JsonKey(name: 'phone_number')
+  final String? phoneNumber;
+  @override
+  @JsonKey(name: 'otp')
+  final String? otp;
+  @override
+  @JsonKey(name: 'socialId')
+  final String? socialId;
+  @override
   @JsonKey(name: 'uuid')
   final String? uuid;
   @override
@@ -653,7 +725,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, username: $username, email: $email, uuid: $uuid, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'User(id: $id, name: $name, username: $username, email: $email, picture: $picture, phoneNumber: $phoneNumber, otp: $otp, socialId: $socialId, uuid: $uuid, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -666,6 +738,12 @@ class _$UserImpl implements _User {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.otp, otp) || other.otp == otp) &&
+            (identical(other.socialId, socialId) ||
+                other.socialId == socialId) &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -675,8 +753,8 @@ class _$UserImpl implements _User {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, username, email, uuid, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, name, username, email,
+      picture, phoneNumber, otp, socialId, uuid, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -698,6 +776,10 @@ abstract class _User implements User {
       @JsonKey(name: 'name') final String? name,
       @JsonKey(name: 'username') final String? username,
       @JsonKey(name: 'email') final String? email,
+      @JsonKey(name: 'picture') final String? picture,
+      @JsonKey(name: 'phone_number') final String? phoneNumber,
+      @JsonKey(name: 'otp') final String? otp,
+      @JsonKey(name: 'socialId') final String? socialId,
       @JsonKey(name: 'uuid') final String? uuid,
       @JsonKey(name: 'createdAt') final String? createdAt,
       @JsonKey(name: 'updatedAt') final String? updatedAt}) = _$UserImpl;
@@ -716,6 +798,18 @@ abstract class _User implements User {
   @override
   @JsonKey(name: 'email')
   String? get email;
+  @override
+  @JsonKey(name: 'picture')
+  String? get picture;
+  @override
+  @JsonKey(name: 'phone_number')
+  String? get phoneNumber;
+  @override
+  @JsonKey(name: 'otp')
+  String? get otp;
+  @override
+  @JsonKey(name: 'socialId')
+  String? get socialId;
   @override
   @JsonKey(name: 'uuid')
   String? get uuid;

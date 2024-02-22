@@ -7,10 +7,19 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthService _authService = AuthService();
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    print("$error $stackTrace");
+    super.onError(error, stackTrace);
+  }
 
   String? userId;
   String? phoneNumber;
   String? referralCode;
+  String? mail;
+  String? socialId;
+  String? name;
+  String? picture;
   AuthBloc() : super(AuthInitial()) {
     on<AuthEvent>((event, emit) async {
       if (event is Login) {
@@ -70,29 +79,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else if (event is SendOTP) {
         phoneNumber = event.phoneNumber;
 
-        final currentState = state;
-        if (currentState is AuthSocialLoginNewUser) {
-          emit(AuthLoading());
-          final res =
-              await _authService.sendOTP(phoneNumber: event.phoneNumber);
-          if (res['status'] == true) {
-            referralCode = event.referrelCode;
-            emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
+        // final currentState = state;
+        // if (currentState is AuthSocialLoginNewUser) {
+        //   emit(AuthLoading());
+        //   final res =
+        //       await _authService.sendOTP(phoneNumber: event.phoneNumber);
+        //   if (res['status'] == true) {
+        //     referralCode = event.referrelCode;
+        //     emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
 
-            emit(AuthSocialLoginNewUserLoaded(
-                phoneNumber: event.phoneNumber, otp: res['result'].toString()));
-          } else {
-            emit(AuthError(res['message']));
-          }
+        //             } else {
+        //     emit(AuthError(res['message']));
+        //   }
+        // }
+
+        final res = await _authService.sendOTP(phoneNumber: event.phoneNumber);
+        if (res['status'] == true) {
+          emit(AuthLoaded(event.phoneNumber));
         } else {
-          final res =
-              await _authService.sendOTP(phoneNumber: event.phoneNumber);
-          if (res['status'] == true) {
-            emit(AuthLoaded(event.phoneNumber));
-          } else {
-            emit(AuthError(res['message']));
-          }
+          emit(AuthError(res['message']));
         }
+
         // }
         //  else if (event is SendOTPonly) {
         //   emit(AuthLoading());
@@ -120,28 +127,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else if (event is VerifyOTP) {
         final currentState = state;
         print(currentState.toString());
-        if (currentState is AuthSocialLoginNewUserLoaded) {
+        if (currentState is AuthSocialLoginNewUserLoaded ||
+            state is AuthSocialPhoneNumberAvailable) {
           emit(AuthLoading());
           if (event.code.isEmpty) {
             emit(AuthError('Please fill in all the fields'));
           } else {
-            if (currentState.otp == event.code &&
-                userId != null &&
-                currentState.phoneNumber!.isNotEmpty) {
-              final result = await _authService.signIn(
-                context: event.context,
-                phoneNumber: currentState.phoneNumber!,
-                userId: userId!,
-                referrelCode: referralCode.toString(),
-              );
+            final result = await _authService.signIn(
+              context: event.context,
+              phoneNumber: phoneNumber ?? "",
+              otp: event.code,
+              referrelCode: referralCode.toString(),
+            );
 
-              if (result['status'] == true) {
-                emit(AuthLoaded(currentState.phoneNumber!));
-              } else {
-                emit(AuthError(result['message']));
-              }
+            if (result['status'] == true) {
+              emit(AuthLoaded(phoneNumber ?? ""));
             } else {
-              emit(AuthError("Invalid OTP"));
+              emit(AuthError(result['message']));
             }
           }
         } else if (currentState is AuthPhoneNumber) {
@@ -177,27 +179,67 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         //   }
         // }
       } else if (event is SocialLogin) {
-        emit(AuthLoading());
-        emit(AuthloadingSocialLogin());
         try {
-          final result = await _authService.loginWithSocial(
-            context: event.context,
-            email: event.email,
-            name: event.name,
-            picture: event.picture ?? "",
-            id: event.id ?? "",
-          );
-          print("result of social login $result");
-          if (result.status == 200) {
-            final token = result.result?.token;
-            if (token == "" || token == null) {
-              userId = result.result?.user?.id!;
-              emit(AuthSocialLoginNewUser(userId: result.result?.user?.id!));
+          if (state is AuthSocialLoginNewUser) {
+            final result = await _authService.loginWithSocial(
+              context: event.context,
+              email: mail ?? "",
+              name: name,
+              picture: picture ?? "",
+              id: socialId ?? "",
+              phoneNumber: event.phoneNumber,
+            );
+            phoneNumber = event.phoneNumber;
+            print("result of social login $result");
+            if (result.status == 200) {
+              final token = result.result?.token;
+              if (token == "" || token == null) {
+                userId = result.result?.user?.id!;
+                emit(AuthSocialLoginNewUserLoaded(
+                    phoneNumber: phoneNumber, otp: ''));
+              } else {
+                emit(AuthLoadedSocialLogin());
+              }
             } else {
-              emit(AuthLoadedSocialLogin());
+              emit(AuthError(result.error ?? ""));
             }
           } else {
-            emit(AuthError(result.error ?? ""));
+            emit(AuthLoading());
+            emit(AuthloadingSocialLogin());
+            final result = await _authService.loginWithSocial(
+              context: event.context,
+              email: event.email,
+              name: event.name,
+              picture: event.picture ?? "",
+              id: event.id ?? "",
+            );
+
+            print("result of social login $result");
+            if (result.status == 200) {
+              final data = result.result;
+              final token = data?.token;
+              if (token == "" || token == null) {
+                phoneNumber = data?.user?.phoneNumber;
+                if (phoneNumber != "") {
+                  print(data?.user?.phoneNumber);
+                  emit(
+                      AuthSocialPhoneNumberAvailable(data!.user!.phoneNumber!));
+                } else {
+                  socialId = data?.user?.socialId;
+                  mail = data?.user?.email;
+                  name = data?.user?.name;
+                  picture = data?.user?.picture;
+                  userId = result.result?.user?.id!;
+
+                  emit(
+                      AuthSocialLoginNewUser(userId: result.result?.user?.id!));
+                }
+              } else {
+                emit(AuthLoadedSocialLogin());
+              }
+            } else {
+              emit(AuthError(result.error ?? ""));
+            }
           }
         } on Exception catch (e) {
           emit(AuthError(e.toString()));

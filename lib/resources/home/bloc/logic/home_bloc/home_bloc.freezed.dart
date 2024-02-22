@@ -43,6 +43,7 @@ mixin _$HomeEvent {
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +72,7 @@ mixin _$HomeEvent {
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +101,7 @@ mixin _$HomeEvent {
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -137,6 +140,8 @@ mixin _$HomeEvent {
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -167,6 +172,8 @@ mixin _$HomeEvent {
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -196,6 +203,8 @@ mixin _$HomeEvent {
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -293,6 +302,7 @@ class _$FetchLargeDiscountsBannerImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return fetchLargeDisountsBanner();
   }
@@ -324,6 +334,7 @@ class _$FetchLargeDiscountsBannerImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return fetchLargeDisountsBanner?.call();
   }
@@ -355,6 +366,7 @@ class _$FetchLargeDiscountsBannerImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -399,6 +411,8 @@ class _$FetchLargeDiscountsBannerImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return fetchLargeDisountsBanner(this);
   }
@@ -432,6 +446,8 @@ class _$FetchLargeDiscountsBannerImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return fetchLargeDisountsBanner?.call(this);
   }
@@ -464,6 +480,8 @@ class _$FetchLargeDiscountsBannerImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -550,6 +568,7 @@ class _$FetchTopOffersBannerImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return fetchTopOffersBanner();
   }
@@ -581,6 +600,7 @@ class _$FetchTopOffersBannerImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return fetchTopOffersBanner?.call();
   }
@@ -612,6 +632,7 @@ class _$FetchTopOffersBannerImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -656,6 +677,8 @@ class _$FetchTopOffersBannerImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return fetchTopOffersBanner(this);
   }
@@ -689,6 +712,8 @@ class _$FetchTopOffersBannerImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return fetchTopOffersBanner?.call(this);
   }
@@ -721,6 +746,8 @@ class _$FetchTopOffersBannerImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -805,6 +832,7 @@ class _$FetchBrandofTheDayImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return fetchBrandofTheDay();
   }
@@ -836,6 +864,7 @@ class _$FetchBrandofTheDayImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return fetchBrandofTheDay?.call();
   }
@@ -867,6 +896,7 @@ class _$FetchBrandofTheDayImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -911,6 +941,8 @@ class _$FetchBrandofTheDayImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return fetchBrandofTheDay(this);
   }
@@ -944,6 +976,8 @@ class _$FetchBrandofTheDayImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return fetchBrandofTheDay?.call(this);
   }
@@ -976,6 +1010,8 @@ class _$FetchBrandofTheDayImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -1062,6 +1098,7 @@ class _$FetchHadithOfTheDayImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return fetchHadithOfTheDay();
   }
@@ -1093,6 +1130,7 @@ class _$FetchHadithOfTheDayImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return fetchHadithOfTheDay?.call();
   }
@@ -1124,6 +1162,7 @@ class _$FetchHadithOfTheDayImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -1168,6 +1207,8 @@ class _$FetchHadithOfTheDayImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return fetchHadithOfTheDay(this);
   }
@@ -1201,6 +1242,8 @@ class _$FetchHadithOfTheDayImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return fetchHadithOfTheDay?.call(this);
   }
@@ -1233,6 +1276,8 @@ class _$FetchHadithOfTheDayImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -1319,6 +1364,7 @@ class _$FetchEventOfTheMonthImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return fetchEventOfTheMonth();
   }
@@ -1350,6 +1396,7 @@ class _$FetchEventOfTheMonthImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return fetchEventOfTheMonth?.call();
   }
@@ -1381,6 +1428,7 @@ class _$FetchEventOfTheMonthImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -1425,6 +1473,8 @@ class _$FetchEventOfTheMonthImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return fetchEventOfTheMonth(this);
   }
@@ -1458,6 +1508,8 @@ class _$FetchEventOfTheMonthImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return fetchEventOfTheMonth?.call(this);
   }
@@ -1490,6 +1542,8 @@ class _$FetchEventOfTheMonthImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -1615,6 +1669,7 @@ class _$FetchPrayerTrackerEventImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return fetchPrayerTrackerEvent(date, context);
   }
@@ -1646,6 +1701,7 @@ class _$FetchPrayerTrackerEventImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return fetchPrayerTrackerEvent?.call(date, context);
   }
@@ -1677,6 +1733,7 @@ class _$FetchPrayerTrackerEventImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -1721,6 +1778,8 @@ class _$FetchPrayerTrackerEventImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return fetchPrayerTrackerEvent(this);
   }
@@ -1754,6 +1813,8 @@ class _$FetchPrayerTrackerEventImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return fetchPrayerTrackerEvent?.call(this);
   }
@@ -1786,6 +1847,8 @@ class _$FetchPrayerTrackerEventImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -1920,6 +1983,7 @@ class _$AddPrayerToPrayerTrackerImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return addPrayerToPrayerTracker(namazName, context);
   }
@@ -1951,6 +2015,7 @@ class _$AddPrayerToPrayerTrackerImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return addPrayerToPrayerTracker?.call(namazName, context);
   }
@@ -1982,6 +2047,7 @@ class _$AddPrayerToPrayerTrackerImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -2026,6 +2092,8 @@ class _$AddPrayerToPrayerTrackerImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return addPrayerToPrayerTracker(this);
   }
@@ -2059,6 +2127,8 @@ class _$AddPrayerToPrayerTrackerImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return addPrayerToPrayerTracker?.call(this);
   }
@@ -2091,6 +2161,8 @@ class _$AddPrayerToPrayerTrackerImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -2187,6 +2259,7 @@ class _$ChangeIndexofAllaysaysBgImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return changeIndexofAllaysaysBg();
   }
@@ -2218,6 +2291,7 @@ class _$ChangeIndexofAllaysaysBgImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return changeIndexofAllaysaysBg?.call();
   }
@@ -2249,6 +2323,7 @@ class _$ChangeIndexofAllaysaysBgImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeIndexofAllaysaysBg != null) {
@@ -2293,6 +2368,8 @@ class _$ChangeIndexofAllaysaysBgImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return changeIndexofAllaysaysBg(this);
   }
@@ -2326,6 +2403,8 @@ class _$ChangeIndexofAllaysaysBgImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return changeIndexofAllaysaysBg?.call(this);
   }
@@ -2358,6 +2437,8 @@ class _$ChangeIndexofAllaysaysBgImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeIndexofAllaysaysBg != null) {
@@ -2474,6 +2555,7 @@ class _$ChangeHomeTabIndexEventImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return changeHomeTabIndexEvent(newIndex);
   }
@@ -2505,6 +2587,7 @@ class _$ChangeHomeTabIndexEventImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return changeHomeTabIndexEvent?.call(newIndex);
   }
@@ -2536,6 +2619,7 @@ class _$ChangeHomeTabIndexEventImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeHomeTabIndexEvent != null) {
@@ -2580,6 +2664,8 @@ class _$ChangeHomeTabIndexEventImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return changeHomeTabIndexEvent(this);
   }
@@ -2613,6 +2699,8 @@ class _$ChangeHomeTabIndexEventImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return changeHomeTabIndexEvent?.call(this);
   }
@@ -2645,6 +2733,8 @@ class _$ChangeHomeTabIndexEventImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeHomeTabIndexEvent != null) {
@@ -2779,6 +2869,7 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return removeDailyPrayerTrackerNamaz(namazName, context);
   }
@@ -2810,6 +2901,7 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return removeDailyPrayerTrackerNamaz?.call(namazName, context);
   }
@@ -2841,6 +2933,7 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (removeDailyPrayerTrackerNamaz != null) {
@@ -2885,6 +2978,8 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return removeDailyPrayerTrackerNamaz(this);
   }
@@ -2918,6 +3013,8 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return removeDailyPrayerTrackerNamaz?.call(this);
   }
@@ -2950,6 +3047,8 @@ class _$RemoveDailyPrayerTrackerNamazImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (removeDailyPrayerTrackerNamaz != null) {
@@ -3076,6 +3175,7 @@ class _$ChangeTinterCardSwipeOptionImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return changeTinterCardSwipeOption(value);
   }
@@ -3107,6 +3207,7 @@ class _$ChangeTinterCardSwipeOptionImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return changeTinterCardSwipeOption?.call(value);
   }
@@ -3138,6 +3239,7 @@ class _$ChangeTinterCardSwipeOptionImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeTinterCardSwipeOption != null) {
@@ -3182,6 +3284,8 @@ class _$ChangeTinterCardSwipeOptionImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return changeTinterCardSwipeOption(this);
   }
@@ -3215,6 +3319,8 @@ class _$ChangeTinterCardSwipeOptionImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return changeTinterCardSwipeOption?.call(this);
   }
@@ -3247,6 +3353,8 @@ class _$ChangeTinterCardSwipeOptionImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeTinterCardSwipeOption != null) {
@@ -3369,6 +3477,7 @@ class _$ChangeCompassThemeEventImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return changeCompassThemeEvent(compassTheme);
   }
@@ -3400,6 +3509,7 @@ class _$ChangeCompassThemeEventImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return changeCompassThemeEvent?.call(compassTheme);
   }
@@ -3431,6 +3541,7 @@ class _$ChangeCompassThemeEventImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeCompassThemeEvent != null) {
@@ -3475,6 +3586,8 @@ class _$ChangeCompassThemeEventImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return changeCompassThemeEvent(this);
   }
@@ -3508,6 +3621,8 @@ class _$ChangeCompassThemeEventImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return changeCompassThemeEvent?.call(this);
   }
@@ -3540,6 +3655,8 @@ class _$ChangeCompassThemeEventImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeCompassThemeEvent != null) {
@@ -3662,6 +3779,7 @@ class _$ChangeCompassThemeIndexImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return changeCompassThemeIndex(index);
   }
@@ -3693,6 +3811,7 @@ class _$ChangeCompassThemeIndexImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return changeCompassThemeIndex?.call(index);
   }
@@ -3724,6 +3843,7 @@ class _$ChangeCompassThemeIndexImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeCompassThemeIndex != null) {
@@ -3768,6 +3888,8 @@ class _$ChangeCompassThemeIndexImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return changeCompassThemeIndex(this);
   }
@@ -3801,6 +3923,8 @@ class _$ChangeCompassThemeIndexImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return changeCompassThemeIndex?.call(this);
   }
@@ -3833,6 +3957,8 @@ class _$ChangeCompassThemeIndexImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeCompassThemeIndex != null) {
@@ -3953,6 +4079,7 @@ class _$FetchNotificationApiImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return fetchNotificationApi(context);
   }
@@ -3984,6 +4111,7 @@ class _$FetchNotificationApiImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return fetchNotificationApi?.call(context);
   }
@@ -4015,6 +4143,7 @@ class _$FetchNotificationApiImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchNotificationApi != null) {
@@ -4059,6 +4188,8 @@ class _$FetchNotificationApiImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return fetchNotificationApi(this);
   }
@@ -4092,6 +4223,8 @@ class _$FetchNotificationApiImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return fetchNotificationApi?.call(this);
   }
@@ -4124,6 +4257,8 @@ class _$FetchNotificationApiImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchNotificationApi != null) {
@@ -4257,6 +4392,7 @@ class _$AddMarkReadNotificationEventImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return addMarkReadNotificationEvent(id, context);
   }
@@ -4288,6 +4424,7 @@ class _$AddMarkReadNotificationEventImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return addMarkReadNotificationEvent?.call(id, context);
   }
@@ -4319,6 +4456,7 @@ class _$AddMarkReadNotificationEventImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (addMarkReadNotificationEvent != null) {
@@ -4363,6 +4501,8 @@ class _$AddMarkReadNotificationEventImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return addMarkReadNotificationEvent(this);
   }
@@ -4396,6 +4536,8 @@ class _$AddMarkReadNotificationEventImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return addMarkReadNotificationEvent?.call(this);
   }
@@ -4428,6 +4570,8 @@ class _$AddMarkReadNotificationEventImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (addMarkReadNotificationEvent != null) {
@@ -4551,6 +4695,7 @@ class _$ChangeHomeBannerIndexImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return changeHomeBannerIndex(index);
   }
@@ -4582,6 +4727,7 @@ class _$ChangeHomeBannerIndexImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return changeHomeBannerIndex?.call(index);
   }
@@ -4613,6 +4759,7 @@ class _$ChangeHomeBannerIndexImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeHomeBannerIndex != null) {
@@ -4657,6 +4804,8 @@ class _$ChangeHomeBannerIndexImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return changeHomeBannerIndex(this);
   }
@@ -4690,6 +4839,8 @@ class _$ChangeHomeBannerIndexImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return changeHomeBannerIndex?.call(this);
   }
@@ -4722,6 +4873,8 @@ class _$ChangeHomeBannerIndexImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeHomeBannerIndex != null) {
@@ -4843,6 +4996,7 @@ class _$ChangeEventOfTheMonthIndexImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return changeEventOfTheMonthIndex(index);
   }
@@ -4874,6 +5028,7 @@ class _$ChangeEventOfTheMonthIndexImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return changeEventOfTheMonthIndex?.call(index);
   }
@@ -4905,6 +5060,7 @@ class _$ChangeEventOfTheMonthIndexImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeEventOfTheMonthIndex != null) {
@@ -4949,6 +5105,8 @@ class _$ChangeEventOfTheMonthIndexImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return changeEventOfTheMonthIndex(this);
   }
@@ -4982,6 +5140,8 @@ class _$ChangeEventOfTheMonthIndexImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return changeEventOfTheMonthIndex?.call(this);
   }
@@ -5014,6 +5174,8 @@ class _$ChangeEventOfTheMonthIndexImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeEventOfTheMonthIndex != null) {
@@ -5104,6 +5266,7 @@ class _$FetchAllahSaysImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return fetchAllahSaysApi();
   }
@@ -5135,6 +5298,7 @@ class _$FetchAllahSaysImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return fetchAllahSaysApi?.call();
   }
@@ -5166,6 +5330,7 @@ class _$FetchAllahSaysImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchAllahSaysApi != null) {
@@ -5210,6 +5375,8 @@ class _$FetchAllahSaysImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return fetchAllahSaysApi(this);
   }
@@ -5243,6 +5410,8 @@ class _$FetchAllahSaysImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return fetchAllahSaysApi?.call(this);
   }
@@ -5275,6 +5444,8 @@ class _$FetchAllahSaysImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchAllahSaysApi != null) {
@@ -5392,6 +5563,7 @@ class _$ChangeTranslationLanguageIndexImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return changeTranslationLanguageIndex(index);
   }
@@ -5423,6 +5595,7 @@ class _$ChangeTranslationLanguageIndexImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return changeTranslationLanguageIndex?.call(index);
   }
@@ -5454,6 +5627,7 @@ class _$ChangeTranslationLanguageIndexImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeTranslationLanguageIndex != null) {
@@ -5498,6 +5672,8 @@ class _$ChangeTranslationLanguageIndexImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return changeTranslationLanguageIndex(this);
   }
@@ -5531,6 +5707,8 @@ class _$ChangeTranslationLanguageIndexImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return changeTranslationLanguageIndex?.call(this);
   }
@@ -5563,6 +5741,8 @@ class _$ChangeTranslationLanguageIndexImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (changeTranslationLanguageIndex != null) {
@@ -5656,6 +5836,7 @@ class _$FetchAllHomePageApiImpl
     required TResult Function() fetchAllahSaysApi,
     required TResult Function(int index) changeTranslationLanguageIndex,
     required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
   }) {
     return fetchAllHomePageApis();
   }
@@ -5687,6 +5868,7 @@ class _$FetchAllHomePageApiImpl
     TResult? Function()? fetchAllahSaysApi,
     TResult? Function(int index)? changeTranslationLanguageIndex,
     TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
   }) {
     return fetchAllHomePageApis?.call();
   }
@@ -5718,6 +5900,7 @@ class _$FetchAllHomePageApiImpl
     TResult Function()? fetchAllahSaysApi,
     TResult Function(int index)? changeTranslationLanguageIndex,
     TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchAllHomePageApis != null) {
@@ -5762,6 +5945,8 @@ class _$FetchAllHomePageApiImpl
     required TResult Function(ChangeTranslationLanguageIndex value)
         changeTranslationLanguageIndex,
     required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
   }) {
     return fetchAllHomePageApis(this);
   }
@@ -5795,6 +5980,8 @@ class _$FetchAllHomePageApiImpl
     TResult? Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
   }) {
     return fetchAllHomePageApis?.call(this);
   }
@@ -5827,6 +6014,8 @@ class _$FetchAllHomePageApiImpl
     TResult Function(ChangeTranslationLanguageIndex value)?
         changeTranslationLanguageIndex,
     TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
     required TResult orElse(),
   }) {
     if (fetchAllHomePageApis != null) {
@@ -5838,6 +6027,310 @@ class _$FetchAllHomePageApiImpl
 
 abstract class _FetchAllHomePageApi implements HomeEvent {
   const factory _FetchAllHomePageApi() = _$FetchAllHomePageApiImpl;
+}
+
+/// @nodoc
+abstract class _$$FetchSchedulePushNotificationImplCopyWith<$Res> {
+  factory _$$FetchSchedulePushNotificationImplCopyWith(
+          _$FetchSchedulePushNotificationImpl value,
+          $Res Function(_$FetchSchedulePushNotificationImpl) then) =
+      __$$FetchSchedulePushNotificationImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String address});
+}
+
+/// @nodoc
+class __$$FetchSchedulePushNotificationImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchSchedulePushNotificationImpl>
+    implements _$$FetchSchedulePushNotificationImplCopyWith<$Res> {
+  __$$FetchSchedulePushNotificationImplCopyWithImpl(
+      _$FetchSchedulePushNotificationImpl _value,
+      $Res Function(_$FetchSchedulePushNotificationImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? address = null,
+  }) {
+    return _then(_$FetchSchedulePushNotificationImpl(
+      null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchSchedulePushNotificationImpl
+    with DiagnosticableTreeMixin
+    implements _FetchSchedulePushNotification {
+  const _$FetchSchedulePushNotificationImpl(this.address);
+
+  @override
+  final String address;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.fetchSchedulePushNotification(address: $address)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'HomeEvent.fetchSchedulePushNotification'))
+      ..add(DiagnosticsProperty('address', address));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchSchedulePushNotificationImpl &&
+            (identical(other.address, address) || other.address == address));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, address);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchSchedulePushNotificationImplCopyWith<
+          _$FetchSchedulePushNotificationImpl>
+      get copyWith => __$$FetchSchedulePushNotificationImplCopyWithImpl<
+          _$FetchSchedulePushNotificationImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLargeDisountsBanner,
+    required TResult Function() fetchTopOffersBanner,
+    required TResult Function() fetchBrandofTheDay,
+    required TResult Function() fetchHadithOfTheDay,
+    required TResult Function() fetchEventOfTheMonth,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
+    required TResult Function(int newIndex) changeHomeTabIndexEvent,
+    required TResult Function(String namazName, BuildContext context)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(bool value) changeTinterCardSwipeOption,
+    required TResult Function(CompassTheme compassTheme)
+        changeCompassThemeEvent,
+    required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
+    required TResult Function(int index) changeEventOfTheMonthIndex,
+    required TResult Function() fetchAllahSaysApi,
+    required TResult Function(int index) changeTranslationLanguageIndex,
+    required TResult Function() fetchAllHomePageApis,
+    required TResult Function(String address) fetchSchedulePushNotification,
+  }) {
+    return fetchSchedulePushNotification(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLargeDisountsBanner,
+    TResult? Function()? fetchTopOffersBanner,
+    TResult? Function()? fetchBrandofTheDay,
+    TResult? Function()? fetchHadithOfTheDay,
+    TResult? Function()? fetchEventOfTheMonth,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
+    TResult? Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(bool value)? changeTinterCardSwipeOption,
+    TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
+    TResult? Function(int index)? changeEventOfTheMonthIndex,
+    TResult? Function()? fetchAllahSaysApi,
+    TResult? Function(int index)? changeTranslationLanguageIndex,
+    TResult? Function()? fetchAllHomePageApis,
+    TResult? Function(String address)? fetchSchedulePushNotification,
+  }) {
+    return fetchSchedulePushNotification?.call(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLargeDisountsBanner,
+    TResult Function()? fetchTopOffersBanner,
+    TResult Function()? fetchBrandofTheDay,
+    TResult Function()? fetchHadithOfTheDay,
+    TResult Function()? fetchEventOfTheMonth,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
+    TResult Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(bool value)? changeTinterCardSwipeOption,
+    TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
+    TResult Function(int index)? changeEventOfTheMonthIndex,
+    TResult Function()? fetchAllahSaysApi,
+    TResult Function(int index)? changeTranslationLanguageIndex,
+    TResult Function()? fetchAllHomePageApis,
+    TResult Function(String address)? fetchSchedulePushNotification,
+    required TResult orElse(),
+  }) {
+    if (fetchSchedulePushNotification != null) {
+      return fetchSchedulePushNotification(address);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchLargeDiscountsBanner value)
+        fetchLargeDisountsBanner,
+    required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
+    required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
+    required TResult Function(FetchHadithOfTheDay value) fetchHadithOfTheDay,
+    required TResult Function(FetchEventOfTheMonth value) fetchEventOfTheMonth,
+    required TResult Function(FetchPrayerTrackerEvent value)
+        fetchPrayerTrackerEvent,
+    required TResult Function(AddPrayerToPrayerTracker value)
+        addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
+    required TResult Function(ChangeHomeTabIndexEvent value)
+        changeHomeTabIndexEvent,
+    required TResult Function(RemoveDailyPrayerTrackerNamaz value)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(ChangeTinterCardSwipeOption value)
+        changeTinterCardSwipeOption,
+    required TResult Function(ChangeCompassThemeEvent value)
+        changeCompassThemeEvent,
+    required TResult Function(ChangeCompassThemeIndex value)
+        changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
+    required TResult Function(ChangeEventOfTheMonthIndex value)
+        changeEventOfTheMonthIndex,
+    required TResult Function(FetchAllahSays value) fetchAllahSaysApi,
+    required TResult Function(ChangeTranslationLanguageIndex value)
+        changeTranslationLanguageIndex,
+    required TResult Function(_FetchAllHomePageApi value) fetchAllHomePageApis,
+    required TResult Function(_FetchSchedulePushNotification value)
+        fetchSchedulePushNotification,
+  }) {
+    return fetchSchedulePushNotification(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
+    TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult? Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult? Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+    TResult? Function(ChangeEventOfTheMonthIndex value)?
+        changeEventOfTheMonthIndex,
+    TResult? Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult? Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult? Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult? Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
+  }) {
+    return fetchSchedulePushNotification?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+    TResult Function(ChangeEventOfTheMonthIndex value)?
+        changeEventOfTheMonthIndex,
+    TResult Function(FetchAllahSays value)? fetchAllahSaysApi,
+    TResult Function(ChangeTranslationLanguageIndex value)?
+        changeTranslationLanguageIndex,
+    TResult Function(_FetchAllHomePageApi value)? fetchAllHomePageApis,
+    TResult Function(_FetchSchedulePushNotification value)?
+        fetchSchedulePushNotification,
+    required TResult orElse(),
+  }) {
+    if (fetchSchedulePushNotification != null) {
+      return fetchSchedulePushNotification(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchSchedulePushNotification implements HomeEvent {
+  const factory _FetchSchedulePushNotification(final String address) =
+      _$FetchSchedulePushNotificationImpl;
+
+  String get address;
+  @JsonKey(ignore: true)
+  _$$FetchSchedulePushNotificationImplCopyWith<
+          _$FetchSchedulePushNotificationImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

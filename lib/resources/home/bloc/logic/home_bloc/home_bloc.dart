@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,6 +45,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<FetchAllahSays>(_fetchAllahSays);
     on<ChangeTranslationLanguageIndex>(_changeTranslationChangeIndex);
     on<_FetchAllHomePageApi>(_fetchAllHomePageApi);
+    on<_FetchSchedulePushNotification>(_fetchSchedulePushNotification);
   }
   _fetchAllHomePageApi(
     _FetchAllHomePageApi event,
@@ -330,5 +333,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       ChangeTranslationLanguageIndex event, Emitter<HomeState> emit) {
     emit(state.copyWith(translationLanguageIndex: event.index));
     print(state.translationLanguageIndex);
+  }
+
+  _fetchSchedulePushNotification(
+      _FetchSchedulePushNotification event, Emitter<HomeState> emit) {
+    try {
+      homeServices.fetchSchedulePushNotification(event.address);
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }

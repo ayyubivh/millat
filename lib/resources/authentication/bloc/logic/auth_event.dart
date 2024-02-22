@@ -60,9 +60,16 @@ class SocialLogin extends AuthEvent {
   final String? id;
   final String? picture;
   final BuildContext context;
+  final String? phoneNumber;
 
-  SocialLogin(this.context,
-      {this.picture, required this.email, required this.name, this.id});
+  SocialLogin(
+    this.context, {
+    this.picture,
+    required this.email,
+    required this.name,
+    this.id,
+    this.phoneNumber,
+  });
 }
 
 class AuthloadingEvent extends AuthEvent {}

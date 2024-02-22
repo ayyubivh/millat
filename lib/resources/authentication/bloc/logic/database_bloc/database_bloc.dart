@@ -157,6 +157,7 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       final data = await authService.deleteAccount(
         context: event.context,
       );
+
       if (data == "Please remove your order") {
         emit(state.copyWith(failedMessage: data));
         debugPrint(
@@ -164,7 +165,9 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       } else {
         debugPrint(
             "succes ${state.succesMessage} failure ${state.failedMessage}");
-        emit(state.copyWith(succesMessage: data));
+        emit(state.copyWith(
+          succesMessage: data,
+        ));
       }
       emit(state.copyWith(succesMessage: "", failedMessage: ""));
     });

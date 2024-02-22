@@ -124,6 +124,9 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                     .read<NamazTimingBloc>()
                     .add(FetchPrayerTiming(context: context));
                 context.read<LocationBloc>().add(const FetchWeatherEvent());
+                BlocProvider.of<HomeBloc>(context).add(
+                    HomeEvent.fetchSchedulePushNotification(
+                        state.currentLocation));
               }
             },
             child: BlocListener<NamazTimingBloc, NamazTimingState>(

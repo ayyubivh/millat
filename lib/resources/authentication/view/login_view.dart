@@ -204,8 +204,11 @@ class _LoginViewState extends State<LoginView> {
       await user.authentication;
 
       showSnackBar(context, "${user.displayName} signed in");
-      context.read<AuthBloc>().add(
-          SocialLogin(email: user.email, name: user.displayName!, context));
+      context.read<AuthBloc>().add(SocialLogin(
+          email: user.email,
+          name: user.displayName!,
+          context,
+          picture: user.photoUrl));
       // await GoogleSignInService.logout();
     } catch (exception) {
       debugPrint(exception.toString());

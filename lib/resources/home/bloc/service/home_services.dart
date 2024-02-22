@@ -55,6 +55,27 @@ class HomeServices extends HttpServices {
     }
   }
 
+  fetchSchedulePushNotification(String address) async {
+    final response = await posts(
+        body: {"address": address},
+        endPoint: "namaz/schedule-notification-singleuser",
+        isToken: true);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        debugPrint(data.toString());
+      } catch (e) {
+        debugPrint("error while fetching on shedule push notification $e");
+        throw Exception('Failed to parse response ');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
 //Here fetching all the top offers banners
   Future<TopOffersModel> fetchAllTopOfferBanner() async {
     final response = await get(endPoint: topOffersUrl);

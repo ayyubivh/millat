@@ -88,18 +88,20 @@ class AuthService extends HttpServices {
     });
   }
 
-  Future loginWithSocial({
+  Future<SocialUserModel> loginWithSocial({
     required BuildContext context,
     required String email,
-    required String name,
+    required String? name,
     String? picture,
     String? id,
+    String? phoneNumber,
   }) async {
     return await posts(endPoint: loginWithGoogleApi, body: {
       "email": email,
-      "name": name,
+      "name": name ?? "",
       "socialId": id ?? '',
-      "picture": picture
+      "picture": picture ?? '',
+      'phone_number': phoneNumber ?? "",
     }).then((value) {
       if (value.statusCode == 200) {
         final result = SocialUserModel.fromJson(jsonDecode(value.body));
@@ -201,7 +203,7 @@ class AuthService extends HttpServices {
 
   Future signIn(
       {required String phoneNumber,
-      required String userId,
+      required String otp,
       required String referrelCode,
       required BuildContext context}) async {
     try {
@@ -209,7 +211,7 @@ class AuthService extends HttpServices {
         endPoint: signIN,
         body: {
           "phone_number": phoneNumber,
-          "userId": userId,
+          "otp": otp,
           "referredCode": referrelCode
         },
       );
@@ -222,7 +224,7 @@ class AuthService extends HttpServices {
       } else {
         return {
           'status': false,
-          'result': jsonDecode(value.body)['message'],
+          'message': "error ${value['message'].toString()}",
         };
       }
     } catch (e) {

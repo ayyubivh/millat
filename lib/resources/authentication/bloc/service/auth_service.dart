@@ -91,7 +91,7 @@ class AuthService extends HttpServices {
   Future<SocialUserModel> loginWithSocial({
     required BuildContext context,
     required String email,
-    required String? name,
+    String? name,
     String? picture,
     String? id,
     String? phoneNumber,
@@ -204,7 +204,7 @@ class AuthService extends HttpServices {
   Future signIn(
       {required String phoneNumber,
       required String otp,
-      required String referrelCode,
+      required String? referrelCode,
       required BuildContext context}) async {
     try {
       final res = await posts(
@@ -212,7 +212,7 @@ class AuthService extends HttpServices {
         body: {
           "phone_number": phoneNumber,
           "otp": otp,
-          "referredCode": referrelCode
+          if (referrelCode != null) "referredCode": referrelCode,
         },
       );
       var value = json.decode(res.body);

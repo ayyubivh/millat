@@ -161,6 +161,7 @@ class _SendOTPViewState extends State<SendOTPView> {
                 }
               }
               if (isValidate) {
+                print(widget.type);
                 if (widget.type == SendOTPType.signUp) {
                   context.read<AuthBloc>().add(SignInWithPhone(
                       phoneNumber: number!.phoneNumber!,
@@ -175,9 +176,23 @@ class _SendOTPViewState extends State<SendOTPView> {
                   context.read<AuthBloc>().add(SignInWithPhone(context,
                       referralCode: _referralCodeController.text,
                       phoneNumber: number!.phoneNumber));
+                } else if (widget.type ==
+                    SendOTPType.socialSginInPhoneRegistered) {
+                  BlocProvider.of<AuthBloc>(context).add(SocialLogin(
+                    name: '',
+                    context,
+                    email: '',
+                    phoneNumber: number!.phoneNumber,
+                    referralCode: _referralCodeController.text,
+                  ));
                 } else {
-                  BlocProvider.of<AuthBloc>(context).add(SocialLogin(context,
-                      email: '', name: '', phoneNumber: number!.phoneNumber));
+                  BlocProvider.of<AuthBloc>(context).add(SocialLogin(
+                    context,
+                    email: '',
+                    name: '',
+                    phoneNumber: number!.phoneNumber,
+                    referralCode: _referralCodeController.text,
+                  ));
                 }
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(

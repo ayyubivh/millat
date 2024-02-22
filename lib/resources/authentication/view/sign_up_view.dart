@@ -57,7 +57,8 @@ class _SignUpViewState extends State<SignUpView> {
             context.pushNamed(MyAppRouteConstants.sendOtpRouteName,
                 extra: {'type': SendOTPType.socialSignIn});
           } else if (state is AuthSocialPhoneNumberAvailable) {
-            context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
+            context.pushNamed(MyAppRouteConstants.sendOtpRouteName,
+                extra: {'type': SendOTPType.socialSginInPhoneRegistered});
           }
         },
         builder: (context, state) {
@@ -223,6 +224,7 @@ class _SignUpViewState extends State<SignUpView> {
       }
       print(user);
       await user.authentication;
+      // print(",${users.accessToken}");
 
       context.read<AuthBloc>().add(SocialLogin(
           email: user.email,

@@ -61,7 +61,7 @@ class SocialLogin extends AuthEvent {
   final String? picture;
   final BuildContext context;
   final String? phoneNumber;
-
+  final String? referralCode;
   SocialLogin(
     this.context, {
     this.picture,
@@ -69,6 +69,7 @@ class SocialLogin extends AuthEvent {
     required this.name,
     this.id,
     this.phoneNumber,
+    this.referralCode,
   });
 }
 

@@ -109,4 +109,5 @@ enum SendOTPType {
   signIn,
   signUp,
   socialSignIn,
+  socialSginInPhoneRegistered,
 }

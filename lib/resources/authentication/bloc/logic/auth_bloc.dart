@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
+import 'package:millat/utils/utils.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -143,6 +144,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             if (result['status'] == true) {
               emit(AuthLoaded(phoneNumber ?? ""));
             } else {
+              // showSnackBar(event.context, result['message']);
               emit(AuthError(result['message']));
             }
           }
@@ -190,7 +192,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               phoneNumber: event.phoneNumber,
             );
             phoneNumber = event.phoneNumber;
+            referralCode = event.referralCode;
             print("result of social login $result");
+            if (result.status == 200) {
+              final token = result.result?.token;
+              if (token == "" || token == null) {
+                userId = result.result?.user?.id!;
+                emit(AuthSocialLoginNewUserLoaded(
+                    phoneNumber: phoneNumber, otp: ''));
+              } else {
+                emit(AuthLoadedSocialLogin());
+              }
+            } else {
+              emit(AuthError(result.error ?? ""));
+            }
+          } else if (state is AuthSocialPhoneNumberAvailable) {
+            final result = await _authService.loginWithSocial(
+              context: event.context,
+              email: mail ?? "",
+              phoneNumber: event.phoneNumber,
+            );
             if (result.status == 200) {
               final token = result.result?.token;
               if (token == "" || token == null) {
@@ -218,6 +239,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             if (result.status == 200) {
               final data = result.result;
               final token = data?.token;
+              socialId = data?.user?.socialId;
+              mail = data?.user?.email;
+              name = data?.user?.name;
+              picture = data?.user?.picture;
+              userId = result.result?.user?.id!;
               if (token == "" || token == null) {
                 phoneNumber = data?.user?.phoneNumber;
                 if (phoneNumber != "") {
@@ -225,12 +251,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                   emit(
                       AuthSocialPhoneNumberAvailable(data!.user!.phoneNumber!));
                 } else {
-                  socialId = data?.user?.socialId;
-                  mail = data?.user?.email;
-                  name = data?.user?.name;
-                  picture = data?.user?.picture;
-                  userId = result.result?.user?.id!;
-
                   emit(
                       AuthSocialLoginNewUser(userId: result.result?.user?.id!));
                 }

@@ -15,6 +15,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../../authentication/class/google_signin.dart';
 
 class UserProfileView extends StatefulWidget {
   const UserProfileView({super.key});
@@ -492,10 +493,12 @@ class _UserProfileViewState extends State<UserProfileView> {
                       logoutPopUp(
                         context,
                         Appstrings.logout,
-                        () {
+                        () async {
+                          await GoogleSignInService.logout();
                           context
                               .read<DatabaseBloc>()
                               .add(const RemoveTokenEvent());
+
                           context
                               .read<HomeBloc>()
                               .add(const ChangeHomeTabIndexEvent(newIndex: 0));

@@ -61,18 +61,18 @@ class HomeServices extends HttpServices {
         endPoint: "namaz/schedule-notification-singleuser",
         isToken: true);
 
-    if (response.statusCode == 200) {
-      try {
+    try {
+      if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
 
         debugPrint(data.toString());
-      } catch (e) {
-        debugPrint("error while fetching on shedule push notification $e");
-        throw Exception('Failed to parse response ');
+      } else {
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
       }
-    } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+    } catch (e) {
+      debugPrint("error while fetching on shedule push notification $e");
+      throw Exception('Failed to parse response ');
     }
   }
 

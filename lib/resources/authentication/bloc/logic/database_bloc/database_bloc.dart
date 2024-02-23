@@ -13,6 +13,7 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 
+import '../../../class/google_signin.dart';
 import '../../model/auth_user_model/auth_user_model.dart';
 
 part 'database_bloc.freezed.dart';
@@ -29,10 +30,15 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       emit(state.copyWith(token: token));
     });
     on<RemoveTokenEvent>(
-      (event, emit) {
-        final authBox = Hive.box(userBox);
-        authBox.delete(authToken);
-        emit(state.copyWith(token: ""));
+      (event, emit) async {
+        try {
+          final authBox = Hive.box(userBox);
+          authBox.delete(authToken);
+          emit(state.copyWith(token: ""));
+          await GoogleSignInService.logout();
+        } catch (e) {
+          throw Exception(e);
+        }
       },
     );
     on<FetchToken>((event, emit) {

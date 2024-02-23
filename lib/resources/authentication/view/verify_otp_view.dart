@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
@@ -10,11 +12,16 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/utils.dart';
 import 'package:pinput/pinput.dart';
 
+import '../../../enums/enumertations.dart';
+
 class VerifyOTPView extends StatefulWidget {
+  final SendOTPType? sendOTPType;
   const VerifyOTPView({
     Key? key,
+    this.sendOTPType,
   }) : super(key: key);
 
   @override
@@ -33,6 +40,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
   @override
   void initState() {
     super.initState();
+
     _startTimer();
   }
 
@@ -104,6 +112,21 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     const SizedBox(
                       height: 60,
                     ),
+                    widget.sendOTPType ==
+                            SendOTPType.socialSginInPhoneRegistered
+                        ? Align(
+                            alignment: Alignment.topLeft,
+                            child: BackButton(
+                              onPressed: () {
+                                context.pushNamed(
+                                    MyAppRouteConstants.sendOtpRouteName,
+                                    extra: {
+                                      'type': SendOTPType
+                                          .socialSginInPhoneRegistered
+                                    });
+                              },
+                            ))
+                        : const SizedBox(),
                     Image.asset(millatMainLogo, height: 50, width: 200),
                     const SizedBox(
                       height: 40,
@@ -185,11 +208,13 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     MainButton(
                       title: 'Verify OTP',
                       onPressed: () {
-                        // if (isTimerRunning) {
-                        BlocProvider.of<AuthBloc>(context).add(
-                          VerifyOTP(otpController.text, context),
-                        );
-                        // } else {}
+                        if (isTimerRunning) {
+                          BlocProvider.of<AuthBloc>(context).add(
+                            VerifyOTP(otpController.text, context),
+                          );
+                        } else {
+                          showSnackBar(context, "Time expired");
+                        }
                       },
                     ),
                   ],

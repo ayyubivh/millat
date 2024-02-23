@@ -90,8 +90,11 @@ class MyAppRouter {
                 name: MyAppRouteConstants.verifyOtpRouteName,
                 path: 'verify_otp',
                 pageBuilder: (context, state) {
-                  return const MaterialPage(
-                    child: VerifyOTPView(),
+                  final Map data = state.extra as Map;
+                  return MaterialPage(
+                    child: VerifyOTPView(
+                      sendOTPType: data['sendOTPType'],
+                    ),
                   );
                 },
               ),

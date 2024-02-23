@@ -493,8 +493,7 @@ class _UserProfileViewState extends State<UserProfileView> {
                       logoutPopUp(
                         context,
                         Appstrings.logout,
-                        () async {
-                          await GoogleSignInService.logout();
+                        () {
                           context
                               .read<DatabaseBloc>()
                               .add(const RemoveTokenEvent());

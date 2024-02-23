@@ -28,6 +28,13 @@ class _SendOTPViewState extends State<SendOTPView> {
   bool isValidate = false;
   bool isReferral = false;
   @override
+  void initState() {
+    final phoneNumber = context.read<AuthBloc>().phoneNumber;
+    number = PhoneNumber(phoneNumber: phoneNumber ?? "");
+    super.initState();
+  }
+
+  @override
   void dispose() {
     clearDate();
 
@@ -43,13 +50,16 @@ class _SendOTPViewState extends State<SendOTPView> {
             buildError(state.errorMessage);
           } else if (state is AuthLoaded) {
             clearDate();
-            context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
+            context
+                .pushNamed(MyAppRouteConstants.verifyOtpRouteName, extra: {});
           } else if (state is AuthLoadedOTPonly) {
             clearDate();
-            context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
+            context
+                .pushNamed(MyAppRouteConstants.verifyOtpRouteName, extra: {});
           } else if (state is AuthSocialLoginNewUserLoaded) {
             clearDate();
-            context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
+            context.pushNamed(MyAppRouteConstants.verifyOtpRouteName,
+                extra: {'type': SendOTPType.socialSginInPhoneRegistered});
           }
         },
         builder: (context, state) {
@@ -73,7 +83,7 @@ class _SendOTPViewState extends State<SendOTPView> {
                       height: 40,
                     ),
                     const Text(
-                      'Registration enter your phone number to verify your account',
+                      'Enter your phone number to verify your account',
                       style:
                           TextStyle(color: black133, fontSize: 16, height: 1.3),
                       textAlign: TextAlign.center,
@@ -82,7 +92,8 @@ class _SendOTPViewState extends State<SendOTPView> {
                       height: 40,
                     ),
                     InternationalPhoneNumberInput(
-                      initialValue: PhoneNumber(isoCode: 'IN'),
+                      initialValue: PhoneNumber(
+                          isoCode: 'IN', phoneNumber: number?.phoneNumber),
                       onInputChanged: (value) => number = value,
                       onInputValidated: (bool value) {
                         if (value) {

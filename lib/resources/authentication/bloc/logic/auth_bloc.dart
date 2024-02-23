@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
-import 'package:millat/utils/utils.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -213,6 +212,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               phoneNumber: event.phoneNumber,
             );
             if (result.status == 200) {
+              phoneNumber = event.phoneNumber;
               final token = result.result?.token;
               if (token == "" || token == null) {
                 userId = result.result?.user?.id!;

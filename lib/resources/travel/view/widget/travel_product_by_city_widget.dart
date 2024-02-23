@@ -145,6 +145,7 @@ class TravelProductByCityWidget extends StatelessWidget {
                     color: ColorManager.primary,
                   ),
                 ),
+                kWidth10,
                 Text(
                   "Person",
                   style: TextStyle(

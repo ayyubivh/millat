@@ -208,13 +208,17 @@ class AuthService extends HttpServices {
       required BuildContext context}) async {
     try {
       final res = await posts(
-        endPoint: signIN,
-        body: {
-          "phone_number": phoneNumber,
-          "otp": otp,
-          if (referrelCode != null) "referredCode": referrelCode,
-        },
-      );
+          endPoint: signIN,
+          body: referrelCode == null || referrelCode == ""
+              ? {
+                  "phone_number": phoneNumber,
+                  "otp": otp,
+                }
+              : {
+                  "phone_number": phoneNumber,
+                  "otp": otp,
+                  "referredCode": referrelCode,
+                });
       var value = json.decode(res.body);
 
       if (value['status'] == 200) {

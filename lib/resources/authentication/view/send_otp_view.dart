@@ -30,7 +30,9 @@ class _SendOTPViewState extends State<SendOTPView> {
   @override
   void initState() {
     final phoneNumber = context.read<AuthBloc>().phoneNumber;
-    number = PhoneNumber(phoneNumber: phoneNumber ?? "");
+    number = widget.type == SendOTPType.socialSginInPhoneRegistered
+        ? PhoneNumber(phoneNumber: phoneNumber ?? "")
+        : null;
     super.initState();
   }
 

@@ -19,7 +19,7 @@ class ProductResponse with _$ProductResponse {
 @freezed
 class ProductResult with _$ProductResult {
   const factory ProductResult({
-    required List<Product>? products,
+    required List<MultifilterProduct>? products,
     required int? totalPages,
   }) = _ProductResult;
 
@@ -28,8 +28,8 @@ class ProductResult with _$ProductResult {
 }
 
 @freezed
-class Product with _$Product {
-  const factory Product({
+class MultifilterProduct with _$MultifilterProduct {
+  const factory MultifilterProduct({
     required double? tax,
     required List<String>? tags,
     @JsonKey(name: "_id") required String? id,
@@ -52,10 +52,10 @@ class Product with _$Product {
     required String? createdAt,
     required String? updatedAt,
     required String? thumbnail,
-  }) = _Product;
+  }) = _MultifilterProduct;
 
-  factory Product.fromJson(Map<String, dynamic> json) =>
-      _$ProductFromJson(json);
+  factory MultifilterProduct.fromJson(Map<String, dynamic> json) =>
+      _$MultifilterProductFromJson(json);
 }
 
 @freezed

@@ -29,7 +29,7 @@ Map<String, dynamic> _$$ProductResponseImplToJson(
 _$ProductResultImpl _$$ProductResultImplFromJson(Map<String, dynamic> json) =>
     _$ProductResultImpl(
       products: (json['products'] as List<dynamic>?)
-          ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => MultifilterProduct.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalPages: json['totalPages'] as int?,
     );
@@ -40,8 +40,9 @@ Map<String, dynamic> _$$ProductResultImplToJson(_$ProductResultImpl instance) =>
       'totalPages': instance.totalPages,
     };
 
-_$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
-    _$ProductImpl(
+_$MultifilterProductImpl _$$MultifilterProductImplFromJson(
+        Map<String, dynamic> json) =>
+    _$MultifilterProductImpl(
       tax: (json['tax'] as num?)?.toDouble(),
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
       id: json['_id'] as String?,
@@ -79,7 +80,8 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       thumbnail: json['thumbnail'] as String?,
     );
 
-Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
+Map<String, dynamic> _$$MultifilterProductImplToJson(
+        _$MultifilterProductImpl instance) =>
     <String, dynamic>{
       'tax': instance.tax,
       'tags': instance.tags,

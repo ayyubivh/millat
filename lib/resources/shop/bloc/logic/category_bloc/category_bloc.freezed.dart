@@ -7009,7 +7009,8 @@ mixin _$CategoryState {
   List<String> get brandsFiltersList => throw _privateConstructorUsedError;
   List<String> get colorsFiltersList => throw _privateConstructorUsedError;
   List<String> get itemTypeFiltersList => throw _privateConstructorUsedError;
-  ProductResponse? get multiFilterProduct => throw _privateConstructorUsedError;
+  List<MultifilterProduct>? get multiFilterProduct =>
+      throw _privateConstructorUsedError;
   bool get reachMax => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
 
@@ -7051,7 +7052,7 @@ abstract class $CategoryStateCopyWith<$Res> {
       List<String> brandsFiltersList,
       List<String> colorsFiltersList,
       List<String> itemTypeFiltersList,
-      ProductResponse? multiFilterProduct,
+      List<MultifilterProduct>? multiFilterProduct,
       bool reachMax,
       int currentPage});
 
@@ -7061,7 +7062,6 @@ abstract class $CategoryStateCopyWith<$Res> {
   $SubcategoryByCategoryIdModelCopyWith<$Res>? get subcategoryByCategoryIdModel;
   $CategoryItemModelCopyWith<$Res>? get categoryItemModel;
   $FilterOptionModelCopyWith<$Res>? get filterOptionModel;
-  $ProductResponseCopyWith<$Res>? get multiFilterProduct;
 }
 
 /// @nodoc
@@ -7215,7 +7215,7 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
       multiFilterProduct: freezed == multiFilterProduct
           ? _value.multiFilterProduct
           : multiFilterProduct // ignore: cast_nullable_to_non_nullable
-              as ProductResponse?,
+              as List<MultifilterProduct>?,
       reachMax: null == reachMax
           ? _value.reachMax
           : reachMax // ignore: cast_nullable_to_non_nullable
@@ -7301,18 +7301,6 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
       return _then(_value.copyWith(filterOptionModel: value) as $Val);
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ProductResponseCopyWith<$Res>? get multiFilterProduct {
-    if (_value.multiFilterProduct == null) {
-      return null;
-    }
-
-    return $ProductResponseCopyWith<$Res>(_value.multiFilterProduct!, (value) {
-      return _then(_value.copyWith(multiFilterProduct: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -7350,7 +7338,7 @@ abstract class _$$CategoryStateImplCopyWith<$Res>
       List<String> brandsFiltersList,
       List<String> colorsFiltersList,
       List<String> itemTypeFiltersList,
-      ProductResponse? multiFilterProduct,
+      List<MultifilterProduct>? multiFilterProduct,
       bool reachMax,
       int currentPage});
 
@@ -7366,8 +7354,6 @@ abstract class _$$CategoryStateImplCopyWith<$Res>
   $CategoryItemModelCopyWith<$Res>? get categoryItemModel;
   @override
   $FilterOptionModelCopyWith<$Res>? get filterOptionModel;
-  @override
-  $ProductResponseCopyWith<$Res>? get multiFilterProduct;
 }
 
 /// @nodoc
@@ -7517,9 +7503,9 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
           : itemTypeFiltersList // ignore: cast_nullable_to_non_nullable
               as List<String>,
       multiFilterProduct: freezed == multiFilterProduct
-          ? _value.multiFilterProduct
+          ? _value._multiFilterProduct
           : multiFilterProduct // ignore: cast_nullable_to_non_nullable
-              as ProductResponse?,
+              as List<MultifilterProduct>?,
       reachMax: null == reachMax
           ? _value.reachMax
           : reachMax // ignore: cast_nullable_to_non_nullable
@@ -7562,13 +7548,14 @@ class _$CategoryStateImpl implements _CategoryState {
       required final List<String> brandsFiltersList,
       required final List<String> colorsFiltersList,
       required final List<String> itemTypeFiltersList,
-      required this.multiFilterProduct,
+      required final List<MultifilterProduct>? multiFilterProduct,
       required this.reachMax,
       required this.currentPage})
       : _subcategoryFiltersList = subcategoryFiltersList,
         _brandsFiltersList = brandsFiltersList,
         _colorsFiltersList = colorsFiltersList,
-        _itemTypeFiltersList = itemTypeFiltersList;
+        _itemTypeFiltersList = itemTypeFiltersList,
+        _multiFilterProduct = multiFilterProduct;
 
   @override
   final ProductModel? product;
@@ -7650,8 +7637,17 @@ class _$CategoryStateImpl implements _CategoryState {
     return EqualUnmodifiableListView(_itemTypeFiltersList);
   }
 
+  final List<MultifilterProduct>? _multiFilterProduct;
   @override
-  final ProductResponse? multiFilterProduct;
+  List<MultifilterProduct>? get multiFilterProduct {
+    final value = _multiFilterProduct;
+    if (value == null) return null;
+    if (_multiFilterProduct is EqualUnmodifiableListView)
+      return _multiFilterProduct;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final bool reachMax;
   @override
@@ -7720,8 +7716,8 @@ class _$CategoryStateImpl implements _CategoryState {
                 .equals(other._colorsFiltersList, _colorsFiltersList) &&
             const DeepCollectionEquality()
                 .equals(other._itemTypeFiltersList, _itemTypeFiltersList) &&
-            (identical(other.multiFilterProduct, multiFilterProduct) ||
-                other.multiFilterProduct == multiFilterProduct) &&
+            const DeepCollectionEquality()
+                .equals(other._multiFilterProduct, _multiFilterProduct) &&
             (identical(other.reachMax, reachMax) ||
                 other.reachMax == reachMax) &&
             (identical(other.currentPage, currentPage) ||
@@ -7757,7 +7753,7 @@ class _$CategoryStateImpl implements _CategoryState {
         const DeepCollectionEquality().hash(_brandsFiltersList),
         const DeepCollectionEquality().hash(_colorsFiltersList),
         const DeepCollectionEquality().hash(_itemTypeFiltersList),
-        multiFilterProduct,
+        const DeepCollectionEquality().hash(_multiFilterProduct),
         reachMax,
         currentPage
       ]);
@@ -7797,7 +7793,7 @@ abstract class _CategoryState implements CategoryState {
       required final List<String> brandsFiltersList,
       required final List<String> colorsFiltersList,
       required final List<String> itemTypeFiltersList,
-      required final ProductResponse? multiFilterProduct,
+      required final List<MultifilterProduct>? multiFilterProduct,
       required final bool reachMax,
       required final int currentPage}) = _$CategoryStateImpl;
 
@@ -7854,7 +7850,7 @@ abstract class _CategoryState implements CategoryState {
   @override
   List<String> get itemTypeFiltersList;
   @override
-  ProductResponse? get multiFilterProduct;
+  List<MultifilterProduct>? get multiFilterProduct;
   @override
   bool get reachMax;
   @override

@@ -232,7 +232,7 @@ ProductResult _$ProductResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductResult {
-  List<Product>? get products => throw _privateConstructorUsedError;
+  List<MultifilterProduct>? get products => throw _privateConstructorUsedError;
   int? get totalPages => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -247,7 +247,7 @@ abstract class $ProductResultCopyWith<$Res> {
           ProductResult value, $Res Function(ProductResult) then) =
       _$ProductResultCopyWithImpl<$Res, ProductResult>;
   @useResult
-  $Res call({List<Product>? products, int? totalPages});
+  $Res call({List<MultifilterProduct>? products, int? totalPages});
 }
 
 /// @nodoc
@@ -270,7 +270,7 @@ class _$ProductResultCopyWithImpl<$Res, $Val extends ProductResult>
       products: freezed == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>?,
+              as List<MultifilterProduct>?,
       totalPages: freezed == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
@@ -287,7 +287,7 @@ abstract class _$$ProductResultImplCopyWith<$Res>
       __$$ProductResultImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Product>? products, int? totalPages});
+  $Res call({List<MultifilterProduct>? products, int? totalPages});
 }
 
 /// @nodoc
@@ -308,7 +308,7 @@ class __$$ProductResultImplCopyWithImpl<$Res>
       products: freezed == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>?,
+              as List<MultifilterProduct>?,
       totalPages: freezed == totalPages
           ? _value.totalPages
           : totalPages // ignore: cast_nullable_to_non_nullable
@@ -321,15 +321,16 @@ class __$$ProductResultImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ProductResultImpl implements _ProductResult {
   const _$ProductResultImpl(
-      {required final List<Product>? products, required this.totalPages})
+      {required final List<MultifilterProduct>? products,
+      required this.totalPages})
       : _products = products;
 
   factory _$ProductResultImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductResultImplFromJson(json);
 
-  final List<Product>? _products;
+  final List<MultifilterProduct>? _products;
   @override
-  List<Product>? get products {
+  List<MultifilterProduct>? get products {
     final value = _products;
     if (value == null) return null;
     if (_products is EqualUnmodifiableListView) return _products;
@@ -376,14 +377,14 @@ class _$ProductResultImpl implements _ProductResult {
 
 abstract class _ProductResult implements ProductResult {
   const factory _ProductResult(
-      {required final List<Product>? products,
+      {required final List<MultifilterProduct>? products,
       required final int? totalPages}) = _$ProductResultImpl;
 
   factory _ProductResult.fromJson(Map<String, dynamic> json) =
       _$ProductResultImpl.fromJson;
 
   @override
-  List<Product>? get products;
+  List<MultifilterProduct>? get products;
   @override
   int? get totalPages;
   @override
@@ -392,12 +393,12 @@ abstract class _ProductResult implements ProductResult {
       throw _privateConstructorUsedError;
 }
 
-Product _$ProductFromJson(Map<String, dynamic> json) {
-  return _Product.fromJson(json);
+MultifilterProduct _$MultifilterProductFromJson(Map<String, dynamic> json) {
+  return _MultifilterProduct.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Product {
+mixin _$MultifilterProduct {
   double? get tax => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
   @JsonKey(name: "_id")
@@ -424,13 +425,15 @@ mixin _$Product {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
+  $MultifilterProductCopyWith<MultifilterProduct> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductCopyWith<$Res> {
-  factory $ProductCopyWith(Product value, $Res Function(Product) then) =
-      _$ProductCopyWithImpl<$Res, Product>;
+abstract class $MultifilterProductCopyWith<$Res> {
+  factory $MultifilterProductCopyWith(
+          MultifilterProduct value, $Res Function(MultifilterProduct) then) =
+      _$MultifilterProductCopyWithImpl<$Res, MultifilterProduct>;
   @useResult
   $Res call(
       {double? tax,
@@ -463,9 +466,9 @@ abstract class $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProductCopyWithImpl<$Res, $Val extends Product>
-    implements $ProductCopyWith<$Res> {
-  _$ProductCopyWithImpl(this._value, this._then);
+class _$MultifilterProductCopyWithImpl<$Res, $Val extends MultifilterProduct>
+    implements $MultifilterProductCopyWith<$Res> {
+  _$MultifilterProductCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -640,10 +643,11 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
 }
 
 /// @nodoc
-abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$$ProductImplCopyWith(
-          _$ProductImpl value, $Res Function(_$ProductImpl) then) =
-      __$$ProductImplCopyWithImpl<$Res>;
+abstract class _$$MultifilterProductImplCopyWith<$Res>
+    implements $MultifilterProductCopyWith<$Res> {
+  factory _$$MultifilterProductImplCopyWith(_$MultifilterProductImpl value,
+          $Res Function(_$MultifilterProductImpl) then) =
+      __$$MultifilterProductImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -681,11 +685,11 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ProductImplCopyWithImpl<$Res>
-    extends _$ProductCopyWithImpl<$Res, _$ProductImpl>
-    implements _$$ProductImplCopyWith<$Res> {
-  __$$ProductImplCopyWithImpl(
-      _$ProductImpl _value, $Res Function(_$ProductImpl) _then)
+class __$$MultifilterProductImplCopyWithImpl<$Res>
+    extends _$MultifilterProductCopyWithImpl<$Res, _$MultifilterProductImpl>
+    implements _$$MultifilterProductImplCopyWith<$Res> {
+  __$$MultifilterProductImplCopyWithImpl(_$MultifilterProductImpl _value,
+      $Res Function(_$MultifilterProductImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -714,7 +718,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? updatedAt = freezed,
     Object? thumbnail = freezed,
   }) {
-    return _then(_$ProductImpl(
+    return _then(_$MultifilterProductImpl(
       tax: freezed == tax
           ? _value.tax
           : tax // ignore: cast_nullable_to_non_nullable
@@ -809,8 +813,8 @@ class __$$ProductImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ProductImpl implements _Product {
-  const _$ProductImpl(
+class _$MultifilterProductImpl implements _MultifilterProduct {
+  const _$MultifilterProductImpl(
       {required this.tax,
       required final List<String>? tags,
       @JsonKey(name: "_id") required this.id,
@@ -838,8 +842,8 @@ class _$ProductImpl implements _Product {
         _size = size,
         _keywords = keywords;
 
-  factory _$ProductImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ProductImplFromJson(json);
+  factory _$MultifilterProductImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MultifilterProductImplFromJson(json);
 
   @override
   final double? tax;
@@ -921,14 +925,14 @@ class _$ProductImpl implements _Product {
 
   @override
   String toString() {
-    return 'Product(tax: $tax, tags: $tags, id: $id, title: $title, brand: $brand, category: $category, subcategory: $subcategory, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt, thumbnail: $thumbnail)';
+    return 'MultifilterProduct(tax: $tax, tags: $tags, id: $id, title: $title, brand: $brand, category: $category, subcategory: $subcategory, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt, thumbnail: $thumbnail)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProductImpl &&
+            other is _$MultifilterProductImpl &&
             (identical(other.tax, tax) || other.tax == tax) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.id, id) || other.id == id) &&
@@ -997,19 +1001,20 @@ class _$ProductImpl implements _Product {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
-      __$$ProductImplCopyWithImpl<_$ProductImpl>(this, _$identity);
+  _$$MultifilterProductImplCopyWith<_$MultifilterProductImpl> get copyWith =>
+      __$$MultifilterProductImplCopyWithImpl<_$MultifilterProductImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProductImplToJson(
+    return _$$MultifilterProductImplToJson(
       this,
     );
   }
 }
 
-abstract class _Product implements Product {
-  const factory _Product(
+abstract class _MultifilterProduct implements MultifilterProduct {
+  const factory _MultifilterProduct(
       {required final double? tax,
       required final List<String>? tags,
       @JsonKey(name: "_id") required final String? id,
@@ -1031,9 +1036,10 @@ abstract class _Product implements Product {
       required final String? productCareInfo,
       required final String? createdAt,
       required final String? updatedAt,
-      required final String? thumbnail}) = _$ProductImpl;
+      required final String? thumbnail}) = _$MultifilterProductImpl;
 
-  factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
+  factory _MultifilterProduct.fromJson(Map<String, dynamic> json) =
+      _$MultifilterProductImpl.fromJson;
 
   @override
   double? get tax;
@@ -1082,7 +1088,7 @@ abstract class _Product implements Product {
   String? get thumbnail;
   @override
   @JsonKey(ignore: true)
-  _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
+  _$$MultifilterProductImplCopyWith<_$MultifilterProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

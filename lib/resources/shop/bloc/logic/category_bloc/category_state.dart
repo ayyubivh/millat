@@ -29,7 +29,7 @@ class CategoryState with _$CategoryState {
     required List<String> brandsFiltersList,
     required List<String> colorsFiltersList,
     required List<String> itemTypeFiltersList,
-    required ProductResponse? multiFilterProduct,
+    required List<MultifilterProduct>? multiFilterProduct,
     required bool reachMax,
     required int currentPage,
   }) = _CategoryState;

@@ -177,19 +177,25 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         itemType: event.itemId,
       );
       log(state.currentPage.toString());
+      List<MultifilterProduct>? currentProducts = state.multiFilterProduct;
+      List<MultifilterProduct> updatedProducts =
+          List.from(currentProducts ?? []);
+      updatedProducts.addAll(data.result?.products ?? []);
 
       if (data.result?.totalPages == state.currentPage) {
         emit(state.copyWith(
-          multiFilterProduct: data,
+          multiFilterProduct: updatedProducts,
           productLoading: false,
           currentPage: state.currentPage + 1,
           reachMax: true,
         ));
       } else {
         emit(state.copyWith(
-            multiFilterProduct: data,
-            productLoading: false,
-            currentPage: state.currentPage + 1));
+          multiFilterProduct: updatedProducts,
+          productLoading: false,
+          currentPage: state.currentPage + 1,
+          reachMax: true,
+        ));
       }
     } catch (e) {
       emit(state.copyWith(

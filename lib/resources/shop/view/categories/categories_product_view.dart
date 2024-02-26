@@ -159,9 +159,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                   return widget.type == FilterType.fromFilter
                       ? state.productLoading || state.multiFilterProduct == null
                           ? ShimmerUtils.productsShimmers(context: context)
-                          : state.multiFilterProduct?.result?.products
-                                      ?.isEmpty ??
-                                  true
+                          : state.multiFilterProduct?.isEmpty ?? true
                               ? Padding(
                                   padding: EdgeInsets.only(
                                       top: SizeUtility(context).height / 2.4),
@@ -189,12 +187,11 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                           ? SizeUtility(context).height / 3.3
                                           : SizeUtility(context).height / 2.9,
                                     ),
-                                    itemCount: state.multiFilterProduct?.result
-                                            ?.products?.length ??
-                                        10,
+                                    itemCount:
+                                        state.multiFilterProduct?.length ?? 10,
                                     itemBuilder: (context, index) {
-                                      final data = state.multiFilterProduct
-                                          ?.result?.products?[index];
+                                      final data =
+                                          state.multiFilterProduct?[index];
                                       return data == null
                                           ? ShimmerUtils.productsShimmers(
                                               context: context)
@@ -234,9 +231,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                       : widget.type == FilterType.category
                           ? state.productLoading
                               ? ShimmerUtils.productsShimmers(context: context)
-                              : state.multiFilterProduct?.result?.products
-                                          ?.isEmpty ??
-                                      true
+                              : state.multiFilterProduct?.isEmpty ?? true
                                   ? Padding(
                                       padding: EdgeInsets.only(
                                           top: SizeUtility(context).height /
@@ -269,14 +264,12 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                                             .height /
                                                         2.9,
                                           ),
-                                          itemCount: state.multiFilterProduct
-                                                  ?.result?.products?.length ??
+                                          itemCount: state
+                                                  .multiFilterProduct?.length ??
                                               10 + 1,
                                           itemBuilder: (context, index) {
                                             final data = state
-                                                .multiFilterProduct
-                                                ?.result
-                                                ?.products?[index];
+                                                .multiFilterProduct?[index];
                                             return data == null
                                                 ? ShimmerUtils.productsShimmers(
                                                     context: context)
@@ -321,9 +314,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                     )
                           : state.productLoading
                               ? ShimmerUtils.productsShimmers(context: context)
-                              : state.multiFilterProduct?.result?.products
-                                          ?.length ==
-                                      0
+                              : state.multiFilterProduct?.length == 0
                                   ? Padding(
                                       padding: EdgeInsets.only(
                                           top: SizeUtility(context).height /
@@ -354,12 +345,12 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                               : SizeUtility(context).height /
                                                   2.9,
                                         ),
-                                        itemCount: state.multiFilterProduct
-                                                ?.result?.products?.length ??
-                                            10,
+                                        itemCount:
+                                            state.multiFilterProduct?.length ??
+                                                10,
                                         itemBuilder: (context, index) {
-                                          final datas = state.multiFilterProduct
-                                              ?.result?.products?[index];
+                                          final datas =
+                                              state.multiFilterProduct?[index];
                                           if (datas == null) {
                                             return const SizedBox();
                                           }

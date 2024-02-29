@@ -32,6 +32,7 @@ class CategoryState with _$CategoryState {
     required List<MultifilterProduct>? multiFilterProduct,
     required bool reachMax,
     required int currentPage,
+    required bool loadinMore,
   }) = _CategoryState;
   factory CategoryState.initial() => const CategoryState(
         product: null,
@@ -48,7 +49,7 @@ class CategoryState with _$CategoryState {
         priceRangeIndex: null,
         subcategoryByCategoryIdModel: null,
         filterVal: "",
-        maxPrice: "5000",
+        maxPrice: "50000",
         minPrice: "1",
         sortListIndex: 0,
         rangeValues: RangeValues(1, 5000),
@@ -63,5 +64,6 @@ class CategoryState with _$CategoryState {
         multiFilterProduct: null,
         reachMax: false,
         currentPage: 1,
+        loadinMore: false,
       );
 }

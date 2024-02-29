@@ -171,30 +171,36 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         maxPrice: event.maxPrice,
         minPrice: event.minPrice,
         category: event.category,
-        subCategory: event.subCategory,
+        subCategory: [],
         brand: event.brand,
         color: event.color,
         itemType: event.itemId,
       );
       log(state.currentPage.toString());
-      List<MultifilterProduct>? currentProducts = state.multiFilterProduct;
-      List<MultifilterProduct> updatedProducts =
-          List.from(currentProducts ?? []);
-      updatedProducts.addAll(data.result?.products ?? []);
+      // List<MultifilterProduct>? currentProducts = state.multiFilterProduct;
+      // List<MultifilterProduct> updatedProducts =
+      //     List.from(currentProducts ?? []);
+      // updatedProducts.addAll(data.result?.products ?? []);
 
       if (data.result?.totalPages == state.currentPage) {
         emit(state.copyWith(
-          multiFilterProduct: updatedProducts,
+          multiFilterProduct: [
+            ...state.multiFilterProduct ?? [],
+            ...data.result?.products ?? []
+          ],
           productLoading: false,
           currentPage: state.currentPage + 1,
           reachMax: true,
         ));
       } else {
         emit(state.copyWith(
-          multiFilterProduct: updatedProducts,
+          multiFilterProduct: [
+            ...state.multiFilterProduct ?? [],
+            ...data.result?.products ?? []
+          ],
+          loadinMore: true,
           productLoading: false,
           currentPage: state.currentPage + 1,
-          reachMax: true,
         ));
       }
     } catch (e) {
@@ -297,6 +303,10 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
 
   _makePaginationDefault(
       MakePaginationDefault event, Emitter<CategoryState> emit) {
-    emit(state.copyWith(currentPage: 1, reachMax: false));
+    emit(state.copyWith(
+      currentPage: 1,
+      reachMax: false,
+      multiFilterProduct: null,
+    ));
   }
 }

@@ -7,6 +7,7 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/responsive.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -48,9 +49,15 @@ class CategoriesProductView extends StatefulWidget {
 class _CategoriesProductViewState extends State<CategoriesProductView> {
   final _scrollController = ScrollController();
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     log(widget.type.toString());
-    BlocProvider.of<CategoryBloc>(context).add(MakePaginationDefault());
+    BlocProvider.of<CategoryBloc>(context).add(const MakePaginationDefault());
     _fetchApi();
     BlocProvider.of<CategoryBloc>(context).add(
       FetchFilterOptionEvent(
@@ -101,7 +108,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                     color: [],
                     category: widget.category ?? '',
                     subCategory: [widget.subCategory ?? ""],
-                    itemId: [widget.itemId ?? ''],
+                    itemId: [],
                   ));
   }
 
@@ -156,233 +163,81 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
               kHeight10,
               BlocBuilder<CategoryBloc, CategoryState>(
                 builder: (context, state) {
-                  return widget.type == FilterType.fromFilter
-                      ? state.productLoading || state.multiFilterProduct == null
-                          ? ShimmerUtils.productsShimmers(context: context)
-                          : state.multiFilterProduct?.isEmpty ?? true
-                              ? Padding(
-                                  padding: EdgeInsets.only(
-                                      top: SizeUtility(context).height / 2.4),
-                                  child: Center(
-                                    child: Text(
-                                      "products not available",
-                                      style: TextStyle(
-                                        color: ColorManager.textGrey,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
+                  return state.multiFilterProduct == null
+                      ? ShimmerUtils.productsShimmers(context: context)
+                      : state.multiFilterProduct?.isEmpty ?? true
+                          ? Padding(
+                              padding: EdgeInsets.only(
+                                  top: SizeUtility(context).height / 2.4),
+                              child: Center(
+                                child: Text(
+                                  "products not available",
+                                  style: TextStyle(
+                                    color: ColorManager.textGrey,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                )
-                              : Expanded(
-                                  child: GridView.builder(
-                                    controller: _scrollController,
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                      crossAxisSpacing: 20,
-                                      mainAxisSpacing: 20,
-                                      mainAxisExtent: !Responsive.isMobile(
-                                              context)
-                                          ? SizeUtility(context).height / 3.3
-                                          : SizeUtility(context).height / 2.9,
-                                    ),
-                                    itemCount:
-                                        state.multiFilterProduct?.length ?? 10,
-                                    itemBuilder: (context, index) {
-                                      final data =
-                                          state.multiFilterProduct?[index];
-                                      return data == null
-                                          ? ShimmerUtils.productsShimmers(
-                                              context: context)
-                                          : GestureDetector(
-                                              onTap: () {
-                                                // print(data.id);
-
-                                                context.pushNamed(
-                                                    MyAppRouteConstants
-                                                        .singleProductRouteName,
-                                                    pathParameters: {
-                                                      "id": data.id ?? ""
-                                                    });
-                                              },
-                                              child: ShopProductWidget(
-                                                color: data.color ?? "",
-                                                size: data.size?[0].size ?? "",
-                                                brandId: data.brand!.id,
-                                                isWishlisted: false,
-                                                brand:
-                                                    data.brand!.name.toString(),
-                                                productId: data.id,
-                                                title: data.title,
-                                                image: data.images![0],
-                                                discountPrice:
-                                                    data.salePrice ?? 0,
-                                                actualPrice: data.regularPrice
-                                                        ?.toInt() ??
-                                                    0,
-                                                discount:
-                                                    data.discount?.toInt() ?? 0,
-                                              ),
-                                            );
-                                    },
-                                  ),
-                                )
-                      : widget.type == FilterType.category
-                          ? state.productLoading
-                              ? ShimmerUtils.productsShimmers(context: context)
-                              : state.multiFilterProduct?.isEmpty ?? true
-                                  ? Padding(
-                                      padding: EdgeInsets.only(
-                                          top: SizeUtility(context).height /
-                                              2.4),
-                                      child: Center(
-                                        child: Text(
-                                          "products not available",
-                                          style: TextStyle(
-                                            color: ColorManager.textGrey,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  : Expanded(
-                                      child: GridView.builder(
-                                          controller: _scrollController,
-                                          gridDelegate:
-                                              SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 2,
-                                            crossAxisSpacing: 20,
-                                            mainAxisSpacing: 20,
-                                            mainAxisExtent:
-                                                !Responsive.isMobile(context)
-                                                    ? SizeUtility(context)
-                                                            .height /
-                                                        3.3
-                                                    : SizeUtility(context)
-                                                            .height /
-                                                        2.9,
-                                          ),
-                                          itemCount: state
-                                                  .multiFilterProduct?.length ??
-                                              10 + 1,
-                                          itemBuilder: (context, index) {
-                                            final data = state
-                                                .multiFilterProduct?[index];
-                                            return data == null
-                                                ? ShimmerUtils.productsShimmers(
-                                                    context: context)
-                                                : GestureDetector(
-                                                    onTap: () {
-                                                      // print(data.id);
-
-                                                      context.pushNamed(
-                                                          MyAppRouteConstants
-                                                              .singleProductRouteName,
-                                                          pathParameters: {
-                                                            "id": data.id ?? ""
-                                                          });
-                                                    },
-                                                    child: ShopProductWidget(
-                                                      color: data.color ?? "",
-                                                      size: (data.size !=
-                                                                  null &&
-                                                              data.size!
-                                                                  .isNotEmpty)
-                                                          ? data.size![0]
-                                                                  .size ??
-                                                              ""
-                                                          : "",
-                                                      brandId: data.brand!.id,
-                                                      isWishlisted: false,
-                                                      brand: data.brand!.name
-                                                          .toString(),
-                                                      productId: data.id,
-                                                      title: data.title,
-                                                      image: data.images![0],
-                                                      discountPrice:
-                                                          data.salePrice ?? 0,
-                                                      actualPrice: data
-                                                          .regularPrice!
-                                                          .toInt(),
-                                                      discount: data.discount!
-                                                          .toInt(),
-                                                    ),
-                                                  );
-                                          }),
-                                    )
-                          : state.productLoading
-                              ? ShimmerUtils.productsShimmers(context: context)
-                              : state.multiFilterProduct?.length == 0
-                                  ? Padding(
-                                      padding: EdgeInsets.only(
-                                          top: SizeUtility(context).height /
-                                              2.4),
-                                      child: Center(
-                                        child: Text(
-                                          "products not available",
-                                          style: TextStyle(
-                                            color: ColorManager.textGrey,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  : Expanded(
-                                      child: GridView.builder(
-                                        controller: _scrollController,
-                                        gridDelegate:
-                                            SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2,
-                                          crossAxisSpacing: 20,
-                                          mainAxisSpacing: 20,
-                                          mainAxisExtent: !Responsive.isMobile(
-                                                  context)
-                                              ? SizeUtility(context).height /
-                                                  3.3
-                                              : SizeUtility(context).height /
-                                                  2.9,
-                                        ),
-                                        itemCount:
-                                            state.multiFilterProduct?.length ??
-                                                10,
-                                        itemBuilder: (context, index) {
-                                          final datas =
-                                              state.multiFilterProduct?[index];
-                                          if (datas == null) {
-                                            return const SizedBox();
-                                          }
-                                          return GestureDetector(
-                                            onTap: () {
-                                              context.pushNamed(
-                                                  MyAppRouteConstants
-                                                      .singleProductRouteName,
-                                                  pathParameters: {
-                                                    "id": datas.id ?? ""
-                                                  });
-                                            },
-                                            child: ShopProductWidget(
-                                              color: datas.color ?? "",
-                                              size: datas.size?[0].size ?? "",
-                                              brandId: datas.brand!.id,
-                                              isWishlisted: false,
-                                              brand:
-                                                  datas.brand!.name.toString(),
-                                              productId: datas.id,
-                                              title: datas.title,
-                                              image: datas.images![0],
-                                              discountPrice:
-                                                  datas.salePrice ?? 0,
-                                              actualPrice:
-                                                  datas.regularPrice!.toInt(),
-                                              discount: datas.discount!.toInt(),
-                                            ),
-                                          );
-                                        },
+                                ),
+                              ),
+                            )
+                          : Expanded(
+                              child: GridView.builder(
+                                controller: _scrollController,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 20,
+                                  mainAxisExtent: !Responsive.isMobile(context)
+                                      ? SizeUtility(context).height / 3.3
+                                      : SizeUtility(context).height / 2.9,
+                                ),
+                                itemCount:
+                                    state.multiFilterProduct?.length ?? 10 + 1,
+                                itemBuilder: (context, index) {
+                                  print(
+                                      "index $index lenthe here ${state.multiFilterProduct?.length}");
+                                  if (index + 1 <
+                                      state.multiFilterProduct!.length) {
+                                    final data =
+                                        state.multiFilterProduct?[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        context.pushNamed(
+                                          MyAppRouteConstants
+                                              .singleProductRouteName,
+                                          pathParameters: {
+                                            "id": data?.id ?? ""
+                                          },
+                                        );
+                                      },
+                                      child: ShopProductWidget(
+                                        color: data?.color ?? "",
+                                        size: data?.size?[0].size ?? "",
+                                        brandId: data?.brand!.id,
+                                        isWishlisted: false,
+                                        brand: data?.brand!.name.toString(),
+                                        productId: data?.id,
+                                        title: data?.title,
+                                        image: data?.images![0],
+                                        discountPrice: data?.salePrice ?? 0,
+                                        actualPrice:
+                                            data?.regularPrice?.toInt() ?? 0,
+                                        discount: data?.discount?.toInt() ?? 0,
                                       ),
                                     );
+                                  } else {
+                                    // Display loader at the end when loading more and not reached max
+                                    if (!state.reachMax) {
+                                      return const Loader();
+                                    } else {
+                                      return SizedBox
+                                          .shrink(); // Return an empty container if not loading more or reached max
+                                    }
+                                  }
+                                },
+                              ),
+                            );
                 },
               ),
             ],

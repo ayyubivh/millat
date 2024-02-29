@@ -7013,6 +7013,7 @@ mixin _$CategoryState {
       throw _privateConstructorUsedError;
   bool get reachMax => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
+  bool get loadinMore => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryStateCopyWith<CategoryState> get copyWith =>
@@ -7054,7 +7055,8 @@ abstract class $CategoryStateCopyWith<$Res> {
       List<String> itemTypeFiltersList,
       List<MultifilterProduct>? multiFilterProduct,
       bool reachMax,
-      int currentPage});
+      int currentPage,
+      bool loadinMore});
 
   $ProductModelCopyWith<$Res>? get product;
   $CategoryModelCopyWith<$Res>? get category;
@@ -7106,6 +7108,7 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
     Object? multiFilterProduct = freezed,
     Object? reachMax = null,
     Object? currentPage = null,
+    Object? loadinMore = null,
   }) {
     return _then(_value.copyWith(
       product: freezed == product
@@ -7224,6 +7227,10 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as int,
+      loadinMore: null == loadinMore
+          ? _value.loadinMore
+          : loadinMore // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -7340,7 +7347,8 @@ abstract class _$$CategoryStateImplCopyWith<$Res>
       List<String> itemTypeFiltersList,
       List<MultifilterProduct>? multiFilterProduct,
       bool reachMax,
-      int currentPage});
+      int currentPage,
+      bool loadinMore});
 
   @override
   $ProductModelCopyWith<$Res>? get product;
@@ -7396,6 +7404,7 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
     Object? multiFilterProduct = freezed,
     Object? reachMax = null,
     Object? currentPage = null,
+    Object? loadinMore = null,
   }) {
     return _then(_$CategoryStateImpl(
       product: freezed == product
@@ -7514,6 +7523,10 @@ class __$$CategoryStateImplCopyWithImpl<$Res>
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as int,
+      loadinMore: null == loadinMore
+          ? _value.loadinMore
+          : loadinMore // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -7550,7 +7563,8 @@ class _$CategoryStateImpl implements _CategoryState {
       required final List<String> itemTypeFiltersList,
       required final List<MultifilterProduct>? multiFilterProduct,
       required this.reachMax,
-      required this.currentPage})
+      required this.currentPage,
+      required this.loadinMore})
       : _subcategoryFiltersList = subcategoryFiltersList,
         _brandsFiltersList = brandsFiltersList,
         _colorsFiltersList = colorsFiltersList,
@@ -7652,10 +7666,12 @@ class _$CategoryStateImpl implements _CategoryState {
   final bool reachMax;
   @override
   final int currentPage;
+  @override
+  final bool loadinMore;
 
   @override
   String toString() {
-    return 'CategoryState(product: $product, productLoading: $productLoading, errorMessage: $errorMessage, category: $category, categoryLoading: $categoryLoading, subCategory: $subCategory, subCategoryLoading: $subCategoryLoading, selectedFilter: $selectedFilter, filterCategory: $filterCategory, filterSubCategory: $filterSubCategory, filterBrand: $filterBrand, priceRangeIndex: $priceRangeIndex, subcategoryByCategoryIdModel: $subcategoryByCategoryIdModel, filterVal: $filterVal, minPrice: $minPrice, maxPrice: $maxPrice, sortListIndex: $sortListIndex, rangeValues: $rangeValues, categoryItemModel: $categoryItemModel, categoryIndex: $categoryIndex, filterIndex: $filterIndex, filterOptionModel: $filterOptionModel, subcategoryFiltersList: $subcategoryFiltersList, brandsFiltersList: $brandsFiltersList, colorsFiltersList: $colorsFiltersList, itemTypeFiltersList: $itemTypeFiltersList, multiFilterProduct: $multiFilterProduct, reachMax: $reachMax, currentPage: $currentPage)';
+    return 'CategoryState(product: $product, productLoading: $productLoading, errorMessage: $errorMessage, category: $category, categoryLoading: $categoryLoading, subCategory: $subCategory, subCategoryLoading: $subCategoryLoading, selectedFilter: $selectedFilter, filterCategory: $filterCategory, filterSubCategory: $filterSubCategory, filterBrand: $filterBrand, priceRangeIndex: $priceRangeIndex, subcategoryByCategoryIdModel: $subcategoryByCategoryIdModel, filterVal: $filterVal, minPrice: $minPrice, maxPrice: $maxPrice, sortListIndex: $sortListIndex, rangeValues: $rangeValues, categoryItemModel: $categoryItemModel, categoryIndex: $categoryIndex, filterIndex: $filterIndex, filterOptionModel: $filterOptionModel, subcategoryFiltersList: $subcategoryFiltersList, brandsFiltersList: $brandsFiltersList, colorsFiltersList: $colorsFiltersList, itemTypeFiltersList: $itemTypeFiltersList, multiFilterProduct: $multiFilterProduct, reachMax: $reachMax, currentPage: $currentPage, loadinMore: $loadinMore)';
   }
 
   @override
@@ -7721,7 +7737,9 @@ class _$CategoryStateImpl implements _CategoryState {
             (identical(other.reachMax, reachMax) ||
                 other.reachMax == reachMax) &&
             (identical(other.currentPage, currentPage) ||
-                other.currentPage == currentPage));
+                other.currentPage == currentPage) &&
+            (identical(other.loadinMore, loadinMore) ||
+                other.loadinMore == loadinMore));
   }
 
   @override
@@ -7755,7 +7773,8 @@ class _$CategoryStateImpl implements _CategoryState {
         const DeepCollectionEquality().hash(_itemTypeFiltersList),
         const DeepCollectionEquality().hash(_multiFilterProduct),
         reachMax,
-        currentPage
+        currentPage,
+        loadinMore
       ]);
 
   @JsonKey(ignore: true)
@@ -7795,7 +7814,8 @@ abstract class _CategoryState implements CategoryState {
       required final List<String> itemTypeFiltersList,
       required final List<MultifilterProduct>? multiFilterProduct,
       required final bool reachMax,
-      required final int currentPage}) = _$CategoryStateImpl;
+      required final int currentPage,
+      required final bool loadinMore}) = _$CategoryStateImpl;
 
   @override
   ProductModel? get product;
@@ -7855,6 +7875,8 @@ abstract class _CategoryState implements CategoryState {
   bool get reachMax;
   @override
   int get currentPage;
+  @override
+  bool get loadinMore;
   @override
   @JsonKey(ignore: true)
   _$$CategoryStateImplCopyWith<_$CategoryStateImpl> get copyWith =>

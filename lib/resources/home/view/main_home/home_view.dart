@@ -2,8 +2,10 @@
 import 'dart:io';
 import 'dart:math';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
@@ -1230,7 +1232,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
 
   Widget _quranAyaWidget(BuildContext context) {
     return SizedBox(
-        height: 290,
+        height: 320,
         width: !Responsive.isMobile(context)
             ? SizeUtility(context).width / 2.5
             : SizeUtility(context).width,
@@ -1253,7 +1255,6 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                       data.length,
                       (index) {
                         return Container(
-                          height: 290,
                           width: SizeUtility(context).width,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 10),
@@ -1280,7 +1281,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                                     ),
                                   ),
                                   kHeight16,
-                                  Expanded(
+                                  SizedBox(
                                     child: Text(
                                       data[index].content ?? '',
                                       style: TextStyle(

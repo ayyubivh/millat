@@ -191,7 +191,7 @@ class ArticlesView extends StatelessWidget {
                               date: Utilities.getTimeAgo(data.date!),
                               title: data.title!,
                               content: data.content ?? 'Content is Empty',
-                              category: data.category ?? '',
+                              category: data.category?.title ?? '',
                             ),
                           ));
                     },

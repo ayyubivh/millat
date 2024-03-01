@@ -154,7 +154,7 @@ class CategoriesFilterView extends StatelessWidget {
                             extra: {
                               'type': FilterType.category,
                               'categoryId': categoryId,
-                              'subCategory': data[index].title,
+                              'subCategory': [data[index].title ?? ""],
                               'category': state.category?.result
                                       ?.category?[state.categoryIndex].title ??
                                   ""

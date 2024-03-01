@@ -128,7 +128,7 @@ class SingleArticleView extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
-                    data.content ?? "",
+                    Utilities.removeFootnotesFromMeaning(data.content ?? ""),
                     style: TextStyle(
                         color: ColorManager.textGrey99,
                         fontSize: 17,

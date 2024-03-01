@@ -38,9 +38,10 @@ class Article with _$Article {
     required Product? product,
     required String? image,
     required String? date,
-    required String? category,
+    required Category? category,
     required String? createdAt,
     required String? updatedAt,
+    required String? thumbnail,
   }) = _Article;
 
   factory Article.fromJson(Map<String, dynamic> json) =>
@@ -74,6 +75,17 @@ class Product with _$Product {
 
   factory Product.fromJson(Map<String, dynamic> json) =>
       _$ProductFromJson(json);
+}
+
+@freezed
+class Category with _$Category {
+  const factory Category({
+    @JsonKey(name: "_id") required String id,
+    required String title,
+  }) = _Category;
+
+  factory Category.fromJson(Map<String, dynamic> json) =>
+      _$CategoryFromJson(json);
 }
 
 @freezed

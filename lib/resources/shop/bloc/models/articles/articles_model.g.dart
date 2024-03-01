@@ -47,9 +47,12 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) =>
           : Product.fromJson(json['product'] as Map<String, dynamic>),
       image: json['image'] as String?,
       date: json['date'] as String?,
-      category: json['category'] as String?,
+      category: json['category'] == null
+          ? null
+          : Category.fromJson(json['category'] as Map<String, dynamic>),
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
+      thumbnail: json['thumbnail'] as String?,
     );
 
 Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
@@ -65,6 +68,7 @@ Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
       'category': instance.category,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'thumbnail': instance.thumbnail,
     };
 
 _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
@@ -118,6 +122,18 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'productCareInfo': instance.productCareInfo,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+    };
+
+_$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
+    _$CategoryImpl(
+      id: json['_id'] as String,
+      title: json['title'] as String,
+    );
+
+Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
+    <String, dynamic>{
+      '_id': instance.id,
+      'title': instance.title,
     };
 
 _$SizeImpl _$$SizeImplFromJson(Map<String, dynamic> json) => _$SizeImpl(

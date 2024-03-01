@@ -43,39 +43,39 @@ class SingleProductView extends StatelessWidget {
           thickness: 6,
           color: ColorManager.grey08,
         );
-        return state.isLoading || data == null
-            ? ShimmerUtils.singleProductShimmer(context)
-            : Scaffold(
-                extendBodyBehindAppBar: true,
-                appBar: AppBar(
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
-                  leading: BackButton(color: ColorManager.blackColor),
-                  actions: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: GestureDetector(
-                        onTap: () => context
-                            .pushNamed(MyAppRouteConstants.shopSearchRouteName),
-                        child: ImageIcon(
-                          const AssetImage(
-                            'assets/icons/search.png',
-                          ),
-                          color: ColorManager.blackColor,
-                        ),
-                      ),
+        return Scaffold(
+          extendBodyBehindAppBar: true,
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            leading: BackButton(color: ColorManager.blackColor),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: GestureDetector(
+                  onTap: () => context
+                      .pushNamed(MyAppRouteConstants.shopSearchRouteName),
+                  child: ImageIcon(
+                    const AssetImage(
+                      'assets/icons/search.png',
                     ),
-                    BlocBuilder<CartBloc, CartState>(
-                      builder: (context, state) {
-                        return CartIconWidget(
-                          color: ColorManager.blackColor,
-                          cartLength: state.cartLength,
-                        );
-                      },
-                    )
-                  ],
+                    color: ColorManager.blackColor,
+                  ),
                 ),
-                body: SingleChildScrollView(
+              ),
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) {
+                  return CartIconWidget(
+                    color: ColorManager.blackColor,
+                    cartLength: state.cartLength,
+                  );
+                },
+              )
+            ],
+          ),
+          body: state.isLoading || data == null
+              ? ShimmerUtils.singleProductShimmer(context)
+              : SingleChildScrollView(
                   child: Column(
                     children: [
                       CarouselView(data: data),
@@ -252,65 +252,66 @@ class SingleProductView extends StatelessWidget {
                     ],
                   ),
                 ),
-                // floatingActionButton: const IconButton.filled(
-                //   onPressed: null,
-                //   icon: Icon(Icons.favorite_border_outlined),
-                // ),
-                bottomSheet: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 20),
-                    child: InkWell(
-                      onTap: () {
-                        showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          builder: (context) => buildShowModelSheet(
-                            color: data.color ?? "",
-                            size: data.size!
-                                .map((e) => e.size.toString())
-                                .toList(),
-                            context,
-                            selectedColor,
-                            selectedSize,
-                            quantity,
-                            brandId: data.brand!.id!,
-                            productId: id,
-                            image: data.images![0],
-                            regularPrice: data.regularPrice!.toInt(),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        height: 55,
-                        width: SizeUtility(context).width,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: ColorManager.mainColor.withOpacity(0.2),
+          // floatingActionButton: const IconButton.filled(
+          //   onPressed: null,
+          //   icon: Icon(Icons.favorite_border_outlined),
+          // ),
+          bottomSheet: state.isLoading || data == null
+              ? const SizedBox()
+              : Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  child: InkWell(
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) => buildShowModelSheet(
+                          color: data.color ?? "",
+                          size:
+                              data.size!.map((e) => e.size.toString()).toList(),
+                          context,
+                          selectedColor,
+                          selectedSize,
+                          quantity,
+                          brandId: data.brand!.id!,
+                          productId: id,
+                          image: data.images![0],
+                          regularPrice: data.regularPrice!.toInt(),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/icons/add_cart.png",
-                              width: 21,
-                              height: 21,
+                      );
+                    },
+                    child: Container(
+                      height: 55,
+                      width: SizeUtility(context).width,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        color: ColorManager.mainColor.withOpacity(0.2),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/icons/add_cart.png",
+                            width: 21,
+                            height: 21,
+                            color: ColorManager.primary,
+                          ),
+                          kWidth10,
+                          Text(
+                            "Add to cart",
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
                               color: ColorManager.primary,
                             ),
-                            kWidth10,
-                            Text(
-                              "Add to cart",
-                              style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
-                                color: ColorManager.primary,
-                              ),
-                            )
-                          ],
-                        ),
+                          )
+                        ],
                       ),
-                    )),
-              );
+                    ),
+                  )),
+        );
       },
     );
   }

@@ -380,9 +380,10 @@ mixin _$Article {
   Product? get product => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get date => throw _privateConstructorUsedError;
-  String? get category => throw _privateConstructorUsedError;
+  Category? get category => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
+  String? get thumbnail => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -403,11 +404,13 @@ abstract class $ArticleCopyWith<$Res> {
       Product? product,
       String? image,
       String? date,
-      String? category,
+      Category? category,
       String? createdAt,
-      String? updatedAt});
+      String? updatedAt,
+      String? thumbnail});
 
   $ProductCopyWith<$Res>? get product;
+  $CategoryCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -434,6 +437,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? category = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? thumbnail = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -471,7 +475,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Category?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -479,6 +483,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -492,6 +500,18 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
 
     return $ProductCopyWith<$Res>(_value.product!, (value) {
       return _then(_value.copyWith(product: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryCopyWith<$Res>? get category {
+    if (_value.category == null) {
+      return null;
+    }
+
+    return $CategoryCopyWith<$Res>(_value.category!, (value) {
+      return _then(_value.copyWith(category: value) as $Val);
     });
   }
 }
@@ -512,12 +532,15 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       Product? product,
       String? image,
       String? date,
-      String? category,
+      Category? category,
       String? createdAt,
-      String? updatedAt});
+      String? updatedAt,
+      String? thumbnail});
 
   @override
   $ProductCopyWith<$Res>? get product;
+  @override
+  $CategoryCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -542,6 +565,7 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? category = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? thumbnail = freezed,
   }) {
     return _then(_$ArticleImpl(
       id: null == id
@@ -579,7 +603,7 @@ class __$$ArticleImplCopyWithImpl<$Res>
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Category?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -587,6 +611,10 @@ class __$$ArticleImplCopyWithImpl<$Res>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnail: freezed == thumbnail
+          ? _value.thumbnail
+          : thumbnail // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -606,7 +634,8 @@ class _$ArticleImpl implements _Article {
       required this.date,
       required this.category,
       required this.createdAt,
-      required this.updatedAt});
+      required this.updatedAt,
+      required this.thumbnail});
 
   factory _$ArticleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArticleImplFromJson(json);
@@ -629,15 +658,17 @@ class _$ArticleImpl implements _Article {
   @override
   final String? date;
   @override
-  final String? category;
+  final Category? category;
   @override
   final String? createdAt;
   @override
   final String? updatedAt;
+  @override
+  final String? thumbnail;
 
   @override
   String toString() {
-    return 'Article(id: $id, title: $title, slug: $slug, content: $content, brand: $brand, product: $product, image: $image, date: $date, category: $category, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Article(id: $id, title: $title, slug: $slug, content: $content, brand: $brand, product: $product, image: $image, date: $date, category: $category, createdAt: $createdAt, updatedAt: $updatedAt, thumbnail: $thumbnail)';
   }
 
   @override
@@ -658,13 +689,15 @@ class _$ArticleImpl implements _Article {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.thumbnail, thumbnail) ||
+                other.thumbnail == thumbnail));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, title, slug, content, brand,
-      product, image, date, category, createdAt, updatedAt);
+      product, image, date, category, createdAt, updatedAt, thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -690,9 +723,10 @@ abstract class _Article implements Article {
       required final Product? product,
       required final String? image,
       required final String? date,
-      required final String? category,
+      required final Category? category,
       required final String? createdAt,
-      required final String? updatedAt}) = _$ArticleImpl;
+      required final String? updatedAt,
+      required final String? thumbnail}) = _$ArticleImpl;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
@@ -714,11 +748,13 @@ abstract class _Article implements Article {
   @override
   String? get date;
   @override
-  String? get category;
+  Category? get category;
   @override
   String? get createdAt;
   @override
   String? get updatedAt;
+  @override
+  String? get thumbnail;
   @override
   @JsonKey(ignore: true)
   _$$ArticleImplCopyWith<_$ArticleImpl> get copyWith =>
@@ -1303,6 +1339,163 @@ abstract class _Product implements Product {
   @override
   @JsonKey(ignore: true)
   _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Category _$CategoryFromJson(Map<String, dynamic> json) {
+  return _Category.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Category {
+  @JsonKey(name: "_id")
+  String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CategoryCopyWith<Category> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CategoryCopyWith<$Res> {
+  factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
+      _$CategoryCopyWithImpl<$Res, Category>;
+  @useResult
+  $Res call({@JsonKey(name: "_id") String id, String title});
+}
+
+/// @nodoc
+class _$CategoryCopyWithImpl<$Res, $Val extends Category>
+    implements $CategoryCopyWith<$Res> {
+  _$CategoryCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CategoryImplCopyWith<$Res>
+    implements $CategoryCopyWith<$Res> {
+  factory _$$CategoryImplCopyWith(
+          _$CategoryImpl value, $Res Function(_$CategoryImpl) then) =
+      __$$CategoryImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: "_id") String id, String title});
+}
+
+/// @nodoc
+class __$$CategoryImplCopyWithImpl<$Res>
+    extends _$CategoryCopyWithImpl<$Res, _$CategoryImpl>
+    implements _$$CategoryImplCopyWith<$Res> {
+  __$$CategoryImplCopyWithImpl(
+      _$CategoryImpl _value, $Res Function(_$CategoryImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+  }) {
+    return _then(_$CategoryImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CategoryImpl implements _Category {
+  const _$CategoryImpl(
+      {@JsonKey(name: "_id") required this.id, required this.title});
+
+  factory _$CategoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CategoryImplFromJson(json);
+
+  @override
+  @JsonKey(name: "_id")
+  final String id;
+  @override
+  final String title;
+
+  @override
+  String toString() {
+    return 'Category(id: $id, title: $title)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CategoryImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, title);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
+      __$$CategoryImplCopyWithImpl<_$CategoryImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CategoryImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Category implements Category {
+  const factory _Category(
+      {@JsonKey(name: "_id") required final String id,
+      required final String title}) = _$CategoryImpl;
+
+  factory _Category.fromJson(Map<String, dynamic> json) =
+      _$CategoryImpl.fromJson;
+
+  @override
+  @JsonKey(name: "_id")
+  String get id;
+  @override
+  String get title;
+  @override
+  @JsonKey(ignore: true)
+  _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

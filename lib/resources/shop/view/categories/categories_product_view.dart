@@ -20,7 +20,7 @@ import '../../bloc/logic/category_bloc/category_bloc.dart';
 class CategoriesProductView extends StatefulWidget {
   static const String routeName = "category-view";
   final String? category;
-  final String? subCategory;
+  final List<String>? subCategory;
   final String? itemId;
   final String? itemName;
   final String? categoryId;
@@ -31,7 +31,7 @@ class CategoriesProductView extends StatefulWidget {
   const CategoriesProductView(
       {super.key,
       required this.category,
-      required this.subCategory,
+      this.subCategory,
       required this.type,
       this.itemId,
       this.itemName,
@@ -57,6 +57,10 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
   @override
   void initState() {
     log(widget.type.toString());
+    if (widget.type != FilterType.fromFilter) {
+      BlocProvider.of<CategoryBloc>(context)
+          .add(SaveSubcategoryFilters(value: widget.subCategory?.first ?? ""));
+    }
     BlocProvider.of<CategoryBloc>(context).add(const MakePaginationDefault());
     _fetchApi();
     BlocProvider.of<CategoryBloc>(context).add(
@@ -98,7 +102,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                     brand: widget.brand ?? [],
                     color: widget.color ?? [],
                     category: widget.category ?? '',
-                    subCategory: [widget.subCategory ?? ""],
+                    subCategory: widget.subCategory ?? [],
                     itemId: [widget.itemId ?? ''],
                   )
                 : FetchProductsByFilter(
@@ -107,8 +111,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                     brand: [],
                     color: [],
                     category: widget.category ?? '',
-                    subCategory: [widget.subCategory ?? ""],
-                    itemId: [],
+                    subCategory: [],
+                    itemId: [widget.itemId ?? ''],
                   ));
   }
 
@@ -123,7 +127,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
             builder: (context, state) => Text(
                 widget.type == FilterType.category
                     ? state.filterVal == ""
-                        ? widget.subCategory ?? widget.itemName ?? ""
+                        ? widget.subCategory?.first ?? widget.itemName ?? ""
                         : state.filterVal
                     : widget.itemName ?? "",
                 style: TextStyle(
@@ -164,7 +168,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
               BlocBuilder<CategoryBloc, CategoryState>(
                 builder: (context, state) {
                   return state.multiFilterProduct == null
-                      ? ShimmerUtils.productsShimmers(context: context)
+                      ? ShimmerUtils.listOfProductsShimmer(context)
                       : state.multiFilterProduct?.isEmpty ?? true
                           ? Padding(
                               padding: EdgeInsets.only(
@@ -192,12 +196,9 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                       ? SizeUtility(context).height / 3.3
                                       : SizeUtility(context).height / 2.9,
                                 ),
-                                itemCount:
-                                    state.multiFilterProduct?.length ?? 10 + 1,
+                                itemCount: state.multiFilterProduct!.length + 2,
                                 itemBuilder: (context, index) {
-                                  print(
-                                      "index $index lenthe here ${state.multiFilterProduct?.length}");
-                                  if (index + 1 <
+                                  if (index <
                                       state.multiFilterProduct!.length) {
                                     final data =
                                         state.multiFilterProduct?[index];
@@ -227,13 +228,10 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                       ),
                                     );
                                   } else {
-                                    // Display loader at the end when loading more and not reached max
-                                    if (!state.reachMax) {
-                                      return const Loader();
-                                    } else {
-                                      return SizedBox
-                                          .shrink(); // Return an empty container if not loading more or reached max
-                                    }
+                                    return !state.reachMax
+                                        ? ShimmerUtils.productsShimmers(
+                                            context: context)
+                                        : null;
                                   }
                                 },
                               ),
@@ -372,7 +370,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                         order: "asec",
                                         category: widget.category,
                                         subCategory: state.filterVal == ""
-                                            ? widget.subCategory
+                                            ? widget.subCategory?.first
                                             : state.filterVal))
                                 : state.sortListIndex == 1
                                     ? context.read<CategoryBloc>().add(
@@ -380,7 +378,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                             order: "desc",
                                             category: widget.category,
                                             subCategory: state.filterVal == ""
-                                                ? widget.subCategory
+                                                ? widget.subCategory?.first
                                                 : state.filterVal))
                                     : null;
                             context.pop();

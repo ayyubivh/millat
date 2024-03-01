@@ -56,7 +56,7 @@ class ArticleBuilWidget extends StatelessWidget {
                 SizedBox(
                   width: SizeUtility(context).width - 140,
                   child: Text(
-                    content,
+                    Utilities.removeFootnotesFromMeaning(content),
                     style: const TextStyle(
                       color: black102,
                       fontSize: 15,

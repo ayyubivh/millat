@@ -193,7 +193,7 @@ class CategoryProductsFilterView extends StatelessWidget {
                           extra: {
                             'type': FilterType.fromFilter,
                             'subCategory':
-                                state.subcategoryFiltersList.toString(),
+                                state.subcategoryFiltersList.toList(),
                             'category': category,
                             'maxPrice': int.parse(state.maxPrice),
                             'minPrice': int.parse(state.minPrice),

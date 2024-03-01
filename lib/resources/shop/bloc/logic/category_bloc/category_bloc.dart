@@ -171,7 +171,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         maxPrice: event.maxPrice,
         minPrice: event.minPrice,
         category: event.category,
-        subCategory: [],
+        subCategory: event.subCategory,
         brand: event.brand,
         color: event.color,
         itemType: event.itemId,

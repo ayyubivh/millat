@@ -66,6 +66,8 @@ class HomeServices extends HttpServices {
         final Map<String, dynamic> data = json.decode(response.body);
 
         debugPrint(data.toString());
+      } else if (response.statusCode == 400) {
+        return;
       } else {
         throw Exception(
             'API request failed with status code: ${response.statusCode}');

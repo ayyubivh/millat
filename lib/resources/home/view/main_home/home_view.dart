@@ -819,16 +819,16 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                             final subCategoryId = routing.subCategoryId?.title;
                             final itemTypeId = routing.itemTypeId?.title;
 
-                            if (categoryId == "" &&
-                                subCategoryId == "" &&
-                                itemTypeId == "") {
+                            if (categoryId == null &&
+                                subCategoryId == null &&
+                                itemTypeId == null) {
                               return;
                             } else {
                               context.pushNamed(
-                                routing.route!,
+                                routing.route ?? "",
                                 extra: {
                                   'category': categoryId,
-                                  'subCategory': subCategoryId,
+                                  'itemId': [subCategoryId ?? ""],
                                   'type': FilterType.category,
                                 },
                               );
@@ -1479,7 +1479,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                             routing.route!,
                             extra: {
                               'category': categoryId,
-                              'subCategory': subCategoryId,
+                              'itemId': subCategoryId.toString(),
                               'type': FilterType.category,
                             },
                           );

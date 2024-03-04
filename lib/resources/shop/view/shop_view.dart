@@ -533,7 +533,7 @@ class _ShopViewState extends State<ShopView> {
                           routing.route!,
                           extra: {
                             'category': categoryId,
-                            'subCategory': subCategoryId,
+                            'itemId': subCategoryId,
                             'type': FilterType.category,
                             // 'itemId': itemTypeId,
                           },

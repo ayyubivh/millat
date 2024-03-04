@@ -459,12 +459,11 @@ class _CategoryViewState extends State<CategoryView> {
                                                       .routing
                                                       ?.categoryId ??
                                                   "",
-                                              'subcategory': data
-                                                      ?.smallBannerImage
-                                                      ?.first
-                                                      .routing
-                                                      ?.subCategoryId ??
-                                                  ""
+                                              'subcategory': [
+                                                data?.smallBannerImage?.first
+                                                        .routing?.itemTypeId ??
+                                                    ""
+                                              ]
                                             });
                                       },
                                       child: Padding(
@@ -563,9 +562,11 @@ class _CategoryViewState extends State<CategoryView> {
                                         'category': data?.bigBannerImage
                                                 ?.routing?.categoryId ??
                                             "",
-                                        'subcategory': data?.bigBannerImage
-                                                ?.routing?.subCategoryId ??
-                                            ""
+                                        'subcategory': [
+                                          data?.bigBannerImage?.routing
+                                                  ?.subCategoryId ??
+                                              ""
+                                        ]
                                       });
                                 },
                                 child: Utilities().buildCachedNetworkImage(

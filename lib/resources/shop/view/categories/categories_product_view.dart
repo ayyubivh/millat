@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -7,7 +6,6 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/responsive.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -246,7 +244,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
   Widget filterWidget(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(MyAppRouteConstants.categoryProductsFilterRouteName,
+        context.pushReplacementNamed(
+            MyAppRouteConstants.categoryProductsFilterRouteName,
             extra: {
               'categoryId': widget.categoryId,
               'category': widget.category,

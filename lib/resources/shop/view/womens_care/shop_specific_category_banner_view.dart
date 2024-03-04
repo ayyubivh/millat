@@ -11,7 +11,7 @@ import '../../bloc/logic/category_bloc/category_bloc.dart';
 class ShopSpecificCategoryBannerView extends StatelessWidget {
   final String imageUrl;
   final String category;
-  final String subCategory;
+  final List<String> subCategory;
   const ShopSpecificCategoryBannerView(
       {super.key,
       required this.imageUrl,
@@ -23,8 +23,17 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) => CategoryBloc()
-          ..add(FetchFilterProducts(
-              category: category, subCategory: subCategory)),
+          ..add(
+            FetchProductsByFilter(
+              color: [],
+              category: category,
+              subCategory: [],
+              minPrice: 0,
+              maxPrice: 0,
+              brand: [],
+              itemId: subCategory,
+            ),
+          ),
         child: SingleChildScrollView(
           child: Stack(
             children: [
@@ -46,7 +55,7 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                   BlocBuilder<CategoryBloc, CategoryState>(
                     builder: (context, state) {
                       return state.productLoading ||
-                              state.product?.result?.products == null
+                              state.multiFilterProduct == null
                           ? const Loader()
                           : GridView.builder(
                               padding: const EdgeInsets.symmetric(
@@ -60,11 +69,9 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                                 mainAxisExtent: 315,
                                 mainAxisSpacing: 20,
                               ),
-                              itemCount:
-                                  state.product!.result!.products?.length,
+                              itemCount: state.multiFilterProduct?.length,
                               itemBuilder: (context, index) {
-                                final data =
-                                    state.product!.result!.products?[index];
+                                final data = state.multiFilterProduct?[index];
                                 return GestureDetector(
                                   onTap: () {
                                     context.pushNamed(

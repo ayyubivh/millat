@@ -220,7 +220,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                         brand: data?.brand!.name.toString(),
                                         productId: data?.id,
                                         title: data?.title,
-                                        image: data?.images![0],
+                                        image: data?.thumbnail,
                                         discountPrice: data?.salePrice ?? 0,
                                         actualPrice:
                                             data?.regularPrice?.toInt() ?? 0,

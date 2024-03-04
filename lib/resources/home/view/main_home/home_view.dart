@@ -1,4 +1,5 @@
 // ignore_for_file: unused_local_variable, depend_on_referenced_packages
+import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -43,7 +44,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
   ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
-
+  Timer? timer;
   @override
   void initState() {
     _fetchApi();
@@ -66,8 +67,16 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
 
   @override
   Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
-    if (state == AppLifecycleState.resumed) {
-      _fetchApi();
+    if (state == AppLifecycleState.inactive) {
+      timer = Timer(const Duration(seconds: 10), () {});
+      print(timer!.isActive);
+    } else if (state == AppLifecycleState.resumed) {
+      if (!timer!.isActive) {
+        print(timer!.isActive);
+        _fetchApi();
+      } else {
+        timer!.cancel();
+      }
     }
   }
 
@@ -841,7 +850,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                       height: 300,
                       viewportFraction: 1,
                       enlargeCenterPage: true,
-                      autoPlay: true,
+                      autoPlay: false,
                       autoPlayCurve: Curves.fastOutSlowIn,
                       enableInfiniteScroll: true,
                       enlargeFactor: 0.3,
@@ -1315,7 +1324,6 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                                       color: ColorManager.blackColor,
                                       fontFamily: "Hafs",
                                     ),
-                                    textDirection: TextDirection.rtl,
                                   ),
                                   kHeight5,
                                   const Spacer(),
@@ -1505,7 +1513,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                 height: 150,
                 viewportFraction: 1,
                 enlargeCenterPage: true,
-                autoPlay: true,
+                autoPlay: false,
                 autoPlayCurve: Curves.fastOutSlowIn,
                 enableInfiniteScroll: true,
                 enlargeFactor: 0.3,

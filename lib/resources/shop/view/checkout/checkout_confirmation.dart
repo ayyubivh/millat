@@ -232,7 +232,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                           int? actualPrice;
                           data.productId?.size?.forEach((element) {
                             if (data.size == element.size) {
-                              actualPrice = element.price;
+                              actualPrice = element.price?.toInt();
                             }
                           });
                           return CartProductWidget(
@@ -576,7 +576,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             if (widget.paymentType == 1) {
                               context.read<ShopProductsBloc>().add(PostOrders(
                                     id: pickUpaddress.id,
-                                    shippingCharges: shippingFee ?? 0,
+                                    shippingCharges: shippingFee?.toInt() ?? 0,
                                     totalDiscount: 0,
                                     weight: 0,
                                     pickupLocation: pickUpaddress.addressLine,
@@ -699,9 +699,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 text: 'RazorPay Privacy Policy.',
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    context
-                        .read<TermsAndConditionsBloc>()
-                        .add(const FetchTermsAndConditionsEvent(
+                    context.read<TermsAndConditionsBloc>().add(
+                        const FetchTermsAndConditionsEvent(
                             slug: "razorpay_terms_conditions"));
                     termAndConditionBottomSheet(context);
                   },

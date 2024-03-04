@@ -37,7 +37,8 @@ class CartView extends StatelessWidget {
           appBar: AppBar(
             title: Text(Appstrings.yourCart,
                 style: TextStyle(
-                    color: ColorManager.blackColor, fontWeight: FontWeight.w700)),
+                    color: ColorManager.blackColor,
+                    fontWeight: FontWeight.w700)),
             centerTitle: true,
             leading: BackButton(color: ColorManager.blackColor),
             elevation: 0,
@@ -66,10 +67,10 @@ class CartView extends StatelessWidget {
                   int? actualPrice;
                   data?.productId?.size?.forEach((element) {
                     if (data.size == element.size) {
-                      actualPrice = element.price;
+                      actualPrice = element.price?.toInt();
                     }
                   });
-    
+
                   if (data == null) {
                     return ShimmerUtils.cartShimmer(context);
                   }
@@ -102,12 +103,13 @@ class CartView extends StatelessWidget {
                 }
                 // final q = cartItems?.cartProducts?.cartItems;
                 final subTotal = cartItems?.amountDetails?.total;
-    
-                final totalTax = state.cartModel?.result?.amountDetails?.totalTax;
+
+                final totalTax =
+                    state.cartModel?.result?.amountDetails?.totalTax;
                 // final total = subTotal + totalTax;
-    
-                return _notEmptyContainer(
-                    context, subTotal ?? 0, state.showExapnd, totalTax ?? 0);
+
+                return _notEmptyContainer(context, subTotal?.toInt() ?? 0,
+                    state.showExapnd, totalTax ?? 0);
               }
             },
           )),

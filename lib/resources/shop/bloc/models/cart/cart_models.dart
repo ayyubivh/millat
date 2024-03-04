@@ -48,8 +48,8 @@ class CartItem with _$CartItem {
     required ProductInfo? productId,
     required int? quantity,
     @JsonKey(name: "selling_price") required double? sellingPrice,
-    int? discount,
-    int? tax,
+    double? discount,
+    double? tax,
     required String? size,
     required String? color,
   }) = _CartItem;
@@ -103,7 +103,7 @@ class ProductBrand with _$ProductBrand {
     required String? brandName,
     required String? companyName,
     required String? companyRegYear,
-    required int? revenueOfLastThreeMonths,
+    required double? revenueOfLastThreeMonths,
     required String? category,
     List<String>? subCategory,
     @JsonKey(name: 'GST') required String? gst,
@@ -150,7 +150,7 @@ class Size with _$Size {
   const factory Size({
     required String? size,
     required int? stock,
-    required int? price,
+    required double? price,
     required String? sku,
     @JsonKey(name: 'width') required String? width,
     required String? height,
@@ -163,9 +163,9 @@ class Size with _$Size {
 @freezed
 class AmountDetails with _$AmountDetails {
   const factory AmountDetails({
-    required int? subTotal,
-    required int? total,
-    required int? shippingCost,
+    required double? subTotal,
+    required double? total,
+    required double? shippingCost,
     required double? totalTax,
   }) = _AmountDetails;
 

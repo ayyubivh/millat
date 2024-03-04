@@ -68,8 +68,8 @@ _$CartItemImpl _$$CartItemImplFromJson(Map<String, dynamic> json) =>
           : ProductInfo.fromJson(json['productId'] as Map<String, dynamic>),
       quantity: json['quantity'] as int?,
       sellingPrice: (json['selling_price'] as num?)?.toDouble(),
-      discount: json['discount'] as int?,
-      tax: json['tax'] as int?,
+      discount: (json['discount'] as num?)?.toDouble(),
+      tax: (json['tax'] as num?)?.toDouble(),
       size: json['size'] as String?,
       color: json['color'] as String?,
     );
@@ -160,7 +160,8 @@ _$ProductBrandImpl _$$ProductBrandImplFromJson(Map<String, dynamic> json) =>
       brandName: json['brandName'] as String?,
       companyName: json['companyName'] as String?,
       companyRegYear: json['companyRegYear'] as String?,
-      revenueOfLastThreeMonths: json['revenueOfLastThreeMonths'] as int?,
+      revenueOfLastThreeMonths:
+          (json['revenueOfLastThreeMonths'] as num?)?.toDouble(),
       category: json['category'] as String?,
       subCategory: (json['subCategory'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -240,7 +241,7 @@ Map<String, dynamic> _$$ProductSubCategoryImplToJson(
 _$SizeImpl _$$SizeImplFromJson(Map<String, dynamic> json) => _$SizeImpl(
       size: json['size'] as String?,
       stock: json['stock'] as int?,
-      price: json['price'] as int?,
+      price: (json['price'] as num?)?.toDouble(),
       sku: json['sku'] as String?,
       width: json['width'] as String?,
       height: json['height'] as String?,
@@ -260,9 +261,9 @@ Map<String, dynamic> _$$SizeImplToJson(_$SizeImpl instance) =>
 
 _$AmountDetailsImpl _$$AmountDetailsImplFromJson(Map<String, dynamic> json) =>
     _$AmountDetailsImpl(
-      subTotal: json['subTotal'] as int?,
-      total: json['total'] as int?,
-      shippingCost: json['shippingCost'] as int?,
+      subTotal: (json['subTotal'] as num?)?.toDouble(),
+      total: (json['total'] as num?)?.toDouble(),
+      shippingCost: (json['shippingCost'] as num?)?.toDouble(),
       totalTax: (json['totalTax'] as num?)?.toDouble(),
     );
 

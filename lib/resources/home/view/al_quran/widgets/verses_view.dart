@@ -1373,12 +1373,11 @@ class _VersesViewState extends State<VersesView> {
         return StatefulBuilder(
           builder: (context, setState) => BlocBuilder<QuranBloc, QuranState>(
             builder: (context, state) {
-              if (state.isLoading ||
-                  state.quranChaptersModel?.chapters == null) {
+              if (state.isLoading || state.quranSurahModel == null) {
                 return const SizedBox();
               }
 
-              final chapters = state.quranChaptersModel!.chapters;
+              final chapters = state.quranSurahModel;
 
               return Container(
                 height: 400,
@@ -1408,7 +1407,7 @@ class _VersesViewState extends State<VersesView> {
                     Expanded(
                       child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: chapters.length,
+                        itemCount: chapters?.length,
                         itemBuilder: (context, index) {
                           final isIndex = currentIndex == index;
                           return InkWell(
@@ -1460,7 +1459,7 @@ class _VersesViewState extends State<VersesView> {
                                   ),
                                   kWidth10,
                                   Text(
-                                    chapters[index].nameSimple,
+                                    chapters?[index].title ?? "",
                                     style: TextStyle(
                                         fontSize: 17,
                                         color: isIndex

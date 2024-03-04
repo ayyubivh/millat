@@ -10,7 +10,7 @@ import 'package:millat/utils/shimmer_utils.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
-import '../../../bloc/models/al-quran/quran_chapter_models/quran_chapter_models.dart';
+import '../../../bloc/models/al-quran/quran_chapter_models/quran_surah_models.dart';
 import 'new_collection_widget.dart';
 
 class QuranTabBarWidget extends StatefulWidget {
@@ -211,9 +211,9 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
     return BlocBuilder<QuranBloc, QuranState>(
       builder: (context, state) {
         return ListView.separated(
-          itemCount: verses.length,
+          itemCount: state.quranParaModel?.length ?? 0,
           itemBuilder: (context, index) {
-            if (state.quranParaModel?.juzs == null) {
+            if (state.quranParaModel == null) {
               return ShimmerUtils.quranShimmers();
             }
             final verse = verses[index];
@@ -221,7 +221,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
             String arabicVerse = verse['arabic'] ?? '';
             return ListTile(
               onTap: () {
-                final id = state.quranParaModel!.juzs[index].juzNumber!.toInt();
+                final id = state.quranParaModel![index].noOfpara!.toInt();
                 context.read<QuranBloc>().add(FetchParaVerses(id: id));
                 context.read<QuranBloc>().add(FetchTranslationParaTexts(
                       translationId: state.globalTransilationId,
@@ -248,7 +248,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        state.quranParaModel!.juzs[index].juzNumber.toString(),
+                        state.quranParaModel![index].noOfpara.toString(),
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -296,13 +296,13 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
     return BlocBuilder<QuranBloc, QuranState>(
       builder: (context, state) {
         return ListView.separated(
-          itemCount: state.quranChaptersModel?.chapters.length ?? 5,
+          itemCount: state.quranSurahModel?.length ?? 5,
           itemBuilder: (context, index) {
-            if (state.isLoading || state.quranChaptersModel?.chapters == null) {
+            if (state.isLoading || state.quranSurahModel == null) {
               return ShimmerUtils.quranShimmers();
             }
 
-            final chapters = state.quranChaptersModel!.chapters;
+            final chapters = state.quranSurahModel!;
 
             final chapter = chapters[index];
 
@@ -318,24 +318,27 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
     );
   }
 
-  ListTile _buildSurahTile(BuildContext context, Chapters chapter, int index) {
+  ListTile _buildSurahTile(
+      BuildContext context, QuranSurahModel surah, int index) {
     return ListTile(
       onTap: () {
         final quranState = context.read<QuranBloc>().state;
 
-        context.read<QuranBloc>().add(FetchChaperVersesEvent(id: chapter.id));
         context
             .read<QuranBloc>()
-            .add(FetchChapterVersesbyTextName(id: chapter.id));
-        context.read<QuranBloc>().add(FetchTranslationChapterTexts(
-            translationId: quranState.globalTransilationId,
-            chapterId: chapter.id));
-        context.read<QuranBloc>().add(FetchChapterAudioFiles(
-            id: chapter.id, recitorId: quranState.recitorId));
+            .add(FetchChaperVersesEvent(id: surah.noOfSurah ?? 0));
+        // context
+        //     .read<QuranBloc>()
+        //     .add(FetchChapterVersesbyTextName(id: surah.id));
+        // context.read<QuranBloc>().add(FetchTranslationChapterTexts(
+        //     translationId: quranState.globalTransilationId,
+        //     chapterId: chapter.id));
+        // context.read<QuranBloc>().add(FetchChapterAudioFiles(
+        //     id: chapter.id, recitorId: quranState.recitorId));
 
         context.goNamed(MyAppRouteConstants.quranVersesRoutename, extra: {
           'type': Qurantype.sura,
-          'chapterId': chapter.id,
+          'chapterId': surah.id,
         });
       },
       leading: Stack(
@@ -360,14 +363,14 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
         ],
       ),
       title: Text(
-        chapter.nameSimple,
+        surah.title ?? "",
         style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ),
       ),
       subtitle: Text(
-        "${chapter.revelatioPlace.toUpperCase()} ${chapter.versesCount} VERSES",
+        "  ${surah.noOfAyah} VERSES",
         style: TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w600,
@@ -375,7 +378,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
         ),
       ),
       trailing: Text(
-        chapter.nameArabic,
+        surah.title ?? "",
         textDirection: TextDirection.rtl,
         style: const TextStyle(
           fontSize: 21,

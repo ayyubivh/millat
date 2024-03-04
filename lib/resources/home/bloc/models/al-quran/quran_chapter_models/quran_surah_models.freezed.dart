@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'quran_para_model.dart';
+part of 'quran_surah_models.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,13 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-QuranParaModel _$QuranParaModelFromJson(Map<String, dynamic> json) {
-  return _QuranParaModel.fromJson(json);
+QuranSurahModel _$QuranSurahModelFromJson(Map<String, dynamic> json) {
+  return _QuranSurahModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$QuranParaModel {
-  QuranSurahModel get surah => throw _privateConstructorUsedError;
+mixin _$QuranSurahModel {
   @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "title")
@@ -29,36 +28,33 @@ mixin _$QuranParaModel {
   String? get slug => throw _privateConstructorUsedError;
   @JsonKey(name: "noOfSurah")
   int? get noOfSurah => throw _privateConstructorUsedError;
-  @JsonKey(name: "noOfPara")
-  int? get noOfpara => throw _privateConstructorUsedError;
+  @JsonKey(name: "noOfAyah")
+  int? get noOfAyah => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $QuranParaModelCopyWith<QuranParaModel> get copyWith =>
+  $QuranSurahModelCopyWith<QuranSurahModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $QuranParaModelCopyWith<$Res> {
-  factory $QuranParaModelCopyWith(
-          QuranParaModel value, $Res Function(QuranParaModel) then) =
-      _$QuranParaModelCopyWithImpl<$Res, QuranParaModel>;
+abstract class $QuranSurahModelCopyWith<$Res> {
+  factory $QuranSurahModelCopyWith(
+          QuranSurahModel value, $Res Function(QuranSurahModel) then) =
+      _$QuranSurahModelCopyWithImpl<$Res, QuranSurahModel>;
   @useResult
   $Res call(
-      {QuranSurahModel surah,
-      @JsonKey(name: "_id") String? id,
+      {@JsonKey(name: "_id") String? id,
       @JsonKey(name: "title") String? title,
       @JsonKey(name: "slug") String? slug,
       @JsonKey(name: "noOfSurah") int? noOfSurah,
-      @JsonKey(name: "noOfPara") int? noOfpara});
-
-  $QuranSurahModelCopyWith<$Res> get surah;
+      @JsonKey(name: "noOfAyah") int? noOfAyah});
 }
 
 /// @nodoc
-class _$QuranParaModelCopyWithImpl<$Res, $Val extends QuranParaModel>
-    implements $QuranParaModelCopyWith<$Res> {
-  _$QuranParaModelCopyWithImpl(this._value, this._then);
+class _$QuranSurahModelCopyWithImpl<$Res, $Val extends QuranSurahModel>
+    implements $QuranSurahModelCopyWith<$Res> {
+  _$QuranSurahModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,18 +64,13 @@ class _$QuranParaModelCopyWithImpl<$Res, $Val extends QuranParaModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? surah = null,
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
     Object? noOfSurah = freezed,
-    Object? noOfpara = freezed,
+    Object? noOfAyah = freezed,
   }) {
     return _then(_value.copyWith(
-      surah: null == surah
-          ? _value.surah
-          : surah // ignore: cast_nullable_to_non_nullable
-              as QuranSurahModel,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -96,65 +87,48 @@ class _$QuranParaModelCopyWithImpl<$Res, $Val extends QuranParaModel>
           ? _value.noOfSurah
           : noOfSurah // ignore: cast_nullable_to_non_nullable
               as int?,
-      noOfpara: freezed == noOfpara
-          ? _value.noOfpara
-          : noOfpara // ignore: cast_nullable_to_non_nullable
+      noOfAyah: freezed == noOfAyah
+          ? _value.noOfAyah
+          : noOfAyah // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $QuranSurahModelCopyWith<$Res> get surah {
-    return $QuranSurahModelCopyWith<$Res>(_value.surah, (value) {
-      return _then(_value.copyWith(surah: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$QuranParaModelImplCopyWith<$Res>
-    implements $QuranParaModelCopyWith<$Res> {
-  factory _$$QuranParaModelImplCopyWith(_$QuranParaModelImpl value,
-          $Res Function(_$QuranParaModelImpl) then) =
-      __$$QuranParaModelImplCopyWithImpl<$Res>;
+abstract class _$$QuranSurahModelImplCopyWith<$Res>
+    implements $QuranSurahModelCopyWith<$Res> {
+  factory _$$QuranSurahModelImplCopyWith(_$QuranSurahModelImpl value,
+          $Res Function(_$QuranSurahModelImpl) then) =
+      __$$QuranSurahModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {QuranSurahModel surah,
-      @JsonKey(name: "_id") String? id,
+      {@JsonKey(name: "_id") String? id,
       @JsonKey(name: "title") String? title,
       @JsonKey(name: "slug") String? slug,
       @JsonKey(name: "noOfSurah") int? noOfSurah,
-      @JsonKey(name: "noOfPara") int? noOfpara});
-
-  @override
-  $QuranSurahModelCopyWith<$Res> get surah;
+      @JsonKey(name: "noOfAyah") int? noOfAyah});
 }
 
 /// @nodoc
-class __$$QuranParaModelImplCopyWithImpl<$Res>
-    extends _$QuranParaModelCopyWithImpl<$Res, _$QuranParaModelImpl>
-    implements _$$QuranParaModelImplCopyWith<$Res> {
-  __$$QuranParaModelImplCopyWithImpl(
-      _$QuranParaModelImpl _value, $Res Function(_$QuranParaModelImpl) _then)
+class __$$QuranSurahModelImplCopyWithImpl<$Res>
+    extends _$QuranSurahModelCopyWithImpl<$Res, _$QuranSurahModelImpl>
+    implements _$$QuranSurahModelImplCopyWith<$Res> {
+  __$$QuranSurahModelImplCopyWithImpl(
+      _$QuranSurahModelImpl _value, $Res Function(_$QuranSurahModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? surah = null,
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
     Object? noOfSurah = freezed,
-    Object? noOfpara = freezed,
+    Object? noOfAyah = freezed,
   }) {
-    return _then(_$QuranParaModelImpl(
-      surah: null == surah
-          ? _value.surah
-          : surah // ignore: cast_nullable_to_non_nullable
-              as QuranSurahModel,
+    return _then(_$QuranSurahModelImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -171,9 +145,9 @@ class __$$QuranParaModelImplCopyWithImpl<$Res>
           ? _value.noOfSurah
           : noOfSurah // ignore: cast_nullable_to_non_nullable
               as int?,
-      noOfpara: freezed == noOfpara
-          ? _value.noOfpara
-          : noOfpara // ignore: cast_nullable_to_non_nullable
+      noOfAyah: freezed == noOfAyah
+          ? _value.noOfAyah
+          : noOfAyah // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -181,20 +155,17 @@ class __$$QuranParaModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$QuranParaModelImpl implements _QuranParaModel {
-  const _$QuranParaModelImpl(
-      {required this.surah,
-      @JsonKey(name: "_id") required this.id,
+class _$QuranSurahModelImpl implements _QuranSurahModel {
+  const _$QuranSurahModelImpl(
+      {@JsonKey(name: "_id") required this.id,
       @JsonKey(name: "title") required this.title,
       @JsonKey(name: "slug") required this.slug,
       @JsonKey(name: "noOfSurah") required this.noOfSurah,
-      @JsonKey(name: "noOfPara") required this.noOfpara});
+      @JsonKey(name: "noOfAyah") required this.noOfAyah});
 
-  factory _$QuranParaModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$QuranParaModelImplFromJson(json);
+  factory _$QuranSurahModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$QuranSurahModelImplFromJson(json);
 
-  @override
-  final QuranSurahModel surah;
   @override
   @JsonKey(name: "_id")
   final String? id;
@@ -208,64 +179,60 @@ class _$QuranParaModelImpl implements _QuranParaModel {
   @JsonKey(name: "noOfSurah")
   final int? noOfSurah;
   @override
-  @JsonKey(name: "noOfPara")
-  final int? noOfpara;
+  @JsonKey(name: "noOfAyah")
+  final int? noOfAyah;
 
   @override
   String toString() {
-    return 'QuranParaModel(surah: $surah, id: $id, title: $title, slug: $slug, noOfSurah: $noOfSurah, noOfpara: $noOfpara)';
+    return 'QuranSurahModel(id: $id, title: $title, slug: $slug, noOfSurah: $noOfSurah, noOfAyah: $noOfAyah)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$QuranParaModelImpl &&
-            (identical(other.surah, surah) || other.surah == surah) &&
+            other is _$QuranSurahModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.slug, slug) || other.slug == slug) &&
             (identical(other.noOfSurah, noOfSurah) ||
                 other.noOfSurah == noOfSurah) &&
-            (identical(other.noOfpara, noOfpara) ||
-                other.noOfpara == noOfpara));
+            (identical(other.noOfAyah, noOfAyah) ||
+                other.noOfAyah == noOfAyah));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, surah, id, title, slug, noOfSurah, noOfpara);
+      Object.hash(runtimeType, id, title, slug, noOfSurah, noOfAyah);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$QuranParaModelImplCopyWith<_$QuranParaModelImpl> get copyWith =>
-      __$$QuranParaModelImplCopyWithImpl<_$QuranParaModelImpl>(
+  _$$QuranSurahModelImplCopyWith<_$QuranSurahModelImpl> get copyWith =>
+      __$$QuranSurahModelImplCopyWithImpl<_$QuranSurahModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$QuranParaModelImplToJson(
+    return _$$QuranSurahModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _QuranParaModel implements QuranParaModel {
-  const factory _QuranParaModel(
-          {required final QuranSurahModel surah,
-          @JsonKey(name: "_id") required final String? id,
+abstract class _QuranSurahModel implements QuranSurahModel {
+  const factory _QuranSurahModel(
+          {@JsonKey(name: "_id") required final String? id,
           @JsonKey(name: "title") required final String? title,
           @JsonKey(name: "slug") required final String? slug,
           @JsonKey(name: "noOfSurah") required final int? noOfSurah,
-          @JsonKey(name: "noOfPara") required final int? noOfpara}) =
-      _$QuranParaModelImpl;
+          @JsonKey(name: "noOfAyah") required final int? noOfAyah}) =
+      _$QuranSurahModelImpl;
 
-  factory _QuranParaModel.fromJson(Map<String, dynamic> json) =
-      _$QuranParaModelImpl.fromJson;
+  factory _QuranSurahModel.fromJson(Map<String, dynamic> json) =
+      _$QuranSurahModelImpl.fromJson;
 
-  @override
-  QuranSurahModel get surah;
   @override
   @JsonKey(name: "_id")
   String? get id;
@@ -279,10 +246,10 @@ abstract class _QuranParaModel implements QuranParaModel {
   @JsonKey(name: "noOfSurah")
   int? get noOfSurah;
   @override
-  @JsonKey(name: "noOfPara")
-  int? get noOfpara;
+  @JsonKey(name: "noOfAyah")
+  int? get noOfAyah;
   @override
   @JsonKey(ignore: true)
-  _$$QuranParaModelImplCopyWith<_$QuranParaModelImpl> get copyWith =>
+  _$$QuranSurahModelImplCopyWith<_$QuranSurahModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

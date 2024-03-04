@@ -13,7 +13,7 @@ import '../../models/al-quran/para_verses/para_verse_nosymbol.dart';
 import '../../models/al-quran/para_verses/para_verse_uthmani.dart';
 import '../../models/al-quran/para_verses/para_verses_model.dart';
 import '../../models/al-quran/quran_all_translations_model/quran_all_translations_model.dart';
-import '../../models/al-quran/quran_chapter_models/quran_chapter_models.dart';
+import '../../models/al-quran/quran_chapter_models/quran_surah_models.dart';
 import '../../models/al-quran/quran_para_model/quran_para_model.dart';
 import '../../models/al-quran/recitors_mode/recitors_model.dart';
 import '../../models/al-quran/versesbykey_model/verses_by_key_model.dart';
@@ -69,7 +69,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await quranServices.fetchQuranChapters();
-      emit(state.copyWith(quranChaptersModel: data, isLoading: false));
+      emit(state.copyWith(quranSurahModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");
@@ -188,11 +188,10 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     final query = event.query.toLowerCase();
     if (query.isEmpty) {
       emit(state.copyWith(
-          searchChapters: state.quranChaptersModel?.chapters,
-          isLoading: false));
+          searchChapters: state.quranSurahModel, isLoading: false));
     } else {
-      final filteredChapters = state.quranChaptersModel!.chapters
-          .where((chapter) => chapter.nameSimple.toLowerCase().contains(query))
+      final filteredChapters = state.quranSurahModel!
+          .where((chapter) => chapter.title!.toLowerCase().contains(query))
           .toList();
 
       emit(state.copyWith(searchChapters: filteredChapters, isLoading: false));

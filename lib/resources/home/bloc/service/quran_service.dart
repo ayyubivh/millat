@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_indoPak_model.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_of_noSymbol.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_uthmani_model.dart';
+import 'package:millat/services/http_services.dart';
 import '../../../../utils/string_constants.dart';
 import '../models/al-quran/chapter_by_id_model/chapter_by_id_model.dart';
 import '../models/al-quran/chapter_verses_model/chapter_verses_model.dart';
@@ -11,22 +12,24 @@ import '../models/al-quran/para_verses/para_verse_nosymbol.dart';
 import '../models/al-quran/para_verses/para_verse_uthmani.dart';
 import '../models/al-quran/para_verses/para_verses_model.dart';
 import '../models/al-quran/quran_all_translations_model/quran_all_translations_model.dart';
-import '../models/al-quran/quran_chapter_models/quran_chapter_models.dart';
+import '../models/al-quran/quran_chapter_models/quran_surah_models.dart';
 import '../models/al-quran/quran_para_model/quran_para_model.dart';
 import '../models/al-quran/recitors_mode/recitors_model.dart';
 import '../models/al-quran/versesbykey_model/verses_by_key_model.dart';
 
-class QuranServices {
+class QuranServices extends HttpServices {
   // fetch quran chapters
-  Future<QuranChapters> fetchQuranChapters() async {
-    const url = "https://api.quran.com/api/v4/chapters?language=en";
+  Future<List<QuranSurahModel>> fetchQuranChapters() async {
+    const url = "quran/surah";
 
     try {
-      final response = await http.get(Uri.parse(url));
+      final response = await get(endPoint: url);
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
+        final List<dynamic> datalist = data['result']['data'];
+        final result =
+            datalist.map((e) => QuranSurahModel.fromJson(e)).toList();
 
-        final result = QuranChapters.fromJson(data);
         return result;
       } else {
         throw Exception(
@@ -173,16 +176,16 @@ class QuranServices {
   }
 
   //fetch quran paras
-  Future<QuranParaModel> fetchQuranPara() async {
-    const url = "https://api.quran.com/api/v4/juzs";
+  Future<List<QuranParaModel>> fetchQuranPara() async {
+    const url = "quran/para";
 
     try {
-      final response = await http.get(Uri.parse(url));
+      final response = await get(endPoint: url);
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
 
-        final result = QuranParaModel.fromJson(data);
-
+        final List<dynamic> dataList = data['result']['data'];
+        final result = dataList.map((e) => QuranParaModel.fromJson(e)).toList();
         return result;
       } else {
         throw Exception(

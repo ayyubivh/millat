@@ -85,9 +85,9 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                             builder: (context, state) {
                               return BookMarkCollectionContainer(
                                 isSelected: state.indexList.contains(index),
-                                versesName: chapters[index].nameSimple,
-                                versesCount: chapters[index].versesCount,
-                                arabicName: chapters[index].nameArabic,
+                                versesName: chapters[index].title ?? "",
+                                versesCount: chapters[index].noOfAyah ?? 0,
+                                arabicName: chapters[index].title ?? "",
                                 isIndex: state.index == index,
                               );
                             },

@@ -11965,14 +11965,17 @@ abstract class GetShuffledAya implements QuranEvent {
 /// @nodoc
 mixin _$QuranState {
   bool get isLoading => throw _privateConstructorUsedError;
-  QuranChapters? get quranChaptersModel => throw _privateConstructorUsedError;
+  List<QuranSurahModel>? get quranSurahModel =>
+      throw _privateConstructorUsedError;
   ChapterVersesModel? get chapterVersesModel =>
       throw _privateConstructorUsedError;
   ParaVersesModel? get paraVersesModel => throw _privateConstructorUsedError;
-  QuranParaModel? get quranParaModel => throw _privateConstructorUsedError;
+  List<QuranParaModel>? get quranParaModel =>
+      throw _privateConstructorUsedError;
   List<ChapterByIdModel>? get chapterByIdModel =>
       throw _privateConstructorUsedError;
-  List<Chapters>? get searchChapters => throw _privateConstructorUsedError;
+  List<QuranSurahModel>? get searchChapters =>
+      throw _privateConstructorUsedError;
   bool get isExpand2 => throw _privateConstructorUsedError;
   List<VersesByKeyModel>? get versesByKeyModel =>
       throw _privateConstructorUsedError;
@@ -12028,12 +12031,12 @@ abstract class $QuranStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
-      QuranChapters? quranChaptersModel,
+      List<QuranSurahModel>? quranSurahModel,
       ChapterVersesModel? chapterVersesModel,
       ParaVersesModel? paraVersesModel,
-      QuranParaModel? quranParaModel,
+      List<QuranParaModel>? quranParaModel,
       List<ChapterByIdModel>? chapterByIdModel,
-      List<Chapters>? searchChapters,
+      List<QuranSurahModel>? searchChapters,
       bool isExpand2,
       List<VersesByKeyModel>? versesByKeyModel,
       bool audioPlaying,
@@ -12068,10 +12071,8 @@ abstract class $QuranStateCopyWith<$Res> {
       List<String> bookmarkAudioPlaylist,
       String shuffleVersKey});
 
-  $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
   $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel;
   $ParaVersesModelCopyWith<$Res>? get paraVersesModel;
-  $QuranParaModelCopyWith<$Res>? get quranParaModel;
   $TranslationsModelCopyWith<$Res>? get translationsModel;
   $RecitationsModelCopyWith<$Res>? get recitationsModel;
   $ChapterVersesIndoPakModelCopyWith<$Res>? get chapterVersesIndoPakModel;
@@ -12095,7 +12096,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? quranChaptersModel = freezed,
+    Object? quranSurahModel = freezed,
     Object? chapterVersesModel = freezed,
     Object? paraVersesModel = freezed,
     Object? quranParaModel = freezed,
@@ -12140,10 +12141,10 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      quranChaptersModel: freezed == quranChaptersModel
-          ? _value.quranChaptersModel
-          : quranChaptersModel // ignore: cast_nullable_to_non_nullable
-              as QuranChapters?,
+      quranSurahModel: freezed == quranSurahModel
+          ? _value.quranSurahModel
+          : quranSurahModel // ignore: cast_nullable_to_non_nullable
+              as List<QuranSurahModel>?,
       chapterVersesModel: freezed == chapterVersesModel
           ? _value.chapterVersesModel
           : chapterVersesModel // ignore: cast_nullable_to_non_nullable
@@ -12155,7 +12156,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
       quranParaModel: freezed == quranParaModel
           ? _value.quranParaModel
           : quranParaModel // ignore: cast_nullable_to_non_nullable
-              as QuranParaModel?,
+              as List<QuranParaModel>?,
       chapterByIdModel: freezed == chapterByIdModel
           ? _value.chapterByIdModel
           : chapterByIdModel // ignore: cast_nullable_to_non_nullable
@@ -12163,7 +12164,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
       searchChapters: freezed == searchChapters
           ? _value.searchChapters
           : searchChapters // ignore: cast_nullable_to_non_nullable
-              as List<Chapters>?,
+              as List<QuranSurahModel>?,
       isExpand2: null == isExpand2
           ? _value.isExpand2
           : isExpand2 // ignore: cast_nullable_to_non_nullable
@@ -12301,18 +12302,6 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
 
   @override
   @pragma('vm:prefer-inline')
-  $QuranChaptersCopyWith<$Res>? get quranChaptersModel {
-    if (_value.quranChaptersModel == null) {
-      return null;
-    }
-
-    return $QuranChaptersCopyWith<$Res>(_value.quranChaptersModel!, (value) {
-      return _then(_value.copyWith(quranChaptersModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel {
     if (_value.chapterVersesModel == null) {
       return null;
@@ -12333,18 +12322,6 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
 
     return $ParaVersesModelCopyWith<$Res>(_value.paraVersesModel!, (value) {
       return _then(_value.copyWith(paraVersesModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $QuranParaModelCopyWith<$Res>? get quranParaModel {
-    if (_value.quranParaModel == null) {
-      return null;
-    }
-
-    return $QuranParaModelCopyWith<$Res>(_value.quranParaModel!, (value) {
-      return _then(_value.copyWith(quranParaModel: value) as $Val);
     });
   }
 
@@ -12448,12 +12425,12 @@ abstract class _$$QuranStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
-      QuranChapters? quranChaptersModel,
+      List<QuranSurahModel>? quranSurahModel,
       ChapterVersesModel? chapterVersesModel,
       ParaVersesModel? paraVersesModel,
-      QuranParaModel? quranParaModel,
+      List<QuranParaModel>? quranParaModel,
       List<ChapterByIdModel>? chapterByIdModel,
-      List<Chapters>? searchChapters,
+      List<QuranSurahModel>? searchChapters,
       bool isExpand2,
       List<VersesByKeyModel>? versesByKeyModel,
       bool audioPlaying,
@@ -12489,13 +12466,9 @@ abstract class _$$QuranStateImplCopyWith<$Res>
       String shuffleVersKey});
 
   @override
-  $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
-  @override
   $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel;
   @override
   $ParaVersesModelCopyWith<$Res>? get paraVersesModel;
-  @override
-  $QuranParaModelCopyWith<$Res>? get quranParaModel;
   @override
   $TranslationsModelCopyWith<$Res>? get translationsModel;
   @override
@@ -12524,7 +12497,7 @@ class __$$QuranStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? quranChaptersModel = freezed,
+    Object? quranSurahModel = freezed,
     Object? chapterVersesModel = freezed,
     Object? paraVersesModel = freezed,
     Object? quranParaModel = freezed,
@@ -12569,10 +12542,10 @@ class __$$QuranStateImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      quranChaptersModel: freezed == quranChaptersModel
-          ? _value.quranChaptersModel
-          : quranChaptersModel // ignore: cast_nullable_to_non_nullable
-              as QuranChapters?,
+      quranSurahModel: freezed == quranSurahModel
+          ? _value._quranSurahModel
+          : quranSurahModel // ignore: cast_nullable_to_non_nullable
+              as List<QuranSurahModel>?,
       chapterVersesModel: freezed == chapterVersesModel
           ? _value.chapterVersesModel
           : chapterVersesModel // ignore: cast_nullable_to_non_nullable
@@ -12582,9 +12555,9 @@ class __$$QuranStateImplCopyWithImpl<$Res>
           : paraVersesModel // ignore: cast_nullable_to_non_nullable
               as ParaVersesModel?,
       quranParaModel: freezed == quranParaModel
-          ? _value.quranParaModel
+          ? _value._quranParaModel
           : quranParaModel // ignore: cast_nullable_to_non_nullable
-              as QuranParaModel?,
+              as List<QuranParaModel>?,
       chapterByIdModel: freezed == chapterByIdModel
           ? _value._chapterByIdModel
           : chapterByIdModel // ignore: cast_nullable_to_non_nullable
@@ -12592,7 +12565,7 @@ class __$$QuranStateImplCopyWithImpl<$Res>
       searchChapters: freezed == searchChapters
           ? _value._searchChapters
           : searchChapters // ignore: cast_nullable_to_non_nullable
-              as List<Chapters>?,
+              as List<QuranSurahModel>?,
       isExpand2: null == isExpand2
           ? _value.isExpand2
           : isExpand2 // ignore: cast_nullable_to_non_nullable
@@ -12734,12 +12707,12 @@ class __$$QuranStateImplCopyWithImpl<$Res>
 class _$QuranStateImpl implements _QuranState {
   const _$QuranStateImpl(
       {required this.isLoading,
-      required this.quranChaptersModel,
+      required final List<QuranSurahModel>? quranSurahModel,
       required this.chapterVersesModel,
       required this.paraVersesModel,
-      required this.quranParaModel,
+      required final List<QuranParaModel>? quranParaModel,
       required final List<ChapterByIdModel>? chapterByIdModel,
-      required final List<Chapters>? searchChapters,
+      required final List<QuranSurahModel>? searchChapters,
       required this.isExpand2,
       required final List<VersesByKeyModel>? versesByKeyModel,
       required this.audioPlaying,
@@ -12773,7 +12746,9 @@ class _$QuranStateImpl implements _QuranState {
       required this.singleTranslation,
       required final List<String> bookmarkAudioPlaylist,
       required this.shuffleVersKey})
-      : _chapterByIdModel = chapterByIdModel,
+      : _quranSurahModel = quranSurahModel,
+        _quranParaModel = quranParaModel,
+        _chapterByIdModel = chapterByIdModel,
         _searchChapters = searchChapters,
         _versesByKeyModel = versesByKeyModel,
         _paraAudios = paraAudios,
@@ -12785,14 +12760,30 @@ class _$QuranStateImpl implements _QuranState {
 
   @override
   final bool isLoading;
+  final List<QuranSurahModel>? _quranSurahModel;
   @override
-  final QuranChapters? quranChaptersModel;
+  List<QuranSurahModel>? get quranSurahModel {
+    final value = _quranSurahModel;
+    if (value == null) return null;
+    if (_quranSurahModel is EqualUnmodifiableListView) return _quranSurahModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final ChapterVersesModel? chapterVersesModel;
   @override
   final ParaVersesModel? paraVersesModel;
+  final List<QuranParaModel>? _quranParaModel;
   @override
-  final QuranParaModel? quranParaModel;
+  List<QuranParaModel>? get quranParaModel {
+    final value = _quranParaModel;
+    if (value == null) return null;
+    if (_quranParaModel is EqualUnmodifiableListView) return _quranParaModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   final List<ChapterByIdModel>? _chapterByIdModel;
   @override
   List<ChapterByIdModel>? get chapterByIdModel {
@@ -12804,9 +12795,9 @@ class _$QuranStateImpl implements _QuranState {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Chapters>? _searchChapters;
+  final List<QuranSurahModel>? _searchChapters;
   @override
-  List<Chapters>? get searchChapters {
+  List<QuranSurahModel>? get searchChapters {
     final value = _searchChapters;
     if (value == null) return null;
     if (_searchChapters is EqualUnmodifiableListView) return _searchChapters;
@@ -12935,7 +12926,7 @@ class _$QuranStateImpl implements _QuranState {
 
   @override
   String toString() {
-    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue, tempListAya: $tempListAya, lastRead: $lastRead, singleTranslation: $singleTranslation, bookmarkAudioPlaylist: $bookmarkAudioPlaylist, shuffleVersKey: $shuffleVersKey)';
+    return 'QuranState(isLoading: $isLoading, quranSurahModel: $quranSurahModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue, tempListAya: $tempListAya, lastRead: $lastRead, singleTranslation: $singleTranslation, bookmarkAudioPlaylist: $bookmarkAudioPlaylist, shuffleVersKey: $shuffleVersKey)';
   }
 
   @override
@@ -12945,14 +12936,14 @@ class _$QuranStateImpl implements _QuranState {
             other is _$QuranStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.quranChaptersModel, quranChaptersModel) ||
-                other.quranChaptersModel == quranChaptersModel) &&
+            const DeepCollectionEquality()
+                .equals(other._quranSurahModel, _quranSurahModel) &&
             (identical(other.chapterVersesModel, chapterVersesModel) ||
                 other.chapterVersesModel == chapterVersesModel) &&
             (identical(other.paraVersesModel, paraVersesModel) ||
                 other.paraVersesModel == paraVersesModel) &&
-            (identical(other.quranParaModel, quranParaModel) ||
-                other.quranParaModel == quranParaModel) &&
+            const DeepCollectionEquality()
+                .equals(other._quranParaModel, _quranParaModel) &&
             const DeepCollectionEquality()
                 .equals(other._chapterByIdModel, _chapterByIdModel) &&
             const DeepCollectionEquality()
@@ -13029,10 +13020,10 @@ class _$QuranStateImpl implements _QuranState {
   int get hashCode => Object.hashAll([
         runtimeType,
         isLoading,
-        quranChaptersModel,
+        const DeepCollectionEquality().hash(_quranSurahModel),
         chapterVersesModel,
         paraVersesModel,
-        quranParaModel,
+        const DeepCollectionEquality().hash(_quranParaModel),
         const DeepCollectionEquality().hash(_chapterByIdModel),
         const DeepCollectionEquality().hash(_searchChapters),
         isExpand2,
@@ -13080,12 +13071,12 @@ class _$QuranStateImpl implements _QuranState {
 abstract class _QuranState implements QuranState {
   const factory _QuranState(
       {required final bool isLoading,
-      required final QuranChapters? quranChaptersModel,
+      required final List<QuranSurahModel>? quranSurahModel,
       required final ChapterVersesModel? chapterVersesModel,
       required final ParaVersesModel? paraVersesModel,
-      required final QuranParaModel? quranParaModel,
+      required final List<QuranParaModel>? quranParaModel,
       required final List<ChapterByIdModel>? chapterByIdModel,
-      required final List<Chapters>? searchChapters,
+      required final List<QuranSurahModel>? searchChapters,
       required final bool isExpand2,
       required final List<VersesByKeyModel>? versesByKeyModel,
       required final bool audioPlaying,
@@ -13123,17 +13114,17 @@ abstract class _QuranState implements QuranState {
   @override
   bool get isLoading;
   @override
-  QuranChapters? get quranChaptersModel;
+  List<QuranSurahModel>? get quranSurahModel;
   @override
   ChapterVersesModel? get chapterVersesModel;
   @override
   ParaVersesModel? get paraVersesModel;
   @override
-  QuranParaModel? get quranParaModel;
+  List<QuranParaModel>? get quranParaModel;
   @override
   List<ChapterByIdModel>? get chapterByIdModel;
   @override
-  List<Chapters>? get searchChapters;
+  List<QuranSurahModel>? get searchChapters;
   @override
   bool get isExpand2;
   @override

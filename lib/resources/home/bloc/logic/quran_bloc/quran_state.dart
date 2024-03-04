@@ -4,12 +4,12 @@ part of 'quran_bloc.dart';
 class QuranState with _$QuranState {
   const factory QuranState({
     required bool isLoading,
-    required QuranChapters? quranChaptersModel,
+    required List<QuranSurahModel>? quranSurahModel,
     required ChapterVersesModel? chapterVersesModel,
     required ParaVersesModel? paraVersesModel,
-    required QuranParaModel? quranParaModel,
+    required List<QuranParaModel>? quranParaModel,
     required List<ChapterByIdModel>? chapterByIdModel,
-    required List<Chapters>? searchChapters,
+    required List<QuranSurahModel>? searchChapters,
     required bool isExpand2,
     required List<VersesByKeyModel>? versesByKeyModel,
     required bool audioPlaying,
@@ -46,7 +46,7 @@ class QuranState with _$QuranState {
   }) = _QuranState;
   factory QuranState.initial() => const QuranState(
         isLoading: false,
-        quranChaptersModel: null,
+        quranSurahModel: null,
         chapterVersesModel: null,
         paraVersesModel: null,
         quranParaModel: null,

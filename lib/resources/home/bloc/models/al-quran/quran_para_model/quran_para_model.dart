@@ -8,7 +8,7 @@ part 'quran_para_model.freezed.dart';
 @freezed
 class QuranParaModel with _$QuranParaModel {
   const factory QuranParaModel({
-    required QuranSurahModel surah,
+    required List<QuranSurahModel>? surah,
     @JsonKey(name: "_id") required String? id,
     @JsonKey(name: "title") required String? title,
     @JsonKey(name: "slug") required String? slug,

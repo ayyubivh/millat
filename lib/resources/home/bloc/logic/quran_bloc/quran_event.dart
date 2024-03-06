@@ -5,7 +5,7 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.fetchQuaranChaptersEvent() =
       FetchQuaranChaptersEvent;
   const factory QuranEvent.fetchChaperVersesEvent({
-    required int id,
+    required String id,
   }) = FetchChaperVersesEvent;
   const factory QuranEvent.fetchChapterVersesbyTextName({
     required int id,

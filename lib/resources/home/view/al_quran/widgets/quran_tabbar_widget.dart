@@ -248,7 +248,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
-                        state.quranParaModel![index].noOfpara.toString(),
+                        "${index + 1}",
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -324,9 +324,6 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
       onTap: () {
         final quranState = context.read<QuranBloc>().state;
 
-        context
-            .read<QuranBloc>()
-            .add(FetchChaperVersesEvent(id: surah.noOfSurah ?? 0));
         // context
         //     .read<QuranBloc>()
         //     .add(FetchChapterVersesbyTextName(id: surah.id));
@@ -336,10 +333,8 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
         // context.read<QuranBloc>().add(FetchChapterAudioFiles(
         //     id: chapter.id, recitorId: quranState.recitorId));
 
-        context.goNamed(MyAppRouteConstants.quranVersesRoutename, extra: {
-          'type': Qurantype.sura,
-          'chapterId': surah.id,
-        });
+        context.pushNamed(MyAppRouteConstants.quranAyaView,
+            extra: {'slug': surah.slug ?? ""});
       },
       leading: Stack(
         children: [

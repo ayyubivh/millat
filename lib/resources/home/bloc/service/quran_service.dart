@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:millat/resources/home/bloc/models/al-quran/aya/surah_aya_model.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_indoPak_model.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_of_noSymbol.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_uthmani_model.dart';
@@ -30,6 +31,49 @@ class QuranServices extends HttpServices {
         final result =
             datalist.map((e) => QuranSurahModel.fromJson(e)).toList();
 
+        return result;
+      } else {
+        throw Exception(
+            "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
+      }
+    } catch (e) {
+      throw Exception("Error fetching Quran chapters: $e");
+    }
+  }
+
+//fetch quran aya api
+  Future<List<QuranSurahAyayModel>> fetchQuranSurahAya(String slug) async {
+    final url = "quran/ayah?surah=$slug";
+
+    try {
+      final response = await get(endPoint: url);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final List<dynamic> datalist = data['result']['data'];
+        final result =
+            datalist.map((e) => QuranSurahAyayModel.fromJson(e)).toList();
+
+        return result;
+      } else {
+        throw Exception(
+            "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
+      }
+    } catch (e) {
+      throw Exception("Error fetching Quran chapters: $e");
+    }
+  }
+
+//fetch quran paras
+  Future<List<QuranParaModel>> fetchQuranPara() async {
+    const url = "quran/para";
+
+    try {
+      final response = await get(endPoint: url);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        final List<dynamic> dataList = data['result']['data'];
+        final result = dataList.map((e) => QuranParaModel.fromJson(e)).toList();
         return result;
       } else {
         throw Exception(
@@ -96,24 +140,24 @@ class QuranServices extends HttpServices {
   }
 
 // fetch quran chapters verses
-  Future<ChapterVersesModel> fetchChapterVerses({required int id}) async {
-    final url = "https://api.alquran.cloud/v1/surah/$id";
+  // Future<ChapterVersesModel> fetchChapterVerses({required int id}) async {
+  //   final url = "https://api.alquran.cloud/v1/surah/$id";
 
-    try {
-      final response = await http.get(Uri.parse(url));
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> decodedData = jsonDecode(response.body);
-        final result = ChapterVersesModel.fromJson(decodedData);
+  //   try {
+  //     final response = await http.get(Uri.parse(url));
+  //     if (response.statusCode == 200) {
+  //       final Map<String, dynamic> decodedData = jsonDecode(response.body);
+  //       final result = ChapterVersesModel.fromJson(decodedData);
 
-        return result;
-      } else {
-        throw Exception(
-            "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
-      }
-    } catch (e) {
-      throw Exception("Error fetching Quran chapters: $e");
-    }
-  }
+  //       return result;
+  //     } else {
+  //       throw Exception(
+  //           "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
+  //     }
+  //   } catch (e) {
+  //     throw Exception("Error fetching Quran chapters: $e");
+  //   }
+  // }
 
 // fetch quran chapters verses by text name
   Future<dynamic> fetchChapterVersesbyTextName(
@@ -172,27 +216,6 @@ class QuranServices extends HttpServices {
       }
     } catch (e) {
       throw Exception("Error fetching para verses: $e");
-    }
-  }
-
-  //fetch quran paras
-  Future<List<QuranParaModel>> fetchQuranPara() async {
-    const url = "quran/para";
-
-    try {
-      final response = await get(endPoint: url);
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> data = json.decode(response.body);
-
-        final List<dynamic> dataList = data['result']['data'];
-        final result = dataList.map((e) => QuranParaModel.fromJson(e)).toList();
-        return result;
-      } else {
-        throw Exception(
-            "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
-      }
-    } catch (e) {
-      throw Exception("Error fetching Quran chapters: $e");
     }
   }
 

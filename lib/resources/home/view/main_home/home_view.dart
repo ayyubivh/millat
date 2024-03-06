@@ -731,11 +731,14 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
                   final data = state.topOffersModel?.result.banners[index];
                   return GestureDetector(
                     onTap: () {
+                      if (data?.subCategoryId == null) {
+                        return;
+                      }
                       context.pushNamed(
                           MyAppRouteConstants.categoriesProductsRouteName,
                           extra: {
                             'category': data?.subCategoryId?.title,
-                            'subCategory': data?.subCategoryName,
+                            'itemId': data?.subCategoryName ?? "",
                             'type': FilterType.category
                           });
                     },

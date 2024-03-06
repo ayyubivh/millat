@@ -195,7 +195,7 @@ class _VersesViewState extends State<VersesView> {
                                       isSelected: state.audioIndex == index,
                                       shareOnTap: () {
                                         Share.share(
-                                            '${indoPakData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                            '${indoPakData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.quranSurahAyaModel?[index].surah}: Ayah${index + 1}');
                                       },
                                       numValue: index + 1,
                                       surah: indoPakData[index]
@@ -265,7 +265,7 @@ class _VersesViewState extends State<VersesView> {
                                           isSelected: state.audioIndex == index,
                                           shareOnTap: () {
                                             Share.share(
-                                                '${uthmaniData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                                '${uthmaniData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.quranSurahAyaModel?[index].surah}: Ayah${index + 1}');
                                           },
                                           numValue: index + 1,
                                           surah: uthmaniData[index]
@@ -335,7 +335,7 @@ class _VersesViewState extends State<VersesView> {
                                           isSelected: state.audioIndex == index,
                                           shareOnTap: () {
                                             Share.share(
-                                                '${noSymbolDataPakData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                                '${noSymbolDataPakData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.quranSurahAyaModel?[index].surah}: Ayah${index + 1}');
                                           },
                                           numValue: index + 1,
                                           surah: noSymbolDataPakData[index]
@@ -421,7 +421,7 @@ class _VersesViewState extends State<VersesView> {
                                                     state.audioIndex == index,
                                                 shareOnTap: () {
                                                   Share.share(
-                                                      '${indoPakdata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                                      '${indoPakdata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.quranSurahAyaModel?[index].surah}: Ayah${index + 1}');
                                                 },
                                                 playOntap: () {
                                                   context.read<QuranBloc>().add(
@@ -511,7 +511,7 @@ class _VersesViewState extends State<VersesView> {
                                                             index,
                                                     shareOnTap: () {
                                                       Share.share(
-                                                          '${uthmanidata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                                          '${uthmanidata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.quranSurahAyaModel?[index].surah}: Ayah${index + 1}');
                                                     },
                                                     playOntap: () {
                                                       context
@@ -595,8 +595,8 @@ class _VersesViewState extends State<VersesView> {
                                               isSelected:
                                                   state.audioIndex == index,
                                               shareOnTap: () {
-                                                Share.share(
-                                                    '${uthmanidata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                                // Share.share(
+                                                //     '${uthmanidata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
                                               },
                                               playOntap: () {
                                                 context.read<QuranBloc>().add(
@@ -664,8 +664,8 @@ class _VersesViewState extends State<VersesView> {
                                 },
                                 isSelected: true,
                                 shareOnTap: () {
-                                  Share.share(
-                                      '${data[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                  // Share.share(
+                                  //     '${data[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
                                 },
                                 playOntap: () {
                                   context
@@ -728,9 +728,9 @@ class _VersesViewState extends State<VersesView> {
                                     context
                                         .read<QuranBloc>()
                                         .add(const OnTapofPrevEvent());
-                                    context.read<QuranBloc>().add(
-                                        FetchChaperVersesEvent(
-                                            id: state.nxtAndprevValue));
+                                    // context.read<QuranBloc>().add(
+                                    //     FetchChaperVersesEvent(
+                                    //         id: state.nxtAndprevValue));
                                     context.read<QuranBloc>().add(
                                         FetchTranslationChapterTexts(
                                             translationId: 131,
@@ -777,9 +777,9 @@ class _VersesViewState extends State<VersesView> {
                                     context
                                         .read<QuranBloc>()
                                         .add(const OnTapofNextEvent());
-                                    context.read<QuranBloc>().add(
-                                        FetchChaperVersesEvent(
-                                            id: state.nxtAndprevValue));
+                                    // context.read<QuranBloc>().add(
+                                    //     FetchChaperVersesEvent(
+                                    //         id: state.nxtAndprevValue));
                                     context.read<QuranBloc>().add(
                                         FetchTranslationChapterTexts(
                                             translationId: 131,
@@ -1414,9 +1414,9 @@ class _VersesViewState extends State<VersesView> {
                             onTap: () {
                               context.read<QuranBloc>().add(
                                   FetchChapterVersesbyTextName(id: index + 1));
-                              context
-                                  .read<QuranBloc>()
-                                  .add(FetchChaperVersesEvent(id: index + 1));
+                              // context
+                              //     .read<QuranBloc>()
+                              //     .add(FetchChaperVersesEvent(id: index + 1));
                               context.read<QuranBloc>().add(
                                     FetchTranslationChapterTexts(
                                       translationId: state.globalTransilationId,

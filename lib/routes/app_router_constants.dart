@@ -21,6 +21,7 @@ class MyAppRouteConstants {
   static const String quranTextSettingRouteName = "quran_text_setting";
   static const String audioRecitorsRouteName = "audio_recitors";
   static const String quranVersesRoutename = "quran_verses";
+  static const String quranAyaView = "quran_aya";
   static const String chooseDhikrRouteName = "choose_dhikr";
   static const String duaBookmarRouteName = "dua_bookmart";
   static const String duaCategoryRouteName = "dua_category";

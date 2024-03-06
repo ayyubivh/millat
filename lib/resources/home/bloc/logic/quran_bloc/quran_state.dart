@@ -5,7 +5,7 @@ class QuranState with _$QuranState {
   const factory QuranState({
     required bool isLoading,
     required List<QuranSurahModel>? quranSurahModel,
-    required ChapterVersesModel? chapterVersesModel,
+    required List<QuranSurahAyayModel>? quranSurahAyaModel,
     required ParaVersesModel? paraVersesModel,
     required List<QuranParaModel>? quranParaModel,
     required List<ChapterByIdModel>? chapterByIdModel,
@@ -47,7 +47,7 @@ class QuranState with _$QuranState {
   factory QuranState.initial() => const QuranState(
         isLoading: false,
         quranSurahModel: null,
-        chapterVersesModel: null,
+        quranSurahAyaModel: null,
         paraVersesModel: null,
         quranParaModel: null,
         chapterByIdModel: null,

@@ -8,7 +8,9 @@ part of 'quran_para_model.dart';
 
 _$QuranParaModelImpl _$$QuranParaModelImplFromJson(Map<String, dynamic> json) =>
     _$QuranParaModelImpl(
-      surah: QuranSurahModel.fromJson(json['surah'] as Map<String, dynamic>),
+      surah: (json['surah'] as List<dynamic>?)
+          ?.map((e) => QuranSurahModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['_id'] as String?,
       title: json['title'] as String?,
       slug: json['slug'] as String?,

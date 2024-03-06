@@ -19,7 +19,7 @@ mixin _$QuranEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -60,7 +60,7 @@ mixin _$QuranEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -100,7 +100,7 @@ mixin _$QuranEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -343,7 +343,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -387,7 +387,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -430,7 +430,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -640,7 +640,7 @@ abstract class _$$FetchChaperVersesEventImplCopyWith<$Res> {
           $Res Function(_$FetchChaperVersesEventImpl) then) =
       __$$FetchChaperVersesEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -661,7 +661,7 @@ class __$$FetchChaperVersesEventImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -672,7 +672,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
   const _$FetchChaperVersesEventImpl({required this.id});
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -701,7 +701,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -745,7 +745,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -788,7 +788,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -988,10 +988,10 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
 }
 
 abstract class FetchChaperVersesEvent implements QuranEvent {
-  const factory FetchChaperVersesEvent({required final int id}) =
+  const factory FetchChaperVersesEvent({required final String id}) =
       _$FetchChaperVersesEventImpl;
 
-  int get id;
+  String get id;
   @JsonKey(ignore: true)
   _$$FetchChaperVersesEventImplCopyWith<_$FetchChaperVersesEventImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -1067,7 +1067,7 @@ class _$FetchChapterVersesbyTextNameImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -1111,7 +1111,7 @@ class _$FetchChapterVersesbyTextNameImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -1154,7 +1154,7 @@ class _$FetchChapterVersesbyTextNameImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -1430,7 +1430,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -1474,7 +1474,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -1517,7 +1517,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -1765,7 +1765,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -1809,7 +1809,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -1852,7 +1852,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -2097,7 +2097,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -2141,7 +2141,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -2184,7 +2184,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -2459,7 +2459,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -2503,7 +2503,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -2546,7 +2546,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -2821,7 +2821,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -2865,7 +2865,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -2908,7 +2908,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -3190,7 +3190,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -3234,7 +3234,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -3277,7 +3277,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -3561,7 +3561,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -3605,7 +3605,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -3648,7 +3648,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -3937,7 +3937,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -3981,7 +3981,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -4024,7 +4024,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -4305,7 +4305,7 @@ class _$ChangeIndexBackGroundSettingImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -4349,7 +4349,7 @@ class _$ChangeIndexBackGroundSettingImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -4392,7 +4392,7 @@ class _$ChangeIndexBackGroundSettingImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -4641,7 +4641,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -4685,7 +4685,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -4728,7 +4728,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -4970,7 +4970,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -5014,7 +5014,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -5057,7 +5057,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -5302,7 +5302,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -5346,7 +5346,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -5389,7 +5389,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -5673,7 +5673,7 @@ class _$FetchTranslationChapterTextsImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -5717,7 +5717,7 @@ class _$FetchTranslationChapterTextsImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -5760,7 +5760,7 @@ class _$FetchTranslationChapterTextsImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -6050,7 +6050,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -6094,7 +6094,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -6137,7 +6137,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -6415,7 +6415,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -6459,7 +6459,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -6502,7 +6502,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -6779,7 +6779,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -6823,7 +6823,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -6866,7 +6866,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -7114,7 +7114,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -7158,7 +7158,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -7201,7 +7201,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -7471,7 +7471,7 @@ class _$IsExpandSearchEventImpl implements IsExpandSearchEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -7515,7 +7515,7 @@ class _$IsExpandSearchEventImpl implements IsExpandSearchEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -7558,7 +7558,7 @@ class _$IsExpandSearchEventImpl implements IsExpandSearchEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -7849,7 +7849,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -7893,7 +7893,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -7937,7 +7937,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -8189,7 +8189,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -8233,7 +8233,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -8276,7 +8276,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -8557,7 +8557,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -8601,7 +8601,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -8644,7 +8644,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -8923,7 +8923,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -8967,7 +8967,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -9010,7 +9010,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -9258,7 +9258,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -9302,7 +9302,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -9345,7 +9345,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -9587,7 +9587,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -9631,7 +9631,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -9674,7 +9674,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -9943,7 +9943,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -9987,7 +9987,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -10030,7 +10030,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -10308,7 +10308,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -10352,7 +10352,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -10395,7 +10395,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -10643,7 +10643,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -10687,7 +10687,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -10730,7 +10730,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -10974,7 +10974,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -11018,7 +11018,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -11061,7 +11061,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -11337,7 +11337,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -11381,7 +11381,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -11424,7 +11424,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -11672,7 +11672,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchQuaranChaptersEvent,
-    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
     required TResult Function(int id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
@@ -11716,7 +11716,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchQuaranChaptersEvent,
-    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
     TResult? Function(int id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
@@ -11759,7 +11759,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchQuaranChaptersEvent,
-    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
     TResult Function(int id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
@@ -11967,7 +11967,7 @@ mixin _$QuranState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<QuranSurahModel>? get quranSurahModel =>
       throw _privateConstructorUsedError;
-  ChapterVersesModel? get chapterVersesModel =>
+  List<QuranSurahAyayModel>? get quranSurahAyaModel =>
       throw _privateConstructorUsedError;
   ParaVersesModel? get paraVersesModel => throw _privateConstructorUsedError;
   List<QuranParaModel>? get quranParaModel =>
@@ -12032,7 +12032,7 @@ abstract class $QuranStateCopyWith<$Res> {
   $Res call(
       {bool isLoading,
       List<QuranSurahModel>? quranSurahModel,
-      ChapterVersesModel? chapterVersesModel,
+      List<QuranSurahAyayModel>? quranSurahAyaModel,
       ParaVersesModel? paraVersesModel,
       List<QuranParaModel>? quranParaModel,
       List<ChapterByIdModel>? chapterByIdModel,
@@ -12071,7 +12071,6 @@ abstract class $QuranStateCopyWith<$Res> {
       List<String> bookmarkAudioPlaylist,
       String shuffleVersKey});
 
-  $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel;
   $ParaVersesModelCopyWith<$Res>? get paraVersesModel;
   $TranslationsModelCopyWith<$Res>? get translationsModel;
   $RecitationsModelCopyWith<$Res>? get recitationsModel;
@@ -12097,7 +12096,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
   $Res call({
     Object? isLoading = null,
     Object? quranSurahModel = freezed,
-    Object? chapterVersesModel = freezed,
+    Object? quranSurahAyaModel = freezed,
     Object? paraVersesModel = freezed,
     Object? quranParaModel = freezed,
     Object? chapterByIdModel = freezed,
@@ -12145,10 +12144,10 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
           ? _value.quranSurahModel
           : quranSurahModel // ignore: cast_nullable_to_non_nullable
               as List<QuranSurahModel>?,
-      chapterVersesModel: freezed == chapterVersesModel
-          ? _value.chapterVersesModel
-          : chapterVersesModel // ignore: cast_nullable_to_non_nullable
-              as ChapterVersesModel?,
+      quranSurahAyaModel: freezed == quranSurahAyaModel
+          ? _value.quranSurahAyaModel
+          : quranSurahAyaModel // ignore: cast_nullable_to_non_nullable
+              as List<QuranSurahAyayModel>?,
       paraVersesModel: freezed == paraVersesModel
           ? _value.paraVersesModel
           : paraVersesModel // ignore: cast_nullable_to_non_nullable
@@ -12302,19 +12301,6 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
 
   @override
   @pragma('vm:prefer-inline')
-  $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel {
-    if (_value.chapterVersesModel == null) {
-      return null;
-    }
-
-    return $ChapterVersesModelCopyWith<$Res>(_value.chapterVersesModel!,
-        (value) {
-      return _then(_value.copyWith(chapterVersesModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $ParaVersesModelCopyWith<$Res>? get paraVersesModel {
     if (_value.paraVersesModel == null) {
       return null;
@@ -12426,7 +12412,7 @@ abstract class _$$QuranStateImplCopyWith<$Res>
   $Res call(
       {bool isLoading,
       List<QuranSurahModel>? quranSurahModel,
-      ChapterVersesModel? chapterVersesModel,
+      List<QuranSurahAyayModel>? quranSurahAyaModel,
       ParaVersesModel? paraVersesModel,
       List<QuranParaModel>? quranParaModel,
       List<ChapterByIdModel>? chapterByIdModel,
@@ -12466,8 +12452,6 @@ abstract class _$$QuranStateImplCopyWith<$Res>
       String shuffleVersKey});
 
   @override
-  $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel;
-  @override
   $ParaVersesModelCopyWith<$Res>? get paraVersesModel;
   @override
   $TranslationsModelCopyWith<$Res>? get translationsModel;
@@ -12498,7 +12482,7 @@ class __$$QuranStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? quranSurahModel = freezed,
-    Object? chapterVersesModel = freezed,
+    Object? quranSurahAyaModel = freezed,
     Object? paraVersesModel = freezed,
     Object? quranParaModel = freezed,
     Object? chapterByIdModel = freezed,
@@ -12546,10 +12530,10 @@ class __$$QuranStateImplCopyWithImpl<$Res>
           ? _value._quranSurahModel
           : quranSurahModel // ignore: cast_nullable_to_non_nullable
               as List<QuranSurahModel>?,
-      chapterVersesModel: freezed == chapterVersesModel
-          ? _value.chapterVersesModel
-          : chapterVersesModel // ignore: cast_nullable_to_non_nullable
-              as ChapterVersesModel?,
+      quranSurahAyaModel: freezed == quranSurahAyaModel
+          ? _value._quranSurahAyaModel
+          : quranSurahAyaModel // ignore: cast_nullable_to_non_nullable
+              as List<QuranSurahAyayModel>?,
       paraVersesModel: freezed == paraVersesModel
           ? _value.paraVersesModel
           : paraVersesModel // ignore: cast_nullable_to_non_nullable
@@ -12708,7 +12692,7 @@ class _$QuranStateImpl implements _QuranState {
   const _$QuranStateImpl(
       {required this.isLoading,
       required final List<QuranSurahModel>? quranSurahModel,
-      required this.chapterVersesModel,
+      required final List<QuranSurahAyayModel>? quranSurahAyaModel,
       required this.paraVersesModel,
       required final List<QuranParaModel>? quranParaModel,
       required final List<ChapterByIdModel>? chapterByIdModel,
@@ -12747,6 +12731,7 @@ class _$QuranStateImpl implements _QuranState {
       required final List<String> bookmarkAudioPlaylist,
       required this.shuffleVersKey})
       : _quranSurahModel = quranSurahModel,
+        _quranSurahAyaModel = quranSurahAyaModel,
         _quranParaModel = quranParaModel,
         _chapterByIdModel = chapterByIdModel,
         _searchChapters = searchChapters,
@@ -12770,8 +12755,17 @@ class _$QuranStateImpl implements _QuranState {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<QuranSurahAyayModel>? _quranSurahAyaModel;
   @override
-  final ChapterVersesModel? chapterVersesModel;
+  List<QuranSurahAyayModel>? get quranSurahAyaModel {
+    final value = _quranSurahAyaModel;
+    if (value == null) return null;
+    if (_quranSurahAyaModel is EqualUnmodifiableListView)
+      return _quranSurahAyaModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final ParaVersesModel? paraVersesModel;
   final List<QuranParaModel>? _quranParaModel;
@@ -12926,7 +12920,7 @@ class _$QuranStateImpl implements _QuranState {
 
   @override
   String toString() {
-    return 'QuranState(isLoading: $isLoading, quranSurahModel: $quranSurahModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue, tempListAya: $tempListAya, lastRead: $lastRead, singleTranslation: $singleTranslation, bookmarkAudioPlaylist: $bookmarkAudioPlaylist, shuffleVersKey: $shuffleVersKey)';
+    return 'QuranState(isLoading: $isLoading, quranSurahModel: $quranSurahModel, quranSurahAyaModel: $quranSurahAyaModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue, tempListAya: $tempListAya, lastRead: $lastRead, singleTranslation: $singleTranslation, bookmarkAudioPlaylist: $bookmarkAudioPlaylist, shuffleVersKey: $shuffleVersKey)';
   }
 
   @override
@@ -12938,8 +12932,8 @@ class _$QuranStateImpl implements _QuranState {
                 other.isLoading == isLoading) &&
             const DeepCollectionEquality()
                 .equals(other._quranSurahModel, _quranSurahModel) &&
-            (identical(other.chapterVersesModel, chapterVersesModel) ||
-                other.chapterVersesModel == chapterVersesModel) &&
+            const DeepCollectionEquality()
+                .equals(other._quranSurahAyaModel, _quranSurahAyaModel) &&
             (identical(other.paraVersesModel, paraVersesModel) ||
                 other.paraVersesModel == paraVersesModel) &&
             const DeepCollectionEquality()
@@ -13021,7 +13015,7 @@ class _$QuranStateImpl implements _QuranState {
         runtimeType,
         isLoading,
         const DeepCollectionEquality().hash(_quranSurahModel),
-        chapterVersesModel,
+        const DeepCollectionEquality().hash(_quranSurahAyaModel),
         paraVersesModel,
         const DeepCollectionEquality().hash(_quranParaModel),
         const DeepCollectionEquality().hash(_chapterByIdModel),
@@ -13072,7 +13066,7 @@ abstract class _QuranState implements QuranState {
   const factory _QuranState(
       {required final bool isLoading,
       required final List<QuranSurahModel>? quranSurahModel,
-      required final ChapterVersesModel? chapterVersesModel,
+      required final List<QuranSurahAyayModel>? quranSurahAyaModel,
       required final ParaVersesModel? paraVersesModel,
       required final List<QuranParaModel>? quranParaModel,
       required final List<ChapterByIdModel>? chapterByIdModel,
@@ -13116,7 +13110,7 @@ abstract class _QuranState implements QuranState {
   @override
   List<QuranSurahModel>? get quranSurahModel;
   @override
-  ChapterVersesModel? get chapterVersesModel;
+  List<QuranSurahAyayModel>? get quranSurahAyaModel;
   @override
   ParaVersesModel? get paraVersesModel;
   @override

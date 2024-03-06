@@ -20,7 +20,7 @@ QuranParaModel _$QuranParaModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QuranParaModel {
-  QuranSurahModel get surah => throw _privateConstructorUsedError;
+  List<QuranSurahModel>? get surah => throw _privateConstructorUsedError;
   @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: "title")
@@ -45,14 +45,12 @@ abstract class $QuranParaModelCopyWith<$Res> {
       _$QuranParaModelCopyWithImpl<$Res, QuranParaModel>;
   @useResult
   $Res call(
-      {QuranSurahModel surah,
+      {List<QuranSurahModel>? surah,
       @JsonKey(name: "_id") String? id,
       @JsonKey(name: "title") String? title,
       @JsonKey(name: "slug") String? slug,
       @JsonKey(name: "noOfSurah") int? noOfSurah,
       @JsonKey(name: "noOfPara") int? noOfpara});
-
-  $QuranSurahModelCopyWith<$Res> get surah;
 }
 
 /// @nodoc
@@ -68,7 +66,7 @@ class _$QuranParaModelCopyWithImpl<$Res, $Val extends QuranParaModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? surah = null,
+    Object? surah = freezed,
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
@@ -76,10 +74,10 @@ class _$QuranParaModelCopyWithImpl<$Res, $Val extends QuranParaModel>
     Object? noOfpara = freezed,
   }) {
     return _then(_value.copyWith(
-      surah: null == surah
+      surah: freezed == surah
           ? _value.surah
           : surah // ignore: cast_nullable_to_non_nullable
-              as QuranSurahModel,
+              as List<QuranSurahModel>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -102,14 +100,6 @@ class _$QuranParaModelCopyWithImpl<$Res, $Val extends QuranParaModel>
               as int?,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $QuranSurahModelCopyWith<$Res> get surah {
-    return $QuranSurahModelCopyWith<$Res>(_value.surah, (value) {
-      return _then(_value.copyWith(surah: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -121,15 +111,12 @@ abstract class _$$QuranParaModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {QuranSurahModel surah,
+      {List<QuranSurahModel>? surah,
       @JsonKey(name: "_id") String? id,
       @JsonKey(name: "title") String? title,
       @JsonKey(name: "slug") String? slug,
       @JsonKey(name: "noOfSurah") int? noOfSurah,
       @JsonKey(name: "noOfPara") int? noOfpara});
-
-  @override
-  $QuranSurahModelCopyWith<$Res> get surah;
 }
 
 /// @nodoc
@@ -143,7 +130,7 @@ class __$$QuranParaModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? surah = null,
+    Object? surah = freezed,
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
@@ -151,10 +138,10 @@ class __$$QuranParaModelImplCopyWithImpl<$Res>
     Object? noOfpara = freezed,
   }) {
     return _then(_$QuranParaModelImpl(
-      surah: null == surah
-          ? _value.surah
+      surah: freezed == surah
+          ? _value._surah
           : surah // ignore: cast_nullable_to_non_nullable
-              as QuranSurahModel,
+              as List<QuranSurahModel>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -183,18 +170,27 @@ class __$$QuranParaModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QuranParaModelImpl implements _QuranParaModel {
   const _$QuranParaModelImpl(
-      {required this.surah,
+      {required final List<QuranSurahModel>? surah,
       @JsonKey(name: "_id") required this.id,
       @JsonKey(name: "title") required this.title,
       @JsonKey(name: "slug") required this.slug,
       @JsonKey(name: "noOfSurah") required this.noOfSurah,
-      @JsonKey(name: "noOfPara") required this.noOfpara});
+      @JsonKey(name: "noOfPara") required this.noOfpara})
+      : _surah = surah;
 
   factory _$QuranParaModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuranParaModelImplFromJson(json);
 
+  final List<QuranSurahModel>? _surah;
   @override
-  final QuranSurahModel surah;
+  List<QuranSurahModel>? get surah {
+    final value = _surah;
+    if (value == null) return null;
+    if (_surah is EqualUnmodifiableListView) return _surah;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey(name: "_id")
   final String? id;
@@ -221,7 +217,7 @@ class _$QuranParaModelImpl implements _QuranParaModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuranParaModelImpl &&
-            (identical(other.surah, surah) || other.surah == surah) &&
+            const DeepCollectionEquality().equals(other._surah, _surah) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.slug, slug) || other.slug == slug) &&
@@ -233,8 +229,14 @@ class _$QuranParaModelImpl implements _QuranParaModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, surah, id, title, slug, noOfSurah, noOfpara);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_surah),
+      id,
+      title,
+      slug,
+      noOfSurah,
+      noOfpara);
 
   @JsonKey(ignore: true)
   @override
@@ -253,7 +255,7 @@ class _$QuranParaModelImpl implements _QuranParaModel {
 
 abstract class _QuranParaModel implements QuranParaModel {
   const factory _QuranParaModel(
-          {required final QuranSurahModel surah,
+          {required final List<QuranSurahModel>? surah,
           @JsonKey(name: "_id") required final String? id,
           @JsonKey(name: "title") required final String? title,
           @JsonKey(name: "slug") required final String? slug,
@@ -265,7 +267,7 @@ abstract class _QuranParaModel implements QuranParaModel {
       _$QuranParaModelImpl.fromJson;
 
   @override
-  QuranSurahModel get surah;
+  List<QuranSurahModel>? get surah;
   @override
   @JsonKey(name: "_id")
   String? get id;

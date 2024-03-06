@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:millat/resources/home/bloc/service/quran_service.dart';
 import '../../../../../utils/string_constants.dart';
+import '../../models/al-quran/aya/surah_aya_model.dart';
 import '../../models/al-quran/chapter_by_id_model/chapter_by_id_model.dart';
 import '../../models/al-quran/chapter_verses_model/chapter_verses_indoPak_model.dart';
 import '../../models/al-quran/chapter_verses_model/chapter_verses_model.dart';
@@ -112,12 +113,12 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
   _fetchChaperVersesEvent(event, Emitter<QuranState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final data = await quranServices.fetchChapterVerses(id: event.id);
+      final data = await quranServices.fetchQuranSurahAya(event.id);
       emit(
         state.copyWith(
-            chapterVersesModel: data,
-            isLoading: false,
-            chapterName: data.data.englishName),
+          quranSurahAyaModel: data,
+          isLoading: false,
+        ),
       );
     } catch (e) {
       emit(state.copyWith(isLoading: false));

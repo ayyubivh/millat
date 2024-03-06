@@ -10,6 +10,7 @@ import 'package:millat/resources/home/view/al_quran/al_quran_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_settings.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/audio_recitors_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/aya_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/text_setting_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
 import 'package:millat/resources/home/view/dua/dua_view.dart';
@@ -583,6 +584,17 @@ class MyAppRouter {
                           type: data['type'],
                           scrollType: data['scrollType'],
                           chapterid: data['chapterId'],
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.quranAyaView,
+                      path: MyAppRouteConstants.quranAyaView,
+                      builder: (context, state) {
+                        Map data = state.extra as Map;
+
+                        return QuranAyaView(
+                          slug: data['slug'],
                         );
                       },
                     ),

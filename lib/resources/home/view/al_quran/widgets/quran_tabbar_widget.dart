@@ -231,11 +231,11 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                     .read<QuranBloc>()
                     .add(FetchParaAudios(id: id, recitorId: state.recitorId));
 
-                context
-                    .goNamed(MyAppRouteConstants.quranVersesRoutename, extra: {
-                  'type': Qurantype.para,
-                  'chapterId': id,
-                });
+                context.pushNamed(MyAppRouteConstants.quranVersesRoutename,
+                    extra: {
+                      'type': Qurantype.para,
+                      'chapterId': id,
+                    });
               },
               leading: Stack(
                 children: [

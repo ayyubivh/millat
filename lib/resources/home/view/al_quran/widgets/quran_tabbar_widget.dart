@@ -221,8 +221,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
             String arabicVerse = verse['arabic'] ?? '';
             return ListTile(
               onTap: () {
-                final id = state.quranParaModel![index].noOfpara!.toInt();
-                context.read<QuranBloc>().add(FetchParaVerses(id: id));
+                final id = state.quranParaModel![index].paraNumber ?? 0;
                 context.read<QuranBloc>().add(FetchTranslationParaTexts(
                       translationId: state.globalTransilationId,
                       paraId: id,
@@ -230,12 +229,13 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                 context
                     .read<QuranBloc>()
                     .add(FetchParaAudios(id: id, recitorId: state.recitorId));
-
-                context.pushNamed(MyAppRouteConstants.quranVersesRoutename,
-                    extra: {
-                      'type': Qurantype.para,
-                      'chapterId': id,
-                    });
+                context.pushNamed(MyAppRouteConstants.quranAyaView,
+                    extra: {'slug': id.toString(), 'type': Qurantype.para});
+                // context.pushNamed(MyAppRouteConstants.quranVersesRoutename,
+                //     extra: {
+                //       'type': Qurantype.para,
+                //       'chapterId': id,
+                //     });
               },
               leading: Stack(
                 children: [
@@ -322,8 +322,6 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
       BuildContext context, QuranSurahModel surah, int index) {
     return ListTile(
       onTap: () {
-        final quranState = context.read<QuranBloc>().state;
-
         // context
         //     .read<QuranBloc>()
         //     .add(FetchChapterVersesbyTextName(id: surah.id));
@@ -334,7 +332,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
         //     id: chapter.id, recitorId: quranState.recitorId));
 
         context.pushNamed(MyAppRouteConstants.quranAyaView,
-            extra: {'slug': surah.slug ?? ""});
+            extra: {'slug': surah.slug ?? "", 'type': Qurantype.sura});
       },
       leading: Stack(
         children: [

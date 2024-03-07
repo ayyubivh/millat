@@ -6,7 +6,7 @@ part 'surah_aya_model.freezed.dart';
 class QuranSurahAyayModel with _$QuranSurahAyayModel {
   const factory QuranSurahAyayModel({
     @JsonKey(name: "_id") required String? id,
-    required dynamic? surah,
+    required dynamic surah,
     required int? noOfAyah,
     required String? content,
     required List<Translation>? translations,

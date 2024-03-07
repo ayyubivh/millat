@@ -6,7 +6,7 @@ class QuranState with _$QuranState {
     required bool isLoading,
     required List<QuranSurahModel>? quranSurahModel,
     required List<QuranSurahAyayModel>? quranSurahAyaModel,
-    required ParaVersesModel? paraVersesModel,
+    required List<QuranParaAyaModel>? paraVersesModel,
     required List<QuranParaModel>? quranParaModel,
     required List<ChapterByIdModel>? chapterByIdModel,
     required List<QuranSurahModel>? searchChapters,

@@ -22,7 +22,7 @@ QuranSurahAyayModel _$QuranSurahAyayModelFromJson(Map<String, dynamic> json) {
 mixin _$QuranSurahAyayModel {
   @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
-  dynamic? get surah => throw _privateConstructorUsedError;
+  dynamic get surah => throw _privateConstructorUsedError;
   int? get noOfAyah => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
   List<Translation>? get translations => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $QuranSurahAyayModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
-      dynamic? surah,
+      dynamic surah,
       int? noOfAyah,
       String? content,
       List<Translation>? translations,
@@ -80,7 +80,7 @@ class _$QuranSurahAyayModelCopyWithImpl<$Res, $Val extends QuranSurahAyayModel>
       surah: freezed == surah
           ? _value.surah
           : surah // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
       noOfAyah: freezed == noOfAyah
           ? _value.noOfAyah
           : noOfAyah // ignore: cast_nullable_to_non_nullable
@@ -115,7 +115,7 @@ abstract class _$$QuranSurahAyayModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
-      dynamic? surah,
+      dynamic surah,
       int? noOfAyah,
       String? content,
       List<Translation>? translations,
@@ -150,7 +150,7 @@ class __$$QuranSurahAyayModelImplCopyWithImpl<$Res>
       surah: freezed == surah
           ? _value.surah
           : surah // ignore: cast_nullable_to_non_nullable
-              as dynamic?,
+              as dynamic,
       noOfAyah: freezed == noOfAyah
           ? _value.noOfAyah
           : noOfAyah // ignore: cast_nullable_to_non_nullable
@@ -195,7 +195,7 @@ class _$QuranSurahAyayModelImpl implements _QuranSurahAyayModel {
   @JsonKey(name: "_id")
   final String? id;
   @override
-  final dynamic? surah;
+  final dynamic surah;
   @override
   final int? noOfAyah;
   @override
@@ -268,7 +268,7 @@ class _$QuranSurahAyayModelImpl implements _QuranSurahAyayModel {
 abstract class _QuranSurahAyayModel implements QuranSurahAyayModel {
   const factory _QuranSurahAyayModel(
       {@JsonKey(name: "_id") required final String? id,
-      required final dynamic? surah,
+      required final dynamic surah,
       required final int? noOfAyah,
       required final String? content,
       required final List<Translation>? translations,
@@ -282,7 +282,7 @@ abstract class _QuranSurahAyayModel implements QuranSurahAyayModel {
   @JsonKey(name: "_id")
   String? get id;
   @override
-  dynamic? get surah;
+  dynamic get surah;
   @override
   int? get noOfAyah;
   @override

@@ -21,7 +21,7 @@ mixin _$QuranEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -62,7 +62,7 @@ mixin _$QuranEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -102,7 +102,7 @@ mixin _$QuranEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -345,7 +345,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -389,7 +389,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -432,7 +432,7 @@ class _$FetchQuaranChaptersEventImpl implements FetchQuaranChaptersEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -703,7 +703,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -747,7 +747,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -790,7 +790,7 @@ class _$FetchChaperVersesEventImpl implements FetchChaperVersesEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -1069,7 +1069,7 @@ class _$FetchChapterVersesbyTextNameImpl
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -1113,7 +1113,7 @@ class _$FetchChapterVersesbyTextNameImpl
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -1156,7 +1156,7 @@ class _$FetchChapterVersesbyTextNameImpl
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -1370,7 +1370,7 @@ abstract class _$$FetchParaVersesImplCopyWith<$Res> {
           $Res Function(_$FetchParaVersesImpl) then) =
       __$$FetchParaVersesImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -1390,7 +1390,7 @@ class __$$FetchParaVersesImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -1401,7 +1401,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
   const _$FetchParaVersesImpl({required this.id});
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -1432,7 +1432,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -1476,7 +1476,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -1519,7 +1519,7 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -1717,10 +1717,10 @@ class _$FetchParaVersesImpl implements FetchParaVerses {
 }
 
 abstract class FetchParaVerses implements QuranEvent {
-  const factory FetchParaVerses({required final int id}) =
+  const factory FetchParaVerses({required final String id}) =
       _$FetchParaVersesImpl;
 
-  int get id;
+  String get id;
   @JsonKey(ignore: true)
   _$$FetchParaVersesImplCopyWith<_$FetchParaVersesImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1767,7 +1767,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -1811,7 +1811,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -1854,7 +1854,7 @@ class _$FetchQuranParaImpl implements FetchQuranPara {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -2099,7 +2099,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -2143,7 +2143,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -2186,7 +2186,7 @@ class _$ChangeExpandOnSearchEventImpl implements ChangeExpandOnSearchEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -2461,7 +2461,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -2505,7 +2505,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -2548,7 +2548,7 @@ class _$FechtChapterbyIdImpl implements FechtChapterbyId {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -2823,7 +2823,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -2867,7 +2867,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -2910,7 +2910,7 @@ class _$SearchChapterEventImpl implements SearchChapterEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -3192,7 +3192,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -3236,7 +3236,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -3279,7 +3279,7 @@ class _$FetchVersesByKeyImpl implements FetchVersesByKey {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -3563,7 +3563,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -3607,7 +3607,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -3650,7 +3650,7 @@ class _$FetchParaAudiosImpl implements FetchParaAudios {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -3939,7 +3939,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -3983,7 +3983,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -4026,7 +4026,7 @@ class _$FetchChapterAudioFilesImpl implements FetchChapterAudioFiles {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -4307,7 +4307,7 @@ class _$ChangeIndexBackGroundSettingImpl
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -4351,7 +4351,7 @@ class _$ChangeIndexBackGroundSettingImpl
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -4394,7 +4394,7 @@ class _$ChangeIndexBackGroundSettingImpl
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -4643,7 +4643,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -4687,7 +4687,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -4730,7 +4730,7 @@ class _$IncreaseFontsizeImpl implements IncreaseFontsize {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -4972,7 +4972,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -5016,7 +5016,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -5059,7 +5059,7 @@ class _$DecreaseFontsizeImpl implements DecreaseFontsize {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -5304,7 +5304,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -5348,7 +5348,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -5391,7 +5391,7 @@ class _$FetchAllTranslationsEventImpl implements FetchAllTranslationsEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -5675,7 +5675,7 @@ class _$FetchTranslationChapterTextsImpl
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -5719,7 +5719,7 @@ class _$FetchTranslationChapterTextsImpl
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -5762,7 +5762,7 @@ class _$FetchTranslationChapterTextsImpl
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -6052,7 +6052,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -6096,7 +6096,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -6139,7 +6139,7 @@ class _$FetchTranslationParaTextsImpl implements FetchTranslationParaTexts {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -6417,7 +6417,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -6461,7 +6461,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -6504,7 +6504,7 @@ class _$PlayAllParaAudiosAutoImpl implements PlayAllParaAudiosAuto {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -6781,7 +6781,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -6825,7 +6825,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -6868,7 +6868,7 @@ class _$PlayAllChapterAudiosAutoImpl implements PlayAllChapterAudiosAuto {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -7116,7 +7116,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -7160,7 +7160,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -7203,7 +7203,7 @@ class _$ShowMusicbarImpl implements ShowMusicbar {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -7473,7 +7473,7 @@ class _$IsExpandSearchEventImpl implements IsExpandSearchEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -7517,7 +7517,7 @@ class _$IsExpandSearchEventImpl implements IsExpandSearchEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -7560,7 +7560,7 @@ class _$IsExpandSearchEventImpl implements IsExpandSearchEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -7851,7 +7851,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -7895,7 +7895,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -7939,7 +7939,7 @@ class _$SaveGlobalTransilationIdAndNameImpl
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -8191,7 +8191,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -8235,7 +8235,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -8278,7 +8278,7 @@ class _$FetchAllRecitorsImpl implements FetchAllRecitors {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -8559,7 +8559,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -8603,7 +8603,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -8646,7 +8646,7 @@ class _$SaveRecitorNameAndIdImpl implements SaveRecitorNameAndId {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -8925,7 +8925,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -8969,7 +8969,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -9012,7 +9012,7 @@ class _$SaveQuranTexttypeNameImpl implements SaveQuranTexttypeName {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -9260,7 +9260,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -9304,7 +9304,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -9347,7 +9347,7 @@ class _$OnTapofNextEventImpl implements OnTapofNextEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -9589,7 +9589,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -9633,7 +9633,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -9676,7 +9676,7 @@ class _$OnTapofPrevEventImpl implements OnTapofPrevEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -9945,7 +9945,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -9989,7 +9989,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -10032,7 +10032,7 @@ class _$SaveLastReadEventImpl implements SaveLastReadEvent {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -10310,7 +10310,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -10354,7 +10354,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -10397,7 +10397,7 @@ class _$FetchSingleVerseTranslationImpl implements FetchSingleVerseTranslation {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -10645,7 +10645,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -10689,7 +10689,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -10732,7 +10732,7 @@ class _$PlayPlayListAudioImpl implements PlayPlayListAudio {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -10976,7 +10976,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -11020,7 +11020,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -11063,7 +11063,7 @@ class _$EmptyQuranVersesbyKeyImpl implements EmptyQuranVersesbyKey {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -11339,7 +11339,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -11383,7 +11383,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -11426,7 +11426,7 @@ class _$AddVersesToPlayListImpl implements AddVersesToPlayList {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -11674,7 +11674,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
     required TResult Function() fetchQuaranChaptersEvent,
     required TResult Function(String id) fetchChaperVersesEvent,
     required TResult Function(int id) fetchChapterVersesbyTextName,
-    required TResult Function(int id) fetchParaVerses,
+    required TResult Function(String id) fetchParaVerses,
     required TResult Function() fetchQuranPara,
     required TResult Function() changeExpandOnSearchEvent,
     required TResult Function(List<int> id) fechtChapterbyId,
@@ -11718,7 +11718,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
     TResult? Function()? fetchQuaranChaptersEvent,
     TResult? Function(String id)? fetchChaperVersesEvent,
     TResult? Function(int id)? fetchChapterVersesbyTextName,
-    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function(String id)? fetchParaVerses,
     TResult? Function()? fetchQuranPara,
     TResult? Function()? changeExpandOnSearchEvent,
     TResult? Function(List<int> id)? fechtChapterbyId,
@@ -11761,7 +11761,7 @@ class _$GetShuffledAyaImpl implements GetShuffledAya {
     TResult Function()? fetchQuaranChaptersEvent,
     TResult Function(String id)? fetchChaperVersesEvent,
     TResult Function(int id)? fetchChapterVersesbyTextName,
-    TResult Function(int id)? fetchParaVerses,
+    TResult Function(String id)? fetchParaVerses,
     TResult Function()? fetchQuranPara,
     TResult Function()? changeExpandOnSearchEvent,
     TResult Function(List<int> id)? fechtChapterbyId,
@@ -11969,7 +11969,8 @@ mixin _$QuranState {
       throw _privateConstructorUsedError;
   List<QuranSurahAyayModel>? get quranSurahAyaModel =>
       throw _privateConstructorUsedError;
-  ParaVersesModel? get paraVersesModel => throw _privateConstructorUsedError;
+  List<QuranParaAyaModel>? get paraVersesModel =>
+      throw _privateConstructorUsedError;
   List<QuranParaModel>? get quranParaModel =>
       throw _privateConstructorUsedError;
   List<ChapterByIdModel>? get chapterByIdModel =>
@@ -12033,7 +12034,7 @@ abstract class $QuranStateCopyWith<$Res> {
       {bool isLoading,
       List<QuranSurahModel>? quranSurahModel,
       List<QuranSurahAyayModel>? quranSurahAyaModel,
-      ParaVersesModel? paraVersesModel,
+      List<QuranParaAyaModel>? paraVersesModel,
       List<QuranParaModel>? quranParaModel,
       List<ChapterByIdModel>? chapterByIdModel,
       List<QuranSurahModel>? searchChapters,
@@ -12071,7 +12072,6 @@ abstract class $QuranStateCopyWith<$Res> {
       List<String> bookmarkAudioPlaylist,
       String shuffleVersKey});
 
-  $ParaVersesModelCopyWith<$Res>? get paraVersesModel;
   $TranslationsModelCopyWith<$Res>? get translationsModel;
   $RecitationsModelCopyWith<$Res>? get recitationsModel;
   $ChapterVersesIndoPakModelCopyWith<$Res>? get chapterVersesIndoPakModel;
@@ -12151,7 +12151,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
       paraVersesModel: freezed == paraVersesModel
           ? _value.paraVersesModel
           : paraVersesModel // ignore: cast_nullable_to_non_nullable
-              as ParaVersesModel?,
+              as List<QuranParaAyaModel>?,
       quranParaModel: freezed == quranParaModel
           ? _value.quranParaModel
           : quranParaModel // ignore: cast_nullable_to_non_nullable
@@ -12301,18 +12301,6 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
 
   @override
   @pragma('vm:prefer-inline')
-  $ParaVersesModelCopyWith<$Res>? get paraVersesModel {
-    if (_value.paraVersesModel == null) {
-      return null;
-    }
-
-    return $ParaVersesModelCopyWith<$Res>(_value.paraVersesModel!, (value) {
-      return _then(_value.copyWith(paraVersesModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $TranslationsModelCopyWith<$Res>? get translationsModel {
     if (_value.translationsModel == null) {
       return null;
@@ -12413,7 +12401,7 @@ abstract class _$$QuranStateImplCopyWith<$Res>
       {bool isLoading,
       List<QuranSurahModel>? quranSurahModel,
       List<QuranSurahAyayModel>? quranSurahAyaModel,
-      ParaVersesModel? paraVersesModel,
+      List<QuranParaAyaModel>? paraVersesModel,
       List<QuranParaModel>? quranParaModel,
       List<ChapterByIdModel>? chapterByIdModel,
       List<QuranSurahModel>? searchChapters,
@@ -12451,8 +12439,6 @@ abstract class _$$QuranStateImplCopyWith<$Res>
       List<String> bookmarkAudioPlaylist,
       String shuffleVersKey});
 
-  @override
-  $ParaVersesModelCopyWith<$Res>? get paraVersesModel;
   @override
   $TranslationsModelCopyWith<$Res>? get translationsModel;
   @override
@@ -12535,9 +12521,9 @@ class __$$QuranStateImplCopyWithImpl<$Res>
           : quranSurahAyaModel // ignore: cast_nullable_to_non_nullable
               as List<QuranSurahAyayModel>?,
       paraVersesModel: freezed == paraVersesModel
-          ? _value.paraVersesModel
+          ? _value._paraVersesModel
           : paraVersesModel // ignore: cast_nullable_to_non_nullable
-              as ParaVersesModel?,
+              as List<QuranParaAyaModel>?,
       quranParaModel: freezed == quranParaModel
           ? _value._quranParaModel
           : quranParaModel // ignore: cast_nullable_to_non_nullable
@@ -12693,7 +12679,7 @@ class _$QuranStateImpl implements _QuranState {
       {required this.isLoading,
       required final List<QuranSurahModel>? quranSurahModel,
       required final List<QuranSurahAyayModel>? quranSurahAyaModel,
-      required this.paraVersesModel,
+      required final List<QuranParaAyaModel>? paraVersesModel,
       required final List<QuranParaModel>? quranParaModel,
       required final List<ChapterByIdModel>? chapterByIdModel,
       required final List<QuranSurahModel>? searchChapters,
@@ -12732,6 +12718,7 @@ class _$QuranStateImpl implements _QuranState {
       required this.shuffleVersKey})
       : _quranSurahModel = quranSurahModel,
         _quranSurahAyaModel = quranSurahAyaModel,
+        _paraVersesModel = paraVersesModel,
         _quranParaModel = quranParaModel,
         _chapterByIdModel = chapterByIdModel,
         _searchChapters = searchChapters,
@@ -12766,8 +12753,16 @@ class _$QuranStateImpl implements _QuranState {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<QuranParaAyaModel>? _paraVersesModel;
   @override
-  final ParaVersesModel? paraVersesModel;
+  List<QuranParaAyaModel>? get paraVersesModel {
+    final value = _paraVersesModel;
+    if (value == null) return null;
+    if (_paraVersesModel is EqualUnmodifiableListView) return _paraVersesModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   final List<QuranParaModel>? _quranParaModel;
   @override
   List<QuranParaModel>? get quranParaModel {
@@ -12934,8 +12929,8 @@ class _$QuranStateImpl implements _QuranState {
                 .equals(other._quranSurahModel, _quranSurahModel) &&
             const DeepCollectionEquality()
                 .equals(other._quranSurahAyaModel, _quranSurahAyaModel) &&
-            (identical(other.paraVersesModel, paraVersesModel) ||
-                other.paraVersesModel == paraVersesModel) &&
+            const DeepCollectionEquality()
+                .equals(other._paraVersesModel, _paraVersesModel) &&
             const DeepCollectionEquality()
                 .equals(other._quranParaModel, _quranParaModel) &&
             const DeepCollectionEquality()
@@ -13016,7 +13011,7 @@ class _$QuranStateImpl implements _QuranState {
         isLoading,
         const DeepCollectionEquality().hash(_quranSurahModel),
         const DeepCollectionEquality().hash(_quranSurahAyaModel),
-        paraVersesModel,
+        const DeepCollectionEquality().hash(_paraVersesModel),
         const DeepCollectionEquality().hash(_quranParaModel),
         const DeepCollectionEquality().hash(_chapterByIdModel),
         const DeepCollectionEquality().hash(_searchChapters),
@@ -13067,7 +13062,7 @@ abstract class _QuranState implements QuranState {
       {required final bool isLoading,
       required final List<QuranSurahModel>? quranSurahModel,
       required final List<QuranSurahAyayModel>? quranSurahAyaModel,
-      required final ParaVersesModel? paraVersesModel,
+      required final List<QuranParaAyaModel>? paraVersesModel,
       required final List<QuranParaModel>? quranParaModel,
       required final List<ChapterByIdModel>? chapterByIdModel,
       required final List<QuranSurahModel>? searchChapters,
@@ -13112,7 +13107,7 @@ abstract class _QuranState implements QuranState {
   @override
   List<QuranSurahAyayModel>? get quranSurahAyaModel;
   @override
-  ParaVersesModel? get paraVersesModel;
+  List<QuranParaAyaModel>? get paraVersesModel;
   @override
   List<QuranParaModel>? get quranParaModel;
   @override

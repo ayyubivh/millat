@@ -11,7 +11,7 @@ class QuranEvent with _$QuranEvent {
     required int id,
   }) = FetchChapterVersesbyTextName;
   const factory QuranEvent.fetchParaVerses({
-    required int id,
+    required String id,
   }) = FetchParaVerses;
   const factory QuranEvent.fetchQuranPara() = FetchQuranPara;
   const factory QuranEvent.changeExpandOnSearchEvent() =

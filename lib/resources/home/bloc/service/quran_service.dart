@@ -5,6 +5,7 @@ import 'package:millat/resources/home/bloc/models/al-quran/aya/surah_aya_model.d
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_indoPak_model.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_of_noSymbol.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_uthmani_model.dart';
+import 'package:millat/resources/home/bloc/models/al-quran/quran_para_model/quran_para_aya_model.dart';
 import 'package:millat/services/http_services.dart';
 import '../../../../utils/string_constants.dart';
 import '../models/al-quran/chapter_by_id_model/chapter_by_id_model.dart';
@@ -52,6 +53,33 @@ class QuranServices extends HttpServices {
         final List<dynamic> datalist = data['result']['data'];
         final result =
             datalist.map((e) => QuranSurahAyayModel.fromJson(e)).toList();
+
+        return result;
+      } else {
+        throw Exception(
+            "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
+      }
+    } catch (e) {
+      throw Exception("Error fetching Quran chapters: $e");
+    }
+  }
+
+//fetch quran para aya
+  Future<List<QuranParaAyaModel>> fetchQuranParaAya(String para) async {
+    final url = "quran/para/ayah?para_number=$para";
+
+    try {
+      final response = await get(endPoint: url);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final Map<String, dynamic> resultData = data['result']['data'];
+        final List<dynamic> ayahList = resultData['ayah'];
+
+        final List<QuranParaAyaModel> result = ayahList
+            .map((ayahData) => QuranParaAyaModel.fromJson({
+                  'data': resultData,
+                }))
+            .toList();
 
         return result;
       } else {
@@ -190,34 +218,34 @@ class QuranServices extends HttpServices {
   }
 
 //fetch para verses
-  Future<dynamic> fetchParaVerses(
-      {required int id, required String textName}) async {
-    final url =
-        "https://api.quran.com/api/v4/quran/verses/$textName?juz_number=$id";
+  // Future<dynamic> fetchParaVerses(
+  //     {required int id, required String textName}) async {
+  //   final url =
+  //       "https://api.quran.com/api/v4/quran/verses/$textName?juz_number=$id";
 
-    try {
-      final response = await http.get(Uri.parse(url));
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> decodedData = jsonDecode(response.body);
-        if (textName == nosymbol) {
-          final result = ParaVersesModelofNoSymbol.fromJson(decodedData);
+  //   try {
+  //     final response = await http.get(Uri.parse(url));
+  //     if (response.statusCode == 200) {
+  //       final Map<String, dynamic> decodedData = jsonDecode(response.body);
+  //       if (textName == nosymbol) {
+  //         final result = ParaVersesModelofNoSymbol.fromJson(decodedData);
 
-          return result;
-        } else if (textName == uthmani) {
-          final result = ParaVersesModelofUthmani.fromJson(decodedData);
-          return result;
-        } else {
-          final result = ParaVersesModel.fromJson(decodedData);
-          return result;
-        }
-      } else {
-        throw Exception(
-            "Failed to fetch Quran para Status code: ${response.statusCode}");
-      }
-    } catch (e) {
-      throw Exception("Error fetching para verses: $e");
-    }
-  }
+  //         return result;
+  //       } else if (textName == uthmani) {
+  //         final result = ParaVersesModelofUthmani.fromJson(decodedData);
+  //         return result;
+  //       } else {
+  //         final result = ParaVersesModel.fromJson(decodedData);
+  //         return result;
+  //       }
+  //     } else {
+  //       throw Exception(
+  //           "Failed to fetch Quran para Status code: ${response.statusCode}");
+  //     }
+  //   } catch (e) {
+  //     throw Exception("Error fetching para verses: $e");
+  //   }
+  // }
 
   Future<List<ChapterByIdModel>> fetchChaptersByIds(List<int> ids) async {
     const url = "https://api.quran.com/api/v4/chapters/";

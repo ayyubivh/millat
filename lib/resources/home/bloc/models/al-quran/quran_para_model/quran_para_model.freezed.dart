@@ -20,17 +20,18 @@ QuranParaModel _$QuranParaModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QuranParaModel {
-  List<QuranSurahModel>? get surah => throw _privateConstructorUsedError;
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: "title")
+  @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: "slug")
-  String? get slug => throw _privateConstructorUsedError;
-  @JsonKey(name: "noOfSurah")
-  int? get noOfSurah => throw _privateConstructorUsedError;
-  @JsonKey(name: "noOfPara")
-  int? get noOfpara => throw _privateConstructorUsedError;
+  @JsonKey(name: 'surah')
+  List<QuranSurahModel>? get surah => throw _privateConstructorUsedError;
+  @JsonKey(name: 'paraNumber')
+  int? get paraNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'createdAt')
+  String? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updatedAt')
+  String? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,12 +46,12 @@ abstract class $QuranParaModelCopyWith<$Res> {
       _$QuranParaModelCopyWithImpl<$Res, QuranParaModel>;
   @useResult
   $Res call(
-      {List<QuranSurahModel>? surah,
-      @JsonKey(name: "_id") String? id,
-      @JsonKey(name: "title") String? title,
-      @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "noOfSurah") int? noOfSurah,
-      @JsonKey(name: "noOfPara") int? noOfpara});
+      {@JsonKey(name: '_id') String? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'surah') List<QuranSurahModel>? surah,
+      @JsonKey(name: 'paraNumber') int? paraNumber,
+      @JsonKey(name: 'createdAt') String? createdAt,
+      @JsonKey(name: 'updatedAt') String? updatedAt});
 }
 
 /// @nodoc
@@ -66,18 +67,14 @@ class _$QuranParaModelCopyWithImpl<$Res, $Val extends QuranParaModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? surah = freezed,
     Object? id = freezed,
     Object? title = freezed,
-    Object? slug = freezed,
-    Object? noOfSurah = freezed,
-    Object? noOfpara = freezed,
+    Object? surah = freezed,
+    Object? paraNumber = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      surah: freezed == surah
-          ? _value.surah
-          : surah // ignore: cast_nullable_to_non_nullable
-              as List<QuranSurahModel>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -86,18 +83,22 @@ class _$QuranParaModelCopyWithImpl<$Res, $Val extends QuranParaModel>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
+      surah: freezed == surah
+          ? _value.surah
+          : surah // ignore: cast_nullable_to_non_nullable
+              as List<QuranSurahModel>?,
+      paraNumber: freezed == paraNumber
+          ? _value.paraNumber
+          : paraNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      noOfSurah: freezed == noOfSurah
-          ? _value.noOfSurah
-          : noOfSurah // ignore: cast_nullable_to_non_nullable
-              as int?,
-      noOfpara: freezed == noOfpara
-          ? _value.noOfpara
-          : noOfpara // ignore: cast_nullable_to_non_nullable
-              as int?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -111,12 +112,12 @@ abstract class _$$QuranParaModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<QuranSurahModel>? surah,
-      @JsonKey(name: "_id") String? id,
-      @JsonKey(name: "title") String? title,
-      @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "noOfSurah") int? noOfSurah,
-      @JsonKey(name: "noOfPara") int? noOfpara});
+      {@JsonKey(name: '_id') String? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'surah') List<QuranSurahModel>? surah,
+      @JsonKey(name: 'paraNumber') int? paraNumber,
+      @JsonKey(name: 'createdAt') String? createdAt,
+      @JsonKey(name: 'updatedAt') String? updatedAt});
 }
 
 /// @nodoc
@@ -130,18 +131,14 @@ class __$$QuranParaModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? surah = freezed,
     Object? id = freezed,
     Object? title = freezed,
-    Object? slug = freezed,
-    Object? noOfSurah = freezed,
-    Object? noOfpara = freezed,
+    Object? surah = freezed,
+    Object? paraNumber = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$QuranParaModelImpl(
-      surah: freezed == surah
-          ? _value._surah
-          : surah // ignore: cast_nullable_to_non_nullable
-              as List<QuranSurahModel>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -150,18 +147,22 @@ class __$$QuranParaModelImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
+      surah: freezed == surah
+          ? _value._surah
+          : surah // ignore: cast_nullable_to_non_nullable
+              as List<QuranSurahModel>?,
+      paraNumber: freezed == paraNumber
+          ? _value.paraNumber
+          : paraNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      noOfSurah: freezed == noOfSurah
-          ? _value.noOfSurah
-          : noOfSurah // ignore: cast_nullable_to_non_nullable
-              as int?,
-      noOfpara: freezed == noOfpara
-          ? _value.noOfpara
-          : noOfpara // ignore: cast_nullable_to_non_nullable
-              as int?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -170,19 +171,26 @@ class __$$QuranParaModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$QuranParaModelImpl implements _QuranParaModel {
   const _$QuranParaModelImpl(
-      {required final List<QuranSurahModel>? surah,
-      @JsonKey(name: "_id") required this.id,
-      @JsonKey(name: "title") required this.title,
-      @JsonKey(name: "slug") required this.slug,
-      @JsonKey(name: "noOfSurah") required this.noOfSurah,
-      @JsonKey(name: "noOfPara") required this.noOfpara})
+      {@JsonKey(name: '_id') required this.id,
+      @JsonKey(name: 'title') required this.title,
+      @JsonKey(name: 'surah') required final List<QuranSurahModel>? surah,
+      @JsonKey(name: 'paraNumber') required this.paraNumber,
+      @JsonKey(name: 'createdAt') required this.createdAt,
+      @JsonKey(name: 'updatedAt') required this.updatedAt})
       : _surah = surah;
 
   factory _$QuranParaModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuranParaModelImplFromJson(json);
 
+  @override
+  @JsonKey(name: '_id')
+  final String? id;
+  @override
+  @JsonKey(name: 'title')
+  final String? title;
   final List<QuranSurahModel>? _surah;
   @override
+  @JsonKey(name: 'surah')
   List<QuranSurahModel>? get surah {
     final value = _surah;
     if (value == null) return null;
@@ -192,24 +200,18 @@ class _$QuranParaModelImpl implements _QuranParaModel {
   }
 
   @override
-  @JsonKey(name: "_id")
-  final String? id;
+  @JsonKey(name: 'paraNumber')
+  final int? paraNumber;
   @override
-  @JsonKey(name: "title")
-  final String? title;
+  @JsonKey(name: 'createdAt')
+  final String? createdAt;
   @override
-  @JsonKey(name: "slug")
-  final String? slug;
-  @override
-  @JsonKey(name: "noOfSurah")
-  final int? noOfSurah;
-  @override
-  @JsonKey(name: "noOfPara")
-  final int? noOfpara;
+  @JsonKey(name: 'updatedAt')
+  final String? updatedAt;
 
   @override
   String toString() {
-    return 'QuranParaModel(surah: $surah, id: $id, title: $title, slug: $slug, noOfSurah: $noOfSurah, noOfpara: $noOfpara)';
+    return 'QuranParaModel(id: $id, title: $title, surah: $surah, paraNumber: $paraNumber, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -217,26 +219,27 @@ class _$QuranParaModelImpl implements _QuranParaModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QuranParaModelImpl &&
-            const DeepCollectionEquality().equals(other._surah, _surah) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.slug, slug) || other.slug == slug) &&
-            (identical(other.noOfSurah, noOfSurah) ||
-                other.noOfSurah == noOfSurah) &&
-            (identical(other.noOfpara, noOfpara) ||
-                other.noOfpara == noOfpara));
+            const DeepCollectionEquality().equals(other._surah, _surah) &&
+            (identical(other.paraNumber, paraNumber) ||
+                other.paraNumber == paraNumber) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_surah),
       id,
       title,
-      slug,
-      noOfSurah,
-      noOfpara);
+      const DeepCollectionEquality().hash(_surah),
+      paraNumber,
+      createdAt,
+      updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -255,34 +258,35 @@ class _$QuranParaModelImpl implements _QuranParaModel {
 
 abstract class _QuranParaModel implements QuranParaModel {
   const factory _QuranParaModel(
-          {required final List<QuranSurahModel>? surah,
-          @JsonKey(name: "_id") required final String? id,
-          @JsonKey(name: "title") required final String? title,
-          @JsonKey(name: "slug") required final String? slug,
-          @JsonKey(name: "noOfSurah") required final int? noOfSurah,
-          @JsonKey(name: "noOfPara") required final int? noOfpara}) =
+          {@JsonKey(name: '_id') required final String? id,
+          @JsonKey(name: 'title') required final String? title,
+          @JsonKey(name: 'surah') required final List<QuranSurahModel>? surah,
+          @JsonKey(name: 'paraNumber') required final int? paraNumber,
+          @JsonKey(name: 'createdAt') required final String? createdAt,
+          @JsonKey(name: 'updatedAt') required final String? updatedAt}) =
       _$QuranParaModelImpl;
 
   factory _QuranParaModel.fromJson(Map<String, dynamic> json) =
       _$QuranParaModelImpl.fromJson;
 
   @override
-  List<QuranSurahModel>? get surah;
-  @override
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String? get id;
   @override
-  @JsonKey(name: "title")
+  @JsonKey(name: 'title')
   String? get title;
   @override
-  @JsonKey(name: "slug")
-  String? get slug;
+  @JsonKey(name: 'surah')
+  List<QuranSurahModel>? get surah;
   @override
-  @JsonKey(name: "noOfSurah")
-  int? get noOfSurah;
+  @JsonKey(name: 'paraNumber')
+  int? get paraNumber;
   @override
-  @JsonKey(name: "noOfPara")
-  int? get noOfpara;
+  @JsonKey(name: 'createdAt')
+  String? get createdAt;
+  @override
+  @JsonKey(name: 'updatedAt')
+  String? get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$QuranParaModelImplCopyWith<_$QuranParaModelImpl> get copyWith =>

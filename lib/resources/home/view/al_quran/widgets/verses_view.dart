@@ -365,11 +365,9 @@ class _VersesViewState extends State<VersesView> {
                                           itemScrollController,
                                       itemPositionsListener:
                                           itemPositionsListener,
-                                      itemCount:
-                                          state.paraVersesModel!.verses.length,
+                                      itemCount: state.paraVersesModel!.length,
                                       itemBuilder: (context, index) {
-                                        final indoPakdata =
-                                            state.paraVersesModel!.verses;
+                                        final aya = state.paraVersesModel;
 
                                         return state
                                                 .paraTranslationText!.isEmpty
@@ -420,8 +418,8 @@ class _VersesViewState extends State<VersesView> {
                                                 isSelected:
                                                     state.audioIndex == index,
                                                 shareOnTap: () {
-                                                  Share.share(
-                                                      '${indoPakdata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.quranSurahAyaModel?[index].surah}: Ayah${index + 1}');
+                                                  // Share.share(
+                                                  //     '${indoPakdata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.quranSurahAyaModel?[index].surah}: Ayah${index + 1}');
                                                 },
                                                 playOntap: () {
                                                   context.read<QuranBloc>().add(
@@ -429,11 +427,20 @@ class _VersesViewState extends State<VersesView> {
                                                           .playAllParaAudiosAuto(
                                                               index: index));
                                                 },
-                                                numValue:
-                                                    indoPakdata[index].id!,
-                                                surah: indoPakdata[index]
-                                                    .textIndopak
-                                                    .toString(),
+                                                numValue: aya?[index]
+                                                        .data
+                                                        ?.ayah
+                                                        ?.first
+                                                        .surah1
+                                                        ?.first
+                                                        .ayahNumber ??
+                                                    0,
+                                                surah: aya?[index]
+                                                        .data
+                                                        ?.para
+                                                        ?.title
+                                                        .toString() ??
+                                                    "",
                                                 surahMeaning:
                                                     state.paraTranslationText?[
                                                             index] ??

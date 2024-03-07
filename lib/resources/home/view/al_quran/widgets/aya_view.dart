@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/verses_card.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
+import '../../../../../enums/enumertations.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/shimmer_utils.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
+import 'verses_card.dart';
 
 class QuranAyaView extends StatefulWidget {
   final String slug;
-  const QuranAyaView({super.key, required this.slug});
+  final Qurantype type;
+
+  const QuranAyaView({required this.slug, required this.type, Key? key})
+      : super(key: key);
 
   @override
   State<QuranAyaView> createState() => _QuranAyaViewState();
@@ -24,9 +28,11 @@ class _QuranAyaViewState extends State<QuranAyaView> {
 
   @override
   void initState() {
-    BlocProvider.of<QuranBloc>(context)
-        .add(FetchChaperVersesEvent(id: widget.slug));
-
+    widget.type == Qurantype.sura
+        ? BlocProvider.of<QuranBloc>(context)
+            .add(FetchChaperVersesEvent(id: widget.slug))
+        : BlocProvider.of<QuranBloc>(context)
+            .add(FetchParaVerses(id: widget.slug));
     super.initState();
   }
 
@@ -38,13 +44,6 @@ class _QuranAyaViewState extends State<QuranAyaView> {
         child: AppBar(
           leading: GestureDetector(
             onTap: () {
-              // final visibleItems = itemPositionsListener.itemPositions.value;
-              // if (visibleItems.isNotEmpty) {
-              //   final firstVisibleItemIndex = visibleItems.last.index + 1;
-              //   context.read<QuranBloc>().add(SaveLastReadEvent(
-              //       value: "${widget.chapterid}:$firstVisibleItemIndex"));
-              // }
-
               context.pop();
             },
             child: const Icon(
@@ -96,63 +95,77 @@ class _QuranAyaViewState extends State<QuranAyaView> {
       ),
       body: BlocBuilder<QuranBloc, QuranState>(
         builder: (context, state) {
-          return state.isLoading || state.quranSurahAyaModel == null
+          return state.isLoading
               ? Padding(
                   padding: const EdgeInsets.only(top: 50),
-                  child: ShimmerUtils.quranVersesShimmer(context))
+                  child: ShimmerUtils.quranVersesShimmer(context),
+                )
               : Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 25,
-                  ),
-                  child: ScrollablePositionedList.builder(
-                    itemScrollController: itemScrollController,
-                    itemPositionsListener: itemPositionsListener,
-                    itemCount: state.quranSurahAyaModel?.length ?? 2,
-                    itemBuilder: (context, index) {
-                      final surah = state.quranSurahAyaModel;
-                      return VersesCardWidget(
-                        isValue: 'is value',
-                        bookMarkOntap: () {
-                          // if (context.read<BookmarkBloc>().state.dbCollectionItems.any(
-                          //     (element) => element.verseKey
-                          //         .contains('${widget.chapterid}:${index + 1}'))) {
-                          //   context.read<BookmarkBloc>().add(RemoveBookmark(
-                          //       verseKey: "${widget.chapterid}:${index + 1}"));
-                          // } else {
-                          //   showModalBottomSheet(
-                          //     context: context,
-                          //     backgroundColor: Colors.transparent,
-                          //     builder: (context) {
-                          //       return StatefulBuilder(
-                          //         builder: (context, setState) => _addBookMarkPopUp(
-                          //             context,
-                          //             widget.chapterid!,
-                          //             index,
-                          //             "${widget.chapterid}:${index + 1}"),
-                          //       );
-                          //     },
-                          // );
-                          // }
-                        },
-                        playOntap: () {
-                          context
-                              .read<QuranBloc>()
-                              .add(PlayAllChapterAudiosAuto(index: index));
-                        },
-                        isSelected: state.audioIndex == index,
-                        shareOnTap: () {
-                          // Share.share(
-                          //     '${indoPakData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.quranSurahAyaModel?[index].surah}: Ayah${index + 1}');
-                        },
-                        numValue: index + 1,
-                        surah: surah?[index].content ?? "",
-                        surahMeaning: (''),
-                      );
-                    },
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: widget.type == Qurantype.para
+                      ? _buildParaView(state)
+                      : _buildSurahView(state),
                 );
         },
       ),
+    );
+  }
+
+  Widget _buildParaView(QuranState state) {
+    return ScrollablePositionedList.builder(
+      itemScrollController: itemScrollController,
+      itemPositionsListener: itemPositionsListener,
+      itemCount: state.paraVersesModel?.length ?? 0,
+      itemBuilder: (context, index) {
+        final aya = state.paraVersesModel;
+        return VersesCardWidget(
+          isValue: ' ',
+          bookMarkOntap: () {
+            // Handle bookmark logic
+          },
+          isSelected: state.audioIndex == index,
+          shareOnTap: () {
+            // Handle share logic
+          },
+          playOntap: () {
+            context
+                .read<QuranBloc>()
+                .add(QuranEvent.playAllParaAudiosAuto(index: index));
+          },
+          numValue: aya?[index].data?.ayah?.first.surah1?.first.ayahNumber ?? 0,
+          surah: aya?[index].data?.para?.title.toString() ?? "",
+          surahMeaning: state.paraTranslationText?[index] ?? '',
+        );
+      },
+    );
+  }
+
+  Widget _buildSurahView(QuranState state) {
+    return ScrollablePositionedList.builder(
+      itemScrollController: itemScrollController,
+      itemPositionsListener: itemPositionsListener,
+      itemCount: state.quranSurahAyaModel?.length ?? 2,
+      itemBuilder: (context, index) {
+        final surah = state.quranSurahAyaModel;
+        return VersesCardWidget(
+          isValue: 'is value',
+          bookMarkOntap: () {
+            // Handle bookmark logic
+          },
+          playOntap: () {
+            context
+                .read<QuranBloc>()
+                .add(PlayAllChapterAudiosAuto(index: index));
+          },
+          isSelected: state.audioIndex == index,
+          shareOnTap: () {
+            // Handle share logic
+          },
+          numValue: index + 1,
+          surah: surah?[index].content ?? "",
+          surahMeaning: (''),
+        );
+      },
     );
   }
 }

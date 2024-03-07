@@ -595,6 +595,7 @@ class MyAppRouter {
 
                         return QuranAyaView(
                           slug: data['slug'],
+                          type: data['type'],
                         );
                       },
                     ),

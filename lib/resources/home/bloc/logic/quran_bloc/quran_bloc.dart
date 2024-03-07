@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:millat/resources/home/bloc/models/al-quran/quran_para_model/quran_para_aya_model.dart';
 import 'package:millat/resources/home/bloc/service/quran_service.dart';
 import '../../../../../utils/string_constants.dart';
 import '../../models/al-quran/aya/surah_aya_model.dart';
@@ -129,27 +130,25 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
   _fetchParaVerses(FetchParaVerses event, Emitter<QuranState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final data = await quranServices.fetchParaVerses(
-          id: event.id, textName: state.quranTextTypeName);
+      final data = await quranServices.fetchQuranParaAya(event.id);
 
-      if (state.quranTextTypeName == indopak) {
-        emit(
-          state.copyWith(
-              paraVersesModel: data,
-              isLoading: false,
-              chapterName: "Juz ${event.id}"),
-        );
-      } else if (state.quranTextTypeName == uthmani) {
-        emit(state.copyWith(
-            paraVersesModelofUthmani: data,
+      emit(
+        state.copyWith(
+            paraVersesModel: data,
             isLoading: false,
-            chapterName: "Juz ${event.id}"));
-      } else if (state.quranTextTypeName == nosymbol) {
-        emit(state.copyWith(
-            paraVersesModelofNoSymbol: data,
-            isLoading: false,
-            chapterName: "Juz ${event.id}"));
-      }
+            chapterName: "Juz ${event.id}"),
+      );
+      // } else if (state.quranTextTypeName == uthmani) {
+      //   emit(state.copyWith(
+      //       paraVersesModelofUthmani: data,
+      //       isLoading: false,
+      //       chapterName: "Juz ${event.id}"));
+      // } else if (state.quranTextTypeName == nosymbol) {
+      //   emit(state.copyWith(
+      //       paraVersesModelofNoSymbol: data,
+      //       isLoading: false,
+      //       chapterName: "Juz ${event.id}"));
+      // }
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");

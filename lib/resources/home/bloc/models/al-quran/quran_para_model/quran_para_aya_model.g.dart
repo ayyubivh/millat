@@ -39,7 +39,7 @@ _$ParaImpl _$$ParaImplFromJson(Map<String, dynamic> json) => _$ParaImpl(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       surah: (json['surah'] as List<dynamic>?)
-          ?.map((e) => Surah.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Surah1.fromJson(e as Map<String, dynamic>))
           .toList(),
       paraNumber: json['paraNumber'] as int?,
       createdAt: json['createdAt'] == null
@@ -60,39 +60,11 @@ Map<String, dynamic> _$$ParaImplToJson(_$ParaImpl instance) =>
       'updatedAt': instance.updatedAt?.toIso8601String(),
     };
 
-_$SurahImpl _$$SurahImplFromJson(Map<String, dynamic> json) => _$SurahImpl(
-      id: json['_id'] as String?,
-      title: json['title'] as String?,
-      slug: json['slug'] as String?,
-      surahNumber: json['surahNumber'] as int?,
-      totalAyah: json['totalAyah'] as int?,
-    );
-
-Map<String, dynamic> _$$SurahImplToJson(_$SurahImpl instance) =>
-    <String, dynamic>{
-      '_id': instance.id,
-      'title': instance.title,
-      'slug': instance.slug,
-      'surahNumber': instance.surahNumber,
-      'totalAyah': instance.totalAyah,
-    };
-
-_$AyahImpl _$$AyahImplFromJson(Map<String, dynamic> json) => _$AyahImpl(
-      surah1: (json['surah-1'] as List<dynamic>?)
-          ?.map((e) => Surah1.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$$AyahImplToJson(_$AyahImpl instance) =>
-    <String, dynamic>{
-      'surah-1': instance.surah1,
-    };
-
 _$Surah1Impl _$$Surah1ImplFromJson(Map<String, dynamic> json) => _$Surah1Impl(
       id: json['_id'] as String?,
       surah: json['surah'] == null
           ? null
-          : Surah.fromJson(json['surah'] as Map<String, dynamic>),
+          : QuranSurahAyayModel.fromJson(json['surah'] as Map<String, dynamic>),
       surahNumber: json['surahNumber'] as int?,
       ayahNumber: json['ayahNumber'] as int?,
       revealedIn: json['revealedIn'] as String?,

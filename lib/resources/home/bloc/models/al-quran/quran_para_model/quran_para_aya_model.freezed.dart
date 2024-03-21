@@ -276,7 +276,8 @@ class __$$DataImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$DataImpl implements _Data {
-  const _$DataImpl({this.para, final List<Ayah>? ayah}) : _ayah = ayah;
+  const _$DataImpl({required this.para, required final List<Ayah>? ayah})
+      : _ayah = ayah;
 
   factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
       _$$DataImplFromJson(json);
@@ -327,7 +328,9 @@ class _$DataImpl implements _Data {
 }
 
 abstract class _Data implements Data {
-  const factory _Data({final Para? para, final List<Ayah>? ayah}) = _$DataImpl;
+  const factory _Data(
+      {required final Para? para,
+      required final List<Ayah>? ayah}) = _$DataImpl;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
@@ -350,7 +353,7 @@ mixin _$Para {
   @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  List<Surah>? get surah => throw _privateConstructorUsedError;
+  List<Surah1>? get surah => throw _privateConstructorUsedError;
   int? get paraNumber => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
@@ -368,7 +371,7 @@ abstract class $ParaCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "_id") String? id,
       String? title,
-      List<Surah>? surah,
+      List<Surah1>? surah,
       int? paraNumber,
       DateTime? createdAt,
       DateTime? updatedAt});
@@ -406,7 +409,7 @@ class _$ParaCopyWithImpl<$Res, $Val extends Para>
       surah: freezed == surah
           ? _value.surah
           : surah // ignore: cast_nullable_to_non_nullable
-              as List<Surah>?,
+              as List<Surah1>?,
       paraNumber: freezed == paraNumber
           ? _value.paraNumber
           : paraNumber // ignore: cast_nullable_to_non_nullable
@@ -433,7 +436,7 @@ abstract class _$$ParaImplCopyWith<$Res> implements $ParaCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "_id") String? id,
       String? title,
-      List<Surah>? surah,
+      List<Surah1>? surah,
       int? paraNumber,
       DateTime? createdAt,
       DateTime? updatedAt});
@@ -468,7 +471,7 @@ class __$$ParaImplCopyWithImpl<$Res>
       surah: freezed == surah
           ? _value._surah
           : surah // ignore: cast_nullable_to_non_nullable
-              as List<Surah>?,
+              as List<Surah1>?,
       paraNumber: freezed == paraNumber
           ? _value.paraNumber
           : paraNumber // ignore: cast_nullable_to_non_nullable
@@ -490,11 +493,11 @@ class __$$ParaImplCopyWithImpl<$Res>
 class _$ParaImpl implements _Para {
   const _$ParaImpl(
       {@JsonKey(name: "_id") required this.id,
-      this.title,
-      final List<Surah>? surah,
-      this.paraNumber,
-      this.createdAt,
-      this.updatedAt})
+      required this.title,
+      required final List<Surah1>? surah,
+      required this.paraNumber,
+      required this.createdAt,
+      required this.updatedAt})
       : _surah = surah;
 
   factory _$ParaImpl.fromJson(Map<String, dynamic> json) =>
@@ -505,9 +508,9 @@ class _$ParaImpl implements _Para {
   final String? id;
   @override
   final String? title;
-  final List<Surah>? _surah;
+  final List<Surah1>? _surah;
   @override
-  List<Surah>? get surah {
+  List<Surah1>? get surah {
     final value = _surah;
     if (value == null) return null;
     if (_surah is EqualUnmodifiableListView) return _surah;
@@ -571,11 +574,11 @@ class _$ParaImpl implements _Para {
 abstract class _Para implements Para {
   const factory _Para(
       {@JsonKey(name: "_id") required final String? id,
-      final String? title,
-      final List<Surah>? surah,
-      final int? paraNumber,
-      final DateTime? createdAt,
-      final DateTime? updatedAt}) = _$ParaImpl;
+      required final String? title,
+      required final List<Surah1>? surah,
+      required final int? paraNumber,
+      required final DateTime? createdAt,
+      required final DateTime? updatedAt}) = _$ParaImpl;
 
   factory _Para.fromJson(Map<String, dynamic> json) = _$ParaImpl.fromJson;
 
@@ -585,7 +588,7 @@ abstract class _Para implements Para {
   @override
   String? get title;
   @override
-  List<Surah>? get surah;
+  List<Surah1>? get surah;
   @override
   int? get paraNumber;
   @override
@@ -598,372 +601,6 @@ abstract class _Para implements Para {
       throw _privateConstructorUsedError;
 }
 
-Surah _$SurahFromJson(Map<String, dynamic> json) {
-  return _Surah.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Surah {
-  @JsonKey(name: "_id")
-  String? get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  String? get slug => throw _privateConstructorUsedError;
-  int? get surahNumber => throw _privateConstructorUsedError;
-  int? get totalAyah => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SurahCopyWith<Surah> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SurahCopyWith<$Res> {
-  factory $SurahCopyWith(Surah value, $Res Function(Surah) then) =
-      _$SurahCopyWithImpl<$Res, Surah>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "_id") String? id,
-      String? title,
-      String? slug,
-      int? surahNumber,
-      int? totalAyah});
-}
-
-/// @nodoc
-class _$SurahCopyWithImpl<$Res, $Val extends Surah>
-    implements $SurahCopyWith<$Res> {
-  _$SurahCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? slug = freezed,
-    Object? surahNumber = freezed,
-    Object? totalAyah = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      surahNumber: freezed == surahNumber
-          ? _value.surahNumber
-          : surahNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
-      totalAyah: freezed == totalAyah
-          ? _value.totalAyah
-          : totalAyah // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$SurahImplCopyWith<$Res> implements $SurahCopyWith<$Res> {
-  factory _$$SurahImplCopyWith(
-          _$SurahImpl value, $Res Function(_$SurahImpl) then) =
-      __$$SurahImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "_id") String? id,
-      String? title,
-      String? slug,
-      int? surahNumber,
-      int? totalAyah});
-}
-
-/// @nodoc
-class __$$SurahImplCopyWithImpl<$Res>
-    extends _$SurahCopyWithImpl<$Res, _$SurahImpl>
-    implements _$$SurahImplCopyWith<$Res> {
-  __$$SurahImplCopyWithImpl(
-      _$SurahImpl _value, $Res Function(_$SurahImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? slug = freezed,
-    Object? surahNumber = freezed,
-    Object? totalAyah = freezed,
-  }) {
-    return _then(_$SurahImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      slug: freezed == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      surahNumber: freezed == surahNumber
-          ? _value.surahNumber
-          : surahNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
-      totalAyah: freezed == totalAyah
-          ? _value.totalAyah
-          : totalAyah // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$SurahImpl implements _Surah {
-  const _$SurahImpl(
-      {@JsonKey(name: "_id") required this.id,
-      this.title,
-      this.slug,
-      this.surahNumber,
-      this.totalAyah});
-
-  factory _$SurahImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SurahImplFromJson(json);
-
-  @override
-  @JsonKey(name: "_id")
-  final String? id;
-  @override
-  final String? title;
-  @override
-  final String? slug;
-  @override
-  final int? surahNumber;
-  @override
-  final int? totalAyah;
-
-  @override
-  String toString() {
-    return 'Surah(id: $id, title: $title, slug: $slug, surahNumber: $surahNumber, totalAyah: $totalAyah)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SurahImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.slug, slug) || other.slug == slug) &&
-            (identical(other.surahNumber, surahNumber) ||
-                other.surahNumber == surahNumber) &&
-            (identical(other.totalAyah, totalAyah) ||
-                other.totalAyah == totalAyah));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, slug, surahNumber, totalAyah);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SurahImplCopyWith<_$SurahImpl> get copyWith =>
-      __$$SurahImplCopyWithImpl<_$SurahImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SurahImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Surah implements Surah {
-  const factory _Surah(
-      {@JsonKey(name: "_id") required final String? id,
-      final String? title,
-      final String? slug,
-      final int? surahNumber,
-      final int? totalAyah}) = _$SurahImpl;
-
-  factory _Surah.fromJson(Map<String, dynamic> json) = _$SurahImpl.fromJson;
-
-  @override
-  @JsonKey(name: "_id")
-  String? get id;
-  @override
-  String? get title;
-  @override
-  String? get slug;
-  @override
-  int? get surahNumber;
-  @override
-  int? get totalAyah;
-  @override
-  @JsonKey(ignore: true)
-  _$$SurahImplCopyWith<_$SurahImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Ayah _$AyahFromJson(Map<String, dynamic> json) {
-  return _Ayah.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Ayah {
-  @JsonKey(name: 'surah-1')
-  List<Surah1>? get surah1 => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AyahCopyWith<Ayah> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AyahCopyWith<$Res> {
-  factory $AyahCopyWith(Ayah value, $Res Function(Ayah) then) =
-      _$AyahCopyWithImpl<$Res, Ayah>;
-  @useResult
-  $Res call({@JsonKey(name: 'surah-1') List<Surah1>? surah1});
-}
-
-/// @nodoc
-class _$AyahCopyWithImpl<$Res, $Val extends Ayah>
-    implements $AyahCopyWith<$Res> {
-  _$AyahCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? surah1 = freezed,
-  }) {
-    return _then(_value.copyWith(
-      surah1: freezed == surah1
-          ? _value.surah1
-          : surah1 // ignore: cast_nullable_to_non_nullable
-              as List<Surah1>?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$AyahImplCopyWith<$Res> implements $AyahCopyWith<$Res> {
-  factory _$$AyahImplCopyWith(
-          _$AyahImpl value, $Res Function(_$AyahImpl) then) =
-      __$$AyahImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@JsonKey(name: 'surah-1') List<Surah1>? surah1});
-}
-
-/// @nodoc
-class __$$AyahImplCopyWithImpl<$Res>
-    extends _$AyahCopyWithImpl<$Res, _$AyahImpl>
-    implements _$$AyahImplCopyWith<$Res> {
-  __$$AyahImplCopyWithImpl(_$AyahImpl _value, $Res Function(_$AyahImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? surah1 = freezed,
-  }) {
-    return _then(_$AyahImpl(
-      surah1: freezed == surah1
-          ? _value._surah1
-          : surah1 // ignore: cast_nullable_to_non_nullable
-              as List<Surah1>?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$AyahImpl implements _Ayah {
-  const _$AyahImpl({@JsonKey(name: 'surah-1') final List<Surah1>? surah1})
-      : _surah1 = surah1;
-
-  factory _$AyahImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AyahImplFromJson(json);
-
-  final List<Surah1>? _surah1;
-  @override
-  @JsonKey(name: 'surah-1')
-  List<Surah1>? get surah1 {
-    final value = _surah1;
-    if (value == null) return null;
-    if (_surah1 is EqualUnmodifiableListView) return _surah1;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'Ayah(surah1: $surah1)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AyahImpl &&
-            const DeepCollectionEquality().equals(other._surah1, _surah1));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_surah1));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AyahImplCopyWith<_$AyahImpl> get copyWith =>
-      __$$AyahImplCopyWithImpl<_$AyahImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AyahImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Ayah implements Ayah {
-  const factory _Ayah({@JsonKey(name: 'surah-1') final List<Surah1>? surah1}) =
-      _$AyahImpl;
-
-  factory _Ayah.fromJson(Map<String, dynamic> json) = _$AyahImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'surah-1')
-  List<Surah1>? get surah1;
-  @override
-  @JsonKey(ignore: true)
-  _$$AyahImplCopyWith<_$AyahImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
 Surah1 _$Surah1FromJson(Map<String, dynamic> json) {
   return _Surah1.fromJson(json);
 }
@@ -972,7 +609,7 @@ Surah1 _$Surah1FromJson(Map<String, dynamic> json) {
 mixin _$Surah1 {
   @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
-  Surah? get surah => throw _privateConstructorUsedError;
+  QuranSurahAyayModel? get surah => throw _privateConstructorUsedError;
   int? get surahNumber => throw _privateConstructorUsedError;
   int? get ayahNumber => throw _privateConstructorUsedError;
   String? get revealedIn => throw _privateConstructorUsedError;
@@ -995,7 +632,7 @@ abstract class $Surah1CopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
-      Surah? surah,
+      QuranSurahAyayModel? surah,
       int? surahNumber,
       int? ayahNumber,
       String? revealedIn,
@@ -1005,7 +642,7 @@ abstract class $Surah1CopyWith<$Res> {
       String? content,
       @JsonKey(name: 'imageContent') String? imageContent});
 
-  $SurahCopyWith<$Res>? get surah;
+  $QuranSurahAyayModelCopyWith<$Res>? get surah;
 }
 
 /// @nodoc
@@ -1040,7 +677,7 @@ class _$Surah1CopyWithImpl<$Res, $Val extends Surah1>
       surah: freezed == surah
           ? _value.surah
           : surah // ignore: cast_nullable_to_non_nullable
-              as Surah?,
+              as QuranSurahAyayModel?,
       surahNumber: freezed == surahNumber
           ? _value.surahNumber
           : surahNumber // ignore: cast_nullable_to_non_nullable
@@ -1078,12 +715,12 @@ class _$Surah1CopyWithImpl<$Res, $Val extends Surah1>
 
   @override
   @pragma('vm:prefer-inline')
-  $SurahCopyWith<$Res>? get surah {
+  $QuranSurahAyayModelCopyWith<$Res>? get surah {
     if (_value.surah == null) {
       return null;
     }
 
-    return $SurahCopyWith<$Res>(_value.surah!, (value) {
+    return $QuranSurahAyayModelCopyWith<$Res>(_value.surah!, (value) {
       return _then(_value.copyWith(surah: value) as $Val);
     });
   }
@@ -1098,7 +735,7 @@ abstract class _$$Surah1ImplCopyWith<$Res> implements $Surah1CopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
-      Surah? surah,
+      QuranSurahAyayModel? surah,
       int? surahNumber,
       int? ayahNumber,
       String? revealedIn,
@@ -1109,7 +746,7 @@ abstract class _$$Surah1ImplCopyWith<$Res> implements $Surah1CopyWith<$Res> {
       @JsonKey(name: 'imageContent') String? imageContent});
 
   @override
-  $SurahCopyWith<$Res>? get surah;
+  $QuranSurahAyayModelCopyWith<$Res>? get surah;
 }
 
 /// @nodoc
@@ -1142,7 +779,7 @@ class __$$Surah1ImplCopyWithImpl<$Res>
       surah: freezed == surah
           ? _value.surah
           : surah // ignore: cast_nullable_to_non_nullable
-              as Surah?,
+              as QuranSurahAyayModel?,
       surahNumber: freezed == surahNumber
           ? _value.surahNumber
           : surahNumber // ignore: cast_nullable_to_non_nullable
@@ -1184,15 +821,15 @@ class __$$Surah1ImplCopyWithImpl<$Res>
 class _$Surah1Impl implements _Surah1 {
   const _$Surah1Impl(
       {@JsonKey(name: "_id") required this.id,
-      this.surah,
-      this.surahNumber,
-      this.ayahNumber,
-      this.revealedIn,
-      final List<Translation>? translations,
-      this.createdAt,
-      this.updatedAt,
-      this.content,
-      @JsonKey(name: 'imageContent') this.imageContent})
+      required this.surah,
+      required this.surahNumber,
+      required this.ayahNumber,
+      required this.revealedIn,
+      required final List<Translation>? translations,
+      required this.createdAt,
+      required this.updatedAt,
+      required this.content,
+      @JsonKey(name: 'imageContent') required this.imageContent})
       : _translations = translations;
 
   factory _$Surah1Impl.fromJson(Map<String, dynamic> json) =>
@@ -1202,7 +839,7 @@ class _$Surah1Impl implements _Surah1 {
   @JsonKey(name: "_id")
   final String? id;
   @override
-  final Surah? surah;
+  final QuranSurahAyayModel? surah;
   @override
   final int? surahNumber;
   @override
@@ -1290,15 +927,15 @@ class _$Surah1Impl implements _Surah1 {
 abstract class _Surah1 implements Surah1 {
   const factory _Surah1(
           {@JsonKey(name: "_id") required final String? id,
-          final Surah? surah,
-          final int? surahNumber,
-          final int? ayahNumber,
-          final String? revealedIn,
-          final List<Translation>? translations,
-          final DateTime? createdAt,
-          final DateTime? updatedAt,
-          final String? content,
-          @JsonKey(name: 'imageContent') final String? imageContent}) =
+          required final QuranSurahAyayModel? surah,
+          required final int? surahNumber,
+          required final int? ayahNumber,
+          required final String? revealedIn,
+          required final List<Translation>? translations,
+          required final DateTime? createdAt,
+          required final DateTime? updatedAt,
+          required final String? content,
+          @JsonKey(name: 'imageContent') required final String? imageContent}) =
       _$Surah1Impl;
 
   factory _Surah1.fromJson(Map<String, dynamic> json) = _$Surah1Impl.fromJson;
@@ -1307,7 +944,7 @@ abstract class _Surah1 implements Surah1 {
   @JsonKey(name: "_id")
   String? get id;
   @override
-  Surah? get surah;
+  QuranSurahAyayModel? get surah;
   @override
   int? get surahNumber;
   @override
@@ -1484,11 +1121,11 @@ class __$$TranslationImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TranslationImpl implements _Translation {
   const _$TranslationImpl(
-      {this.translationBy,
-      this.language,
-      this.audio,
-      this.content,
-      @JsonKey(name: 'imageContent') this.imageContent,
+      {required this.translationBy,
+      required this.language,
+      required this.audio,
+      required this.content,
+      @JsonKey(name: 'imageContent') required this.imageContent,
       @JsonKey(name: "_id") required this.id});
 
   factory _$TranslationImpl.fromJson(Map<String, dynamic> json) =>
@@ -1551,11 +1188,11 @@ class _$TranslationImpl implements _Translation {
 
 abstract class _Translation implements Translation {
   const factory _Translation(
-      {final String? translationBy,
-      final String? language,
-      final String? audio,
-      final String? content,
-      @JsonKey(name: 'imageContent') final String? imageContent,
+      {required final String? translationBy,
+      required final String? language,
+      required final String? audio,
+      required final String? content,
+      @JsonKey(name: 'imageContent') required final String? imageContent,
       @JsonKey(name: "_id") required final String? id}) = _$TranslationImpl;
 
   factory _Translation.fromJson(Map<String, dynamic> json) =
@@ -1578,5 +1215,133 @@ abstract class _Translation implements Translation {
   @override
   @JsonKey(ignore: true)
   _$$TranslationImplCopyWith<_$TranslationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$Ayah {
+  Map<String, List<Surah1>> get surahData => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AyahCopyWith<Ayah> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AyahCopyWith<$Res> {
+  factory $AyahCopyWith(Ayah value, $Res Function(Ayah) then) =
+      _$AyahCopyWithImpl<$Res, Ayah>;
+  @useResult
+  $Res call({Map<String, List<Surah1>> surahData});
+}
+
+/// @nodoc
+class _$AyahCopyWithImpl<$Res, $Val extends Ayah>
+    implements $AyahCopyWith<$Res> {
+  _$AyahCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? surahData = null,
+  }) {
+    return _then(_value.copyWith(
+      surahData: null == surahData
+          ? _value.surahData
+          : surahData // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<Surah1>>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AyahImplCopyWith<$Res> implements $AyahCopyWith<$Res> {
+  factory _$$AyahImplCopyWith(
+          _$AyahImpl value, $Res Function(_$AyahImpl) then) =
+      __$$AyahImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Map<String, List<Surah1>> surahData});
+}
+
+/// @nodoc
+class __$$AyahImplCopyWithImpl<$Res>
+    extends _$AyahCopyWithImpl<$Res, _$AyahImpl>
+    implements _$$AyahImplCopyWith<$Res> {
+  __$$AyahImplCopyWithImpl(_$AyahImpl _value, $Res Function(_$AyahImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? surahData = null,
+  }) {
+    return _then(_$AyahImpl(
+      surahData: null == surahData
+          ? _value._surahData
+          : surahData // ignore: cast_nullable_to_non_nullable
+              as Map<String, List<Surah1>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AyahImpl implements _Ayah {
+  const _$AyahImpl({required final Map<String, List<Surah1>> surahData})
+      : _surahData = surahData;
+
+  final Map<String, List<Surah1>> _surahData;
+  @override
+  Map<String, List<Surah1>> get surahData {
+    if (_surahData is EqualUnmodifiableMapView) return _surahData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_surahData);
+  }
+
+  @override
+  String toString() {
+    return 'Ayah(surahData: $surahData)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AyahImpl &&
+            const DeepCollectionEquality()
+                .equals(other._surahData, _surahData));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_surahData));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AyahImplCopyWith<_$AyahImpl> get copyWith =>
+      __$$AyahImplCopyWithImpl<_$AyahImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    // TODO: implement toJson
+    throw UnimplementedError();
+  }
+}
+
+abstract class _Ayah implements Ayah {
+  const factory _Ayah({required final Map<String, List<Surah1>> surahData}) =
+      _$AyahImpl;
+
+  @override
+  Map<String, List<Surah1>> get surahData;
+  @override
+  @JsonKey(ignore: true)
+  _$$AyahImplCopyWith<_$AyahImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

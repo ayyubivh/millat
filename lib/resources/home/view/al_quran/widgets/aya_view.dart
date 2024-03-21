@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -115,9 +117,13 @@ class _QuranAyaViewState extends State<QuranAyaView> {
     return ScrollablePositionedList.builder(
       itemScrollController: itemScrollController,
       itemPositionsListener: itemPositionsListener,
-      itemCount: state.paraVersesModel?.length ?? 0,
+      itemCount: 7,
       itemBuilder: (context, index) {
         final aya = state.paraVersesModel;
+        final content = aya?.first.data?.ayah?.first.surahData.values
+                .first[index].content ??
+            "";
+        log(aya?.first.data?.ayah?.first.surahData.toString() ?? "");
         return VersesCardWidget(
           isValue: ' ',
           bookMarkOntap: () {
@@ -132,8 +138,8 @@ class _QuranAyaViewState extends State<QuranAyaView> {
                 .read<QuranBloc>()
                 .add(QuranEvent.playAllParaAudiosAuto(index: index));
           },
-          numValue: aya?[index].data?.ayah?.first.surah1?.first.ayahNumber ?? 0,
-          surah: aya?[index].data?.para?.title.toString() ?? "",
+          numValue: index + 1,
+          surah: content,
           surahMeaning: state.paraTranslationText?[index] ?? '',
         );
       },

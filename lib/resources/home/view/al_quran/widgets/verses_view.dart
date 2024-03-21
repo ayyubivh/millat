@@ -427,14 +427,7 @@ class _VersesViewState extends State<VersesView> {
                                                           .playAllParaAudiosAuto(
                                                               index: index));
                                                 },
-                                                numValue: aya?[index]
-                                                        .data
-                                                        ?.ayah
-                                                        ?.first
-                                                        .surah1
-                                                        ?.first
-                                                        .ayahNumber ??
-                                                    0,
+                                                numValue: index + 1,
                                                 surah: aya?[index]
                                                         .data
                                                         ?.para

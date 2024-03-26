@@ -10,6 +10,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
+import 'package:millat/resources/home/bloc/service/quran_bookmark_services.dart';
 
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
@@ -86,7 +87,7 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
     }
     BlocProvider.of<QuranBloc>(context).add(const GetShuffledAya());
 
-    BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
+    // BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
     BlocProvider.of<DatabaseBloc>(context)
       ..add(FetchAuthUser(context: context))

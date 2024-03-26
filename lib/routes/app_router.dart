@@ -647,7 +647,7 @@ class MyAppRouter {
                       pageBuilder: (context, state) {
                         Map data = state.extra as Map;
                         return MaterialPage(
-                          child: BookmarkCollectionView(
+                          child: BookmarkCollectionDetailsView(
                             passvalue: data['passvalue'],
                           ),
                         );

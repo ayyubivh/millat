@@ -26,8 +26,11 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
 
   @override
   void initState() {
-    BlocProvider.of<QuranBloc>(context).add(const FetchQuaranChaptersEvent());
-    BlocProvider.of<QuranBloc>(context).add(const FetchQuranPara());
+    BlocProvider.of<QuranBloc>(context)
+      ..add(const FetchQuaranChaptersEvent())
+      ..add(const FetchQuranPara());
+    BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
+
     _tabController = TabController(length: 3, vsync: this);
 
     super.initState();
@@ -92,7 +95,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
     return SizedBox(
       child: BlocBuilder<BookmarkBloc, BookmarkState>(
         builder: (context, state) {
-          return state.dbCollectionItems.isEmpty
+          return state.quranbookmarkModel?.isEmpty ?? true
               ? const CreateNewBookmarkWidget()
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,14 +105,14 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                     Expanded(
                       child: BlocBuilder<BookmarkBloc, BookmarkState>(
                         builder: (context, state) {
-                          if (state.dbCollectionItems.isEmpty) {
+                          if (state.quranbookmarkModel?.isEmpty ?? true) {
                             return const SizedBox();
                           }
-                          final value = state.dbCollectionItems;
+                          final value = state.quranbookmarkModel;
                           return ListView.builder(
-                            itemCount: value.length,
+                            itemCount: value?.length,
                             itemBuilder: (context, index) {
-                              final data = value[index];
+                              final data = value?[index];
 
                               return InkWell(
                                 onTap: () {
@@ -119,11 +122,11 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                                       extra: {'passvalue': data});
                                 },
                                 child: QuranBookmarkCollectionWidget(
-                                    passvalue: data,
+                                    passvalue: data!,
                                     context: context,
-                                    img: data.image,
-                                    collectionName: data.name,
-                                    userName: data.description),
+                                    img: data.image ?? "",
+                                    collectionName: data.title ?? "",
+                                    userName: ''),
                               );
                             },
                           );
@@ -229,8 +232,10 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                 context
                     .read<QuranBloc>()
                     .add(FetchParaAudios(id: id, recitorId: state.recitorId));
-                context.pushNamed(MyAppRouteConstants.quranAyaView,
-                    extra: {'slug': id.toString(), 'type': Qurantype.para});
+                context.pushNamed(
+                  MyAppRouteConstants.quranAyaView,
+                  extra: {'slug': id.toString(), 'type': Qurantype.para},
+                );
                 // context.pushNamed(MyAppRouteConstants.quranVersesRoutename,
                 //     extra: {
                 //       'type': Qurantype.para,

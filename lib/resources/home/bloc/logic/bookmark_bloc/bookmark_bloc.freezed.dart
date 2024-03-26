@@ -47,7 +47,7 @@ mixin _$BookmarkEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,7 +71,7 @@ mixin _$BookmarkEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -95,7 +95,7 @@ mixin _$BookmarkEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -334,7 +334,7 @@ class _$AddCollectionImpl implements AddCollection {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return addCollection(name, description, verskey, image, context, dbId);
   }
@@ -361,7 +361,7 @@ class _$AddCollectionImpl implements AddCollection {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return addCollection?.call(
         name, description, verskey, image, context, dbId);
@@ -389,7 +389,7 @@ class _$AddCollectionImpl implements AddCollection {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (addCollection != null) {
@@ -586,7 +586,7 @@ class _$SaveImageEventImpl implements SaveImageEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return saveImageEvent(img);
   }
@@ -613,7 +613,7 @@ class _$SaveImageEventImpl implements SaveImageEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return saveImageEvent?.call(img);
   }
@@ -640,7 +640,7 @@ class _$SaveImageEventImpl implements SaveImageEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveImageEvent != null) {
@@ -833,7 +833,7 @@ class _$SaveQuranChapterIdImpl implements SaveQuranChapterId {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return saveQuranChapterId(id);
   }
@@ -860,7 +860,7 @@ class _$SaveQuranChapterIdImpl implements SaveQuranChapterId {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return saveQuranChapterId?.call(id);
   }
@@ -887,7 +887,7 @@ class _$SaveQuranChapterIdImpl implements SaveQuranChapterId {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveQuranChapterId != null) {
@@ -1074,7 +1074,7 @@ class _$NameChangedImpl implements NameChanged {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return nameChanged(nameValue);
   }
@@ -1101,7 +1101,7 @@ class _$NameChangedImpl implements NameChanged {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return nameChanged?.call(nameValue);
   }
@@ -1128,7 +1128,7 @@ class _$NameChangedImpl implements NameChanged {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -1316,7 +1316,7 @@ class _$DescriptionChangedImpl implements DescriptionChanged {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return descriptionChanged(descriptionValue);
   }
@@ -1343,7 +1343,7 @@ class _$DescriptionChangedImpl implements DescriptionChanged {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return descriptionChanged?.call(descriptionValue);
   }
@@ -1370,7 +1370,7 @@ class _$DescriptionChangedImpl implements DescriptionChanged {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -1618,7 +1618,7 @@ class _$EditCollectionImpl implements EditCollection {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return editCollection(name, description, verskey, image, dbId, context);
   }
@@ -1645,7 +1645,7 @@ class _$EditCollectionImpl implements EditCollection {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return editCollection?.call(
         name, description, verskey, image, dbId, context);
@@ -1673,7 +1673,7 @@ class _$EditCollectionImpl implements EditCollection {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (editCollection != null) {
@@ -1877,7 +1877,7 @@ class _$AddFavCollectionImpl implements AddFavCollection {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return addFavCollection(verskey);
   }
@@ -1904,7 +1904,7 @@ class _$AddFavCollectionImpl implements AddFavCollection {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return addFavCollection?.call(verskey);
   }
@@ -1931,7 +1931,7 @@ class _$AddFavCollectionImpl implements AddFavCollection {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (addFavCollection != null) {
@@ -2119,7 +2119,7 @@ class _$SaveIndexEventImpl implements SaveIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return saveIndexEvent(indexList);
   }
@@ -2146,7 +2146,7 @@ class _$SaveIndexEventImpl implements SaveIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return saveIndexEvent?.call(indexList);
   }
@@ -2173,7 +2173,7 @@ class _$SaveIndexEventImpl implements SaveIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveIndexEvent != null) {
@@ -2362,7 +2362,7 @@ class _$SaveVersesIndexEventImpl implements SaveVersesIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return saveVersesIndexEvent(versesIndexList);
   }
@@ -2389,7 +2389,7 @@ class _$SaveVersesIndexEventImpl implements SaveVersesIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return saveVersesIndexEvent?.call(versesIndexList);
   }
@@ -2416,7 +2416,7 @@ class _$SaveVersesIndexEventImpl implements SaveVersesIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveVersesIndexEvent != null) {
@@ -2576,7 +2576,7 @@ class _$ClearIndexEventImpl implements ClearIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return clearIndexEvent();
   }
@@ -2603,7 +2603,7 @@ class _$ClearIndexEventImpl implements ClearIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return clearIndexEvent?.call();
   }
@@ -2630,7 +2630,7 @@ class _$ClearIndexEventImpl implements ClearIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (clearIndexEvent != null) {
@@ -2811,7 +2811,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return changeIndexEvent(index);
   }
@@ -2838,7 +2838,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return changeIndexEvent?.call(index);
   }
@@ -2865,7 +2865,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (changeIndexEvent != null) {
@@ -3024,7 +3024,7 @@ class _$EmptyIndexEventImpl implements EmptyIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return emptyIndexEvent();
   }
@@ -3051,7 +3051,7 @@ class _$EmptyIndexEventImpl implements EmptyIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return emptyIndexEvent?.call();
   }
@@ -3078,7 +3078,7 @@ class _$EmptyIndexEventImpl implements EmptyIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (emptyIndexEvent != null) {
@@ -3260,7 +3260,7 @@ class _$SaveVerseKeyEventImpl implements SaveVerseKeyEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return saveVerseKeyEvent(versekey);
   }
@@ -3287,7 +3287,7 @@ class _$SaveVerseKeyEventImpl implements SaveVerseKeyEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return saveVerseKeyEvent?.call(versekey);
   }
@@ -3314,7 +3314,7 @@ class _$SaveVerseKeyEventImpl implements SaveVerseKeyEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveVerseKeyEvent != null) {
@@ -3474,7 +3474,7 @@ class _$EmptyVerseKeyEventImpl implements EmptyVerseKeyEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return emptyVerseKeyEvent();
   }
@@ -3501,7 +3501,7 @@ class _$EmptyVerseKeyEventImpl implements EmptyVerseKeyEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return emptyVerseKeyEvent?.call();
   }
@@ -3528,7 +3528,7 @@ class _$EmptyVerseKeyEventImpl implements EmptyVerseKeyEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (emptyVerseKeyEvent != null) {
@@ -3683,7 +3683,7 @@ class _$FetchCollectionItemImpl implements FetchCollectionItem {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
     return fetchCollectionItem();
   }
@@ -3710,7 +3710,7 @@ class _$FetchCollectionItemImpl implements FetchCollectionItem {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
     return fetchCollectionItem?.call();
   }
@@ -3737,7 +3737,7 @@ class _$FetchCollectionItemImpl implements FetchCollectionItem {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (fetchCollectionItem != null) {
@@ -3830,7 +3830,7 @@ abstract class _$$RemoveBookmarkImplCopyWith<$Res> {
           $Res Function(_$RemoveBookmarkImpl) then) =
       __$$RemoveBookmarkImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String verseKey});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -3844,12 +3844,12 @@ class __$$RemoveBookmarkImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? verseKey = null,
+    Object? id = null,
   }) {
     return _then(_$RemoveBookmarkImpl(
-      verseKey: null == verseKey
-          ? _value.verseKey
-          : verseKey // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -3858,14 +3858,14 @@ class __$$RemoveBookmarkImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RemoveBookmarkImpl implements RemoveBookmark {
-  const _$RemoveBookmarkImpl({required this.verseKey});
+  const _$RemoveBookmarkImpl({required this.id});
 
   @override
-  final String verseKey;
+  final String id;
 
   @override
   String toString() {
-    return 'BookmarkEvent.removeBookmark(verseKey: $verseKey)';
+    return 'BookmarkEvent.removeBookmark(id: $id)';
   }
 
   @override
@@ -3873,12 +3873,11 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RemoveBookmarkImpl &&
-            (identical(other.verseKey, verseKey) ||
-                other.verseKey == verseKey));
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, verseKey);
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
@@ -3919,9 +3918,9 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
-    required TResult Function(String verseKey) removeBookmark,
+    required TResult Function(String id) removeBookmark,
   }) {
-    return removeBookmark(verseKey);
+    return removeBookmark(id);
   }
 
   @override
@@ -3946,9 +3945,9 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
-    TResult? Function(String verseKey)? removeBookmark,
+    TResult? Function(String id)? removeBookmark,
   }) {
-    return removeBookmark?.call(verseKey);
+    return removeBookmark?.call(id);
   }
 
   @override
@@ -3973,11 +3972,11 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
-    TResult Function(String verseKey)? removeBookmark,
+    TResult Function(String id)? removeBookmark,
     required TResult orElse(),
   }) {
     if (removeBookmark != null) {
-      return removeBookmark(verseKey);
+      return removeBookmark(id);
     }
     return orElse();
   }
@@ -4057,10 +4056,10 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
 }
 
 abstract class RemoveBookmark implements BookmarkEvent {
-  const factory RemoveBookmark({required final String verseKey}) =
+  const factory RemoveBookmark({required final String id}) =
       _$RemoveBookmarkImpl;
 
-  String get verseKey;
+  String get id;
   @JsonKey(ignore: true)
   _$$RemoveBookmarkImplCopyWith<_$RemoveBookmarkImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -4079,8 +4078,9 @@ mixin _$BookmarkState {
   int get index => throw _privateConstructorUsedError;
   List<int> get versesIndexList => throw _privateConstructorUsedError;
   List<String> get verskey => throw _privateConstructorUsedError;
-  List<BookMarkCollectionModel> get dbCollectionItems =>
+  List<QuranBookmModel>? get quranbookmarkModel =>
       throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BookmarkStateCopyWith<BookmarkState> get copyWith =>
@@ -4105,7 +4105,8 @@ abstract class $BookmarkStateCopyWith<$Res> {
       int index,
       List<int> versesIndexList,
       List<String> verskey,
-      List<BookMarkCollectionModel> dbCollectionItems});
+      List<QuranBookmModel>? quranbookmarkModel,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -4132,7 +4133,8 @@ class _$BookmarkStateCopyWithImpl<$Res, $Val extends BookmarkState>
     Object? index = null,
     Object? versesIndexList = null,
     Object? verskey = null,
-    Object? dbCollectionItems = null,
+    Object? quranbookmarkModel = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       image: null == image
@@ -4179,10 +4181,14 @@ class _$BookmarkStateCopyWithImpl<$Res, $Val extends BookmarkState>
           ? _value.verskey
           : verskey // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      dbCollectionItems: null == dbCollectionItems
-          ? _value.dbCollectionItems
-          : dbCollectionItems // ignore: cast_nullable_to_non_nullable
-              as List<BookMarkCollectionModel>,
+      quranbookmarkModel: freezed == quranbookmarkModel
+          ? _value.quranbookmarkModel
+          : quranbookmarkModel // ignore: cast_nullable_to_non_nullable
+              as List<QuranBookmModel>?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -4207,7 +4213,8 @@ abstract class _$$BookmarkStateImplCopyWith<$Res>
       int index,
       List<int> versesIndexList,
       List<String> verskey,
-      List<BookMarkCollectionModel> dbCollectionItems});
+      List<QuranBookmModel>? quranbookmarkModel,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -4232,7 +4239,8 @@ class __$$BookmarkStateImplCopyWithImpl<$Res>
     Object? index = null,
     Object? versesIndexList = null,
     Object? verskey = null,
-    Object? dbCollectionItems = null,
+    Object? quranbookmarkModel = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_$BookmarkStateImpl(
       image: null == image
@@ -4279,10 +4287,14 @@ class __$$BookmarkStateImplCopyWithImpl<$Res>
           ? _value._verskey
           : verskey // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      dbCollectionItems: null == dbCollectionItems
-          ? _value._dbCollectionItems
-          : dbCollectionItems // ignore: cast_nullable_to_non_nullable
-              as List<BookMarkCollectionModel>,
+      quranbookmarkModel: freezed == quranbookmarkModel
+          ? _value._quranbookmarkModel
+          : quranbookmarkModel // ignore: cast_nullable_to_non_nullable
+              as List<QuranBookmModel>?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -4302,12 +4314,13 @@ class _$BookmarkStateImpl implements _BookmarkState {
       required this.index,
       required final List<int> versesIndexList,
       required final List<String> verskey,
-      required final List<BookMarkCollectionModel> dbCollectionItems})
+      required final List<QuranBookmModel>? quranbookmarkModel,
+      required this.isLoading})
       : _id = id,
         _indexList = indexList,
         _versesIndexList = versesIndexList,
         _verskey = verskey,
-        _dbCollectionItems = dbCollectionItems;
+        _quranbookmarkModel = quranbookmarkModel;
 
   @override
   final String image;
@@ -4355,18 +4368,23 @@ class _$BookmarkStateImpl implements _BookmarkState {
     return EqualUnmodifiableListView(_verskey);
   }
 
-  final List<BookMarkCollectionModel> _dbCollectionItems;
+  final List<QuranBookmModel>? _quranbookmarkModel;
   @override
-  List<BookMarkCollectionModel> get dbCollectionItems {
-    if (_dbCollectionItems is EqualUnmodifiableListView)
-      return _dbCollectionItems;
+  List<QuranBookmModel>? get quranbookmarkModel {
+    final value = _quranbookmarkModel;
+    if (value == null) return null;
+    if (_quranbookmarkModel is EqualUnmodifiableListView)
+      return _quranbookmarkModel;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_dbCollectionItems);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
+  final bool isLoading;
+
+  @override
   String toString() {
-    return 'BookmarkState(image: $image, name: $name, description: $description, errorMessage: $errorMessage, id: $id, indexList: $indexList, dbId: $dbId, isSuccess: $isSuccess, index: $index, versesIndexList: $versesIndexList, verskey: $verskey, dbCollectionItems: $dbCollectionItems)';
+    return 'BookmarkState(image: $image, name: $name, description: $description, errorMessage: $errorMessage, id: $id, indexList: $indexList, dbId: $dbId, isSuccess: $isSuccess, index: $index, versesIndexList: $versesIndexList, verskey: $verskey, quranbookmarkModel: $quranbookmarkModel, isLoading: $isLoading)';
   }
 
   @override
@@ -4391,7 +4409,9 @@ class _$BookmarkStateImpl implements _BookmarkState {
                 .equals(other._versesIndexList, _versesIndexList) &&
             const DeepCollectionEquality().equals(other._verskey, _verskey) &&
             const DeepCollectionEquality()
-                .equals(other._dbCollectionItems, _dbCollectionItems));
+                .equals(other._quranbookmarkModel, _quranbookmarkModel) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
@@ -4408,7 +4428,8 @@ class _$BookmarkStateImpl implements _BookmarkState {
       index,
       const DeepCollectionEquality().hash(_versesIndexList),
       const DeepCollectionEquality().hash(_verskey),
-      const DeepCollectionEquality().hash(_dbCollectionItems));
+      const DeepCollectionEquality().hash(_quranbookmarkModel),
+      isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -4419,19 +4440,19 @@ class _$BookmarkStateImpl implements _BookmarkState {
 
 abstract class _BookmarkState implements BookmarkState {
   const factory _BookmarkState(
-          {required final String image,
-          required final String name,
-          required final String description,
-          required final String errorMessage,
-          required final List<int> id,
-          required final List<int> indexList,
-          required final String dbId,
-          required final bool isSuccess,
-          required final int index,
-          required final List<int> versesIndexList,
-          required final List<String> verskey,
-          required final List<BookMarkCollectionModel> dbCollectionItems}) =
-      _$BookmarkStateImpl;
+      {required final String image,
+      required final String name,
+      required final String description,
+      required final String errorMessage,
+      required final List<int> id,
+      required final List<int> indexList,
+      required final String dbId,
+      required final bool isSuccess,
+      required final int index,
+      required final List<int> versesIndexList,
+      required final List<String> verskey,
+      required final List<QuranBookmModel>? quranbookmarkModel,
+      required final bool isLoading}) = _$BookmarkStateImpl;
 
   @override
   String get image;
@@ -4456,7 +4477,9 @@ abstract class _BookmarkState implements BookmarkState {
   @override
   List<String> get verskey;
   @override
-  List<BookMarkCollectionModel> get dbCollectionItems;
+  List<QuranBookmModel>? get quranbookmarkModel;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$BookmarkStateImplCopyWith<_$BookmarkStateImpl> get copyWith =>

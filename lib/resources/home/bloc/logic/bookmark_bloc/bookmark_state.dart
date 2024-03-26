@@ -14,10 +14,12 @@ class BookmarkState with _$BookmarkState {
     required int index,
     required List<int> versesIndexList,
     required List<String> verskey,
-    required List<BookMarkCollectionModel> dbCollectionItems,
+    required List<QuranBookmModel>? quranbookmarkModel,
+    required bool isLoading,
   }) = _BookmarkState;
   factory BookmarkState.initial() => const BookmarkState(
         indexList: [],
+        quranbookmarkModel: null,
         versesIndexList: [],
         image: "",
         description: "",
@@ -28,6 +30,6 @@ class BookmarkState with _$BookmarkState {
         isSuccess: false,
         index: -1,
         verskey: [],
-        dbCollectionItems: [],
+        isLoading: false,
       );
 }

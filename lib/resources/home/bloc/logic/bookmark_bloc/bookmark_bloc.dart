@@ -1,18 +1,23 @@
 // ignore_for_file: unrelated_type_equality_checks
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
+import 'package:millat/resources/home/bloc/service/quran_bookmark_services.dart';
 import 'package:millat/utils/assets_paths.dart';
 import '../../../../../utils/string_constants.dart';
 import '../../db/db_functions.dart';
+import '../../models/book_mark_hive_model/quran_bookmark_collection.dart';
 
 part 'bookmark_event.dart';
 part 'bookmark_state.dart';
 part 'bookmark_bloc.freezed.dart';
 
 class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
+  final QuranBookmarkServices _quranBookmarkServices = QuranBookmarkServices();
   BookmarkBloc() : super(BookmarkState.initial()) {
     on<NameChanged>(_nameChanged);
     on<DescriptionChanged>(_descriptionChanged);
@@ -32,57 +37,11 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     on<RemoveBookmark>(_removeBookmark);
   }
 
-  _addCollection(AddCollection event, Emitter<BookmarkState> emit) {
-    final newState = state.copyWith(
-      name: event.name,
-      description: event.description,
-      image: event.image,
-      verskey: event.verskey,
-      dbId: event.dbId!,
-    );
-
-    emit(newState);
-    final name = state.name;
-    final img = state.image;
-    final versekey = state.verskey;
-    final desc = state.description;
-    final dbId = state.dbId;
-
-    final model = BookMarkCollectionModel(
-        id: dbId,
-        verseKey: state.verskey,
-        name: name,
-        description: desc,
-        image: img);
-
-    if (name.isEmpty || img.isEmpty || desc.isEmpty || versekey == []) {
-    } else {
-      BookMarkDB.instance.addCollection(model);
-    }
-  }
-
   _addFavCollection(
     AddFavCollection event,
     Emitter<BookmarkState> emit,
   ) {
-    final model = BookMarkCollectionModel(
-        id: '1',
-        verseKey: event.verskey,
-        name: Appstrings.myFavorite,
-        description: "Favorite Item Collections",
-        image: AppAssetsStrings.favoriteImg);
-
-    BookMarkDB.instance.addCollection(model);
-  }
-
-  _fetchCollectionItem(
-      FetchCollectionItem event, Emitter<BookmarkState> emit) async {
-    try {
-      final data = await BookMarkDB.instance.getAllBookmarkCollection();
-      emit(state.copyWith(dbCollectionItems: data));
-    } catch (e) {
-      throw Exception(e);
-    }
+    // BookMarkDB.instance.addCollection(model);
   }
 
   // _removeBookmark(RemoveBookmark event, Emitter<BookmarkState> emit) {
@@ -98,37 +57,6 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
   //     throw Exception(e);
   //   }
   // }
-  _removeBookmark(RemoveBookmark event, Emitter<BookmarkState> emit) {
-    try {
-      final updatedCollectionItems =
-          List<BookMarkCollectionModel>.from(state.dbCollectionItems);
-
-      final int itemIndex = updatedCollectionItems
-          .indexWhere((item) => item.verseKey.contains(event.verseKey));
-
-      if (itemIndex != -1) {
-        final List<String> updatedVerseKeys =
-            List<String>.from(updatedCollectionItems[itemIndex].verseKey);
-        updatedVerseKeys.remove(event.verseKey);
-
-        final updatedItem = BookMarkCollectionModel(
-          id: updatedCollectionItems[itemIndex].id,
-          name: updatedCollectionItems[itemIndex].name,
-          description: updatedCollectionItems[itemIndex].description,
-          image: updatedCollectionItems[itemIndex].image,
-          verseKey: updatedVerseKeys,
-        );
-        BookMarkDB.instance.editCollection(updatedItem, updatedItem.id);
-        updatedCollectionItems[itemIndex] = updatedItem;
-      }
-
-      final newState =
-          state.copyWith(dbCollectionItems: updatedCollectionItems);
-      emit(newState);
-    } catch (e) {
-      throw Exception(e);
-    }
-  }
 
   _saveImageEvent(SaveImageEvent event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(image: event.img));
@@ -147,33 +75,6 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
 
   _descriptionChanged(DescriptionChanged event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(description: event.descriptionValue));
-  }
-
-  _editCollection(EditCollection event, Emitter<BookmarkState> emit) {
-    final newState = state.copyWith(
-      name: event.name,
-      description: event.description,
-      image: event.image,
-    );
-    emit(newState);
-    final name = state.name;
-    final img = state.image;
-    final id = event.verskey;
-    final desc = state.description;
-    final dbId = event.dbId;
-
-    final model = BookMarkCollectionModel(
-      id: dbId,
-      verseKey: id,
-      name: name,
-      description: desc,
-      image: img,
-    );
-
-    if (name.isEmpty || img.isEmpty || desc.isEmpty || id == 0) {
-    } else {
-      BookMarkDB.instance.editCollection(model, model.id);
-    }
   }
 
   _saveIndexEvent(SaveIndexEvent event, Emitter<BookmarkState> emit) {
@@ -225,5 +126,105 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
 
   _emptyVerseKeyEvent(EmptyVerseKeyEvent event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(verskey: []));
+  }
+
+//----------------------------------------------------
+  _addCollection(AddCollection event, Emitter<BookmarkState> emit) async {
+    final newState = state.copyWith(
+      name: event.name,
+      description: event.description,
+      image: event.image,
+      verskey: event.verskey,
+      dbId: event.dbId!,
+    );
+
+    emit(newState);
+    final name = state.name;
+    final img = state.image;
+    final versekey = state.verskey;
+
+    final res = await _quranBookmarkServices.addBookMark(
+      title: name,
+      surahs: ['65e87f662e8e6511b29c8bf7'],
+      ayahs: [],
+      imageFilePath: img,
+    );
+    if (res['status'] == true) {
+      final data = await _quranBookmarkServices.fetchBookmarks();
+      emit(state.copyWith(quranbookmarkModel: data));
+    }
+  }
+
+  _editCollection(EditCollection event, Emitter<BookmarkState> emit) {
+    final newState = state.copyWith(
+      name: event.name,
+      description: event.description,
+      image: event.image,
+    );
+    emit(newState);
+    final name = state.name;
+    final img = state.image;
+    final id = event.verskey;
+    final desc = state.description;
+    final dbId = event.dbId;
+
+    if (name.isEmpty || img.isEmpty || desc.isEmpty || id == 0) {
+    } else {
+      // BookMarkDB.instance.editCollection(model, model.id);
+    }
+  }
+
+  _removeBookmark(RemoveBookmark event, Emitter<BookmarkState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final res = await _quranBookmarkServices.deleteBookmark(event.id);
+      if (res['status'] == true) {
+        final data = await _quranBookmarkServices.fetchBookmarks();
+        emit(state.copyWith(quranbookmarkModel: data, isLoading: false));
+      }
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+
+      throw Exception(e);
+    }
+    // try {
+    // final updatedCollectionItems =
+    //     List<BookMarkCollectionModel>.from(state.dbCollectionItems);
+
+    // final int itemIndex = updatedCollectionItems
+    //     .indexWhere((item) => item.verseKey.contains(event.verseKey));
+
+    // if (itemIndex != -1) {
+    //   final List<String> updatedVerseKeys =
+    //       List<String>.from(updatedCollectionItems[itemIndex].verseKey);
+    //   updatedVerseKeys.remove(event.verseKey);
+
+    //   final updatedItem = BookMarkCollectionModel(
+    //     id: updatedCollectionItems[itemIndex].id,
+    //     name: updatedCollectionItems[itemIndex].name,
+    //     description: updatedCollectionItems[itemIndex].description,
+    //     image: updatedCollectionItems[itemIndex].image,
+    //     verseKey: updatedVerseKeys,
+    //   );
+    //   // BookMarkDB.instance.editCollection(updatedItem, updatedItem.id);
+    //   updatedCollectionItems[itemIndex] = updatedItem;
+  }
+
+  //   final newState =
+  //       state.copyWith(dbCollectionItems: updatedCollectionItems);
+  //   emit(newState);
+  // } catch (e) {
+  //   throw Exception(e);
+  // }
+
+  _fetchCollectionItem(
+      FetchCollectionItem event, Emitter<BookmarkState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await _quranBookmarkServices.fetchBookmarks();
+      emit(state.copyWith(quranbookmarkModel: data, isLoading: false));
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }

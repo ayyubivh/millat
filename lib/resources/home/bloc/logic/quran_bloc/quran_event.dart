@@ -81,4 +81,8 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.addVersesToPlayList(
       {required List<String> verseKey}) = AddVersesToPlayList;
   const factory QuranEvent.getShuffledAya() = GetShuffledAya;
+  //----------------------------------------
+  const factory QuranEvent.fetchQuranayaById({
+    required String id,
+  }) = FetchQuranAyaById;
 }

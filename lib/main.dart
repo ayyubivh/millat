@@ -29,7 +29,6 @@ import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:onesignal_flutter/onesignal_flutter.dart';
-import 'resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'resources/rewards/bloc/logic/rewards_bloc/rewards_bloc_bloc.dart';
 import 'resources/travel/bloc/logic/travel_bloc.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -72,9 +71,6 @@ void main() async {
     DeviceOrientation.portraitDown
   ]);
 
-  if (!Hive.isAdapterRegistered(BookMarkCollectionModelAdapter().typeId)) {
-    Hive.registerAdapter(BookMarkCollectionModelAdapter());
-  }
   await Hive.initFlutter();
   await Hive.openBox('userDetailsBox');
 
@@ -136,10 +132,9 @@ class MyApp extends StatelessWidget {
             color: const Color(0xFFF5F5F5),
           )),
       theme: ThemeData(
-        fontFamily: 'SofiaPro',
-        primarySwatch: Colors.blue,
-        useMaterial3: false
-      ),
+          fontFamily: 'SofiaPro',
+          primarySwatch: Colors.blue,
+          useMaterial3: false),
     );
   }
 

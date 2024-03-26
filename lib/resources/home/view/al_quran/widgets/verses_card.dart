@@ -166,8 +166,9 @@ class VersesCardWidget extends StatelessWidget {
                 BlocBuilder<BookmarkBloc, BookmarkState>(
                   builder: (context, state) => GestureDetector(
                     onTap: bookMarkOntap,
-                    child: state.dbCollectionItems
-                            .any((e) => e.verseKey.contains(isValue))
+                    child: state.quranbookmarkModel?.any(
+                                (e) => e.ayahs?.contains(isValue) ?? true) ??
+                            true
                         ? ImageIcon(
                             const AssetImage(
                                 'assets/icons/bookmark_filled.png'),

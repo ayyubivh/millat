@@ -415,6 +415,7 @@ class AuthService extends HttpServices {
     request.fields['DOB'] = dob;
 
     if (imageFile != null) {
+      print(imageFile);
       request.files.add(http.MultipartFile(
         'picture',
         imageFile.openRead(),

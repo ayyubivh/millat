@@ -1,10 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-
 import '../../../../../enums/enumertations.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
@@ -97,17 +94,20 @@ class _QuranAyaViewState extends State<QuranAyaView> {
       ),
       body: BlocBuilder<QuranBloc, QuranState>(
         builder: (context, state) {
-          return state.isLoading
-              ? Padding(
-                  padding: const EdgeInsets.only(top: 50),
-                  child: ShimmerUtils.quranVersesShimmer(context),
-                )
-              : Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: widget.type == Qurantype.para
-                      ? _buildParaView(state)
-                      : _buildSurahView(state),
-                );
+          if (state.isLoading) {
+            return Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 30).copyWith(top: 50),
+              child: ShimmerUtils.quranVersesShimmer(context),
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: widget.type == Qurantype.para
+                  ? _buildParaView(state)
+                  : _buildSurahView(state),
+            );
+          }
         },
       ),
     );
@@ -117,13 +117,10 @@ class _QuranAyaViewState extends State<QuranAyaView> {
     return ScrollablePositionedList.builder(
       itemScrollController: itemScrollController,
       itemPositionsListener: itemPositionsListener,
-      itemCount: 7,
+      itemCount: state.paraVersesModel?.ayahs?.length ?? 0,
       itemBuilder: (context, index) {
         final aya = state.paraVersesModel;
-        final content = aya?.first.data?.ayah?.first.surahData.values
-                .first[index].content ??
-            "";
-        log(aya?.first.data?.ayah?.first.surahData.toString() ?? "");
+        final content = aya?.ayahs?[index].content ?? "";
         return VersesCardWidget(
           isValue: ' ',
           bookMarkOntap: () {

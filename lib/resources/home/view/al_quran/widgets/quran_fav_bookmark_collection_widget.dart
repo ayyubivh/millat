@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/home/bloc/models/book_mark_hive_model/quran_bookmark_collection.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import '../../../../../enums/enumertations.dart';
 import '../../../../../utils/color_manager.dart';
@@ -10,7 +11,7 @@ import '../../../bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class QuranFavBookmarkCollectionWidget extends StatelessWidget {
-  final BookMarkCollectionModel? passvalue;
+  final QuranBookmModel? passvalue;
   final int? chapterId;
   final int? index;
   final QuranFavbookMarkType type;
@@ -102,27 +103,27 @@ class QuranFavBookmarkCollectionWidget extends StatelessWidget {
   }
 
   void addToBookmarkCollection(BuildContext context, int chapterId, int index) {
-    final collectionList = context.read<BookmarkBloc>().state.dbCollectionItems;
+    // final collectionList = context.read<BookmarkBloc>().state.dbCollectionItems;
 
-    if (collectionList.isEmpty) {
-      context.read<BookmarkBloc>().add(
-            AddFavCollection(verskey: ['$chapterId:${index + 1}']),
-          );
+    // if (collectionList.isEmpty) {
+    //   context.read<BookmarkBloc>().add(
+    //         AddFavCollection(verskey: ['$chapterId:${index + 1}']),
+    //       );
 
-      context.read<BookmarkBloc>().add(const FetchCollectionItem());
-    } else {
-      List<BookMarkCollectionModel> filteredList =
-          collectionList.where((element) => element.id == '1').toList();
+    //   context.read<BookmarkBloc>().add(const FetchCollectionItem());
+    // } else {
+    //   List<BookMarkCollectionModel> filteredList =
+    //       collectionList.where((element) => element.id == '1').toList();
 
-      if (filteredList.isNotEmpty) {
-        List<String> updatedVerskey = List.from(filteredList[0].verseKey);
-        updatedVerskey.add('$chapterId:${index + 1}');
+    //   if (filteredList.isNotEmpty) {
+    //     List<String> updatedVerskey = List.from(filteredList[0].verseKey);
+    //     updatedVerskey.add('$chapterId:${index + 1}');
 
-        context.read<BookmarkBloc>().add(
-              AddFavCollection(verskey: updatedVerskey),
-            );
-        context.read<BookmarkBloc>().add(const FetchCollectionItem());
-      }
-    }
+    //     context.read<BookmarkBloc>().add(
+    //           AddFavCollection(verskey: updatedVerskey),
+    //         );
+    //     context.read<BookmarkBloc>().add(const FetchCollectionItem());
+    //   }
+    // }
   }
 }

@@ -73,8 +73,7 @@ class HomeServices extends HttpServices {
       } else if (response.statusCode == 400) {
         return;
       } else {
-        throw Exception(
-            'API request failed with status code: ${response.statusCode}');
+        return;
       }
     } catch (e) {
       debugPrint("error while fetching on shedule push notification $e");

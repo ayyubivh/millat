@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:io';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +9,7 @@ import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/bloc/models/book_mark_hive_model/quran_bookmark_collection.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -16,7 +19,7 @@ import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class AddNewBookMarkCollection extends StatefulWidget {
   final BookMarkCollectionType type;
-  final BookMarkCollectionModel? passvalue;
+  final QuranBookmModel? passvalue;
   final List<String>? verseKeys;
 
   const AddNewBookMarkCollection({
@@ -62,11 +65,11 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
   }
 
   addField() {
-    nameTextEditingController.text = widget.passvalue!.name;
-    descriptionTextEditingController.text = widget.passvalue!.description;
-    img = widget.passvalue!.image;
-    BlocProvider.of<BookmarkBloc>(context)
-        .add(SaveVerseKeyEvent((widget.passvalue!.verseKey.join(" "))));
+    nameTextEditingController.text = widget.passvalue?.title ?? "";
+    descriptionTextEditingController.text = '';
+    img = widget.passvalue?.image ?? "";
+    // BlocProvider.of<BookmarkBloc>(context)
+    //     .add(SaveVerseKeyEvent((widget.passvalue!.verseKey.join(" "))));
   }
 
   @override
@@ -81,7 +84,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
-      appBar: customAppBarBookMark(ctx: context, passValue: widget.passvalue),
+      appBar: customAppBarBookMark(ctx: context),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
@@ -97,7 +100,11 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                           borderRadius: BorderRadius.circular(12),
                           child: Stack(
                             children: [
-                              Image.asset(widget.passvalue!.image.toString()),
+                              widget.type == BookMarkCollectionType.edit
+                                  ? Image.network(
+                                      widget.passvalue!.image.toString())
+                                  : Image.asset(
+                                      widget.passvalue!.image.toString()),
                               Positioned(
                                 right: -3,
                                 child: InkWell(
@@ -311,9 +318,9 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
     );
   }
 
-  PreferredSize customAppBarBookMark(
-      {required BuildContext ctx,
-      required BookMarkCollectionModel? passValue}) {
+  PreferredSize customAppBarBookMark({
+    required BuildContext ctx,
+  }) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(54),
       child: Stack(
@@ -325,7 +332,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
             color: ColorManager.appBarColor,
             padding: const EdgeInsets.symmetric(
               horizontal: 25,
-            ).copyWith(top: 30),
+            ).copyWith(top: Platform.isIOS ? 50 : 30),
             child: Align(
                 alignment: Alignment.topCenter,
                 child: Row(
@@ -365,7 +372,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                     .state
                                     .bookmarkAudioPlaylist +
                                 state.verskey;
-                             widget.type == BookMarkCollectionType.add
+                            widget.type == BookMarkCollectionType.add
                                 ? ctx.read<BookmarkBloc>().add(AddCollection(
                                     context: context,
                                     name: nameTextEditingController.text,
@@ -388,7 +395,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                               verskey: verseList,
                                               image:
                                                   img == "" ? state.image : img,
-                                              dbId: passValue!.id!),
+                                              dbId: ''),
                                         )
                                     : ctx.read<BookmarkBloc>().add(
                                         AddCollection(

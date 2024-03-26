@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:millat/resources/home/bloc/models/al-quran/aya/aya_id_model.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/quran_para_model/quran_para_aya_model.dart';
 import 'package:millat/resources/home/bloc/service/quran_service.dart';
 import '../../../../../utils/string_constants.dart';
@@ -64,6 +67,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<PlayPlayListAudio>(_playPlayListAudio);
     on<AddVersesToPlayList>(_addVersesToPlayList);
     on<GetShuffledAya>(_getShuffledAya);
+    on<FetchQuranAyaById>(_fetchQuranAyaById);
   }
 
   _fetchQuranChapters(
@@ -131,7 +135,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await quranServices.fetchQuranParaAya(event.id);
-
+      print(data);
       emit(
         state.copyWith(
             paraVersesModel: data,
@@ -526,5 +530,17 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
   _getShuffledAya(GetShuffledAya event, Emitter<QuranState> emit) {
     final shuffledList = List.from(state.tempListAya)..shuffle();
     emit(state.copyWith(shuffleVersKey: shuffledList.first));
+  }
+
+  _fetchQuranAyaById(FetchQuranAyaById event, Emitter<QuranState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await quranServices.fetchAyaById(event.id);
+      emit(state.copyWith(isLoading: false, ayaById: data));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+
+      throw Exception(e);
+    }
   }
 }

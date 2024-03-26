@@ -2,27 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/outlined_button.dart';
-import 'package:millat/resources/home/bloc/db/db_functions.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/bloc/models/book_mark_hive_model/quran_bookmark_collection.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../../../../enums/enumertations.dart';
 import '../../../../../routes/app_router_constants.dart';
 import '../../../../../utils/color_manager.dart';
-import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
-class BookmarkCollectionView extends StatelessWidget {
-  final BookMarkCollectionModel passvalue;
-  const BookmarkCollectionView({super.key, required this.passvalue});
+class BookmarkCollectionDetailsView extends StatelessWidget {
+  final QuranBookmModel passvalue;
+  const BookmarkCollectionDetailsView({super.key, required this.passvalue});
 
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<QuranBloc>(context)
-        ..add(FetchVersesByKey(verseKey: passvalue.verseKey))
-        ..add(AddVersesToPlayList(verseKey: passvalue.verseKey));
+      if (passvalue.ayahs?.isEmpty ?? true) {
+        return;
+      } else {
+        BlocProvider.of<QuranBloc>(context)
+            .add(FetchQuranAyaById(id: passvalue.ayahs?.first ?? ""));
+      }
+
+      //   ..add(AddVersesToPlayList(verseKey: passvalue.verseKey));
     });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
@@ -32,7 +36,7 @@ class BookmarkCollectionView extends StatelessWidget {
         centerTitle: true,
         backgroundColor: ColorManager.appBarColor,
         title: Text(
-          passvalue.name,
+          passvalue.title ?? "",
           style: TextStyle(
             color: ColorManager.blackColor,
             fontSize: 16,
@@ -49,8 +53,8 @@ class BookmarkCollectionView extends StatelessWidget {
               alignment: Alignment.center,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  passvalue.image,
+                child: Image.network(
+                  passvalue.image ?? "",
                   height: 150,
                   width: 155,
                   fit: BoxFit.fill,
@@ -64,7 +68,7 @@ class BookmarkCollectionView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      passvalue.name,
+                      passvalue.title ?? "",
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -72,7 +76,7 @@ class BookmarkCollectionView extends StatelessWidget {
                     ),
                     kHeight10,
                     Text(
-                      passvalue.name,
+                      passvalue.title ?? "",
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
@@ -112,23 +116,26 @@ class BookmarkCollectionView extends StatelessWidget {
             Expanded(
               child: BlocBuilder<QuranBloc, QuranState>(
                 builder: (context, state) {
-                  if (state.versesByKeyModel == null) {
+                  if (state.isLoading) {
                     return const Loader();
-                  }
-                  final data = state.versesByKeyModel;
+                  } else if (state.ayaById?.content == '') {
+                    return const SizedBox();
+                  } else {
+                    final data = state.ayaById;
 
-                  return ListView.builder(
-                    itemCount: data!.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: _buildSurahWidget(
-                            context: context,
-                            name: data[index].verses[0].textIndopak,
-                            versCount: data[index].verses[0].verseKey),
-                      );
-                    },
-                  );
+                    return ListView.builder(
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: _buildSurahWidget(
+                              context: context,
+                              name: data?.content ?? '',
+                              versCount: ''),
+                        );
+                      },
+                    );
+                  }
                 },
               ),
             )
@@ -203,11 +210,11 @@ class BookmarkCollectionView extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              if (passvalue.id == null) {
+              if (passvalue.id == '') {
                 return;
               }
-              BookMarkDB.instance.removeCollection(passvalue.id!);
-              context.read<BookmarkBloc>().add(const FetchCollectionItem());
+              BlocProvider.of<BookmarkBloc>(context)
+                  .add(RemoveBookmark(id: passvalue.id));
               context.pop();
               context.pop();
             },

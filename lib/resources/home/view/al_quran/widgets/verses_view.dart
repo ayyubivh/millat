@@ -159,33 +159,33 @@ class _VersesViewState extends State<VersesView> {
                                       isValue:
                                           '${widget.chapterid}:${index + 1}',
                                       bookMarkOntap: () {
-                                        if (context
-                                            .read<BookmarkBloc>()
-                                            .state
-                                            .dbCollectionItems
-                                            .any((element) => element.verseKey
-                                                .contains(
-                                                    '${widget.chapterid}:${index + 1}'))) {
-                                          context.read<BookmarkBloc>().add(
-                                              RemoveBookmark(
-                                                  verseKey:
-                                                      "${widget.chapterid}:${index + 1}"));
-                                        } else {
-                                          showModalBottomSheet(
-                                            context: context,
-                                            backgroundColor: Colors.transparent,
-                                            builder: (context) {
-                                              return StatefulBuilder(
-                                                builder: (context, setState) =>
-                                                    _addBookMarkPopUp(
-                                                        context,
-                                                        widget.chapterid!,
-                                                        index,
-                                                        "${widget.chapterid}:${index + 1}"),
-                                              );
-                                            },
-                                          );
-                                        }
+                                        // if (context
+                                        //     .read<BookmarkBloc>()
+                                        //     .state
+                                        //     .dbCollectionItems
+                                        //     .any((element) => element.verseKey
+                                        //         .contains(
+                                        //             '${widget.chapterid}:${index + 1}'))) {
+                                        //   context.read<BookmarkBloc>().add(
+                                        //       RemoveBookmark(
+                                        //           verseKey:
+                                        //               "${widget.chapterid}:${index + 1}"));
+                                        // } else {
+                                        //   showModalBottomSheet(
+                                        //     context: context,
+                                        //     backgroundColor: Colors.transparent,
+                                        //     builder: (context) {
+                                        //       return StatefulBuilder(
+                                        //         builder: (context, setState) =>
+                                        //             _addBookMarkPopUp(
+                                        //                 context,
+                                        //                 widget.chapterid!,
+                                        //                 index,
+                                        //                 "${widget.chapterid}:${index + 1}"),
+                                        //       );
+                                        //     },
+                                        //   );
+                                        // }
                                       },
                                       playOntap: () {
                                         context.read<QuranBloc>().add(
@@ -227,35 +227,35 @@ class _VersesViewState extends State<VersesView> {
                                           isValue:
                                               '${widget.chapterid}:${index + 1}',
                                           bookMarkOntap: () {
-                                            if (context
-                                                .read<BookmarkBloc>()
-                                                .state
-                                                .dbCollectionItems
-                                                .any((element) =>
-                                                    element.verseKey.contains(
-                                                        '${widget.chapterid}:${index + 1}'))) {
-                                              context.read<BookmarkBloc>().add(
-                                                  RemoveBookmark(
-                                                      verseKey:
-                                                          "${widget.chapterid}:${index + 1}"));
-                                            } else {
-                                              showModalBottomSheet(
-                                                context: context,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                builder: (context) {
-                                                  return StatefulBuilder(
-                                                    builder: (context,
-                                                            setState) =>
-                                                        _addBookMarkPopUp(
-                                                            context,
-                                                            widget.chapterid!,
-                                                            index,
-                                                            "${widget.chapterid}:${index + 1}"),
-                                                  );
-                                                },
-                                              );
-                                            }
+                                            // if (context
+                                            //     .read<BookmarkBloc>()
+                                            //     .state
+                                            //     .dbCollectionItems
+                                            //     .any((element) =>
+                                            //         element.verseKey.contains(
+                                            //             '${widget.chapterid}:${index + 1}'))) {
+                                            //   context.read<BookmarkBloc>().add(
+                                            //       RemoveBookmark(
+                                            //           verseKey:
+                                            //               "${widget.chapterid}:${index + 1}"));
+                                            // } else {
+                                            //   showModalBottomSheet(
+                                            //     context: context,
+                                            //     backgroundColor:
+                                            //         Colors.transparent,
+                                            //     builder: (context) {
+                                            //       return StatefulBuilder(
+                                            //         builder: (context,
+                                            //                 setState) =>
+                                            //             _addBookMarkPopUp(
+                                            //                 context,
+                                            //                 widget.chapterid!,
+                                            //                 index,
+                                            //                 "${widget.chapterid}:${index + 1}"),
+                                            //       );
+                                            //     },
+                                            //   );
+                                            // }
                                           },
                                           playOntap: () {
                                             context.read<QuranBloc>().add(
@@ -297,35 +297,35 @@ class _VersesViewState extends State<VersesView> {
                                           isValue:
                                               '${widget.chapterid}:${index + 1}',
                                           bookMarkOntap: () {
-                                            if (context
-                                                .read<BookmarkBloc>()
-                                                .state
-                                                .dbCollectionItems
-                                                .any((element) =>
-                                                    element.verseKey.contains(
-                                                        '${widget.chapterid}:${index + 1}'))) {
-                                              context.read<BookmarkBloc>().add(
-                                                  RemoveBookmark(
-                                                      verseKey:
-                                                          "${widget.chapterid}:${index + 1}"));
-                                            } else {
-                                              showModalBottomSheet(
-                                                context: context,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                builder: (context) {
-                                                  return StatefulBuilder(
-                                                    builder: (context,
-                                                            setState) =>
-                                                        _addBookMarkPopUp(
-                                                            context,
-                                                            widget.chapterid!,
-                                                            index,
-                                                            "${widget.chapterid}:${index + 1}"),
-                                                  );
-                                                },
-                                              );
-                                            }
+                                            // if (context
+                                            //     .read<BookmarkBloc>()
+                                            //     .state
+                                            //     .dbCollectionItems
+                                            //     .any((element) =>
+                                            //         element.verseKey.contains(
+                                            //             '${widget.chapterid}:${index + 1}'))) {
+                                            //   context.read<BookmarkBloc>().add(
+                                            //       RemoveBookmark(
+                                            //           verseKey:
+                                            //               "${widget.chapterid}:${index + 1}"));
+                                            // } else {
+                                            //   showModalBottomSheet(
+                                            //     context: context,
+                                            //     backgroundColor:
+                                            //         Colors.transparent,
+                                            //     builder: (context) {
+                                            //       return StatefulBuilder(
+                                            //         builder: (context,
+                                            //                 setState) =>
+                                            //             _addBookMarkPopUp(
+                                            //                 context,
+                                            //                 widget.chapterid!,
+                                            //                 index,
+                                            //                 "${widget.chapterid}:${index + 1}"),
+                                            //       );
+                                            //     },
+                                            //   );
+                                            // }
                                           },
                                           playOntap: () {
                                             context.read<QuranBloc>().add(
@@ -365,7 +365,8 @@ class _VersesViewState extends State<VersesView> {
                                           itemScrollController,
                                       itemPositionsListener:
                                           itemPositionsListener,
-                                      itemCount: state.paraVersesModel!.length,
+                                      itemCount:
+                                          state.paraVersesModel!.ayahs!.length,
                                       itemBuilder: (context, index) {
                                         final aya = state.paraVersesModel;
 
@@ -382,38 +383,38 @@ class _VersesViewState extends State<VersesView> {
                                                 isValue:
                                                     '${widget.chapterid}:${index + 1}',
                                                 bookMarkOntap: () {
-                                                  if (context
-                                                      .read<BookmarkBloc>()
-                                                      .state
-                                                      .dbCollectionItems
-                                                      .any((element) => element
-                                                          .verseKey
-                                                          .contains(
-                                                              '${widget.chapterid}:${index + 1}'))) {
-                                                    context
-                                                        .read<BookmarkBloc>()
-                                                        .add(RemoveBookmark(
-                                                            verseKey:
-                                                                "${widget.chapterid}:${index + 1}"));
-                                                  } else {
-                                                    showModalBottomSheet(
-                                                      context: context,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      builder: (context) {
-                                                        return StatefulBuilder(
-                                                          builder: (context,
-                                                                  setState) =>
-                                                              _addBookMarkPopUp(
-                                                                  context,
-                                                                  widget
-                                                                      .chapterid!,
-                                                                  index,
-                                                                  "${widget.chapterid}:${index + 1}"),
-                                                        );
-                                                      },
-                                                    );
-                                                  }
+                                                  // if (context
+                                                  //     .read<BookmarkBloc>()
+                                                  //     .state
+                                                  //     .dbCollectionItems
+                                                  //     .any((element) => element
+                                                  //         .verseKey
+                                                  //         .contains(
+                                                  //             '${widget.chapterid}:${index + 1}'))) {
+                                                  //   context
+                                                  //       .read<BookmarkBloc>()
+                                                  //       .add(RemoveBookmark(
+                                                  //           verseKey:
+                                                  //               "${widget.chapterid}:${index + 1}"));
+                                                  // } else {
+                                                  //   showModalBottomSheet(
+                                                  //     context: context,
+                                                  //     backgroundColor:
+                                                  //         Colors.transparent,
+                                                  //     builder: (context) {
+                                                  //       return StatefulBuilder(
+                                                  //         builder: (context,
+                                                  //                 setState) =>
+                                                  //             _addBookMarkPopUp(
+                                                  //                 context,
+                                                  //                 widget
+                                                  //                     .chapterid!,
+                                                  //                 index,
+                                                  //                 "${widget.chapterid}:${index + 1}"),
+                                                  //       );
+                                                  //     },
+                                                  //   );
+                                                  // }
                                                 },
                                                 isSelected:
                                                     state.audioIndex == index,
@@ -428,12 +429,7 @@ class _VersesViewState extends State<VersesView> {
                                                               index: index));
                                                 },
                                                 numValue: index + 1,
-                                                surah: aya?[index]
-                                                        .data
-                                                        ?.para
-                                                        ?.title
-                                                        .toString() ??
-                                                    "",
+                                                surah: "",
                                                 surahMeaning:
                                                     state.paraTranslationText?[
                                                             index] ??
@@ -471,40 +467,40 @@ class _VersesViewState extends State<VersesView> {
                                                     isValue:
                                                         '${widget.chapterid}:${index + 1}',
                                                     bookMarkOntap: () {
-                                                      if (context
-                                                          .read<BookmarkBloc>()
-                                                          .state
-                                                          .dbCollectionItems
-                                                          .any((element) => element
-                                                              .verseKey
-                                                              .contains(
-                                                                  '${widget.chapterid}:${index + 1}'))) {
-                                                        context
-                                                            .read<
-                                                                BookmarkBloc>()
-                                                            .add(RemoveBookmark(
-                                                                verseKey:
-                                                                    "${widget.chapterid}:${index + 1}"));
-                                                      } else {
-                                                        showModalBottomSheet(
-                                                          context: context,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          builder: (context) {
-                                                            return StatefulBuilder(
-                                                              builder: (context,
-                                                                      setState) =>
-                                                                  _addBookMarkPopUp(
-                                                                      context,
-                                                                      widget
-                                                                          .chapterid!,
-                                                                      index,
-                                                                      "${widget.chapterid}:${index + 1}"),
-                                                            );
-                                                          },
-                                                        );
-                                                      }
+                                                      // if (context
+                                                      //     .read<BookmarkBloc>()
+                                                      //     .state
+                                                      //     .dbCollectionItems
+                                                      //     .any((element) => element
+                                                      //         .verseKey
+                                                      //         .contains(
+                                                      //             '${widget.chapterid}:${index + 1}'))) {
+                                                      //   context
+                                                      //       .read<
+                                                      //           BookmarkBloc>()
+                                                      //       .add(RemoveBookmark(
+                                                      //           verseKey:
+                                                      //               "${widget.chapterid}:${index + 1}"));
+                                                      // } else {
+                                                      //   showModalBottomSheet(
+                                                      //     context: context,
+                                                      //     backgroundColor:
+                                                      //         Colors
+                                                      //             .transparent,
+                                                      //     builder: (context) {
+                                                      //       return StatefulBuilder(
+                                                      //         builder: (context,
+                                                      //                 setState) =>
+                                                      //             _addBookMarkPopUp(
+                                                      //                 context,
+                                                      //                 widget
+                                                      //                     .chapterid!,
+                                                      //                 index,
+                                                      //                 "${widget.chapterid}:${index + 1}"),
+                                                      //       );
+                                                      //     },
+                                                      //   );
+                                                      // }
                                                     },
                                                     isSelected:
                                                         state.audioIndex ==
@@ -559,38 +555,38 @@ class _VersesViewState extends State<VersesView> {
                                               isValue:
                                                   '${widget.chapterid}:${index + 1}',
                                               bookMarkOntap: () {
-                                                if (context
-                                                    .read<BookmarkBloc>()
-                                                    .state
-                                                    .dbCollectionItems
-                                                    .any((element) => element
-                                                        .verseKey
-                                                        .contains(
-                                                            '${widget.chapterid}:${index + 1}'))) {
-                                                  context
-                                                      .read<BookmarkBloc>()
-                                                      .add(RemoveBookmark(
-                                                          verseKey:
-                                                              "${widget.chapterid}:${index + 1}"));
-                                                } else {
-                                                  showModalBottomSheet(
-                                                    context: context,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    builder: (context) {
-                                                      return StatefulBuilder(
-                                                        builder: (context,
-                                                                setState) =>
-                                                            _addBookMarkPopUp(
-                                                                context,
-                                                                widget
-                                                                    .chapterid!,
-                                                                index,
-                                                                "${widget.chapterid}:${index + 1}"),
-                                                      );
-                                                    },
-                                                  );
-                                                }
+                                                // if (context
+                                                //     .read<BookmarkBloc>()
+                                                //     .state
+                                                //     .dbCollectionItems
+                                                //     .any((element) => element
+                                                //         .verseKey
+                                                //         .contains(
+                                                //             '${widget.chapterid}:${index + 1}'))) {
+                                                //   context
+                                                //       .read<BookmarkBloc>()
+                                                //       .add(RemoveBookmark(
+                                                //           verseKey:
+                                                //               "${widget.chapterid}:${index + 1}"));
+                                                // } else {
+                                                // showModalBottomSheet(
+                                                //   context: context,
+                                                //   backgroundColor:
+                                                //       Colors.transparent,
+                                                //   builder: (context) {
+                                                //     return StatefulBuilder(
+                                                //       builder: (context,
+                                                //               setState) =>
+                                                //           _addBookMarkPopUp(
+                                                //               context,
+                                                //               widget
+                                                //                   .chapterid!,
+                                                //               index,
+                                                //               "${widget.chapterid}:${index + 1}"),
+                                                //     );
+                                                //   },
+                                                // );
+                                                // }
                                               },
                                               isSelected:
                                                   state.audioIndex == index,
@@ -636,31 +632,32 @@ class _VersesViewState extends State<VersesView> {
                               return VersesCardWidget(
                                 isValue: '${widget.chapterid}:${index + 1}',
                                 bookMarkOntap: () {
-                                  if (context
-                                      .read<BookmarkBloc>()
-                                      .state
-                                      .dbCollectionItems
-                                      .any((element) => element.verseKey.contains(
-                                          '${widget.chapterid}:${index + 1}'))) {
-                                    context.read<BookmarkBloc>().add(RemoveBookmark(
-                                        verseKey:
-                                            "${widget.chapterid}:${index + 1}"));
-                                  } else {
-                                    showModalBottomSheet(
-                                      context: context,
-                                      backgroundColor: Colors.transparent,
-                                      builder: (context) {
-                                        return StatefulBuilder(
-                                          builder: (context, setState) =>
-                                              _addBookMarkPopUp(
-                                                  context,
-                                                  widget.chapterid!,
-                                                  index,
-                                                  "${widget.chapterid}:${index + 1}"),
-                                        );
-                                      },
-                                    );
-                                  }
+                                  // if (context
+                                  //     .read<BookmarkBloc>()
+                                  //     .state
+                                  //     .dbCollectionItems
+                                  //     .any((element) => element.verseKey.contains(
+                                  //         '${widget.chapterid}:${index + 1}'))) {
+                                  //   context.read<BookmarkBloc>().add(RemoveBookmark(
+                                  //       verseKey:
+                                  //           "${widget.chapterid}:${index + 1}"));
+                                  // } else {
+                                  // showModalBottomSheet(
+                                  //   context: context,
+                                  //   backgroundColor: Colors.transparent,
+                                  //   builder: (context) {
+                                  //     return StatefulBuilder(
+                                  //       builder: (context, setState) =>
+                                  //           _addBookMarkPopUp(
+                                  //               context,
+                                  //               widget.chapterid!,
+                                  //               index,
+                                  //               "${widget.chapterid}:${index + 1}"
+                                  //               ),
+                                  //     );
+                                  //   },
+                                  // );
+                                  // }
                                 },
                                 isSelected: true,
                                 shareOnTap: () {
@@ -825,79 +822,79 @@ class _VersesViewState extends State<VersesView> {
     );
   }
 
-  Widget _addBookMarkPopUp(
-      BuildContext context, int chapterId, int index, String verskey) {
-    return Container(
-        width: SizeUtility(context).width,
-        height: 400,
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-            color: ColorManager.whiteColor,
-            borderRadius:
-                const BorderRadius.vertical(top: Radius.circular(20))),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              BookmarkNewCollectionWidget(
-                verseKeys: ["${widget.chapterid}:${index + 1}"],
-                type: BookMarkCollectionType.addSpecificOne,
-              ),
-              kHeight16,
-              BlocBuilder<BookmarkBloc, BookmarkState>(
-                builder: (context, state) =>
-                    state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
-                        ? const SizedBox.shrink()
-                        : QuranFavBookmarkCollectionWidget(
-                            type: QuranFavbookMarkType.add,
-                            chapterId: chapterId,
-                            index: index,
-                          ),
-              ),
-              kHeight20,
-              BlocBuilder<BookmarkBloc, BookmarkState>(
-                builder: (context, state) {
-                  if (state.dbCollectionItems.isEmpty) {
-                    return const SizedBox();
-                  }
-                  final value = state.dbCollectionItems;
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: value.length,
-                    itemBuilder: (context, index) {
-                      final data = value[index];
-                      final modifiedVerseKeys = [...data.verseKey, verskey];
+  // Widget _addBookMarkPopUp(
+  //     BuildContext context, int chapterId, int index, String verskey) {
+  //   return Container(
+  //       width: SizeUtility(context).width,
+  //       height: 400,
+  //       padding: const EdgeInsets.all(20),
+  //       decoration: BoxDecoration(
+  //           color: ColorManager.whiteColor,
+  //           borderRadius:
+  //               const BorderRadius.vertical(top: Radius.circular(20))),
+  //       child: SingleChildScrollView(
+  //         child: Column(
+  //           children: [
+  //             BookmarkNewCollectionWidget(
+  //               verseKeys: ["${widget.chapterid}:${index + 1}"],
+  //               type: BookMarkCollectionType.addSpecificOne,
+  //             ),
+  //             kHeight16,
+  //             BlocBuilder<BookmarkBloc, BookmarkState>(
+  //               builder: (context, state) =>
+  //                   state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
+  //                       ? const SizedBox.shrink()
+  //                       : QuranFavBookmarkCollectionWidget(
+  //                           type: QuranFavbookMarkType.add,
+  //                           chapterId: chapterId,
+  //                           index: index,
+  //                         ),
+  //             ),
+  //             kHeight20,
+  //             BlocBuilder<BookmarkBloc, BookmarkState>(
+  //               builder: (context, state) {
+  //                 // if (state.dbCollectionItems.isEmpty) {
+  //                 //   return const SizedBox();
+  //                 // }
+  //                 // final value = state.dbCollectionItems;
+  //                 return ListView.builder(
+  //                   shrinkWrap: true,
+  //                   itemCount: 2,
+  //                   itemBuilder: (context, index) {
+  //                     final data = value[index];
+  //                     final modifiedVerseKeys = [...data.verseKey, verskey];
 
-                      return InkWell(
-                        onTap: () {
-                          final model = BookMarkCollectionModel(
-                            id: data.id!,
-                            verseKey: modifiedVerseKeys,
-                            name: data.name,
-                            description: data.description,
-                            image: data.image,
-                          );
-                          BookMarkDB.instance.editCollection(model, model.id);
-                          context
-                              .read<BookmarkBloc>()
-                              .add(const FetchCollectionItem());
-                          context.pop();
-                        },
-                        child: QuranBookmarkCollectionWidget(
-                          passvalue: data,
-                          context: context,
-                          img: data.image,
-                          collectionName: data.name,
-                          userName: data.description,
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
-            ],
-          ),
-        ));
-  }
+  //                     return InkWell(
+  //                       onTap: () {
+  //                         final model = BookMarkCollectionModel(
+  //                           id: data.id!,
+  //                           verseKey: modifiedVerseKeys,
+  //                           name: data.name,
+  //                           description: data.description,
+  //                           image: data.image,
+  //                         );
+  //                         // BookMarkDB.instance.editCollection(model, model.id);
+  //                         context
+  //                             .read<BookmarkBloc>()
+  //                             .add(const FetchCollectionItem());
+  //                         context.pop();
+  //                       },
+  //                       child: QuranBookmarkCollectionWidget(
+  //                         passvalue: data,
+  //                         context: context,
+  //                         img: data.image,
+  //                         collectionName: data.name,
+  //                         userName: data.description,
+  //                       ),
+  //                     );
+  //                   },
+  //                 );
+  //               },
+  //             ),
+  //           ],
+  //         ),
+  //       ));
+  // }
 
   // void addToBookmarkCollection(BuildContext context, int chapterId, int index) {
   Future<dynamic> _audioPopup(BuildContext context) {

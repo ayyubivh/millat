@@ -6,10 +6,11 @@ class QuranState with _$QuranState {
     required bool isLoading,
     required List<QuranSurahModel>? quranSurahModel,
     required List<QuranSurahAyayModel>? quranSurahAyaModel,
-    required List<QuranParaAyaModel>? paraVersesModel,
+    required QuranParaAyaModel? paraVersesModel,
     required List<QuranParaModel>? quranParaModel,
     required List<ChapterByIdModel>? chapterByIdModel,
     required List<QuranSurahModel>? searchChapters,
+    required AyaIdModel? ayaById,
     required bool isExpand2,
     required List<VersesByKeyModel>? versesByKeyModel,
     required bool audioPlaying,
@@ -45,6 +46,7 @@ class QuranState with _$QuranState {
     required String shuffleVersKey,
   }) = _QuranState;
   factory QuranState.initial() => const QuranState(
+        ayaById: null,
         isLoading: false,
         quranSurahModel: null,
         quranSurahAyaModel: null,

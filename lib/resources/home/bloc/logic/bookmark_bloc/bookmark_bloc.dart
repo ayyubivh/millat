@@ -155,7 +155,9 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     }
   }
 
-  _editCollection(EditCollection event, Emitter<BookmarkState> emit) {
+  _editCollection(EditCollection event, Emitter<BookmarkState> emit) async {
+    emit(state.copyWith(isLoading: true));
+
     final newState = state.copyWith(
       name: event.name,
       description: event.description,
@@ -168,9 +170,20 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     final desc = state.description;
     final dbId = event.dbId;
 
-    if (name.isEmpty || img.isEmpty || desc.isEmpty || id == 0) {
-    } else {
-      // BookMarkDB.instance.editCollection(model, model.id);
+    try {
+      final res = await _quranBookmarkServices.editBookmark(
+        title: name,
+        surahs: [],
+        ayahs: id,
+        imageFilePath: img,
+      );
+      if (res['status'] == true) {
+        final data = await _quranBookmarkServices.fetchBookmarks();
+        emit(state.copyWith(quranbookmarkModel: data, isLoading: false));
+      }
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      throw Exception(e);
     }
   }
 

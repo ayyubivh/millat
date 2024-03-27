@@ -67,6 +67,7 @@ class QuranBookmarkServices extends HttpServices {
   }
 
   //edit bookmark
+
   Future<Map<String, dynamic>> editBookmark({
     required String title,
     required List<String> surahs,
@@ -75,42 +76,37 @@ class QuranBookmarkServices extends HttpServices {
   }) async {
     final uri = Uri.parse("${kBaseUrl}my_quran/create");
     final headers = {
+      // 'Content-Type': 'application/json',
       'Authorization': 'Bearer ${_getToken()}',
     };
-    final request = http.MultipartRequest('POST', uri);
-    request.headers.addAll(headers);
-    request.fields['title'] = title;
-    request.fields['surahs'] = jsonEncode(surahs);
-    request.fields['ayahs'] = jsonEncode(ayahs);
-    print('Image File Path: $imageFilePath');
 
-    ByteData imageData = await rootBundle.load(imageFilePath);
-    List<int> bytes = imageData.buffer.asUint8List();
+    // Encode image file as base64
+    // List<int> bytes = await File(imageFilePath).readAsBytes();
+    // String base64Image = base64Encode(bytes);
 
-    String tempPath = Directory.systemTemp.path;
-    String tempFileName = imageFilePath.split('/').last;
-    String tempFilePath = '$tempPath/$tempFileName';
-    File tempFile = File(tempFilePath);
-    await tempFile.writeAsBytes(bytes);
-
-    request.files.add(await http.MultipartFile.fromPath(
-      'picture',
-      tempFile.path,
-      filename: tempFileName,
-    ));
+    final body = {
+      'title': title,
+      // 'surahs': surahs,
+      // 'ayahs': ayahs,
+      // 'picture': base64Image,
+    };
 
     try {
-      final response = await request.send();
+      final response = await http.post(
+        uri,
+        headers: headers,
+        body: jsonEncode(body),
+      );
 
       if (response.statusCode == 200) {
         return {
           'status': true,
-          'message': 'Profile updated successfully',
+          'message': 'An error occurred',
         };
       } else {
         return {
           'status': false,
-          'message': 'Email is already registered',
+          'message': 'An error occurred',
         };
       }
     } catch (error) {

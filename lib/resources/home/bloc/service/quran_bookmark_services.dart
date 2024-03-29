@@ -45,18 +45,15 @@ class QuranBookmarkServices extends HttpServices {
       if (response.statusCode == 200) {
         return {
           'status': true,
-          'message': 'Profile updated successfully',
         };
       } else {
         return {
           'status': false,
-          'message': 'Email is already registered',
         };
       }
     } catch (error) {
       return {
         'status': false,
-        'message': 'An error occurred',
       };
     }
   }

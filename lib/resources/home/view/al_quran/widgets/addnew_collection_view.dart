@@ -341,7 +341,6 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                       onPressed: () {
                         context.read<BookmarkBloc>()
                           ..add(const SaveQuranChapterId(id: []))
-                          ..add(const EmptyVerseKeyEvent())
                           ..add(const EmptyBookmarkCollectionId());
 
                         context.pop();
@@ -388,9 +387,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                         ));
                             context.read<BookmarkBloc>()
                               ..add(const SaveQuranChapterId(id: []))
-                              ..add(const FetchCollectionItem())
-                              ..add(const EmptyVerseKeyEvent())
-                              ..add(const EmptyBookmarkCollectionId());
+                              ..add(const FetchCollectionItem());
                             context.pop();
                           }
                         },

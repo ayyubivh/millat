@@ -27,18 +27,10 @@ class BookmarkEvent with _$BookmarkEvent {
     required BuildContext context,
   }) = EditCollection;
 
-  const factory BookmarkEvent.saveIndexEvent({
-    required int indexList,
-  }) = SaveIndexEvent;
-  const factory BookmarkEvent.saveVersesIndexEvent({
-    required int versesIndexList,
-  }) = SaveVersesIndexEvent;
   const factory BookmarkEvent.clearIndexEvent() = ClearIndexEvent;
   const factory BookmarkEvent.changeIndexEvent(int index) = ChangeIndexEvent;
   const factory BookmarkEvent.emptyIndexEvent() = EmptyIndexEvent;
-  // const factory BookmarkEvent.saveVerseKeyEvent(String versekey) =
-  //     SaveVerseKeyEvent;
-  const factory BookmarkEvent.emptyVerseKeyEvent() = EmptyVerseKeyEvent;
+
   const factory BookmarkEvent.fetchCollectionItem() = FetchCollectionItem;
   const factory BookmarkEvent.removeBookmark({
     required String id,

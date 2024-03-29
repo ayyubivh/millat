@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/home/bloc/service/quran_bookmark_services.dart';
-
 import '../../models/book_mark_hive_model/quran_bookmark_collection.dart';
 
 part 'bookmark_event.dart';
@@ -20,12 +19,9 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     on<SaveImageEvent>(_saveImageEvent);
     on<SaveQuranChapterId>(_saveQuranChapterId);
     on<EditCollection>(_editCollection);
-    on<SaveIndexEvent>(_saveIndexEvent);
     on<ClearIndexEvent>(_clearIndexEvent);
     on<ChangeIndexEvent>(_changeIndexEvent);
-    on<SaveVersesIndexEvent>(_saveVerseIndex);
     on<EmptyIndexEvent>(_emptyIndexEvent);
-    on<EmptyVerseKeyEvent>(_emptyVerseKeyEvent);
     on<FetchCollectionItem>(_fetchCollectionItem);
     on<RemoveBookmark>(_removeBookmark);
     on<saveBookmarkCollectionId>(_saveBookmarkCollectionId);
@@ -52,17 +48,6 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     emit(state.copyWith(description: event.descriptionValue));
   }
 
-  _saveIndexEvent(SaveIndexEvent event, Emitter<BookmarkState> emit) {
-    List<int> updatedIndexList = List.from(state.indexList);
-    updatedIndexList.add(event.indexList);
-    if (state.indexList.contains(event.indexList)) {
-      return;
-    } else {
-      emit(state.copyWith(indexList: updatedIndexList));
-    }
-    print("index ${state.index}");
-  }
-
   _clearIndexEvent(ClearIndexEvent event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(indexList: []));
   }
@@ -71,24 +56,8 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     emit(state.copyWith(index: event.index));
   }
 
-  _saveVerseIndex(SaveVersesIndexEvent event, Emitter<BookmarkState> emit) {
-    List<int> updatedIndexList = List.from(state.versesIndexList);
-
-    if (updatedIndexList.contains(event.versesIndexList)) {
-      updatedIndexList.remove(event.versesIndexList);
-    } else {
-      updatedIndexList.add(event.versesIndexList);
-    }
-
-    emit(state.copyWith(versesIndexList: updatedIndexList));
-  }
-
   _emptyIndexEvent(event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(versesIndexList: []));
-  }
-
-  _emptyVerseKeyEvent(EmptyVerseKeyEvent event, Emitter<BookmarkState> emit) {
-    emit(state.copyWith(verskey: []));
   }
 
 //----------------------------------------------------
@@ -111,6 +80,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
       emit(state.copyWith(isLoading: true));
 
       if (res['status'] == true) {
+        print(state.bookmarkCollectionId);
         if (state.bookmarkCollectionId.isNotEmpty) {
           final successData = await _quranBookmarkServices.addVerseToBookmark(
             ayahs: state.bookmarkCollectionId.toList(),
@@ -119,11 +89,17 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
 
           if (successData['status'] == true) {
             final data = await _quranBookmarkServices.fetchBookmarks();
-            emit(state.copyWith(quranbookmarkModel: data, isLoading: false));
+            emit(state.copyWith(
+                quranbookmarkModel: data,
+                isLoading: false,
+                bookmarkCollectionId: {}));
           }
         } else {
           final data = await _quranBookmarkServices.fetchBookmarks();
-          emit(state.copyWith(quranbookmarkModel: data, isLoading: false));
+          emit(state.copyWith(
+              quranbookmarkModel: data,
+              isLoading: false,
+              bookmarkCollectionId: {}));
         }
       }
     } catch (error) {

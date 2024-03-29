@@ -147,7 +147,6 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
       quranBloc.add(const IsExpandSearchEvent(isExpand: false));
       bookmarkBloc.add(const ChangeIndexEvent(-1));
     } else {
-      bookmarkBloc.add(SaveIndexEvent(indexList: index));
       final slug = quranBloc.state.searchChapters![index].slug ?? "";
       quranBloc.add(FechtChapterbyId(slug: slug));
       quranBloc.add(const IsExpandSearchEvent(isExpand: true));

@@ -1,8 +1,5 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:millat/resources/home/bloc/models/al-quran/aya/aya_id_model.dart';
@@ -10,14 +7,11 @@ import 'package:millat/resources/home/bloc/models/al-quran/quran_para_model/qura
 import 'package:millat/resources/home/bloc/service/quran_service.dart';
 import '../../../../../utils/string_constants.dart';
 import '../../models/al-quran/aya/surah_aya_model.dart';
-import '../../models/al-quran/chapter_by_id_model/chapter_by_id_model.dart';
 import '../../models/al-quran/chapter_verses_model/chapter_verses_indoPak_model.dart';
-import '../../models/al-quran/chapter_verses_model/chapter_verses_model.dart';
 import '../../models/al-quran/chapter_verses_model/chapter_verses_of_noSymbol.dart';
 import '../../models/al-quran/chapter_verses_model/chapter_verses_uthmani_model.dart';
 import '../../models/al-quran/para_verses/para_verse_nosymbol.dart';
 import '../../models/al-quran/para_verses/para_verse_uthmani.dart';
-import '../../models/al-quran/para_verses/para_verses_model.dart';
 import '../../models/al-quran/quran_all_translations_model/quran_all_translations_model.dart';
 import '../../models/al-quran/quran_chapter_models/quran_surah_models.dart';
 import '../../models/al-quran/quran_para_model/quran_para_model.dart';

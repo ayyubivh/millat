@@ -93,34 +93,42 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
 
 //----------------------------------------------------
   _addCollection(AddCollection event, Emitter<BookmarkState> emit) async {
-    final newState = state.copyWith(
-      name: event.name,
-      description: event.description,
-      image: event.image,
-      verskey: event.verskey,
-    );
+    try {
+      final newState = state.copyWith(
+        name: event.name,
+        image: event.image,
+      );
 
-    emit(newState);
-    final name = state.name;
-    final img = state.image;
+      emit(newState);
 
-    final res = await _quranBookmarkServices.addBookMark(
-      title: name,
-      surahs: ['65e87f662e8e6511b29c8bf7'],
-      ayahs: [],
-      imageFilePath: img,
-    );
-    if (res['status'] == true) {
-      if (state.bookmarkCollectionId.isNotEmpty) {
-        _quranBookmarkServices.addVerseToBookmark(
-            ayahs: state.bookmarkCollectionId.toList(), slug: state.name);
+      final name = state.name;
+      final img = state.image;
 
-        final data = await _quranBookmarkServices.fetchBookmarks();
-        emit(state.copyWith(quranbookmarkModel: data));
+      final res = await _quranBookmarkServices.addBookMark(
+        title: name,
+        imageFilePath: img,
+      );
+      emit(state.copyWith(isLoading: true));
+
+      if (res['status'] == true) {
+        if (state.bookmarkCollectionId.isNotEmpty) {
+          final successData = await _quranBookmarkServices.addVerseToBookmark(
+            ayahs: state.bookmarkCollectionId.toList(),
+            slug: state.name,
+          );
+
+          if (successData['status'] == true) {
+            final data = await _quranBookmarkServices.fetchBookmarks();
+            emit(state.copyWith(quranbookmarkModel: data, isLoading: false));
+          }
+        } else {
+          final data = await _quranBookmarkServices.fetchBookmarks();
+          emit(state.copyWith(quranbookmarkModel: data, isLoading: false));
+        }
       }
-    } else {
-      final data = await _quranBookmarkServices.fetchBookmarks();
-      emit(state.copyWith(quranbookmarkModel: data));
+    } catch (error) {
+      emit(
+          state.copyWith(isLoading: false)); // Ensure isLoading is set to false
     }
   }
 
@@ -228,9 +236,14 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
 
   FutureOr<void> _addVersesTobookmark(
       AddVersesTobookmark event, Emitter<BookmarkState> emit) async {
+    emit(state.copyWith(isLoading: true));
     try {
-      _quranBookmarkServices.addVerseToBookmark(
+      final data = await _quranBookmarkServices.addVerseToBookmark(
           ayahs: state.bookmarkCollectionId.toList(), slug: event.slug);
+      if (data['status'] == true) {
+        final res = await _quranBookmarkServices.fetchBookmarks();
+        emit(state.copyWith(quranbookmarkModel: res, isLoading: false));
+      }
     } catch (e) {
       throw Exception(e);
     }

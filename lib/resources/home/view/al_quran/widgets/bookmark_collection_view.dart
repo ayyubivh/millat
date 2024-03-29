@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -129,7 +130,9 @@ class BookmarkCollectionDetailsView extends StatelessWidget {
                           child: _buildSurahWidget(
                               context: context,
                               name: passvalue.verses?[index].content ?? "",
-                              versCount: ''),
+                              versCount: passvalue.verses?[index].ayahNumber
+                                      .toString() ??
+                                  ""),
                         );
                       },
                     );
@@ -150,7 +153,7 @@ class BookmarkCollectionDetailsView extends StatelessWidget {
   }) {
     return Row(
       children: [
-        Flexible(
+        Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -165,15 +168,14 @@ class BookmarkCollectionDetailsView extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 textDirection: TextDirection.rtl,
               ),
-              kHeight10,
-              // Text(
-              //   'Aya $versCount  ',
-              //   style: TextStyle(
-              //     color: ColorManager.textGrey,
-              //     fontSize: 16,
-              //     fontWeight: FontWeight.w600,
-              //   ),
-              // )
+              Text(
+                'Aya $versCount  ',
+                style: TextStyle(
+                  color: ColorManager.textGrey,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
             ],
           ),
         ),
@@ -212,7 +214,7 @@ class BookmarkCollectionDetailsView extends StatelessWidget {
                 return;
               }
               BlocProvider.of<BookmarkBloc>(context)
-                  .add(RemoveBookmark(id: passvalue.id));
+                  .add(RemoveBookmark(id: passvalue.slug ?? ""));
               context.pop();
               context.pop();
             },
@@ -286,6 +288,9 @@ class BookmarkCollectionDetailsView extends StatelessWidget {
       width: SizeUtility(context).width / 2.4,
       child: CustomOutlinedButton(
         onTap: () {
+          // final ids = passvalue.verses?.map((e) => e.id);
+          // BlocProvider.of<BookmarkBloc>(context)
+          //     .add(saveBookmarkCollectionId(ids.toSet());
           context.goNamed(MyAppRouteConstants.addNewQuranBookmarkRouteName,
               extra: {
                 'passvalue': passvalue,

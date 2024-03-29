@@ -28,7 +28,7 @@ mixin _$QuranBookmModel {
   String? get image => throw _privateConstructorUsedError;
   String? get slug => throw _privateConstructorUsedError;
   List<String>? get chapter => throw _privateConstructorUsedError;
-  List<QuranSurahAyayModel>? get verses => throw _privateConstructorUsedError;
+  List<VerseModel>? get verses => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $QuranBookmModelCopyWith<$Res> {
       String? image,
       String? slug,
       List<String>? chapter,
-      List<QuranSurahAyayModel>? verses});
+      List<VerseModel>? verses});
 }
 
 /// @nodoc
@@ -107,7 +107,7 @@ class _$QuranBookmModelCopyWithImpl<$Res, $Val extends QuranBookmModel>
       verses: freezed == verses
           ? _value.verses
           : verses // ignore: cast_nullable_to_non_nullable
-              as List<QuranSurahAyayModel>?,
+              as List<VerseModel>?,
     ) as $Val);
   }
 }
@@ -128,7 +128,7 @@ abstract class _$$QuranBookmModelImplCopyWith<$Res>
       String? image,
       String? slug,
       List<String>? chapter,
-      List<QuranSurahAyayModel>? verses});
+      List<VerseModel>? verses});
 }
 
 /// @nodoc
@@ -183,7 +183,7 @@ class __$$QuranBookmModelImplCopyWithImpl<$Res>
       verses: freezed == verses
           ? _value._verses
           : verses // ignore: cast_nullable_to_non_nullable
-              as List<QuranSurahAyayModel>?,
+              as List<VerseModel>?,
     ));
   }
 }
@@ -199,7 +199,7 @@ class _$QuranBookmModelImpl implements _QuranBookmModel {
       required this.image,
       required this.slug,
       required final List<String>? chapter,
-      required final List<QuranSurahAyayModel>? verses})
+      required final List<VerseModel>? verses})
       : _surahs = surahs,
         _chapter = chapter,
         _verses = verses;
@@ -238,9 +238,9 @@ class _$QuranBookmModelImpl implements _QuranBookmModel {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<QuranSurahAyayModel>? _verses;
+  final List<VerseModel>? _verses;
   @override
-  List<QuranSurahAyayModel>? get verses {
+  List<VerseModel>? get verses {
     final value = _verses;
     if (value == null) return null;
     if (_verses is EqualUnmodifiableListView) return _verses;
@@ -298,15 +298,14 @@ class _$QuranBookmModelImpl implements _QuranBookmModel {
 
 abstract class _QuranBookmModel implements QuranBookmModel {
   const factory _QuranBookmModel(
-          {required final List<String>? surahs,
-          @JsonKey(name: "_id") required final String id,
-          required final String? user,
-          required final String? title,
-          required final String? image,
-          required final String? slug,
-          required final List<String>? chapter,
-          required final List<QuranSurahAyayModel>? verses}) =
-      _$QuranBookmModelImpl;
+      {required final List<String>? surahs,
+      @JsonKey(name: "_id") required final String id,
+      required final String? user,
+      required final String? title,
+      required final String? image,
+      required final String? slug,
+      required final List<String>? chapter,
+      required final List<VerseModel>? verses}) = _$QuranBookmModelImpl;
 
   factory _QuranBookmModel.fromJson(Map<String, dynamic> json) =
       _$QuranBookmModelImpl.fromJson;
@@ -327,9 +326,255 @@ abstract class _QuranBookmModel implements QuranBookmModel {
   @override
   List<String>? get chapter;
   @override
-  List<QuranSurahAyayModel>? get verses;
+  List<VerseModel>? get verses;
   @override
   @JsonKey(ignore: true)
   _$$QuranBookmModelImplCopyWith<_$QuranBookmModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+VerseModel _$VerseModelFromJson(Map<String, dynamic> json) {
+  return _VerseModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$VerseModel {
+  @JsonKey(name: '_id')
+  String? get id => throw _privateConstructorUsedError;
+  String? get surah => throw _privateConstructorUsedError;
+  int? get surahNumber => throw _privateConstructorUsedError;
+  int? get ayahNumber => throw _privateConstructorUsedError;
+  int? get verse => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $VerseModelCopyWith<VerseModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $VerseModelCopyWith<$Res> {
+  factory $VerseModelCopyWith(
+          VerseModel value, $Res Function(VerseModel) then) =
+      _$VerseModelCopyWithImpl<$Res, VerseModel>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: '_id') String? id,
+      String? surah,
+      int? surahNumber,
+      int? ayahNumber,
+      int? verse,
+      String? content});
+}
+
+/// @nodoc
+class _$VerseModelCopyWithImpl<$Res, $Val extends VerseModel>
+    implements $VerseModelCopyWith<$Res> {
+  _$VerseModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? surah = freezed,
+    Object? surahNumber = freezed,
+    Object? ayahNumber = freezed,
+    Object? verse = freezed,
+    Object? content = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surah: freezed == surah
+          ? _value.surah
+          : surah // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surahNumber: freezed == surahNumber
+          ? _value.surahNumber
+          : surahNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      ayahNumber: freezed == ayahNumber
+          ? _value.ayahNumber
+          : ayahNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      verse: freezed == verse
+          ? _value.verse
+          : verse // ignore: cast_nullable_to_non_nullable
+              as int?,
+      content: freezed == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$VerseModelImplCopyWith<$Res>
+    implements $VerseModelCopyWith<$Res> {
+  factory _$$VerseModelImplCopyWith(
+          _$VerseModelImpl value, $Res Function(_$VerseModelImpl) then) =
+      __$$VerseModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: '_id') String? id,
+      String? surah,
+      int? surahNumber,
+      int? ayahNumber,
+      int? verse,
+      String? content});
+}
+
+/// @nodoc
+class __$$VerseModelImplCopyWithImpl<$Res>
+    extends _$VerseModelCopyWithImpl<$Res, _$VerseModelImpl>
+    implements _$$VerseModelImplCopyWith<$Res> {
+  __$$VerseModelImplCopyWithImpl(
+      _$VerseModelImpl _value, $Res Function(_$VerseModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? surah = freezed,
+    Object? surahNumber = freezed,
+    Object? ayahNumber = freezed,
+    Object? verse = freezed,
+    Object? content = freezed,
+  }) {
+    return _then(_$VerseModelImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surah: freezed == surah
+          ? _value.surah
+          : surah // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surahNumber: freezed == surahNumber
+          ? _value.surahNumber
+          : surahNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      ayahNumber: freezed == ayahNumber
+          ? _value.ayahNumber
+          : ayahNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      verse: freezed == verse
+          ? _value.verse
+          : verse // ignore: cast_nullable_to_non_nullable
+              as int?,
+      content: freezed == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$VerseModelImpl implements _VerseModel {
+  const _$VerseModelImpl(
+      {@JsonKey(name: '_id') required this.id,
+      required this.surah,
+      required this.surahNumber,
+      required this.ayahNumber,
+      required this.verse,
+      required this.content});
+
+  factory _$VerseModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VerseModelImplFromJson(json);
+
+  @override
+  @JsonKey(name: '_id')
+  final String? id;
+  @override
+  final String? surah;
+  @override
+  final int? surahNumber;
+  @override
+  final int? ayahNumber;
+  @override
+  final int? verse;
+  @override
+  final String? content;
+
+  @override
+  String toString() {
+    return 'VerseModel(id: $id, surah: $surah, surahNumber: $surahNumber, ayahNumber: $ayahNumber, verse: $verse, content: $content)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerseModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.surah, surah) || other.surah == surah) &&
+            (identical(other.surahNumber, surahNumber) ||
+                other.surahNumber == surahNumber) &&
+            (identical(other.ayahNumber, ayahNumber) ||
+                other.ayahNumber == ayahNumber) &&
+            (identical(other.verse, verse) || other.verse == verse) &&
+            (identical(other.content, content) || other.content == content));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, surah, surahNumber, ayahNumber, verse, content);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerseModelImplCopyWith<_$VerseModelImpl> get copyWith =>
+      __$$VerseModelImplCopyWithImpl<_$VerseModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$VerseModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _VerseModel implements VerseModel {
+  const factory _VerseModel(
+      {@JsonKey(name: '_id') required final String? id,
+      required final String? surah,
+      required final int? surahNumber,
+      required final int? ayahNumber,
+      required final int? verse,
+      required final String? content}) = _$VerseModelImpl;
+
+  factory _VerseModel.fromJson(Map<String, dynamic> json) =
+      _$VerseModelImpl.fromJson;
+
+  @override
+  @JsonKey(name: '_id')
+  String? get id;
+  @override
+  String? get surah;
+  @override
+  int? get surahNumber;
+  @override
+  int? get ayahNumber;
+  @override
+  int? get verse;
+  @override
+  String? get content;
+  @override
+  @JsonKey(ignore: true)
+  _$$VerseModelImplCopyWith<_$VerseModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

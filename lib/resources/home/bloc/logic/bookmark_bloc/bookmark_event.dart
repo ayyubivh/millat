@@ -4,8 +4,6 @@ part of 'bookmark_bloc.dart';
 class BookmarkEvent with _$BookmarkEvent {
   const factory BookmarkEvent.addCollection({
     required String name,
-    required String description,
-    required List<String> verskey,
     required String image,
     required BuildContext context,
   }) = AddCollection;

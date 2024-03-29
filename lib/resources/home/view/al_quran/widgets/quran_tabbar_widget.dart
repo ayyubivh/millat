@@ -6,6 +6,7 @@ import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dar
 import 'package:millat/resources/home/view/al_quran/widgets/creat_new_bookmark_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_bookmark_collection.dart';
 import 'package:millat/routes/app_router_constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/color_manager.dart';
@@ -99,44 +100,46 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
         builder: (context, state) {
           return state.quranbookmarkModel?.isEmpty ?? true
               ? const CreateNewBookmarkWidget()
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const BookmarkNewCollectionWidget(),
-                    kHeight20,
-                    Expanded(
-                      child: BlocBuilder<BookmarkBloc, BookmarkState>(
-                        builder: (context, state) {
-                          if (state.quranbookmarkModel?.isEmpty ?? true) {
-                            return const SizedBox();
-                          }
-                          final value = state.quranbookmarkModel;
-                          return ListView.builder(
-                            itemCount: value?.length,
-                            itemBuilder: (context, index) {
-                              final data = value?[index];
+              : state.isLoading
+                  ? const Loader()
+                  : Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const BookmarkNewCollectionWidget(),
+                        kHeight20,
+                        Expanded(
+                          child: BlocBuilder<BookmarkBloc, BookmarkState>(
+                            builder: (context, state) {
+                              if (state.quranbookmarkModel?.isEmpty ?? true) {
+                                return const SizedBox();
+                              }
+                              final value = state.quranbookmarkModel;
+                              return ListView.builder(
+                                itemCount: value?.length,
+                                itemBuilder: (context, index) {
+                                  final data = value?[index];
 
-                              return InkWell(
-                                onTap: () {
-                                  context.pushNamed(
-                                      MyAppRouteConstants
-                                          .quranBookmarkCollectionRouteName,
-                                      extra: {'passvalue': data});
+                                  return InkWell(
+                                    onTap: () {
+                                      context.pushNamed(
+                                          MyAppRouteConstants
+                                              .quranBookmarkCollectionRouteName,
+                                          extra: {'passvalue': data});
+                                    },
+                                    child: QuranBookmarkCollectionWidget(
+                                        passvalue: data!,
+                                        context: context,
+                                        img: data.image ?? "",
+                                        collectionName: data.title ?? "",
+                                        userName: ''),
+                                  );
                                 },
-                                child: QuranBookmarkCollectionWidget(
-                                    passvalue: data!,
-                                    context: context,
-                                    img: data.image ?? "",
-                                    collectionName: data.title ?? "",
-                                    userName: ''),
                               );
                             },
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                );
+                          ),
+                        ),
+                      ],
+                    );
           // : ListView(
           //     shrinkWrap: true,
           //     children: [

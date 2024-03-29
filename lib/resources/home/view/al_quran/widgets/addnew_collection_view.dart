@@ -341,7 +341,8 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                       onPressed: () {
                         context.read<BookmarkBloc>()
                           ..add(const SaveQuranChapterId(id: []))
-                          ..add(const EmptyVerseKeyEvent());
+                          ..add(const EmptyVerseKeyEvent())
+                          ..add(const EmptyBookmarkCollectionId());
 
                         context.pop();
                       },
@@ -370,10 +371,6 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                 ? ctx.read<BookmarkBloc>().add(AddCollection(
                                       context: context,
                                       name: nameTextEditingController.text,
-                                      description:
-                                          descriptionTextEditingController.text,
-                                      verskey:
-                                          state.bookmarkCollectionId.toList(),
                                       image: state.image,
                                     ))
                                 : widget.type == BookMarkCollectionType.edit
@@ -387,16 +384,13 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                         .add(AddCollection(
                                           context: context,
                                           name: nameTextEditingController.text,
-                                          description:
-                                              descriptionTextEditingController
-                                                  .text,
-                                          verskey: state.verskey,
                                           image: state.image,
                                         ));
                             context.read<BookmarkBloc>()
                               ..add(const SaveQuranChapterId(id: []))
                               ..add(const FetchCollectionItem())
-                              ..add(const EmptyVerseKeyEvent());
+                              ..add(const EmptyVerseKeyEvent())
+                              ..add(const EmptyBookmarkCollectionId());
                             context.pop();
                           }
                         },

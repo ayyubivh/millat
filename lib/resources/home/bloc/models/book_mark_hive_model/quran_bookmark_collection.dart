@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../al-quran/aya/surah_aya_model.dart';
 part 'quran_bookmark_collection.g.dart';
 part 'quran_bookmark_collection.freezed.dart';
 
@@ -14,9 +13,25 @@ class QuranBookmModel with _$QuranBookmModel {
     required String? image,
     required String? slug,
     required List<String>? chapter,
-    required List<QuranSurahAyayModel>? verses,
+    required List<VerseModel>? verses,
   }) = _QuranBookmModel;
 
   factory QuranBookmModel.fromJson(Map<String, dynamic> json) =>
       _$QuranBookmModelFromJson(json);
+}
+
+@freezed
+class VerseModel with _$VerseModel {
+  const factory VerseModel({
+    @JsonKey(name: '_id') required String? id,
+    required String? surah,
+    required int? surahNumber,
+    required int? ayahNumber,
+    required int? verse,
+    required String? content,
+    // required List<String>? translations,
+  }) = _VerseModel;
+
+  factory VerseModel.fromJson(Map<String, dynamic> json) =>
+      _$VerseModelFromJson(json);
 }

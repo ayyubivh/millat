@@ -14,20 +14,15 @@ class QuranBookmarkServices extends HttpServices {
   //adding bookmark
   Future<Map<String, dynamic>> addBookMark({
     required String title,
-    required List<String> surahs,
-    required List<String> ayahs,
     required String imageFilePath,
   }) async {
-    final uri = Uri.parse("${kBaseUrl}my_quran/create");
+    final uri = Uri.parse("${kBaseUrl}quran_collection/create");
     final headers = {
       'Authorization': 'Bearer ${_getToken()}',
     };
     final request = http.MultipartRequest('POST', uri);
     request.headers.addAll(headers);
     request.fields['title'] = title;
-    request.fields['surahs'] = jsonEncode(surahs);
-    request.fields['ayahs'] = jsonEncode(ayahs);
-    print('Image File Path: $imageFilePath');
 
     ByteData imageData = await rootBundle.load(imageFilePath);
     List<int> bytes = imageData.buffer.asUint8List();
@@ -39,7 +34,7 @@ class QuranBookmarkServices extends HttpServices {
     await tempFile.writeAsBytes(bytes);
 
     request.files.add(await http.MultipartFile.fromPath(
-      'picture',
+      'image',
       tempFile.path,
       filename: tempFileName,
     ));
@@ -75,9 +70,10 @@ class QuranBookmarkServices extends HttpServices {
     };
     final headers = {
       'Authorization': 'Bearer ${_getToken()}',
+      'Content-Type': 'application/json; charset=utf-8',
     };
     try {
-      final response = await http.post(
+      final response = await http.patch(
         Uri.parse("${kBaseUrl}quran_collection/add?slug=$slug&to=verse"),
         body: jsonEncode(body),
         headers: headers,
@@ -157,8 +153,9 @@ class QuranBookmarkServices extends HttpServices {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final List<dynamic> dataList = data['result']['data'];
-        final result =
-            dataList.map((e) => QuranBookmModel.fromJson(e)).toList();
+        final result = dataList.map((e) {
+          return QuranBookmModel.fromJson(e);
+        }).toList();
         print(result);
         return result;
       }
@@ -170,8 +167,8 @@ class QuranBookmarkServices extends HttpServices {
 
   //delete
   deleteBookmark(String id) async {
-    final response =
-        await delete(endPoint: 'my_quran/delete/$id', isToken: true);
+    final response = await delete(
+        endPoint: 'quran_collection/delete?slug=$id', isToken: true);
     try {
       if (response.statusCode == 200) {
         return {'status': true};

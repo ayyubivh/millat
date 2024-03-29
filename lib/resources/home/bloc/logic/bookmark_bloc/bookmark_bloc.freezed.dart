@@ -18,8 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BookmarkEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -48,8 +47,7 @@ mixin _$BookmarkEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -73,8 +71,7 @@ mixin _$BookmarkEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -191,12 +188,7 @@ abstract class _$$AddCollectionImplCopyWith<$Res> {
           _$AddCollectionImpl value, $Res Function(_$AddCollectionImpl) then) =
       __$$AddCollectionImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {String name,
-      String description,
-      List<String> verskey,
-      String image,
-      BuildContext context});
+  $Res call({String name, String image, BuildContext context});
 }
 
 /// @nodoc
@@ -211,8 +203,6 @@ class __$$AddCollectionImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? description = null,
-    Object? verskey = null,
     Object? image = null,
     Object? context = null,
   }) {
@@ -221,14 +211,6 @@ class __$$AddCollectionImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      verskey: null == verskey
-          ? _value._verskey
-          : verskey // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -245,25 +227,10 @@ class __$$AddCollectionImplCopyWithImpl<$Res>
 
 class _$AddCollectionImpl implements AddCollection {
   const _$AddCollectionImpl(
-      {required this.name,
-      required this.description,
-      required final List<String> verskey,
-      required this.image,
-      required this.context})
-      : _verskey = verskey;
+      {required this.name, required this.image, required this.context});
 
   @override
   final String name;
-  @override
-  final String description;
-  final List<String> _verskey;
-  @override
-  List<String> get verskey {
-    if (_verskey is EqualUnmodifiableListView) return _verskey;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_verskey);
-  }
-
   @override
   final String image;
   @override
@@ -271,7 +238,7 @@ class _$AddCollectionImpl implements AddCollection {
 
   @override
   String toString() {
-    return 'BookmarkEvent.addCollection(name: $name, description: $description, verskey: $verskey, image: $image, context: $context)';
+    return 'BookmarkEvent.addCollection(name: $name, image: $image, context: $context)';
   }
 
   @override
@@ -280,16 +247,12 @@ class _$AddCollectionImpl implements AddCollection {
         (other.runtimeType == runtimeType &&
             other is _$AddCollectionImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            const DeepCollectionEquality().equals(other._verskey, _verskey) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, description,
-      const DeepCollectionEquality().hash(_verskey), image, context);
+  int get hashCode => Object.hash(runtimeType, name, image, context);
 
   @JsonKey(ignore: true)
   @override
@@ -300,8 +263,7 @@ class _$AddCollectionImpl implements AddCollection {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -327,14 +289,13 @@ class _$AddCollectionImpl implements AddCollection {
     required TResult Function() emptyBookmarkCollectionId,
     required TResult Function(String slug) addVersesTobookmark,
   }) {
-    return addCollection(name, description, verskey, image, context);
+    return addCollection(name, image, context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -355,14 +316,13 @@ class _$AddCollectionImpl implements AddCollection {
     TResult? Function()? emptyBookmarkCollectionId,
     TResult? Function(String slug)? addVersesTobookmark,
   }) {
-    return addCollection?.call(name, description, verskey, image, context);
+    return addCollection?.call(name, image, context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -385,7 +345,7 @@ class _$AddCollectionImpl implements AddCollection {
     required TResult orElse(),
   }) {
     if (addCollection != null) {
-      return addCollection(name, description, verskey, image, context);
+      return addCollection(name, image, context);
     }
     return orElse();
   }
@@ -474,14 +434,10 @@ class _$AddCollectionImpl implements AddCollection {
 abstract class AddCollection implements BookmarkEvent {
   const factory AddCollection(
       {required final String name,
-      required final String description,
-      required final List<String> verskey,
       required final String image,
       required final BuildContext context}) = _$AddCollectionImpl;
 
   String get name;
-  String get description;
-  List<String> get verskey;
   String get image;
   BuildContext get context;
   @JsonKey(ignore: true)
@@ -554,8 +510,7 @@ class _$SaveImageEventImpl implements SaveImageEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -587,8 +542,7 @@ class _$SaveImageEventImpl implements SaveImageEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -615,8 +569,7 @@ class _$SaveImageEventImpl implements SaveImageEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -806,8 +759,7 @@ class _$SaveQuranChapterIdImpl implements SaveQuranChapterId {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -839,8 +791,7 @@ class _$SaveQuranChapterIdImpl implements SaveQuranChapterId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -867,8 +818,7 @@ class _$SaveQuranChapterIdImpl implements SaveQuranChapterId {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -1052,8 +1002,7 @@ class _$NameChangedImpl implements NameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -1085,8 +1034,7 @@ class _$NameChangedImpl implements NameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -1113,8 +1061,7 @@ class _$NameChangedImpl implements NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -1299,8 +1246,7 @@ class _$DescriptionChangedImpl implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -1332,8 +1278,7 @@ class _$DescriptionChangedImpl implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -1360,8 +1305,7 @@ class _$DescriptionChangedImpl implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -1606,8 +1550,7 @@ class _$EditCollectionImpl implements EditCollection {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -1639,8 +1582,7 @@ class _$EditCollectionImpl implements EditCollection {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -1668,8 +1610,7 @@ class _$EditCollectionImpl implements EditCollection {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -1864,8 +1805,7 @@ class _$SaveIndexEventImpl implements SaveIndexEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -1897,8 +1837,7 @@ class _$SaveIndexEventImpl implements SaveIndexEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -1925,8 +1864,7 @@ class _$SaveIndexEventImpl implements SaveIndexEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -2112,8 +2050,7 @@ class _$SaveVersesIndexEventImpl implements SaveVersesIndexEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -2145,8 +2082,7 @@ class _$SaveVersesIndexEventImpl implements SaveVersesIndexEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -2173,8 +2109,7 @@ class _$SaveVersesIndexEventImpl implements SaveVersesIndexEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -2331,8 +2266,7 @@ class _$ClearIndexEventImpl implements ClearIndexEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -2364,8 +2298,7 @@ class _$ClearIndexEventImpl implements ClearIndexEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -2392,8 +2325,7 @@ class _$ClearIndexEventImpl implements ClearIndexEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -2571,8 +2503,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -2604,8 +2535,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -2632,8 +2562,7 @@ class _$ChangeIndexEventImpl implements ChangeIndexEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -2789,8 +2718,7 @@ class _$EmptyIndexEventImpl implements EmptyIndexEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -2822,8 +2750,7 @@ class _$EmptyIndexEventImpl implements EmptyIndexEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -2850,8 +2777,7 @@ class _$EmptyIndexEventImpl implements EmptyIndexEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -3002,8 +2928,7 @@ class _$EmptyVerseKeyEventImpl implements EmptyVerseKeyEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -3035,8 +2960,7 @@ class _$EmptyVerseKeyEventImpl implements EmptyVerseKeyEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -3063,8 +2987,7 @@ class _$EmptyVerseKeyEventImpl implements EmptyVerseKeyEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -3216,8 +3139,7 @@ class _$FetchCollectionItemImpl implements FetchCollectionItem {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -3249,8 +3171,7 @@ class _$FetchCollectionItemImpl implements FetchCollectionItem {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -3277,8 +3198,7 @@ class _$FetchCollectionItemImpl implements FetchCollectionItem {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -3456,8 +3376,7 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -3489,8 +3408,7 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -3517,8 +3435,7 @@ class _$RemoveBookmarkImpl implements RemoveBookmark {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -3704,8 +3621,7 @@ class _$saveBookmarkCollectionIdImpl implements saveBookmarkCollectionId {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -3737,8 +3653,7 @@ class _$saveBookmarkCollectionIdImpl implements saveBookmarkCollectionId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -3765,8 +3680,7 @@ class _$saveBookmarkCollectionIdImpl implements saveBookmarkCollectionId {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -3926,8 +3840,7 @@ class _$EmptyBookmarkCollectionIdImpl implements EmptyBookmarkCollectionId {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -3959,8 +3872,7 @@ class _$EmptyBookmarkCollectionIdImpl implements EmptyBookmarkCollectionId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -3987,8 +3899,7 @@ class _$EmptyBookmarkCollectionIdImpl implements EmptyBookmarkCollectionId {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,
@@ -4166,8 +4077,7 @@ class _$AddVersesTobookmarkImpl implements AddVersesTobookmark {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description,
-            List<String> verskey, String image, BuildContext context)
+    required TResult Function(String name, String image, BuildContext context)
         addCollection,
     required TResult Function(String img) saveImageEvent,
     required TResult Function(List<int> id) saveQuranChapterId,
@@ -4199,8 +4109,7 @@ class _$AddVersesTobookmarkImpl implements AddVersesTobookmark {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult? Function(String name, String image, BuildContext context)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
     TResult? Function(List<int> id)? saveQuranChapterId,
@@ -4227,8 +4136,7 @@ class _$AddVersesTobookmarkImpl implements AddVersesTobookmark {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, List<String> verskey,
-            String image, BuildContext context)?
+    TResult Function(String name, String image, BuildContext context)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
     TResult Function(List<int> id)? saveQuranChapterId,

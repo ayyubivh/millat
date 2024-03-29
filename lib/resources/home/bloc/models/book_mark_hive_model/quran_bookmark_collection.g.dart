@@ -19,7 +19,7 @@ _$QuranBookmModelImpl _$$QuranBookmModelImplFromJson(
       chapter:
           (json['chapter'] as List<dynamic>?)?.map((e) => e as String).toList(),
       verses: (json['verses'] as List<dynamic>?)
-          ?.map((e) => QuranSurahAyayModel.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => VerseModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -34,4 +34,24 @@ Map<String, dynamic> _$$QuranBookmModelImplToJson(
       'slug': instance.slug,
       'chapter': instance.chapter,
       'verses': instance.verses,
+    };
+
+_$VerseModelImpl _$$VerseModelImplFromJson(Map<String, dynamic> json) =>
+    _$VerseModelImpl(
+      id: json['_id'] as String?,
+      surah: json['surah'] as String?,
+      surahNumber: json['surahNumber'] as int?,
+      ayahNumber: json['ayahNumber'] as int?,
+      verse: json['verse'] as int?,
+      content: json['content'] as String?,
+    );
+
+Map<String, dynamic> _$$VerseModelImplToJson(_$VerseModelImpl instance) =>
+    <String, dynamic>{
+      '_id': instance.id,
+      'surah': instance.surah,
+      'surahNumber': instance.surahNumber,
+      'ayahNumber': instance.ayahNumber,
+      'verse': instance.verse,
+      'content': instance.content,
     };

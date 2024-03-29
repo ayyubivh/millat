@@ -29,7 +29,9 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
     BlocProvider.of<QuranBloc>(context)
       ..add(const FetchQuaranChaptersEvent())
       ..add(const FetchQuranPara());
-    BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
+    BlocProvider.of<BookmarkBloc>(context)
+      ..add(const FetchCollectionItem())
+      ..add(const EmptyBookmarkCollectionId());
 
     _tabController = TabController(length: 3, vsync: this);
 
@@ -368,7 +370,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
         ),
       ),
       subtitle: Text(
-        "  ${surah.noOfAyah} VERSES",
+        " ${surah.totalAyah} VERSES",
         style: TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w600,

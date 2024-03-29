@@ -11,8 +11,8 @@ class QuranSurahModel with _$QuranSurahModel {
     @JsonKey(name: "_id") required String? id,
     @JsonKey(name: "title") required String? title,
     @JsonKey(name: "slug") required String? slug,
-    @JsonKey(name: "noOfSurah") required int? noOfSurah,
-    @JsonKey(name: "noOfAyah") required int? noOfAyah,
+    @JsonKey(name: "surahNumber") required int? surahNumber,
+    @JsonKey(name: "totalAyah") required int? totalAyah,
   }) = _QuranSurahModel;
 
   factory QuranSurahModel.fromJson(Map<String, dynamic> json) =>

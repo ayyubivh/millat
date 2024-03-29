@@ -66,13 +66,49 @@ class QuranBookmarkServices extends HttpServices {
     }
   }
 
+  addVerseToBookmark({
+    required List<String> ayahs,
+    required String slug,
+  }) async {
+    final body = {
+      'verseId': ayahs,
+    };
+    final headers = {
+      'Authorization': 'Bearer ${_getToken()}',
+    };
+    try {
+      final response = await http.post(
+        Uri.parse("${kBaseUrl}quran_collection/add?slug=$slug&to=verse"),
+        body: jsonEncode(body),
+        headers: headers,
+      );
+
+      if (response.statusCode == 200) {
+        return {
+          'status': true,
+          'message': 'An error occurred',
+        };
+      } else {
+        return {
+          'status': false,
+          'message': 'An error occurred',
+        };
+      }
+    } catch (error) {
+      return {
+        'status': false,
+        'message': 'An error occurred',
+      };
+    }
+  }
+
   //edit bookmark
 
   Future<Map<String, dynamic>> editBookmark({
-    required String title,
-    required List<String> surahs,
+    // required String title,
+    // required List<String> surahs,
     required List<String> ayahs,
-    required String imageFilePath,
+    // required String imageFilePath,
   }) async {
     final uri = Uri.parse("${kBaseUrl}my_quran/create");
     final headers = {
@@ -85,10 +121,7 @@ class QuranBookmarkServices extends HttpServices {
     // String base64Image = base64Encode(bytes);
 
     final body = {
-      'title': title,
-      // 'surahs': surahs,
-      // 'ayahs': ayahs,
-      // 'picture': base64Image,
+      'verseId': ayahs,
     };
 
     try {
@@ -118,8 +151,8 @@ class QuranBookmarkServices extends HttpServices {
   }
 
   //getting bookmarks
-  fetchBookmarks() async {
-    final response = await get(endPoint: 'my_quran', isToken: true);
+  Future<List<QuranBookmModel>> fetchBookmarks() async {
+    final response = await get(endPoint: 'quran_collection', isToken: true);
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
@@ -129,6 +162,7 @@ class QuranBookmarkServices extends HttpServices {
         print(result);
         return result;
       }
+      return [];
     } catch (e) {
       throw Exception(e);
     }

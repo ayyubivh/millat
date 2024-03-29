@@ -11,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/resources/home/bloc/service/quran_bookmark_services.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/add_surah_view.dart';
 
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
@@ -194,6 +195,13 @@ class _HomeViewState extends State<HomeView> with WidgetsBindingObserver {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
+                  // ElevatedButton(
+                  //     onPressed: () {
+                  //       Navigator.of(context).push(MaterialPageRoute(
+                  //         builder: (context) => const AddSurahaInSearchView(),
+                  //       ));
+                  //     },
+                  //     child: Icon(Icons.abc)),
                   Row(
                     mainAxisAlignment: Responsive.isMobile(context)
                         ? MainAxisAlignment.spaceBetween

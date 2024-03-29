@@ -12,7 +12,9 @@ class QuranBookmModel with _$QuranBookmModel {
     required String? user,
     required String? title,
     required String? image,
-    required List<String>? ayahs,
+    required String? slug,
+    required List<String>? chapter,
+    required List<QuranSurahAyayModel>? verses,
   }) = _QuranBookmModel;
 
   factory QuranBookmModel.fromJson(Map<String, dynamic> json) =>

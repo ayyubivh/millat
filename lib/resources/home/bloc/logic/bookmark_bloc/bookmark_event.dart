@@ -8,7 +8,6 @@ class BookmarkEvent with _$BookmarkEvent {
     required List<String> verskey,
     required String image,
     required BuildContext context,
-    String? dbId,
   }) = AddCollection;
   const factory BookmarkEvent.saveImageEvent({
     required String img,
@@ -29,9 +28,7 @@ class BookmarkEvent with _$BookmarkEvent {
     required String dbId,
     required BuildContext context,
   }) = EditCollection;
-  const factory BookmarkEvent.addFavCollection({
-    required List<String> verskey,
-  }) = AddFavCollection;
+
   const factory BookmarkEvent.saveIndexEvent({
     required int indexList,
   }) = SaveIndexEvent;
@@ -41,12 +38,19 @@ class BookmarkEvent with _$BookmarkEvent {
   const factory BookmarkEvent.clearIndexEvent() = ClearIndexEvent;
   const factory BookmarkEvent.changeIndexEvent(int index) = ChangeIndexEvent;
   const factory BookmarkEvent.emptyIndexEvent() = EmptyIndexEvent;
-  const factory BookmarkEvent.saveVerseKeyEvent(String versekey) =
-      SaveVerseKeyEvent;
+  // const factory BookmarkEvent.saveVerseKeyEvent(String versekey) =
+  //     SaveVerseKeyEvent;
   const factory BookmarkEvent.emptyVerseKeyEvent() = EmptyVerseKeyEvent;
   const factory BookmarkEvent.fetchCollectionItem() = FetchCollectionItem;
   const factory BookmarkEvent.removeBookmark({
     required String id,
   }) = RemoveBookmark;
   //---------------------------
+  const factory BookmarkEvent.saveBookmarkCollectionId(String id) =
+      saveBookmarkCollectionId;
+  const factory BookmarkEvent.emptyBookmarkCollectionId() =
+      EmptyBookmarkCollectionId;
+  const factory BookmarkEvent.addVersesTobookmark({
+    required String slug,
+  }) = AddVersesTobookmark;
 }

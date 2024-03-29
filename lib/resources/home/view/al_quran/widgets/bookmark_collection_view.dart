@@ -19,11 +19,11 @@ class BookmarkCollectionDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (passvalue.ayahs?.isEmpty ?? true) {
+      if (passvalue.verses?.isEmpty ?? true) {
         return;
       } else {
-        BlocProvider.of<QuranBloc>(context)
-            .add(FetchQuranAyaById(id: passvalue.ayahs?.first ?? ""));
+        // BlocProvider.of<QuranBloc>(context)
+        //     .add(FetchQuranAyaById(id: passvalue.verses.));
       }
 
       //   ..add(AddVersesToPlayList(verseKey: passvalue.verseKey));
@@ -121,16 +121,14 @@ class BookmarkCollectionDetailsView extends StatelessWidget {
                   } else if (state.ayaById?.content == '') {
                     return const SizedBox();
                   } else {
-                    final data = state.ayaById;
-
                     return ListView.builder(
-                      itemCount: 1,
+                      itemCount: passvalue.verses?.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: _buildSurahWidget(
                               context: context,
-                              name: data?.content ?? '',
+                              name: passvalue.verses?[index].content ?? "",
                               versCount: ''),
                         );
                       },
@@ -168,14 +166,14 @@ class BookmarkCollectionDetailsView extends StatelessWidget {
                 textDirection: TextDirection.rtl,
               ),
               kHeight10,
-              Text(
-                'Aya $versCount  ',
-                style: TextStyle(
-                  color: ColorManager.textGrey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              )
+              // Text(
+              //   'Aya $versCount  ',
+              //   style: TextStyle(
+              //     color: ColorManager.textGrey,
+              //     fontSize: 16,
+              //     fontWeight: FontWeight.w600,
+              //   ),
+              // )
             ],
           ),
         ),

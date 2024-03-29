@@ -27,7 +27,7 @@ class HttpServices {
   }) async {
     try {
       final response = await http.post(Uri.parse(kBaseUrl + endPoint),
-          body: jsonEncode(body),
+          body: body,
           headers: isToken
               ? {
                   // 'Content-Type': 'application/json; charset=utf-8',

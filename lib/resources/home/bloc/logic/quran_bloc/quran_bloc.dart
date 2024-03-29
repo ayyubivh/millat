@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:just_audio/just_audio.dart';
@@ -173,8 +174,8 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
   _fechtChapterbyId(FechtChapterbyId event, Emitter<QuranState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final data = await quranServices.fetchChaptersByIds(event.id);
-      emit(state.copyWith(chapterByIdModel: data, isLoading: false));
+      final data = await quranServices.fetchQuranSurahAya(event.slug);
+      emit(state.copyWith(quranSurahAyaModel: data, isLoading: false));
       debugPrint('here is the data of lists of quan by id $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
@@ -189,16 +190,24 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
 
   _searchChapterEvent(SearchChapterEvent event, Emitter<QuranState> emit) {
     emit(state.copyWith(isLoading: true));
-    final query = event.query.toLowerCase();
-    if (query.isEmpty) {
-      emit(state.copyWith(
-          searchChapters: state.quranSurahModel, isLoading: false));
-    } else {
-      final filteredChapters = state.quranSurahModel!
-          .where((chapter) => chapter.title!.toLowerCase().contains(query))
-          .toList();
+    try {
+      final query = event.query.toLowerCase();
+      if (query.isEmpty) {
+        emit(state.copyWith(
+            searchChapters: state.quranSurahModel, isLoading: false));
+      } else {
+        final filteredChapters = state.quranSurahModel!
+            .where((chapter) => chapter.title!.toLowerCase().contains(query))
+            .toList();
 
-      emit(state.copyWith(searchChapters: filteredChapters, isLoading: false));
+        emit(
+            state.copyWith(searchChapters: filteredChapters, isLoading: false));
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        debugPrint(e.toString());
+      }
+      throw Exception(e);
     }
   }
 

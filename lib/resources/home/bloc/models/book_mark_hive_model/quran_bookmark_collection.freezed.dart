@@ -26,7 +26,9 @@ mixin _$QuranBookmModel {
   String? get user => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
-  List<String>? get ayahs => throw _privateConstructorUsedError;
+  String? get slug => throw _privateConstructorUsedError;
+  List<String>? get chapter => throw _privateConstructorUsedError;
+  List<QuranSurahAyayModel>? get verses => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +48,9 @@ abstract class $QuranBookmModelCopyWith<$Res> {
       String? user,
       String? title,
       String? image,
-      List<String>? ayahs});
+      String? slug,
+      List<String>? chapter,
+      List<QuranSurahAyayModel>? verses});
 }
 
 /// @nodoc
@@ -67,7 +71,9 @@ class _$QuranBookmModelCopyWithImpl<$Res, $Val extends QuranBookmModel>
     Object? user = freezed,
     Object? title = freezed,
     Object? image = freezed,
-    Object? ayahs = freezed,
+    Object? slug = freezed,
+    Object? chapter = freezed,
+    Object? verses = freezed,
   }) {
     return _then(_value.copyWith(
       surahs: freezed == surahs
@@ -90,10 +96,18 @@ class _$QuranBookmModelCopyWithImpl<$Res, $Val extends QuranBookmModel>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      ayahs: freezed == ayahs
-          ? _value.ayahs
-          : ayahs // ignore: cast_nullable_to_non_nullable
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      chapter: freezed == chapter
+          ? _value.chapter
+          : chapter // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      verses: freezed == verses
+          ? _value.verses
+          : verses // ignore: cast_nullable_to_non_nullable
+              as List<QuranSurahAyayModel>?,
     ) as $Val);
   }
 }
@@ -112,7 +126,9 @@ abstract class _$$QuranBookmModelImplCopyWith<$Res>
       String? user,
       String? title,
       String? image,
-      List<String>? ayahs});
+      String? slug,
+      List<String>? chapter,
+      List<QuranSurahAyayModel>? verses});
 }
 
 /// @nodoc
@@ -131,7 +147,9 @@ class __$$QuranBookmModelImplCopyWithImpl<$Res>
     Object? user = freezed,
     Object? title = freezed,
     Object? image = freezed,
-    Object? ayahs = freezed,
+    Object? slug = freezed,
+    Object? chapter = freezed,
+    Object? verses = freezed,
   }) {
     return _then(_$QuranBookmModelImpl(
       surahs: freezed == surahs
@@ -154,10 +172,18 @@ class __$$QuranBookmModelImplCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
-      ayahs: freezed == ayahs
-          ? _value._ayahs
-          : ayahs // ignore: cast_nullable_to_non_nullable
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      chapter: freezed == chapter
+          ? _value._chapter
+          : chapter // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      verses: freezed == verses
+          ? _value._verses
+          : verses // ignore: cast_nullable_to_non_nullable
+              as List<QuranSurahAyayModel>?,
     ));
   }
 }
@@ -171,9 +197,12 @@ class _$QuranBookmModelImpl implements _QuranBookmModel {
       required this.user,
       required this.title,
       required this.image,
-      required final List<String>? ayahs})
+      required this.slug,
+      required final List<String>? chapter,
+      required final List<QuranSurahAyayModel>? verses})
       : _surahs = surahs,
-        _ayahs = ayahs;
+        _chapter = chapter,
+        _verses = verses;
 
   factory _$QuranBookmModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuranBookmModelImplFromJson(json);
@@ -197,19 +226,31 @@ class _$QuranBookmModelImpl implements _QuranBookmModel {
   final String? title;
   @override
   final String? image;
-  final List<String>? _ayahs;
   @override
-  List<String>? get ayahs {
-    final value = _ayahs;
+  final String? slug;
+  final List<String>? _chapter;
+  @override
+  List<String>? get chapter {
+    final value = _chapter;
     if (value == null) return null;
-    if (_ayahs is EqualUnmodifiableListView) return _ayahs;
+    if (_chapter is EqualUnmodifiableListView) return _chapter;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<QuranSurahAyayModel>? _verses;
+  @override
+  List<QuranSurahAyayModel>? get verses {
+    final value = _verses;
+    if (value == null) return null;
+    if (_verses is EqualUnmodifiableListView) return _verses;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'QuranBookmModel(surahs: $surahs, id: $id, user: $user, title: $title, image: $image, ayahs: $ayahs)';
+    return 'QuranBookmModel(surahs: $surahs, id: $id, user: $user, title: $title, image: $image, slug: $slug, chapter: $chapter, verses: $verses)';
   }
 
   @override
@@ -222,7 +263,9 @@ class _$QuranBookmModelImpl implements _QuranBookmModel {
             (identical(other.user, user) || other.user == user) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.image, image) || other.image == image) &&
-            const DeepCollectionEquality().equals(other._ayahs, _ayahs));
+            (identical(other.slug, slug) || other.slug == slug) &&
+            const DeepCollectionEquality().equals(other._chapter, _chapter) &&
+            const DeepCollectionEquality().equals(other._verses, _verses));
   }
 
   @JsonKey(ignore: true)
@@ -234,7 +277,9 @@ class _$QuranBookmModelImpl implements _QuranBookmModel {
       user,
       title,
       image,
-      const DeepCollectionEquality().hash(_ayahs));
+      slug,
+      const DeepCollectionEquality().hash(_chapter),
+      const DeepCollectionEquality().hash(_verses));
 
   @JsonKey(ignore: true)
   @override
@@ -253,12 +298,15 @@ class _$QuranBookmModelImpl implements _QuranBookmModel {
 
 abstract class _QuranBookmModel implements QuranBookmModel {
   const factory _QuranBookmModel(
-      {required final List<String>? surahs,
-      @JsonKey(name: "_id") required final String id,
-      required final String? user,
-      required final String? title,
-      required final String? image,
-      required final List<String>? ayahs}) = _$QuranBookmModelImpl;
+          {required final List<String>? surahs,
+          @JsonKey(name: "_id") required final String id,
+          required final String? user,
+          required final String? title,
+          required final String? image,
+          required final String? slug,
+          required final List<String>? chapter,
+          required final List<QuranSurahAyayModel>? verses}) =
+      _$QuranBookmModelImpl;
 
   factory _QuranBookmModel.fromJson(Map<String, dynamic> json) =
       _$QuranBookmModelImpl.fromJson;
@@ -275,7 +323,11 @@ abstract class _QuranBookmModel implements QuranBookmModel {
   @override
   String? get image;
   @override
-  List<String>? get ayahs;
+  String? get slug;
+  @override
+  List<String>? get chapter;
+  @override
+  List<QuranSurahAyayModel>? get verses;
   @override
   @JsonKey(ignore: true)
   _$$QuranBookmModelImplCopyWith<_$QuranBookmModelImpl> get copyWith =>

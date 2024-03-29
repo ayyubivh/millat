@@ -167,7 +167,7 @@ class VersesCardWidget extends StatelessWidget {
                   builder: (context, state) => GestureDetector(
                     onTap: bookMarkOntap,
                     child: state.quranbookmarkModel?.any(
-                                (e) => e.ayahs?.contains(isValue) ?? true) ??
+                                (e) => e.verses?.contains(isValue) ?? true) ??
                             true
                         ? ImageIcon(
                             const AssetImage(

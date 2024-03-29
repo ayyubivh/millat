@@ -15,18 +15,16 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import '../../../../../components/buttons/main_button.dart';
 import '../../../../../utils/size_utility.dart';
-import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class AddNewBookMarkCollection extends StatefulWidget {
   final BookMarkCollectionType type;
   final QuranBookmModel? passvalue;
-  final List<String>? verseKeys;
+  // final List<String>? verseKeys;
 
   const AddNewBookMarkCollection({
     Key? key,
     required this.type,
     this.passvalue,
-    this.verseKeys,
   }) : super(key: key);
 
   @override
@@ -51,16 +49,17 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
 
     widget.type == BookMarkCollectionType.edit ? addField() : null;
     context.read<BookmarkBloc>().add(const SaveImageEvent(img: ""));
-    widget.type == BookMarkCollectionType.addSpecificOne
-        ? context.read<QuranBloc>().add(FetchVersesByKey(
-              verseKey: widget.verseKeys ?? [],
-            ))
-        : null;
-    widget.type == BookMarkCollectionType.addSpecificOne
-        ? context
-            .read<BookmarkBloc>()
-            .add(SaveVerseKeyEvent(widget.verseKeys?[0] ?? ''))
-        : null;
+
+    // widget.type == BookMarkCollectionType.addSpecificOne
+    //     ? context.read<QuranBloc>().add(FetchVersesByKey(
+    //           verseKey: widget.verseKeys ?? [],
+    //         ))
+    //     : null;
+    // widget.type == BookMarkCollectionType.addSpecificOne
+    //     ? context
+    //         .read<BookmarkBloc>()
+    //         .add(SaveVerseKeyEvent(widget.verseKeys?[0] ?? ''))
+    //     : null;
     super.initState();
   }
 
@@ -253,9 +252,9 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                   // context.pushNamed(
                                   //     MyAppRouteConstants.quranVersesRoutename,
                                   //     extra: {"type": Qurantype.verse});
-                                  context
-                                      .read<BookmarkBloc>()
-                                      .add(SaveVerseKeyEvent(verseKey));
+                                  // context
+                                  //     .read<BookmarkBloc>()
+                                  //     .add(SaveVerseKeyEvent(verseKey));
                                 },
                                 leading: Stack(
                                   children: [
@@ -367,49 +366,33 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                       builder: (context, state) => TextButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            final verseList = context
-                                    .read<QuranBloc>()
-                                    .state
-                                    .bookmarkAudioPlaylist +
-                                state.verskey;
                             widget.type == BookMarkCollectionType.add
                                 ? ctx.read<BookmarkBloc>().add(AddCollection(
-                                    context: context,
-                                    name: nameTextEditingController.text,
-                                    description:
-                                        descriptionTextEditingController.text,
-                                    verskey: state.verskey,
-                                    image: state.image,
-                                    dbId: DateTime.now()
-                                        .millisecondsSinceEpoch
-                                        .toString()))
+                                      context: context,
+                                      name: nameTextEditingController.text,
+                                      description:
+                                          descriptionTextEditingController.text,
+                                      verskey:
+                                          state.bookmarkCollectionId.toList(),
+                                      image: state.image,
+                                    ))
                                 : widget.type == BookMarkCollectionType.edit
                                     ? ctx.read<BookmarkBloc>().add(
-                                          EditCollection(
-                                              context: context,
-                                              name: nameTextEditingController
-                                                  .text,
-                                              description:
-                                                  descriptionTextEditingController
-                                                      .text,
-                                              verskey: verseList,
-                                              image:
-                                                  img == "" ? state.image : img,
-                                              dbId: ''),
+                                          AddVersesTobookmark(
+                                              slug:
+                                                  widget.passvalue?.slug ?? ""),
                                         )
-                                    : ctx.read<BookmarkBloc>().add(
-                                        AddCollection(
-                                            context: context,
-                                            name:
-                                                nameTextEditingController.text,
-                                            description:
-                                                descriptionTextEditingController
-                                                    .text,
-                                            verskey: state.verskey,
-                                            image: state.image,
-                                            dbId: DateTime.now()
-                                                .millisecondsSinceEpoch
-                                                .toString()));
+                                    : ctx
+                                        .read<BookmarkBloc>()
+                                        .add(AddCollection(
+                                          context: context,
+                                          name: nameTextEditingController.text,
+                                          description:
+                                              descriptionTextEditingController
+                                                  .text,
+                                          verskey: state.verskey,
+                                          image: state.image,
+                                        ));
                             context.read<BookmarkBloc>()
                               ..add(const SaveQuranChapterId(id: []))
                               ..add(const FetchCollectionItem())

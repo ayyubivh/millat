@@ -15,8 +15,12 @@ _$QuranBookmModelImpl _$$QuranBookmModelImplFromJson(
       user: json['user'] as String?,
       title: json['title'] as String?,
       image: json['image'] as String?,
-      ayahs:
-          (json['ayahs'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      slug: json['slug'] as String?,
+      chapter:
+          (json['chapter'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      verses: (json['verses'] as List<dynamic>?)
+          ?.map((e) => QuranSurahAyayModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$QuranBookmModelImplToJson(
@@ -27,5 +31,7 @@ Map<String, dynamic> _$$QuranBookmModelImplToJson(
       'user': instance.user,
       'title': instance.title,
       'image': instance.image,
-      'ayahs': instance.ayahs,
+      'slug': instance.slug,
+      'chapter': instance.chapter,
+      'verses': instance.verses,
     };

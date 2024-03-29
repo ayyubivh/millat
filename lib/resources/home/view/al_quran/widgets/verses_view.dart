@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/quran_fav_bookmark_collection_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_card.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -13,11 +11,7 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../../../../utils/constants.dart';
-import '../../../bloc/db/db_functions.dart';
-import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'new_collection_widget.dart';
-import 'quran_bookmark_collection.dart';
 
 class VersesView extends StatefulWidget {
   final Qurantype type;

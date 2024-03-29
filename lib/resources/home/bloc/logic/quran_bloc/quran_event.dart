@@ -16,9 +16,9 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.fetchQuranPara() = FetchQuranPara;
   const factory QuranEvent.changeExpandOnSearchEvent() =
       ChangeExpandOnSearchEvent;
-  const factory QuranEvent.fechtChapterbyId({
-    required List<int> id,
-  }) = FechtChapterbyId;
+  // const factory QuranEvent.fechtChapterbyId({
+  //   required List<int> id,
+  // }) = FechtChapterbyId;
   const factory QuranEvent.searchChapterEvent({
     required String query,
   }) = SearchChapterEvent;
@@ -85,4 +85,7 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.fetchQuranayaById({
     required String id,
   }) = FetchQuranAyaById;
+   const factory QuranEvent.fechtChapterbyId({
+    required String slug,
+  }) = FechtChapterbyId;
 }

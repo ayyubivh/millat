@@ -12,8 +12,8 @@ _$QuranSurahModelImpl _$$QuranSurahModelImplFromJson(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       slug: json['slug'] as String?,
-      noOfSurah: json['noOfSurah'] as int?,
-      noOfAyah: json['noOfAyah'] as int?,
+      surahNumber: json['surahNumber'] as int?,
+      totalAyah: json['totalAyah'] as int?,
     );
 
 Map<String, dynamic> _$$QuranSurahModelImplToJson(
@@ -22,6 +22,6 @@ Map<String, dynamic> _$$QuranSurahModelImplToJson(
       '_id': instance.id,
       'title': instance.title,
       'slug': instance.slug,
-      'noOfSurah': instance.noOfSurah,
-      'noOfAyah': instance.noOfAyah,
+      'surahNumber': instance.surahNumber,
+      'totalAyah': instance.totalAyah,
     };

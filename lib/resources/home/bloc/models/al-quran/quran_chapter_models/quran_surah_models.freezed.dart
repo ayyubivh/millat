@@ -26,10 +26,10 @@ mixin _$QuranSurahModel {
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: "slug")
   String? get slug => throw _privateConstructorUsedError;
-  @JsonKey(name: "noOfSurah")
-  int? get noOfSurah => throw _privateConstructorUsedError;
-  @JsonKey(name: "noOfAyah")
-  int? get noOfAyah => throw _privateConstructorUsedError;
+  @JsonKey(name: "surahNumber")
+  int? get surahNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: "totalAyah")
+  int? get totalAyah => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,8 +47,8 @@ abstract class $QuranSurahModelCopyWith<$Res> {
       {@JsonKey(name: "_id") String? id,
       @JsonKey(name: "title") String? title,
       @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "noOfSurah") int? noOfSurah,
-      @JsonKey(name: "noOfAyah") int? noOfAyah});
+      @JsonKey(name: "surahNumber") int? surahNumber,
+      @JsonKey(name: "totalAyah") int? totalAyah});
 }
 
 /// @nodoc
@@ -67,8 +67,8 @@ class _$QuranSurahModelCopyWithImpl<$Res, $Val extends QuranSurahModel>
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
-    Object? noOfSurah = freezed,
-    Object? noOfAyah = freezed,
+    Object? surahNumber = freezed,
+    Object? totalAyah = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -83,13 +83,13 @@ class _$QuranSurahModelCopyWithImpl<$Res, $Val extends QuranSurahModel>
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String?,
-      noOfSurah: freezed == noOfSurah
-          ? _value.noOfSurah
-          : noOfSurah // ignore: cast_nullable_to_non_nullable
+      surahNumber: freezed == surahNumber
+          ? _value.surahNumber
+          : surahNumber // ignore: cast_nullable_to_non_nullable
               as int?,
-      noOfAyah: freezed == noOfAyah
-          ? _value.noOfAyah
-          : noOfAyah // ignore: cast_nullable_to_non_nullable
+      totalAyah: freezed == totalAyah
+          ? _value.totalAyah
+          : totalAyah // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -107,8 +107,8 @@ abstract class _$$QuranSurahModelImplCopyWith<$Res>
       {@JsonKey(name: "_id") String? id,
       @JsonKey(name: "title") String? title,
       @JsonKey(name: "slug") String? slug,
-      @JsonKey(name: "noOfSurah") int? noOfSurah,
-      @JsonKey(name: "noOfAyah") int? noOfAyah});
+      @JsonKey(name: "surahNumber") int? surahNumber,
+      @JsonKey(name: "totalAyah") int? totalAyah});
 }
 
 /// @nodoc
@@ -125,8 +125,8 @@ class __$$QuranSurahModelImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
-    Object? noOfSurah = freezed,
-    Object? noOfAyah = freezed,
+    Object? surahNumber = freezed,
+    Object? totalAyah = freezed,
   }) {
     return _then(_$QuranSurahModelImpl(
       id: freezed == id
@@ -141,13 +141,13 @@ class __$$QuranSurahModelImplCopyWithImpl<$Res>
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String?,
-      noOfSurah: freezed == noOfSurah
-          ? _value.noOfSurah
-          : noOfSurah // ignore: cast_nullable_to_non_nullable
+      surahNumber: freezed == surahNumber
+          ? _value.surahNumber
+          : surahNumber // ignore: cast_nullable_to_non_nullable
               as int?,
-      noOfAyah: freezed == noOfAyah
-          ? _value.noOfAyah
-          : noOfAyah // ignore: cast_nullable_to_non_nullable
+      totalAyah: freezed == totalAyah
+          ? _value.totalAyah
+          : totalAyah // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -160,8 +160,8 @@ class _$QuranSurahModelImpl implements _QuranSurahModel {
       {@JsonKey(name: "_id") required this.id,
       @JsonKey(name: "title") required this.title,
       @JsonKey(name: "slug") required this.slug,
-      @JsonKey(name: "noOfSurah") required this.noOfSurah,
-      @JsonKey(name: "noOfAyah") required this.noOfAyah});
+      @JsonKey(name: "surahNumber") required this.surahNumber,
+      @JsonKey(name: "totalAyah") required this.totalAyah});
 
   factory _$QuranSurahModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuranSurahModelImplFromJson(json);
@@ -176,15 +176,15 @@ class _$QuranSurahModelImpl implements _QuranSurahModel {
   @JsonKey(name: "slug")
   final String? slug;
   @override
-  @JsonKey(name: "noOfSurah")
-  final int? noOfSurah;
+  @JsonKey(name: "surahNumber")
+  final int? surahNumber;
   @override
-  @JsonKey(name: "noOfAyah")
-  final int? noOfAyah;
+  @JsonKey(name: "totalAyah")
+  final int? totalAyah;
 
   @override
   String toString() {
-    return 'QuranSurahModel(id: $id, title: $title, slug: $slug, noOfSurah: $noOfSurah, noOfAyah: $noOfAyah)';
+    return 'QuranSurahModel(id: $id, title: $title, slug: $slug, surahNumber: $surahNumber, totalAyah: $totalAyah)';
   }
 
   @override
@@ -195,16 +195,16 @@ class _$QuranSurahModelImpl implements _QuranSurahModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.slug, slug) || other.slug == slug) &&
-            (identical(other.noOfSurah, noOfSurah) ||
-                other.noOfSurah == noOfSurah) &&
-            (identical(other.noOfAyah, noOfAyah) ||
-                other.noOfAyah == noOfAyah));
+            (identical(other.surahNumber, surahNumber) ||
+                other.surahNumber == surahNumber) &&
+            (identical(other.totalAyah, totalAyah) ||
+                other.totalAyah == totalAyah));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, title, slug, noOfSurah, noOfAyah);
+      Object.hash(runtimeType, id, title, slug, surahNumber, totalAyah);
 
   @JsonKey(ignore: true)
   @override
@@ -226,8 +226,8 @@ abstract class _QuranSurahModel implements QuranSurahModel {
           {@JsonKey(name: "_id") required final String? id,
           @JsonKey(name: "title") required final String? title,
           @JsonKey(name: "slug") required final String? slug,
-          @JsonKey(name: "noOfSurah") required final int? noOfSurah,
-          @JsonKey(name: "noOfAyah") required final int? noOfAyah}) =
+          @JsonKey(name: "surahNumber") required final int? surahNumber,
+          @JsonKey(name: "totalAyah") required final int? totalAyah}) =
       _$QuranSurahModelImpl;
 
   factory _QuranSurahModel.fromJson(Map<String, dynamic> json) =
@@ -243,11 +243,11 @@ abstract class _QuranSurahModel implements QuranSurahModel {
   @JsonKey(name: "slug")
   String? get slug;
   @override
-  @JsonKey(name: "noOfSurah")
-  int? get noOfSurah;
+  @JsonKey(name: "surahNumber")
+  int? get surahNumber;
   @override
-  @JsonKey(name: "noOfAyah")
-  int? get noOfAyah;
+  @JsonKey(name: "totalAyah")
+  int? get totalAyah;
   @override
   @JsonKey(ignore: true)
   _$$QuranSurahModelImplCopyWith<_$QuranSurahModelImpl> get copyWith =>

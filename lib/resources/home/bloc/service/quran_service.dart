@@ -263,29 +263,29 @@ class QuranServices extends HttpServices {
   //   }
   // }
 
-  Future<List<ChapterByIdModel>> fetchChaptersByIds(List<int> ids) async {
-    const url = "https://api.quran.com/api/v4/chapters/";
+  // Future<List<ChapterByIdModel>> fetchChaptersByIds(List<int> ids) async {
+  //   const url = "https://api.quran.com/api/v4/chapters/";
 
-    try {
-      final List<Future<ChapterByIdModel>> futures = ids.map((id) async {
-        final response = await http.get(Uri.parse("$url$id"));
-        if (response.statusCode == 200) {
-          final Map<String, dynamic> data = json.decode(response.body);
-          debugPrint('here is the list of data $data');
-          return ChapterByIdModel.fromJson(data);
-        } else {
-          throw Exception(
-              "Failed to fetch Quran chapter with ID $id. Status code: ${response.statusCode}");
-        }
-      }).toList();
+  //   try {
+  //     final List<Future<ChapterByIdModel>> futures = ids.map((id) async {
+  //       final response = await http.get(Uri.parse("$url$id"));
+  //       if (response.statusCode == 200) {
+  //         final Map<String, dynamic> data = json.decode(response.body);
+  //         debugPrint('here is the list of data $data');
+  //         return ChapterByIdModel.fromJson(data);
+  //       } else {
+  //         throw Exception(
+  //             "Failed to fetch Quran chapter with ID $id. Status code: ${response.statusCode}");
+  //       }
+  //     }).toList();
 
-      final List<ChapterByIdModel> results = await Future.wait(futures);
+  //     final List<ChapterByIdModel> results = await Future.wait(futures);
 
-      return results;
-    } catch (e) {
-      throw Exception("Error fetching Quran chapters: $e");
-    }
-  }
+  //     return results;
+  //   } catch (e) {
+  //     throw Exception("Error fetching Quran chapters: $e");
+  //   }
+  // }
 
 //fetch verses ayah by id
   Future<List<VersesByKeyModel>> fetchVersesbyKey(List<String> verseKey) async {
